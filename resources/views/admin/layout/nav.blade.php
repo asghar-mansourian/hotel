@@ -271,7 +271,7 @@
                             </svg>
                             <div class="">Messages</div>
                         </a>
-                        <a class="dropdown-item d-flex" href="index-2.html#">
+                        <a class="dropdown-item d-flex" href="{{ url('/logout') }}">
                             <svg class="header-icon mr-3" xmlns="http://www.w3.org/2000/svg"
                                  enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24"
                                  width="24">
