@@ -46,8 +46,8 @@
                                     <i class="fe fe-edit mr-2"></i>Edit
                                 </a>
 
-                                <a href="{{url('admin/' . $url . '/destroy/' . $record->id)}}" class="btn btn-sm btn-danger" data-toggle="tooltip"
-                                   title data-placement="top" data-original-title="Delete">
+                                <a href="#" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
+                                   title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
                                     <i class="fe fe-trash mr-2"></i>Delete
                                 </a>
                         </td>
