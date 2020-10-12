@@ -8,12 +8,7 @@
             e.preventDefault();
             jQuery('.mytbody').html('');
 
-            jQuery('div.block2').block({
-                message: '<h3>در حال تغییر ...</h3>',
-                css: {
-                    border: '1px solid #fff'
-                }
-            });
+
             var sort_type = jQuery(this).attr("data-sort-type");
             var sort_field = jQuery(this).attr("data-sort-field");
             var url = '../../../admin/users/sort/';
@@ -36,7 +31,7 @@
 
 
             var after = function () {
-                jQuery('div.block2').unblock();
+
             }
             var before = function () {
                 jQuery('.form-control').removeClass('has-danger');

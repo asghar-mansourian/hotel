@@ -1,8 +1,8 @@
 <div class="form-group row">
-    <label for="example-text-input" class="col-4 col-sm-3 col-md-2 col-form-label">
+    <label for="example-text-input" class="col-md-3 form-label my-auto">
         {{$label ?? ''}}
         </label>
-    <div class="col-8 col-sm-9 col-md-10">
+    <div class="col-md-9">
         <input {{$disabled ?? ''}}   class="form-control {{$class ?? ''}}" name="{{$name ?? ''}}" type="{{$type ?? ''}}"
                placeholder="{{$placeholder ?? ''}}" value="{{$value ?? ''}}"
                id="{{$name ?? ''}}">

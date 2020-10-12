@@ -18,8 +18,19 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-  Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
-
+    /*      User Routes      */
+    route::get('/users' , 'Admin\UserController@index');
+    route::get('/users/load' , 'Admin\UserController@load');
+    route::get('/users/create/' , 'Admin\UserController@create');
+    route::post('/users/store/' , 'Admin\UserController@store');
+    route::get('/users/edit/{id}' , 'Admin\UserController@edit')->middleware('token');
+    route::post('/users/update/{id}' , 'Admin\UserController@update')->middleware('token');
+    route::post('/users/show' , 'Admin\UserController@show');
+    route::get('/users/destroy/{id}' , 'Admin\UserController@destroy')->middleware('token');
+    route::post('/users/search/' , 'Admin\UserController@search');
+    route::post('/users/sort/' , 'Admin\UserController@sort');
+    route::post('/users/filter/' , 'Admin\UserController@filter');
+    route::post('/users/export/{type}' , 'Admin\UserController@export');
 });
 
 Auth::routes();

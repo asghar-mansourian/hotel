@@ -25,10 +25,9 @@ class UserController extends Controller
     {
         $this->sortType = 'desc';
         $this->sortField = 'id';
-        $this->paginateNumber = 10;
+        $this->paginateNumber = 2;
         $this->selectField = ['name', 'family', 'email', 'status', 'id'];
 
-        settingsHelper::checkEnableSpecialModule('user_module', 'access');
     }
 
     public function index()

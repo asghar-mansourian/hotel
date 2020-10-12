@@ -97,6 +97,19 @@
                                     </span>
                                                 @enderror
                                             </div>
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fe fe-lock"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password Confirm" name="password_confirmation" required autocomplete="new-password">
+                                                @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
+                                            </div>
                                             <div class="form-group">
                                                 <label class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" />

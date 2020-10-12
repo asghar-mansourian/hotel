@@ -7,12 +7,7 @@
         jQuery('#sort_field').on('change', function () {
             jQuery('.mytbody').html('');
 
-            jQuery('div.block2').block({
-                message: '<h3>در حال تغییر ...</h3>',
-                css: {
-                    border: '1px solid #fff'
-                }
-            });
+
             var sort_type = jQuery("select[name=sort_type]").find("option:selected").val();
             var sort_field = jQuery("select[name=sort_field]").find("option:selected").val();
             var url = '../../../admin/users/sort/';
@@ -34,7 +29,6 @@
 
 
             var after = function () {
-                jQuery('div.block2').unblock();
             }
             var before = function () {
                 jQuery('.form-control').removeClass('has-danger');
@@ -75,12 +69,7 @@
         jQuery('#sort_type').on('change', function () {
             jQuery('.mytbody').html('');
 
-            jQuery('div.block2').block({
-                message: '<h3>در حال تغییر ...</h3>',
-                css: {
-                    border: '1px solid #fff'
-                }
-            });
+
             var sort_type = jQuery("select[name=sort_type]").find("option:selected").val();
             var sort_field = jQuery("select[name=sort_field]").find("option:selected").val();
             var url = '../../../admin/users/sort/';
@@ -102,7 +91,6 @@
 
 
             var after = function () {
-                jQuery('div.block2').unblock();
             }
             var before = function () {
                 jQuery('.form-control').removeClass('has-danger');

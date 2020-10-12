@@ -1,12 +1,10 @@
-<div class="panel  panel-default {{$class ?? ''}}" style=" {{$style ?? ''}}">
-    <div class="panel-heading ">
+<div class="card {{$class ?? ''}}" style=" {{$style ?? ''}}">
+    <div class="card-header ">
 
         {{$header}}
-        <div class="panel-action">
-            <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-        </div>
+
     </div>
-    <div class="panel-body  {{$classBody ?? ''}}">
+    <div class="card-body  {{$classBody ?? ''}}">
         {{$items}}
 
     </div>
