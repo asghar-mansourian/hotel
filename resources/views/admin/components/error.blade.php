@@ -2,6 +2,7 @@
     @if(\Illuminate\Support\Facades\Session::has('success'))
         <div class="alert alert-success alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <i class="fa fa-check-circle-o mr-2" aria-hidden="true"></i>
             {{\Illuminate\Support\Facades\Session::get('message')}}
         </div>
     @endif

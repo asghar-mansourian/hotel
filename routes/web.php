@@ -17,25 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function () {
-  Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
-  Route::post('/login', 'AdminAuth\LoginController@login');
-  Route::post('/logout', 'AdminAuth\LoginController@logout')->name('logout');
-
-  Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
-  Route::post('/register', 'AdminAuth\RegisterController@register');
-
-  Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
-  Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
-  Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
-  Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
-});
-
-Route::group(['namespace' => 'Member'], function () {
-    \Auth::routes();
-});
-
+//Route::group(['prefix' => 'admin'], function () {
+//    /*      User Routes      */
+//    route::get('/users' , 'Admin\UserController@index');
+//    route::get('/users/load' , 'Admin\UserController@load');
+//    route::get('/users/create/' , 'Admin\UserController@create');
+//    route::post('/users/store/' , 'Admin\UserController@store');
+//    route::get('/users/edit/{id}' , 'Admin\UserController@edit');
+//    route::post('/users/update/{id}' , 'Admin\UserController@update');
+//    route::post('/users/show' , 'Admin\UserController@show');
+//    route::get('/users/destroy/{id}' , 'Admin\UserController@destroy');
+//    route::post('/users/search/' , 'Admin\UserController@search');
+//    route::post('/users/sort/' , 'Admin\UserController@sort');
+//    route::post('/users/filter/' , 'Admin\UserController@filter');
+//    route::post('/users/export/{type}' , 'Admin\UserController@export');
+//});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'Auth\LoginController@logout');

@@ -1,66 +1,57 @@
 <div class="table-responsive" id="tableList">
-    <table class="table table-bordered table-hover table-striped">
+    <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
         <thead>
         <tr>
 
-            @foreach($selects as $select)
-                @if($select == 'edit' || $select == 'delete' || $select == 'show')
-                    <th style="text-align: center">{{getWord($select)}}</th>
-                @else
+        @foreach($selects as $select)
+
                     <th>
-                        {{getWord($select)}}
+                        {{$select}}
                         <a class="sort" style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif" href="#" data-sort-field="{{$select}}" data-sort-type="desc">
-                            <i class="fa fa-arrow-down" style="color: black;margin-right: 4px;color: #777;font-size: 12px;"></i>
+                            <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
                         </a>
                         <a class="sort" style="@if($sortType  == 'asc' && $sortField == $select) display:none;  @endif" href="#" data-sort-field="{{$select}}" data-sort-type="asc">
-                            <i class="fa fa-arrow-up" style="color: black;margin-right: 4px;color: #777;font-size: 12px;"></i>
+                            <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
                         </a>
 
                     </th>
-                @endif
             @endforeach
+            <th style="text-align: center">Actions</th>
+
         </tr>
         </thead>
         <tbody class="mytbody">
         @foreach($records as $record)
             <tr>
-                @foreach($selects as $select)
-                    @if($select == 'status')
-
+                        <td>{{$record->id}}</td>
+                        <td>{{$record->name}}</td>
+                        <td>{{$record->email}}</td>
                         <td>
                             @if($record->status)
-                                <div class="label label-table label-success">فعال</div>
+                                <div class="">Active</div>
                             @else
-                                <div class="label label-table label-red">غیر فعال</div>
+                                <div class="label label-table label-red">Deactive</div>
                             @endif
                         </td>
 
-                    @elseif($select == 'edit' || $select == 'delete' || $select == 'show')
                         <td class="text-nowrap text-center">
-                            @if($select == 'show')
-                                <a href="#" data-userid="{{\Vinkla\Hashids\Facades\Hashids::encode($record->id)}}" data-toggle="modal"
-                                   title="نمایش" class="m-l-10 show-info" data-target=".bs-example-modal-lg"> <i
-                                        class="fa fa-eye text-blue text-inverse "></i> </a>
-                            @endif
-                            @if($select == 'edit')
-                                <a href="{{url('admin/' . $url . '/edit/' . \Vinkla\Hashids\Facades\Hashids::encode($record->id))}}"
+                                <a href="#"  data-userid="{{$record->id}}" data-toggle="modal"
+                                   title="Show" class="m-l-10 show-info btn-sm btn btn-info" data-target=".bs-example-modal-lg">
+                                    <i class="fe fe-eye mr-2"></i>Show
+                                </a>
+
+                                <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
                                    data-toggle="tooltip"
-                                   title="ویرایش" class="m-l-10 "> <i
-                                        class="fa fa-pencil text-purple"></i> </a>
-                            @endif
-                            @if($select == 'delete')
+                                   title="Edit" class="m-l-10 btn btn-success btn-sm">
+                                    <i class="fe fe-edit mr-2"></i>Edit
+                                </a>
 
-                                <a href="{{url('admin/' . $url . '/destroy/' . $record->id)}}" data-toggle="tooltip"
-                                   title data-placement="top" data-original-title="حذف">
-                                    <i
-                                        class="fa fa-close text-danger"></i> </a>
-                            @endif
+                                <a href="#" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
+                                   title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
+                                    <i class="fe fe-trash mr-2"></i>Delete
+                                </a>
                         </td>
-                    @else
-                        <td>{{$record->$select}}</td>
 
-                    @endif
-                @endforeach
             </tr>
         @endforeach
 

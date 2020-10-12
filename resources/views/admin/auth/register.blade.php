@@ -14,25 +14,25 @@
     <title>Admitro - Admin Panel HTML template</title>
 
     <!--Favicon -->
-    <link rel="icon" href="admin/en/images/brand/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="{{url('admin/en/images/brand/favicon.ico')}}" type="image/x-icon"/>
 
     <!--Bootstrap css -->
-    <link href="admin/en/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('admin/en/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Style css -->
-    <link href="admin/en/css/style.css" rel="stylesheet" />
-    <link href="admin/en/css/dark.css" rel="stylesheet" />
-    <link href="admin/en/css/skin-modes.css" rel="stylesheet" />
+    <link href="{{url('admin/en/css/style.css')}}" rel="stylesheet" />
+    <link href="{{url('admin/en/css/dark.css')}}" rel="stylesheet" />
+    <link href="{{url('admin/en/css/skin-modes.css')}}" rel="stylesheet" />
 
     <!-- Animate css -->
-    <link href="admin/en/css/animated.css" rel="stylesheet" />
+    <link href="{{url('admin/en/css/animated.css')}}" rel="stylesheet" />
 
     <!---Icons css-->
-    <link href="admin/en/css/icons.css" rel="stylesheet" />
+    <link href="{{url('admin/en/css/icons.css')}}" rel="stylesheet" />
 
 
     <!-- Color Skin css -->
-    <link id="theme" href="admin/en/colors/color1.css" rel="stylesheet" type="text/css"/>
+    <link id="theme" href="{{url('admin/en/colors/color1.css')}}" rel="stylesheet" type="text/css"/>
 </head>
 <body class="h-100vh page-style1">
 <div class="page">
@@ -44,7 +44,7 @@
                         <div class="col-lg-9 col-xl-8">
                             <div class="card-group mb-0">
                                 <div class="card p-4">
-                                    <form action="{{ route('register') }}" method="post">
+                                    <form action="{{ url('admin/register') }}" method="post">
                                         @csrf
                                         <div class="card-body">
                                             <div class="text-center title-style mb-6">
@@ -142,7 +142,7 @@
                                             <div></div>
                                             <div></div>
                                         </div>
-                                        <img src="admin/en/images/png/login.png" alt="img">
+                                        <img src="{{url('admin/en/images/png/login.png')}}" alt="img">
                                     </div>
                                 </div>
                             </div>
@@ -155,22 +155,22 @@
 </div>
 
 <!-- Jquery js-->
-<script src="admin/en/js/jquery-3.5.1.min.js"></script>
+<script src="{{url('admin/en/js/jquery-3.5.1.min.js')}}"></script>
 
 <!-- Bootstrap4 js-->
-<script src="admin/en/plugins/bootstrap/popper.min.js"></script>
-<script src="admin/en/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{url('admin/en/plugins/bootstrap/popper.min.js')}}"></script>
+<script src="{{url('admin/en/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
 
 <!--Othercharts js-->
-<script src="admin/en/plugins/othercharts/jquery.sparkline.min.js"></script>
+<script src="{{url('admin/en/plugins/othercharts/jquery.sparkline.min.js')}}"></script>
 
 <!-- Circle-progress js-->
-<script src="admin/en/js/circle-progress.min.js"></script>
+<script src="{{url('admin/en/js/circle-progress.min.js')}}"></script>
 
 <!-- Jquery-rating js-->
-<script src="admin/en/plugins/rating/jquery.rating-stars.js"></script>
+<script src="{{url('admin/en/plugins/rating/jquery.rating-stars.js')}}"></script>
 <!-- Custom js-->
-<script src="admin/en/js/custom.js"></script>
+<script src="{{url('admin/en/js/custom.js')}}"></script>
 </body>
 
 <!-- Mirrored from laravel.spruko.com/admitro/Vertical-IconSidedar-Light/register-3 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Oct 2020 07:56:00 GMT -->

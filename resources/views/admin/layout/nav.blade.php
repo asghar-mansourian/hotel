@@ -243,8 +243,8 @@
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow animated">
                         <div class="text-center">
                             <a href="index-2.html#"
-                               class="dropdown-item text-center user pb-0 font-weight-bold">Jessica</a>
-                            <span class="text-center user-semi-title">Web Designer</span>
+                               class="dropdown-item text-center user pb-0 font-weight-bold">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                            <span class="text-center user-semi-title">Admin</span>
                             <div class="dropdown-divider"></div>
                         </div>
                         <a class="dropdown-item d-flex" href="index-2.html#">
@@ -271,7 +271,7 @@
                             </svg>
                             <div class="">Messages</div>
                         </a>
-                        <a class="dropdown-item d-flex" href="index-2.html#">
+                        <a class="dropdown-item d-flex" href="{{ url('/admin/logout') }}">
                             <svg class="header-icon mr-3" xmlns="http://www.w3.org/2000/svg"
                                  enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24"
                                  width="24">

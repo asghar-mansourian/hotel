@@ -1,17 +1,32 @@
-@extends('admin.layout.auth')
+@extends('admin.layout.layout')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+@section('title')
+    {{trans('custom.admin.panel.title')}}
 
-                <div class="panel-body">
-                    You are logged in as Admin!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
+
+@section('main')
+    @component('admin.components.card')
+        @slot('title')
+            Dashboard
+        @endslot
+        @slot('body')
+            <h4>welcome {{\Illuminate\Support\Facades\Auth::guard('admin')->user()->name}}</h4>
+        @endslot
+
+    @endcomponent
+@endsection
+
+
+
+@section('crumb')
+    @component('admin.components.crumb')
+        @slot('title')
+            {{trans('admin.panel.title')}}
+        @endslot
+        @slot('items')
+            <li class="breadcrumb-item active"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
+        @endslot
+    @endcomponent
+@endsection
+

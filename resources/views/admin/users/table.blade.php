@@ -4,7 +4,7 @@
  'sortType'=>$sortType,
  'sortField'=>$sortField,
  'records' => $users ,
-  'selects' => ['id' , 'name' , 'family' , 'status' , 'email' , 'edit' , 'delete' , 'show']
+  'selects' => ['id' , 'name' , 'status' , 'email' ]
   ]
 )
     @slot('paginate')
@@ -20,8 +20,8 @@
     <script>
         jQuery(document).ready(function () {
             var counter = jQuery('.countUsers').val();
-            jQuery('#counts').fadeIn(200);
-            jQuery('#counts').children().html('تعداد موارد یافت شده : ' + counter + ' مورد یافت شد');
+            jQuery('#counts_parent').fadeIn(200);
+            jQuery('#counts').children().html('Number of items found : ' + counter + ' Found');
         });
     </script>
 @endif

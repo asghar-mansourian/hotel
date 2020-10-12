@@ -1,22 +1,12 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    داشبورد | کاربران
+    Dashboard | Show Users
 @endsection
 
 @section('styleCustom')
-    @component('admin.components.csrf')
+    @component('admin.components.pagination')
     @endcomponent
-    @component('admin.components.largeModal')
-
-    @endcomponent
-    @component('admin.components.mediumModal')
-        @slot('modalTitle')
-            اطلاعات کاربر
-        @endslot
-
-    @endcomponent
-    <link href="{{url('admin/'.App::getLocale().'/plugins/linea-icons/css/linea-icons.css')}}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -36,33 +26,30 @@
         </div>
 
 
-        <div class="col-lg-4">
-            @component('admin.components.filter')
-                @slot('options')
-                    <option value="" selected="">انتخاب کنید ...</option>
-                    <option value="status|1">وضعیت حساب : فعال</option>
-                    <option value="status|0">وضعیت حساب : غیر فعال</option>
-                @endslot
-                @slot('url')
-                    {{url('admin/users/filter')}}
-                @endslot
-            @endcomponent
-        </div>
+        {{--        <div class="col-lg-4">--}}
+        {{--            @component('admin.components.filter')--}}
+        {{--                @slot('options')--}}
+        {{--                    <option value="" selected="">انتخاب کنید ...</option>--}}
+        {{--                    <option value="status|1">وضعیت حساب : فعال</option>--}}
+        {{--                    <option value="status|0">وضعیت حساب : غیر فعال</option>--}}
+        {{--                @endslot--}}
+        {{--                @slot('url')--}}
+        {{--                    {{url('admin/users/filter')}}--}}
+        {{--                @endslot--}}
+        {{--            @endcomponent--}}
+        {{--        </div>--}}
 
         <div class="col-12" id="">
             @component('admin.components.panel')
                 @slot('header')
-                    <h2 style="display: inline">
-                        <i class="fa fa-user  mr-2"></i>لیست کاربران
-                    </h2>
-                    @component('admin.components.export')
-                    @endcomponent
-                    @component('admin.components.import')
-                    @endcomponent
+                    <h3 class="card-title" style="display: inline">
+                        <i class="fa fa-user  mr-2"></i>Users List
+                    </h3>
+
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $users , 'selects' => ['id' , 'name' , 'family' , 'status' , 'email' , 'edit' , 'delete' , 'show']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $users , 'selects' => ['id' , 'name' , 'email' , 'status' ]])
                         @slot('paginate')
                             {{$users->links()}}
                         @endslot
@@ -72,24 +59,26 @@
                     @endcomponent
 
                 @endslot
-                @slot('classBody')
-                    block2
-                @endslot
             @endcomponent
         </div>
+
     </div>
 @endsection
 
 
 @section('scriptCustom')
+
+    @component('admin.components.script.sweetAlertScript')
+        @slot('url')
+            ../../../admin/users/
+        @endslot
+    @endcomponent
     @component('admin.components.script.paginatorScript' , ['type' => 2])
         @slot('paginatorUrl')
-            load?page=
+            users/load?page=
         @endslot
     @endcomponent
     @component('admin.components.script.searchScript')
-    @endcomponent
-    @component('admin.components.form.blockUi')
     @endcomponent
     @component('admin.components.script.sortScript')
     @endcomponent
@@ -99,19 +88,18 @@
     @endcomponent
     @component('admin.components.script.showScript')
     @endcomponent
-    @component('admin.components.script.exportScript')
-    @endcomponent
-
 @endsection
+
+
 
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            لیست کاربران
+            {{trans('admin.panel.title')}}
         @endslot
         @slot('items')
-            <li><a href="{{url('/admin/home')}}">داشبورد</a></li>
-            <li class="active">کاربران</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
+            <li class="breadcrumb-item active"><i class="fe fe-user mr-2 fs-14"></i>users</li>
         @endslot
     @endcomponent
 @endsection
