@@ -1,10 +1,10 @@
 @component('admin.components.panel')
 
     @slot('header')
-        <span>
+        <h3 class="card-title">
             <i class="fa fa-search mr-2"></i>
-                جستجو
-        </span>
+                search
+        </h3>
     @endslot
 
     @slot('items')
@@ -15,19 +15,24 @@
                     search
                 @endslot
                 @slot('placeholder')
-                    عبارت را وارد کنید...
+                    Please Enter Your Text...
                 @endslot
                 @slot('type')
                     text
                 @endslot
                 @slot('label')
-                    عبارت
+                    Text
                 @endslot
             @endcomponent
-            <div class="form-group row" id="counts" style="display:none;">
-                <div class="btn btn-outline btn-default   w-100 py-3  "
-                     style="font-size: 18px;box-shadow: none"></div>
 
+            <div class="list-card"  id="counts_parent" style="display: none">
+                <span class="bg-info list-bar"></span>
+                <div class="row align-items-center" id="counts">
+                        <div class="text-center   w-100 "
+                             ></div>
+
+
+                </div>
             </div>
         </form>
 

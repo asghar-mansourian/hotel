@@ -6,14 +6,8 @@
 
         jQuery('#search').on('keyup', function () {
             jQuery('.mytbody').html('');
-            jQuery('#counts').fadeOut(200);
+            jQuery('#counts_parent').fadeOut(200);
 
-            jQuery('div.block2').block({
-                message: '<h3>در حال جستجو ...</h3>',
-                css: {
-                    border: '1px solid #fff'
-                }
-            });
             var title = jQuery("input[name=search]").val();
             var url = '../../../admin/users/search/';
 
@@ -30,12 +24,12 @@
             var success = function (response) {
                 jQuery('#tableList').html(response);
                 if (title == '')
-                    jQuery('#counts').fadeOut(200);
+                    jQuery('#counts_parent').fadeOut(200);
             }
 
 
             var after = function () {
-                jQuery('div.block2').unblock();
+
             }
             var before = function () {
                 jQuery('.form-control').removeClass('has-danger');

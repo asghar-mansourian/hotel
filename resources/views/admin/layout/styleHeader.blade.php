@@ -1,12 +1,12 @@
 
 
 <!--Bootstrap css -->
-<link href="admin/en/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{url('admin/en/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
 <!-- Style css -->
-<link href="admin/en/css/style.css" rel="stylesheet" />
-<link href="admin/en/css/dark.css" rel="stylesheet" />
-<link href="admin/en/css/skin-modes.css" rel="stylesheet" />
+<link href="{{url('admin/en/css/style.css')}}" rel="stylesheet" />
+<link href="{{url('admin/en/css/dark.css')}}" rel="stylesheet" />
+<link href="{{url('admin/en/css/skin-modes.css')}}" rel="stylesheet" />
 
 <!-- Animate css -->
 <link href="{{url('admin/en/css/animated.css')}}" rel="stylesheet" />

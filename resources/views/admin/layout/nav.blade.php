@@ -243,8 +243,8 @@
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow animated">
                         <div class="text-center">
                             <a href="index-2.html#"
-                               class="dropdown-item text-center user pb-0 font-weight-bold">Jessica</a>
-                            <span class="text-center user-semi-title">Web Designer</span>
+                               class="dropdown-item text-center user pb-0 font-weight-bold">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                            <span class="text-center user-semi-title">Admin</span>
                             <div class="dropdown-divider"></div>
                         </div>
                         <a class="dropdown-item d-flex" href="index-2.html#">
