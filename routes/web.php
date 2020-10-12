@@ -35,5 +35,11 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/logout', 'Auth\LoginController@logout');
+
+
+Route::group(['namespace' => 'Member'], function () {
+    \Auth::routes();
+});
+
+
