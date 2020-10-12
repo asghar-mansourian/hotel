@@ -10,7 +10,9 @@
 
 @component('admin.components.script.paginatorScript' , ['type' => 1])
 
-
+    @slot('paginatorUrl')
+        ../../../admin/users/load
+    @endslot
 @endcomponent
 @component('admin.components.script.sortTableScript')
 @endcomponent

@@ -5,10 +5,10 @@
         // Basic
         $('.dropify').dropify({
             messages: {
-                default: 'یک فایل اینجا بکشید و یا کلیک کنید',
-                replace: 'برای جایگزینی ، یک فایل اینجا بکشید و یا کلیک کنید',
-                remove: 'حذف',
-                error: 'خطا در ارسال فایل'
+                default: 'Drop',
+                replace: 'For Replace Please Drop Or Click...',
+                remove: 'Remove',
+                error: 'Error File Duration '
             },
             error: {
                 'fileSize': 'حجم فایل بیشتر از 500 کیلو بایت می باشد',

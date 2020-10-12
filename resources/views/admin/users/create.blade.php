@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    داشبورد | اضافه کردن کاربر
+    Dashboard | Add User
 @endsection
 
 @section('styleCustom')
@@ -22,7 +22,7 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                نام
+                                Name
                             @endslot
                             @slot('name')
                                 name
@@ -31,7 +31,7 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                لطفا نام را وارد کنید
+                                Please Enter Name...
                             @endslot
                             @slot('value')
                             @endslot
@@ -39,7 +39,7 @@
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                نام خانوادگی
+                                Family
                             @endslot
                             @slot('name')
                                 family
@@ -48,13 +48,13 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                لطفا نام خانوادگی را وارد کنید
+                                    Please Enter Family...
                             @endslot
                         @endcomponent
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                ایمیل
+                                Email
                             @endslot
                             @slot('name')
                                 email
@@ -63,22 +63,22 @@
                                 email
                             @endslot
                             @slot('placeholder')
-                                لطفا ایمیل را وارد کنید
+                                Please Enter Email...
                             @endslot
                         @endcomponent
                     @endslot
                     @slot('header')
-                        مشخصات اصلی
+                        <h2 class="card-title">Main Information</h2>
                     @endslot
                 @endcomponent
                 @component('admin.components.panel')
                     @slot('header')
-                        کلمه عبور
+                        <h2 class="card-title">Password</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                کلمه عبور
+                                Password
                             @endslot
                             @slot('name')
                                 password
@@ -87,14 +87,14 @@
                                 password
                             @endslot
                             @slot('placeholder')
-                                لطفا کلمه عبور را وارد کنید
+                                Please Enter Password
                             @endslot
 
                         @endcomponent
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                تکرار کلمه عبور
+                                Password Confirm
                             @endslot
                             @slot('name')
                                 password_confirmation
@@ -103,7 +103,7 @@
                                 password
                             @endslot
                             @slot('placeholder')
-                                لطفا تکرار کلمه عبور را وارد کنید
+                                Please Enter Password Confirmation
                             @endslot
 
                         @endcomponent
@@ -112,20 +112,18 @@
             </div>
             <div class="col-12 col-lg-4">
                 @component('admin.components.panel')
-                    @slot('class')
-                        block2
-                    @endslot
+
 
                     @slot('header')
-                        ثبت اطلاعات
+                        <h2 class="card-title">Save Information</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
                             @slot('class')
-                                btn-block btn-success
+                                btn-block btn-info
                             @endslot
                             @slot('title')
-                                ذخیره
+                                Save
                             @endslot
                         @endcomponent
 
@@ -133,7 +131,7 @@
                 @endcomponent
                 @component('admin.components.panel')
                     @slot('header')
-                        تصویر پروفایل
+                        <h2 class="card-title">Picture</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.picture')
@@ -142,7 +140,8 @@
                 @endcomponent
                 @component('admin.components.panel')
                     @slot('header')
-                        وضعیت
+                        <h2 class="card-title">Status</h2>
+
                     @endslot
                     @slot('items')
                         @component('admin.components.form.option')
@@ -150,9 +149,9 @@
                                 status
                             @endslot
                             @slot('items')
-                                <option value="" selected>انتخاب کنید...</option>
-                                <option value="1">فعال</option>
-                                <option value="0">غیرفعال</option>
+                                <option value="" selected>Please Enter Status...</option>
+                                <option value="1">Active</option>
+                                <option value="0">Deactive</option>
                             @endslot
                         @endcomponent
                     @endslot
@@ -170,7 +169,7 @@
     @endcomponent
     @component('admin.components.script.mainFormScript')
         @slot('mainFormUrlValue')
-            ../../../admin/users/index
+            ../../../admin/users/
         @endslot
     @endcomponent
 
@@ -181,13 +180,11 @@
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            اضافه کردن کاربر
+            {{trans('admin.panel.title')}}
         @endslot
         @slot('items')
-            <li><a href="{{url('/admin/home')}}">داشبورد</a></li>
-            <li><a href={{url('/admin/users/index')}}>مدیریت کاربران</a></li>
-            <li class="active"><a href="">اضافه کردن کاربر</a></li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
+            <li class="breadcrumb-item active"><i class="fe fe-user mr-2 fs-14"></i>Add User</li>
         @endslot
     @endcomponent
 @endsection
-

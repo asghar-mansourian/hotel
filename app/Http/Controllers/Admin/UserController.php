@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Helper\allHelper;
-use Vinkla\Hashids\Facades\Hashids;
 use Mpdf\Mpdf;
 class UserController extends Controller
 {
@@ -25,7 +24,7 @@ class UserController extends Controller
     {
         $this->sortType = 'desc';
         $this->sortField = 'id';
-        $this->paginateNumber = 2;
+        $this->paginateNumber = 10;
         $this->selectField = ['name', 'family', 'email', 'status', 'id'];
 
     }
@@ -74,8 +73,8 @@ class UserController extends Controller
             return $this->validateRules($this->UserValidate(), $request);
         $this->UserStoreInsert($request);
 
-        session()->flash('message', 'کاربر با موفقیت ذخیره شد');
-        session()->flash('success', 'کاربر با موفقیت ذخیره شد');
+        session()->flash('message', 'User Create Successful');
+        session()->flash('success', 'User Create Successful');
         return response()->json([], 200);
     }
 
@@ -152,28 +151,26 @@ class UserController extends Controller
     public function show(Request $request)
     {
 
-        $id = Hashids::decode($request->input('id'));
-        $token = $request->input('id');
+        $id = $request->input('id');
         $user = DB::table('users')
             ->where('id' , $id)
             ->first();
 
-        return View::make('admin.users.show', compact('user' , 'token' ));
+        return View::make('admin.users.show', compact('user'));
     }
 
     public function edit($id)
     {
-        $token = $id;
-        $id = Hashids::decode($id);
+
         $user = DB::table('users')
             ->where('id' , $id)
             ->first();
-        return view('admin.users.edit' , compact('user' , 'token'));
+        return view('admin.users.edit' , compact('user' , 'id'));
     }
 
     public function update(Request $request , $id)
     {
-        $id = Hashids::decode($id);
+
 
         $validate = $this->validateRules($this->UserValidate(), $request);
         if ($validate != null)
@@ -181,8 +178,8 @@ class UserController extends Controller
 
         $this->UserUpdateEdit($request , $id);
 
-        session()->flash('message', 'کاربر با موفقیت ویرایش شد');
-        session()->flash('success', 'کاربر با موفقیت ویرایش شد');
+        session()->flash('message', 'User Create Successful');
+        session()->flash('success', 'User Create Successful');
         return response()->json([], 200);
     }
 
@@ -216,6 +213,17 @@ class UserController extends Controller
             return response()->download('fileNames.pdf');
         }
 
+
+    }
+
+    public function destroy($id)
+    {
+        DB::table('users')
+            ->where('id' , $id)
+            ->delete();
+        session()->flash('message', 'User Deleted Successful');
+        session()->flash('success', 'User Deleted Successful');
+        return redirect()->back();
 
     }
 }

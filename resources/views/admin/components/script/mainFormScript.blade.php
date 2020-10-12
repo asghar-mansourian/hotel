@@ -7,12 +7,7 @@
         $('#mainForm').on('submit', function (e) {
 
             e.preventDefault();
-            $('div.block2').block({
-                message: '<h3>لطفا صبر کنید ...</h3>',
-                css: {
-                    border: '1px solid #fff'
-                }
-            });
+
             var form = $(this);
             var error = function (response) {
                 var jsonResponse = JSON.parse(response.responseText);
