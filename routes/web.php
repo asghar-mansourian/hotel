@@ -31,10 +31,11 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 });
 
-Auth::routes();
+Route::group(['namespace' => 'Member'], function () {
+    \Auth::routes();
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
