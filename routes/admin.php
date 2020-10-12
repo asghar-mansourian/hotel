@@ -29,11 +29,11 @@ route::post('/users/filter/' , 'UserController@filter');
 route::post('/users/export/{type}' , 'UserController@export');
 
 
-Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
-Route::post('/login', 'Auth\LoginController@adminLogin');
-Route::get('/register', 'Auth\RegisterController@showAdminRegisterForm');
-Route::post('/register', 'Auth\RegisterController@createAdmin');
-Route::get('/logout', 'Auth\LoginController@logout');
+//Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
+//Route::post('/login', 'Auth\LoginController@adminLogin');
+//Route::get('/register', 'Auth\RegisterController@showAdminRegisterForm');
+//Route::post('/register', 'Auth\RegisterController@createAdmin');
+//Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('admin.home');
 
