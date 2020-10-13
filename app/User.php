@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable;
+    use Notifiable , SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -51,7 +52,12 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    const  paginateNumber = 10;
+    const sortType = 'desc';
+    const sortField = 'id';
+    const selectField = ['name', 'family', 'email', 'status', 'id'];
+    const sortArrowTypeChecked = 'desc';
+    const sortArrowFieldChecked = 'id';
     const GENDER_MAN = 1;
     const GENDER_WOMAN = 2;
     const GENDER_ALL = [

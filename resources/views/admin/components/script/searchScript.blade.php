@@ -1,4 +1,6 @@
 {{--    search  --}}
+<input type="hidden" id="data-click-search" data-value="{{$url}}">
+
 <script>
 
     jQuery(document).ready(function () {
@@ -9,7 +11,8 @@
             jQuery('#counts_parent').fadeOut(200);
 
             var title = jQuery("input[name=search]").val();
-            var url = '../../../admin/users/search/';
+            var url = $('#data-click-search').attr('data-value');
+
 
             var error = function (response) {
 

@@ -5,7 +5,7 @@
 @endsection
 
 @section('styleCustom')
-    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
+{{--    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">--}}
     <style>
         .has-danger {
             border: 1px solid #d9534f !important;
@@ -129,15 +129,7 @@
 
                     @endslot
                 @endcomponent
-                @component('admin.components.panel')
-                    @slot('header')
-                        <h2 class="card-title">Picture</h2>
-                    @endslot
-                    @slot('items')
-                        @component('admin.components.form.picture')
-                        @endcomponent
-                    @endslot
-                @endcomponent
+
                 @component('admin.components.panel')
                     @slot('header')
                         <h2 class="card-title">Status</h2>
@@ -163,25 +155,18 @@
 
 @endsection
 @section('scriptCustom')
-    @component('admin.components.form.blockUi')
-    @endcomponent
-    @component('admin.components.form.pictureScript')
-    @endcomponent
     @component('admin.components.script.mainFormScript')
         @slot('mainFormUrlValue')
             ../../../admin/users/
         @endslot
     @endcomponent
-
 @endsection
 
 
 
 @section('crumb')
     @component('admin.components.crumb')
-        @slot('title')
-            {{trans('admin.panel.title')}}
-        @endslot
+
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
             <li class="breadcrumb-item active"><i class="fe fe-user mr-2 fs-14"></i>Add User</li>

@@ -2,60 +2,44 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helper\settingsHelper;
-use App\Http\Controllers\Admin\traits\ValidatorUserRequest;
-use App\Http\Controllers\Admin\traits\UserRequest;
+use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Admin\UserRequest;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
-use App\Helper\allHelper;
-use Mpdf\Mpdf;
+
 class UserController extends Controller
 {
-    use UserRequest, ValidatorUserRequest;
-
-    private $sortType;
-    private $sortField;
-    private $paginateNumber;
-    private $selectField;
-
-    public function __construct()
-    {
-        $this->sortType = 'desc';
-        $this->sortField = 'id';
-        $this->paginateNumber = 10;
-        $this->selectField = ['name', 'family', 'email', 'status', 'id'];
-
-    }
+    use ValidatorRequest;
 
     public function index()
     {
-        $users = DB::table('users')
-            ->select($this->selectField)
-            ->orderBy($this->sortField , $this->sortType)
-            ->paginate($this->paginateNumber);
+        $users = User::query()
+            ->select(User::selectField)
+            ->orderBy(User::sortField, User::sortType)
+            ->paginate(User::paginateNumber);
 
-        return View::make('admin.users.index', compact('users') , with([
-            'sortField' => $this->sortField,
-            'sortType' => $this->sortType
+        return View::make('admin.users.index', compact('users'), with([
+            'sortField' => User::sortField,
+            'sortType' => User::sortType
         ]));
 
     }
 
     public function load()
     {
-        $sortArrowTypeChecked = 'desc';
-        $sortArrowFieldChecked = 'id';
 
-        $users = DB::table('users')
-            ->select($this->selectField)
-            ->orderBy($sortArrowFieldChecked , $sortArrowTypeChecked)
-            ->paginate($this->paginateNumber);
+        $users = User::query()
+            ->select(User::sortField)
+            ->orderBy(User::sortArrowFieldChecked, User::sortArrowTypeChecked)
+            ->paginate(User::paginateNumber);
 
-        return View::make('admin.users.load', compact('users') , with([
-            'sortField' => $this->sortField,
-            'sortType' => $this->sortType
+        return View::make('admin.users.load', compact('users'), with([
+            'sortField' => User::sortField,
+            'sortType' => User::sortType
         ]));
 
     }
@@ -67,35 +51,43 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $validate = $this->validateRules($this->UserValidate(), $request);
+        $UserValidate = new UserRequest();
+        $validate = $this->validateRules($UserValidate->rules(), $request);
         if ($validate != null)
-            return $this->validateRules($this->UserValidate(), $request);
-        $this->UserStoreInsert($request);
+            return $this->validateRules($UserValidate->rules(), $request);
 
-        session()->flash('message', 'User Create Successful');
-        session()->flash('success', 'User Create Successful');
+        User::query()->insert([
+            'name' => $request->input('name'),
+            'family' => $request->input('family'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'status' => $request->input('status'),
+        ]);
+
+        session()->flash('message', __('custom.user.message.create'));
+        session()->flash('success', 1);
         return response()->json([], 200);
     }
 
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $users = DB::table('users')
+        $users = User::query()
             ->orWhere('email', 'like', '%' . $search . '%')
             ->orWhere('name', 'like', '%' . $search . '%')
             ->orWhere('family', 'like', '%' . $search . '%')
-            ->select($this->selectField)
-            ->paginate($this->paginateNumber);
+            ->select(User::selectField)
+            ->paginate(User::paginateNumber);
 
-        $countUsers = DB::table('users')
+        $countUsers = User::query()
             ->orWhere('email', 'like', '%' . $search . '%')
             ->orWhere('name', 'like', '%' . $search . '%')
             ->orWhere('family', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.users.table', compact('users') , with([
-            'sortField' => $this->sortField,
-            'sortType' => $this->sortType,
+        return View::make('admin.users.table', compact('users'), with([
+            'sortField' => User::sortField,
+            'sortType' => User::sortType,
             'countUsers' => $countUsers,
         ]));
     }
@@ -104,124 +96,60 @@ class UserController extends Controller
     {
         $sort_field = $request->input('sort_field');
         $sort_type = $request->input('sort_type');
+
         if ($sort_type == null)
-            $sort_type = $this->sortType;
+            $sort_type = User::sortType;
         if ($sort_field == null)
-            $sort_field = $this->sortField;
+            $sort_field = User::sortField;
 
         $users = DB::table('users')
-            ->select($this->selectField)
+            ->select(User::selectField)
             ->orderBy($sort_field, $sort_type)
-            ->paginate($this->paginateNumber);
+            ->paginate(User::paginateNumber);
 
-        return View::make('admin.users.table',compact('users') , with([
+        return View::make('admin.users.table', compact('users'), with([
             'sortField' => $sort_field,
             'sortType' => $sort_type
         ]));
     }
 
-    public function filter(Request $request)
-    {
-        $filter = $request->input('filter');
 
-        if ($filter == null) {
-            $users = DB::table('users')
-                ->select($this->selectField)
-                ->latest()
-                ->paginate('10');
-            return View::make('admin.users.table', compact('users'));
-
-        }
-        $filter = explode('|', $filter);
-        $filter_type = $filter[0];
-        $filter_value = $filter[1];
-        $users = DB::table('users')
-            ->select($this->selectField)
-            ->where($filter_type, $filter_value)
-            ->latest()
-            ->paginate('10');
-
-        return View::make('admin.users.table', compact('users') , with([
-            'sortField' => $this->sortField,
-            'sortType' => $this->sortType
-        ]));
-    }
-
-    public function show(Request $request)
-    {
-
-        $id = $request->input('id');
-        $user = DB::table('users')
-            ->where('id' , $id)
-            ->first();
-
-        return View::make('admin.users.show', compact('user'));
-    }
 
     public function edit($id)
     {
 
-        $user = DB::table('users')
-            ->where('id' , $id)
+        $user = User::query()
+            ->where('id', $id)
             ->first();
-        return view('admin.users.edit' , compact('user' , 'id'));
+        return view('admin.users.edit', compact('user', 'id'));
     }
 
-    public function update(Request $request , $id)
+    public function update(Request $request, $id)
     {
-
-
-        $validate = $this->validateRules($this->UserValidate(), $request);
+        $UserValidate = new UserRequest();
+        $validate = $this->validateRules($UserValidate->rules(), $request);
         if ($validate != null)
-            return $this->validateRules($this->UserValidate(), $request);
+            return $this->validateRules($UserValidate->rules(), $request);
 
-        $this->UserUpdateEdit($request , $id);
+        User::query()->where('id' , $id)->update([
+            'name' => $request->input('name'),
+            'family' => $request->input('family'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'status' => $request->input('status'),
+        ]);
 
-        session()->flash('message', 'User Create Successful');
-        session()->flash('success', 'User Create Successful');
+        session()->flash('message', __('custom.user.message.update'));
+        session()->flash('success', 1);
         return response()->json([], 200);
-    }
-
-    public function export(Request $request , $type)
-    {
-        if ($type == 'pdf')
-        {
-            $users = DB::table('users')
-                ->orderBy($this->sortField , $this->sortType)
-                ->select($this->selectField)
-                ->get();
-
-
-            $fromDate = $request->input('fromDate');
-            $toDate = $request->input('toDate');
-            $html = view('admin.users.export')->with([
-                'records' => $users,
-            ]);
-            $mpdf = new Mpdf([
-                'mode' => 'utf-8',
-                'orientation' => 'P',
-                'margin_left' => '10',
-                'margin_right' => '5',
-                'margin_top' => '3',
-                'margin_bottom' => '0',
-                'margin_header' => '0',
-                'margin_footer' => '3'
-            ]);
-            $mpdf->WriteHTML($html);
-            $mpdf->Output('fileNames.pdf');
-            return response()->download('fileNames.pdf');
-        }
-
-
     }
 
     public function destroy($id)
     {
-        DB::table('users')
-            ->where('id' , $id)
-            ->delete();
-        session()->flash('message', 'User Deleted Successful');
-        session()->flash('success', 'User Deleted Successful');
+        User::query()->find($id)->delete();
+
+        session()->flash('message', __('custom.user.message.delete'));
+        session()->flash('success', 1);
         return redirect()->back();
 
     }
