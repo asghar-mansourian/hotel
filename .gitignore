@@ -12,3 +12,6 @@ npm-debug.log
 yarn-error.log
 .idea
 .htaccess
+.user.ini
+error_log
+php.ini

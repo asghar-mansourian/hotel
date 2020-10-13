@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\BuildApiResponse;
 use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\Minify;
@@ -67,6 +68,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             SubstituteBindings::class,
+            BuildApiResponse::class
         ],
     ];
 
