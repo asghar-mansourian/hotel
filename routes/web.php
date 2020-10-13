@@ -33,9 +33,13 @@ Route::get('/', function () {
 //    route::post('/users/export/{type}' , 'Admin\UserController@export');
 //});
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/logout', 'Auth\LoginController@logout');
+
+
+Route::group(['namespace' => 'Member'], function () {
+    \Auth::routes();
+});
+
+
