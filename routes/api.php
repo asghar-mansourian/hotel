@@ -19,6 +19,7 @@ Route::prefix('v1')
     ->group(function () {
         Route::post('login', 'Auth\LoginController@login');
         Route::post('refresh', 'Auth\LoginController@refresh');
+        Route::post('register', 'Auth\RegisterController@register');
     });
 
 // authenticated

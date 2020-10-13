@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         User::updateOrCreate(
             [
                 'email' => 'user@gmail.com',
-                'mobile' => '0123456789'
+                'phone' => '0123456789'
             ],
             [
                 'name' => 'Main User',

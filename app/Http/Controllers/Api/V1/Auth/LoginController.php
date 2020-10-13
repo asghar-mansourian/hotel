@@ -3,16 +3,12 @@
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\User as UserResource;
+use App\Http\Controllers\Traits\MemberResponseToken;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Config;
 
 class LoginController extends Controller
 {
-    public function __construct()
-    {
-        Config::set('auth.defaults.guard', 'api');
-    }
+    use MemberResponseToken;
 
     /**
      * Get a JWT via given credentials.
@@ -32,7 +28,7 @@ class LoginController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return $this->respondWithToken($token);
+        return $this->respondWithToken($token, 'Login Successfully');
     }
 
     /**
@@ -64,23 +60,6 @@ class LoginController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
-    }
-
-    /**
-     * Get the token array structure.
-     *
-     * @param string $token
-     *
-     * @return JsonResponse
-     */
-    protected function respondWithToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => UserResource::make(auth()->user())
-        ]);
+        return $this->respondWithToken(auth()->refresh(), 'Refreshed Token');
     }
 }
