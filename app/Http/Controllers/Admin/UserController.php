@@ -64,7 +64,7 @@ class UserController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        session()->flash('message', trans('custom.user.message.create'));
+        session()->flash('message', __('custom.user.message.create'));
         session()->flash('success', 1);
         return response()->json([], 200);
     }
@@ -76,7 +76,7 @@ class UserController extends Controller
             ->orWhere('email', 'like', '%' . $search . '%')
             ->orWhere('name', 'like', '%' . $search . '%')
             ->orWhere('family', 'like', '%' . $search . '%')
-            ->select(User::$this->selectField)
+            ->select(User::selectField)
             ->paginate(User::paginateNumber);
 
         $countUsers = User::query()
@@ -113,48 +113,12 @@ class UserController extends Controller
         ]));
     }
 
-    public function filter(Request $request)
-    {
-        $filter = $request->input('filter');
 
-        if ($filter == null) {
-            $users = DB::table('users')
-                ->select($this->selectField)
-                ->latest()
-                ->paginate('10');
-            return View::make('admin.users.table', compact('users'));
-
-        }
-        $filter = explode('|', $filter);
-        $filter_type = $filter[0];
-        $filter_value = $filter[1];
-        $users = DB::table('users')
-            ->select($this->selectField)
-            ->where($filter_type, $filter_value)
-            ->latest()
-            ->paginate('10');
-
-        return View::make('admin.users.table', compact('users'), with([
-            'sortField' => $this->sortField,
-            'sortType' => $this->sortType
-        ]));
-    }
-
-    public function show(Request $request)
-    {
-
-        $id = $request->input('id');
-        $user = User::query()
-            ->where('id', $id)
-            ->first();
-
-        return View::make('admin.users.show', compact('user'));
-    }
 
     public function edit($id)
     {
 
-        $user = DB::table('users')
+        $user = User::query()
             ->where('id', $id)
             ->first();
         return view('admin.users.edit', compact('user', 'id'));
@@ -175,7 +139,7 @@ class UserController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        session()->flash('message', trans('custom.user.message.update'));
+        session()->flash('message', __('custom.user.message.update'));
         session()->flash('success', 1);
         return response()->json([], 200);
     }
@@ -184,7 +148,7 @@ class UserController extends Controller
     {
         User::query()->find($id)->delete();
 
-        session()->flash('message', trans('custom.user.message.delete'));
+        session()->flash('message', __('custom.user.message.delete'));
         session()->flash('success', 1);
         return redirect()->back();
 

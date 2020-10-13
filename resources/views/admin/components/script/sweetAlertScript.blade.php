@@ -10,7 +10,7 @@
 <script src="{{url('admin/en/plugins/sweet-alert/jquery.sweet-modal.min.js')}}"></script>
 <script src="{{url('admin/en/plugins/sweet-alert/sweetalert.min.js')}}"></script>
 <script src="{{url('admin/en/js/sweet-alert.js')}}"></script>
-<input type="text" id="data-click-sweet" data-value="{{$url}}">
+<input type="hidden" id="data-click-sweet" data-value="{{$url}}">
 <script>
     $(document).ready(function () {
         $(document).on('click', '.delete', function (e) {

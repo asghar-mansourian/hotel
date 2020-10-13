@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Show Users
+    {{__('custom.admin.panel.title')}} | {{__('custom.admin.user.index.title')}}
 @endsection
 
 @section('styleCustom')
@@ -43,7 +43,7 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fa fa-user  mr-2"></i>Users List
+                        <i class="fa fa-user  mr-2"></i>{{__('custom.admin.user.index.table.header')}}
                     </h3>
 
                 @endslot
@@ -79,15 +79,25 @@
         @endslot
     @endcomponent
     @component('admin.components.script.searchScript')
+        @slot('url')
+            ../../../admin/users/search/
+        @endslot
     @endcomponent
     @component('admin.components.script.sortScript')
+        @slot('url')
+            ../../../admin/users/sort/
+
+        @endslot
     @endcomponent
     @component('admin.components.script.sortTableScript')
+        @slot('url')
+            ../../../admin/users/sort/
+        @endslot
     @endcomponent
-    @component('admin.components.script.filterScript')
-    @endcomponent
-    @component('admin.components.script.showScript')
-    @endcomponent
+    {{--    @component('admin.components.script.filterScript')--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.showScript')--}}
+    {{--    @endcomponent--}}
 @endsection
 
 
@@ -98,8 +108,10 @@
             {{trans('admin.panel.title')}}
         @endslot
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-user mr-2 fs-14"></i>users</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
+                    href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-user mr-2 fs-14"></i>{{__('custom.admin.user.title')}}
+            </li>
         @endslot
     @endcomponent
 @endsection
