@@ -62,6 +62,14 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'status' => $request->input('status'),
+            'code' => $this->generateCode(),
+            'serial_number' => $request->input('serial_number'),
+            'citizenship' => $request->input('citizenship'),
+            'birthdate' => $request->input('birthdate'),
+            'gender' => $request->input('gender'),
+            'phone' => $request->input('phone'),
+            'fin' => $request->input('fin'),
+            'address' => $request->input('address'),
         ]);
 
         session()->flash('message', __('custom.user.message.create'));
@@ -113,8 +121,6 @@ class UserController extends Controller
         ]));
     }
 
-
-
     public function edit($id)
     {
 
@@ -137,6 +143,14 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'status' => $request->input('status'),
+            'code' => $this->generateCode(),
+            'serial_number' => $request->input('serial_number'),
+            'citizenship' => $request->input('citizenship'),
+            'birthdate' => $request->input('birthdate'),
+            'gender' => $request->input('gender'),
+            'phone' => $request->input('phone'),
+            'fin' => $request->input('fin'),
+            'address' => $request->input('address'),
         ]);
 
         session()->flash('message', __('custom.user.message.update'));
@@ -152,5 +166,19 @@ class UserController extends Controller
         session()->flash('success', 1);
         return redirect()->back();
 
+    }
+
+    private function generateCode()
+    {
+        do {
+            $code = rand(00000000000, 99999999999);
+
+            $exists = User::where('code', $code)->exists();
+
+            if (!$exists) {
+                return $code;
+            }
+
+        } while (!$exists);
     }
 }
