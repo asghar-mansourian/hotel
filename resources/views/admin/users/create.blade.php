@@ -5,7 +5,7 @@
 @endsection
 
 @section('styleCustom')
-{{--    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">--}}
     <style>
         .has-danger {
             border: 1px solid #d9534f !important;
@@ -48,7 +48,7 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                    Please Enter Family...
+                                Please Enter Family...
                             @endslot
                         @endcomponent
 
@@ -66,7 +66,111 @@
                                 Please Enter Email...
                             @endslot
                         @endcomponent
+
+                        @component('admin.components.form.optionLabel')
+                            @slot('label')
+                                gender
+                            @endslot
+                            @slot('name')
+                                gender
+                            @endslot
+                            @slot('items')
+                                <option value="" selected>Please Enter Gender...</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                            @endslot
+                        @endcomponent
+
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Phone
+                            @endslot
+                            @slot('name')
+                                phone
+                            @endslot
+                            @slot('type')
+                                text
+                            @endslot
+                            @slot('placeholder')
+                                Please Enter Phone...
+                            @endslot
+                        @endcomponent
+
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Address
+                            @endslot
+                            @slot('name')
+                                address
+                            @endslot
+                            @slot('type')
+                                text
+                            @endslot
+                            @slot('placeholder')
+                                Please Enter Address...
+                            @endslot
+                        @endcomponent
+
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Fin
+                            @endslot
+                            @slot('name')
+                                fin
+                            @endslot
+                            @slot('type')
+                                number
+                            @endslot
+                            @slot('placeholder')
+                                Please Enter Fin...
+                            @endslot
+                        @endcomponent
+
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Citizenship
+                            @endslot
+                            @slot('name')
+                                citizenship
+                            @endslot
+                            @slot('type')
+                                number
+                            @endslot
+                            @slot('placeholder')
+                                Please Enter Citizenship...
+                            @endslot
+                        @endcomponent
+
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Serial Number
+                            @endslot
+                            @slot('name')
+                                serial_number
+                            @endslot
+                            @slot('type')
+                                number
+                            @endslot
+                            @slot('placeholder')
+                                Please Enter Serial Number...
+                            @endslot
+                        @endcomponent
+
+                        @component('admin.components.form.birthLabel')
+                            @slot('label')
+                                BirthDay
+                            @endslot
+                            @slot('name')
+                                birthdate
+                            @endslot
+                            @slot('placeholder')
+                                Please Enter Serial Number...
+                            @endslot
+                        @endcomponent
+
                     @endslot
+
+
                     @slot('header')
                         <h2 class="card-title">Main Information</h2>
                     @endslot
