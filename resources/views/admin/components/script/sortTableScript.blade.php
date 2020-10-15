@@ -13,7 +13,7 @@
             var sort_type = jQuery(this).attr("data-sort-type");
             var sort_field = jQuery(this).attr("data-sort-field");
             var url =$('#data-click-sort-table').attr('data-value');
-            var url = '../../../admin/users/sort/';
+            // var url = '../../../admin/users/sort/';
 
             var error = function (response) {
 

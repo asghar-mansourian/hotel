@@ -1,170 +1,248 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
+<html lang="en">
 <head>
-    <!-- Meta data -->
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-    <meta content="Admitro - Laravel Bootstrap Admin Template" name="description">
-    <meta content="Spruko Technologies Private Limited" name="author">
-    <meta name="keywords"
-          content="laravel admin dashboard, best laravel admin panel, laravel admin dashboard, php admin panel template, blade template in laravel, laravel dashboard template, laravel template bootstrap, laravel simple admin panel,laravel dashboard template,laravel bootstrap 4 template, best admin panel for laravel,laravel admin panel template, laravel admin dashboard template, laravel bootstrap admin template, laravel admin template bootstrap 4"/>
-
-    <!-- Title -->
-    <title>Admitro - Admin Panel HTML template</title>
-
-    <!--Favicon -->
-    <link rel="icon" href="admin/en/images/brand/favicon.ico" type="image/x-icon"/>
-
-    <!--Bootstrap css -->
-    <link href="admin/en/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Style css -->
-    <link href="admin/en/css/style.css" rel="stylesheet"/>
-    <link href="admin/en/css/dark.css" rel="stylesheet"/>
-    <link href="admin/en/css/skin-modes.css" rel="stylesheet"/>
-
-    <!-- Animate css -->
-    <link href="admin/en/css/animated.css" rel="stylesheet"/>
-
-    <!---Icons css-->
-    <link href="admin/en/css/icons.css" rel="stylesheet"/>
-
-
-    <!-- Color Skin css -->
-    <link id="theme" href="admin/en/colors/color1.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kargo.az</title>
+    <link rel="icon" href="{{url('front/image/favicon/favicon.svg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url('front/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/fontawesome-free-5.15.1-web/css/all.css')}}">
 </head>
-<body class="h-100vh page-style1">
-<div class="page">
-    <div class="page-single">
-        <div class="p-5">
-            <div class="row">
-                <div class="col mx-auto">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9 col-xl-8">
-                            <div class="card-group mb-0">
-                                <div class="card p-4">
-                                    <div class="card-body">
-                                        <div class="text-center title-style mb-6">
-                                            <h1 class="mb-2">Login</h1>
-                                            <hr>
-                                            <p class="text-muted">Sign In to your account</p>
-                                        </div>
+<body>
 
-                                        <div class="btn-list d-flex">
-                                            <a href="https://www.google.com/gmail/" class="btn btn-google btn-block"><i
-                                                    class="fa fa-google fa-1x mr-2"></i> Google</a>
-                                            <a href="https://twitter.com/" class="btn btn-twitter"><i
-                                                    class="fa fa-twitter fa-1x"></i></a>
-                                            <a href="https://www.facebook.com/" class="btn btn-facebook"><i
-                                                    class="fa fa-facebook fa-1x"></i></a>
-                                        </div>
-                                        <form action="{{ route('login') }}" method="post">
-                                            @csrf
-                                            <hr class="divider my-6">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-user"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('email') is-invalid @enderror"
-                                                       placeholder="email" name="email" value="{{ old('email') }}"
-                                                       required autocomplete="email" autofocus>
-
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-lock"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="password"
-                                                       class="form-control @error('password') is-invalid @enderror"
-                                                       placeholder="Password" name="password" required
-                                                       autocomplete="current-password">
-                                                @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                @enderror
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <button type="submit" class="btn  btn-primary btn-block px-4">Login
-                                                    </button>
-                                                </div>
-                                                <div class="col-12 text-center">
-                                                    <a href="forgot-password-3.html"
-                                                       class="btn btn-link box-shadow-0 px-0">Forgot
-                                                        password?</a>
-                                                </div>
-                                            </div>
-                                            <div class="text-center pt-4">
-                                                <div class="font-weight-normal fs-16">You Don't have an account <a
-                                                        class="btn-link font-weight-normal" href="#">Register Here</a>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                </div>
-
-                                <div class="card text-white bg-primary py-5 d-md-down-none page-content mt-0">
-                                    <div class="text-center justify-content-center page-single-content">
-                                        <div class="box">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                        </div>
-                                        <img src="admin/en/images/png/login.png" alt="img">
-                                    </div>
-                                </div>
+<div class="title pt-4 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="font_grey">
+                    contact us : +998 50 988 11 25
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                <div class="menu_first">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top: 15px;">
+        <div class="row pt-3 pb-3" style="padding: 0 15px;">
+            <div class="logo">
+                <img src="{{url('front/image/logo.svg')}}">
+            </div>
+            <div class="menu_sec">
+                <ul>
+                    <li>
+                        <a href="#" class="active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="#">How we work</a>
+                    </li>
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sekine Beylerova<i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdown_panel">
+                                <a class="dropdown-item" href="#">Panel səhifəsi</a><br/>
+                                <a class="dropdown-item" href="#">Xaricdəki ünvanlarım</a><br/>
+                                <a class="dropdown-item" href="#">Sifarişlərim</a><br/>
+                                <a class="dropdown-item" href="#">Bağlamalarım</a><br/>
+                                <a class="dropdown-item" href="#">AZN Balansım</a><br/>
+                                <a class="dropdown-item" href="#">TL Balansım</a><br/>
+                                <a class="dropdown-item" href="#">Kuryer</a><br/>
+                                <a class="dropdown-item" href="#">Sorğu</a><br/>
+                                <a class="dropdown-item" href="#">Tənzimləmələr</a><br/>
+                                <a class="dropdown-item" href="#">Hesabdan çıx</a><br/>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Jquery js-->
-<script src="admin/en/js/jquery-3.5.1.min.js"></script>
+<div class="site_center">
+    <div class="container">
+        <h4>İSTİFADƏÇİ <strong>Login</strong></h4>
+        <form action="{{ route('login') }}" method="post">
+            @csrf
+            <div class="row left-side">
+                <div class="col-md-12 mt-2">
+                    <div class="text-center">
+                        <label for="" style="width: 450px!important;text-align: left">Email:</label>
+                    </div>
+                    <div class="text-center">
 
-<!-- Bootstrap4 js-->
-<script src="admin/en/plugins/bootstrap/popper.min.js"></script>
-<script src="admin/en/plugins/bootstrap/js/bootstrap.min.js"></script>
+                        <input type="email" name="email" placeholder="email" class="@error('email') is-invalid @enderror w-100 courier_input"
+                               value="{{ old('email') }}" style="width: 450px!important;">
+                        @error('email')
+                        <br>
+                        <span class="invalid-feedback" style="color:#a1272b;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                                </span>
+                        @enderror
 
-<!--Othercharts js-->
-<script src="admin/en/plugins/othercharts/jquery.sparkline.min.js"></script>
+                    </div>
 
-<!-- Circle-progress js-->
-<script src="admin/en/js/circle-progress.min.js"></script>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label for="" style="width: 450px!important;text-align: left">Password:</label>
+                    </div>
+                    <div class="text-center">
+                        <input type="password" name="password" placeholder="password" class="w-100 courier_input"
+                               style="width: 450px!important;">
+                        @error('password')
+                        <br>
+                        <span class="invalid-feedback" style="color:#a1272b;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                                </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
 
-<!-- Jquery-rating js-->
-<script src="admin/en/plugins/rating/jquery.rating-stars.js"></script>
-<!-- Custom js-->
-<script src="admin/en/js/custom.js"></script>
+                        <input type="checkbox" style="vertical-align: middle!important;">
+                        <label for="" style="margin-bottom: 10px!important;
+    margin-left: 4px!important;">remember me</label>
+                    </div>
+
+                </div>
+                <div class="col-md-12 button-part mt-5">
+                    <div class="text-center">
+                        <button type="submit" class="btn-effect">Login</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="footer mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="search text-center">
+                    <input type="text" name="" placeholder="Search here...">
+                    <button>Search</button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="logo">
+                    <img src="{{url('front/image/logo.svg')}}">
+                    <div class="font_grey mt-5">
+                        Lorem Ipsum is simply dummy text of the <br/>printing and typesetting industry.<br/>
+                        <div class="mt-3"><a href="#" class="font_b8">Kargoaz@gmail.com</a></div>
+                    </div>
+                    <div class="font_black mt-3"><strong>781-349-6679</strong></div>
+                    <div class="menu mt-5 ">
+                        <ul class="p-0">
+                            <li>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6">
+                <div class="title_list">Service</div>
+                <div class="menu_list mt-5">
+                    <ul>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6">
+                <div class="title_list">About us</div>
+                <div class="menu_list mt-5">
+                    <ul>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="title_list">Our address</div>
+                <div class="font_grey mt-5">
+                    Lorem Ipsum is simply dummy text of the <br/>printing and typesetting industry.<br/>
+                </div>
+                <div class="map mt-5"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer_yellow text-center">
+    <div class="title_list">All rights reserved to kargo.az international INC.</div>
+</div>
+
+<script src="{{url('front/js/style_js.js')}}"></script>
+<script src="{{url('front/js/jquery.js')}}"></script>
+<script src="{{url('front/js/bootstrap.min.js')}}"></script>
+<script src="{{url('front/js/bootstrap-select.min.js')}}"></script>
+<script src="{{url('front/js/clipboard.min.js')}}"></script>
 
 
+<script>
+    function showStuff(id, text, btn) {
+        document.getElementById(id).style.display = 'block';
+        document.getElementById(text).style.display = 'none';
+        btn.style.display = 'none';
+    }
+</script>
 </body>
-
-<!-- Mirrored from laravel.spruko.com/admitro/Vertical-IconSidedar-Light/login-3 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Oct 2020 07:56:00 GMT -->
 </html>

@@ -25,8 +25,6 @@ class AddExtraFieldsInUsersTable extends Migration
             $table->string('address');
             $table->decimal('balance')->default(0.00);
 
-            $table->softDeletes();
-
             $table->foreign('region_id')->on('regions')->references('id');
         });
     }

@@ -14,6 +14,12 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         "admin/users/search",
         "admin/users/sort",
-        "admin/users/load",
+        "admin/countries/load",
+        "admin/countries/search",
+        "admin/countries/sort",
+        "admin/countries/load",
+        "admin/regions/search",
+        "admin/regions/sort",
+        "admin/regions/load",
     ];
 }
