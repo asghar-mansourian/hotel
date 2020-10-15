@@ -10,9 +10,7 @@
     @slot('paginate')
         {{$users->appends(Request::except('page'))->links()}}
     @endslot
-    @slot('url')
-        users
-    @endslot
+
 @endcomponent
 
 @if(isset($countUsers) )

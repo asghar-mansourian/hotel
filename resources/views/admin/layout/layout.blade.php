@@ -15,7 +15,7 @@
 
 
 @include('admin.layout.switcher')
-@include('admin.layout.loader')
+{{--@include('admin.layout.loader')--}}
 
 <!-- Page -->
 <div class="page">

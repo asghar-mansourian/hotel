@@ -1,310 +1,380 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8"/><!-- /Added by HTTrack -->
+<html lang="en">
 <head>
-    <!-- Meta data -->
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-    <meta content="Admitro - Laravel Bootstrap Admin Template" name="description">
-    <meta content="Spruko Technologies Private Limited" name="author">
-    <meta name="keywords"
-          content="laravel admin dashboard, best laravel admin panel, laravel admin dashboard, php admin panel template, blade template in laravel, laravel dashboard template, laravel template bootstrap, laravel simple admin panel,laravel dashboard template,laravel bootstrap 4 template, best admin panel for laravel,laravel admin panel template, laravel admin dashboard template, laravel bootstrap admin template, laravel admin template bootstrap 4"/>
-
-    <!-- Title -->
-    <title>Admitro - Admin Panel HTML template</title>
-
-    <!--Favicon -->
-    <link rel="icon" href="admin/en/images/brand/favicon.ico" type="image/x-icon"/>
-
-    <!--Bootstrap css -->
-    <link href="admin/en/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Style css -->
-    <link href="admin/en/css/style.css" rel="stylesheet"/>
-    <link href="admin/en/css/dark.css" rel="stylesheet"/>
-    <link href="admin/en/css/skin-modes.css" rel="stylesheet"/>
-
-    <!-- Animate css -->
-    <link href="admin/en/css/animated.css" rel="stylesheet"/>
-
-    <!---Icons css-->
-    <link href="admin/en/css/icons.css" rel="stylesheet"/>
-
-
-    <!-- Color Skin css -->
-    <link id="theme" href="admin/en/colors/color1.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kargo.az</title>
+    <link rel="icon" href="{{url('front/image/favicon/favicon.svg')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url('front/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/style.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/fontawesome-free-5.15.1-web/css/all.css')}}">
 </head>
-<body class="h-100vh page-style1">
-<div class="page">
-    <div class="page-single">
-        <div class="p-5">
-            <div class="row">
-                <div class="col mx-auto">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9 col-xl-8">
-                            <div class="card-group mb-0">
-                                <div class="card p-4">
-                                    <form action="{{ route('register') }}" method="post">
-                                        @csrf
-                                        <div class="card-body">
-                                            <div class="text-center title-style mb-6">
-                                                <h1 class="mb-2">Register</h1>
-                                                <hr>
-                                                <p class="text-muted">Create New Account</p>
-                                            </div>
-                                            <div class="btn-list d-flex">
-                                                <a href="https://www.google.com/gmail/"
-                                                   class="btn btn-google btn-block"><i
-                                                        class="fa fa-google fa-1x mr-2"></i> Google</a>
-                                                <a href="https://twitter.com/" class="btn btn-twitter"><i
-                                                        class="fa fa-twitter fa-1x"></i></a>
-                                                <a href="https://www.facebook.com/" class="btn btn-facebook"><i
-                                                        class="fa fa-facebook fa-1x"></i></a>
-                                            </div>
-                                            <hr class="divider my-6">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-user"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('name') is-invalid @enderror"
-                                                       placeholder="Name" name="name" value="{{ old('name') }}" required
-                                                       autocomplete="name" autofocus>
-                                                @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-mail"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('email') is-invalid @enderror"
-                                                       placeholder="Enetr Email" name="email" value="{{ old('email') }}"
-                                                       required autocomplete="email"/>
-                                                @error('email')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-phone"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('phone') is-invalid @enderror"
-                                                       placeholder="Phone" pattern="^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$" name="phone" value="{{ old('email') }}"
-                                                       required/>
-                                                @error('phone')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
+<body>
 
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-lock"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="password"
-                                                       class="form-control @error('password') is-invalid @enderror"
-                                                       placeholder="Password" name="password" required
-                                                       autocomplete="new-password"/>
-                                                @error('password')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-lock"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="password"
-                                                       class="form-control @error('password') is-invalid @enderror"
-                                                       placeholder="Password Confirmation" name="password_confirmation"
-                                                       required/>
-                                                @error('password')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-activity"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('serial_number') is-invalid @enderror"
-                                                       placeholder="Serial Number" name="serial_number"
-                                                       value="{{ old('serial_number') }}"
-                                                       required autocomplete="serial_number"/>
-                                                @error('serial_number')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-activity"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('citizenship') is-invalid @enderror"
-                                                       placeholder="citizenship" name="citizenship"
-                                                       value="{{ old('citizenship') }}"
-                                                       required autocomplete="citizenship"/>
-                                                @error('citizenship')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-bell"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="date"
-                                                       class="form-control @error('birthdate') is-invalid @enderror"
-                                                       placeholder="birthdate" name="birthdate" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-                                                       value="{{ old('birthdate') }}"
-                                                       required autocomplete="birthdate"/>
-                                                @error('birthdate')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-bell"></i>
-                                                    </div>
-                                                </div>
-                                                <select required class="form-control @error('gender') is-invalid @enderror" name="gender" title="Cinsi *" >
-                                                    <option value="2">Qadın</option>
-                                                    <option value="1">Kişi</option>
-                                                </select>
-                                                @error('gender')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-flag"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('fin') is-invalid @enderror"
-                                                       placeholder="fin" name="fin"
-                                                       value="{{ old('fin') }}"
-                                                       required />
-                                                @error('fin')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fe fe-flag"></i>
-                                                    </div>
-                                                </div>
-                                                <input type="text"
-                                                       class="form-control @error('address') is-invalid @enderror"
-                                                       placeholder="address" name="address"
-                                                       value="{{ old('address') }}"
-                                                       required />
-                                                @error('address')
-                                                <span class="invalid-feedback"
-                                                      role="alert"><strong>{{ $message }}</strong></span>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="custom-control custom-checkbox">
-                                                    <input type="checkbox" required class="custom-control-input @error('terms') is-invalid @enderror"/>
-                                                    <span class="custom-control-label">Agree the  Terms and policy</span>
-                                                    @error('terms')
-                                                    <span class="invalid-feedback"
-                                                          role="alert"><strong>{{ $message }}</strong></span>
-                                                    @enderror
-                                                </label>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <button type="submit" class="btn  btn-primary btn-block px-4">Create
-                                                        New Account
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="text-center pt-4">
-                                                <div class="font-weight-normal fs-16">You Already have an account <a
-                                                        class="btn-link font-weight-normal" href="{{route('login')}}">Login
-                                                        Here</a></div>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                </div>
-                                <div class="card text-white bg-primary py-5 d-md-down-none page-content mt-0">
-                                    <div class="text-center justify-content-center page-single-content">
-                                        <div class="box">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                        </div>
-                                        <img src="admin/en/images/png/login.png" alt="img">
-                                    </div>
-                                </div>
+<div class="title pt-4 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="font_grey">
+                    contact us : +998 50 988 11 25
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                <div class="menu_first">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr style="margin-top: 15px;">
+        <div class="row pt-3 pb-3" style="padding: 0 15px;">
+            <div class="logo">
+                <img src="{{url('front/image/logo.svg')}}">
+            </div>
+            <div class="menu_sec">
+                <ul>
+                    <li>
+                        <a href="#" class="active">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="#">How we work</a>
+                    </li>
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sekine Beylerova<i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdown_panel">
+                                <a class="dropdown-item" href="#">Panel səhifəsi</a><br/>
+                                <a class="dropdown-item" href="#">Xaricdəki ünvanlarım</a><br/>
+                                <a class="dropdown-item" href="#">Sifarişlərim</a><br/>
+                                <a class="dropdown-item" href="#">Bağlamalarım</a><br/>
+                                <a class="dropdown-item" href="#">AZN Balansım</a><br/>
+                                <a class="dropdown-item" href="#">TL Balansım</a><br/>
+                                <a class="dropdown-item" href="#">Kuryer</a><br/>
+                                <a class="dropdown-item" href="#">Sorğu</a><br/>
+                                <a class="dropdown-item" href="#">Tənzimləmələr</a><br/>
+                                <a class="dropdown-item" href="#">Hesabdan çıx</a><br/>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Jquery js-->
-<script src="admin/en/js/jquery-3.5.1.min.js"></script>
+<div class="site_center">
+    <div class="container">
+        <h4>İSTİFADƏÇİ <strong>Register</strong></h4>
+        <form action="{{ route('register') }}" method="post">
+            @csrf
+            <div class="row left-side">
+                <div class="col-md-12 mt-2">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">Name:</label>
+                    </div>
+                    <div class="text-center">
 
-<!-- Bootstrap4 js-->
-<script src="admin/en/plugins/bootstrap/popper.min.js"></script>
-<script src="admin/en/plugins/bootstrap/js/bootstrap.min.js"></script>
+                        <input type="text" name="name" placeholder="name" class="@error('name') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;" value="{{ old('name') }}">
+                        @error('name')
+                        <br>
+                        <span class="invalid-feedback" style="color: #b7474b " role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
 
-<!--Othercharts js-->
-<script src="admin/en/plugins/othercharts/jquery.sparkline.min.js"></script>
+                </div>
+                <div class="col-md-12 mt-2">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">Email:</label>
+                    </div>
+                    <div class="text-center">
 
-<!-- Circle-progress js-->
-<script src="admin/en/js/circle-progress.min.js"></script>
+                        <input type="email" value="{{ old('email') }}" name="email" placeholder="email" class="@error('email') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;">
+                        @error('email')
+                        <br>
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
 
-<!-- Jquery-rating js-->
-<script src="admin/en/plugins/rating/jquery.rating-stars.js"></script>
-<!-- Custom js-->
-<script src="admin/en/js/custom.js"></script>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">Password:</label>
+                    </div>
+                    <div class="text-center">
+                        <input type="password" name="password" placeholder="password" class="@error('password') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;">
+                        @error('password')
+                        <br>
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">Password Confirmation:</label>
+                    </div>
+                    <div class="text-center">
+                        <input type="password" name="password_confirmation" placeholder="Password Confirmation" class="@error('password') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;">
+                        <br>
+                        @error('password')
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">Serial Number:</label>
+                    </div>
+                    <div class="text-center">
+                        <input type="test" name="serial_number" placeholder="serial number" class="@error('serial_number') is-invalid @enderror w-100 courier_input"
+                               value="{{ old('serial_number') }}" style="width: 450px!important;">
+                        <br>
+                        @error('serial_number')
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">Citizenship:</label>
+                    </div>
+                    <div class="text-center">
+                        <input type="text" value="{{ old('citizenship') }}"  name="citizenship" placeholder="citizenship" class="@error('citizenship') is-invalid @enderror w-100 courier_input"
+                        style="width: 450px!important;">
+                        @error('citizenship')
+                        <br>
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">Fin:</label>
+                    </div>
+                    <div class="text-center">
+                        <input type="text" value="{{ old('fin') }}" name="fin" placeholder="fin" class="@error('fin') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;">
+                        @error('fin')
+                        <br>
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">phone:</label>
+                    </div>
+                    <div class="text-center">
+                        <input value="{{ old('email') }}" type="text" name="phone" placeholder="phone" class="@error('phone') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;" pattern="^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+                        @error('phone')
+                        <br>
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">birthday:</label>
+                    </div>
+                    <div class="text-center">
+                        <input  value="{{ old('birthdate') }}" autocomplete="birthdate" type="date" name="birthday" placeholder="birthday" class="@error('birthdate') is-invalid @enderror w-100 courier_input"
+                                style="width: 450px!important;" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
+                        @error('birthdate')
+                        <br>
+                        <span class="invalid-feedback" role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">address:</label>
+                    </div>
+                    <div class="text-center">
+                        <input value="{{ old('address') }}" type="text" name="address" placeholder="address" class="@error('address') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;">
+                        <br style="">
+                        @error('address')
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label  style="width: 450px!important;text-align: left">gender:</label>
+                    </div>
+                    <div class="text-center">
+                        <select class="@error('gender') is-invalid @enderror form-control courier_input" name="gender" id=""  style="width: 450px!important;margin: 0 auto!important;">
+                            <option value="2">male</option>
+                            <option value="1">female</option>
+                        </select>
+                        @error('gender')
+                        <span class="invalid-feedback"
+                              role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+
+                        <input class="@error('terms') is-invalid @enderror" type="checkbox" style="vertical-align: middle!important;">
+                        <label  style="margin-bottom: 10px!important;
+    margin-left: 4px!important;">Agree the  Terms and policy</label>
+                        @error('terms')
+                        <span class="invalid-feedback"
+                              role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+
+                </div>
+                <div class="col-md-12 button-part mt-5">
+                    <div class="text-center">
+                        <button type="submit" class="btn-effect">Register</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="footer mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="search text-center">
+                    <input type="text" name="" placeholder="Search here...">
+                    <button>Search</button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="logo">
+                    <img src="{{url('front/image/logo.svg')}}">
+                    <div class="font_grey mt-5">
+                        Lorem Ipsum is simply dummy text of the <br/>printing and typesetting industry.<br/>
+                        <div class="mt-3"><a href="#" class="font_b8">Kargoaz@gmail.com</a></div>
+                    </div>
+                    <div class="font_black mt-3"><strong>781-349-6679</strong></div>
+                    <div class="menu mt-5 ">
+                        <ul class="p-0">
+                            <li>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6">
+                <div class="title_list">Service</div>
+                <div class="menu_list mt-5">
+                    <ul>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6">
+                <div class="title_list">About us</div>
+                <div class="menu_list mt-5">
+                    <ul>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                        <li><a href="#">Zwei flinke</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="title_list">Our address</div>
+                <div class="font_grey mt-5">
+                    Lorem Ipsum is simply dummy text of the <br/>printing and typesetting industry.<br/>
+                </div>
+                <div class="map mt-5"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer_yellow text-center">
+    <div class="title_list">All rights reserved to kargo.az international INC.</div>
+</div>
+
+<script src="{{url('front/js/style_js.js')}}"></script>
+<script src="{{url('front/js/jquery.js')}}"></script>
+<script src="{{url('front/js/bootstrap.min.js')}}"></script>
+<script src="{{url('front/js/bootstrap-select.min.js')}}"></script>
+<script src="{{url('front/js/clipboard.min.js')}}"></script>
+
+<script>
+    function showStuff(id, text, btn) {
+        document.getElementById(id).style.display = 'block';
+        document.getElementById(text).style.display = 'none';
+        btn.style.display = 'none';
+    }
+</script>
 </body>
-
-<!-- Mirrored from laravel.spruko.com/admitro/Vertical-IconSidedar-Light/register-3 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 10 Oct 2020 07:56:00 GMT -->
 </html>

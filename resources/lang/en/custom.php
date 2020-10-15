@@ -37,6 +37,42 @@ return [
                 'delete' => 'User Deleted Successful',
             ]
         ],
+        'country' => [
+            'title' => 'Countries',
+            'index' => [
+                'title' => 'Show Countries',
+
+                'table' => [
+                    'header' => 'Countries List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Country',
+            ],
+            'message' => [
+                'create' => 'Country Created Successful',
+                'update' => 'Country Updated Successful',
+                'delete' => 'Country Deleted Successful',
+            ]
+        ],
+        'region' => [
+            'title' => 'Regions',
+            'index' => [
+                'title' => 'Show Regions',
+
+                'table' => [
+                    'header' => 'Regions List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Region',
+            ],
+            'message' => [
+                'create' => 'Region Created Successful',
+                'update' => 'Region Updated Successful',
+                'delete' => 'Region Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',
