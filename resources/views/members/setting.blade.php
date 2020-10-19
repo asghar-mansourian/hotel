@@ -65,7 +65,7 @@
                                            readonly value="{{$user->phone}}">
                                 </div>
                                 <div class="col-md-12 button-part mt-4">
-                                    <button type="submit" class="btn-effect">Save</button>
+                                    <button type="submit"  class="btn-effect">Save</button>
                                 </div>
                             </div>
                         </form>

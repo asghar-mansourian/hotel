@@ -39,3 +39,4 @@ Route::get('/setting', 'Member\SettingController@index');
 Route::post('/setting/changeProfileInformation', 'Member\SettingController@changeProfileInformation');
 Route::post('/setting/changePassword', 'Member\SettingController@changePassword');
 Route::post('/setting/changeOther', 'Member\SettingController@changeOther');
+Route::post('/setting/getCurrency', 'Member\SettingController@getCurrency');
