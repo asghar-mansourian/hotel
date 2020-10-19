@@ -73,6 +73,42 @@ return [
                 'delete' => 'Region Deleted Successful',
             ]
         ],
+        'page' => [
+            'title' => 'Pages',
+            'index' => [
+                'title' => 'Show Pages',
+
+                'table' => [
+                    'header' => 'Pages List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Page',
+            ],
+            'message' => [
+                'create' => 'Page Created Successful',
+                'update' => 'Page Updated Successful',
+                'delete' => 'Page Deleted Successful',
+            ]
+        ],
+        'blog' => [
+            'title' => 'Blogs',
+            'index' => [
+                'title' => 'Show Articles',
+
+                'table' => [
+                    'header' => 'Articles List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Article',
+            ],
+            'message' => [
+                'create' => 'Article Created Successful',
+                'update' => 'Article Updated Successful',
+                'delete' => 'Article Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',
@@ -88,5 +124,7 @@ return [
         'actions' => 'actions',
         'active' => 'active',
         'deactive' => 'deactive',
+        'title' => 'title',
+        'cancel' => 'cancel',
     ]
 ];

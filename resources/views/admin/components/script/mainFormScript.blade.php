@@ -24,7 +24,7 @@
                 window.location.replace(url);
             };
             var after = function () {
-                $('div.block2').unblock();
+                // $('div.block2').unblock();
             }
             var before = function () {
                 $('.form-control').removeClass('has-danger');

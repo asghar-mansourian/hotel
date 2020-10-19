@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin' ], function () {
     /*      User Routes      */
     Route::get('/login', 'Admin\Auth\LoginController@showAdminLoginForm')->name('admin.login');
     Route::post('/login', 'Admin\Auth\LoginController@adminLogin');
@@ -28,11 +28,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/logout', 'Member\Auth\LoginController@logout');
 
 
 Route::group(['namespace' => 'Member'], function () {
     \Auth::routes();
 });
 
-
+Route::get('/setting', 'Member\SettingController@index');
+Route::post('/setting/changeProfileInformation', 'Member\SettingController@changeProfileInformation');
+Route::post('/setting/changePassword', 'Member\SettingController@changePassword');
+Route::post('/setting/changeOther', 'Member\SettingController@changeOther');
