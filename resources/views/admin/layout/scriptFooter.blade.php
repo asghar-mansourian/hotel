@@ -10,7 +10,7 @@
 <script src="{{url('admin/en/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
 
 <!--Othercharts js-->
-<script src="{{url('admin/en/plugins/othercharts/jquery.sparkline.min.js')}}"></script>
+{{--<script src="{{url('admin/en/plugins/othercharts/jquery.sparkline.min.js')}}"></script>--}}
 
 <!-- Circle-progress js-->
 <script src="{{url('admin/en/js/circle-progress.min.js')}}"></script>
@@ -27,19 +27,19 @@
 <script src="{{url('admin/en/plugins/p-scrollbar/p-scroll.js')}}"></script>
 
 
-<!--INTERNAL Peitychart js-->
-<script src="{{url('admin/en/plugins/peitychart/jquery.peity.min.js')}}"></script>
-<script src="{{url('admin/en/plugins/peitychart/peitychart.init.js')}}"></script>
+{{--<!--INTERNAL Peitychart js-->--}}
+{{--<script src="{{url('admin/en/plugins/peitychart/jquery.peity.min.js')}}"></script>--}}
+{{--<script src="{{url('admin/en/plugins/peitychart/peitychart.init.js')}}"></script>--}}
 
-<!--INTERNAL Apexchart js-->
-<script src="{{url('admin/en/js/apexcharts.js')}}"></script>
+{{--<!--INTERNAL Apexchart js-->--}}
+{{--<script src="{{url('admin/en/js/apexcharts.js')}}"></script>--}}
 
-<!--INTERNAL ECharts js-->
-<script src="{{url('admin/en/plugins/echarts/echarts.js')}}"></script>
+{{--<!--INTERNAL ECharts js-->--}}
+{{--<script src="{{url('admin/en/plugins/echarts/echarts.js')}}"></script>--}}
 
-<!--INTERNAL Chart js -->
-<script src="{{url('admin/en/plugins/chart/chart.bundle.js')}}"></script>
-<script src="{{url('admin/en/plugins/chart/utils.js')}}"></script>
+{{--<!--INTERNAL Chart js -->--}}
+{{--<script src="{{url('admin/en/plugins/chart/chart.bundle.js')}}"></script>--}}
+{{--<script src="{{url('admin/en/plugins/chart/utils.js')}}"></script>--}}
 
 <!-- INTERNAL Select2 js -->
 <script src="{{url('admin/en/plugins/select2/select2.full.min.js')}}"></script>
@@ -52,7 +52,7 @@
 <script src="{{url('admin/en/js/index1.js')}}"></script>
 
 <!-- Simplebar JS -->
-<script src="{{url('admin/en/plugins/simplebar/js/simplebar.min.js')}}"></script>
+{{--<script src="{{url('admin/en/plugins/simplebar/js/simplebar.min.js')}}"></script>--}}
 <!-- Custom js-->
 <script src="{{url('admin/en/js/custom.js')}}"></script>
 

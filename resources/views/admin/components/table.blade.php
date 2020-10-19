@@ -58,12 +58,12 @@
 
 
                                 $count = count($select);
-if ($count == 2){
+                                if ($count == 2){
                                     $v = $record->{$select[0]}->{$select[1]};
-}
-else{
-     $v = $record->{$select[0]}->{$select[1]}->{$select[2]};
-}
+                                }
+                                else{
+                                     $v = $record->{$select[0]}->{$select[1]}->{$select[2]};
+                                }
 
 
 

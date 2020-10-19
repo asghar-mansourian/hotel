@@ -21,6 +21,7 @@ body,html{
     transition: 500ms;
     scroll-behavior: smooth;
     min-height: 700px;
+    color: #19170f !important
 }
 a {
     color: #19170f;
@@ -351,7 +352,10 @@ ul li{
 .dropdown_td .btn:focus{
     outline: unset !important;
 }
-input{
+.dropdown{
+    color: #888
+}
+input, select{
     height: 38px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -363,6 +367,7 @@ button{
     background: transparent;
     border: 1px solid #ccc;
     height: 38px;
+    outline: none;
 }
 
 .fa, .fas, .far, .fal, .fad, .fab {
@@ -440,13 +445,16 @@ textarea:focus, input:focus{
     float: right;
 }
 .menu_sec ul li{
-    float: left;
+    float: left;  
     margin-left: 40px;
 }
 .menu_sec ul li a{
     color: #19170f;
 }
-.menu_sec ul li a:hover,.menu_sec ul li .active,.dropdown_dr .active{
+.menu_sec ul li .active{
+    background: #fff;
+}
+.menu_sec ul li a:hover,.dropdown_dr .active, .yellow, .menu_sec ul li .active{
     color: #ffcc00;
 }
 .menu_sec .dropdown .btn{
@@ -476,8 +484,10 @@ textarea:focus, input:focus{
     height: 60px;
     padding: 15px;
 }
-.footer .search input:focus, .rate_calculator input:focus, .rate_calculator .btn:focus, .dropdown_dr .dropdown .btn:focus{
-    border-color: #ffcc00;
+.footer .search input:focus, .rate_calculator input:focus,
+ .rate_calculator .btn:focus, .dropdown_dr .dropdown .btn:focus,
+  select:focus, input:focus, textarea:focus{
+    border-color: #ffcc00 !important;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255 229 128);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255 229 128);
@@ -489,6 +499,8 @@ textarea:focus, input:focus{
     color: #fff;
     border: 1px solid #19170f;
     width: 160px;
+        border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .footer .menu ul li{
@@ -521,7 +533,7 @@ textarea:focus, input:focus{
 }
 .footer_yellow{
      background: #ffcc00;
-    padding: 20px
+    padding: 20px   
 }
 .daily_unit, .rate_calculator, .border_sh{
     border: 1px solid rgba(0,0,0,.15);
@@ -535,7 +547,7 @@ textarea:focus, input:focus{
     padding-bottom: 7px;
 }
 .daily_unit ul li img{
-    margin-right: 15px;
+    margin-right: 15px;  
 }
 .daily_unit ul span:last-child{
     float: right;
@@ -545,7 +557,7 @@ textarea:focus, input:focus{
 }
 .rate_calculator .dropdown-menu{
     min-width: 80px;
-    padding: 10px;
+    padding: 10px;    
 }
 .rate_calculator .btn{
     color: #19170f;
@@ -553,7 +565,7 @@ textarea:focus, input:focus{
     border: 1px solid #ccc;
     height: 38px;
     width: 80px;
-    font-size: 13px;
+    font-size: 13px;  
 }bc  vnh
 .rate_calculator .active,
 .rate_calculator a:hover{
@@ -566,39 +578,8 @@ textarea:focus, input:focus{
     padding-top: 25px;
     padding-bottom: 25px
 }
-.nav-tabs>li{
-    float: unset;
-}
-.nav>li>a{
-    padding: 10px 0
-}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
-    border: unset;
-    border-bottom-color: unset;
-    color: #ffcc00;
-    border-left: 5px solid #ffcc00;
-    padding: 7px 15px;
-}
-.nav-tabs>li>a:hover{
-    border-color: transparent;
-}
-.nav>li>a:hover, .nav>li>a:focus {
-    background-color: transparent;
-}
-.nav>li>a {
-    color: #19170f;
-    border-radius: 0;
-    border-left: 5px solid transparent;
-    padding: 7px 15px;
-}
-.nav-tabs {
-    border-bottom: 1px solid transparent;
-}
 label{
         font-weight: unset;
-}
- {
-
 }
 .courier_input ::placeholder {
   color: #ccc;
@@ -607,7 +588,7 @@ label{
     float: right;
     margin-top: 7px
 }
-.courier_input, .courier_dr .dropdown{
+.courier_input, .courier_dr .dropdown, .profil_text select{
     border: 1px solid rgba(0,0,0,.15);
     -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207);
     padding: 9px;
@@ -659,7 +640,7 @@ label{
 }
 .courier_down{
     float: right;
-    margin-top: 7px;
+    margin-top: 7px;   
 }
 .courier_dr .checkmark {
   position: absolute;
@@ -716,8 +697,6 @@ label{
   height: 0;
   width: 0;
 }
-
-/* Create a custom checkbox */
 .courier_dr .checkmark {
   position: absolute;
   top: 0;
@@ -726,30 +705,20 @@ label{
   width: 20px;
   background-color: #eee;
 }
-
-/* On mouse-over, add a grey background color */
 .courier_dr .container:hover input ~ .courier_dr .checkmark {
   background-color: #ccc;
 }
-
-/* When the checkbox is checked, add a blue background */
 .courier_dr .container input:checked ~ .courier_dr .checkmark {
   background-color: #ffcc00;
 }
-
-/* Create the checkmark/indicator (hidden when not checked) */
 .courier_dr .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-
-/* Show the checkmark when checked */
 .courier_dr .container input:checked ~ .courier_dr .checkmark:after {
   display: block;
 }
-
-/* Style the checkmark/indicator */
 .courier_dr .container .checkmark:after {
   left: 9px;
   top: 5px;
@@ -820,7 +789,7 @@ sup {
     padding: 20px 15px 10px 30px;
 }
 .tooltip .select-all{
-  font-size: 16px
+  font-size: 16px    
 }
 .tooltip {
     position: relative;
@@ -830,7 +799,6 @@ sup {
     float: right;
     cursor: pointer;
 }
-
 .tooltip .tooltiptext {
     visibility: hidden;
     border: 1px solid rgba(0,0,0,.15);
@@ -849,7 +817,6 @@ sup {
     opacity: 0;
     transition: opacity 0.3s;
 }
-
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -860,7 +827,6 @@ sup {
     border-style: solid;
     border-color: #e1e1e2 transparent transparent transparent;
 }
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -891,8 +857,8 @@ span#procent::after {
     margin-top: 70px;
 }
 .timer {
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
@@ -943,8 +909,20 @@ span#procent::after {
   transform: rotate(135deg);
 }
 .dropdown_dr .dropdown .btn{
-    width: 130px;
     text-align: left;
+    border: 1px solid #ccc
+}
+.dropdown_dr .dropdown .dropdown-item{
+    text-align: left;
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid #ffcc00;
+}
+.dropdown_dr .dropdown-menu .dropdown {
+    border: 1px solid transparent;
+    height: 38px;
+    text-align: left;
+    border-bottom: 1px solid #ffcc00;   
 }
 .dropdown_dr .dropdown-menu{
     padding: 5px
@@ -954,45 +932,27 @@ span#procent::after {
   height: 350px;
   overflow: auto;
 }
-#scrol_price_content {
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-th, td {
-  padding: 8px;
-  border-bottom: 1px solid #ffd940;
-}
-.table_yellow{
-    background: #ffd940;
-    color: #19170f;
-}
-.table_hover:hover {background-color:#fff2bf;}
-
 ::-webkit-scrollbar-thumb {
-  background: red;
+  background: red; 
 }
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f1f1; 
 }
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #888; 
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #555; 
 }
 .red{
     color: #dc3544;
 }
 .green{
     color: #28a746
-}
-.table_price th, .table_price td{
-    text-align: center;
 }
 .tab {
     overflow: hidden;
@@ -1007,7 +967,6 @@ th, td {
     cursor: pointer;
     color: #19170f;
     border-bottom: 1px solid #ccc;
-    font-weight: 700;
     padding: 8px 16px;
     transition: 0.3s;
     font-size: 17px;
@@ -1025,7 +984,7 @@ th, td {
     border-top-right-radius: 4px;
 }
 .tabcontent {
-  display: none;
+    display: none;
 }
 .border_bar{
     border: 1px solid rgba(0,0,0,.15);
@@ -1033,7 +992,7 @@ th, td {
     padding: 25px;
     -webkit-box-shadow: 0px 15px 30px -6px rgba(117,116,117,1);
     -moz-box-shadow: 0px 15px 17px -6px rgba(117,116,117,1);
-    box-shadow: 0px 16px 30px -12px rgb(193 193 193);
+    box-shadow: 0px 16px 30px -12px rgb(193 193 193);    
 }
 .name_button{
     background: rgb(128, 128, 128);
@@ -1041,19 +1000,158 @@ th, td {
     padding: 2px 4px;
     border: none;
     font-size: 12px;
-    border-radius: 4px;
+    border-radius: 4px;   
 }
 .tabcontent ul li{
     float: left;
     width: 49%
 }
-
-
-
-
-
-
-
+.logo_mob{
+    display: none;
+}
+.mob_p-4{
+    padding: 1.5rem
+}
+.left-side ul li {
+    float: unset;
+}
+.left-side ul li{
+    border-left: 5px solid transparent;
+}
+.left-side ul li>a:hover{
+    color: #ffcc00;
+    transition: .5s ease-in-out;
+}
+.left-side ul li>a {
+    color: #19170f;
+    border-radius: 0;
+    border: 1px solid transparent;
+    padding: 7px 15px;
+    display: block;
+}
+.active_li{
+    border-left: 5px solid #ffcc00 !important;
+}
+.active_li a{
+    color: #ffcc00!important
+}
+.filterDiv {
+    float: left;
+    border-bottom: 1px solid #ffcc00;
+    padding: 8px;
+    width: 99%;
+    text-align: center;
+    display: none;
+}
+.filterDiv_ul {
+    float: left;
+    border-bottom: 1px solid #ffcc00;
+    width: 99%;
+    text-align: center;
+}
+.filterDiv:hover{
+    background: #fff2bf
+}
+.filterDiv ul li{
+    float: left;
+    width: 33.3%
+}
+.filterDiv_ul ul li{
+    background: #ffcc00;
+    text-align: center;
+    width: 33.3%;
+    float: left;
+    border-bottom: 1px solid #ffcc00;
+    padding: 8px;
+    font-weight: bold
+}
+.h4_height{
+    height: 20px;
+}
+.courier input{
+    height: unset;
+}
+.tab button img{
+    margin-right: 10px
+}
+.tab button.active .fas{
+    color: #ffcc00
+}
+.tab button .fas{
+    padding-right: 10px
+}
+.active_span{
+    color: #ffcc00
+}
+.brit_moon{
+    padding: 0 !important
+}
+.brit_year{
+    padding-right: 0 !important
+}
+.brit_day{
+    padding-left: 0 !important
+}
+.courier_dr .fa-chevron-down{
+    font-size: 11px
+}
+input:read-only {
+    background-color: #fff2bf;
+}
+.million{
+    background: #fff2bf;
+    width: 250px;
+    padding: 3px;
+    border: 1px solid #ffcc00;
+    border-radius: 4px;
+    height: 42px;   
+    margin-bottom: 15px
+}
+.million_num{
+    float: left;
+    background: white;
+    padding: 7px 10px;
+    margin-right: 10px;    
+}
+.million_nn{
+    padding: 7px 10px;   
+}
+.payment_button{
+    border-radius: 4px;
+    border: 3px solid #ffcc00;
+    font-weight: 600;
+    color: #19170f;   
+    float: right; 
+}
+.payment{
+    margin: 40px 0;
+}
+.visa-logo img{
+    width: 100px;
+    float: right;
+}
+.visa-logo{
+    margin: 20px 0
+}
+.payment input{
+    width: 35%;
+    margin-bottom: 10px
+}
+.balance_azn, .balance_azn img{
+    height: 246px ;
+}
+#inquirty_09 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+}
+#inquirty_18 {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}
 
 
 
@@ -1082,4 +1180,3 @@ th, td {
         left: 0px;
     }
 }
-
