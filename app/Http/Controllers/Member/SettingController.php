@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Member;
 
 
+use App\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
+use App\lib\currency;
 use App\Rules\ExistsGender;
 use App\User;
 use Illuminate\Http\Request;
@@ -81,6 +83,18 @@ class SettingController extends Controller
         ]);
 
         return redirect()->back()->with('success' , 'Updated Profile Successful');
+    }
+
+    public function getCurrency(Request  $request)
+    {
+        $from = $request['from'];
+        $to = $request['to'];
+        $currency = intval($request['currency']);
+
+
+
+        $api = new currency();
+        $api->get($from , $to , $currency);
     }
 
 }

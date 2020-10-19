@@ -21,5 +21,6 @@ class VerifyCsrfToken extends Middleware
         "admin/regions/search",
         "admin/regions/sort",
         "admin/regions/load",
+        "setting/getCurrency",
     ];
 }
