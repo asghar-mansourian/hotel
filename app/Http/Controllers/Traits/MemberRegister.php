@@ -25,6 +25,7 @@ trait MemberRegister
             'gender' => ['required', 'numeric', new ExistsGender()],
             'fin' => ['required', 'min:7', 'max:7'],
             'address' => ['required', 'string', 'max:255'],
+            'terms' => ['required'],
         ]);
     }
 
@@ -43,6 +44,7 @@ trait MemberRegister
             'fin' => $data['fin'],
             'address' => $data['address']
         ]);
+
     }
 
     private function generateCode()

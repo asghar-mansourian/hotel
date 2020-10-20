@@ -17,7 +17,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'code', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'fin', 'address'
+        'name', 'email', 'password', 'code', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'fin', 'address', 'token'
     ];
 
     /**
@@ -61,7 +61,7 @@ class User extends Authenticatable implements JWTSubject
     const GENDER_MAN = 1;
     const GENDER_WOMAN = 2;
     const GENDER_ALL = [
-        self::GENDER_MAN => 'gender_man',
-        self::GENDER_WOMAN => 'gender_woman',
+        self::GENDER_MAN => 'man',
+        self::GENDER_WOMAN => 'woman'
     ];
 }

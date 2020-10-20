@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Member\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cowsel\Auth;
 use App\Http\Controllers\Traits\MemberRegister;
 use App\Providers\RouteServiceProvider;
-use App\Rules\ExistsGender;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -36,5 +34,21 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         return view('members.register');
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        $response = Auth::Login()->object();
+
+        if ($response->Sonuc == 1) {
+            $user->token = $response->Token;
+
+            $response = Auth::register($user)->object();
+            if ($response->code == 1) {
+                $user->cowsel_code = $response->data->code;
+            }
+
+            $user->save();
+        }
     }
 }
