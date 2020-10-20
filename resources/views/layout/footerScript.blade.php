@@ -11,4 +11,6 @@
         document.getElementById(text).style.display = 'none';
         btn.style.display = 'none';
     }
+
 </script>
+

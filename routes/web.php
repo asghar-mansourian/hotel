@@ -43,3 +43,6 @@ Route::post('/setting/getCurrency', 'Member\SettingController@getCurrency');
 
 Route::get('/blog', 'Web\BlogController@index');
 Route::get('/blog/{id}', 'Web\BlogController@singel');
+
+Route::get('/contact-us', 'Web\ContactController@index');
+Route::post('/contact-us', 'Web\ContactController@store');
