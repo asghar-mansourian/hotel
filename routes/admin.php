@@ -80,3 +80,12 @@ route::post('/blogs/update/{id}' , 'BlogController@update');
 route::get('/blogs/destroy/{id}' , 'BlogController@destroy');
 route::post('/blogs/search/' , 'BlogController@search');
 route::post('/blogs/sort/' , 'BlogController@sort');
+
+
+/*      Contacts Routes      */
+route::get('/contacts' , 'ContactController@index');
+route::get('/contacts/load' , 'ContactController@load');
+route::get('/contacts/show/{id}' , 'ContactController@show');
+route::get('/contacts/destroy/{id}' , 'ContactController@destroy');
+route::post('/contacts/search/' , 'ContactController@search');
+route::post('/contacts/sort/' , 'ContactController@sort');

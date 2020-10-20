@@ -5,6 +5,6 @@
     <div class="col-md-9">
         <input {{$disabled ?? ''}}   class="form-control {{$class ?? ''}}" name="{{$name ?? ''}}" type="{{$type ?? ''}}"
                placeholder="{{$placeholder ?? ''}}" value="{{$value ?? ''}}"
-               id="{{$name ?? ''}}">
+               id="{{$name ?? ''}}" {{$attr ?? ""}}>
     </div>
 </div>

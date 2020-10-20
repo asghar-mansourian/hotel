@@ -109,6 +109,24 @@ return [
                 'delete' => 'Article Deleted Successful',
             ]
         ],
+        'contact' => [
+            'title' => 'Contacts',
+            'index' => [
+                'title' => 'Show Contacts',
+
+                'table' => [
+                    'header' => 'Contacts List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Contact',
+            ],
+            'message' => [
+                'create' => 'Contact Created Successful',
+                'update' => 'Contact Updated Successful',
+                'delete' => 'Contact Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',
@@ -126,5 +144,6 @@ return [
         'deactive' => 'deactive',
         'title' => 'title',
         'cancel' => 'cancel',
+        'back' => 'back',
     ]
 ];

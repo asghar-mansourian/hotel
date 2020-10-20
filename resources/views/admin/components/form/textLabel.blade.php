@@ -4,7 +4,7 @@
     </label>
     <div class="col-md-9">
 
-        <textarea {{$disabled ?? ''}}   class="form-control {{$class ?? ''}}" name="{{$name ?? ''}}"
+        <textarea {{$attr ?? ""}} {{$disabled ?? ''}}   class="form-control {{$class ?? ''}}" name="{{$name ?? ''}}"
                   id="{{$id ?? ''}}" placeholder="{{$placeholder ?? ''}}" cols="30" rows="10">
                         {{$value ?? ''}}
         </textarea>

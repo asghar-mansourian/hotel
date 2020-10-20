@@ -113,8 +113,24 @@
                 <li><a href="{{url('admin/blogs/create')}}" class="slide-item">create article</a></li>
             </ul>
 
-        </li>
 
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                     width="24">
+                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM11 5h2v6h-2zm0 8h2v2h-2z"></path></svg>
+                </svg>
+                <span class="side-menu__label">contact-us</span><i class="angle fa fa-angle-right"></i>
+            </a>
+
+
+            <ul class="slide-menu">
+                <li><a href="{{url('admin/contacts')}}" class="slide-item">Show</a></li>
+            </ul>
+
+
+        </li>
 
     </ul>
 </aside>

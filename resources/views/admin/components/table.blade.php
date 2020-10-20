@@ -77,8 +77,8 @@
                     @endif
                 @endforeach
                 <td class="text-nowrap text-center">
-                    <a href="#" data-userid="{{$record->id}}" data-toggle="modal"
-                       title="Show" class="m-l-10 show-info btn-sm btn btn-info" data-target=".bs-example-modal-lg">
+                    <a href="{{url('admin/' . $url . '/show/' . $record->id)}}" data-userid="{{$record->id}}"
+                       title="Show" class="m-l-10 show-info btn-sm btn btn-info" >
                         <i class="fe fe-eye mr-2"></i>{{__('custom.other.show')}}
                     </a>
 
