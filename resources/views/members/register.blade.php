@@ -162,10 +162,11 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label  style="width: 450px!important;text-align: left">Serial Number:</label>
+                        <label style="width: 450px!important;text-align: left">Serial Number:</label>
                     </div>
                     <div class="text-center">
-                        <input type="test" name="serial_number" placeholder="serial number" class="@error('serial_number') is-invalid @enderror w-100 courier_input"
+                        <input type="test" name="serial_number" maxlength="9" placeholder="serial number"
+                               class="@error('serial_number') is-invalid @enderror w-100 courier_input"
                                value="{{ old('serial_number') }}" style="width: 450px!important;">
                         <br>
                         @error('serial_number')
@@ -190,10 +191,11 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label  style="width: 450px!important;text-align: left">Fin:</label>
+                        <label style="width: 450px!important;text-align: left">Fin:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" value="{{ old('fin') }}" name="fin" placeholder="fin" class="@error('fin') is-invalid @enderror w-100 courier_input"
+                        <input type="text" value="{{ old('fin') }}" maxlength="7" name="fin" placeholder="fin"
+                               class="@error('fin') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         @error('fin')
                         <br>
@@ -218,14 +220,18 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label  style="width: 450px!important;text-align: left">birthday:</label>
+                        <label style="width: 450px!important;text-align: left">birthday:</label>
                     </div>
                     <div class="text-center">
-                        <input  value="{{ old('birthdate') }}" autocomplete="birthdate" type="date" name="birthday" placeholder="birthday" class="@error('birthdate') is-invalid @enderror w-100 courier_input"
-                                style="width: 450px!important;" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
+                        <input value="{{ old('birthdate') }}" autocomplete="birthdate" type="date" name="birthdate"
+                               placeholder="birthdate"
+                               class="@error('birthdate') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;"
+                               pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
                         @error('birthdate')
                         <br>
-                        <span class="invalid-feedback" role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                        <span class="invalid-feedback" role="alert"
+                              style="color: #b7474b "><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                 </div>
@@ -248,10 +254,11 @@
 
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label  style="width: 450px!important;text-align: left">gender:</label>
+                        <label style="width: 450px!important;text-align: left">gender:</label>
                     </div>
                     <div class="text-center">
-                        <select class="@error('gender') is-invalid @enderror form-control courier_input" name="gender" id=""  style="width: 450px!important;margin: 0 auto!important;">
+                        <select class="@error('gender') is-invalid @enderror form-control courier_input" name="gender"
+                                style="width: 450px!important;margin: 0 auto!important;">
                             <option value="2">male</option>
                             <option value="1">female</option>
                         </select>
@@ -265,9 +272,10 @@
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
 
-                        <input class="@error('terms') is-invalid @enderror" type="checkbox" style="vertical-align: middle!important;">
-                        <label  style="margin-bottom: 10px!important;
-    margin-left: 4px!important;">Agree the  Terms and policy</label>
+                        <input class="@error('terms') is-invalid @enderror" type="checkbox" name="terms" required
+                               style="vertical-align: middle!important;">
+                        <label style="margin-bottom: 10px!important;
+    margin-left: 4px!important;">Agree the Terms and policy</label>
                         @error('terms')
                         <span class="invalid-feedback"
                               role="alert"><strong>{{ $message }}</strong></span>
