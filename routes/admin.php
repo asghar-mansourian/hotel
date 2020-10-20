@@ -89,3 +89,14 @@ route::get('/contacts/show/{id}' , 'ContactController@show');
 route::get('/contacts/destroy/{id}' , 'ContactController@destroy');
 route::post('/contacts/search/' , 'ContactController@search');
 route::post('/contacts/sort/' , 'ContactController@sort');
+
+/*      Faqs Routes      */
+route::get('/faqs' , 'FaqController@index');
+route::get('/faqs/load' , 'FaqController@load');
+route::get('/faqs/create/' , 'FaqController@create');
+route::post('/faqs/store/' , 'FaqController@store');
+route::get('/faqs/edit/{id}' , 'FaqController@edit');
+route::post('/faqs/update/{id}' , 'FaqController@update');
+route::get('/faqs/destroy/{id}' , 'FaqController@destroy');
+route::post('/faqs/search/' , 'FaqController@search');
+route::post('/faqs/sort/' , 'FaqController@sort');

@@ -3,15 +3,15 @@
  [
  'sortType'=>$sortType,
  'sortField'=>$sortField,
- 'records' => $blogs ,
+ 'records' => $countries ,
   'selects' => ['id' , 'title'  ]
   ]
 )
     @slot('paginate')
-        {{$blogs->appends(Request::except('page'))->links()}}
+        {{$faqs->appends(Request::except('page'))->links()}}
     @endslot
     @slot('url')
-        pages
+        faqs
     @endslot
 @endcomponent
 
@@ -30,11 +30,7 @@
 
 
 @endcomponent
-
 @component('admin.components.script.sortTableScript')
-    @slot('url')
-        ../../../admin/blogs/sort/
-    @endslot
 @endcomponent
 @component('admin.components.script.showScript')
 @endcomponent
@@ -42,6 +38,6 @@
 @endcomponent
 @component('admin.components.script.mainFormScript')
     @slot('mainFormUrlValue')
-        ../../../admin/pages/index
+        ../../../admin/faqs/index
     @endslot
 @endcomponent

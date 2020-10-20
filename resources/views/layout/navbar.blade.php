@@ -15,13 +15,13 @@
                 <a href="#">How we work</a>
             </li>
             <li>
-                <a href="#">FAQ</a>
+                <a href="{{url('/faq')}}">FAQ</a>
             </li>
             <li>
-                <a href="#">Blog</a>
+                <a href="{{url('/blog')}}">Blog</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="{{url('/contact-us')}}">Contact</a>
             </li>
             <li>
                 <div class="dropdown">
@@ -29,7 +29,7 @@
                         {{\Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->family}}<i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdown_panel">
-                        <a class="dropdown-item" href="#">Panel səhifəsi</a><br/>
+                        <a class="dropdown-item" href="{{url('/home')}}">dashboard</a><br/>
                         <a class="dropdown-item" href="#">Xaricdəki ünvanlarım</a><br/>
                         <a class="dropdown-item" href="#">Sifarişlərim</a><br/>
                         <a class="dropdown-item" href="#">Bağlamalarım</a><br/>

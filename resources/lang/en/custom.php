@@ -127,6 +127,24 @@ return [
                 'delete' => 'Contact Deleted Successful',
             ]
         ],
+        'faq' => [
+            'title' => 'Faqs',
+            'index' => [
+                'title' => 'Show Faqs',
+
+                'table' => [
+                    'header' => 'Faqs List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Faq',
+            ],
+            'message' => [
+                'create' => 'Faq Created Successful',
+                'update' => 'Faq Updated Successful',
+                'delete' => 'Faq Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',
