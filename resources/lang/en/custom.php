@@ -73,6 +73,78 @@ return [
                 'delete' => 'Region Deleted Successful',
             ]
         ],
+        'page' => [
+            'title' => 'Pages',
+            'index' => [
+                'title' => 'Show Pages',
+
+                'table' => [
+                    'header' => 'Pages List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Page',
+            ],
+            'message' => [
+                'create' => 'Page Created Successful',
+                'update' => 'Page Updated Successful',
+                'delete' => 'Page Deleted Successful',
+            ]
+        ],
+        'blog' => [
+            'title' => 'Blogs',
+            'index' => [
+                'title' => 'Show Articles',
+
+                'table' => [
+                    'header' => 'Articles List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Article',
+            ],
+            'message' => [
+                'create' => 'Article Created Successful',
+                'update' => 'Article Updated Successful',
+                'delete' => 'Article Deleted Successful',
+            ]
+        ],
+        'contact' => [
+            'title' => 'Contacts',
+            'index' => [
+                'title' => 'Show Contacts',
+
+                'table' => [
+                    'header' => 'Contacts List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Contact',
+            ],
+            'message' => [
+                'create' => 'Contact Created Successful',
+                'update' => 'Contact Updated Successful',
+                'delete' => 'Contact Deleted Successful',
+            ]
+        ],
+        'faq' => [
+            'title' => 'Faqs',
+            'index' => [
+                'title' => 'Show Faqs',
+
+                'table' => [
+                    'header' => 'Faqs List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Faq',
+            ],
+            'message' => [
+                'create' => 'Faq Created Successful',
+                'update' => 'Faq Updated Successful',
+                'delete' => 'Faq Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',
@@ -88,5 +160,8 @@ return [
         'actions' => 'actions',
         'active' => 'active',
         'deactive' => 'deactive',
+        'title' => 'title',
+        'cancel' => 'cancel',
+        'back' => 'back',
     ]
 ];

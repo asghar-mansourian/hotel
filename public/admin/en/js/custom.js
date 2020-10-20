@@ -81,7 +81,7 @@
 			}
 		});
 	});
-	
+
 	// ______________Quantity Cart Increase & Descrease
 	$(function () {
 		$('.add').on('click',function(){
@@ -99,7 +99,7 @@
 			}
 		});
 	});
-	
+
 	// ___________TOOLTIP
 	$('[data-toggle="tooltip"]').tooltip();
 	// colored tooltip
@@ -329,40 +329,40 @@
 	});
 
 	// sparkline1
-	$(".sparkline_bar").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4], {
-		height: 20,
-		type: 'bar',
-		colorMap: {
-			'7': '#a1a1a1'
-		},
-		barColor: '#ff5b51'
-	});
+	// $(".sparkline_bar").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4], {
+	// 	height: 20,
+	// 	type: 'bar',
+	// 	colorMap: {
+	// 		'7': '#a1a1a1'
+	// 	},
+	// 	barColor: '#ff5b51'
+	// });
+    //
+	// // sparkline2
+	// $(".sparkline_bar1").sparkline([3, 4, 3, 4, 5, 4, 5, 6, 4, 6,], {
+	// 	height: 20,
+	// 	type: 'bar',
+	// 	colorMap: {
+	// 		'7': '#c34444'
+	// 	},
+	// 	barColor: '#44c386'
+	// });
+    //
+	// // sparkline3
+	// $(".sparkline_bar2").sparkline([3, 4, 3, 4, 5, 4, 5, 6, 4, 6,], {
+	// 	height: 20,
+	// 	type: 'bar',
+	// 	colorMap: {
+	// 		'7': '#a1a1a1'
+	// 	},
+	// 	barColor: '#fa057a'
+	// });
 
-	// sparkline2
-	$(".sparkline_bar1").sparkline([3, 4, 3, 4, 5, 4, 5, 6, 4, 6,], {
-		height: 20,
-		type: 'bar',
-		colorMap: {
-			'7': '#c34444'
-		},
-		barColor: '#44c386'
-	});
 
-	// sparkline3
-	$(".sparkline_bar2").sparkline([3, 4, 3, 4, 5, 4, 5, 6, 4, 6,], {
-		height: 20,
-		type: 'bar',
-		colorMap: {
-			'7': '#a1a1a1'
-		},
-		barColor: '#fa057a'
-	});
-
-	
 	// ______________ SWITCHER-toggle ______________//
-	
+
 	/*Skin modes*/
-	$(document).on("click", '#myonoffswitch14', function () {    
+	$(document).on("click", '#myonoffswitch14', function () {
 		if (this.checked) {
 			$('body').addClass('dark-mode');
 			$('body').removeClass('light-mode');
@@ -385,7 +385,7 @@
 			localStorage.setItem("dark-mode", "false");
 		}
 	});
-	$(document).on("click", '#myonoffswitch3', function () {    
+	$(document).on("click", '#myonoffswitch3', function () {
 		if (this.checked) {
 			$('body').addClass('light-mode');
 			$('body').removeClass('dark-mode');
@@ -408,9 +408,9 @@
 			localStorage.setItem("light-mode", "false");
 		}
 	});
-	
+
 	/*Left-menu Style1*/
-	$(document).on("click", '#myonoffswitch', function ()  {    
+	$(document).on("click", '#myonoffswitch', function ()  {
 		if (this.checked) {
 			$('body').addClass('color-menu');
 			$('body').removeClass('light-menu');
@@ -427,7 +427,7 @@
 			localStorage.setItem("color-menu", "false");
 		}
 	});
-	$(document).on("click", '#myonoffswitch1', function () {   
+	$(document).on("click", '#myonoffswitch1', function () {
 		if (this.checked) {
 			$('body').addClass('light-menu');
 			$('body').removeClass('color-menu');
@@ -443,8 +443,8 @@
 			$('body').removeClass('light-menu');
 			localStorage.setItem("light-menu", "false");
 		}
-	});	
-	$(document).on("click", '#myonoffswitch2', function () {   
+	});
+	$(document).on("click", '#myonoffswitch2', function () {
 		if (this.checked) {
 			$('body').addClass('dark-menu');
 			$('body').removeClass('color-menu');
@@ -461,7 +461,7 @@
 			localStorage.setItem("dark-menu", "false");
 		}
 	});
-	$(document).on("click", '#myonoffswitch5', function ()  {    
+	$(document).on("click", '#myonoffswitch5', function ()  {
 		if (this.checked) {
 			$('body').addClass('gradient-menu');
 			$('body').removeClass('color-menu');
@@ -477,11 +477,11 @@
 			$('body').removeClass('gradient-menu');
 			localStorage.setItem("gradient-menu", "false");
 		}
-	});		
-	
+	});
+
 	/*------ Horizonatal-menu-------*/
 	/*Header Style*/
-	$(document).on("click", '#myonoffswitch10', function () {    
+	$(document).on("click", '#myonoffswitch10', function () {
 		if (this.checked) {
 			$('body').addClass('light-hor-header');
 			$('body').removeClass('color-hor-header');
@@ -501,8 +501,8 @@
 			$('body').removeClass('light-hor-header');
 			localStorage.setItem("light-hor-header", "false");
 		}
-	});	
-	$(document).on("click", '#myonoffswitch11', function ()  {    
+	});
+	$(document).on("click", '#myonoffswitch11', function ()  {
 		if (this.checked) {
 			$('body').addClass('color-hor-header');
 			$('body').removeClass('light-hor-header');
@@ -522,8 +522,8 @@
 			$('body').removeClass('color-hor-header');
 			localStorage.setItem("color-hor-header", "false");
 		}
-	});	
-	$(document).on("click", '#myonoffswitch12', function ()  {    
+	});
+	$(document).on("click", '#myonoffswitch12', function ()  {
 		if (this.checked) {
 			$('body').addClass('gradient-hor-header');
 			$('body').removeClass('color-hor-header');
@@ -543,8 +543,8 @@
 			$('body').removeClass('gradient-hor-header');
 			localStorage.setItem("gradient-hor-header", "false");
 		}
-	});	
-	$(document).on("click", '#myonoffswitch13', function ()  {    
+	});
+	$(document).on("click", '#myonoffswitch13', function ()  {
 		if (this.checked) {
 			$('body').addClass('dark-hor-header');
 			$('body').removeClass('color-hor-header');
@@ -563,10 +563,10 @@
 			$('body').removeClass('dark-hor-header');
 			localStorage.setItem("dark-hor-header", "false");
 		}
-	});	
-	
+	});
+
 	/*Menu Style*/
-	$(document).on("click", '#myonoffswitch6', function ()  {    
+	$(document).on("click", '#myonoffswitch6', function ()  {
 		if (this.checked) {
 			$('body').addClass('color-hor-menu');
 			$('body').removeClass('light-hor-menu');
@@ -583,8 +583,8 @@
 			$('body').removeClass('color-hor-menu');
 			localStorage.setItem("color-hor-menu", "false");
 		}
-	});	
-	$(document).on("click", '#myonoffswitch7', function ()  {    
+	});
+	$(document).on("click", '#myonoffswitch7', function ()  {
 		if (this.checked) {
 			$('body').addClass('light-hor-menu');
 			$('body').removeClass('color-hor-menu');
@@ -600,8 +600,8 @@
 			$('body').removeClass('light-hor-menu');
 			localStorage.setItem("light-hor-menu", "false");
 		}
-	});	
-	$(document).on("click", '#myonoffswitch8', function ()  {    
+	});
+	$(document).on("click", '#myonoffswitch8', function ()  {
 		if (this.checked) {
 			$('body').addClass('dark-hor-menu');
 			$('body').removeClass('light-hor-menu');
@@ -617,8 +617,8 @@
 			$('body').removeClass('dark-hor-menu');
 			localStorage.setItem("dark-hor-menu", "false");
 		}
-	});	
-	$(document).on("click", '#myonoffswitch9', function ()  {    
+	});
+	$(document).on("click", '#myonoffswitch9', function ()  {
 		if (this.checked) {
 			$('body').addClass('gradient-hor-menu');
 			$('body').removeClass('color-hor-menu');
@@ -634,11 +634,11 @@
 			$('body').removeClass('gradient-hor-menu');
 			localStorage.setItem("gradient-hor-menu", "false");
 		}
-	});	
-	
-	
+	});
+
+
 	/*Left-menu-style1*/
-	$(document).on("click", '#myonoffswitch16', function () {    
+	$(document).on("click", '#myonoffswitch16', function () {
 		if (this.checked) {
 			$('body').addClass('default-leftmenu');
 			$('body').removeClass('style1-leftmenu');
@@ -649,7 +649,7 @@
 			localStorage.setItem("default-leftmenu", "false");
 		}
 	});
-	$(document).on("click", '#myonoffswitch17', function () {    
+	$(document).on("click", '#myonoffswitch17', function () {
 		if (this.checked) {
 			$('body').addClass('style1-leftmenu');
 			$('body').removeClass('default-leftmenu');

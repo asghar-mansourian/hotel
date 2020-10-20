@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register Web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "Web" middleware group. Now create something great!
 |
 */
 
@@ -51,4 +51,52 @@ route::post('/regions/sort/' , 'RegionController@sort');
 
 Route::get('/home', 'HomeController@index')->name('admin.home');
 
+/*      Uploader Routes      */
+Route::get('/uploader/filesUploader' , 'UploaderController@filesUploaderIndex');
+Route::post('/uploader/filesUploader' , 'UploaderController@filesUploaderStore');
+Route::post('/uploader/videoUploader' , 'UploaderController@videoUploaderStore');
+Route::post('/editor/ckeditorUploader', 'UploaderController@ckeditorUploader')->name('ckeditor');
+Route::get('/editor/ckeditor' , 'UploaderController@ckeditor');
 
+
+/*      Pages Routes      */
+route::get('/pages' , 'PageController@index');
+route::get('/pages/load' , 'PageController@load');
+route::get('/pages/create/' , 'PageController@create');
+route::post('/pages/store/' , 'PageController@store');
+route::get('/pages/edit/{id}' , 'PageController@edit');
+route::post('/pages/update/{id}' , 'PageController@update');
+route::get('/pages/destroy/{id}' , 'PageController@destroy');
+route::post('/pages/search/' , 'PageController@search');
+route::post('/pages/sort/' , 'PageController@sort');
+
+/*      Blogs Routes      */
+route::get('/blogs' , 'BlogController@index');
+route::get('/blogs/load' , 'BlogController@load');
+route::get('/blogs/create/' , 'BlogController@create');
+route::post('/blogs/store/' , 'BlogController@store');
+route::get('/blogs/edit/{id}' , 'BlogController@edit');
+route::post('/blogs/update/{id}' , 'BlogController@update');
+route::get('/blogs/destroy/{id}' , 'BlogController@destroy');
+route::post('/blogs/search/' , 'BlogController@search');
+route::post('/blogs/sort/' , 'BlogController@sort');
+
+
+/*      Contacts Routes      */
+route::get('/contacts' , 'ContactController@index');
+route::get('/contacts/load' , 'ContactController@load');
+route::get('/contacts/show/{id}' , 'ContactController@show');
+route::get('/contacts/destroy/{id}' , 'ContactController@destroy');
+route::post('/contacts/search/' , 'ContactController@search');
+route::post('/contacts/sort/' , 'ContactController@sort');
+
+/*      Faqs Routes      */
+route::get('/faqs' , 'FaqController@index');
+route::get('/faqs/load' , 'FaqController@load');
+route::get('/faqs/create/' , 'FaqController@create');
+route::post('/faqs/store/' , 'FaqController@store');
+route::get('/faqs/edit/{id}' , 'FaqController@edit');
+route::post('/faqs/update/{id}' , 'FaqController@update');
+route::get('/faqs/destroy/{id}' , 'FaqController@destroy');
+route::post('/faqs/search/' , 'FaqController@search');
+route::post('/faqs/sort/' , 'FaqController@sort');
