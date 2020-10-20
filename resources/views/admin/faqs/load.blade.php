@@ -1,23 +1,20 @@
-@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $pages , 'selects' => ['id' , 'title' ]])
+@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $faqs , 'selects' => ['id' , 'title' ]])
 
     @slot('paginate')
-        {{$pages->links()}}
+        {{$faqs->links()}}
     @endslot
     @slot('url')
-        pages
+        faqs
     @endslot
 @endcomponent
 
 @component('admin.components.script.paginatorScript' , ['type' => 1])
 
     @slot('paginatorUrl')
-        ../../../admin/pages/load
+        ../../../admin/faqs/load
     @endslot
 @endcomponent
 @component('admin.components.script.sortTableScript')
-    @slot('url')
-        ../../../admin/blogs/sort/
-    @endslot
 @endcomponent
 @component('admin.components.script.showScript')
 @endcomponent
@@ -25,6 +22,6 @@
 @endcomponent
 @component('admin.components.script.mainFormScript')
     @slot('mainFormUrlValue')
-        ../../../admin/pages/index
+        ../../../admin/faqs/index
     @endslot
 @endcomponent

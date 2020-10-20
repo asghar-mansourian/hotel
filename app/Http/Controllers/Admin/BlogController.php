@@ -93,7 +93,7 @@ class BlogController extends Controller
             ->paginate(Blog::paginateNumber);
 
         $countblogs = Blog::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('title', 'like', '%' . $search . '%')
             ->count();
 
         return View::make('admin.blogs.table', compact('blogs'), with([

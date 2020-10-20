@@ -46,3 +46,5 @@ Route::get('/blog/{id}', 'Web\BlogController@singel');
 
 Route::get('/contact-us', 'Web\ContactController@index');
 Route::post('/contact-us', 'Web\ContactController@store');
+
+Route::get('/faq', 'Web\FaqController@index');
