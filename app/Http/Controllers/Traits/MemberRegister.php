@@ -50,7 +50,7 @@ trait MemberRegister
     private function generateCode()
     {
         do {
-            $code = rand(00000000000, 99999999999);
+            $code = rand(00000, 99999);
 
             $exists = User::where('code', $code)->exists();
 

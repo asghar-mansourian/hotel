@@ -45,7 +45,7 @@ class RegisterController extends Controller
 
             $response = Auth::register($user)->object();
             if ($response->code == 1) {
-                $user->cowsel_code = $response->data->code;
+                $user->code = $response->data->code;
             }
 
             $user->save();
