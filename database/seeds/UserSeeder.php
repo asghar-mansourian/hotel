@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Main User',
                 'password' => bcrypt('123456789'),
-                'serial_number' => '123456789',
+                'serial_number' => '123456732',
                 'citizenship' => 'Iran',
                 'birthdate' => '1398/12/20',
                 'gender' => User::GENDER_MAN,
