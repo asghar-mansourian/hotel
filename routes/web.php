@@ -17,34 +17,40 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin' ], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     /*      User Routes      */
-    Route::get('/login', 'Admin\Auth\LoginController@showAdminLoginForm')->name('admin.login');
-    Route::post('/login', 'Admin\Auth\LoginController@adminLogin');
-    Route::get('/register', 'Admin\Auth\RegisterController@showAdminRegisterForm');
-    Route::post('/register', 'Admin\Auth\RegisterController@createAdmin');
-    Route::get('/logout', 'Admin\Auth\LoginController@logout');
+    Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\LoginController@adminLogin');
+    Route::get('/register', 'Auth\RegisterController@showAdminRegisterForm');
+    Route::post('/register', 'Auth\RegisterController@createAdmin');
+    Route::get('/logout', 'Auth\LoginController@logout');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['namespace' => 'Web'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/logout', 'Member\Auth\LoginController@logout');
+    Route::get('/blog', 'BlogController@index');
+    Route::get('/blog/{id}', 'BlogController@singel');
 
+    Route::get('/contact-us', 'ContactController@index');
+    Route::post('/contact-us', 'ContactController@store');
 
+    Route::get('/faq', 'FaqController@index');
+});
+
+// section user panel
 Route::group(['namespace' => 'Member'], function () {
-    \Auth::routes();
+    Auth::routes();
+
+    Route::get('/logout', 'Auth\LoginController@logout');
+
+    Route::get('/home', 'PanelController@index')->name('panel');
+
+    Route::get('/setting', 'SettingController@index');
+    Route::post('/setting/changeProfileInformation', 'SettingController@changeProfileInformation');
+    Route::post('/setting/changePassword', 'SettingController@changePassword');
+    Route::post('/setting/changeOther', 'SettingController@changeOther');
+    Route::post('/setting/getCurrency', 'SettingController@getCurrency');
+
+    Route::resource('invoices', 'Invoice\InvoiceController');
 });
-
-Route::get('/setting', 'Member\SettingController@index');
-Route::post('/setting/changeProfileInformation', 'Member\SettingController@changeProfileInformation');
-Route::post('/setting/changePassword', 'Member\SettingController@changePassword');
-Route::post('/setting/changeOther', 'Member\SettingController@changeOther');
-Route::post('/setting/getCurrency', 'Member\SettingController@getCurrency');
-
-Route::get('/blog', 'Web\BlogController@index');
-Route::get('/blog/{id}', 'Web\BlogController@singel');
-
-Route::get('/contact-us', 'Web\ContactController@index');
-Route::post('/contact-us', 'Web\ContactController@store');
-
-Route::get('/faq', 'Web\FaqController@index');
