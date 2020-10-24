@@ -17,49 +17,58 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin' ], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     /*      User Routes      */
-    Route::get('/login', 'Admin\Auth\LoginController@showAdminLoginForm')->name('admin.login');
-    Route::post('/login', 'Admin\Auth\LoginController@adminLogin');
-    Route::get('/register', 'Admin\Auth\RegisterController@showAdminRegisterForm');
-    Route::post('/register', 'Admin\Auth\RegisterController@createAdmin');
-    Route::get('/logout', 'Admin\Auth\LoginController@logout');
+    Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\LoginController@adminLogin');
+    Route::get('/register', 'Auth\RegisterController@showAdminRegisterForm');
+    Route::post('/register', 'Auth\RegisterController@createAdmin');
+    Route::get('/logout', 'Auth\LoginController@logout');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/logout', 'Member\Auth\LoginController@logout');
-
-
+// section user panel
 Route::group(['namespace' => 'Member'], function () {
-    \Auth::routes();
+    Auth::routes();
+
+    Route::get('/logout', 'Auth\LoginController@logout');
+
+    Route::get('/home', 'PanelController@index')->name('panel');
+
+    Route::get('/setting', 'SettingController@index');
+    Route::post('/setting/changeProfileInformation', 'SettingController@changeProfileInformation');
+    Route::post('/setting/changePassword', 'SettingController@changePassword');
+    Route::post('/setting/changeOther', 'SettingController@changeOther');
+    Route::post('/setting/getCurrency', 'SettingController@getCurrency');
+    Route::get('/setting/getCurrency/{id}/{type}', 'SettingController@getCurrencyOnce');
+
+    Route::get('/payment/verify', 'PaymentController@index');
+    Route::post('/payment/verify', 'PaymentController@card');
+    Route::get('/payment/redirect', 'PaymentController@index');
+    Route::get('/payment/delivery', 'PaymentController@index');
+
+    Route::get('/az-balance', 'PaymentController@verify');
+
+    Route::resource('invoices', 'Invoice\InvoiceController');
 });
-// member
-Route::get('/setting', 'Member\SettingController@index');
-Route::post('/setting/changeProfileInformation', 'Member\SettingController@changeProfileInformation');
-Route::post('/setting/changePassword', 'Member\SettingController@changePassword');
-Route::post('/setting/changeOther', 'Member\SettingController@changeOther');
-Route::post('/setting/getCurrency', 'Member\SettingController@getCurrency');
-Route::get('/setting/getCurrency/{id}/{type}', 'Member\SettingController@getCurrencyOnce');
-
-Route::get('/payment/verify', 'Member\PaymentController@index');
-Route::post('/payment/verify', 'Member\PaymentController@card');
-Route::get('/payment/redirect', 'Member\PaymentController@index');
-Route::get('/payment/delivery', 'Member\PaymentController@index');
-
-Route::get('/az-balance', 'Member\PaymentController@verify');
-
 // web
-Route::get('/blog', 'Web\BlogController@index');
-Route::get('/blog/{id}', 'Web\BlogController@singel');
+Route::group(['namespace' => 'Web'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/contact-us', 'Web\ContactController@index');
-Route::post('/contact-us', 'Web\ContactController@store');
+    Route::get('/blog', 'BlogController@index');
+    Route::get('/blog/{id}', 'BlogController@singel');
 
-Route::get('/faq', 'Web\FaqController@index');
-Route::get('/how-we-work', function (){
-    return view('web.how');
+    Route::get('/contact-us', 'ContactController@index');
+    Route::post('/contact-us', 'ContactController@store');
+
+    Route::get('/faq', 'FaqController@index');
+
+    Route::get('/how-we-work', function (){
+        return view('web.how');
+    });
+
+    Route::get('/pricing', 'FaqController@index');
 });
-Route::get('/pricing', 'Web\FaqController@index');
+
+
 
 
