@@ -12,7 +12,7 @@
                 <a href="#">Pricing</a>
             </li>
             <li>
-                <a href="#">How we work</a>
+                <a href="{{url('/how-we-work')}}">How we work</a>
             </li>
             <li>
                 <a href="{{url('/faq')}}">FAQ</a>

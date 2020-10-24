@@ -19,13 +19,13 @@
 .usd_back{
 	background: #fffbed;
     padding: 6px 12px;
-    font-weight: 700;
+    font-family: Montserrat-Bold;
     float: right;
     border-radius: 4px;	
 }
 .span_kg{
 	font-size: 23px;
-    font-weight: 700;
+    font-family: Montserrat-Bold;
     color: #ffcc00;	
 }
 .xet{
@@ -70,7 +70,7 @@
     font-size: 11px;
     color: #19170f;
     padding: 11px 0;
-    font-weight: 600;   
+    font-family: Montserrat-Bold;   
 }
 .pricing_box_cou select{
     height: 38px;

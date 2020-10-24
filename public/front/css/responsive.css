@@ -70,13 +70,13 @@
 		margin-top: 30px
 	}
 	.black{
-		font-size: 40px
+		font-size: 30px
 	}
 	.faq .accordion, .title_list{
 		font-size: 14px
 	}
 	.img_slider_faq, .title, .img_slider, .dis_no, .img_slider , .rate_calculator, .daily_unit, .use_dis_no,
-	.h4_height, .million_img{
+	.h4_height, .million_img, .loader_img, .latest_dots2 img, #quote-carousel .carousel-control{
 		display: none;
 	}
 	.footer_yellow, .daily_unit, .rate_calculator, .border_sh{
@@ -274,9 +274,145 @@
 		top: unset;
 		font-size: 12px;
 	}
+	.index_cont .border_c{
+		padding: 15px;
+		margin: 15px 0 0
+	}
+	.index_cont .border_c img{
+		width: 40px
+	}
+	.how_work_text{
+		font-size: 20px;
+		padding: 15px 0;
+		margin-bottom: 30px;
+		margin-top: 30px
+	}
+	.how_work_col{
+		height: 200px;
+		padding: 15px;
+		width: 100%;
+		margin: 0px auto 30px;
+	}
+	 .m_right_20, .m_left_20{
+	 	margin-left: 0;
+	 	margin-right: 0
+	 }
+	 .how_work_img img{
+	 	width: 35px;
+	 	height: 35px
+	 }
+	 .counter .cou_date .fas{
+	    font-size: 12px;
+    	margin-left: 5px;	
+	 }
+	 .counter{
+	 	font-size: 15px;
+	 	padding: 30px 15px
+	 }
+	.counter .counter_text{
+	 	margin-top: 5px;
+    	margin-bottom: 20px;
+	 }
+	 .skills_text{
+	    width: 100%;
+    	font-size: 17px;	
+	 }
+	 .font_40 {
+	    font-size: 25px;
+	}
+	.skills_italy{
+	    width: 100%;
+	    line-height: 2;
+	    margin-top: 15px;
+	    font-size: 12px;	
+	}
+	.skills{
+		background-image: unset;
+	}
+	.latest_dots img {
+	    width: 85px;
+	    margin: 0px 19px -55px;
+	}
+	.latest_new_title{
+		font-size: 20px
+	}
+	.latest_new .blog_img_he img, .latest_new .blog_img_he {
+	    height: 140px;
+	}
+	.latest_new{
+		padding: 35px 0 0;
+	}
+	.height_380{
+		height: unset;
+	}
+	.news_img img{
+		margin-top: 0
+	}
+	.news_input{
+		margin-top: 5px
+	}
+	.newsletter_read {
+	    bottom: 15px;
+	}
+	.newsletter{
+		padding: 15px
+	}
+	.quote{
+	    background-image: unset;
+	    margin-top: 0;
+	    padding-top: 0;	
+	}
+	.quote-title {
+	    font-size: 20px;
+	}
+	.quote_border {
+	    border-top: 5px solid #ffcc00;
+	    margin: 15px 0;
+	}
+	#quote-carousel{
+	    padding: 15px;
+    	margin-top: 30px;	
+	}
+	blockquote {
+	    text-align: left;
+	    font-size: 12px;
+	    padding: 10px 0px;
+	}
+	.carousel-indicators{
+	    width: 100%;
+    	left: 15%;	
+	}
+	#quote-carousel .carousel-indicators li{
+		height: 20px;
+		width: 20px
+	}
+	#quote-carousel .carousel-indicators .active{
+		width: 30px;
+		height: 30px
+	}
+	.partner .owl-carousel .owl-item img{
+		width: 130px
+	}
+	.partner {
+	    margin-top: 60px;
+	    height: 60px;
+	}
+	.how_work_num{
+		right: 5px
+	}
+	.shops{
+	    width: 100px;
+	    height: 40px;
+	}
+	.courier_file{
+		width: 100%
+	}
+	.invoice_buttons{
+		margin-top: 30px
+	}
 }
 @media (min-width: 481px) and (max-width: 767px){
-	.mob_dis, .img_slider_faq, .dis_no, .img_slider ,.rate_calculator, .daily_unit, .use_dis_no, .h4_height, .million_img{
+	.mob_dis, .img_slider_faq, .dis_no, .img_slider ,.rate_calculator, .daily_unit, .use_dis_no, .h4_height, .million_img, .loader_img, .latest_dots2 img, #quote-carousel .carousel-control{
 		display: none;
 	}
 	.logo_mob{
@@ -455,6 +591,129 @@
 	.balance_azn .balance .balance-text{
 		top: unset;
 		font-size: 12px;
+	}
+	.index_cont .border_c{
+		padding: 15px;
+		margin: 15px 0 0
+	}
+	.index_cont .border_c img{
+		width: 40px
+	}
+	.how_work_text{
+		font-size: 20px;
+		padding: 15px 0;
+		margin-bottom: 30px;
+		margin-top: 30px
+	}
+	.how_work_col{
+		height: 200px;
+		padding: 15px;
+		width: 100%;
+		margin: 0px auto 30px;
+	}
+	 .m_right_20, .m_left_20{
+	 	margin-left: 0;
+	 	margin-right: 0
+	 }
+	 .how_work_img img{
+	 	width: 35px;
+	 	height: 35px
+	 }
+	 .counter .cou_date .fas{
+	    font-size: 15px;
+    	margin-left: 5px;	
+	 }
+	 .counter{
+	 	font-size: 18px;
+	 	padding: 30px 15px
+	 }
+	.counter .counter_text{
+	 	margin-top: 5px;
+    	margin-bottom: 20px;
+	 }
+	 .skills_text{
+	    width: 100%;
+    	font-size: 17px;	
+	 }
+	 .font_40 {
+	    font-size: 25px;
+	}
+	.skills_italy{
+	    width: 100%;
+	    line-height: 2;
+	    margin-top: 15px;
+	    font-size: 12px;	
+	}
+	.skills{
+		background-image: unset;
+	}
+	.latest_dots img {
+	    width: 85px;
+	    margin: 0px 19px -55px;
+	}
+	.latest_new_title{
+		font-size: 20px
+	}
+	.latest_new .blog_img_he img, .latest_new .blog_img_he {
+	    height: 140px;
+	}
+	.latest_new{
+		padding: 35px 0 0;
+	}
+	.height_380{
+		height: unset;
+	}
+	.news_img img{
+		margin-top: 0
+	}
+	.news_input{
+		margin-top: 5px
+	}
+	.newsletter_read {
+	    bottom: 15px;
+	}
+	.newsletter{
+		padding: 15px
+	}
+	.quote{
+	    background-image: unset;
+	    margin-top: 0;
+	    padding-top: 0;	
+	}
+	.quote-title {
+	    font-size: 20px;
+	}
+	.quote_border {
+	    border-top: 5px solid #ffcc00;
+	    margin: 15px 0;
+	}
+	#quote-carousel{
+	    padding: 15px;
+    	margin-top: 30px;	
+	}
+	blockquote {
+	    text-align: left;
+	    font-size: 12px;
+	    padding: 10px 0px;
+	}
+	.carousel-indicators{
+	    width: 100%;
+    	left: 15%;	
+	}
+	#quote-carousel .carousel-indicators li{
+		height: 20px;
+		width: 20px
+	}
+	#quote-carousel .carousel-indicators .active{
+		width: 30px;
+		height: 30px
+	}
+	.partner .owl-carousel .owl-item img{
+		width: 130px
+	}
+	.partner {
+	    margin-top: 60px;
+	    height: 60px;
 	}
 }
 @media (min-width: 768px) and (max-width: 991px){
@@ -638,6 +897,79 @@
 		top: unset;
 		font-size: 12px;
 	}
+	.skills_italy{
+		width: 100%;
+		margin-top: 20px;
+    	font-size: 14px;
+	}
+	.skills_text{
+		font-size: 20px;
+		width: 100%
+	}
+	.skills{
+		background-size: 140px;
+    	background-position: 0% 20%;
+	}
+	 .m_right_20, .m_left_20{
+	 	margin-left: 0;
+	 	margin-right: 0
+	 }
+	 .how_work_img img{
+	 	width: 40px;
+	 	height: 40px
+	 }
+	 .how_work_col {
+	    width: 100%;
+	    padding: 30px;
+	    margin: 0px auto 35px;
+	}
+	.latest_new_title {
+	    font-size: 25px;
+	}
+	.latest_dots img {
+	    width: 130px;
+	    margin: 0px 25px -75px;
+	}
+	.latest_dots2 img {
+	    width: 130px;
+	    margin: -60px 0 0px -60px;
+	}
+	.latest_new .blog_img_he img, .latest_new .blog_img_he {
+	    height: 200px;
+	}
+	.news_img img{
+		margin-top: 0
+	}
+	.newsletter {
+	    height: 400px;
+	    padding: 15px;
+	    margin-top: 0
+	}
+	.height_380 {
+	     height: unset; 
+	}
+	.news_input {
+	    margin-top: 5px;
+	}
+	.newsletter_read {
+	    bottom: 15px;
+	}
+	.quote{
+	    padding: 0;
+	    margin-top: 30px;
+	    background-image: unset;	
+	}
+	.quote-title {
+	    font-size: 18px;
+	}
+	.quote_border {
+	    border-top: 5px solid #ffcc00;
+	    margin: 20px 0;
+	}
+	#quote-carousel {
+	    padding: 10px;
+	    margin-top: 30px;	}
+
 }
 @media (min-width: 992px) and (max-width: 1199px){
 	.contac_bacg{

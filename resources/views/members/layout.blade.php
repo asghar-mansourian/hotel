@@ -33,7 +33,7 @@
                     // var url = '/setting';
                     //
                     // window.location.replace(url);
-                    $('#result_cal').attr('value' , response.vl);
+                    $('#result_cal').attr('value', response.vl);
                 };
                 var after = function () {
                     // $('div.block2').unblock();
@@ -52,6 +52,129 @@
                     processData: false,
                     contentType: false,
                     cache: false,
+                };
+                $.ajaxSetup(option);
+                $.ajax({
+                    beforeSend: function () {
+                        before()
+                    },
+                    success: function (response) {
+                        success(response)
+                    },
+                    error: function (response) {
+                        error(response)
+                    },
+                    complete: function () {
+                        after()
+                    }
+                });
+            });
+
+        });
+
+    </script>
+
+    <script>
+        function showStuff(id, text, btn) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById(text).style.display = 'none';
+            btn.style.display = 'none';
+        }
+    </script>
+
+    <script>
+        filterSelection("all")
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+
+
+            $('#balance_val').on('keyup', function (e) {
+
+                e.preventDefault();
+                var currency = $(this).val();
+
+                var error = function (response) {
+                    var jsonResponse = JSON.parse(response.responseText);
+                    console.log(jsonResponse.errors);
+                    $(jsonResponse.errors).each(function (index, value) {
+                        $('#' + jsonResponse.keys[index]).addClass('has-danger');
+                        $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
+                    })
+
+                }
+                var success = function (response) {
+                    var data = response.search(',');
+                    data = response.substr(6, 4);
+
+                    // var url = '/setting';
+                    //
+                    // window.location.replace(url);
+                    $('#new_balance_val').attr('value', data);
+                };
+                var after = function () {
+                    // $('div.block2').unblock();
+                }
+                var before = function () {
+                    $('.form-control').removeClass('has-danger');
+                    $('.help-block').each(function () {
+                        $(this).remove();
+                    });
+                }
+                var option = {
+                    data: {id: currency, type: 'AZN'},
+                    url: "../setting/getCurrency/{id}/{type}",
+                    type: "get",
+                    // dataType: "JSON",
+                    // processData: false,
+                    // contentType: false,
+                    // cache: false,
                 };
                 $.ajaxSetup(option);
                 $.ajax({

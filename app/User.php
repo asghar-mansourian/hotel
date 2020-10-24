@@ -64,4 +64,8 @@ class User extends Authenticatable implements JWTSubject
         self::GENDER_MAN => 'man',
         self::GENDER_WOMAN => 'woman'
     ];
+
+    public function payments(){
+        return $this->hasMany('App\Payment');
+    }
 }

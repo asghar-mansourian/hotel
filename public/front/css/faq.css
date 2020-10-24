@@ -1,7 +1,7 @@
 
 .black{
-    font-size: 75px;
-    font-weight: bold;   
+    font-size: 60px;
+    font-family: Montserrat-Bold;   
 }
 .italic{
     font-style: italic;
@@ -16,7 +16,7 @@
     text-align: left;
     outline: none;
     font-size: 15px;
-    font-weight: 700;
+    font-family: Montserrat-Bold;
     transition: 0.4s;
 }
 .faq .active, .faq .accordion:hover {
@@ -25,7 +25,7 @@
 .faq .accordion:after {
     content: '\02EF';
     color: #ccc;
-    font-weight: bold;
+    font-family: Montserrat-Bold;
     float: right;
     font-size: 36px;
     margin-left: 5px;
@@ -53,6 +53,24 @@
 	width: 80%;
     float: right;
 }
-    .faq{
-        margin-top: 20px
-    }
+.faq{
+    margin-top: 20px
+}
+.how_work_num{
+    position: absolute;
+    float: right;
+    background: #fff7d8;
+    width: 60px;
+    right: -10px;
+    border-radius: 100%;
+    color: #ffcc00;
+    height: 60px;
+    font-family: Montserrat-Bold;
+    font-size: 35px;
+    text-align: center;
+    padding: 5px;
+    margin-top: -30px;
+    border: 1px solid #ffcc00;
+    -moz-box-shadow: 23px 11px 24px 1px rgba(255,204,0,1);
+    box-shadow: 9px 7px 21px -7px rgba(255,204,0,1);    
+}

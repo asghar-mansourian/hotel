@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="61" height="61" viewBox="0 0 61 61">
+  <g id="headphones" transform="translate(1 1)">
+    <path id="Path_43" data-name="Path 43" d="M3,52.167V32.5a29.5,29.5,0,1,1,59,0V52.167" transform="translate(-3 -3)" fill="none" stroke="#b2b2b2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_44" data-name="Path 44" d="M62,30.389a6.556,6.556,0,0,1-6.556,6.556H52.167a6.556,6.556,0,0,1-6.556-6.556V20.556A6.556,6.556,0,0,1,52.167,14H62Zm-59,0a6.556,6.556,0,0,0,6.556,6.556h3.278a6.556,6.556,0,0,0,6.556-6.556V20.556A6.556,6.556,0,0,0,12.833,14H3Z" transform="translate(-3 22.056)" fill="none" stroke="#b2b2b2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>
