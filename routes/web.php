@@ -26,18 +26,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/logout', 'Auth\LoginController@logout');
 });
 
-Route::group(['namespace' => 'Web'], function () {
-    Route::get('/', 'HomeController@index')->name('home');
-
-    Route::get('/blog', 'BlogController@index');
-    Route::get('/blog/{id}', 'BlogController@singel');
-
-    Route::get('/contact-us', 'ContactController@index');
-    Route::post('/contact-us', 'ContactController@store');
-
-    Route::get('/faq', 'FaqController@index');
-});
-
 // section user panel
 Route::group(['namespace' => 'Member'], function () {
     Auth::routes();
@@ -51,6 +39,36 @@ Route::group(['namespace' => 'Member'], function () {
     Route::post('/setting/changePassword', 'SettingController@changePassword');
     Route::post('/setting/changeOther', 'SettingController@changeOther');
     Route::post('/setting/getCurrency', 'SettingController@getCurrency');
+    Route::get('/setting/getCurrency/{id}/{type}', 'SettingController@getCurrencyOnce');
+
+    Route::get('/payment/verify', 'PaymentController@index');
+    Route::post('/payment/verify', 'PaymentController@card');
+    Route::get('/payment/redirect', 'PaymentController@index');
+    Route::get('/payment/delivery', 'PaymentController@index');
+
+    Route::get('/az-balance', 'PaymentController@verify');
 
     Route::resource('invoices', 'Invoice\InvoiceController');
 });
+// web
+Route::group(['namespace' => 'Web'], function () {
+    Route::get('/', 'HomeController@index')->name('home');
+
+    Route::get('/blog', 'BlogController@index');
+    Route::get('/blog/{id}', 'BlogController@singel');
+
+    Route::get('/contact-us', 'ContactController@index');
+    Route::post('/contact-us', 'ContactController@store');
+
+    Route::get('/faq', 'FaqController@index');
+
+    Route::get('/how-we-work', function (){
+        return view('web.how');
+    });
+
+    Route::get('/pricing', 'FaqController@index');
+});
+
+
+
+

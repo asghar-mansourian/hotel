@@ -94,5 +94,15 @@ class SettingController extends Controller
         $api = new currency();
         $api->get($from, $to, $currency);
     }
+    public function getCurrencyOnce($id , $type)
+    {
+        $from = "USD";
+        $to = $_GET['type'];
+        $currency = intval($_GET['id']);
 
+
+
+        $api = new currency();
+        $api->get($from , $to , $currency);
+    }
 }

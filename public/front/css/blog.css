@@ -37,7 +37,7 @@
     text-align: center;
     color: #19170f;
     padding: 6px 42px;
-    font-weight: 600;
+    font-family: Montserrat-Bold;
     font-size: 14px;
 }
 .blog_a a:focus{
@@ -138,5 +138,5 @@
     margin-bottom: 15px;
     padding-top: 15px;
     font-size: 16px;
-    font-weight: 700
+    font-family: Montserrat-Bold
 }

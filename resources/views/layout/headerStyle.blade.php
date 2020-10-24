@@ -9,5 +9,12 @@
 <link rel="stylesheet" href="{{url('front/css/blog.css')}}">
 <link rel="stylesheet" href="{{url('front/css/pricing.css')}}">
 <link rel="stylesheet" href="{{url('front/css/contact.css')}}">
+<link rel="stylesheet" href="{{url('front/css/shops.css')}}">
+<link rel="stylesheet" href="{{url('front/css/index.css')}}">
+<link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
 <link rel="stylesheet" href="{{url('front/css/fontawesome-free-5.15.1-web/css/all.css')}}">
 <link rel="stylesheet" href="{{url('front/css/responsive.css')}}">
+
+
+

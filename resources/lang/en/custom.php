@@ -145,6 +145,24 @@ return [
                 'delete' => 'Faq Deleted Successful',
             ]
         ],
+        'payments' => [
+            'title' => 'Payments',
+            'index' => [
+                'title' => 'Show Payments',
+
+                'table' => [
+                    'header' => 'Payments List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create Faq',
+            ],
+            'message' => [
+                'create' => 'Faq Created Successful',
+                'update' => 'Faq Updated Successful',
+                'delete' => 'Payment Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',

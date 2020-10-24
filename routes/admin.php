@@ -100,3 +100,10 @@ route::post('/faqs/update/{id}' , 'FaqController@update');
 route::get('/faqs/destroy/{id}' , 'FaqController@destroy');
 route::post('/faqs/search/' , 'FaqController@search');
 route::post('/faqs/sort/' , 'FaqController@sort');
+
+/*      Payments Routes      */
+route::get('/payments' , 'PaymentController@index');
+route::get('/payments/load' , 'PaymentController@load');
+route::get('/payments/destroy/{id}' , 'PaymentController@destroy');
+route::post('/payments/search/' , 'PaymentController@search');
+route::post('/payments/sort/' , 'PaymentController@sort');
