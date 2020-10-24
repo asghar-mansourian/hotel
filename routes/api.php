@@ -30,6 +30,7 @@ Route::middleware('auth:api')->group(function () {
         ->group(function () {
             Route::post('logout', 'Auth\LoginController@logout');
             Route::post('me', 'Auth\LoginController@me');
-        });
 
+            Route::apiResource('invoices', 'InvoiceController');
+        });
 });

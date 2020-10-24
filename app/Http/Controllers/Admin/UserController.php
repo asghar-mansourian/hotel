@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserRequest;
+use App\Http\Requests\Member\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -77,6 +77,20 @@ class UserController extends Controller
         return response()->json([], 200);
     }
 
+    private function generateCode()
+    {
+        do {
+            $code = rand(00000000000, 99999999999);
+
+            $exists = User::where('code', $code)->exists();
+
+            if (!$exists) {
+                return $code;
+            }
+
+        } while (!$exists);
+    }
+
     public function search(Request $request)
     {
         $search = $request->input('search');
@@ -137,7 +151,7 @@ class UserController extends Controller
         if ($validate != null)
             return $this->validateRules($UserValidate->rules(), $request);
 
-        User::query()->where('id' , $id)->update([
+        User::query()->where('id', $id)->update([
             'name' => $request->input('name'),
             'family' => $request->input('family'),
             'email' => $request->input('email'),
@@ -166,19 +180,5 @@ class UserController extends Controller
         session()->flash('success', 1);
         return redirect()->back();
 
-    }
-
-    private function generateCode()
-    {
-        do {
-            $code = rand(00000000000, 99999999999);
-
-            $exists = User::where('code', $code)->exists();
-
-            if (!$exists) {
-                return $code;
-            }
-
-        } while (!$exists);
     }
 }

@@ -1,13 +1,11 @@
 ]<?php
 
+use App\Country;
 use App\Setting;
 use Illuminate\Database\Seeder;
 
 class SettingSeeder extends Seeder
 {
-    const settings = [
-        'tax_order' => 5 // is default
-    ];
 
     /**
      * Run the database seeds.
@@ -16,7 +14,12 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
-        foreach (self::settings as $index => $value) {
+        $settings = [
+            Setting::FIELD_TAX_ORDER => 5, // is default
+            Setting::FIELD_COMPANY_COUNTRY_ID => Country::first()->id // is default
+        ];
+
+        foreach ($settings as $index => $value) {
             Setting::updateOrCreate(
                 ['key' => $index],
                 ['value' => $value]

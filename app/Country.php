@@ -6,20 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    protected $fillable = [
-        'name',
-    ];
-
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['name',  'id'];
+    const selectField = ['name', 'id'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
-
+    protected $fillable = [
+        'name',
+    ];
     protected $table = 'countries';
 
-    public function regions(){
+    public static function getCompanyCountry()
+    {
+        $countryId = Setting::getValue(Setting::FIELD_COMPANY_COUNTRY_ID);
+
+        return Country::find($countryId);
+    }
+
+    public function regions()
+    {
         return $this->hasMany('App\Region');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Member;
 
 use App\Rules\ExistsGender;
 use Illuminate\Foundation\Http\FormRequest;
