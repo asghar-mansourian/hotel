@@ -19,14 +19,16 @@
                         <div class="col-md-12">
                             @foreach($countries as $country)
                                 <div class="tab">
-                                    <button class="tablinks" onclick="openCity(event, 'country-{{$country->id}}')"><img
+                                    <button class="tablinks @if($loop->first) active @endif"
+                                            onclick="openCity(event, 'country-{{$country->id}}')"><img
                                             src="{{url('/front/image/order-TR.png')}}"><span
                                             class="dis_no">{{$country->name}}</span>
                                     </button>
                                 </div>
                                 <form class="border_bar" action="{{route('invoices.store')}}" method="POST">
                                     @csrf
-                                    <div id="country-{{$country->id}}" class="tabcontent" style="display: none;">
+                                    <div id="country-{{$country->id}}" class="tabcontent"
+                                         style="@if($loop->first) display: block; @endif">
                                         <input type="hidden" name="country_id" value="{{$country->id}}">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 mb-5">
