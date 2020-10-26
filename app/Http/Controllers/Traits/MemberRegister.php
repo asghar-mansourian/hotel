@@ -17,6 +17,7 @@ trait MemberRegister
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'family' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => ['required', 'numeric', 'unique:users', 'regex:/^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$/'],
@@ -35,6 +36,7 @@ trait MemberRegister
         return User::create([
             'code' => $this->generateCode(),
             'name' => $data['name'],
+            'family' => $data['family'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
