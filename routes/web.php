@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/logout', 'Auth\LoginController@logout');
 });
 
-// section user panel
+// user panel (Member)
 Route::group(['namespace' => 'Member'], function () {
     Auth::routes();
 
@@ -49,7 +49,10 @@ Route::group(['namespace' => 'Member'], function () {
     Route::get('/az-balance', 'PaymentController@verify');
 
     Route::resource('invoices', 'Invoice\InvoiceController');
+
+    Route::resource('orders', 'Order\OrderController');
 });
+
 // web
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/', 'HomeController@index')->name('home');
