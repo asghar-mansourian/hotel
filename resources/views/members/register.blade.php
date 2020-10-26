@@ -29,6 +29,24 @@
                 </div>
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
+                        <label style="width: 450px!important;text-align: left">Family:</label>
+                    </div>
+                    <div class="text-center">
+
+                        <input type="text" name="family" placeholder="family"
+                               class="@error('family') is-invalid @enderror w-100 courier_input"
+                               style="width: 450px!important;" value="{{ old('family') }}">
+                        @error('family')
+                        <br>
+                        <span class="invalid-feedback" style="color: #b7474b " role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                </div>
+                <div class="col-md-12 mt-2">
+                    <div class="text-center">
                         <label style="width: 450px!important;text-align: left">Email:</label>
                     </div>
                     <div class="text-center">

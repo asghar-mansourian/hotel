@@ -33,6 +33,7 @@ class Auth
                 $url,
                 [
                     'name' => $user->name,
+                    'family' => $user->family,
                     'email' => $user->email,
                     'phone' => $user->phone,
                     'address' => $user->address,
