@@ -25,14 +25,15 @@ class InvoiceController extends Controller
         );
 
         if ($invoice) {
-            session()->flash('message', __('member.invoice.message.create_success'));
-            session()->flash('success', 1);
+            $request->session()->flash('message', __('member.invoice.message.create_success'));
+            $request->session()->flash('success', 1);
 
         } else {
-
             $request->session()->flash('danger', 1);
             $request->session()->flash('message', 'member.invoice.message.create_failed');
         }
+
+
 
         return back();
     }
