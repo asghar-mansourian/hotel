@@ -26,6 +26,7 @@ class BlogController extends Controller
             'sortField' => Blog::sortField,
             'sortType' => Blog::sortType
         ]));
+        
 
     }
 

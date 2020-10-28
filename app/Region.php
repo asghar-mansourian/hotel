@@ -20,4 +20,9 @@ class Region extends Model
     public function country(){
         return $this->belongsTo('App\Country');
     }
+
+    public function branches()
+    {
+        return $this->hasMany('Branch');
+    }
 }
