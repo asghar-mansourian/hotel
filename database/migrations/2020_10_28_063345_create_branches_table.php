@@ -15,7 +15,7 @@ class CreateBranchesTable extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('region_id');
+            $table->foreignId('region_id');
             $table->foreign('region_id')->references('id')->on('regions');
             $table->string('title');
             $table->timestamps();
