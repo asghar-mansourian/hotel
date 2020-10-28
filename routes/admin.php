@@ -107,3 +107,15 @@ route::get('/payments/load' , 'PaymentController@load');
 route::get('/payments/destroy/{id}' , 'PaymentController@destroy');
 route::post('/payments/search/' , 'PaymentController@search');
 route::post('/payments/sort/' , 'PaymentController@sort');
+
+
+/*      Branch Routes      */
+route::get('/branches' , 'BranchController@index');
+route::get('/branches/load' , 'BranchController@load');
+route::get('/branches/create/' , 'BranchController@create');
+route::post('/branches/store/' , 'BranchController@store');
+route::get('/branches/edit/{id}' , 'BranchController@edit');
+route::post('/branches/update/{id}' , 'BranchController@update');
+route::get('/branches/destroy/{id}' , 'BranchController@destroy');
+route::post('/branches/search/' , 'BranchController@search');
+route::post('/branches/sort/' , 'BranchController@sort');
