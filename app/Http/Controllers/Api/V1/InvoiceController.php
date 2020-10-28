@@ -9,6 +9,15 @@ use App\Http\Resources\V1\Invoice as InvoiceResource;
 class InvoiceController extends Controller
 {
 
+    public function index()
+    {
+        return InvoiceResource::collection(
+            auth()->user()->invoices()->paginate(
+                request('per_page', 10)
+            )
+        );
+    }
+
     public function store(InvoiceRequest $request)
     {
         $invoice = auth()->user()->invoices()->create(
