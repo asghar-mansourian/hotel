@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Member\Order;
 
 use App\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Member\InvoiceRequest;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -18,8 +18,10 @@ class OrderController extends Controller
         return view('members.orders.create', compact('countries', 'regions'));
     }
 
-    public function store(InvoiceRequest $request)
+    public function store(Request $request)
     {
+        dd($request->all());
+
         $invoice = auth()->user()->invoices()->create(
             $request->validated()
         );
@@ -27,9 +29,7 @@ class OrderController extends Controller
         if ($invoice) {
             session()->flash('message', __('member.general.message.create_success'));
             session()->flash('success', 1);
-
         } else {
-
             $request->session()->flash('danger', 1);
             $request->session()->flash('message', 'member.general.message.create_failed');
         }

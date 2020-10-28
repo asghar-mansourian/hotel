@@ -9,118 +9,72 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 invoice_buttons">
-                <a href="invoice.html" class="invoice_button">BƏYAN ET</a>
-                <a href="order.html" class="order_button">SİFARİŞ ET</a>
-
+                @include('members.partials.buttons')
             </div>
             <div class="col-md-9 col-sm-12 col-xs-12">
                 <div class="mt-5">
                     <div class="row">
                         <div class="col-md-12">
                             @foreach($countries as $country)
-                                <div class="tab">
-                                    <button class="tablinks" onclick="openCity(event, 'country-{{$country->id}}')"><img
-                                            src="{{url('/front/image/order-TR.png')}}"><span
-                                            class="dis_no">{{$country->name}}</span>
+                                <div class="tab" data-country-id="{{$country->id}}">
+                                    <button class="tablinks @if($loop->first) active @endif" onclick="openCity(event, 'country-{{$country->id}}')">
+                                        <img src="{{url('/front/image/order-TR.png')}}">
+                                        <span class="dis_no">{{$country->name}}</span>
                                     </button>
                                 </div>
-                                <form class="border_bar" action="{{route('invoices.store')}}" method="POST">
+                                <form class="border_bar" action="{{route('orders.store')}}" method="POST">
                                     @csrf
-                                    <div id="country-{{$country->id}}" class="tabcontent" style="display: none;">
+                                    <div id="country-{{$country->id}}" class="tabcontent active" style="@if($loop->first) display: block; @endif">
                                         <input type="hidden" name="country_id" value="{{$country->id}}">
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 mb-5">
-                                                <input type="text" name="shop" value="{{ old('shop') }}"
-                                                       placeholder="Mağaza adı *"
-                                                       class=" @error('shop') is-invalid @enderror w-100 courier_input"
-                                                       required="">
-                                                @error('shop')
-                                                <br>
-                                                <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                        </span>
-                                                @enderror
+
+                                        <div class="row container-order">
+                                            <div class="col-md-7 col-sm-7 mb-4">
+                                                <input type="text" name="link[]" value="{{old('link')}}" placeholder="Məhsul linki *" class="w-100 courier_input" required>
                                             </div>
-                                            <div class="col-md-6 col-sm-6 mb-5">
-                                                <input type="text" name="product_type" value="{{ old('product_type') }}"
-                                                       placeholder="Bağlamadakı məhsulun növü *"
-                                                       class="@error('product_type') is-invalid @enderror w-100 courier_input"
-                                                       required="">
-                                                @error('product_type')
-                                                <br>
-                                                <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                        </span>
-                                                @enderror
+
+                                            <div class="col-md-5 col-sm-5 mb-4">
+                                                <input type="number" name="price[]" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
                                             </div>
-                                            <div class="col-xs-12"></div>
-                                            <div class="col-md-4 col-sm-6 mb-4">
-                                                <input type="number" name="quantity" value="{{ old('quantity') }}"
-                                                       placeholder="Bağlamadakı məhsulun sayı *"
-                                                       class=" @error('quantity') is-invalid @enderror w-100 courier_input"
-                                                       required="">
-                                                @error('quantity')
-                                                <br>
-                                                <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                        </span>
-                                                @enderror
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 mb-4">
-                                                <input type="number" name="price" value="{{ old('price') }}"
-                                                       placeholder="Qiyməti (tl) * "
-                                                       class="@error('price') is-invalid @enderror w-100 courier_input"
-                                                       required="">
-                                                @error('price')
-                                                <br>
-                                                <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                        </span>
-                                                @enderror
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 mb-4">
-                                                <input type="number" name="order_track" value="{{ old('order_track') }}"
-                                                       placeholder="Sifarişin İzləmə kodu * "
-                                                       class="@error('order_track') is-invalid @enderror w-100 courier_input"
-                                                       required="">
-                                                @error('order_track')
-                                                <br>
-                                                <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                        </span>
-                                                @enderror
-                                            </div>
-                                            <div class="col-xs-12"></div>
-                                            <div class="col-md-6 col-sm-6 col-sm-5 mb-6">
-                                                <h5><strong>Çatdırılma ofisi *</strong></h5>
-                                                <select class="@error('region_id') is-invalid @enderror w-100"
-                                                        name="region_id" value="{{ old('region_id') }}">
-                                                    @foreach($regions as $region)
-                                                        <option value="{{$region->id}}">{{$region->name}}</option>
-                                                    @endforeach
+
+                                            <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
+                                                <h5><strong>Türkiyə içi kargo *</strong></h5>
+                                                <select class="courier_input w-100" name="has_cargo[]">
+                                                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">Xeyir !</option>
+                                                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">Bəli !</option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-6 col-sm-6">
-                                                <h5><strong>Sifarişin verilmə tarixi *</strong></h5>
-                                                <div class="col-md-12  courier_dr brit_year pl-0">
-                                                    <input type="date" name="order_date" value="{{ old('order_date') }}"
-                                                           class="@error('order_date') is-invalid @enderror w-100 courier_input"
-                                                           required="">
-                                                    @error('order_date')
-                                                    <br>
-                                                    <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
+
+                                            <div class="col-md-8 col-sm-8 p-0">
+                                                <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
+                                                    <h5><strong>Karqo məbləği *</strong></h5>
+                                                    <input type="number" name="cargo[]" class="w-100 courier_input">
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 mb-4 courier_dr">
+                                                    <h5><strong>Cəmi(+5%)</strong></h5>
+                                                    <input type="number" name="total[]" class="w-100 courier_input" readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 mt-0">
-                                            <textarea class="courier_textare" name="description"
-                                                      placeholder="Bağlamanıza aid qeydləriniz varsa yazın">{{ old('description') }}</textarea>
+
+                                            <div class="col-md-12 col-sm-12 p-0">
+                                                <div class="col-md-6 col-xs-6 mb-4 courier_dr">
+                                                    <h5><strong>Sayı *</strong></h5>
+                                                    <input type="number" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                                                </div>
+                                                <div class="col-md-6 col-xs-6 mb-4 courier_dr">
+                                                    <h5><strong>Ölçü *</strong></h5>
+                                                    <input type="text" name="specification[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                                                </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                {{--                                            <input type="file" name="" class="courier_file float-left mr-5">--}}
-                                                <button class="btn courier_button" type="submit">Göndər</button>
+
+                                            <div class="col-md-12 mt-0">
+                                                <textarea class="courier_textare" name="description[]" placeholder="Məhsulun detalları"></textarea>
+                                            </div>
+
+                                            <div class="col-md-12 text-right">
+                                                <button type="button" data-country-id="{{$country->id}}" class="courier_button mr-4 btn-add-container-order" style="width: auto;">Yeni link əlavə et<i
+                                                        class="fas fa-plus ml-3"></i></button>
+
+                                                <button type="button" class="invoice_button btn-remove-container-order">Linki sil<i class="fas fa-trash-alt ml-3"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -131,13 +85,71 @@
                 </div>
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12">
-                <div class="border_sh mt-5 text-center">
-                    <h4><strong>Diqqət!</strong></h4>
-                    <div class="text-center">
-                        Dəyərli müştərilər, sifarişlərinizi özünüz etdiyiniz zaman bəyannamə Sizin tərəfinizdən əlavə
-                        olunmalıdır. İnvoys yükləmədən bəyannamə əlavə etmək mümkün deyildir. Bəyannaməni dəqiq və
-                        operativ doldurmağınız Sizin bağlamalarınızın gömrük yoxlamasından daha tez və problemsiz
-                        keçməsinə kömək edəcək.
+                <div class="border_sh right_time">
+                    <div class="tooltip"><span class="fa-fw select-all fas m-0 mr-0"></span>
+                        <span class="tooltiptext">
+                    Bu, Sizin Kargo.az vasitəsilə son 30 gündə ölkəyə gətirdiyiniz bağlamaların məhsul dəyəri və çatdırılma haqqı üçün ödədiyiniz məbləğdir. Qeyd edək ki, qanunvericiliyə görə 30 gün ərzində şəxsi istifadə üçün gətirilmiş poçt yüklərinin dəyəri və bunun üçün ödənmiş çatdırılma haqqı toplam 300 dolları keçdikdə gömrük rüsumu tətbiq edilir.</span>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <span id="answer1" style="display: block;">
+                          <h4 class="text-center mt-0"><strong>Son 30 gün</strong></h4>
+                          <div class="timer">
+                            <svg class="rotate" viewBox="0 0 250 250">
+                              <path id="loader" transform="translate(125, 125)"
+                                    d="M 0 0 v -125 A 125 125 1 1 1 -113.28847337958123 -52.82728271758745 z"></path>
+                            </svg>
+                            <div class="dots">
+                              <span class="time deg0"></span>
+                              <span class="time deg45"></span>
+                              <span class="time deg90"></span>
+                              <span class="time deg135"></span>
+                            </div>
+                          </div>
+                          <div class="spin-div relative">
+                              <span id="procent">0.00</span>
+                          </div>
+                          <div style="clear: both;"></div>
+                          <div class="text-center procent_dolar"><h4
+                                  class="mb-0"><strong>0.00 <sup>$</sup></strong></h4></div>
+                      </span>
+                    <span id="text1"></span>
+
+                </div>
+                <div class="border_sh mt-5">
+                    <h4 class="text-center"><strong>Sifariş et</strong></h4>
+                    <div class="danger">
+                        <form action="">
+                            <input type="radio" id="kart" name="baki" value="1">
+                            <label for="kart">
+                                <span class="exp">Kart ilə ödəniş </span> <br> <span class="description">( İstənilən kredit və ya debet kartı ilə ödəniş edə bilərsiniz )
+                        </span></label><br>
+                            <div style="clear: both;"></div>
+                            <input type="radio" id="balans" name="baki" value="2">
+                            <label for="balans">
+                                <span class="exp">TL balansı ilə ödəniş </span> <br>
+                                <span class="description">( TL balansınızda kifayət qədər vəsait varsa, ödəniş edə bilərsiniz <br><b>TL balansınız: 0.00TL</b> )
+                            </span></label><br>
+                            <div style="clear: both;"></div>
+                        </form>
+                    </div>
+                    <div class="price_kal mt-5">
+                        <span class="text-left float-left">Cəmi: </span>
+                        <span class="text-right">
+                          <h3><strong>300 TL</strong></h3>
+                      </span>
+                    </div>
+                    <div class="mt-5">
+                        <h5><strong>Çatdırılma ofisi *</strong></h5>
+                        <select class="@error('region_id') is-invalid @enderror w-100 courier_input "
+                                name="region_id" value="{{ old('region_id') }}">
+                            @foreach($regions as $region)
+                                <option value="{{$region->id}}">{{$region->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mt-5">
+                        <button id="btn-save-order" class="order_button w-100 ml-0">Ödəniş et</button>
                     </div>
                 </div>
             </div>
@@ -146,6 +158,117 @@
 @endsection
 
 @section('footerCustom')
+    <script type="text/x-handlebars-template" id="template-order">
+        <div class="row container-order">
+            <br>
+            <hr>
+            <br>
+            <div class="col-md-7 col-sm-7 mb-4">
+                <input type="text" name="link[]" placeholder="Məhsul linki *" class="w-100 courier_input" required>
+            </div>
+
+            <div class="col-md-5 col-sm-5 mb-4">
+                <input type="number" name="price[]" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
+                <h5><strong>Türkiyə içi kargo *</strong></h5>
+                <select class="courier_input w-100" name="has_cargo[]">
+                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">Xeyir !</option>
+                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">Bəli !</option>
+                </select>
+            </div>
+
+            <div class="col-md-8 col-sm-8 p-0">
+                <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
+                    <h5><strong>Karqo məbləği *</strong></h5>
+                    <input type="number" name="cargo[]" class="w-100 courier_input">
+                </div>
+                <div class="col-md-6 col-xs-6 mb-4 courier_dr">
+                    <h5><strong>Cəmi(+5%)</strong></h5>
+                    <input type="number" name="total[]" class="w-100 courier_input" readonly>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 p-0">
+                <div class="col-md-6 col-xs-6 mb-4 courier_dr">
+                    <h5><strong>Sayı *</strong></h5>
+                    <input type="number" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                </div>
+                <div class="col-md-6 col-xs-6 mb-4 courier_dr">
+                    <h5><strong>Ölçü *</strong></h5>
+                    <input type="text" name="specification[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-0">
+                <textarea class="courier_textare" name="description[]" placeholder="Məhsulun detalları"></textarea>
+            </div>
+
+            <div class="col-md-12 text-right">
+                <button type="button" class="courier_button mr-4 btn-add-container-order" style="width: auto;">Yeni link əlavə et<i class="fas fa-plus ml-3"></i></button>
+                <button type="button" class="invoice_button btn-remove-container-order">Linki sil<i class="fas fa-trash-alt ml-3"></i></button>
+            </div>
+        </div>
 
 
+
+
+
+
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var countryId = $('div[class="tab"]').val();
+
+            // change select
+            $(document).on('change', 'select[name="has_cargo[]"]', function () {
+                $(this)
+                    .closest('div')
+                    .next()
+                    .children()[0]
+                    .classList
+                    .toggle('hidden');
+            });
+
+            // add row
+            $(document).on('click', '.btn-add-container-order', function () {
+                if ($(this).data('country-id') !== undefined) {
+                    countryId = $(this).data('country-id');
+                }
+
+                $('#country-' + countryId).append(
+                    $('#template-order').html()
+                )
+
+                $(this).fadeOut();
+            });
+
+            // remove row
+            $(document).on('click', '.btn-remove-container-order', function () {
+                var containerCountry = $('#country-' + countryId);
+
+                if (containerCountry.children('div').children.length > 1) {
+                    $(this)
+                        .closest('div .container-order')
+                        .remove();
+                }
+
+                containerCountry
+                    .children('div')
+                    .last()
+                    .find('.btn-add-container-order')
+                    .fadeIn();
+            })
+
+            // save order
+            $('#btn-save-order').click(function () {
+                var containerCountry = $('#country-' + countryId);
+
+                containerCountry.closest('form').submit();
+            });
+        })
+    </script>
 @endsection
