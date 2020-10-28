@@ -163,6 +163,24 @@ return [
                 'delete' => 'Payment Deleted Successful',
             ]
         ],
+        'branch' => [
+            'title' => 'Branches',
+            'index' => [
+                'title' => 'Show Branches',
+
+                'table' => [
+                    'header' => 'Branches List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create branch',
+            ],
+            'message' => [
+                'create' => 'Branch Created Successful',
+                'update' => 'Branch Updated Successful',
+                'delete' => 'Branch Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',
