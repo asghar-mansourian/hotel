@@ -44,8 +44,10 @@ class RegisterController extends Controller
             $user->token = $response->Token;
 
             $response = Auth::register($user)->object();
-            if ($response->code == 1) {
-                $user->code = $response->data->code;
+
+            if (isset($response->code)) {
+                if ($response->code == 1)
+                    $user->code = $response->data->code;
             }
 
             $user->save();

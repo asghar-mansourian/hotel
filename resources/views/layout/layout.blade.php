@@ -3,7 +3,7 @@
 <head>
     <title>@yield('title')</title>
     @include('layout.headerStyle')
-
+    @yield('styles')
 </head>
 <body>
 
