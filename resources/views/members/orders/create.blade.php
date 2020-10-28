@@ -1,4 +1,8 @@
 @extends('layout.layout')
+@php
+    use App\lib\Helpers;
+    $taxOrder = Helpers::getTaxOrder()
+@endphp
 @section('title')
     Kargo | Invoice
 @endsection
@@ -47,10 +51,10 @@
                                             <div class="col-md-8 col-sm-8 p-0">
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                                                     <h5><strong>Karqo məbləği *</strong></h5>
-                                                    <input type="number" name="cargo[]" class="w-100 courier_input">
+                                                    <input type="number" name="cargo[]" class="w-100 courier_input" value="0">
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
-                                                    <h5><strong>Cəmi(+5%)</strong></h5>
+                                                    <h5><strong>Cəmi(+{{$taxOrder}}%)</strong></h5>
                                                     <input type="number" name="total[]" class="w-100 courier_input" readonly>
                                                 </div>
                                             </div>
@@ -58,7 +62,7 @@
                                             <div class="col-md-12 col-sm-12 p-0">
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                                                     <h5><strong>Sayı *</strong></h5>
-                                                    <input type="number" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                                                    <input type="number" min="1" value="1" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                                                     <h5><strong>Ölçü *</strong></h5>
@@ -120,13 +124,13 @@
                     <h4 class="text-center"><strong>Sifariş et</strong></h4>
                     <div class="danger">
                         <form action="">
-                            <input type="radio" id="kart" name="baki" value="1">
+                            <input type="radio" id="kart" checked name="payment_type" value="{{\App\Order::PAYMENT_TYPE_ONLINE}}">
                             <label for="kart">
                                 <span class="exp">Kart ilə ödəniş </span> <br> <span class="description">( İstənilən kredit və ya debet kartı ilə ödəniş edə bilərsiniz )
                         </span></label><br>
                             <div style="clear: both;"></div>
-                            <input type="radio" id="balans" name="baki" value="2">
-                            <label for="balans">
+                            <input type="radio" id="balance" name="payment_type" value="{{\App\Order::PAYMENT_TYPE_CASH}}">
+                            <label for="balance">
                                 <span class="exp">TL balansı ilə ödəniş </span> <br>
                                 <span class="description">( TL balansınızda kifayət qədər vəsait varsa, ödəniş edə bilərsiniz <br><b>TL balansınız: 0.00TL</b> )
                             </span></label><br>
@@ -182,10 +186,10 @@
             <div class="col-md-8 col-sm-8 p-0">
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                     <h5><strong>Karqo məbləği *</strong></h5>
-                    <input type="number" name="cargo[]" class="w-100 courier_input">
+                    <input type="number" name="cargo[]" class="w-100 courier_input" value="0">
                 </div>
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
-                    <h5><strong>Cəmi(+5%)</strong></h5>
+                    <h5><strong>Cəmi(+$taxOrder%)</strong></h5>
                     <input type="number" name="total[]" class="w-100 courier_input" readonly>
                 </div>
             </div>
@@ -193,7 +197,7 @@
             <div class="col-md-12 col-sm-12 p-0">
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                     <h5><strong>Sayı *</strong></h5>
-                    <input type="number" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                    <input type="number" value="1" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
                 </div>
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                     <h5><strong>Ölçü *</strong></h5>
@@ -217,11 +221,15 @@
 
 
 
+
+
+
     </script>
 
     <script>
         $(document).ready(function () {
             var countryId = $('div[class="tab"]').val();
+            var taxOrder = {{$taxOrder}};
 
             // change select
             $(document).on('change', 'select[name="has_cargo[]"]', function () {
@@ -269,6 +277,28 @@
 
                 containerCountry.closest('form').submit();
             });
+
+
+            var totalPriceOrder = function (blurInput) {
+                var parent = blurInput.closest('div .container-order');
+
+                var price = parseFloat(parent.find('input[name="price[]"]').val());
+                var cargo = parseFloat(parent.find('input[name="cargo[]"]').val());
+                var quantity = parseInt(parent.find('input[name="quantity[]"]').val());
+
+                quantity = quantity === 0 ? 1 : quantity
+
+                var total = price * quantity;
+
+                var percentage = ((taxOrder / 100) * total);
+
+                return (cargo + total + percentage);
+            }
+
+            $('input[name="price[]"], input[name="cargo[]"], input[name="quantity[]"]').blur(function () {
+                console.log(totalPriceOrder($(this)))
+            });
+
         })
     </script>
 @endsection
