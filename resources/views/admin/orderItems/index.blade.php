@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.contact.index.title')}}
+    {{__('custom.admin.panel.title')}} | {{__('custom.admin.orderItems.index.title')}}
 @endsection
 
 @section('styleCustom')
@@ -17,13 +17,7 @@
         </div>
 
 
-        <div class="col-lg-4">
-            @component('admin.components.search')
-                @slot('url')
-                    {{url('admin/contacts/search')}}
-                @endslot
-            @endcomponent
-        </div>
+
 
 
         {{--        <div class="col-lg-4">--}}
@@ -34,30 +28,39 @@
         {{--                    <option value="status|0">وضعیت حساب : غیر فعال</option>--}}
         {{--                @endslot--}}
         {{--                @slot('url')--}}
-        {{--                    {{url('admin/contacts/filter')}}--}}
+        {{--                    {{url('admin/orders/filter')}}--}}
         {{--                @endslot--}}
         {{--            @endcomponent--}}
         {{--        </div>--}}
-
+        <div class="col-lg-4">
+            @component('admin.components.search')
+                @slot('url')
+                    {{url('admin/orderItems/search')}}
+                @endslot
+            @endcomponent
+        </div>
         <div class="col-12" id="">
+
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fe fe-mail   mr-2"></i>{{__('custom.admin.contact.index.table.header')}}
+                        <i class="fe fe-mail   mr-2"></i>{{__('custom.admin.orderItems.index.table.header')}}
                     </h3>
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $contacts , 'selects' => ['id' , 'name' , 'email'], 'options' => ['show' ,  'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType, 'sortField'=>$sortField, 'records' => $orders , 'selects' => ['id' , 'order_id' , 'link'] , 'options' => ['show' , 'delete']])
                         @slot('paginate')
-                            {{$contacts->links()}}
+                            {{$orders->links()}}
                         @endslot
                         @slot('url')
-                            contacts
+                                orderItems
                         @endslot
                     @endcomponent
 
                 @endslot
+
+
             @endcomponent
         </div>
 
@@ -69,28 +72,28 @@
 
     @component('admin.components.script.sweetAlertScript')
         @slot('url')
-            ../../../admin/contacts/
+            ../../../admin/order-items/
         @endslot
     @endcomponent
     @component('admin.components.script.paginatorScript' , ['type' => 2])
         @slot('paginatorUrl')
-            contacts/load?page=
+            order-items/load?page=
         @endslot
     @endcomponent
     @component('admin.components.script.searchScript')
         @slot('url')
-            ../../../admin/contacts/search/
+            ../../../admin/order-items/search/
         @endslot
     @endcomponent
     @component('admin.components.script.sortScript')
         @slot('url')
-            ../../../admin/contacts/sort/
+            ../../../admin/order-items/sort/
 
         @endslot
     @endcomponent
     @component('admin.components.script.sortTableScript')
         @slot('url')
-            ../../../admin/contacts/sort/
+            ../../../admin/order-items/sort/
         @endslot
     @endcomponent
     {{--    @component('admin.components.script.filterScript')--}}
@@ -109,7 +112,7 @@
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
                     href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.contact.title')}}
+            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.orderItems.title')}}
             </li>
         @endslot
     @endcomponent
