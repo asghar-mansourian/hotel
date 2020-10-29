@@ -139,11 +139,9 @@ class BranchController extends Controller
     public function destroy($id)
     {
         Branch::query()->find($id)->delete();
-
         session()->flash('message', __('custom.Branch.message.delete'));
         session()->flash('success', 1);
         return redirect()->back();
-
     }
 
 

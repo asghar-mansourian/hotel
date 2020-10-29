@@ -15,6 +15,12 @@ class Order extends Model
         self::PAYMENT_TYPE_ONLINE => 'online',
         self::PAYMENT_TYPE_CASH => 'cash'
     ];
+    const  paginateNumber = 10;
+    const sortType = 'desc';
+    const sortField = 'id';
+    const selectField = ['user_id', 'branch_id' , 'id' , 'country_id' , 'totalPrice' , 'payment_type' , 'status'];
+    const sortArrowTypeChecked = 'desc';
+    const sortArrowFieldChecked = 'id';
 
     public function user()
     {
@@ -24,5 +30,15 @@ class Order extends Model
     public function items()
     {
         return $this->hasMany(OrderItem::class, 'order_id');
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class, 'branch_id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
     }
 }
