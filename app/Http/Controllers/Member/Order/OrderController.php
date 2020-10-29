@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Member\Order;
 
+use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Member\OrderRequest;
 
 class OrderController extends Controller
 {
@@ -12,16 +13,13 @@ class OrderController extends Controller
     {
         $countries = Country::all();
 
-        $regions = Country::getCompanyCountry()->regions ?? [];
+        $branches = Branch::latest()->get();
 
-
-        return view('members.orders.create', compact('countries', 'regions'));
+        return view('members.orders.create', compact('countries', 'branches'));
     }
 
-    public function store(Request $request)
+    public function store(OrderRequest $request)
     {
-        dd($request->all());
-
         $invoice = auth()->user()->invoices()->create(
             $request->validated()
         );

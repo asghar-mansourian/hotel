@@ -9,7 +9,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.components.error');
+            @include('admin.components.error')
+            @include('members.partials.validation_errors')
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 invoice_buttons">
@@ -20,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             @foreach($countries as $country)
-                                <div class="tab" data-country-id="{{$country->id}}">
+                                <div class="tab">
                                     <button class="tablinks @if($loop->first) active @endif" onclick="openCity(event, 'country-{{$country->id}}')">
                                         <img src="{{url('/front/image/order-TR.png')}}">
                                         <span class="dis_no">{{$country->name}}</span>
@@ -33,11 +34,11 @@
 
                                         <div class="row container-order">
                                             <div class="col-md-7 col-sm-7 mb-4">
-                                                <input type="text" name="link[]" value="{{old('link')}}" placeholder="Məhsul linki *" class="w-100 courier_input" required>
+                                                <input type="url" name="link[]" placeholder="Məhsul linki *" class="w-100 courier_input" required>
                                             </div>
 
                                             <div class="col-md-5 col-sm-5 mb-4">
-                                                <input type="number" name="price[]" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
+                                                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
                                             </div>
 
                                             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
@@ -51,11 +52,11 @@
                                             <div class="col-md-8 col-sm-8 p-0">
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                                                     <h5><strong>Karqo məbləği *</strong></h5>
-                                                    <input type="number" name="cargo[]" class="w-100 courier_input" value="0">
+                                                    <input type="text" name="cargo[]" class="w-100 courier_input">
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                                                     <h5><strong>Cəmi(+{{$taxOrder}}%)</strong></h5>
-                                                    <input type="number" name="total[]" class="w-100 courier_input" readonly>
+                                                    <input type="text" name="total[]" class="w-100 courier_input" readonly>
                                                 </div>
                                             </div>
 
@@ -82,6 +83,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <input type="submit" class="hidden btn-submit-form">
                                 </form>
                             @endforeach
                         </div>
@@ -123,37 +126,35 @@
                 <div class="border_sh mt-5">
                     <h4 class="text-center"><strong>Sifariş et</strong></h4>
                     <div class="danger">
-                        <form action="">
-                            <input type="radio" id="kart" checked name="payment_type" value="{{\App\Order::PAYMENT_TYPE_ONLINE}}">
-                            <label for="kart">
-                                <span class="exp">Kart ilə ödəniş </span> <br> <span class="description">( İstənilən kredit və ya debet kartı ilə ödəniş edə bilərsiniz )
+                        <input type="radio" id="kart" checked name="payment_type" value="{{\App\Order::PAYMENT_TYPE_ONLINE}}">
+                        <label for="kart">
+                            <span class="exp">Kart ilə ödəniş </span> <br> <span class="description">( İstənilən kredit və ya debet kartı ilə ödəniş edə bilərsiniz )
                         </span></label><br>
-                            <div style="clear: both;"></div>
-                            <input type="radio" id="balance" name="payment_type" value="{{\App\Order::PAYMENT_TYPE_CASH}}">
-                            <label for="balance">
-                                <span class="exp">TL balansı ilə ödəniş </span> <br>
-                                <span class="description">( TL balansınızda kifayət qədər vəsait varsa, ödəniş edə bilərsiniz <br><b>TL balansınız: 0.00TL</b> )
+                        <div style="clear: both;"></div>
+                        <input type="radio" id="balance" name="payment_type" value="{{\App\Order::PAYMENT_TYPE_CASH}}">
+                        <label for="balance">
+                            <span class="exp">TL balansı ilə ödəniş </span> <br>
+                            <span class="description">( TL balansınızda kifayət qədər vəsait varsa, ödəniş edə bilərsiniz <br><b>TL balansınız: 0.00TL</b> )
                             </span></label><br>
-                            <div style="clear: both;"></div>
-                        </form>
+                        <div style="clear: both;"></div>
                     </div>
                     <div class="price_kal mt-5">
                         <span class="text-left float-left">Cəmi: </span>
                         <span class="text-right">
-                          <h3><strong>300 TL</strong></h3>
+                          <h3><strong id="total-price-orders">0 TL</strong></h3>
                       </span>
                     </div>
                     <div class="mt-5">
                         <h5><strong>Çatdırılma ofisi *</strong></h5>
-                        <select class="@error('region_id') is-invalid @enderror w-100 courier_input "
-                                name="region_id" value="{{ old('region_id') }}">
-                            @foreach($regions as $region)
-                                <option value="{{$region->id}}">{{$region->name}}</option>
+                        <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
+                                name="branch_id">
+                            @foreach($branches as $branch)
+                                <option value="{{$branch->id}}">{{$branch->title}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="mt-5">
-                        <button id="btn-save-order" class="order_button w-100 ml-0">Ödəniş et</button>
+                        <button id="btn-save-order" type="button" class="order_button w-100 ml-0">Ödəniş et</button>
                     </div>
                 </div>
             </div>
@@ -168,11 +169,11 @@
             <hr>
             <br>
             <div class="col-md-7 col-sm-7 mb-4">
-                <input type="text" name="link[]" placeholder="Məhsul linki *" class="w-100 courier_input" required>
+                <input type="url" name="link[]" placeholder="Məhsul linki *"  class="w-100 courier_input" required>
             </div>
 
             <div class="col-md-5 col-sm-5 mb-4">
-                <input type="number" name="price[]" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
+                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
             </div>
 
             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
@@ -186,11 +187,11 @@
             <div class="col-md-8 col-sm-8 p-0">
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                     <h5><strong>Karqo məbləği *</strong></h5>
-                    <input type="number" name="cargo[]" class="w-100 courier_input" value="0">
+                    <input type="text" pattern="[0-9]+(\.[0-9]{1,2})?%?" name="cargo[]" class="w-100 courier_input">
                 </div>
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
-                    <h5><strong>Cəmi(+$taxOrder%)</strong></h5>
-                    <input type="number" name="total[]" class="w-100 courier_input" readonly>
+                    <h5><strong>Cəmi(+{{$taxOrder}}%)</strong></h5>
+                    <input type="text" name="total[]" class="w-100 courier_input" readonly>
                 </div>
             </div>
 
@@ -215,20 +216,11 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
     </script>
 
     <script>
         $(document).ready(function () {
-            var countryId = $('div[class="tab"]').val();
+            var countryId = $('input[name="country_id"]').val();
             var taxOrder = {{$taxOrder}};
 
             // change select
@@ -269,16 +261,47 @@
                     .last()
                     .find('.btn-add-container-order')
                     .fadeIn();
+
+                $('#total-price-orders').text(
+                    totalPriceOrders() + ' TL'
+                )
             })
 
             // save order
             $('#btn-save-order').click(function () {
                 var containerCountry = $('#country-' + countryId);
 
-                containerCountry.closest('form').submit();
+                var form = containerCountry.closest('form');
+
+                if (!form.find('input[name="payment_type"]').length) {
+                    var inputPaymentType = $("<input>")
+                        .attr("type", "hidden")
+                        .attr("name", "payment_type").val(
+                            $('input[name="payment_type"]:checked').val()
+                        );
+
+                    var inputBranchId = $("<input>")
+                        .attr("type", "hidden")
+                        .attr("name", "branch_id").val(
+                            $('select[name="branch_id"]').val()
+                        );
+
+                    form.append(inputPaymentType, inputBranchId);
+                } else {
+                    form.find('input[name="payment_type"]').val(
+                        $('input[name="payment_type"]:checked').val()
+                    )
+
+                    form.find('input[name="branch_id"]').val(
+                        $('select[name="branch_id"]').val()
+                    )
+                }
+
+                form.find('.btn-submit-form').trigger('click');
+
             });
 
-
+            // calc once order
             var totalPriceOrder = function (blurInput) {
                 var parent = blurInput.closest('div .container-order');
 
@@ -286,17 +309,42 @@
                 var cargo = parseFloat(parent.find('input[name="cargo[]"]').val());
                 var quantity = parseInt(parent.find('input[name="quantity[]"]').val());
 
-                quantity = quantity === 0 ? 1 : quantity
+                quantity = (quantity === '' || quantity === 0 || isNaN(quantity)) ? 1 : quantity
+                price = (price === '' || isNaN(price)) ? 0 : price
+                cargo = (cargo === '' || isNaN(cargo)) ? 0 : cargo
 
-                var total = price * quantity;
+                var total = (quantity * price) + cargo;
 
                 var percentage = ((taxOrder / 100) * total);
 
-                return (cargo + total + percentage);
+                return (total + percentage).toFixed(2);
             }
 
-            $('input[name="price[]"], input[name="cargo[]"], input[name="quantity[]"]').blur(function () {
-                console.log(totalPriceOrder($(this)))
+            // calc total orders
+            var totalPriceOrders = function () {
+                var parent = $('#country-' + countryId);
+
+                var totalPriceOrders = 0;
+                parent.children('div').each(function () {
+                    if (parseFloat($(this).find('input[name="total[]"]').val())) {
+                        totalPriceOrders += parseFloat($(this).find('input[name="total[]"]').val())
+                    }
+                })
+
+                return (totalPriceOrders).toFixed(2);
+            }
+
+            $(document).on('blur', 'input[name="price[]"], input[name="cargo[]"], input[name="quantity[]"]', function () {
+                var parent = $(this).closest('div .container-order');
+
+                parent.find('input[name="total[]"]').val(
+                    totalPriceOrder($(this))
+                )
+
+                $('#total-price-orders').text(
+                    totalPriceOrders() + ' TL'
+                )
+
             });
 
         })
