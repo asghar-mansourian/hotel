@@ -14,12 +14,12 @@ class ChangeFieldForeignRegionFromOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('region_id');
-
             $table->unsignedBigInteger('branch_id');
             $table->foreign('branch_id')
                 ->references('id')
-                ->on('regions');
+                ->on('branches');
+
+
         });
     }
 
@@ -31,6 +31,8 @@ class ChangeFieldForeignRegionFromOrdersTable extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign('branch_id');
+
         });
     }
 }

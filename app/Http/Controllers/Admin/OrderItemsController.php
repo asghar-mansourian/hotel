@@ -43,7 +43,10 @@ class OrderItemsController extends Controller
 
     public function show($id)
     {
-        $order = OrderItem::query()->where('id', $id)->first();
+        $order = OrderItem::query()
+            ->with('order')
+            ->where('id', $id)
+            ->first();
         return view('admin.orderItems.show' , compact('order'));
     }
 

@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::query()
-            ->with('user' , 'region' , 'country')
+            ->with('user' , 'branch' , 'country')
             ->select(Order::selectField)
             ->orderBy(Order::sortField, Order::sortType)
             ->paginate(Order::paginateNumber);
@@ -42,7 +42,11 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $order = Order::query()->where('id', $id)->first();
+        $order = Order::query()
+            ->with('branch' , 'country')
+            ->where('id', $id)
+            ->first();
+
         return view('admin.orders.show' , compact('order'));
     }
 

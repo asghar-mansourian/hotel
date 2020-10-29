@@ -54,7 +54,7 @@
                             {{$orders->links()}}
                         @endslot
                         @slot('url')
-                                orderItems
+                                order-items
                         @endslot
                     @endcomponent
 
