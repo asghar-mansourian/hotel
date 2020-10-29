@@ -119,3 +119,25 @@ route::post('/branches/update/{id}' , 'BranchController@update');
 route::get('/branches/destroy/{id}' , 'BranchController@destroy');
 route::post('/branches/search/' , 'BranchController@search');
 route::post('/branches/sort/' , 'BranchController@sort');
+
+
+/*      Order Routes      */
+route::get('/orders' , 'OrderController@index');
+route::get('/orders/load' , 'OrderController@load');
+route::get('/orders/destroy/{id}' , 'OrderController@destroy');
+route::post('/orders/search/' , 'OrderController@search');
+route::post('/orders/sort/' , 'OrderController@sort');
+
+/*      Order Items Routes      */
+route::get('/order-items' , 'OrderItemsController@index');
+route::get('/order-items/load' , 'OrderItemsController@load');
+route::get('/order-items/destroy/{id}' , 'OrderItemsController@destroy');
+route::post('/order-items/search/' , 'OrderItemsController@search');
+route::post('/order-items/sort/' , 'OrderItemsController@sort');
+
+/*      Invoice Routes      */
+route::get('/invoices' , 'InvoiceController@index');
+route::get('/invoices/load' , 'InvoiceController@load');
+route::get('/invoices/destroy/{id}' , 'InvoiceController@destroy');
+route::post('/invoices/search/' , 'InvoiceController@search');
+route::post('/invoices/sort/' , 'InvoiceController@sort');

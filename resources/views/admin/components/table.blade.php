@@ -77,21 +77,27 @@
                     @endif
                 @endforeach
                 <td class="text-nowrap text-center">
-                    <a href="{{url('admin/' . $url . '/show/' . $record->id)}}" data-userid="{{$record->id}}"
-                       title="Show" class="m-l-10 show-info btn-sm btn btn-info" >
-                        <i class="fe fe-eye mr-2"></i>{{__('custom.other.show')}}
-                    </a>
-
-                    <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
-                       data-toggle="tooltip"
-                       title="Edit" class="m-l-10 btn btn-success btn-sm">
-                        <i class="fe fe-edit mr-2"></i>{{__('custom.other.edit')}}
-                    </a>
-
-                    <a href="#" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
-                       title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
-                        <i class="fe fe-trash mr-2"></i>{{__('custom.other.delete')}}
-                    </a>
+                    @foreach($options as $option)
+                        @if($option == 'show')
+                            <a href="{{url('admin/' . $url . '/show/' . $record->id)}}" data-userid="{{$record->id}}"
+                               title="Show" class="m-l-10 show-info btn-sm btn btn-info">
+                                <i class="fe fe-eye mr-2"></i>{{__('custom.other.show')}}
+                            </a>
+                        @endif
+                        @if($option == 'edit')
+                            <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
+                               data-toggle="tooltip"
+                               title="Edit" class="m-l-10 btn btn-success btn-sm">
+                                <i class="fe fe-edit mr-2"></i>{{__('custom.other.edit')}}
+                            </a>
+                        @endif
+                        @if($option == 'delete')
+                            <a href="#" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
+                               title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
+                                <i class="fe fe-trash mr-2"></i>{{__('custom.other.delete')}}
+                            </a>
+                        @endif
+                    @endforeach
                 </td>
             </tr>
         @endforeach
