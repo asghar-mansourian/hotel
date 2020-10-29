@@ -16,7 +16,7 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('region_id');
+
             $table->foreignId('country_id');
 
             $table->string('shop');
@@ -32,7 +32,6 @@ class CreateInvoicesTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->on('users')->references('id');
-            $table->foreign('region_id')->on('regions')->references('id');
             $table->foreign('country_id')->on('countries')->references('id');
         });
     }
