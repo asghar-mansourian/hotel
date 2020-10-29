@@ -127,6 +127,7 @@ route::get('/orders/load' , 'OrderController@load');
 route::get('/orders/destroy/{id}' , 'OrderController@destroy');
 route::post('/orders/search/' , 'OrderController@search');
 route::post('/orders/sort/' , 'OrderController@sort');
+route::get('/orders/show/{id}' , 'OrderController@show');
 
 /*      Order Items Routes      */
 route::get('/order-items' , 'OrderItemsController@index');
@@ -134,6 +135,7 @@ route::get('/order-items/load' , 'OrderItemsController@load');
 route::get('/order-items/destroy/{id}' , 'OrderItemsController@destroy');
 route::post('/order-items/search/' , 'OrderItemsController@search');
 route::post('/order-items/sort/' , 'OrderItemsController@sort');
+route::get('/order-items/show/{id}' , 'OrderItemsController@show');
 
 /*      Invoice Routes      */
 route::get('/invoices' , 'InvoiceController@index');

@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Show Country
+    Dashboard | Show Order
 @endsection
 
 @section('styleCustom')
@@ -14,7 +14,7 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" >
+    <form class="form" method="post" id="mainForm">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -22,28 +22,43 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                Name
+                                id
                             @endslot
-                            @slot('name')
-                                name
-                            @endslot
+
                             @slot('type')
                                 text
                             @endslot
                             @slot('placeholder')
-                                Please Enter Name...
+                                Please Enter Id...
                             @endslot
                             @slot('value')
-                                {{$contact->name}}
+                                {{$order->id}}
                             @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>order id</span>
+                                <a href="" class="ml-3 btn btn-info btn-sm">show</a>
+                            @endslot
+
+                            @slot('type')
+                                text
+                            @endslot
+
+                            @slot('value')
+                                {{$order->order_id}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
                         @endcomponent
 
                             @component('admin.components.form.inputLabel')
                                 @slot('label')
-                                    email
+                                    <span>Link</span>
                                 @endslot
 
                                 @slot('type')
@@ -51,27 +66,107 @@
                                 @endslot
 
                                 @slot('value')
-                                    {{$contact->email}}
+                                    {{$order->link}}
                                 @endslot
                                 @slot('attr')
                                     disabled
                                 @endslot
                             @endcomponent
-
-                            @component('admin.components.form.textLabel')
+                            @component('admin.components.form.inputLabel')
                                 @slot('label')
-                                    message
+                                    <span>Has Cargo</span>
                                 @endslot
 
-
+                                @slot('type')
+                                    text
+                                @endslot
 
                                 @slot('value')
-                                    {{$contact->email}}
+                                    {{$order->has_cargo}}
                                 @endslot
                                 @slot('attr')
                                     disabled
                                 @endslot
                             @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>Cargo</span>
+                                @endslot
+
+                                @slot('type')
+                                    text
+                                @endslot
+
+                                @slot('value')
+                                    {{$order->cargo}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>Quantity</span>
+                                @endslot
+
+                                @slot('type')
+                                    text
+                                @endslot
+
+                                @slot('value')
+                                    {{$order->quantity}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>Description</span>
+                                @endslot
+
+                                @slot('type')
+                                    text
+                                @endslot
+
+                                @slot('value')
+                                    {{$order->description}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>Total</span>
+                                @endslot
+
+                                @slot('type')
+                                    text
+                                @endslot
+
+                                @slot('value')
+                                    {{$order->total}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+
+                        {{--                        @component('admin.components.form.textLabel')--}}
+                        {{--                            @slot('label')--}}
+                        {{--                                message--}}
+                        {{--                            @endslot--}}
+
+
+
+                        {{--                            @slot('value')--}}
+                        {{--                                {{$contact->email}}--}}
+                        {{--                            @endslot--}}
+                        {{--                            @slot('attr')--}}
+                        {{--                                disabled--}}
+                        {{--                            @endslot--}}
+                        {{--                        @endcomponent--}}
                     @endslot
 
 
@@ -86,11 +181,12 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Back To Contact</h2>
+                        <h2 class="card-title">Back To Order Items</h2>
                     @endslot
                     @slot('items')
 
-                            <a href="{{url('admin/contacts')}}" class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
+                        <a href="{{url('admin/order-items')}}"
+                           class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
 
                     @endslot
                 @endcomponent
