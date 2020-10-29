@@ -217,6 +217,24 @@ return [
                 'delete' => 'Order Item Deleted Successful',
             ]
         ],
+        'invoices' => [
+            'title' => 'Order Items',
+            'index' => [
+                'title' => 'Show Order Items',
+
+                'table' => [
+                    'header' => 'Order Items List',
+                ],
+            ],
+            'create' => [
+                'title' => 'Create orders',
+            ],
+            'message' => [
+                'create' => 'Order Item Created Successful',
+                'update' => 'Order Item Updated Successful',
+                'delete' => 'Order Item Deleted Successful',
+            ]
+        ],
     ],
     'other' => [
         'search' => 'search',
@@ -235,5 +253,7 @@ return [
         'title' => 'title',
         'cancel' => 'cancel',
         'back' => 'back',
+        'price' => 'price',
+        'shop' => 'shop',
     ]
 ];

@@ -143,3 +143,4 @@ route::get('/invoices/load' , 'InvoiceController@load');
 route::get('/invoices/destroy/{id}' , 'InvoiceController@destroy');
 route::post('/invoices/search/' , 'InvoiceController@search');
 route::post('/invoices/sort/' , 'InvoiceController@sort');
+route::get('/invoices/show/{id}' , 'InvoiceController@show');
