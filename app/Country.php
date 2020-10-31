@@ -9,11 +9,11 @@ class Country extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['name', 'id'];
+    const selectField = ['name', 'id' , 'flag' , 'currency'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
     protected $fillable = [
-        'name',
+        'name',  'flag' , 'currency'
     ];
     protected $table = 'countries';
 

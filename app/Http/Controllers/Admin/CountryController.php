@@ -56,8 +56,24 @@ class CountryController extends Controller
         if ($validate != null)
             return $this->validateRules($CountryValidate->rules(), $request);
 
+        if ($request->hasFile('flag')) {
+            $image = $request->file('flag');
+            $format = $image->getClientOriginalExtension();
+
+            $fileName = $image->getClientOriginalName();
+            $fileName = substr($fileName, 0, strrpos($fileName, '.'));
+            $fileName = str_replace(' ', '', $fileName);
+            $Random_Number = rand(0, 9999);
+            $name = $fileName . '-' . $Random_Number . '.' . $format;
+
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+        }
+
         Country::query()->insert([
             'name' => $request->input('name'),
+            'flag' => $name,
+            'currency' => $request->input('currency'),
         ]);
 
         session()->flash('message', __('custom.Country.message.create'));
@@ -121,8 +137,26 @@ class CountryController extends Controller
         if ($validate != null)
             return $this->validateRules($CountryValidate->rules(), $request);
 
+        if ($request->hasFile('new_flag')) {
+            $image = $request->file('new_flag');
+            $format = $image->getClientOriginalExtension();
+
+            $fileName = $image->getClientOriginalName();
+            $fileName = substr($fileName, 0, strrpos($fileName, '.'));
+            $fileName = str_replace(' ', '', $fileName);
+            $Random_Number = rand(0, 9999);
+            $name = $fileName . '-' . $Random_Number . '.' . $format;
+
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+        }
+        else{
+            $name = $request->input('flag');
+        }
         Country::query()->where('id' , $id)->update([
             'name' => $request->input('name'),
+            'flag' => $name,
+            'currency' => $request->input('currency'),
         ]);
 
         session()->flash('message', __('custom.Country.message.update'));

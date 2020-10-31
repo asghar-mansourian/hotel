@@ -5,7 +5,7 @@
 @endsection
 
 @section('styleCustom')
-    {{--    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">--}}
+    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
     <style>
         .has-danger {
             border: 1px solid #d9534f !important;
@@ -14,7 +14,7 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" action="{{url('admin/countries/store')}}">
+    <form class="form" method="post" id="mainForm" enctype="multipart/form-data" action="{{url('admin/countries/store')}}">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -37,9 +37,32 @@
                             @endslot
                         @endcomponent
 
+                            @component('admin.components.form.pictureLabel')
+                                @slot('label')
+                                    flag
+                                @endslot
+                                @slot('name')
+                                        flag
+                                @endslot
 
+                            @endcomponent
 
-
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    Currency
+                                @endslot
+                                @slot('name')
+                                    currency
+                                @endslot
+                                @slot('type')
+                                    text
+                                @endslot
+                                @slot('placeholder')
+                                    Please Enter Currency...
+                                @endslot
+                                @slot('value')
+                                @endslot
+                            @endcomponent
                     @endslot
 
 
@@ -81,6 +104,11 @@
         @slot('mainFormUrlValue')
             ../../../admin/countries/
         @endslot
+    @endcomponent
+
+
+    @component('admin.components.form.pictureScript')
+
     @endcomponent
 @endsection
 
