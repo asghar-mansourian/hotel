@@ -20,7 +20,7 @@ class Order extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['user_id', 'branch_id' , 'id' , 'country_id' , 'totalPrice' , 'payment_type' , 'status'];
+    const selectField = ['user_id', 'branch_id' , 'id' , 'country_id' , 'total' , 'payment_type' , 'status'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 
