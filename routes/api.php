@@ -39,5 +39,7 @@ Route::middleware('auth:api')->group(function () {
 
             Route::get('regions', 'RegionController');
 
+            Route::get('branches', 'BranchController');
+
         });
 });

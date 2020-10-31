@@ -5,7 +5,7 @@
 @endsection
 
 @section('styleCustom')
-    {{--    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">--}}
+        <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
     <style>
         .has-danger {
             border: 1px solid #d9534f !important;
@@ -38,9 +38,48 @@
                             @endslot
                         @endcomponent
 
+                            @component('admin.components.form.input')
 
+                                @slot('name')
+                                    flag
+                                @endslot
+                                @slot('type')
+                                    hidden
+                                @endslot
 
+                                @slot('value')
+                                    {{$country->flag}}
+                                @endslot
+                            @endcomponent
+                            @component('admin.components.form.pictureLabel')
+                                @slot('label')
+                                    Picture
+                                @endslot
+                                @slot('name')
+                                    new_flag
+                                @endslot
+                                @slot('value')
+                                    {{'images/'.$country->flag}}
+                                @endslot
+                            @endcomponent
 
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    Currency
+                                @endslot
+                                @slot('name')
+                                    currency
+                                @endslot
+                                @slot('type')
+                                    text
+                                @endslot
+                                @slot('placeholder')
+                                    Please Enter Currency...
+                                @endslot
+                                @slot('value')
+                                    {{$country->currency}}
+                                @endslot
+                            @endcomponent
                     @endslot
 
 
@@ -82,6 +121,11 @@
         @slot('mainFormUrlValue')
             ../../../admin/countries/
         @endslot
+    @endcomponent
+
+
+    @component('admin.components.form.pictureScript')
+
     @endcomponent
 @endsection
 

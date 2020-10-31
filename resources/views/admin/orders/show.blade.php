@@ -123,7 +123,7 @@
                                 @endslot
 
                                 @slot('value')
-                                    {{$order->totalPrice}}
+                                    {{$order->total}}
                                 @endslot
                                 @slot('attr')
                                     disabled
