@@ -107,6 +107,16 @@ route::get('/payments/load' , 'PaymentController@load');
 route::get('/payments/destroy/{id}' , 'PaymentController@destroy');
 route::post('/payments/search/' , 'PaymentController@search');
 route::post('/payments/sort/' , 'PaymentController@sort');
+route::get('/payments/show/{id}' , 'PaymentController@show');
+
+
+/*      Setting Routes      */
+route::get('/payments' , 'PaymentController@index');
+route::get('/payments/load' , 'PaymentController@load');
+route::get('/payments/destroy/{id}' , 'PaymentController@destroy');
+route::post('/payments/search/' , 'PaymentController@search');
+route::post('/payments/sort/' , 'PaymentController@sort');
+route::get('/payments/show/{id}' , 'PaymentController@show');
 
 
 /*      Branch Routes      */

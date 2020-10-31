@@ -8,10 +8,10 @@
   ]
 )
     @slot('paginate')
-        {{$faqs->appends(Request::except('page'))->links()}}
+        {{$payments->appends(Request::except('page'))->links()}}
     @endslot
     @slot('url')
-        faqs
+        payments
     @endslot
 @endcomponent
 
@@ -38,6 +38,6 @@
 @endcomponent
 @component('admin.components.script.mainFormScript')
     @slot('mainFormUrlValue')
-        ../../../admin/faqs/index
+        ../../../admin/payments/index
     @endslot
 @endcomponent

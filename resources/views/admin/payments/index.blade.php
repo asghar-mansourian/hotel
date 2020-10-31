@@ -45,11 +45,10 @@
                     <h3 class="card-title" style="display: inline">
                         <i class="fa fa-clipboard   mr-2"></i>{{__('custom.admin.faq.index.table.header')}}
                     </h3>
-                    <a href="{{url('/admin/payments/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> Add faq </a>
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $payments , 'selects' => ['id' , 'price' , 'authority' , ['user' , 'email'] ]])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $payments , 'selects' => ['id' , 'price' , 'authority' , ['user' , 'email'] ] , 'options' => ['show' , 'delete']])
                         @slot('paginate')
                             {{$payments->links()}}
                         @endslot
@@ -76,7 +75,7 @@
     @endcomponent
     @component('admin.components.script.paginatorScript' , ['type' => 2])
         @slot('paginatorUrl')
-            payments/load?faq=
+            payments/load?page=
         @endslot
     @endcomponent
     @component('admin.components.script.searchScript')
