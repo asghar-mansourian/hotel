@@ -38,7 +38,7 @@
                                             </div>
 
                                             <div class="col-md-5 col-sm-5 mb-4">
-                                                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
+                                                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ({{$country->currency}}) *" class="w-100 courier_input" required>
                                             </div>
 
                                             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
