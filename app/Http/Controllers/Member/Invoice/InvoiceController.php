@@ -14,7 +14,6 @@ class InvoiceController extends Controller
 
         $regions = Country::getCompanyCountry()->regions ?? [];
 
-
         return view('members.invoices.create', compact('countries', 'regions'));
     }
 
@@ -32,8 +31,6 @@ class InvoiceController extends Controller
             $request->session()->flash('danger', 1);
             $request->session()->flash('message', 'member.invoice.message.create_failed');
         }
-
-
 
         return back();
     }

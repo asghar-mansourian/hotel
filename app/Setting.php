@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static getValue(string $Key)
+ */
 class Setting extends Model
 {
     public $timestamps = false;

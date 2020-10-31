@@ -33,8 +33,11 @@ Route::middleware('auth:api')->group(function () {
 
             Route::apiResource('invoices', 'InvoiceController');
 
+            Route::apiResource('orders', 'InvoiceController');
+
             Route::get('countries', 'CountryController');
 
             Route::get('regions', 'RegionController');
+
         });
 });

@@ -23,6 +23,6 @@ class Region extends Model
 
     public function branches()
     {
-        return $this->hasMany('Branch');
+        return $this->hasMany(Branch::class);
     }
 }

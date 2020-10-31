@@ -21,7 +21,6 @@ class RegionSeeder extends Seeder
                 $country->regions()->updateOrCreate(
                     [
                         'name' => $region,
-
                     ]
                 );
             }

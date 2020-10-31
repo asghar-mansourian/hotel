@@ -9,9 +9,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 invoice_buttons">
-                <a href="invoice.html" class="invoice_button">BƏYAN ET</a>
-                <a href="order.html" class="order_button">SİFARİŞ ET</a>
-
+                @include('members.partials.buttons')
             </div>
             <div class="col-md-9 col-sm-12 col-xs-12">
                 <div class="mt-5">
@@ -95,7 +93,7 @@
                                             <div class="col-xs-12"></div>
                                             <div class="col-md-6 col-sm-6 col-sm-5 mb-6">
                                                 <h5><strong>Çatdırılma ofisi *</strong></h5>
-                                                <select class="@error('region_id') is-invalid @enderror w-100"
+                                                <select class="@error('region_id') is-invalid @enderror w-100 courier_input "
                                                         name="region_id" value="{{ old('region_id') }}">
                                                     @foreach($regions as $region)
                                                         <option value="{{$region->id}}">{{$region->name}}</option>

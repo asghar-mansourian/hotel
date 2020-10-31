@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RegionSeeder::class);
 
+        $this->call(BranchSeeder::class);
+
         $this->call(SettingSeeder::class);
+
     }
 }
