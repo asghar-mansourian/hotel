@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="col-md-4 col-sm-6 mb-4">
                                                 <input type="number" name="price" value="{{ old('price') }}"
-                                                       placeholder="Qiyməti (tl) * "
+                                                       placeholder="Qiyməti ({{$country->currency}}) * "
                                                        class="@error('price') is-invalid @enderror w-100 courier_input"
                                                        required="">
                                                 @error('price')
@@ -93,10 +93,10 @@
                                             <div class="col-xs-12"></div>
                                             <div class="col-md-6 col-sm-6 col-sm-5 mb-6">
                                                 <h5><strong>Çatdırılma ofisi *</strong></h5>
-                                                <select class="@error('region_id') is-invalid @enderror w-100 courier_input "
-                                                        name="region_id" value="{{ old('region_id') }}">
-                                                    @foreach($regions as $region)
-                                                        <option value="{{$region->id}}">{{$region->name}}</option>
+                                                <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
+                                                        name="branch_id">
+                                                    @foreach($branches as $branch)
+                                                        <option value="{{$branch->id}}">{{$branch->title}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

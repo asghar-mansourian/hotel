@@ -20,6 +20,7 @@ class CountrySeeder extends Seeder
             Country::updateOrCreate(
                 [
                     'name' => $country,
+                    'currency' => 'tl'
                 ]
             );
         }
