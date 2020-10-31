@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.region.index.title')}}
+    {{__('custom.admin.panel.title')}} | {{__('custom.admin.setting.index.title')}}
 @endsection
 
 @section('styleCustom')
@@ -20,7 +20,7 @@
         <div class="col-lg-4">
             @component('admin.components.search')
                 @slot('url')
-                    {{url('admin/regions/search')}}
+                    {{url('admin/settings/search')}}
                 @endslot
             @endcomponent
         </div>
@@ -43,18 +43,17 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fa fa-map   mr-2"></i>{{__('custom.admin.region.index.table.header')}}
+                        <i class="fa fa-clipboard   mr-2"></i>{{__('custom.admin.faq.index.table.header')}}
                     </h3>
-                    <a href="{{url('/admin/regions/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> Add Region </a>
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' , 'description' , [ 'country','name']] , 'options' => ['edit' , 'show' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $settings , 'selects' => ['id' , 'key' , 'value'] , 'options' => ['edit']])
                         @slot('paginate')
-                            {{$regions->links()}}
+                            {{$settings->links()}}
                         @endslot
                         @slot('url')
-                                regions
+                                settings
                         @endslot
 
                     @endcomponent
@@ -71,28 +70,28 @@
 
     @component('admin.components.script.sweetAlertScript')
         @slot('url')
-            ../../../admin/regions/
+            ../../../admin/settings/
         @endslot
     @endcomponent
     @component('admin.components.script.paginatorScript' , ['type' => 2])
         @slot('paginatorUrl')
-            regions/load?page=
+            settings/load?page=
         @endslot
     @endcomponent
     @component('admin.components.script.searchScript')
         @slot('url')
-            ../../../admin/regions/search/
+            ../../../admin/settings/search/
         @endslot
     @endcomponent
     @component('admin.components.script.sortScript')
         @slot('url')
-            ../../../admin/regions/sort/
+            ../../../admin/settings/sort/
 
         @endslot
     @endcomponent
     @component('admin.components.script.sortTableScript')
         @slot('url')
-            ../../../admin/regions/sort/
+            ../../../admin/settings/sort/
         @endslot
     @endcomponent
     {{--    @component('admin.components.script.filterScript')--}}
@@ -111,7 +110,7 @@
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
                     href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('custom.admin.region.title')}}
+            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('custom.admin.setting.title')}}
             </li>
         @endslot
     @endcomponent
