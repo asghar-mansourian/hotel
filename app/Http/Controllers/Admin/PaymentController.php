@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
+use App\Invoice;
 use App\Payment;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
@@ -31,7 +32,8 @@ class PaymentController extends Controller
     public function load()
     {
         $payments = Payment::query()
-            ->select(Payment::sortField)
+            ->with('user')
+            ->select(Payment::selectField)
             ->orderBy(Payment::sortArrowFieldChecked, Payment::sortArrowTypeChecked)
             ->paginate(Payment::paginateNumber);
 
@@ -61,6 +63,15 @@ class PaymentController extends Controller
         ]));
     }
 
+    public function show($id)
+    {
+        $payment = Payment::query()
+            ->with( 'user')
+            ->where('id', $id)
+            ->first();
+
+        return view('admin.payments.show' , compact('payment'));
+    }
     public function sort(Request $request)
     {
         $sort_field = $request->input('sort_field');
