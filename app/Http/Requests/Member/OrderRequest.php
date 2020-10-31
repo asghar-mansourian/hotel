@@ -30,7 +30,7 @@ class OrderRequest extends FormRequest
             'payment_type' => ['required', new ExistsPaymentType()],
             'description' => ['nullable'],
             'link' => 'required|array|min:1',
-            'link.*' => ['required', 'url'],
+            'link.*' => ['required', 'url', 'max:255'],
             'price' => 'required|array|min:1',
             'price.*' => ['required', 'numeric', 'min:1'],
             'has_cargo' => 'required|array|min:1',
@@ -39,7 +39,7 @@ class OrderRequest extends FormRequest
             'quantity' => 'required|array|min:1',
             'quantity.*' => ['required', 'integer', 'min:1'],
             'specification' => 'required|array|min:1',
-            'specification.*' => ['required', 'string', 'min:1'],
+            'specification.*' => ['required', 'string', 'min:1', 'max:255'],
         ];
     }
 }

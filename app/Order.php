@@ -9,6 +9,8 @@ class Order extends Model
 {
     use SoftDeletes;
 
+    protected $guarded = ['id'];
+
     const PAYMENT_TYPE_ONLINE = 0;
     const PAYMENT_TYPE_CASH = 1;
     const PAYMENT_TYPE_ALL = [
@@ -27,7 +29,7 @@ class Order extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function items()
+    public function orderItems()
     {
         return $this->hasMany(OrderItem::class, 'order_id');
     }
