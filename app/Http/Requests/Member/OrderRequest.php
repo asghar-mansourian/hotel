@@ -30,7 +30,7 @@ class OrderRequest extends FormRequest
             'payment_type' => ['required', new ExistsPaymentType()],
             'description' => ['nullable'],
             'link' => 'required|array|min:1',
-            'link.*' => ['required', 'url', 'max:255'],
+            'link.*' => ['required', 'url'],
             'price' => 'required|array|min:1',
             'price.*' => ['required', 'numeric', 'min:1'],
             'has_cargo' => 'required|array|min:1',

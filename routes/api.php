@@ -33,7 +33,7 @@ Route::middleware('auth:api')->group(function () {
 
             Route::apiResource('invoices', 'InvoiceController');
 
-            Route::apiResource('orders', 'InvoiceController');
+            Route::apiResource('orders', 'OrderController');
 
             Route::get('countries', 'CountryController');
 
