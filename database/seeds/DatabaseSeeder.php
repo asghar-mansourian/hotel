@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CountrySeeder::class);
 
+        $this->call(SettingSeeder::class);
+
         $this->call(RegionSeeder::class);
 
         $this->call(BranchSeeder::class);
 
-        $this->call(SettingSeeder::class);
 
     }
 }
