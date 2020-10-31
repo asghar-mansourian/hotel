@@ -40,10 +40,10 @@ class Payment extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['price', 'discount', 'refid' , 'status'];
+    const selectField = ['id','price', 'discount', 'refid' , 'status' , 'user_id' , 'ip' , 'extra'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User' , 'user_id');
     }
 }
