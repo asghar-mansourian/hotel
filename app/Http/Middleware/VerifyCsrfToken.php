@@ -28,5 +28,6 @@ class VerifyCsrfToken extends Middleware
         "admin/pages/sort",
         "admin/pages/load",
         "setting/getCurrency",
+        "convert",
     ];
 }

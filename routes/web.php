@@ -43,6 +43,7 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/payment/verify', 'PaymentController@index');
     Route::post('/payment/verify', 'PaymentController@card');
+    Route::post('/payment/gate', 'PaymentController@gate');
     Route::get('/payment/redirect', 'PaymentController@index');
     Route::get('/payment/delivery', 'PaymentController@index');
 
@@ -64,6 +65,8 @@ Route::group(['namespace' => 'Web'], function () {
     Route::post('/contact-us', 'ContactController@store');
 
     Route::get('/faq', 'FaqController@index');
+    Route::get('/getCurrency', 'CurrencyController@getCurrency');
+    Route::post('/convert', 'CurrencyController@convert');
 
     Route::get('/how-we-work', function (){
         return view('web.how');
