@@ -7,7 +7,7 @@
     </div>
     <div class="container">
 
-        <form action="{{ url('https://pay-dev.pulpal.az/payment') }}" method="get">
+        <form action="{{ url('/payment/gate') }}" method="post">
             @csrf
             <div class="row left-side">
                 <div class="col-md-12 mt-2">
@@ -15,10 +15,8 @@
                         <label for="" style="width: 450px!important;text-align: left">Balance:</label>
                     </div>
                     <div class="text-center">
-                        <input type="hidden" name="externalId" value="{{$payment->refid}}">
-                        <input type="hidden" name="merchantId" value="358">
-                        <input type="hidden" name="name_en" value="test">
-                        <input type="hidden" name="description_en" value="test">
+                        <input type="hidden" name="id" value="{{$payment->id}}">
+
                         <input disabled type="text" name="price"
                                class=" w-100 courier_input"
                                value="{{$payment->price}}" style="width: 450px!important;">
