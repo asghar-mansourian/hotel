@@ -11,12 +11,12 @@
             <div class="row left-side">
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label for="" style="width: 450px!important;text-align: left">finish:</label>
+                        <label for="" style="width: 450px!important;text-align: left">message:</label>
                     </div>
                     <div class="text-center">
                         <input disabled type="text" name="price"
                                class=" w-100 courier_input"
-                               value="payment_successful" style="width: 450px!important;">
+                               value="{{$message}}" style="width: 450px!important;">
 
 
                     </div>

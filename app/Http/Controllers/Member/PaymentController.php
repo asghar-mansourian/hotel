@@ -19,12 +19,11 @@ class PaymentController extends Controller
     public function card(Request $request)
     {
 
-
-        $price = 1;
+        $price = request('new_balance_val');
+        $price = 500;
         $payment = Payment::create([
             'user_id' => Auth::user()->id,
             'price' => $price,
-            'status' => 0,
         ]);
         return View::make('members.card', compact('payment'));
     }
@@ -33,21 +32,43 @@ class PaymentController extends Controller
     {
         $payment = Payment::find($request['id']);
         $pulpal =new pulpal();
-        $payment_link = $pulpal->getUrl("106582", "5000", "test");
+        $payment_link = $pulpal->getUrl($payment->id, $payment->price, "test");
 
         return redirect($payment_link);
     }
     public function redirect()
     {
-        return View::make('members.check');
+        if ($_GET['Status'] == "error")
+        {
+            $message = "payment failed";
+            return View::make('members.check' , compact('message'));
+        }
+        else{
+            $message = "payment successful";
+            return View::make('members.check' , compact('message'));
+        }
+
     }
 
     public function delivery()
     {
-        Payment::create([
-            'user_id' => 123,
-            'price' => 123,
-            'status' => 0,
-        ]);
+//        ExternalId
+        if ($_GET['Status'] == "error")
+        {
+            Payment::find($_GET['ExternalId'])->update(
+                [
+                    'status' => -1,
+                ]
+            );
+        }
+        else{
+            Payment::find($_GET['ExternalId'])->update(
+                [
+                    'status' => 1,
+                    'refid' => $_GET['PaymentAttempt'],
+                ]
+            );
+        }
+
     }
 }
