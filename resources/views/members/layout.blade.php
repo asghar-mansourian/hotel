@@ -27,7 +27,6 @@
                         $('#' + jsonResponse.keys[index]).addClass('has-danger');
                         $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
                     })
-
                 }
                 var success = function (response) {
                     // var url = '/setting';

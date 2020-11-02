@@ -19,7 +19,7 @@
                                 <div class="tab">
                                     <button class="tablinks @if($loop->first) active @endif"
                                             onclick="openCity(event, 'country-{{$country->id}}')"><img
-                                            src="{{url('/front/image/order-TR.png')}}"><span
+                                            src="{{url("images/{$country->flag}")}}" width="20" alt="flag"><span
                                             class="dis_no">{{$country->name}}</span>
                                     </button>
                                 </div>
