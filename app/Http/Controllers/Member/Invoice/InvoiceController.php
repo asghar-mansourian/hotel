@@ -9,6 +9,15 @@ use App\Http\Requests\Member\InvoiceRequest;
 
 class InvoiceController extends Controller
 {
+    public function index()
+    {
+        $invoices = auth()->user()->invoices()->paginate(10);
+
+        $countries = Country::all();
+
+        return view('members.invoices.index', compact('invoices', 'countries'));
+    }
+
     public function create()
     {
         $countries = Country::all();
