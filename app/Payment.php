@@ -38,6 +38,7 @@ class Payment extends Model
 
     ];
     const  paginateNumber = 10;
+    protected $table = 'payments';
     const sortType = 'desc';
     const sortField = 'id';
     const selectField = ['id','price', 'discount', 'refid' , 'status' , 'user_id' , 'ip' , 'extra'];

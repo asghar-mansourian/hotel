@@ -44,8 +44,8 @@ Route::group(['namespace' => 'Member'], function () {
     Route::get('/payment/verify', 'PaymentController@index');
     Route::post('/payment/verify', 'PaymentController@card');
     Route::post('/payment/gate', 'PaymentController@gate');
-    Route::get('/payment/redirect', 'PaymentController@index');
-    Route::get('/payment/delivery', 'PaymentController@index');
+    Route::get('/payment/redirect', 'PaymentController@redirect');
+    Route::get('/payment/delivery', 'PaymentController@delivery');
 
     Route::get('/az-balance', 'PaymentController@verify');
 
