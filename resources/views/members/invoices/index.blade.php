@@ -4,6 +4,21 @@
     Kargo | Invoices
 @endsection
 
+@section('styles')
+    <style>
+        .filterDiv_ul ul li {
+            width: 19.99%;
+        }
+
+        .filterDiv ul li {
+            width: 19.99%;
+        }
+
+        nav li {
+            float: none !important;
+        }
+    </style>
+@endsection
 @section('main')
     @include('members.partials.top_panel')
     <div class="mt-5">
@@ -36,124 +51,30 @@
                                     <div id="scrol_price_content">
                                         <div class="filterDiv_ul">
                                             <ul>
-                                                <li>Tarixi</li>
-                                                <li>Məbləğ</li>
-                                                <li>Əməliyyat</li>
+                                                <li>Sifariş №</li>
+                                                <li>Sifariş tarixi</li>
+                                                <li>Mağaza</li>
+                                                <li>Status</li>
+                                                <li>Action</li>
                                             </ul>
                                         </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">40 ₺</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">- 33.77 ₺</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">40 $</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">-33.9 $</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">50 ₺</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">- 43.77 ₺</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">50 $</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">-43.9 $</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">40 ₺</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">- 33.77 ₺</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">40 $</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">-33.9 $</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">50 ₺</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">- 43.77 ₺</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv income">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="green">50 $</li>
-                                                <li>Balans artırılması</li>
-                                            </ul>
-                                        </div>
-                                        <div class="filterDiv expenditure">
-                                            <ul>
-                                                <li>22.09.2020 22:28</li>
-                                                <li class="red">-43.9 $</li>
-                                                <li>Sifariş Ödənişi</li>
-                                            </ul>
-                                        </div>
+                                        @foreach($invoices as $invoice)
+                                            <div class="filterDiv income">
+                                                <ul>
+                                                    <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>
+                                                    <li>{{$invoice->created_at}}</li>
+                                                    <li>{{$invoice->shop}}</li>
+                                                    <li class="green bold">{{\App\lib\Invoice::getStatusViaKey($invoice->status)}}</li>
+                                                    <li>
+                                                        <input type="button" value="status" class="btn btn-info">
+                                                        <input type="button" value="sil" class="btn btn-danger">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        @endforeach
                                     </div>
+                                    {{ $invoices->links() }}
+
                                 </div>
                             </div>
                         </div>
