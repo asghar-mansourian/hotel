@@ -4,8 +4,8 @@
 <li class="">
     <a href="#"><i class="fas fa-search-location"></i><span class="use_dis_no">Xaricdəki ünvanlarım</span></a>
 </li>
-<li>
-    <a href="#"><i class="fas fa-shopping-basket"></i><span class="use_dis_no">Sifarişlərim</span></a>
+<li class="{{url()->current() === url('/orders') ? 'active_li' : ''}}">
+    <a href="{{url('/orders')}}"><i class="fas fa-shopping-basket"></i><span class="use_dis_no">Orders</span></a>
 </li>
 <li class="{{url()->current() === route('invoices.index') ? 'active_li' : ''}}">
     <a href="{{route('invoices.index')}}"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">Bağlamalarım</span></a>
