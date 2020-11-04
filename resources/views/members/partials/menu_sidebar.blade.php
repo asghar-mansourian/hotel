@@ -10,8 +10,8 @@
 <li class="{{url()->current() === route('invoices.index') ? 'active_li' : ''}}">
     <a href="{{route('invoices.index')}}"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">Bağlamalarım</span></a>
 </li>
-<li>
-    <a href="#"><i class="fas fa-donate"></i><span class="use_dis_no">AZN Balansım</span></a>
+<li class="{{url()->current() === url('/az-balance') ? 'active_li' : ''}}">
+    <a href="{{url('/az-balance')}}"><i class="fas fa-donate"></i><span class="use_dis_no">AZN Balance</span></a>
 </li>
 <li>
     <a href="#"><i class="fas fa-donate"></i><span class="use_dis_no">TL Balansım</span></a>
