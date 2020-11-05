@@ -20,19 +20,27 @@
                 <div class="mt-5">
                     <div class="row">
                         <div class="col-md-12">
-                            @foreach($countries as $country)
-                                <div class="tab">
-                                    <button class="tablinks @if($loop->first) active @endif" onclick="openCity(event, 'country-{{$country->id}}')">
-                                        <img src="{{url('/front/image/order-TR.png')}}">
+                            <div class="tab">
+                                @foreach($countries as $country)
+                                    <button class="tablinks
+                                    @if(request()->query('country') == $country->id) active @endif
+                                    @if(is_null(request()->query('country')) && $loop->first) active @endif"
+                                            onclick="window.location.href = '{{url("/orders/create?country={$country->id}")}}'">
+                                        <img src="{{url("images/{$country->flag}")}}" width="20" alt="flag">
                                         <span class="dis_no">{{$country->name}}</span>
                                     </button>
-                                </div>
-                                <form class="border_bar" action="{{route('orders.store')}}" method="POST">
-                                    @csrf
-                                    <div id="country-{{$country->id}}" class="tabcontent active" style="@if($loop->first) display: block; @endif">
+                                @endforeach
+                            </div>
+                            <div class="border_bar">
+                                @foreach($countries as $country)
+                                    <form action="{{route('orders.store')}}" method="POST" id="country-{{$country->id}}" class="tabcontent active" style="
+                                    @if(request()->query('country') == $country->id) display: block;  @endif
+                                    @if(is_null(request()->query('country')) && $loop->first) display: block;  @endif">
+                                        @csrf
                                         <input type="hidden" name="country_id" value="{{$country->id}}">
 
                                         <div class="row container-order">
+
                                             <div class="col-md-7 col-sm-7 mb-4">
                                                 <input type="url" name="link[]" placeholder="Məhsul linki *" class="w-100 courier_input" required>
                                             </div>
@@ -82,11 +90,10 @@
                                                 <button type="button" class="invoice_button btn-remove-container-order">Linki sil<i class="fas fa-trash-alt ml-3"></i></button>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <input type="submit" class="hidden btn-submit-form">
-                                </form>
-                            @endforeach
+                                        <input type="submit" class="hidden btn-submit-form">
+                                    </form>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -173,7 +180,7 @@
             </div>
 
             <div class="col-md-5 col-sm-5 mb-4">
-                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ(TL) *" class="w-100 courier_input" required>
+                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ *" class="w-100 courier_input" required>
             </div>
 
             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
@@ -216,137 +223,17 @@
             </div>
         </div>
 
+
+
     </script>
 
     <script>
-        $(document).ready(function () {
-            var countryId = $('input[name="country_id"]').val();
-            var taxOrder = {{$taxOrder}};
-
-            // change select
-            $(document).on('change', 'select[name="has_cargo[]"]', function () {
-                $(this)
-                    .closest('div')
-                    .next()
-                    .children()[0]
-                    .classList
-                    .toggle('hidden');
-            });
-
-            // add row
-            $(document).on('click', '.btn-add-container-order', function () {
-                if ($(this).data('country-id') !== undefined) {
-                    countryId = $(this).data('country-id');
-                }
-
-                $('#country-' + countryId).append(
-                    $('#template-order').html()
-                )
-
-                $(this).fadeOut();
-            });
-
-            // remove row
-            $(document).on('click', '.btn-remove-container-order', function () {
-                var containerCountry = $('#country-' + countryId);
-
-                if (containerCountry.children('div').children.length > 1) {
-                    $(this)
-                        .closest('div .container-order')
-                        .remove();
-                }
-
-                containerCountry
-                    .children('div')
-                    .last()
-                    .find('.btn-add-container-order')
-                    .fadeIn();
-
-                $('#total-price-orders').text(
-                    totalPriceOrders() + ' TL'
-                )
-            })
-
-            // save order
-            $('#btn-save-order').click(function () {
-                var containerCountry = $('#country-' + countryId);
-
-                var form = containerCountry.closest('form');
-
-                if (!form.find('input[name="payment_type"]').length) {
-                    var inputPaymentType = $("<input>")
-                        .attr("type", "hidden")
-                        .attr("name", "payment_type").val(
-                            $('input[name="payment_type"]:checked').val()
-                        );
-
-                    var inputBranchId = $("<input>")
-                        .attr("type", "hidden")
-                        .attr("name", "branch_id").val(
-                            $('select[name="branch_id"]').val()
-                        );
-
-                    form.append(inputPaymentType, inputBranchId);
-                } else {
-                    form.find('input[name="payment_type"]').val(
-                        $('input[name="payment_type"]:checked').val()
-                    )
-
-                    form.find('input[name="branch_id"]').val(
-                        $('select[name="branch_id"]').val()
-                    )
-                }
-
-                form.find('.btn-submit-form').trigger('click');
-
-            });
-
-            // calc once order
-            var totalPriceOrder = function (blurInput) {
-                var parent = blurInput.closest('div .container-order');
-
-                var price = parseFloat(parent.find('input[name="price[]"]').val());
-                var cargo = parseFloat(parent.find('input[name="cargo[]"]').val());
-                var quantity = parseInt(parent.find('input[name="quantity[]"]').val());
-
-                quantity = (quantity === '' || quantity === 0 || isNaN(quantity)) ? 1 : quantity
-                price = (price === '' || isNaN(price)) ? 0 : price
-                cargo = (cargo === '' || isNaN(cargo)) ? 0 : cargo
-
-                var total = (quantity * price) + cargo;
-
-                var percentage = ((taxOrder / 100) * total);
-
-                return (total + percentage).toFixed(2);
-            }
-
-            // calc total orders
-            var totalPriceOrders = function () {
-                var parent = $('#country-' + countryId);
-
-                var totalPriceOrders = 0;
-                parent.children('div').each(function () {
-                    if (parseFloat($(this).find('input[name="total[]"]').val())) {
-                        totalPriceOrders += parseFloat($(this).find('input[name="total[]"]').val())
-                    }
-                })
-
-                return (totalPriceOrders).toFixed(2);
-            }
-
-            $(document).on('blur', 'input[name="price[]"], input[name="cargo[]"], input[name="quantity[]"]', function () {
-                var parent = $(this).closest('div .container-order');
-
-                parent.find('input[name="total[]"]').val(
-                    totalPriceOrder($(this))
-                )
-
-                $('#total-price-orders').text(
-                    totalPriceOrders() + ' TL'
-                )
-
-            });
-
-        })
+        @if(request()->query('country'))
+        var countryId = {{request()->query('country')}}
+        @else
+        var countryId = $('input[name="country_id"]').val();
+        @endif
+        var taxOrder = {{$taxOrder}};
     </script>
+    <script src="/front/js/orders/create.js"></script>
 @endsection

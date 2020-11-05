@@ -27,7 +27,20 @@
     url('../fonts/Montserrat-Light.ttf') format('truetype');
     font-weight: normal;
 }
-
+.tab a {
+    background-color: inherit;
+    float: left;
+    border: 2px solid transparent;
+    outline: none;
+    cursor: pointer;
+    color: #19170f;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
 @font-face {
     font-family: 'Montserrat-Bold';
     src: url('../fonts/Montserrat-Bold.eot');

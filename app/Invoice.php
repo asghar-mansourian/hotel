@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Collections\InvoiceCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -49,6 +50,11 @@ class Invoice extends Model
         self::STATUS_RETURN => 'return',
         self::STATUS_COMPLETE => 'complete',
     ];
+
+    public function newCollection(array $models = [])
+    {
+        return new InvoiceCollection($models);
+    }
 
     public function user()
     {
