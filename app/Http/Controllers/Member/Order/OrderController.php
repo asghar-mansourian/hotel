@@ -6,10 +6,35 @@ use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\StoreOrder;
+use App\Order;
+use App\OrderItem;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     use StoreOrder;
+
+    public function index()
+    {
+        $orders = OrderItem::query();
+        $user = Auth::user();
+
+        if (isset($_GET['type']))
+        {
+            $type = $_GET['type'];
+            $orders->where('status' , $type);
+        }
+        $orders
+            ->with(
+                [
+                    'order.user' => function ($query) use ($user) {
+                        $query->where('id', $user->id);
+                    }
+                ]);
+        $countries = Country::all();
+
+        return view('members.orders.index', compact('orders', 'countries'));
+    }
 
     public function create()
     {

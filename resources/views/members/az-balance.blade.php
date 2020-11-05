@@ -217,36 +217,7 @@
 @endsection
 
 @section('menuItem')
-    <li class="">
-        <a href="{{url('/home')}}"><i class="fas fa-th-large"></i><span class="use_dis_no">Dashboard</span></a>
-    </li>
-    <li class="">
-        <a href="#"><i class="fas fa-search-location"></i><span class="use_dis_no">Xaricdəki ünvanlarım</span></a>
-    </li>
-    <li>
-        <a href="#"><i class="fas fa-shopping-basket"></i><span class="use_dis_no">Sifarişlərim</span></a>
-    </li>
-    <li>
-        <a href="#"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">Bağlamalarım</span></a>
-    </li>
-    <li>
-        <a href="#"><i class="fas fa-donate"></i><span class="use_dis_no">AZN Balansım</span></a>
-    </li>
-    <li>
-        <a href="#"><i class="fas fa-donate"></i><span class="use_dis_no">TL Balansım</span></a>
-    </li>
-    <li>
-        <a href="#"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">Kuryer</span></a>
-    </li>
-    <li>
-        <a href="#"><i class="far fa-question-circle" style="font-size: 16px;"></i><span class="use_dis_no">Sorğu</span></a>
-    </li>
-    <li class="active_li">
-        <a href="{{url('/setting')}}"><i class="fas fa-cogs"></i><span class="use_dis_no">Setting</span></a>
-    </li>
-    <li>
-        <a href="{{url('/logout')}}"><i class="fas fa-power-off"></i><span class="use_dis_no">Log Out</span></a>
-    </li>
+    @include('members.partials.menu_sidebar')
 @endsection
 
 
