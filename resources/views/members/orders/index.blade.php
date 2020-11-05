@@ -106,7 +106,7 @@
                                             @endphp
                                             @foreach($active_orders as $order)
 
-                                                @if($order->order->country['name'] != null)
+                                                @if($order->order->country != null)
                                                     <div class="filterDiv income">
                                                         <ul>
                                                             <li style="width: 10%;">{{$order->created_at}}</li>

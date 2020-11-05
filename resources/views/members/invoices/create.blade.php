@@ -15,18 +15,21 @@
                 <div class="mt-5">
                     <div class="row">
                         <div class="col-md-12">
-                            @foreach($countries as $country)
-                                <div class="tab">
+                            <div class="tab">
+                                @foreach($countries as $country)
                                     <button class="tablinks @if($loop->first) active @endif"
                                             onclick="openCity(event, 'country-{{$country->id}}')"><img
                                             src="{{url("images/{$country->flag}")}}" width="20" alt="flag"><span
                                             class="dis_no">{{$country->name}}</span>
                                     </button>
-                                </div>
-                                <form class="border_bar" action="{{route('invoices.store')}}" method="POST">
-                                    @csrf
-                                    <div id="country-{{$country->id}}" class="tabcontent"
-                                         style="@if($loop->first) display: block; @endif">
+                                @endforeach
+                            </div>
+                            <div class="border_bar">
+                                @foreach($countries as $country)
+
+                                    <form action="{{route('invoices.store')}}" method="POST" id="country-{{$country->id}}" class="tabcontent"
+                                          style="@if($loop->first) display: block; @endif">
+                                        @csrf
                                         <input type="hidden" name="country_id" value="{{$country->id}}">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 mb-5">
@@ -123,9 +126,9 @@
                                                 <button class="btn courier_button" type="submit">Göndər</button>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
-                            @endforeach
+                                    </form>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

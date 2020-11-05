@@ -1,10 +1,10 @@
 @extends('members.layout')
-
 @section('title')
     Kargo | Invoices
 @endsection
 
 @section('styles')
+
     <style>
         .filterDiv_ul ul li {
             width: 19.99%;
@@ -23,31 +23,80 @@
     @include('members.partials.top_panel')
     <div class="mt-5">
         <div class="row">
+            @include('admin.components.error');
             <div class="col-md-12">
                 <div class="tab">
-                    <button class="tablinks  active" onclick="openCity(event, 'turkey')"><img src="../image/order-TR.png"><span class="dis_no"> Türkiyə</span></button>
-                    <button class="tablinks" onclick="openCity(event, 'amerika')"><img src="../image/order-Us.png"><span class="dis_no">Amerika</span></button>
+                    @foreach($countries as $country)
+                        <button class="tablinks
+                        @if(request()->query('country') == $country->id) active @endif
+                        @if(is_null(request()->query('country')) && $loop->first) active @endif"
+                                onclick="openCity(event, 'country-{{$country->id}}')">
+                            <img src="{{url("images/{$country->flag}")}}" width="20" alt="flag">
+                            <span class="dis_no"> {{$country->name}}</span>
+                        </button>
+                    @endforeach
                 </div>
                 <div class="border_bar">
-                    <div id="turkey" class="tabcontent active" style="display: block;">
-                        <div class="row">
-                            <div class="col-md-12 mt-5 ">
-                                <div class="dropdown_dr">
-                                    <div class="dropdown myBtnContainer">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_hamisi" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                            Hamısı<i class="fas fa-chevron-down ml-2" style="font-size: 11px"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdown_hamisi">
-                                            <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> Hamısı</button>
-                                            <br>
-                                            <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> Məxaric</button>
-                                            <br>
-                                            <button class="dropdown-item w-100" onclick="filterSelection('income')"> Mədaxil</button>
-                                            <br>
-                                        </div>
+                    @foreach($countries as $country)
+                        <div id="country-{{$country->id}}" class="tabcontent" style="
+                        @if(request()->query('country') == $country->id) display: block;  @endif
+                        @if(is_null(request()->query('country')) && $loop->first) display: block;  @endif">
+                            <div class="row">
+                                <div class="col-md-12 mt-5" style="margin-top: 0 !important;">
+                                    <div class="tab">
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}")}}">
+                                            <img src="./front/image/my_order/note.svg">
+                                            <span class="dis_no"> Hamısı</span><span class="num">
+                                                ({{$country->invoices->count()}})
+                                            </span>
+                                        </a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ORDERED)}}">
+                                            <img src="./front/image/my_order/cargo.svg">
+                                            <span class="dis_no"> Sifariş verildi</span><span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ORDERED)->count()}})
+                                            </span>
+                                        </a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_WAREHOUSE_ABROAD)}}"><img src="./front/image/my_order/discount.svg">
+                                            <span class="dis_no">{{$country->name}}  anbar</span><span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_WAREHOUSE_ABROAD)->count()}})
+                                            </span>
+                                        </a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ON_WAY)}}"><img src="./front/image/my_order/place.svg">
+                                            <span class="dis_no">Yoldadır</span><span
+                                                class="num"> ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ON_WAY)->count()}})
+                                            </span>
+                                        </a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_CUSTOMS_INSPECTION)}}"><img src="./front/image/my_order/bag.svg">
+                                            <span class="dis_no">Gömrük yoxlanışı</span><span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_CUSTOMS_INSPECTION)->count()}})
+                                            </span></a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_IN_WAREHOUSE)}}"><img src="./front/image/my_order/wallet.svg">
+                                            <span class="dis_no"> anbarı</span><span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_IN_WAREHOUSE)->count()}})
+                                            </span>
+                                        </a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COURIER_DELIVERY)}}"><img src="./front/image/my_order/phone.svg">
+                                            <span class="dis_no">Kuryer çatdırma</span>
+                                            <span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COURIER_DELIVERY)->count()}})
+                                            </span>
+                                        </a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_RETURN)}}"><img src="./front/image/my_order/trash.svg">
+                                            <span class="dis_no">İade</span>
+                                            <span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_RETURN)->count()}})
+                                            </span>
+                                        </a>
+                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COMPLETE)}}"><img src="./front/image/my_order/bill.svg">
+                                            <span class="dis_no">Tamamlanmış</span>
+                                            <span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COMPLETE)->count()}})
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
-                                <div id="scrol_price" class="mt-5">
+                                <br>
+                                <div id="scrol_price" style="margin-top: 115px !important; height: 553px" class="mt-5">
                                     <div id="scrol_price_content">
                                         <div class="filterDiv_ul">
                                             <ul>
@@ -58,7 +107,7 @@
                                                 <li>Action</li>
                                             </ul>
                                         </div>
-                                        @foreach($invoices as $invoice)
+                                        @foreach($country->invoices->filterViaStatus(request()->query('status')) as $invoice)
                                             <div class="filterDiv income">
                                                 <ul>
                                                     <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>
@@ -66,19 +115,21 @@
                                                     <li>{{$invoice->shop}}</li>
                                                     <li class="green bold">{{\App\lib\Invoice::getStatusViaKey($invoice->status)}}</li>
                                                     <li>
-                                                        <input type="button" value="status" class="btn btn-info">
-                                                        <input type="button" value="sil" class="btn btn-danger">
+                                                        {{--<input type="button" value="Sifarişi izlə" class="btn btn-info">--}}
+                                                        <form action="{{route('invoices.destroy', ['invoice' => $invoice->id])}}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <input type="submit" value="sil" class="btn btn-danger">
+                                                        </form>
                                                     </li>
                                                 </ul>
                                             </div>
                                         @endforeach
                                     </div>
-                                    {{ $invoices->links() }}
-
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

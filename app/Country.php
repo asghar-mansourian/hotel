@@ -28,4 +28,9 @@ class Country extends Model
     {
         return $this->hasMany('App\Region');
     }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
 }

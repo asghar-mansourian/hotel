@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Collections\InvoiceCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -31,7 +32,7 @@ class Invoice extends Model
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 
-    const STATUS_ORDERED = 0;
+    const STATUS_ORDERED = 0; // Yolda
     const STATUS_WAREHOUSE_ABROAD = 1;
     const STATUS_ON_WAY = 2;
     const STATUS_CUSTOMS_INSPECTION = 3;
@@ -49,6 +50,11 @@ class Invoice extends Model
         self::STATUS_RETURN => 'return',
         self::STATUS_COMPLETE => 'complete',
     ];
+
+    public function newCollection(array $models = [])
+    {
+        return new InvoiceCollection($models);
+    }
 
     public function user()
     {

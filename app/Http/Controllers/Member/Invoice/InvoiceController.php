@@ -6,16 +6,15 @@ use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Member\InvoiceRequest;
+use App\Invoice;
 
 class InvoiceController extends Controller
 {
     public function index()
     {
-        $invoices = auth()->user()->invoices()->paginate(10);
-
         $countries = Country::all();
 
-        return view('members.invoices.index', compact('invoices', 'countries'));
+        return view('members.invoices.index', compact('countries'));
     }
 
     public function create()
@@ -39,6 +38,20 @@ class InvoiceController extends Controller
         } else {
             $request->session()->flash('danger', 1);
             $request->session()->flash('message', 'member.invoice.message.create_failed');
+        }
+
+        return back();
+    }
+
+    public function destroy(Invoice $invoice)
+    {
+        $invoice = $invoice->delete();
+        if ($invoice) {
+            request()->session()->flash('message', __('member.invoice.message.deleted_success'));
+            request()->session()->flash('success', 1);
+        } else {
+            request()->session()->flash('danger', 1);
+            request()->session()->flash('message', 'member.invoice.message.deleted_failed');
         }
 
         return back();
