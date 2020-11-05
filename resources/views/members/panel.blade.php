@@ -16,14 +16,16 @@
                     </picture>
                     <div class="balance-count">
                         <span>Balansım</span> <br/>
-                        <span class="count">0.00<sup>₼</sup></span>
+                        <span class="count">{{$wallet}}<sup>₼</sup></span>
                     </div>
                     <div class="balance-date">Son əlavə tarixi</div>
                     <div class="balance-text">
-                        Azərbaycana çatdırılma haqqının ödənilməsi və online kuryer sifarişi üçün balansınızı artıra bilərsiniz.
+                        Azərbaycana çatdırılma haqqının ödənilməsi və online kuryer sifarişi üçün balansınızı artıra
+                        bilərsiniz.
                         <p><b> ARTIRILAN BALANS GERİ QAYTARILMIR.</b></p>
                     </div>
-                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="#" class="border-btn btn-effect">Balansı artır</a></a>
+                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="#" class="border-btn btn-effect">Balansı
+                            artır</a></a>
 
                 </div>
             </div>
@@ -36,7 +38,8 @@
                     <div style="clear: both;"></div>
                     <td class="post">
                         <div class="text-center">
-                            <a href="#" onclick="showStuff('answer1', 'text1', this); return false;"><img src="{{url('front/image/wallet1.png')}}" width="150"></a>
+                            <a href="#" onclick="showStuff('answer1', 'text1', this); return false;"><img
+                                    src="{{url('front/image/wallet1.png')}}" width="150"></a>
                         </div>
                         <span id="answer1" style="display: none;">
 											<h4 class="text-center mt-0"><strong>Son 30 gün</strong></h4>
@@ -55,7 +58,8 @@
 												<span id="procent">0.00</span>
 											</div>
 											<div style="clear: both;"></div>
-											<div class="text-center procent_dolar"><h4 class="mb-0"><strong>0.00 <sup>$</sup></strong></h4></div>
+											<div class="text-center procent_dolar"><h4
+                                                    class="mb-0"><strong>0.00 <sup>$</sup></strong></h4></div>
 										</span>
                         <span id="text1"></span>
                     </td>
@@ -65,13 +69,17 @@
         <div class="col-md-12 mt-5 border_sh">
             <div class="dropdown_dr">
                 <div class="dropdown myBtnContainer">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_hamisi" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_hamisi"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Hamısı<i class="fas fa-chevron-down ml-2" style="font-size: 11px"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdown_hamisi">
-                        <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> Hamısı</button><br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> Məxaric</button><br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> Mədaxil</button><br>
+                        <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> Hamısı</button>
+                        <br>
+                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> Məxaric</button>
+                        <br>
+                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> Mədaxil</button>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -79,127 +87,29 @@
                 <div id="scrol_price_content">
                     <div class="filterDiv_ul">
                         <ul>
-                            <li>Tarixi</li>
-                            <li>Məbləğ</li>
-                            <li>Əməliyyat</li>
+                            <li style="width: 20%;">type</li>
+                            <li style="width: 20%;">price</li>
+                            <li style="width: 20%;">refid</li>
+                            <li style="width: 20%;">status</li>
+                            <li style="width: 20%;">date</li>
                         </ul>
                     </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 ₺</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 33.77 ₺</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 $</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-33.9 $</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 ₺</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 43.77 ₺</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 $</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-43.9 $</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 ₺</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 33.77 ₺</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 $</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-33.9 $</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 ₺</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 43.77 ₺</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 $</li>
-                            <li>Balans artırılması</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-43.9 $</li>
-                            <li>Sifariş Ödənişi</li>
-                        </ul>
-                    </div>
+                    @foreach($payments as $payment)
+                        <div class="filterDiv income">
+                            <ul>
+                                <li style="width: 20%;">{{$payment->type}}</li>
+                                <li style="width: 20%;" class="green">{{$payment->price}}</li>
+                                <li style="width: 20%;">{{$payment->refid}}</li>
+                                <li style="width: 20%;">{{$payment->status}}</li>
+                                <li style="width: 20%;">{{$payment->created_at}}</li>
+                            </ul>
+                        </div>
+                    @endforeach
+
+
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 @section('menuItem')
     @include('members.partials.menu_sidebar')
