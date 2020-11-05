@@ -31,7 +31,7 @@ class Invoice extends Model
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 
-    const STATUS_ORDERED = 0;
+    const STATUS_ORDERED = 0; // Yolda
     const STATUS_WAREHOUSE_ABROAD = 1;
     const STATUS_ON_WAY = 2;
     const STATUS_CUSTOMS_INSPECTION = 3;

@@ -5,6 +5,7 @@
 @endsection
 
 @section('styles')
+
     <style>
         .filterDiv_ul ul li {
             width: 19.99%;
@@ -25,29 +26,46 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tab">
-                    <button class="tablinks  active" onclick="openCity(event, 'turkey')"><img src="../image/order-TR.png"><span class="dis_no"> Türkiyə</span></button>
-                    <button class="tablinks" onclick="openCity(event, 'amerika')"><img src="../image/order-Us.png"><span class="dis_no">Amerika</span></button>
+                    @foreach($countries as $country)
+                        <button class="tablinks @if($loop->first) active @endif"
+                                onclick="openCity(event, 'country-{{$country->id}}')">
+                            <img src="{{url("images/{$country->flag}")}}" width="20" alt="flag">
+                            <span class="dis_no"> {{$country->name}}</span>
+                        </button>
+                    @endforeach
                 </div>
                 <div class="border_bar">
-                    <div id="turkey" class="tabcontent active" style="display: block;">
-                        <div class="row">
-                            <div class="col-md-12 mt-5 ">
-                                <div class="dropdown_dr">
-                                    <div class="dropdown myBtnContainer">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_hamisi" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                            Hamısı<i class="fas fa-chevron-down ml-2" style="font-size: 11px"></i>
+                    @foreach($countries as $country)
+                        <div id="country-{{$country->id}}" class="tabcontent" style="@if($loop->first) display: block; @endif">
+                            <div class="row">
+                                <div class="col-md-12 mt-5 ">
+                                    <div class="tab">
+                                        <button class="tablinks width_30" onclick="openCity(event, 'note')"><img src="./front/image/my_order/note.svg">
+                                            <span class="dis_no"> Hamısı</span><span class="num"> ({{$country->invoices->count()}})</span>
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdown_hamisi">
-                                            <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> Hamısı</button>
-                                            <br>
-                                            <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> Məxaric</button>
-                                            <br>
-                                            <button class="dropdown-item w-100" onclick="filterSelection('income')"> Mədaxil</button>
-                                            <br>
-                                        </div>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'cargo')"><img src="./front/image/my_order/cargo.svg">
+                                            <span class="dis_no"> Yolda</span><span class="num"> ({{$country->invoices->count()}})</span>
+                                        </button>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'discount')"><img sr="./front/image/my_order/discount.svg">
+                                            <span class="dis_no"> Bakıda</span><span class="num"> (4)</span>
+                                        </button>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'place')"><img src="./front/image/my_order/place.svg"><span class="dis_no"> Turkiye anbarinda</span><span
+                                                class="num"> (3)</span>
+                                        </button>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'bag')"><img src="./front/image/my_order/bag.svg"><span class="dis_no">Səbət</span><span class="num"> (1)</span></button>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'wallet')"><img src="./front/image/my_order/wallet.svg"><span class="dis_no">Ödənildi</span><span class="num"> (5)</span>
+                                        </button>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'phone')"><img src="./front/image/my_order/phone.svg"><span class="dis_no">Sifariş edildi</span><span
+                                                class="num"> (12)</span>
+                                        </button>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'trash')"><img src="./front/image/my_order/trash.svg"><span class="dis_no">Silindi</span><span class="num"> (12)</span>
+                                        </button>
+                                        <button class="tablinks width_30" onclick="openCity(event, 'bill')"><img src="./front/image/my_order/bill.svg"><span class="dis_no">İadə</span><span class="num"> (2)</span>
+                                        </button>
                                     </div>
                                 </div>
-                                <div id="scrol_price" class="mt-5">
+                                <br>
+                                <div id="scrol_price" style="margin-top: 113px !important;" class="mt-5">
                                     <div id="scrol_price_content">
                                         <div class="filterDiv_ul">
                                             <ul>
@@ -58,7 +76,7 @@
                                                 <li>Action</li>
                                             </ul>
                                         </div>
-                                        @foreach($invoices as $invoice)
+                                        @foreach($country->invoices as $invoice)
                                             <div class="filterDiv income">
                                                 <ul>
                                                     <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>
@@ -66,7 +84,7 @@
                                                     <li>{{$invoice->shop}}</li>
                                                     <li class="green bold">{{\App\lib\Invoice::getStatusViaKey($invoice->status)}}</li>
                                                     <li>
-                                                        <input type="button" value="status" class="btn btn-info">
+                                                        {{--                                                    <input type="button" value="Sifarişi izlə" class="btn btn-info">--}}
                                                         <input type="button" value="sil" class="btn btn-danger">
                                                     </li>
                                                 </ul>
@@ -78,7 +96,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

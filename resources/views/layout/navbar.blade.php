@@ -6,7 +6,7 @@
     <div class="menu_sec">
         <ul>
             <li>
-                <a href="#" class="active">Home</a>
+                <a href="/" class="active">Home</a>
             </li>
             <li>
                 <a href="#">Pricing</a>
@@ -34,8 +34,8 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown_panel">
                             <a class="dropdown-item" href="{{url('/home')}}">dashboard</a><br/>
                             <a class="dropdown-item" href="#">Xaricdəki ünvanlarım</a><br/>
-                            <a class="dropdown-item" href="#">Sifarişlərim</a><br/>
-                            <a class="dropdown-item" href="#">Bağlamalarım</a><br/>
+                            <a class="dropdown-item" href="{{route('orders.index')}}">Sifarişlərim</a><br/>
+                            <a class="dropdown-item" href="{{route('invoices.index')}}">Bağlamalarım</a><br/>
                             <a class="dropdown-item" href="#">AZN Balansım</a><br/>
                             <a class="dropdown-item" href="#">TL Balansım</a><br/>
                             <a class="dropdown-item" href="#">Kuryer</a><br/>
@@ -46,6 +46,16 @@
                     </div>
                 </li>
             @endauth
+            @guest('web')
+                <li>
+                    <a href="/login">
+                        <strong>Daxil ol</strong>
+                    </a> |
+                    <a href="/register">
+                        <strong>Qeydiyyat</strong>
+                    </a>
+                </li>
+            @endguest
         </ul>
     </div>
 </div>
