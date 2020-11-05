@@ -210,6 +210,48 @@
                                     disabled
                                 @endslot
                             @endcomponent
+
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>status</span>
+                                @endslot
+
+                                @slot('type')
+                                    text
+                                @endslot
+
+                                @slot('value')
+                                    @switch($invoice->status)
+                                        @case('0')
+                                        ORDERED
+                                        @break
+                                        @case('1')
+                                        WAREHOUSE ABROAD
+                                        @break
+                                        @case('2')
+                                        ON WAY
+                                        @break
+                                        @case('3')
+                                        CUSTOMS INSPECTION
+                                        @break
+                                        @case('4')
+                                        IN WAREHOUSE
+                                        @break
+                                        @case('5')
+                                        COURIER DELIVERY
+                                        @break
+                                        @case('6')
+                                        RETURN
+                                        @break
+                                        @case('7')
+                                        COMPLETE
+                                        @break
+                                    @endswitch
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
                             {{--                        @component('admin.components.form.textLabel')--}}
                         {{--                            @slot('label')--}}
                         {{--                                message--}}
