@@ -12,8 +12,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4" style="z-index: 1">
-                    <div class="black pt-5"><span class="yellow mr-3">Kargo</span>Transport</div>
-                    <div class="italic">Global turkey logistics and transportation<br>services via sea, land and air.
+                    <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('website.transport')}}</div>
+                    <div class="italic">{{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -25,7 +25,7 @@
                     <div class="bacg_img">
                         <div class="pricing_wi border_sh">
                             <div class="row pt-5 pb-5">
-                                <div class="col-md-12 mb-4 font_grey"> Shipping fee Calculator</div>
+                                <div class="col-md-12 mb-4 font_grey"> {{__('website.shipping')}} {{__('website.fee')}} {{__('website.calculator')}}</div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 mt-3 mb-3">
                                     <div class="col-md-4 p-0">
                                         <div class="text_bold">Ölkə</div>

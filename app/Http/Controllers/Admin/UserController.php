@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Member\UserRequest;
+use App\Invoice;
+use App\Region;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -70,6 +72,7 @@ class UserController extends Controller
             'phone' => $request->input('phone'),
             'fin' => $request->input('fin'),
             'address' => $request->input('address'),
+            'region_id' => $request->input('region_id'),
         ]);
 
         session()->flash('message', __('custom.user.message.create'));
@@ -137,11 +140,11 @@ class UserController extends Controller
 
     public function edit($id)
     {
-
+        $regions = Region::all();
         $user = User::query()
             ->where('id', $id)
             ->first();
-        return view('admin.users.edit', compact('user', 'id'));
+        return view('admin.users.edit', compact('user', 'id' , 'regions'));
     }
 
     public function update(Request $request, $id)
@@ -154,22 +157,27 @@ class UserController extends Controller
         User::query()->where('id', $id)->update([
             'name' => $request->input('name'),
             'family' => $request->input('family'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
             'status' => $request->input('status'),
             'code' => $this->generateCode(),
-            'serial_number' => $request->input('serial_number'),
             'citizenship' => $request->input('citizenship'),
             'birthdate' => $request->input('birthdate'),
             'gender' => $request->input('gender'),
-            'phone' => $request->input('phone'),
             'fin' => $request->input('fin'),
             'address' => $request->input('address'),
+            'region_id' => $request->input('region_id'),
         ]);
 
         session()->flash('message', __('custom.user.message.update'));
         session()->flash('success', 1);
         return response()->json([], 200);
+    }
+
+    public function show($id)
+    {
+        $user = User::query()
+            ->where('id', $id)
+            ->first();
+        return view('admin.users.show' , compact('user'));
     }
 
     public function destroy($id)
