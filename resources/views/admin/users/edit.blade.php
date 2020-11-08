@@ -60,7 +60,9 @@
                             @slot('label')
                                 email
                             @endslot
-
+                            @slot('name')
+                                email
+                            @endslot
                             @slot('type')
                                 email
                             @endslot
@@ -70,9 +72,7 @@
                             @slot('value')
                                 {{$user->email}}
                             @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
+
                         @endcomponent
 
                         @component('admin.components.form.optionLabel')
@@ -94,7 +94,9 @@
                             @slot('label')
                                 Phone
                             @endslot
-
+                            @slot('name')
+                                phone
+                            @endslot
                             @slot('type')
                                 text
                             @endslot
@@ -104,9 +106,7 @@
                             @slot('value')
                                 {{$user->phone}}
                             @endslot
-                            @slot('attr')
-                                disabled
-                            @endslot
+
                         @endcomponent
 
                         @component('admin.components.form.inputLabel')
@@ -167,7 +167,9 @@
                             @slot('label')
                                 Serial Number
                             @endslot
-
+                            @slot('name')
+                                serial_number
+                            @endslot
                             @slot('type')
                                 number
                             @endslot
@@ -177,9 +179,6 @@
                             @slot('value')
                                 {{$user->serial_number}}
                             @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
                         @endcomponent
                         @component('admin.components.form.birthLabel')
                             @slot('label')
@@ -200,15 +199,17 @@
                             @slot('label')
                                 Region
                             @endslot
-                            @slot('name')
-                                region_id
-                            @endslot
+
                             @slot('items')
                                 <option value="" selected>Please Enter Region...</option>
                                 @foreach($regions as $region)
-                                    <option value="{{$region->id}}">{{$region->name}}</option>
+                                    <option value="{{$region->id}}"
+                                            @if($user->region_id == $region->id) selected @endif>{{$region->name}}</option>
                                 @endforeach
 
+                            @endslot
+                            @slot('name')
+                                region_id
                             @endslot
                         @endcomponent
                     @endslot
@@ -216,50 +217,6 @@
                         <h2 class="card-title">Main Information</h2>
                     @endslot
                 @endcomponent
-{{--                @component('admin.components.panel')--}}
-{{--                    @slot('header')--}}
-{{--                        <h2 class="card-title">Password</h2>--}}
-{{--                    @endslot--}}
-{{--                    @slot('items')--}}
-{{--                        @component('admin.components.form.inputLabel')--}}
-{{--                            @slot('label')--}}
-{{--                                password--}}
-{{--                            @endslot--}}
-{{--                            @slot('name')--}}
-{{--                                password--}}
-{{--                            @endslot--}}
-{{--                            @slot('type')--}}
-{{--                                password--}}
-{{--                            @endslot--}}
-{{--                            @slot('placeholder')--}}
-{{--                                Please Enter Password--}}
-{{--                            @endslot--}}
-{{--                            @slot('value')--}}
-{{--                                {{$user->password}}--}}
-{{--                            @endslot--}}
-
-{{--                        @endcomponent--}}
-
-{{--                        @component('admin.components.form.inputLabel')--}}
-{{--                            @slot('label')--}}
-{{--                                Password Confirm--}}
-{{--                            @endslot--}}
-{{--                            @slot('name')--}}
-{{--                                password_confirmation--}}
-{{--                            @endslot--}}
-{{--                            @slot('type')--}}
-{{--                                password--}}
-{{--                            @endslot--}}
-{{--                            @slot('placeholder')--}}
-{{--                                Please Enter Password Confirmation--}}
-{{--                            @endslot--}}
-{{--                            @slot('value')--}}
-{{--                                {{$user->password}}--}}
-{{--                            @endslot--}}
-
-{{--                        @endcomponent--}}
-{{--                    @endslot--}}
-{{--                @endcomponent--}}
             </div>
             <div class="col-12 col-lg-4">
                 @component('admin.components.panel')
@@ -267,6 +224,7 @@
 
                     @slot('header')
                         <h2 class="card-title">Save Information</h2>
+
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
@@ -277,6 +235,12 @@
                                 Save
                             @endslot
                         @endcomponent
+                            @component('admin.components.form.back')
+                                @slot('url')
+                                   {{url('admin/users/')}}
+                                @endslot
+
+                            @endcomponent
 
                     @endslot
                 @endcomponent
@@ -310,10 +274,9 @@
     @endcomponent
     @component('admin.components.script.mainFormScript')
         @slot('mainFormUrlValue')
-            ../../../admin/users
+            ../../../admin/users/
         @endslot
     @endcomponent
-
 @endsection
 
 
