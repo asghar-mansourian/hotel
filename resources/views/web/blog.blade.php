@@ -20,7 +20,7 @@
                     <div class="col-md-12 col-sm-12 mt-5 mb-5 padding_25">
                         <div class="padding_15">
                             @php
-                                $topBlog = $blogs->random()
+                                $topBlog = $blogs->count() ? $blogs->random() : null;
                             @endphp
                             @if($topBlog)
                                 <div class="row">
@@ -46,7 +46,9 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-md-12 col-sm-12 black black_margin">Newest</div>
+                    @if($blogs->count())
+                        <div class="col-md-12 col-sm-12 black black_margin">Newest</div>
+                    @endif
                     @foreach($blogs as $blog)
                         <div class="col-md-4 col-sm-6 height_380 mb-5">
                             <div class="p-0">
