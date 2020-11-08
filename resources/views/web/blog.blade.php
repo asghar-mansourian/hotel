@@ -29,15 +29,8 @@
                                     <h4><strong>{{$blog->title}}</strong></h4>
                                     <p class="font_grey mb-3">{{$blog->author->name}} <i
                                             class="far fa-comment ml-3 mr-1"></i> 3</p>
-                                    <?php
-
-
-                                    $description = html_entity_decode(mb_substr(strip_tags($blog->content), 0, 70, "utf-8")) . ' ...';
-                                    ?>
-
-
                                     <div class="line_he mt-2 mb-2">
-                                        {{$description }}
+                                        {{ \App\lib\Helpers::getContent($blog->content)  }}
                                     </div>
                                     <div class="blog_a mt-4 mb-3">
                                         <a href="{{url('/blog/' . $blog->slug)}}"> Read more</a>
@@ -50,23 +43,23 @@
                 </div>
                 {{$blogs->links()}}
                 {{--                pagination             --}}
-                <div class="col-md-12 mt-5 mb-5">
-                    <div class="number_list">
-                        <ul>
-                            <li class="mr-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>
-                            <li><a href="#" class="">1</a></li>
-                            <li><a href="#" class="border_left active">2</a></li>
-                            <li><a href="#" class="border_left">3</a></li>
-                            <li class="mr-3 ml-3">
-                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
-                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
-                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
-                            </li>
-                            <li><a href="#" class="">7</a></li>
-                            <li class="ml-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
+                {{--                <div class="col-md-12 mt-5 mb-5">--}}
+                {{--                    <div class="number_list">--}}
+                {{--                        <ul>--}}
+                {{--                            <li class="mr-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>--}}
+                {{--                            <li><a href="#" class="">1</a></li>--}}
+                {{--                            <li><a href="#" class="border_left active">2</a></li>--}}
+                {{--                            <li><a href="#" class="border_left">3</a></li>--}}
+                {{--                            <li class="mr-3 ml-3">--}}
+                {{--                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>--}}
+                {{--                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>--}}
+                {{--                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>--}}
+                {{--                            </li>--}}
+                {{--                            <li><a href="#" class="">7</a></li>--}}
+                {{--                            <li class="ml-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>--}}
+                {{--                        </ul>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
         </div>
     </div>
