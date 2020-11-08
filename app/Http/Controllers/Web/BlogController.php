@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web;
 
 use App;
 use App\Blog;
-use App\Admin;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
@@ -20,7 +19,7 @@ class BlogController extends Controller
             ->select(Blog::selectField)
             ->orderBy(Blog::sortField, Blog::sortType)
             ->paginate(Blog::paginateNumber);
-        return View::make('Web.blog', compact('blogs'), with([
+        return View::make('web.blog', compact('blogs'), with([
             'sortField' => Blog::sortField,
             'sortType' => Blog::sortType
         ]));
@@ -40,7 +39,7 @@ class BlogController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(3)->get();
 
-        return View::make('Web.singel', compact('blog' , 'last_news'), with([
+        return View::make('web.singel', compact('blog', 'last_news'), with([
             'sortField' => Blog::sortField,
             'sortType' => Blog::sortType
         ]));
