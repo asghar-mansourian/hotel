@@ -168,6 +168,20 @@
                             @endslot
                         @endcomponent
 
+                            @component('admin.components.form.optionLabel')
+                                @slot('label')
+                                    region
+                                @endslot
+                                @slot('name')
+                                    gender
+                                @endslot
+                                @slot('items')
+                                    <option value="" selected>Please Enter Gender...</option>
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                @endslot
+                            @endcomponent
+
                     @endslot
 
 

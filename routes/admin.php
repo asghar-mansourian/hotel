@@ -22,6 +22,7 @@ route::post('/users/store/' , 'UserController@store');
 route::get('/users/edit/{id}' , 'UserController@edit');
 route::post('/users/update/{id}' , 'UserController@update');
 route::get('/users/destroy/{id}' , 'UserController@destroy');
+route::get('/users/show/{id}' , 'UserController@show');
 route::post('/users/search/' , 'UserController@search');
 route::post('/users/sort/' , 'UserController@sort');
 

@@ -6,22 +6,22 @@
     <div class="menu_sec">
         <ul>
             <li>
-                <a href="/" class="{{url()->current() === url('/') ? 'active' : ''}}">Home</a>
+                <a href="/" class="{{url()->current() === url('/') ? 'active' : ''}}">{{__('website.home')}}</a>
             </li>
             <li>
-                <a href="#">Pricing</a>
+                <a href="#">{{__('website.pricing')}}</a>
             </li>
             <li>
-                <a class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">How we work</a>
+                <a class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">{{__('website.howwework')}}</a>
             </li>
             <li>
-                <a class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">FAQ</a>
+                <a class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}</a>
             </li>
             <li>
-                <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">Blog</a>
+                <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">{{__('website.blog')}}</a>
             </li>
             <li>
-                <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">Contact</a>
+                <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
             </li>
             @auth('web')
                 <li>
@@ -32,16 +32,16 @@
                             <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdown_panel">
-                            <a class="dropdown-item" href="{{url('/home')}}">dashboard</a><br/>
-                            <a class="dropdown-item" href="#">Xaricdəki ünvanlarım</a><br/>
-                            <a class="dropdown-item" href="{{route('orders.index')}}">Sifarişlərim</a><br/>
-                            <a class="dropdown-item" href="{{route('invoices.index')}}">Bağlamalarım</a><br/>
-                            <a class="dropdown-item" href="#">AZN Balansım</a><br/>
-                            <a class="dropdown-item" href="#">TL Balansım</a><br/>
+                            <a class="dropdown-item" href="{{url('/home')}}">{{__('website.dashboard')}}</a><br/>
+                            <a class="dropdown-item" href="#">{{__('website.dashboard')}}</a><br/>
+                            <a class="dropdown-item" href="{{route('orders.index')}}">{{__('website.invoices')}}</a><br/>
+                            <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('website.orders')}}</a><br/>
+                            <a class="dropdown-item" href="#">AZN {{__('website.balance')}}</a><br/>
+                            <a class="dropdown-item" href="#">TL {{__('website.balance')}}</a><br/>
                             <a class="dropdown-item" href="#">Kuryer</a><br/>
                             <a class="dropdown-item" href="#">Sorğu</a><br/>
-                            <a class="dropdown-item" href="{{url('/setting')}}">setting</a><br/>
-                            <a class="dropdown-item" href="{{url('/logout')}}">logout</a><br/>
+                            <a class="dropdown-item" href="{{url('/setting')}}">{{__('website.settings')}}</a><br/>
+                            <a class="dropdown-item" href="{{url('/logout')}}">{{__('website.logout')}}</a><br/>
                         </div>
                     </div>
                 </li>
