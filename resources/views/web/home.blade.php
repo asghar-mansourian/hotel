@@ -284,51 +284,32 @@
                                     <div class="news_input">
                                         <input type="text" name="newsletter" placeholder="Email" class="w-100">
                                     </div>
-                                    <div class="news_input">
-                                        <input type="text" name="newsletter" placeholder="Email" class="w-100">
-                                    </div>
                                     <div class="newsletter_read mt-4 mb-3">
                                         <button class="btn">Subscribe</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
-                            <div class="p-0">
-                                <div class="blog_mage">
-                                    <div class="blog_img"><img src="./front/image/blog/blog.png" class="w-100"></div>
-                                </div>
-                                <div class="mob_p-4">
-                                    <div class="top mt-3"><span class="top_span">Top</span></div>
-                                    <h4><strong>Lorem ipsum dolor sit amet, consetetur sadipscing</strong></h4>
-                                    <p class="font_grey mb-3">Hanie Ghorbani <i class="far fa-comment ml-3 mr-1"></i> 3</p>
-                                    <div class="line_he mt-2 mb-2">
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        @foreach($blogs as $blog)
+                            <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
+                                <div class="p-0">
+                                    <div class="blog_mage">
+                                        <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}" class="w-100"></div>
                                     </div>
-                                    <div class="blog_a mt-4 mb-3">
-                                        <a href="index.html"> Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
-                            <div class="p-0">
-                                <div class="blog_mage">
-                                    <div class="blog_img"><img src="./front/image/blog/blog2.png" class="w-100"></div>
-                                </div>
-                                <div class="mob_p-4">
-                                    <div class="new mt-3"><span class="new_span">New</span></div>
-                                    <h4><strong>Lorem ipsum dolor sit amet, consetetur sadipscing</strong></h4>
-                                    <p class="font_grey mb-3">Hanie Ghorbani <i class="far fa-comment ml-3 mr-1"></i> 3</p>
-                                    <div class="line_he mt-2 mb-2">
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                                    </div>
-                                    <div class="blog_a mt-4 mb-3">
-                                        <a href="index.html"> Read more</a>
+                                    <div class="mob_p-4">
+                                        <div class="top mt-3"><span class="top_span">Top</span></div>
+                                        <h4><strong>{{$blog->title}}</strong></h4>
+                                        <p class="font_grey mb-3">{{$blog->author->name}}<i class="far fa-comment ml-3 mr-1"></i> 3</p>
+                                        <div class="line_he mt-2 mb-2">
+                                            {{\App\lib\Helpers::getContent($blog->content, 45)}}
+                                        </div>
+                                        <div class="blog_a mt-4 mb-3">
+                                            <a href="{{url('/blog/' . $blog->slug)}}"> Read more</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

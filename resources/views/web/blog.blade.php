@@ -17,27 +17,48 @@
             </div>
             <div class="col-md-12 mt-50">
                 <div class="row">
-                    @foreach($blogs as $blog)
-                        <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
-                            <div class="border_sh p-0">
-                                <div class="blog_mage">
-                                    <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}" class="w-100">
+                    <div class="col-md-12 col-sm-12 mt-5 mb-5 padding_25">
+                        <div class="padding_15">
+                            @php
+                                $topBlog = $blogs->random()
+                            @endphp
+                            @if($topBlog)
+                                <div class="row">
+                                    <div class="col-md-7 p-0">
+                                        <div class="blog_mage">
+                                            <div class="blog_img_he"><img src="{{url('images/' . $topBlog->picture)}}"></div>
+                                        </div>
                                     </div>
-                                    <div class="blog_history">{{$blog->created_at}}</div>
+                                    <div class="col-md-5">
+                                        <div class="mob_p-4">
+                                            <div class="top"><span class="top_span">Top</span></div>
+                                            <h4><strong>{{$topBlog->title}}</strong></h4>
+                                            <p class="font_grey mb-3">{{$topBlog->author->name}}<i class="far fa-comment ml-3 mr-1"></i> 3</p>
+                                            <div class="line_he mt-2 mb-2">
+                                                {{\App\lib\Helpers::getContent($topBlog->content)}}
+                                            </div>
+                                            <div class="blog_a mt-4 mb-3">
+                                                <a href="blogs.html"> Read more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 black black_margin">Newest</div>
+                    @foreach($blogs as $blog)
+                        <div class="col-md-4 col-sm-6 height_380 mb-5">
+                            <div class="p-0">
+                                <div class="blog_mage">
+                                    <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}" class="w-100"></div>
                                 </div>
                                 <div class="mob_p-4">
+                                    <div class="new"><span class="new_span">New</span></div>
                                     <h4><strong>{{$blog->title}}</strong></h4>
-                                    <p class="font_grey mb-3">{{$blog->author->name}} <i
-                                            class="far fa-comment ml-3 mr-1"></i> 3</p>
-                                    <?php
-
-
-                                    $description = html_entity_decode(mb_substr(strip_tags($blog->content), 0, 70, "utf-8")) . ' ...';
-                                    ?>
-
-
+                                    <p class="font_grey mb-3">{{$blog->author->name}} <i class="far fa-comment ml-3 mr-1"></i> 3</p>
                                     <div class="line_he mt-2 mb-2">
-                                        {{$description }}
+                                        {{\App\lib\Helpers::getContent($blog->content)}}
                                     </div>
                                     <div class="blog_a mt-4 mb-3">
                                         <a href="{{url('/blog/' . $blog->slug)}}"> Read more</a>
@@ -49,25 +70,25 @@
 
                 </div>
                 {{$blogs->links()}}
-                {{--                pagination             --}}
-                <div class="col-md-12 mt-5 mb-5">
-                    <div class="number_list">
-                        <ul>
-                            <li class="mr-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>
-                            <li><a href="#" class="">1</a></li>
-                            <li><a href="#" class="border_left active">2</a></li>
-                            <li><a href="#" class="border_left">3</a></li>
-                            <li class="mr-3 ml-3">
-                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
-                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
-                                <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
-                            </li>
-                            <li><a href="#" class="">7</a></li>
-                            <li class="ml-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
+            {{--
+                            <div class="col-md-12 mt-5 mb-5">
+                                <div class="number_list">
+                                    <ul>
+                                        <li class="mr-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>
+                                        <li><a href="#" class="">1</a></li>
+                                        <li><a href="#" class="border_left active">2</a></li>
+                                        <li><a href="#" class="border_left">3</a></li>
+                                        <li class="mr-3 ml-3">
+                                            <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
+                                            <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
+                                            <i class="fas fa-circle" style="font-size: 4px; margin-right: 0"></i>
+                                        </li>
+                                        <li><a href="#" class="">7</a></li>
+                                        <li class="ml-4"><a href="#"><span class="fa-fw select-all fas mr-0"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+        </div>--}}
         </div>
-    </div>
 @endsection
