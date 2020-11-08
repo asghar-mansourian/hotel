@@ -6,22 +6,22 @@
     <div class="menu_sec">
         <ul>
             <li>
-                <a href="/" class="active">Home</a>
+                <a href="/" class="{{url()->current() === url('/') ? 'active' : ''}}">Home</a>
             </li>
             <li>
                 <a href="#">Pricing</a>
             </li>
             <li>
-                <a href="{{url('/how-we-work')}}">How we work</a>
+                <a class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">How we work</a>
             </li>
             <li>
-                <a href="{{url('/faq')}}">FAQ</a>
+                <a class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">FAQ</a>
             </li>
             <li>
-                <a href="{{url('/blog')}}">Blog</a>
+                <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">Blog</a>
             </li>
             <li>
-                <a href="{{url('/contact-us')}}">Contact</a>
+                <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">Contact</a>
             </li>
             @auth('web')
                 <li>

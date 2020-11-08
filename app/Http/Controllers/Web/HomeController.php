@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 
@@ -15,6 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('web.home');
+        $blogs = Blog::latest()->take(2)->get();
+        return view('web.home', compact('blogs'));
     }
 }
