@@ -6,22 +6,22 @@
     <div class="menu_sec">
         <ul>
             <li>
-                <a href="/" class="active">{{__('website.home')}}</a>
+                <a href="/" class="{{url()->current() === url('/') ? 'active' : ''}}">{{__('website.home')}}</a>
             </li>
             <li>
                 <a href="#">{{__('website.pricing')}}</a>
             </li>
             <li>
-                <a href="{{url('/how-we-work')}}">{{__('website.howwework')}}</a>
+                <a class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">{{__('website.howwework')}}</a>
             </li>
             <li>
-                <a href="{{url('/faq')}}">{{__('website.faq')}}</a>
+                <a class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}</a>
             </li>
             <li>
-                <a href="{{url('/blog')}}">{{__('website.blog')}}</a>
+                <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">{{__('website.blog')}}</a>
             </li>
             <li>
-                <a href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
+                <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
             </li>
             @auth('web')
                 <li>

@@ -18,7 +18,6 @@ Route::prefix('v1')
     ->namespace('Api\V1')
     ->group(function () {
         Route::post('login', 'Auth\LoginController@login');
-        Route::post('refresh', 'Auth\LoginController@refresh');
         Route::post('register', 'Auth\RegisterController@register');
     });
 
@@ -30,6 +29,7 @@ Route::middleware('auth:api')->group(function () {
         ->group(function () {
             Route::post('logout', 'Auth\LoginController@logout');
             Route::post('me', 'Auth\LoginController@me');
+            Route::post('refresh', 'Auth\LoginController@refresh');
 
             Route::apiResource('invoices', 'InvoiceController');
 
