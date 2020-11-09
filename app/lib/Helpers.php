@@ -17,4 +17,9 @@ class Helpers
     {
         return html_entity_decode(mb_substr(strip_tags($content), 0, $length, "utf-8")) . ' ...';
     }
+
+    public static function getLocales()
+    {
+        return \DB::table('ltm_translations')->select(\DB::raw("distinct(locale)"))->get();
+    }
 }

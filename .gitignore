@@ -15,5 +15,6 @@ yarn-error.log
 .user.ini
 error_log
 php.ini
+resources/lang
 
 public/images

@@ -57,6 +57,7 @@ Route::group(['namespace' => 'Member'], function () {
 // web
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/set-locale/{locale}', 'HomeController@setLocale')->name('set_locale');
 
     Route::get('/blog', 'BlogController@index');
     Route::get('/blog/{id}', 'BlogController@singel');
