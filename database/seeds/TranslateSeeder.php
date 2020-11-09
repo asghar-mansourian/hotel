@@ -47,7 +47,27 @@ class TranslateSeeder extends Seeder
     private $locale = "en";
 
     private $website_items = [
-        'ali' => 'book2',
-        'book3' => 'book4',
+        'pricing' => 'pricing',
+        'howwework' => 'how we work',
+        'faq' => 'faq',
+        'blog' => 'blog',
+        'contact' => 'contact',
+        'login' => 'login',
+        'register' => 'register',
+        'dashboard' => 'dashboard',
+        'setting' => 'setting',
+        'settings' => 'settings',
+        'order' => 'order',
+        'orders' => 'orders',
+        'invoices' => 'invoices',
+        'invoice' => 'invoice',
+        'balance' => 'balance',
+        'logout' => 'logout',
+        'transport' => 'transport',
+        'subtitle2' => 'Global turkey logistics and transportation',
+        'subtitle1' => 'services via sea, land and air.',
+        'shipping' => 'shipping',
+        'fee' => 'fee',
+        'calculator' => 'calculator',
     ];
 }
