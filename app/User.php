@@ -11,7 +11,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable, SoftDeletes;
 
-    const  paginateNumber = 10;
+    const  paginateNumber = 1;
     const sortType = 'desc';
     const sortField = 'id';
     const selectField = ['name', 'family', 'email', 'status', 'id'];
@@ -76,5 +76,15 @@ class User extends Authenticatable implements JWTSubject
     public function orders()
     {
         return $this->hasMany(Order::class, 'user_id');
+    }
+
+    public function scopeSearch($query , $search){
+        if ($search == ""){
+            return $query;
+        }
+        foreach ($this->fillable as $item){
+            $query->orWhere($item, 'like', '%' . $search . '%');
+        }
+        return $query;
     }
 }

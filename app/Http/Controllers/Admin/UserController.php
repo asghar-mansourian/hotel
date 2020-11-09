@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Member\UserRequest;
-use App\Invoice;
+use App\Http\Requests\admin\UpdateUserRequest;
+use App\Http\Requests\admin\CreateUserRequest;
 use App\Region;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
+use MongoDB\Driver\Session;
 
 class UserController extends Controller
 {
@@ -34,14 +34,30 @@ class UserController extends Controller
     public function load()
     {
 
+
+        if (session()->has('sort_type') && session()->has('sort_field'))
+        {
+            $field = session()->get('sort_field');
+            $type = session()->get('sort_type');
+        }
+        else{
+            $field = User::sortField;
+            $type = User::sortType;
+        }
+        $search = "";
+        if (session()->has('search')){
+            $search = session()->get('search');
+        }
+
         $users = User::query()
-            ->select(User::sortField)
-            ->orderBy(User::sortArrowFieldChecked, User::sortArrowTypeChecked)
+            ->Search($search)
+            ->select(User::selectField)
+            ->orderBy($field, $type)
             ->paginate(User::paginateNumber);
 
         return View::make('admin.users.load', compact('users'), with([
-            'sortField' => User::sortField,
-            'sortType' => User::sortType
+            'sortField' => $field,
+            'sortType' => $type
         ]));
 
     }
@@ -53,7 +69,8 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $UserValidate = new UserRequest();
+
+        $UserValidate = new CreateUserRequest();
         $validate = $this->validateRules($UserValidate->rules(), $request);
         if ($validate != null)
             return $this->validateRules($UserValidate->rules(), $request);
@@ -97,22 +114,32 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
+
+        if ($search != ""){
+            session()->put('search' , $search);
+        }
+        if (session()->has('sort_type') && session()->has('sort_field'))
+        {
+            $field = session()->get('sort_field');
+            $type = session()->get('sort_type');
+        }
+        else{
+            $field = User::sortField;
+            $type = User::sortType;
+        }
         $users = User::query()
-            ->orWhere('email', 'like', '%' . $search . '%')
-            ->orWhere('name', 'like', '%' . $search . '%')
-            ->orWhere('family', 'like', '%' . $search . '%')
+            ->orderBy($field , $type)
+            ->Search($search)
             ->select(User::selectField)
             ->paginate(User::paginateNumber);
 
         $countUsers = User::query()
-            ->orWhere('email', 'like', '%' . $search . '%')
-            ->orWhere('name', 'like', '%' . $search . '%')
-            ->orWhere('family', 'like', '%' . $search . '%')
+            ->Search($search)
             ->count();
 
         return View::make('admin.users.table', compact('users'), with([
-            'sortField' => User::sortField,
-            'sortType' => User::sortType,
+            'sortField' => $field,
+            'sortType' => $type,
             'countUsers' => $countUsers,
         ]));
     }
@@ -126,8 +153,14 @@ class UserController extends Controller
             $sort_type = User::sortType;
         if ($sort_field == null)
             $sort_field = User::sortField;
-
-        $users = DB::table('users')
+        $search = "";
+        if (session()->has('search')){
+            $search = session()->get('search');
+        }
+        session()->put('sort_type' , $sort_type);
+        session()->put('sort_field' , $sort_field);
+        $users = User::query()
+            ->Search($search)
             ->select(User::selectField)
             ->orderBy($sort_field, $sort_type)
             ->paginate(User::paginateNumber);
@@ -149,7 +182,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $UserValidate = new UserRequest();
+        $UserValidate = new UpdateUserRequest($id , new User());
         $validate = $this->validateRules($UserValidate->rules(), $request);
         if ($validate != null)
             return $this->validateRules($UserValidate->rules(), $request);

@@ -5,10 +5,14 @@
  'sortField'=>$sortField,
  'records' => $users ,
   'selects' => ['id' , 'name' , 'status' , 'email' ]
+  , 'options' => ['edit' , 'delete']
   ]
 )
     @slot('paginate')
         {{$users->appends(Request::except('page'))->links()}}
+    @endslot
+    @slot('url')
+        'users'
     @endslot
 
 @endcomponent
@@ -29,6 +33,9 @@
 
 @endcomponent
 @component('admin.components.script.sortTableScript')
+    @slot('url')
+        ../../../admin/users/sort
+    @endslot
 @endcomponent
 @component('admin.components.script.showScript')
 @endcomponent

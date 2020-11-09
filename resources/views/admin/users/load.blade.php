@@ -1,4 +1,4 @@
-@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $users , 'selects' => ['id' , 'name' , 'email',   'status'  ]])
+@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $users , 'selects' => ['id' , 'name' , 'email',   'status'  ], 'options' => ['edit' , 'delete']])
 
     @slot('paginate')
         {{$users->links()}}
@@ -10,11 +10,12 @@
 
 @component('admin.components.script.paginatorScript' , ['type' => 1])
 
-    @slot('paginatorUrl')
-        ../../../admin/users/load
-    @endslot
+
 @endcomponent
 @component('admin.components.script.sortTableScript')
+    @slot('url')
+        ../../../admin/users/sort
+    @endslot
 @endcomponent
 @component('admin.components.script.showScript')
 @endcomponent
