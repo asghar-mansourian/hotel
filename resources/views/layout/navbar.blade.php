@@ -6,6 +6,22 @@
     <div class="menu_sec">
         <ul>
             <li>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ app()->getLocale() }}
+                        <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdown_panel">
+                        @foreach(\App\lib\Helpers::getLocales() as $locale)
+                            @if($locale->locale != app()->getLocale())
+                                <a class="dropdown-item " href="/set-locale/{{$locale->locale}}"> {{$locale->locale}}</a><br/>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </li>
+            <li>
                 <a href="/" class="{{url()->current() === url('/') ? 'active' : ''}}">{{__('website.home')}}</a>
             </li>
             <li>
