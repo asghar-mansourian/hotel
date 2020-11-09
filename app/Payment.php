@@ -41,10 +41,18 @@ class Payment extends Model
     protected $table = 'payments';
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['id','price', 'discount', 'refid' , 'status' , 'user_id' , 'ip' , 'extra'];
+    const selectField = ['id', 'price', 'discount', 'refid', 'status', 'user_id', 'ip', 'extra'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
-    public function user(){
-        return $this->belongsTo('App\User' , 'user_id');
+
+    const PAYMENT_TYPE_ONLINE = 'online';
+    const PAYMENT_TYPE_CASH = 'cash';
+
+    const PAYMENT_STATUS_PAID = 1;
+    const PAYMENT_STATUS_NO_PAID = 0;
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
     }
 }
