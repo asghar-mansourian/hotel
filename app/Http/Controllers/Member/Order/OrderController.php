@@ -8,7 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Order;
 use App\OrderItem;
+use App\Payment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -19,10 +21,9 @@ class OrderController extends Controller
         $orders = OrderItem::query();
         $user = Auth::user();
 
-        if (isset($_GET['type']))
-        {
+        if (isset($_GET['type'])) {
             $type = $_GET['type'];
-            $orders->where('status' , $type);
+            $orders->where('status', $type);
         }
         $orders
             ->with(
@@ -47,13 +48,57 @@ class OrderController extends Controller
 
     public function stored($order)
     {
-        if ($order) {
-            request()->session()->flash('message', __('member.general.message.create_success'));
-            request()->session()->flash('success', 1);
-        } else {
-            request()->session()->flash('danger', 1);
-            request()->session()->flash('message', 'member.general.message.create_failed');
+        // check balance
+        if ($order->payment_type == Order::PAYMENT_TYPE_CASH) {
+            return $this->paidViaCash($order);
         }
+
+        if ($order->payment_type == Order::PAYMENT_TYPE_ONLINE) {
+
+        }
+
+        /*if ($order) {
+                  request()->session()->flash('message', __('member.general.message.create_success'));
+                  request()->session()->flash('success', 1);
+              } else {
+                  request()->session()->flash('danger', 1);
+                  request()->session()->flash('message', 'member.general.message.create_failed');
+              }*/
+
+    }
+
+    public function paidViaCash($order)
+    {
+        if (auth()->user()->balance < $order->total) {
+
+            $order->orderItems()->delete();
+            $order->delete();
+
+            request()->session()->flash('danger', 1);
+            request()->session()->flash('message', 'member.general.message.your_balance_is_less');
+
+            return back();
+        }
+
+        DB::transaction(function () use ($order) {
+            $user = auth()->user();
+
+            $payment = new Payment();
+            $payment->user_id = $user->id;
+            $payment->type = Payment:: PAYMENT_TYPE_CASH;
+            $payment->description = 'payment from wallet';
+            $payment->price = $order->total;
+            $payment->status = Payment::PAYMENT_STATUS_PAID;
+            $order->payment()->save($payment);
+
+            $user->decrement('balance', $order->total);
+
+            $order->status = 1;
+            $order->save();
+        });
+
+        request()->session()->flash('message', __('member.general.message.paid_successful'));
+        request()->session()->flash('success', 1);
 
         return back();
     }

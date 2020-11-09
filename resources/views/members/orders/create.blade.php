@@ -125,7 +125,7 @@
                           </div>
                           <div style="clear: both;"></div>
                           <div class="text-center procent_dolar"><h4
-                                  class="mb-0"><strong>0.00 <sup>$</sup></strong></h4></div>
+                                  class="mb-0"><strong>{{auth()->user()->balance}} <sup>$</sup></strong></h4></div>
                       </span>
                     <span id="text1"></span>
 

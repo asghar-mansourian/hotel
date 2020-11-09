@@ -64,4 +64,9 @@ class Order extends Model
     {
         return $this->belongsTo(Country::class, 'country_id');
     }
+
+    public function payment()
+    {
+        return $this->morphOne(Payment::class, 'modelable');
+    }
 }
