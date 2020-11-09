@@ -9,7 +9,6 @@
         jQuery('#sort_field').on('change', function () {
             jQuery('.mytbody').html('');
 
-
             var sort_type = jQuery("select[name=sort_type]").find("option:selected").val();
             var sort_field = jQuery("select[name=sort_field]").find("option:selected").val();
             var url =$('#data-click-search').attr('data-value');
@@ -74,7 +73,7 @@
 
             var sort_type = jQuery("select[name=sort_type]").find("option:selected").val();
             var sort_field = jQuery("select[name=sort_field]").find("option:selected").val();
-            var url = '../../../admin/users/sort/';
+            var url =$('#data-click-search').attr('data-value');
 
             var error = function (response) {
 

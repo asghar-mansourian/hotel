@@ -49,7 +49,7 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $users , 'selects' => ['id' , 'name' , 'email' , 'status' ], 'options' => ['show' , 'edit' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $users , 'selects' => ['id' , 'name' , 'email' , 'status' ], 'options' => ['edit' , 'delete']])
                         @slot('paginate')
                             {{$users->links()}}
                         @endslot
@@ -83,12 +83,11 @@
             ../../../admin/users/search/
         @endslot
     @endcomponent
-    @component('admin.components.script.sortScript')
-        @slot('url')
-            ../../../admin/users/sort/
-
-        @endslot
-    @endcomponent
+{{--    @component('admin.components.script.sortScript')--}}
+{{--        @slot('url')--}}
+{{--            ../../../admin/users/sort/--}}
+{{--        @endslot--}}
+{{--    @endcomponent--}}
     @component('admin.components.script.sortTableScript')
         @slot('url')
             ../../../admin/users/sort/

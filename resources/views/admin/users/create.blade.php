@@ -75,9 +75,9 @@
                                 gender
                             @endslot
                             @slot('items')
-                                <option value="" selected>Please Enter Gender...</option>
+                                <option  selected>Please Enter Gender...</option>
                                 <option value="1">Male</option>
-                                <option value="0">Female</option>
+                                <option value="2">Female</option>
                             @endslot
                         @endcomponent
 
