@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member\Order;
 use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Member\PaymentController;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Order;
 use App\OrderItem;
@@ -54,21 +55,13 @@ class OrderController extends Controller
         }
 
         if ($order->payment_type == Order::PAYMENT_TYPE_ONLINE) {
-
+            return $this->paidViaOnline($order);
         }
-
-        /*if ($order) {
-                  request()->session()->flash('message', __('member.general.message.create_success'));
-                  request()->session()->flash('success', 1);
-              } else {
-                  request()->session()->flash('danger', 1);
-                  request()->session()->flash('message', 'member.general.message.create_failed');
-              }*/
-
     }
 
     public function paidViaCash($order)
     {
+        // if balance less order total then remove order & order items
         if (auth()->user()->balance < $order->total) {
 
             $order->orderItems()->delete();
@@ -86,7 +79,7 @@ class OrderController extends Controller
             $payment = new Payment();
             $payment->user_id = $user->id;
             $payment->type = Payment:: PAYMENT_TYPE_CASH;
-            $payment->description = 'payment from wallet';
+            $payment->description = 'payment by wallet';
             $payment->price = $order->total;
             $payment->status = Payment::PAYMENT_STATUS_PAID;
             $order->payment()->save($payment);
@@ -101,5 +94,10 @@ class OrderController extends Controller
         request()->session()->flash('success', 1);
 
         return back();
+    }
+
+    public function paidViaOnline($order)
+    {
+        return (new PaymentController())->gate($order);
     }
 }

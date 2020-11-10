@@ -22,4 +22,16 @@ class Helpers
     {
         return \DB::table('ltm_translations')->select(\DB::raw("distinct(locale)"))->get();
     }
+
+    public static function convertPriceToGatePulpal($price)
+    {
+
+        if (!is_float($price)) {
+            $price = str_replace(',', '',
+                number_format($price, 2)
+            );
+        }
+
+        return str_replace('.', '', $price);
+    }
 }
