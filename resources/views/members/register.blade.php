@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="col-md-12 text-center">
-            <div class="black pt-5"><span class="yellow mr-3">Kargo</span>Login</div>
+            <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('member.login')}}</div>
             {{--        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>--}}
         </div>
         <form action="{{ route('register') }}" method="post">
@@ -11,7 +11,7 @@
             <div class="row left-side">
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Name:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.name')}}:</label>
                     </div>
                     <div class="text-center">
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Family:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.family')}}:</label>
                     </div>
                     <div class="text-center">
 
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Email:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.email')}}:</label>
                     </div>
                     <div class="text-center">
 
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Password:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.password')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="password" name="password" placeholder="password"
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Password Confirmation:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.passwordconfirmation')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="password" name="password_confirmation" placeholder="Password Confirmation"
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Serial Number:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.serialnumber')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="text" name="serial_number" maxlength="9" placeholder="serial number"
@@ -109,7 +109,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Citizenship:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.citizenship')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="text" value="{{ old('citizenship') }}" name="citizenship" placeholder="citizenship"
@@ -139,7 +139,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">phone:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.phone')}}:</label>
                     </div>
                     <div class="text-center">
                         <input value="{{ old('email') }}" type="text" name="phone" placeholder="phone"
@@ -155,7 +155,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">birthday:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.birthday')}}:</label>
                     </div>
                     <div class="text-center">
                         <input value="{{ old('birthdate') }}" autocomplete="birthdate" type="date" name="birthdate"
@@ -173,7 +173,7 @@
 
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">address:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.address')}}:</label>
                     </div>
                     <div class="text-center">
                         <input value="{{ old('address') }}" type="text" name="address" placeholder="address"
@@ -190,13 +190,13 @@
 
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">gender:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.gender')}}:</label>
                     </div>
                     <div class="text-center">
                         <select class="@error('gender') is-invalid @enderror form-control courier_input" name="gender"
                                 style="width: 450px!important;margin: 0 auto!important;">
-                            <option value="2">male</option>
-                            <option value="1">female</option>
+                            <option value="2">{{__('member.male')}}</option>
+                            <option value="1">{{__('member.female')}}</option>
                         </select>
                         @error('gender')
                         <span class="invalid-feedback"
@@ -211,7 +211,7 @@
                         <input class="@error('terms') is-invalid @enderror" type="checkbox" name="terms" required
                                style="vertical-align: middle!important;">
                         <label style="margin-bottom: 10px!important;
-    margin-left: 4px!important;">Agree the Terms and policy</label>
+    margin-left: 4px!important;">{{__('member.Agreepolicy')}}</label>
                         @error('terms')
                         <span class="invalid-feedback"
                               role="alert"><strong>{{ $message }}</strong></span>
@@ -221,7 +221,7 @@
                 </div>
                 <div class="col-md-12 button-part mt-5">
                     <div class="text-center">
-                        <button type="submit" class="btn-effect">Register</button>
+                        <button type="submit" class="btn-effect">{{__('member.register')}}</button>
                     </div>
                 </div>
 

@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="col-xs-12"></div>
                                             <div class="col-md-6 col-sm-6 col-sm-5 mb-6">
-                                                <h5><strong>Çatdırılma ofisi *</strong></h5>
+                                                <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
                                                 <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
                                                         name="branch_id">
                                                     @foreach($branches as $branch)
@@ -104,7 +104,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h5><strong>Sifarişin verilmə tarixi *</strong></h5>
+                                                <h5><strong>{{__('member.dateofordering')}} *</strong></h5>
                                                 <div class="col-md-12  courier_dr brit_year pl-0">
                                                     <input type="date" name="order_date" value="{{ old('order_date') }}"
                                                            class="@error('order_date') is-invalid @enderror w-100 courier_input"
@@ -123,7 +123,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 {{--                                            <input type="file" name="" class="courier_file float-left mr-5">--}}
-                                                <button class="btn courier_button" type="submit">Göndər</button>
+                                                <button class="btn courier_button" type="submit">{{__('member.send')}}</button>
                                             </div>
                                         </div>
                                     </form>
@@ -135,12 +135,9 @@
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="border_sh mt-5 text-center">
-                    <h4><strong>Diqqət!</strong></h4>
+                    <h4><strong>{{__('member.attention')}} !</strong></h4>
                     <div class="text-center">
-                        Dəyərli müştərilər, sifarişlərinizi özünüz etdiyiniz zaman bəyannamə Sizin tərəfinizdən əlavə
-                        olunmalıdır. İnvoys yükləmədən bəyannamə əlavə etmək mümkün deyildir. Bəyannaməni dəqiq və
-                        operativ doldurmağınız Sizin bağlamalarınızın gömrük yoxlamasından daha tez və problemsiz
-                        keçməsinə kömək edəcək.
+                        {{__('member.attentiondesc')}}
                     </div>
                 </div>
             </div>

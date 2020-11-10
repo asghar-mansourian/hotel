@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-12 text-center">
-        <div class="black pt-5"><span class="yellow mr-3">Kargo</span>Card</div>
+        <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('member.card')}}</div>
         {{--        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>--}}
     </div>
     <div class="container">
@@ -12,7 +12,7 @@
             <div class="row left-side">
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label for="" style="width: 450px!important;text-align: left">Balance:</label>
+                        <label for="" style="width: 450px!important;text-align: left">{{__('member.balance')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="hidden" name="id" value="{{$payment->id}}">
@@ -29,7 +29,7 @@
 
                 <div class="col-md-12 button-part mt-5">
                     <div class="text-center">
-                        <button type="submit" class="btn-effect">Accept!</button>
+                        <button type="submit" class="btn-effect">{{__('member.accept')}}!</button>
                     </div>
                 </div>
 
