@@ -64,7 +64,7 @@ trait StoreOrder
 
         $percentage = ((Helpers::getTaxOrder() / 100) * $total);
 
-        return number_format((float)($total + $percentage), 2);
+        return str_replace(',', '', number_format((float)($total + $percentage), 2));
     }
 
     public function stored($order)

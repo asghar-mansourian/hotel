@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Controllers\Controller;
+use App\lib\Helpers;
 use App\lib\pulpal;
 use App\Payment;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use function request;
 
 class PaymentController extends Controller
 {
@@ -16,36 +16,42 @@ class PaymentController extends Controller
         return view('members.az-balance');
     }
 
-    public function card(Request $request)
+    public function gate($order = null)
     {
+        $payment = new Payment();
+        $payment->user_id = auth()->user()->id;
+        $payment->type = Payment:: PAYMENT_TYPE_ONLINE;
 
-        $price = request('new_balance_val');
-        $price = 500;
-        $payment = Payment::create([
-            'user_id' => Auth::user()->id,
-            'price' => $price,
-        ]);
-        return View::make('members.card', compact('payment'));
-    }
+        if (request()->has('amount_azn')) {
+            $payment->price = request()->get('amount_azn');
+            $payment->description = 'payment by online . increment wallet';
+            $payment->save();
+        } elseif ($order) {
+            $payment->price = $order->total;
+            $payment->description = 'payment by online . paid order';
+            $order->payment()->save($payment);
+        }
 
-    public function gate(Request $request)
-    {
-        $payment = Payment::find($request['id']);
-        $pulpal =new pulpal();
-        $payment_link = $pulpal->getUrl($payment->id, $payment->price, "test");
+        $pulpal = new pulpal();
+        $payment_link = $pulpal->getUrl(
+            $payment->id,
+            Helpers::convertPriceToGatePulpal($payment->price),
+            $payment->description
+        );
 
         return redirect($payment_link);
     }
+
     public function redirect()
     {
-        if ($_GET['Status'] == "error")
-        {
+        $this->delivery();
+
+        if (request()->Status == "error") {
             $message = "payment failed";
-            return View::make('members.check' , compact('message'));
-        }
-        else{
+            return View::make('members.check', compact('message'));
+        } else {
             $message = "payment successful";
-            return View::make('members.check' , compact('message'));
+            return View::make('members.check', compact('message'));
         }
 
     }
@@ -53,16 +59,14 @@ class PaymentController extends Controller
     public function delivery()
     {
 //        ExternalId
-        if ($_GET['Status'] == "error")
-        {
-            Payment::find($_GET['ExternalId'])->update(
+        if (request()->Status == "error") {
+            Payment::find(request()->ExternalId)->update(
                 [
                     'status' => -1,
                 ]
             );
-        }
-        else{
-            Payment::find($_GET['ExternalId'])->update(
+        } else {
+            Payment::find(request()->ExternalId)->update(
                 [
                     'status' => 1,
                     'refid' => $_GET['PaymentAttempt'],

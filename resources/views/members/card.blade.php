@@ -20,8 +20,6 @@
                         <input disabled type="text" name="price"
                                class=" w-100 courier_input"
                                value="{{$payment->price}}" style="width: 450px!important;">
-
-
                     </div>
 
                 </div>

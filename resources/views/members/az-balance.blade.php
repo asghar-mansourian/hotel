@@ -28,13 +28,10 @@
                 <div class="border_sh">
                     <h5><strong>{{__('member.balanceincreasepayment')}}</strong></h5>
                     <div class="payment">
-                        <form action="{{url('payment/verify')}}" method="post">
+                        <form action="{{url('/payment/gate')}}" method="post">
                             @csrf
-                            <input type="number" name="" value="" id="balance_val" required="" placeholder="USD"
-                                   name="new_amount">
-                            <input type="number" name="balance" id="new_balance_val" required="" placeholder="AZN"
-                                   name="new_amount_azn"
-                                   readonly="">
+                            <input type="number" id="balance_val" required="" placeholder="USD" name="amount">
+                            <input type="number" id="new_balance_val" required="" placeholder="AZN" name="amount_azn" readonly="">
                             <button type="submit" class="payment_button">{{__('member.balanceincreases')}}</button>
                         </form>
                     </div>
@@ -211,6 +208,15 @@
 
 @section('menuItem')
     @include('members.partials.menu_sidebar')
+@endsection
+@section('footerCustom')
+    <script>
+        $('input[name="amount"]').blur(function () {
+            $('input[name="amount_azn"]').val(
+                $(this).val()
+            )
+        });
+    </script>
 @endsection
 
 
