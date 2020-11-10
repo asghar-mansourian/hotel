@@ -33,6 +33,7 @@
     url('../fonts/Montserrat-Bold.ttf') format('truetype');
     font-weight: normal;
 }
+
 body, html {
     overflow-x: hidden;
     transition: 500ms;
@@ -42,14 +43,23 @@ body, html {
     color: #151f59 !important
 }
 
+.lang-a {
+    text-align: center;
+    min-width: 100px;
+    left: -14px;
+    top: 74%;
+}
+
 a {
     color: #151f59;
 }
+
 a:hover, a:focus {
     color: #c3c4d1;
     text-decoration: underline;
 }
-.float-left{
+
+.float-left {
     float: left !important;
 }
 .float-right{
