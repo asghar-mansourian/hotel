@@ -46,49 +46,49 @@
                                     <div class="tab">
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}")}}">
                                             <img src="./front/image/my_order/note.svg">
-                                            <span class="dis_no"> Hamısı</span><span class="num">
+                                            <span class="dis_no"> {{__('member.all')}}</span><span class="num">
                                                 ({{$country->invoices->count()}})
                                             </span>
                                         </a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ORDERED)}}">
                                             <img src="./front/image/my_order/cargo.svg">
-                                            <span class="dis_no"> Sifariş verildi</span><span class="num">
+                                            <span class="dis_no"> {{__('member.ordered')}}</span><span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ORDERED)->count()}})
                                             </span>
                                         </a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_WAREHOUSE_ABROAD)}}"><img src="./front/image/my_order/discount.svg">
-                                            <span class="dis_no">{{$country->name}}  anbar</span><span class="num">
+                                            <span class="dis_no">{{$country->name}}  {{__('member.anbar')}}</span><span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_WAREHOUSE_ABROAD)->count()}})
                                             </span>
                                         </a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ON_WAY)}}"><img src="./front/image/my_order/place.svg">
-                                            <span class="dis_no">Yoldadır</span><span
+                                            <span class="dis_no">{{__('member.Heisway')}}</span><span
                                                 class="num"> ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ON_WAY)->count()}})
                                             </span>
                                         </a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_CUSTOMS_INSPECTION)}}"><img src="./front/image/my_order/bag.svg">
-                                            <span class="dis_no">Gömrük yoxlanışı</span><span class="num">
+                                            <span class="dis_no">{{__('member.Customsinspection')}}</span><span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_CUSTOMS_INSPECTION)->count()}})
                                             </span></a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_IN_WAREHOUSE)}}"><img src="./front/image/my_order/wallet.svg">
-                                            <span class="dis_no"> anbarı</span><span class="num">
+                                            <span class="dis_no"> {{__('member.warehouse')}}</span><span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_IN_WAREHOUSE)->count()}})
                                             </span>
                                         </a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COURIER_DELIVERY)}}"><img src="./front/image/my_order/phone.svg">
-                                            <span class="dis_no">Kuryer çatdırma</span>
+                                            <span class="dis_no">{{__('member.courierdelivery')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COURIER_DELIVERY)->count()}})
                                             </span>
                                         </a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_RETURN)}}"><img src="./front/image/my_order/trash.svg">
-                                            <span class="dis_no">İade</span>
+                                            <span class="dis_no">{{__('member.return')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_RETURN)->count()}})
                                             </span>
                                         </a>
                                         <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COMPLETE)}}"><img src="./front/image/my_order/bill.svg">
-                                            <span class="dis_no">Tamamlanmış</span>
+                                            <span class="dis_no">{{__('member.complete')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COMPLETE)->count()}})
                                             </span>
@@ -100,11 +100,11 @@
                                     <div id="scrol_price_content">
                                         <div class="filterDiv_ul">
                                             <ul>
-                                                <li>Sifariş №</li>
-                                                <li>Sifariş tarixi</li>
-                                                <li>Mağaza</li>
-                                                <li>Status</li>
-                                                <li>Action</li>
+                                                <li>{{__('member.order№')}}</li>
+                                                <li>{{__('member.orderdate')}}</li>
+                                                <li>{{__('member.shop')}}</li>
+                                                <li>{{__('member.status')}}</li>
+                                                <li>{{__('member.action')}}</li>
                                             </ul>
                                         </div>
                                         @foreach($country->invoices->filterViaStatus(request()->query('status')) as $invoice)

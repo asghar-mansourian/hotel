@@ -15,17 +15,15 @@
                         <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
                     </picture>
                     <div class="balance-count">
-                        <span>Balansım</span> <br/>
+                        <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">{{$wallet}}<sup>₼</sup></span>
                     </div>
-                    <div class="balance-date">Son əlavə tarixi</div>
+                    <div class="balance-date">{{__('member.lastaddeddate')}}</div>
                     <div class="balance-text">
-                        Azərbaycana çatdırılma haqqının ödənilməsi və online kuryer sifarişi üçün balansınızı artıra
-                        bilərsiniz.
-                        <p><b> ARTIRILAN BALANS GERİ QAYTARILMIR.</b></p>
+                        {{__('member.deliveryonlinecourier')}}
+                        <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
-                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="#" class="border-btn btn-effect">Balansı
-                            artır</a></a>
+                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="#" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
 
                 </div>
             </div>
@@ -33,7 +31,7 @@
                 <div class="border_sh right_time">
                     <div class="tooltip"><span class="fa-fw select-all fas m-0 mr-0"></span>
                         <span class="tooltiptext">
-									  Bu, Sizin Kargo.az vasitəsilə son 30 gündə ölkəyə gətirdiyiniz bağlamaların məhsul dəyəri və çatdırılma haqqı üçün ödədiyiniz məbləğdir. Qeyd edək ki, qanunvericiliyə görə 30 gün ərzində şəxsi istifadə üçün gətirilmiş poçt yüklərinin dəyəri və bunun üçün ödənmiş çatdırılma haqqı toplam 300 dolları keçdikdə gömrük rüsumu tətbiq edilir.</span>
+									  {{__('member.amountyoupaiddelivery')}}</span>
                     </div>
                     <div style="clear: both;"></div>
                     <td class="post">
@@ -42,7 +40,7 @@
                                     src="{{url('front/image/wallet1.png')}}" width="150"></a>
                         </div>
                         <span id="answer1" style="display: none;">
-											<h4 class="text-center mt-0"><strong>Son 30 gün</strong></h4>
+											<h4 class="text-center mt-0"><strong> {{__('member.last30days')}}</strong></h4>
 											<div class="timer">
 											  <svg class="rotate" viewbox="0 0 250 250">
 											    <path id="loader" transform="translate(125, 125)"/>
@@ -71,14 +69,14 @@
                 <div class="dropdown myBtnContainer">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_hamisi"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Hamısı<i class="fas fa-chevron-down ml-2" style="font-size: 11px"></i>
+                        {{__('member.all')}}<i class="fas fa-chevron-down ml-2" style="font-size: 11px"></i>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdown_hamisi">
-                        <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> Hamısı</button>
+                        <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> {{__('member.all')}}</button>
                         <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> Məxaric</button>
+                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> {{__('member.expenditure')}}</button>
                         <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> Mədaxil</button>
+                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> {{__('member.expenditure')}}</button>
                         <br>
                     </div>
                 </div>
@@ -87,11 +85,11 @@
                 <div id="scrol_price_content">
                     <div class="filterDiv_ul">
                         <ul>
-                            <li style="width: 20%;">type</li>
-                            <li style="width: 20%;">price</li>
-                            <li style="width: 20%;">refid</li>
-                            <li style="width: 20%;">status</li>
-                            <li style="width: 20%;">date</li>
+                            <li style="width: 20%;">{{__('member.type')}}</li>
+                            <li style="width: 20%;">{{__('member.price')}}</li>
+                            <li style="width: 20%;">{{__('member.refid')}}</li>
+                            <li style="width: 20%;">{{__('member.status')}}</li>
+                            <li style="width: 20%;">{{__('member.date')}}</li>
                         </ul>
                     </div>
                     @foreach($payments as $payment)

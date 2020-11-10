@@ -29,54 +29,54 @@
                                     <!-- Small button groups (default and split) -->
                                     <div class="btn-group">
                                         <button class="btn btn-warning btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Filter
+                                            {{__('member.filter')}}
                                         </button>
                                         <div class="dropdown-menu p-2" style="width: 300px;">
 
                                             <a href="{{url('/orders')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                ALL
+                                                {{__('member.all')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=0')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                ORDERED
+                                                {{__('member.ordered')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=1')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                WAREHOUSE ABROAD
+                                                {{__('member.warehoseabroad')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=2')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                ON WAY
+                                                {{__('member.onway')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=3')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
 
-                                                CUSTOMS INSPECTION
+                                                {{__('member.custominspection')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=4')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                IN WAREHOUSE
+                                                {{__('member.inwarehose')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=5')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                COURIER DELIVERY
+                                                {{__('member.courierdelivery')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=6')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                RETURN
+                                                {{__('member.return')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=7')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;" src="{{url('front/image/my_order/note.svg')}}">
-                                                COMPLETE
+                                                {{__('member.complete')}}
                                             </a>
                                         </div>
                                     </div>
@@ -86,15 +86,15 @@
 
                                             <div class="filterDiv_ul">
                                                 <ul>
-                                                    <li style="width: 10%;">order id</li>
-                                                    <li style="width: 10%;">link</li>
-                                                    <li style="width: 10%;">price</li>
-                                                    <li style="width: 12%;">has cargo</li>
-                                                    <li style="width: 10%;">cargo</li>
-                                                    <li style="width: 10%;">quantity</li>
-                                                    <li style="width: 12%;">description</li>
-                                                    <li style="width: 10%;">total</li>
-                                                    <li style="width: 16%;">specification</li>
+                                                    <li style="width: 10%;">{{__('member.orderid')}}</li>
+                                                    <li style="width: 10%;">{{__('member.link')}}</li>
+                                                    <li style="width: 10%;">{{__('member.price')}}</li>
+                                                    <li style="width: 12%;">{{__('member.hascargo')}}</li>
+                                                    <li style="width: 10%;">{{__('member.cargo')}}</li>
+                                                    <li style="width: 10%;">{{__('member.quantity')}}</li>
+                                                    <li style="width: 12%;">{{__('member.description')}}</li>
+                                                    <li style="width: 10%;">{{__('member.total')}}</li>
+                                                    <li style="width: 16%;">{{__('member.specification')}}</li>
                                                 </ul>
                                             </div>
                                             @php
@@ -113,7 +113,7 @@
                                                             <li style="width: 10%;">{{$order->order_id}}</li>
                                                             <li style="width: 10%;"><a
                                                                     href="{{'https://' . $order->link}}"
-                                                                    class="btn btn-info btn-sm">show</a>
+                                                                    class="btn btn-info btn-sm">{{__('member.show')}}</a>
                                                             </li>
                                                             <li style="width: 12%;">{{$order->price}}</li>
                                                             <li style="width: 10%;">{{$order->has_cargo}}</li>
