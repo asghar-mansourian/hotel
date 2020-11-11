@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Http\Controllers\Admin\traits\scopeHelper;
+use App\Http\Controllers\Traits\scopeHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

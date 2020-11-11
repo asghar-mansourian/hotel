@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\traits;
+namespace App\Http\Controllers\traits;
 
 
 trait scopeHelper
