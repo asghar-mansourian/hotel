@@ -43,7 +43,7 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fe fe-mail   mr-2"></i>{{__('custom.admin.order.index.table.header')}}
+                        <i class="fa fa-shopping-basket   mr-2"></i>{{__('custom.admin.order.index.table.header')}}
                     </h3>
                 @endslot
 
@@ -84,12 +84,12 @@
             ../../../admin/orders/search/
         @endslot
     @endcomponent
-    @component('admin.components.script.sortScript')
-        @slot('url')
-            ../../../admin/orders/sort/
+    {{--    @component('admin.components.script.sortScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/orders/sort/--}}
 
-        @endslot
-    @endcomponent
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
     @component('admin.components.script.sortTableScript')
         @slot('url')
             ../../../admin/orders/sort/
@@ -111,7 +111,7 @@
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
                     href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.order.title')}}
+            <li class="breadcrumb-item active"><i class="fa fa-shopping-basket mr-2 fs-14"></i>{{__('custom.admin.order.title')}}
             </li>
         @endslot
     @endcomponent

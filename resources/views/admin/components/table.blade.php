@@ -9,18 +9,19 @@
                     <th>
                         {{__('custom.other.' . $select[1])}}
                         <a class="sort"
-                           style="@if($sortType == 'desc' && $sortField == $select[1].'_id') display:none;  @endif"
-                           href="#" data-sort-field="{{$select[1].'_id'}}" data-sort-type="desc">
+                           style="@if($sortType == 'desc' && $sortField == $select[0].'_id') display:none;  @endif"
+                           href="#" data-sort-field="{{$select[0].'_id'}}" data-sort-type="desc">
                             <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
                         </a>
                         <a class="sort"
                            style="@if($sortType  == 'asc' && $sortField == $select[1].'_id') display:none;  @endif"
-                           href="#" data-sort-field="{{$select[1].'_id'}}" data-sort-type="asc">
+                           href="#" data-sort-field="{{$select[0].'_id'}}" data-sort-type="asc">
                             <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
                         </a>
 
                     </th>
                 @else
+
                     <th>
                         {{__('custom.other.' . $select)}}
                         <a class="sort" style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif"
@@ -40,6 +41,7 @@
         </tr>
         </thead>
         <tbody class="mytbody">
+
         @foreach($records as $record)
             <tr>
                 @foreach($selects as $select)

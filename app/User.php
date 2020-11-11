@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Controllers\Admin\traits\scopeHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -9,7 +10,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, scopeHelper;
 
     const  paginateNumber = 1;
     const sortType = 'desc';
@@ -78,13 +79,5 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Order::class, 'user_id');
     }
 
-    public function scopeSearch($query , $search){
-        if ($search == ""){
-            return $query;
-        }
-        foreach ($this->fillable as $item){
-            $query->orWhere($item, 'like', '%' . $search . '%');
-        }
-        return $query;
-    }
+
 }

@@ -41,7 +41,7 @@
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 <span>user id</span>
-                                <a href="" class="ml-3 btn btn-info btn-sm">show</a>
+                                <a href="{{url('admin/users/edit/' . $order->user_id)}}" class="ml-3 btn btn-info btn-sm">show</a>
                             @endslot
 
                             @slot('type')
