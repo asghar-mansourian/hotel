@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tab">
-                    <button class="tablinks active " onclick="openCity(event, 'turkey')"><img src="{{url('../image/flg-tr.png')}}"><span class="dis_no"> Türkiyə</span></button>
-                    <button class="tablinks" onclick="openCity(event, 'amerika')"><img src="{{url('../image/flg-usa.png')}}"><span class="dis_no">Amerika</span></button>
+                    <button class="tablinks active " onclick="openCity(event, 'turkey')"><img src="{{url('front/image/flg-tr.png')}}"><span class="dis_no"> Türkiyə</span></button>
+                    <button class="tablinks" onclick="openCity(event, 'amerika')"><img src="{{url('front/image/flg-usa.png')}}"><span class="dis_no">Amerika</span></button>
                 </div>
                 <div class="border_bar">
                     <div id="turkey" class="tabcontent active">
