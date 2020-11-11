@@ -41,5 +41,7 @@ Route::middleware('auth:api')->group(function () {
 
             Route::get('branches', 'BranchController');
 
+            Route::post('increment-balance', 'PaymentController@incrementBalance');
+
         });
 });

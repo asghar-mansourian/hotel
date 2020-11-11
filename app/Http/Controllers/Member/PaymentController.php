@@ -11,6 +11,11 @@ use function request;
 
 class PaymentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('web')->except(['redirect', 'redirect']);
+    }
+
     public function verify()
     {
         return view('members.az-balance');
@@ -58,7 +63,6 @@ class PaymentController extends Controller
 
     public function delivery()
     {
-//        ExternalId
         if (request()->Status == "error") {
             Payment::find(request()->ExternalId)->update(
                 [
@@ -66,12 +70,16 @@ class PaymentController extends Controller
                 ]
             );
         } else {
-            Payment::find(request()->ExternalId)->update(
+            $payment = Payment::find(request()->ExternalId);
+
+            $payment->update(
                 [
                     'status' => 1,
-                    'refid' => $_GET['PaymentAttempt'],
+                    'refid' => request()->PaymentAttempt,
                 ]
             );
+
+            $payment->user->increment('balance', $payment->price);
         }
 
     }
