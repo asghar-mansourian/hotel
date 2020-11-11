@@ -53,7 +53,7 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::resource('orders', 'Order\OrderController');
 
-    Route::view('/addressesabroad', '/members/addressesabroad');
+    Route::view('/addressesabroad', 'members.addressesabroad.index');
 
 });
 
