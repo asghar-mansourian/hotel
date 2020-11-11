@@ -33,9 +33,8 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdown_panel">
                             <a class="dropdown-item" href="{{url('/home')}}">{{__('website.dashboard')}}</a><br/>
-                            <a class="dropdown-item" href="#">{{__('website.dashboard')}}</a><br/>
                             <a class="dropdown-item" href="{{route('orders.index')}}">{{__('website.invoices')}}</a><br/>
-                            <a class="dropdown-item" href="{{url('addressesabroad')}}">{{__('website.myaddressesabroad')}}</a><br/>
+                            <a class="dropdown-item" href="{{url('my-addresses-abroad')}}">{{__('website.myaddressesabroad')}}</a><br/>
                             <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('website.orders')}}</a><br/>
                             <a class="dropdown-item" href="#">AZN {{__('website.balance.azn')}}</a><br/>
                             <a class="dropdown-item" href="#">TL {{__('website.balance.tl')}}</a><br/>
