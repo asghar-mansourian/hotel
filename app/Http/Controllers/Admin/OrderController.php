@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Order;
 use App\Http\Controllers\Controller;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -14,11 +14,10 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::query()
-            ->with('user' , 'branch' , 'country')
+            ->with('user', 'branch', 'country')
             ->select(Order::selectField)
             ->orderBy(Order::sortField, Order::sortType)
             ->paginate(Order::paginateNumber);
-
         return View::make('admin.orders.index', compact('orders'), with([
             'sortField' => Order::sortField,
             'sortType' => Order::sortType
@@ -28,9 +27,21 @@ class OrderController extends Controller
 
     public function load()
     {
+        if (session()->has('sort_type') && session()->has('sort_field')) {
+            $field = session()->get('sort_field');
+            $type = session()->get('sort_type');
+        } else {
+            $field = Order::sortField;
+            $type = Order::sortType;
+        }
+        $search = "";
+        if (session()->has('search')) {
+            $search = session()->get('search');
+        }
         $orders = Order::query()
-            ->select(Order::sortField)
-            ->orderBy(Order::sortArrowFieldChecked, Order::sortArrowTypeChecked)
+            ->Search($search)
+            ->select(Order::selectField)
+            ->orderBy($field, $type)
             ->paginate(Order::paginateNumber);
 
         return View::make('admin.orders.load', compact('orders'), with([
@@ -43,29 +54,53 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::query()
-            ->with('branch' , 'country')
+            ->with('branch', 'country')
             ->where('id', $id)
             ->first();
 
-        return view('admin.orders.show' , compact('order'));
+        return view('admin.orders.show', compact('order'));
     }
+
 
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $orders = order::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
-            ->select(order::selectField)
-            ->paginate(order::paginateNumber);
 
-        $countorders = order::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
-            ->count();
+        if ($search != "") {
+            session()->put('search', $search);
+        }
+        if (session()->has('sort_type') && session()->has('sort_field')) {
+            $field = session()->get('sort_field');
+            $type = session()->get('sort_type');
+        } else {
+            $field = Order::sortField;
+            $type = Order::sortType;
+        }
+
+        $orders = Order::query()
+            ->Search($search)
+            ->select(Order::selectField)
+            ->get();
+
+        $rest = $orders->map(function ($order) use ($search) {
+            if ($order->user != null) {
+                return $order;
+            }
+        });
+        $orders = $rest->filter(function ($value) {
+            return !is_null($value);
+        })->take(10);
+
+//        $countorders = Order::query()
+//            ->Search($search)
+//            ->count()
+        $countorders = 12;
 
         return View::make('admin.orders.table', compact('orders'), with([
-            'sortField' => order::sortField,
-            'sortType' => order::sortType,
+            'sortField' => $field,
+            'sortType' => $type,
             'countorders' => $countorders,
+            'paginate' => false,
         ]));
     }
 
@@ -75,11 +110,19 @@ class OrderController extends Controller
         $sort_type = $request->input('sort_type');
 
         if ($sort_type == null)
-            $sort_type = order::sortType;
+            $sort_type = Order::sortType;
         if ($sort_field == null)
-            $sort_field = order::sortField;
+            $sort_field = Order::sortField;
+        $search = "";
+        if (session()->has('search')) {
+            $search = session()->get('search');
+        }
+        session()->put('sort_type', $sort_type);
+        session()->put('sort_field', $sort_field);
 
         $orders = order::query()
+//            ->with('user')
+//            ->Search($search)
             ->select(order::selectField)
             ->orderBy($sort_field, $sort_type)
             ->paginate(order::paginateNumber);

@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Http\Controllers\Admin\traits\scopeHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, scopeHelper;
 
     protected $guarded = ['id'];
+    protected $fillable = ['user_id', 'id', 'status'];
 
     const PAYMENT_TYPE_ONLINE = 0;
     const PAYMENT_TYPE_CASH = 1;
@@ -17,7 +19,6 @@ class Order extends Model
         self::PAYMENT_TYPE_ONLINE => 'online',
         self::PAYMENT_TYPE_CASH => 'cash'
     ];
-
 
     const STATUS_ORDERED = 0;
     const STATUS_WAREHOUSE_ABROAD = 1;
@@ -41,7 +42,8 @@ class Order extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['user_id', 'branch_id', 'id', 'link','country_id', 'total', 'payment_type', 'status'];
+    const selectField = ['user_id', 'branch_id', 'id', 'country_id', 'total', 'payment_type', 'status'];
+    const selectRelationField = ['user_id', 'branch_id', 'id', 'country_id', 'email', 'total', 'payment_type', 'status'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 
