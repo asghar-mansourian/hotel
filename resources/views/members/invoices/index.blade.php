@@ -23,7 +23,9 @@
     @include('members.partials.top_panel')
     <div class="mt-5">
         <div class="row">
-            @include('admin.components.error');
+            <div class="hide-alert">
+                @include('admin.components.error')
+            </div>
             <div class="col-md-12">
                 <div class="tab">
                     @foreach($countries as $country)
@@ -96,7 +98,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div id="scrol_price" style="margin-top: 115px !important; height: 553px" class="mt-5">
+                                <div id="scrol_price" style="margin-top: 155px !important; height: 553px" class="mt-5">
                                     <div id="scrol_price_content">
                                         <div class="filterDiv_ul">
                                             <ul>

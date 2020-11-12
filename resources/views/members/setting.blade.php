@@ -6,8 +6,13 @@
 
 @section('main')
     @include('members.partials.top_panel')
-    <div class="mt-5">
-        <div class="row">
+    <div class="row">
+        <div class="mt-5">
+            <div class="col-12" style="padding: 1px 16px;">
+                <div class="hide-alert">
+                    @include('layout.error')
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="tab">
                     <button class="tablinks active " onclick="openCity(event, 'profil_text')">
@@ -25,9 +30,6 @@
                         <form method="post" action="{{url('setting/changeProfileInformation')}}">
                             @csrf
                             <div class="row">
-                                <div class="col-12" style="padding: 1px 16px;">
-                                    @include('layout.error')
-                                </div>
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.name')}}</strong></h5>
                                     <input type="text" name="name" placeholder="Name *" value="{{$user->name}}"
@@ -74,9 +76,6 @@
                         <form action="{{url('/setting/changePassword')}}" method="post">
                             @csrf
                             <div class="row">
-                                <div class="col-12" style="padding: 1px 16px;">
-                                    @include('layout.error')
-                                </div>
                                 <div class="col-md-12 col-sm-12 mb-4 p-0">
                                     <div class="col-md-6 col-sm-6 mb-4">
                                         <h5><strong>{{__('member.currentpassword')}}</strong></h5>
@@ -114,9 +113,6 @@
                         <form action="{{url('/setting/changeOther')}}" method="post">
                             @csrf
                             <div class="row">
-                                <div class="col-12" style="padding: 1px 16px;">
-                                    @include('layout.error')
-                                </div>
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.serialNumber')}} * </strong></h5>
                                     <input type="text" name="serial_number" readonly placeholder="Serial Number" value="{{$user->serial_number}}"
@@ -124,7 +120,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.fin')}} *</strong></h5>
-                                    <input type="text" name="fin" placeholder="FIN *" value="{{$user->fin}}"
+                                    <input type="text" readonly placeholder="FIN *" value="{{$user->fin}}"
                                            class="w-100 courier_input">
                                 </div>
                                 <div class="col-md-7 col-sm-7 mb-4">
@@ -134,11 +130,8 @@
                                 </div>
                                 <div class="col-md-5 col-sm-5 mb-4">
                                     <h5><strong>{{__('member.gender')}}</strong></h5>
-                                    <select name="gender" class=" w-100 " aria-labelledby="dropdown_baglama"
-                                            style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
-                                        <option value="2" class="dropdown-item" @if($user->gender == 2) selected @endif>{{__('member.male')}}</option>
-                                        <option value="1" class="dropdown-item" @if($user->gender == 1) selected @endif>{{__('member.female')}}</option>
-                                    </select>
+                                    <input type="text" value="{{\App\lib\User::getGenderName($user->gender)}}" readonly
+                                           class="w-100 courier_input">
                                 </div>
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <h5><strong>{{__('member.address')}} *</strong></h5>

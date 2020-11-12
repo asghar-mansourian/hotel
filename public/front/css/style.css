@@ -2374,3 +2374,30 @@ blockquote {
     z-index: 10;
 }
 
+.hide-alert {
+    -moz-animation: css-animation 0s ease-in 3s forwards;
+    /* Firefox */
+    -webkit-animation: css-animation 0s ease-in 3s forwards;
+    /* Safari and Chrome */
+    -o-animation: css-animation 0s ease-in 3s forwards;
+    /* Opera */
+    animation: css-animation 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes css-animation {
+    to {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@-webkit-keyframes css-animation {
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+}

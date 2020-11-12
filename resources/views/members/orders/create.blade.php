@@ -131,7 +131,7 @@
 
                 </div>
                 <div class="border_sh mt-5">
-                    <h4 class="text-center"><strong>{{__('member.order')}}</strong></h4>
+                    <h4 class="text-center"><strong>{{__('member.order_title')}}</strong></h4>
                     <div class="danger">
                         <input type="radio" id="kart" checked name="payment_type" value="{{\App\Order::PAYMENT_TYPE_ONLINE}}">
                         <label for="kart">

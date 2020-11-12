@@ -11,7 +11,6 @@ class Order extends Model
     use SoftDeletes, scopeHelper;
 
     protected $guarded = ['id'];
-    protected $fillable = ['user_id', 'id', 'status'];
 
     const PAYMENT_TYPE_ONLINE = 0;
     const PAYMENT_TYPE_CASH = 1;

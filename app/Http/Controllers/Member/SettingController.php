@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Member;
 
 use App\Http\Controllers\Controller;
 use App\lib\currency;
-use App\Rules\ExistsGender;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -69,15 +68,11 @@ class SettingController extends Controller
         $request->validate([
 //            'serial_number' => ['required', 'max:9', 'unique:users'],
             'citizenship' => ['required', 'string', 'max:255'],
-            'gender' => ['required', 'numeric', new ExistsGender()],
-            'fin' => ['required', 'min:7', 'max:7'],
             'address' => ['required', 'string', 'max:255'],
         ]);
         User::query()->where('id', Auth::user()->id)->update([
 //            'serial_number' => $request->input('serial_number'),
             'citizenship' => $request->input('citizenship'),
-            'gender' => $request->input('gender'),
-            'fin' => $request->input('fin'),
             'address' => $request->input('address'),
         ]);
 

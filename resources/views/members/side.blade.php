@@ -1,6 +1,6 @@
 <div class="col-md-3 col-sm-2 col-xs-3">
     <div class="h4_height">
-        <h4 class="use_dis_no">{{__('member.user')}} <strong>{{__('member.panel')}}</strong></h4>
+        <h4 class="use_dis_no">{{__('member.user')}} <strong>{{auth()->user()->name}}</strong></h4>
     </div>
 
     <div class="left-side mt-5">
