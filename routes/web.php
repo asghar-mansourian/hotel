@@ -53,9 +53,11 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::resource('orders', 'Order\OrderController');
 
-    Route::get('/my-addresses-abroad', 'AddressesAbroad\AddressesAbroadController@index');
+    Route::get('/my-addresses-abroad', 'AddressesAbroad\AddressesAbroadController@index')->name('my_addresses_abroad');
 
-    Route::get('/tl-balance','TlBalance\TlBalanceController@index');
+    Route::get('/tl-balance','TlBalance\TlBalanceController@index')->name('tl_balance');
+
+    Route::get('/courier','Courier\CourierController@index')->name('courier');
 
 });
 
