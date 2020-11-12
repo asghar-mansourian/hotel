@@ -23,8 +23,8 @@
 			    <a class="dropdown-item" href="{{route('orders.index')}}">Sifarişlərim</a><br/>
 			    <a class="dropdown-item" href="{{route('invoices.index')}}">Bağlamalarım</a><br/>
 			    <a class="dropdown-item" href="#">AZN Balansım</a><br/>
-			    <a class="dropdown-item" href="#">TL Balansım</a><br/>
-			    <a class="dropdown-item" href="#">Kuryer</a><br/>
+			    <a class="dropdown-item" href="{{route('tl_balance')}}">TL Balansım</a><br/>
+			    <a class="dropdown-item" href="{{route('courier')}}">Kuryer</a><br/>
 			    <a class="dropdown-item" href="#">Sorğu</a><br/>
 			    <a class="dropdown-item" href="{{url('/setting')}}">Tənzimləmələr</a><br/>
 			    <a class="dropdown-item" href="{{url('/logout')}}">Hesabdan çıx</a><br/>

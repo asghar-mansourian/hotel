@@ -2,7 +2,7 @@
     <a href="{{url('/home')}}"><i class="fas fa-th-large"></i><span class="use_dis_no">{{__('website.dashboard')}}</span></a>
 </li>
 <li class="{{url()->current() === url('/my-addresses-abroad') ? 'active_li' : ''}}">
-    <a href="{{url('/my-addresses-abroad')}}"><i class="fas fa-search-location"></i><span class="use_dis_no">{{__('member.myaddressesabroad')}}</span></a>
+    <a href="{{route('my_addresses_abroad')}}"><i class="fas fa-search-location"></i><span class="use_dis_no">{{__('member.myaddressesabroad')}}</span></a>
 </li>
 <li class="{{url()->current() === url('/orders') ? 'active_li' : ''}}">
     <a href="{{url('/orders')}}"><i class="fas fa-shopping-basket"></i><span class="use_dis_no">{{__('member.orders')}}</span></a>
@@ -14,10 +14,10 @@
     <a href="{{url('/az-balance')}}"><i class="fas fa-donate"></i><span class="use_dis_no">{{__('member.aznBalance')}}</span></a>
 </li>
 <li class="{{url()->current() === url('/tl-balance') ? 'active_li' : ''}}">
-    <a href="{{url('/tl-balance')}}"><i class="fas fa-donate"></i><span class="use_dis_no">{{__('member.tlBalance')}}</span></a>
+    <a href="{{route('tl_balance')}}"><i class="fas fa-donate"></i><span class="use_dis_no">{{__('member.tlBalance')}}</span></a>
 </li>
-<li>
-    <a href="#"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">{{__('member.courier')}}</span></a>
+<li class="{{url()->current() === url('/courier') ? 'active_li' : ''}}">
+    <a href="{{route('courier')}}"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">{{__('member.courier')}}</span></a>
 </li>
 <li>
     <a href="#"><i class="far fa-question-circle" style="font-size: 16px;"></i><span class="use_dis_no">{{__('member.inquiry')}}</span></a>
