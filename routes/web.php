@@ -57,6 +57,8 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/tl-balance','TlBalance\TlBalanceController@index');
 
+    Route::get('/courier','Courier\CourierController@index')->name('courier');
+
 });
 
 // web
