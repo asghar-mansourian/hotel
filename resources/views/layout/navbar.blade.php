@@ -39,7 +39,7 @@
                             <a class="dropdown-item" href="#">{{__('member.aznBalance')}}</a><br/>
                             <a class="dropdown-item" href="{{url('tl-balance')}}">{{__('member.tlBalance')}}</a><br/>
                             <a class="dropdown-item" href="{{route('courier')}}">{{__('website.balance.courier')}}</a><br/>
-                            <a class="dropdown-item" href="#">{{__('website.balance.inquiry')}}</a><br/>
+                            <a class="dropdown-item" href="{{route('inquiry')}}">{{__('website.balance.inquiry')}}</a><br/>
                             <a class="dropdown-item" href="{{url('/setting')}}">{{__('website.settings')}}</a><br/>
                             <a class="dropdown-item" href="{{url('/logout')}}">{{__('website.logout')}}</a><br/>
                         </div>
