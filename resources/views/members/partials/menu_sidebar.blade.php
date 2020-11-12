@@ -13,8 +13,8 @@
 <li class="{{url()->current() === url('/az-balance') ? 'active_li' : ''}}">
     <a href="{{url('/az-balance')}}"><i class="fas fa-donate"></i><span class="use_dis_no">{{__('member.aznBalance')}}</span></a>
 </li>
-<li>
-    <a href="#"><i class="fas fa-donate"></i><span class="use_dis_no">{{__('member.tlBalance')}}</span></a>
+<li class="{{url()->current() === url('/tl-balance') ? 'active_li' : ''}}">
+    <a href="{{url('/tl-balance')}}"><i class="fas fa-donate"></i><span class="use_dis_no">{{__('member.tlBalance')}}</span></a>
 </li>
 <li>
     <a href="#"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">{{__('member.courier')}}</span></a>

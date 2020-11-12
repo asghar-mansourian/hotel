@@ -55,6 +55,8 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/my-addresses-abroad', 'AddressesAbroad\AddressesAbroadController@index');
 
+    Route::get('/tl-balance','TlBalance\TlBalanceController@index');
+
 });
 
 // web
