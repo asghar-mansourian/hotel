@@ -52,6 +52,9 @@ Route::group(['namespace' => 'Member'], function () {
     Route::resource('invoices', 'Invoice\InvoiceController');
 
     Route::resource('orders', 'Order\OrderController');
+
+    Route::get('/my-addresses-abroad', 'AddressesAbroad\AddressesAbroadController@index');
+
 });
 
 // web
