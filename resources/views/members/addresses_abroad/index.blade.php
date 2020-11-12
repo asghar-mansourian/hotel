@@ -14,7 +14,7 @@
                     <button class="tablinks" onclick="openCity(event, 'amerika')"><img src="{{url('front/image/flg-usa.png')}}"><span class="dis_no">Amerika</span></button>
                 </div>
                 <div class="border_bar">
-                    <div id="turkey" class="tabcontent active">
+                    <div id="turkey" class="tabcontent" style="display: block">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="row">

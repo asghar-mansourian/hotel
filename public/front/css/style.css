@@ -50,6 +50,7 @@ body, html {
     top: 74%;
 }
 
+
 a {
     color: #151f59;
 }
@@ -2342,6 +2343,21 @@ blockquote {
     transition-property: width, min-width, padding, opacity;
 }
 
+.tab a {
+    background-color: inherit;
+    float: left;
+    border: 2px solid transparent;
+    outline: none;
+    cursor: pointer;
+    color: #19170f;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
 .ReactTable .rt-thead .rt-resizable-header-content {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2356,4 +2372,32 @@ blockquote {
     right: -18px;
     cursor: col-resize;
     z-index: 10;
+}
+
+.hide-alert {
+    -moz-animation: css-animation 0s ease-in 3s forwards;
+    /* Firefox */
+    -webkit-animation: css-animation 0s ease-in 3s forwards;
+    /* Safari and Chrome */
+    -o-animation: css-animation 0s ease-in 3s forwards;
+    /* Opera */
+    animation: css-animation 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes css-animation {
+    to {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@-webkit-keyframes css-animation {
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
 }

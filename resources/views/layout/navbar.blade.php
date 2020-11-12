@@ -1,6 +1,6 @@
 <div class="row pt-3 pb-3 mob_dis " style="padding: 0 15px;">
     <div class="logo">
-        <a href="#"><img src="{{url('front/image/logo.svg')}}"></a>
+        <a href="/"><img src="{{url('front/image/logo.svg')}}"></a>
     </div>
 
     <div class="menu_sec">
@@ -31,15 +31,15 @@
                             {{\Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->family}}
                             <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdown_panel">
+                        <div class="dropdown-menu" aria-labelledby="dropdown_panel" style="z-index: 999999;">
                             <a class="dropdown-item" href="{{url('/home')}}">{{__('website.dashboard')}}</a><br/>
-                            <a class="dropdown-item" href="{{url('my-addresses-abroad')}}">{{__('website.myaddressesabroad')}}</a><br/>
-                            <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('website.orders')}}</a><br/>
-                            <a class="dropdown-item" href="{{route('orders.index')}}">{{__('website.invoices')}}</a><br/>
-                            <a class="dropdown-item" href="#">AZN {{__('website.balance.azn')}}</a><br/>
-                            <a class="dropdown-item" href="{{url('tl-balance')}}">TL {{__('website.balance.tl')}}</a><br/>
-                            <a class="dropdown-item" href="{{route('courier')}}">Kuryer</a><br/>
-                            <a class="dropdown-item" href="{{route('inquiry')}}">Sorğu</a><br/>
+                            <a class="dropdown-item" href="{{url('my-addresses-abroad')}}">{{str_limit(__('member.myaddressesabroad'),15)}}</a><br/>
+                            <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('member.order_title')}}</a><br/>
+                            <a class="dropdown-item" href="{{route('orders.index')}}">{{__('member.mybindings')}}</a><br/>
+                            <a class="dropdown-item" href="#">{{__('member.aznBalance')}}</a><br/>
+                            <a class="dropdown-item" href="{{url('tl-balance')}}">{{__('member.tlBalance')}}</a><br/>
+                            <a class="dropdown-item" href="{{route('courier')}}">{{__('website.balance.courier')}}</a><br/>
+                            <a class="dropdown-item" href="{{route('inquiry')}}">{{__('website.balance.inquiry')}}</a><br/>
                             <a class="dropdown-item" href="{{url('/setting')}}">{{__('website.settings')}}</a><br/>
                             <a class="dropdown-item" href="{{url('/logout')}}">{{__('website.logout')}}</a><br/>
                         </div>
@@ -49,10 +49,10 @@
             @guest('web')
                 <li>
                     <a href="/login">
-                        <strong>Daxil ol</strong>
+                        <strong>{{__('website.login')}}</strong>
                     </a> |
                     <a href="/register">
-                        <strong>Qeydiyyat</strong>
+                        <strong>{{__('website.register')}}</strong>
                     </a>
                 </li>
             @endguest

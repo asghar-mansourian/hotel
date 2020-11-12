@@ -8,6 +8,9 @@
     @include('members.partials.top_panel')
     <div class="mt-5">
         <div class="row">
+            <div class="hide-alert">
+                @include('admin.components.error');
+            </div>
             <div class="col-md-12">
                 <div class="tab">
 
@@ -17,8 +20,6 @@
                                 src="{{url("images/$country->flag")}}" style="width: 25px;height: 25px;"><span
                                 class="dis_no"> {{$country->name}}</span></button>
                     @endforeach
-                    {{--                    <button class="tablinks" onclick="openCity(event, 'amerika')"><img src="../image/order-Us.png"><span--}}
-                    {{--                            class="dis_no">Amerika</span></button>--}}
                 </div>
                 <div class="border_bar">
                     @foreach($countries as $country)

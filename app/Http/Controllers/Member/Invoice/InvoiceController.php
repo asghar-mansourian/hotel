@@ -40,7 +40,7 @@ class InvoiceController extends Controller
             $request->session()->flash('message', 'member.invoice.message.create_failed');
         }
 
-        return back();
+        return redirect()->route('invoices.index');
     }
 
     public function destroy(Invoice $invoice)

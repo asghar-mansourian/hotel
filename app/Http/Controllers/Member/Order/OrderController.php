@@ -93,7 +93,7 @@ class OrderController extends Controller
         request()->session()->flash('message', __('member.general.message.paid_successful'));
         request()->session()->flash('success', 1);
 
-        return back();
+        return redirect()->route('orders.index');
     }
 
     public function paidViaOnline($order)

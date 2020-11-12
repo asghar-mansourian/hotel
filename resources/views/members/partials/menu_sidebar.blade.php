@@ -1,5 +1,5 @@
 <li class="{{url()->current() === url('/home') ? 'active_li' : ''}}">
-    <a href="{{url('/home')}}"><i class="fas fa-th-large"></i><span class="use_dis_no">{{__('member.action')}}</span></a>
+    <a href="{{url('/home')}}"><i class="fas fa-th-large"></i><span class="use_dis_no">{{__('website.dashboard')}}</span></a>
 </li>
 <li class="{{url()->current() === url('/my-addresses-abroad') ? 'active_li' : ''}}">
     <a href="{{route('my_addresses_abroad')}}"><i class="fas fa-search-location"></i><span class="use_dis_no">{{__('member.myaddressesabroad')}}</span></a>

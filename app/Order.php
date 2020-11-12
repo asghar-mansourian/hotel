@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Http\Controllers\Admin\traits\scopeHelper;
+use App\Http\Controllers\Traits\scopeHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -11,7 +11,6 @@ class Order extends Model
     use SoftDeletes, scopeHelper;
 
     protected $guarded = ['id'];
-    protected $fillable = ['user_id', 'id', 'status'];
 
     const PAYMENT_TYPE_ONLINE = 0;
     const PAYMENT_TYPE_CASH = 1;

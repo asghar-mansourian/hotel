@@ -6,13 +6,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <div class="black pt-5"><span class="yellow mr-3">Kargo</span>Blog</div>
-                <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>
+                <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('website.blog')}}</div>
+                <div class="italic">{{__('website.subtitle2')}}<br/>{{__('website.subtitle1')}}</div>
             </div>
             <div class="col-md-12 slider_search mt-5">
                 <div class="search text-center">
-                    <input type="text" name="" placeholder="Search here...">
-                    <button>Search</button>
+                    <input type="text" name="" placeholder="{{__('website.search')}} ...">
+                    <button>{{__('website.search')}}</button>
                 </div>
             </div>
             <div class="col-md-12 mt-50">
@@ -38,7 +38,7 @@
                                                 {{\App\lib\Helpers::getContent($topBlog->content)}}
                                             </div>
                                             <div class="blog_a mt-4 mb-3">
-                                                <a href="blogs.html"> Read more</a>
+                                                <a href="blogs.html">{{__('website.readmore')}}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     @if($blogs->count())
-                        <div class="col-md-12 col-sm-12 black black_margin">Newest</div>
+                        <div class="col-md-12 col-sm-12 black black_margin">{{__('website.latestnews')}}</div>
                     @endif
                     @foreach($blogs as $blog)
                         <div class="col-md-4 col-sm-6 height_380 mb-5">
@@ -63,7 +63,7 @@
                                         {{\App\lib\Helpers::getContent($blog->content)}}
                                     </div>
                                     <div class="blog_a mt-4 mb-3">
-                                        <a href="{{url('/blog/' . $blog->slug)}}"> Read more</a>
+                                        <a href="{{url('/blog/' . $blog->slug)}}">{{__('website.readmore')}}</a>
                                     </div>
                                 </div>
                             </div>
