@@ -50,6 +50,7 @@ body, html {
     top: 74%;
 }
 
+
 a {
     color: #151f59;
 }
@@ -2356,4 +2357,8 @@ blockquote {
     right: -18px;
     cursor: col-resize;
     z-index: 10;
+}
+
+.tabcontent, .active {
+    display: block !important;
 }
