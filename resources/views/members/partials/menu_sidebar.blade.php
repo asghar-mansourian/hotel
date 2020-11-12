@@ -19,8 +19,8 @@
 <li class="{{url()->current() === url('/courier') ? 'active_li' : ''}}">
     <a href="{{route('courier')}}"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">{{__('member.courier')}}</span></a>
 </li>
-<li>
-    <a href="#"><i class="far fa-question-circle" style="font-size: 16px;"></i><span class="use_dis_no">{{__('member.inquiry')}}</span></a>
+<li class="{{url()->current() === url('/inquiry') ? 'active_li' : ''}}">
+    <a href="{{route('inquiry')}}"><i class="far fa-question-circle" style="font-size: 16px;"></i><span class="use_dis_no">{{__('member.inquiry')}}</span></a>
 </li>
 <li class="{{url()->current() === url('/setting') ? 'active_li' : ''}}">
     <a href="{{url('/setting')}}"><i class="fas fa-cogs"></i><span class="use_dis_no">{{__('member.setting')}}</span></a>
