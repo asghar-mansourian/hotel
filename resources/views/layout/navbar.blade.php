@@ -37,7 +37,7 @@
                             <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('website.orders')}}</a><br/>
                             <a class="dropdown-item" href="{{route('orders.index')}}">{{__('website.invoices')}}</a><br/>
                             <a class="dropdown-item" href="#">AZN {{__('website.balance.azn')}}</a><br/>
-                            <a class="dropdown-item" href="#">TL {{__('website.balance.tl')}}</a><br/>
+                            <a class="dropdown-item" href="{{url('tl-balance')}}">TL {{__('website.balance.tl')}}</a><br/>
                             <a class="dropdown-item" href="#">Kuryer</a><br/>
                             <a class="dropdown-item" href="#">Sorğu</a><br/>
                             <a class="dropdown-item" href="{{url('/setting')}}">{{__('website.settings')}}</a><br/>
