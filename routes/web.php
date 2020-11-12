@@ -59,6 +59,7 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/courier','Courier\CourierController@index')->name('courier');
 
+    Route::get('/inquiry','Inquiry\InquiryController@index')->name('inquiry');
 });
 
 // web

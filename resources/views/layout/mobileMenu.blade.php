@@ -25,7 +25,7 @@
 			    <a class="dropdown-item" href="#">AZN Balansım</a><br/>
 			    <a class="dropdown-item" href="{{route('tl_balance')}}">TL Balansım</a><br/>
 			    <a class="dropdown-item" href="{{route('courier')}}">Kuryer</a><br/>
-			    <a class="dropdown-item" href="#">Sorğu</a><br/>
+			    <a class="dropdown-item" href="{{route('inquiry')}}">Sorğu</a><br/>
 			    <a class="dropdown-item" href="{{url('/setting')}}">Tənzimləmələr</a><br/>
 			    <a class="dropdown-item" href="{{url('/logout')}}">Hesabdan çıx</a><br/>
 			  </div>
