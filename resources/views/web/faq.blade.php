@@ -6,17 +6,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
                 <div class="row">
+
                     <div class="col-md-7 col-sm-7">
-                        <div class="black pt-5"><span class="yellow mr-3">Kargo</span>FAQ</div>
-                        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and
-                            air.
-                        </div>
-                    </div>
-                    <div class="col-md-5 col-sm-5">
-                        <div class="img_slider">
-                            <img src="{{url('front/image/faq_answer.png')}}" class="img_slider_faq">
-                        </div>
+                        <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('website.faq')}}</div>
                     </div>
                 </div>
             </div>

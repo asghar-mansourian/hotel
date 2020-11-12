@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\FAQ;
+use App\Faq;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\FAQRequest;
+use App\Http\Requests\Admin\FaqRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -16,44 +16,44 @@ class FaqController extends Controller
 
     public function index()
     {
-        $faqs = FAQ::query()
-            ->select(FAQ::selectField)
-            ->orderBy(FAQ::sortField, FAQ::sortType)
-            ->paginate(FAQ::paginateNumber);
+        $faqs = Faq::query()
+            ->select(Faq::selectField)
+            ->orderBy(Faq::sortField, Faq::sortType)
+            ->paginate(Faq::paginateNumber);
         return View::make('admin.faqs.index', compact('faqs'), with([
-            'sortField' => FAQ::sortField,
-            'sortType' => FAQ::sortType
+            'sortField' => Faq::sortField,
+            'sortType' => Faq::sortType
         ]));
 
     }
 
     public function load()
     {
-        $faqs = FAQ::query()
-            ->select(FAQ::sortField)
-            ->orderBy(FAQ::sortArrowFieldChecked, FAQ::sortArrowTypeChecked)
-            ->paginate(FAQ::paginateNumber);
+        $faqs = Faq::query()
+            ->select(Faq::sortField)
+            ->orderBy(Faq::sortArrowFieldChecked, Faq::sortArrowTypeChecked)
+            ->paginate(Faq::paginateNumber);
 
         return View::make('admin.faqs.load', compact('faqs'), with([
-            'sortField' => FAQ::sortField,
-            'sortType' => FAQ::sortType
+            'sortField' => Faq::sortField,
+            'sortType' => Faq::sortType
         ]));
 
     }
 
     public function create()
     {
-        return view('admin.faqs.create' );
+        return view('admin.faqs.create');
     }
 
     public function store(Request $request)
     {
-        $FAQValidate = new FAQRequest();
+        $FAQValidate = new FaqRequest();
         $validate = $this->validateRules($FAQValidate->rules(), $request);
         if ($validate != null)
             return $this->validateRules($FAQValidate->rules(), $request);
-        $title = str_replace(' ' , '-' , $request->input('title'));
-        FAQ::query()->insert([
+        $title = str_replace(' ', '-', $request->input('title'));
+        Faq::query()->insert([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
         ]);
@@ -66,18 +66,18 @@ class FaqController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $faqs = FAQ::query()
+        $faqs = Faq::query()
             ->orWhere('title', 'like', '%' . $search . '%')
-            ->select(FAQ::selectField)
-            ->paginate(FAQ::paginateNumber);
+            ->select(Faq::selectField)
+            ->paginate(Faq::paginateNumber);
 
-        $countfaqs = FAQ::query()
+        $countfaqs = Faq::query()
             ->orWhere('name', 'like', '%' . $search . '%')
             ->count();
 
         return View::make('admin.faqs.table', compact('faqs'), with([
-            'sortField' => FAQ::sortField,
-            'sortType' => FAQ::sortType,
+            'sortField' => Faq::sortField,
+            'sortType' => Faq::sortType,
             'countfaqs' => $countfaqs,
         ]));
     }
@@ -88,14 +88,14 @@ class FaqController extends Controller
         $sort_type = $request->input('sort_type');
 
         if ($sort_type == null)
-            $sort_type = FAQ::sortType;
+            $sort_type = Faq::sortType;
         if ($sort_field == null)
-            $sort_field = FAQ::sortField;
+            $sort_field = Faq::sortField;
 
-        $faqs = FAQ::query()
-            ->select(FAQ::selectField)
+        $faqs = Faq::query()
+            ->select(Faq::selectField)
             ->orderBy($sort_field, $sort_type)
-            ->paginate(FAQ::paginateNumber);
+            ->paginate(Faq::paginateNumber);
 
         return View::make('admin.faqs.table', compact('faqs'), with([
             'sortField' => $sort_field,
@@ -106,7 +106,7 @@ class FaqController extends Controller
     public function edit($id)
     {
 
-        $FAQ = FAQ::query()
+        $FAQ = Faq::query()
             ->where('id', $id)
             ->first();
         return view('admin.faqs.edit', compact('FAQ', 'id'));
@@ -119,7 +119,7 @@ class FaqController extends Controller
         if ($validate != null)
             return $this->validateRules($FAQValidate->rules(), $request);
 
-        FAQ::query()->where('id' , $id)->update([
+        Faq::query()->where('id', $id)->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
 
@@ -132,7 +132,7 @@ class FaqController extends Controller
 
     public function destroy($id)
     {
-        FAQ::query()->find($id)->delete();
+        Faq::query()->find($id)->delete();
 
         session()->flash('message', __('custom.FAQ.message.delete'));
         session()->flash('success', 1);

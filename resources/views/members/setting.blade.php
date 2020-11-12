@@ -21,7 +21,7 @@
                     </button>
                 </div>
                 <div class="border_bar">
-                    <div id="profil_text" class="tabcontent active">
+                    <div id="profil_text" class="tabcontent" style="display: block">
                         <form method="post" action="{{url('setting/changeProfileInformation')}}">
                             @csrf
                             <div class="row">

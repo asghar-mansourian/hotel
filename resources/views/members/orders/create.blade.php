@@ -33,7 +33,7 @@
                             </div>
                             <div class="border_bar">
                                 @foreach($countries as $country)
-                                    <form action="{{route('orders.store')}}" method="POST" id="country-{{$country->id}}" class="tabcontent active" style="
+                                    <form action="{{route('orders.store')}}" method="POST" id="country-{{$country->id}}" class="tabcontent" style="
                                     @if(request()->query('country') == $country->id) display: block;  @endif
                                     @if(is_null(request()->query('country')) && $loop->first) display: block;  @endif">
                                         @csrf

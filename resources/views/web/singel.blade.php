@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-left">
-                <div class="pt-5 black_blog"><span class="blog_yellow mr-3"><a href="/blog" class="blog_yellow mr-3">Blog</a></span> <i
+                <div class="pt-5 black_blog"><span class="blog_yellow mr-3"><a href="/blog" class="blog_yellow mr-3">{{__('website.blog')}}</a></span> <i
                         class="fas fa-angle-right"></i> {{$blog->title}}</div>
             </div>
             <div class="col-md-12 mt-50">
@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="blog_sosyal ">
-                                <div class="blog_share">Share</div>
+                                <div class="blog_share">{{__('website.share')}}</div>
                                 <ul class="p-0">
                                     <li>
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 mt-5 mb-5  blog_padding">
                         <div class="border_sh">
-                            <h3 class="mt-0"><strong>Son xəbərlər</strong></h3>
+                            <h3 class="mt-0"><strong>{{__('website.latestnews')}}</strong></h3>
                             @foreach($last_news as $news)
                                 <div class="blog_list">
                                     <a href="{{url('/blog/' . $news->slug)}}">

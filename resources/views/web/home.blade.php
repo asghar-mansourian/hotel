@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Kargo | Home
+    Kargo | {{__('website.home')}}
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
@@ -12,8 +12,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5" style="z-index: 1">
-                        <div class="index_black pt-5">Kargo Transport</div>
-                        <div class="font_grey">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed<br>diam nonumy eirmod tempor invidunt ut labore et dolore</div>
+                        <div class="index_black pt-5">Kargo {{__('website.transport')}}</div>
+                        <div class="font_grey">{{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}</div>
                     </div>
                     <div class="col-md-7">
                         <div class="img_slider">
@@ -25,11 +25,11 @@
                             <div class="bacg_img">
                                 <div class="pricing_wi border_sh">
                                     <div class="row">
-                                        <div class="col-md-12 mb-4 font_pink"><strong>Kalkulyator</strong></div>
+                                        <div class="col-md-12 mb-4 font_pink"><strong>{{__('website.calculator')}}</strong></div>
                                         <div class="col-md-6 col-sm-6 mt-3 mb-3">
                                             <div class="pricing_box_cou">
                                                 <select>
-                                                    <option>Ölkə</option>
+                                                    <option>{{__('website.home_page.country')}}</option>
                                                     <option>Türkiye</option>
                                                     <option>Chin</option>
                                                     <option>ABŞ</option>
@@ -40,7 +40,7 @@
                                         <div class="col-md-6 col-sm-6 mt-3 mb-3">
                                             <div class="pricing_box_cou">
                                                 <select>
-                                                    <option>Bölgə</option>
+                                                    <option>{{__('website.home_page.region')}}</option>
                                                     <option>Bakı</option>
                                                     <option>Gəncə</option>
                                                     <option>Sumqayıt</option>
@@ -49,54 +49,54 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="Bağlama sayı">
+                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.binding_number')}}">
                                         </div>
                                         <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="Çəki">
+                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.weight')}}">
                                             <div class="pricing_box">
                                                 <select>
-                                                    <option>kq</option>
-                                                    <option>qram</option>
+                                                    <option>{{__('website.home_page.weights.kg')}}</option>
+                                                    <option>{{__('website.home_page.weights.gram')}}</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="En">
+                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.home_page.en')}}">
                                             <div class="pricing_box">
                                                 <select>
-                                                    <option>sm</option>
-                                                    <option>m</option>
-                                                    <option>dm</option>
+                                                    <option>{{__('website.home_page.sm')}}</option>
+                                                    <option>{{__('website.home_page.m')}}</option>
+                                                    <option>{{__('website.home_page.dm')}}</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="Uzunluq">
+                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.length')}}">
                                             <div class="pricing_box">
                                                 <select>
-                                                    <option>sm</option>
-                                                    <option>m</option>
-                                                    <option>dm</option>
+                                                    <option>{{__('website.home_page.sm')}}</option>
+                                                    <option>{{__('website.home_page.m')}}</option>
+                                                    <option>{{__('website.home_page.dm')}}</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="Hündürlük">
+                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.height')}}">
                                             <div class="pricing_box">
                                                 <select>
-                                                    <option>sm</option>
-                                                    <option>m</option>
-                                                    <option>dm</option>
+                                                    <option>{{__('website.home_page.sm')}}</option>
+                                                    <option>{{__('website.home_page.m')}}</option>
+                                                    <option>{{__('website.home_page.dm')}}</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12 mt-4"></div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 mt-3 mb-3 pricing_price_blue">
-                                            <button id="calculate" class="btn-effect border-btn">Hesabla</button>
+                                            <button id="calculate" class="btn-effect border-btn">{{__('website.calculate')}}</button>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 mt-3 mb-3 pricing_price text-right">
                                             <div class="all">
-                                                Total : <strong class="ml-3"><i class="fas fa-dollar-sign"></i> 3</strong>
+                                                {{__('website.total')}} : <strong class="ml-3"><i class="fas fa-dollar-sign"></i> 3</strong>
                                             </div>
                                         </div>
                                     </div>
@@ -110,35 +110,35 @@
         <div class="site_center">
             <div class="container">
                 <div class="row">
-                    <div class="black pt-5 text-center">NeCe Ishleuir?
+                    <div class="black pt-5 text-center">{{__('website.how')}} shtormex {{__('website.works')}}?
                         <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="index_cont">
                             <div class="index_cont_img"><img src="./front/image/product_select.png" class="w-100"></div>
-                            <h5><strong>NeCe Ishleuir?</strong></h5>
-                            <div class="mb-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</div>
+                            <h5><strong>{{__('website.register')}}</strong></h5>
+                            <div class="mb-2">{{__('website.registeron')}}</div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="index_cont">
                             <div class="index_cont_img"><img src="./front/image/how_work_box.png" class="w-100"></div>
-                            <h5><strong>NeCe Ishleuir?</strong></h5>
-                            <div class="mb-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</div>
+                            <h5><strong>{{__('website.sendvote')}}</strong></h5>
+                            <div class="mb-2">{{__('website.sendvoteshopping')}}</div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="index_cont">
                             <div class="index_cont_img"><img src="./front/image/ship.png" class="w-100"></div>
-                            <h5><strong>NeCe Ishleuir?</strong></h5>
-                            <div class="mb-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</div>
+                            <h5><strong>{{__('website.getpackage')}}</strong></h5>
+                            <div class="mb-2">{{__('website.getpackageloc')}}</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row city">
-                    <div class="col-md-12 black">ÖLKƏLƏR ÜZRƏ TARİFLƏR
+                    <div class="col-md-12 black">{{__('website.tariffs_by_countries')}}
                         <div class="hr"></div>
                     </div>
                     <div class="col-md-6">
@@ -261,10 +261,9 @@
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="video_text">
-                                <h3><strong>Video Təlimatı Izləyin</strong></h3>
-                                <div class="font_pink">Colibri ilə yeni alış-veriş tərzini kəşf edin</div>
-                                Asan təlimatla, sizin onlayn alış-verişiniz heç vaxt olmadığı qədər əyləncəli və əziyyətsiz olacaq.
-
+                                <h3><strong>{{__('website.follow_video_instructions')}}</strong></h3>
+                                <div class="font_pink">{{__('website.follow_video_instructions_new_style')}}</div>
+                                {{__('website.follow_video_instructions_online_shopping')}}
                             </div>
                         </div>
                     </div>
@@ -273,22 +272,8 @@
             <div class="site_center mt-5">
                 <div class="container">
                     <div class="row">
-                        <div class="black pt-5 text-center">Taza Xeberler
+                        <div class="black pt-5 text-center">{{__('website.newsletter')}}
                             <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
-                            <div class="newsletter">
-                                <div class="news_black">
-                                    <div class="cou_date">Subscribe to newsletter</div>
-                                    <div class="news_grey news_input">Lorem ipsum dolor sit amet</div>
-                                    <div class="news_input">
-                                        <input type="text" name="newsletter" placeholder="Email" class="w-100">
-                                    </div>
-                                    <div class="newsletter_read mt-4 mb-3">
-                                        <button class="btn">Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         @foreach($blogs as $blog)
                             <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
@@ -304,7 +289,7 @@
                                             {{\App\lib\Helpers::getContent($blog->content, 45)}}
                                         </div>
                                         <div class="blog_a mt-4 mb-3">
-                                            <a href="{{url('/blog/' . $blog->slug)}}"> Read more</a>
+                                            <a href="{{url('/blog/' . $blog->slug)}}"> {{__('website.readmore')}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -315,12 +300,10 @@
             </div>
             <div class="partner">
                 <div class="container">
-                    <div class="black pt-5 text-center">Mushterilar
+                    <div class="black pt-5 text-center">{{__('website.customers')}}
                         <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
                     </div>
                     <div class="owl-carousel owl-theme owl-loaded owl-drag">
-
-
                         <div class="owl-stage-outer">
                             <div class="owl-stage" style="transform: translate3d(-2300px, 0px, 0px); transition: all 0.25s ease 0s; width: 4025px;">
                                 <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
@@ -371,20 +354,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="owl-nav disabled">
-                            <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>
-                            <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
-                        </div>
-                        <div class="owl-dots">
-                            <button role="button" class="owl-dot"><span></span></button>
-                            <button role="button" class="owl-dot active"><span></span></button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('footerCustom')
