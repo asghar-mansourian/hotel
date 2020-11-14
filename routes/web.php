@@ -48,6 +48,7 @@ Route::group(['namespace' => 'Member'], function () {
     Route::get('/payment/delivery', 'PaymentController@delivery');
 
     Route::get('/az-balance', 'PaymentController@verify');
+    Route::get('/tl-balance', 'PaymentController@verify');
 
     Route::resource('invoices', 'Invoice\InvoiceController');
 
@@ -76,6 +77,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/faq', 'FaqController@index');
     Route::get('/getCurrency', 'CurrencyController@getCurrency');
     Route::get('/getCurrencyFromTwoApi', 'CurrencyController@getCurrencyFromTwoApi');
+    Route::get('/getCurrencyFromCrawel', 'CurrencyController@getCurrencyFromCrawel');
     Route::post('/convert', 'CurrencyController@convert');
     Route::post('/getCurrencyCalculator', 'CurrencyController@getCurrencyCalculator');
 
@@ -84,6 +86,8 @@ Route::group(['namespace' => 'Web'], function () {
     });
 
     Route::get('/pricing', 'FaqController@index');
+
+
 });
 
 

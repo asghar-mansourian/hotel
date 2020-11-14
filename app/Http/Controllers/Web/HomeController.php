@@ -18,6 +18,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        CurrencyController::getCurrencyFromCrawel();
+        CurrencyController::getCurrencyFromTwoApi();
         $blogs = Blog::latest()->take(2)->get();
         return view('web.home', compact('blogs'));
     }

@@ -48,19 +48,24 @@
     <div class="daily_unit mt-5">
         <div class="title_list mb-4">{{__('member.dailysize')}}</div>
         <ul>
+            @php
+                $daySizeTRY = 1;
+                $daySizeUSD = \Illuminate\Support\Facades\DB::table('currencies')->where('from' , 'try')->where('to' , 'usd')->first()->to_value;
+                $daySizeAZN = \Illuminate\Support\Facades\DB::table('currencies')->where('from' , 'try')->where('to' , 'azn')->first()->to_value;
+            @endphp
             <li>
                 <img src="{{url('front/image/flg-tr.png')}}" alt="flt-tr">
-                <span>1</span>
+                <span>{{$daySizeTRY}}</span>
                 <span>TL</span>
             </li>
             <li>
                 <img src="{{url('front/image/flg-az.png')}}" alt="flt-az">
-                <span>0.2177</span>
+                <span>{{substr($daySizeAZN , 0 , 4)}}</span>
                 <span>AZN</span>
             </li>
             <li>
                 <img src="{{url('front/image/flg-usa.png')}}" alt="flt-usa">
-                <span>0.1281</span>
+                <span>{{substr($daySizeUSD , 0 , 4)}}</span>
                 <span>USD</span>
             </li>
         </ul>

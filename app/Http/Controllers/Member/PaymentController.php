@@ -18,7 +18,12 @@ class PaymentController extends Controller
 
     public function verify()
     {
-        return view('members.az-balance');
+        if (request()->is('az-balance')) {
+            return view('members.az-balance');
+        } else {
+            return view('members.tl-balance');
+        }
+
     }
 
     public function gate($order = null)

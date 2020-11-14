@@ -113,7 +113,7 @@ class CurrencyController
             $checkExpireCurrency = Carbon::parse($checkExpireCurrency->created_at)->addDay(1) < now();
 
             if ($checkExpireCurrency) {
-                Currency::where('id', '!=', null)->get()->each->delete();
+                Currency::delete();
                 $res = Http::get($urlWeb);
                 $result = $res->json();
                 $result = $result['currencies'];
