@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div class="title pt-4 mb-5">
+<div class="title pt-2 mb-5">
     <div class="container">
         @include('layout.header')
         <hr style="margin-top: 15px;">

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="    display: flex; align-items: center;">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">
 
         <div class="font_grey" style="display: inline-block">
@@ -17,6 +17,45 @@
                     @endif
                 @endforeach
             </div>
+        </div>
+        <div style="display: inline-block">
+            <form id="calBtn" method="post" action="{{url('/getCurrencyCalculator')}}">
+                <div class="float-left">
+                    <input type="number" name="currency" style="    width: 104px;    height: 25px;" required>
+                </div>
+                <select name="from" class=" " aria-labelledby="dropdown_baglama"
+                        style="width: 100px;margin-left: 10px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    height: 25px;
+}
+    box-shadow: 0 0 black !important;">
+                    <option class="">{{__('member.select')}}</option>
+                    <option class="dropdown-item" value="AZN">RUB</option>
+                    <option class="dropdown-item" value="USD">USD</option>
+                    <option class="dropdown-item" value="TRY">TRY</option>
+                </select>
+                <div style="clear: both;"></div>
+                <div class="mt-2"></div>
+                <div class="float-left">
+                    <input id="result_cal" type="number" style="    width: 104px;     height: 25px;" readonly>
+                </div>
+                <select name="to" class=" " aria-labelledby="dropdown_baglama"
+                        style=" width: 100px;margin-left: 10px;
+                            padding-right: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+        height: 25px;
+    box-shadow: 0 0 black !important;">
+                    <option class="">{{__('member.select')}}</option>
+                    <option class="dropdown-item" value="AZN">RUB</option>
+                    <option class="dropdown-item" value="USD">USD</option>
+                    <option class="dropdown-item" value="TRY">TRY</option>
+                </select>
+            </form>
         </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -145,12 +144,23 @@ route::get('/order-items/load' , 'OrderItemsController@load');
 route::get('/order-items/destroy/{id}' , 'OrderItemsController@destroy');
 route::post('/order-items/search/' , 'OrderItemsController@search');
 route::post('/order-items/sort/' , 'OrderItemsController@sort');
-route::get('/order-items/show/{id}' , 'OrderItemsController@show');
+route::get('/order-items/show/{id}', 'OrderItemsController@show');
 
 /*      Invoice Routes      */
-route::get('/invoices' , 'InvoiceController@index');
-route::get('/invoices/load' , 'InvoiceController@load');
-route::get('/invoices/destroy/{id}' , 'InvoiceController@destroy');
-route::post('/invoices/search/' , 'InvoiceController@search');
-route::post('/invoices/sort/' , 'InvoiceController@sort');
-route::get('/invoices/show/{id}' , 'InvoiceController@show');
+route::get('/invoices', 'InvoiceController@index');
+route::get('/invoices/load', 'InvoiceController@load');
+route::get('/invoices/destroy/{id}', 'InvoiceController@destroy');
+route::post('/invoices/search/', 'InvoiceController@search');
+route::post('/invoices/sort/', 'InvoiceController@sort');
+route::get('/invoices/show/{id}', 'InvoiceController@show');
+
+/*      Calculator Routes      */
+route::get('/calculatores', 'CalculatorController@index');
+route::get('/calculatores/load', 'CalculatorController@load');
+route::get('/calculatores/create/', 'CalculatorController@create');
+route::post('/calculatores/store/', 'CalculatorController@store');
+route::get('/calculatores/edit/{id}', 'CalculatorController@edit');
+route::post('/calculatores/update/{id}', 'CalculatorController@update');
+route::get('/calculatores/destroy/{id}', 'CalculatorController@destroy');
+route::post('/calculatores/search/', 'CalculatorController@search');
+route::post('/calculatores/sort/', 'CalculatorController@sort');

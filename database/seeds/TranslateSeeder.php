@@ -21,8 +21,6 @@ class TranslateSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('ltm_translations')->truncate();
-
         foreach ($this->groups as $list => $group) {
             foreach ($group as $key => $item) {
                 DB::table('ltm_translations')->updateOrInsert(
@@ -255,6 +253,8 @@ class TranslateSeeder extends Seeder
         'backtousers' => 'Back To Users',
         'users' => 'User',
         'showuser' => 'Show User',
+        'calculator' => 'calculator',
+        'showcalculator' => 'Showcalculator',
     ];
 
     private $member_items = [
