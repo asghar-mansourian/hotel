@@ -79,6 +79,7 @@
                     @endif
                 @endforeach
                 <td class="text-nowrap text-center">
+
                     @foreach($options as $option)
                         @if($option == 'show')
                             <a href="{{url('admin/' . $url . '/show/' . $record->id)}}" data-userid="{{$record->id}}"
@@ -94,7 +95,7 @@
                             </a>
                         @endif
                         @if($option == 'delete')
-                            <a href="#" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
+                            <a href="{{url('admin/' . $url . '/delete/' . $record->id)}}" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
                                title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
                                 <i class="fe fe-trash mr-2"></i>{{__('custom.other.delete')}}
                             </a>

@@ -16,25 +16,37 @@ use Illuminate\Support\Facades\Route;
 /*      User Routes      */
 route::get('/users' , 'UserController@index');
 route::get('/users/load' , 'UserController@load');
-route::get('/users/create/' , 'UserController@create');
-route::post('/users/store/' , 'UserController@store');
-route::get('/users/edit/{id}' , 'UserController@edit');
-route::post('/users/update/{id}' , 'UserController@update');
-route::get('/users/destroy/{id}' , 'UserController@destroy');
-route::get('/users/show/{id}' , 'UserController@show');
-route::post('/users/search/' , 'UserController@search');
-route::post('/users/sort/' , 'UserController@sort');
+route::get('/users/create/', 'UserController@create');
+route::post('/users/store/', 'UserController@store');
+route::get('/users/edit/{id}', 'UserController@edit');
+route::post('/users/update/{id}', 'UserController@update');
+route::get('/users/destroy/{id}', 'UserController@destroy');
+route::get('/users/show/{id}', 'UserController@show');
+route::post('/users/search/', 'UserController@search');
+route::post('/users/sort/', 'UserController@sort');
+
+
+/*      Country Details Routes      */
+route::get('/countries/details', 'CountryDetailController@index');
+route::get('/countries/details/create', 'CountryDetailController@create');
+route::post('/countries/details/store/', 'CountryDetailController@store');
+route::get('/countries/details/edit/{id}', 'CountryDetailController@edit');
+route::post('/countries/details/update/{id}', 'CountryDetailController@update');
+route::get('/countries/details/destroy/{id}', 'CountryDetailController@destroy');
+route::post('/countries/details/search/', 'CountryDetailController@search');
+route::post('/countries/details/sort/', 'CountryDetailController@sort');
+route::get('/countries/details/load', 'CountryDetailController@load');
 
 
 /*      Country Routes      */
-route::get('/countries' , 'CountryController@index');
-route::get('/countries/load' , 'CountryController@load');
-route::get('/countries/create/' , 'CountryController@create');
-route::post('/countries/store/' , 'CountryController@store');
-route::get('/countries/edit/{id}' , 'CountryController@edit');
-route::post('/countries/update/{id}' , 'CountryController@update');
-route::get('/countries/destroy/{id}' , 'CountryController@destroy');
-route::post('/countries/search/' , 'CountryController@search');
+route::get('/countries', 'CountryController@index');
+route::get('/countries/load', 'CountryController@load');
+route::get('/countries/create/', 'CountryController@create');
+route::post('/countries/store/', 'CountryController@store');
+route::get('/countries/edit/{id}', 'CountryController@edit');
+route::post('/countries/update/{id}', 'CountryController@update');
+route::get('/countries/destroy/{id}', 'CountryController@destroy');
+route::post('/countries/search/', 'CountryController@search');
 route::post('/countries/sort/' , 'CountryController@sort');
 
 

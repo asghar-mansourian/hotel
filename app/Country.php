@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
+
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
@@ -29,8 +30,18 @@ class Country extends Model
         return $this->hasMany('App\Region');
     }
 
+    public function details()
+    {
+        return $this->hasMany(CountryDetail::class);
+    }
+
     public function invoices()
     {
         return $this->hasMany(Invoice::class);
+    }
+
+    public function priceCalculators()
+    {
+        return $this->hasMany(Calculator::class, 'country_id');
     }
 }

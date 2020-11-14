@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | AZN Balance
+    Kargo | TL Balance
 @endsection
 
 @section('main')
@@ -31,7 +31,7 @@
                         <form action="{{url('/payment/gate')}}" method="post">
                             @csrf
                             <input type="number" id="balance_val" required="" placeholder="USD" name="amount">
-                            <input type="number" id="new_balance_val" required="" placeholder="AZN" name="amount_azn" readonly="">
+                            <input type="number" id="new_balance_val" required="" placeholder="TL" name="amount_azn" readonly="">
                             <button type="submit" class="payment_button">{{__('member.balanceincreases')}}</button>
                         </form>
                     </div>
@@ -222,7 +222,7 @@
                 e.preventDefault();
 
                 var form = $("#balance_val").val();
-                var data = {'to': 'azn', 'from': 'usd', 'currency': form};
+                var data = {'to': 'try', 'from': 'usd', 'currency': form};
                 console.log(data)
                 var error = function (response) {
                     var jsonResponse = JSON.parse(response.responseText);
@@ -236,7 +236,6 @@
                     // var url = '/setting';
                     //
                     // window.location.replace(url);
-                    console.log(response);
                     $('#new_balance_val').attr('value', response);
                 };
                 var after = function () {
