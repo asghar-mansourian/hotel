@@ -210,6 +210,232 @@
     @include('members.partials.menu_sidebar')
 @endsection
 @section('footerCustom')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('#balance_val').on('change', function (e) {
+
+                e.preventDefault();
+
+                var form = $("#balance_val").val();
+                var data = {'to': 'azn', 'from': 'usd', 'currency': form};
+                console.log(data)
+                var error = function (response) {
+                    var jsonResponse = JSON.parse(response.responseText);
+                    console.log(jsonResponse.errors);
+                    $(jsonResponse.errors).each(function (index, value) {
+                        $('#' + jsonResponse.keys[index]).addClass('has-danger');
+                        $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
+                    })
+                }
+                var success = function (response) {
+                    // var url = '/setting';
+                    //
+                    // window.location.replace(url);
+                    $('#new_balance_val').attr('value', response);
+                };
+                var after = function () {
+                    // $('div.block2').unblock();
+                }
+                var before = function () {
+                    $('.form-control').removeClass('has-danger');
+                    $('.help-block').each(function () {
+                        $(this).remove();
+                    });
+                }
+                var option = {
+                    data: data,
+                    url: '/getCurrencyCalculator',
+                    type: "POST",
+                    dataType: "JSON",
+
+                    cache: false,
+                };
+                $.ajaxSetup(option);
+                $.ajax({
+                    beforeSend: function () {
+                        before()
+                    },
+                    success: function (response) {
+                        success(response)
+                    },
+                    error: function (response) {
+                        error(response)
+                    },
+                    complete: function () {
+                        after()
+                    }
+                });
+            });
+            $('#balance_val').on('keyup', function (e) {
+
+                e.preventDefault();
+
+                var form = $("#balance_val").val();
+                var data = {'to': 'azn', 'from': 'usd', 'currency': form};
+                console.log(data)
+                var error = function (response) {
+                    var jsonResponse = JSON.parse(response.responseText);
+                    console.log(jsonResponse.errors);
+                    $(jsonResponse.errors).each(function (index, value) {
+                        $('#' + jsonResponse.keys[index]).addClass('has-danger');
+                        $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
+                    })
+                }
+                var success = function (response) {
+                    // var url = '/setting';
+                    //
+                    // window.location.replace(url);
+                    $('#new_balance_val').attr('value', response);
+                };
+                var after = function () {
+                    // $('div.block2').unblock();
+                }
+                var before = function () {
+                    $('.form-control').removeClass('has-danger');
+                    $('.help-block').each(function () {
+                        $(this).remove();
+                    });
+                }
+                var option = {
+                    data: data,
+                    url: '/getCurrencyCalculator',
+                    type: "POST",
+                    dataType: "JSON",
+
+                    cache: false,
+                };
+                $.ajaxSetup(option);
+                $.ajax({
+                    beforeSend: function () {
+                        before()
+                    },
+                    success: function (response) {
+                        success(response)
+                    },
+                    error: function (response) {
+                        error(response)
+                    },
+                    complete: function () {
+                        after()
+                    }
+                });
+            });
+            $('#balance_val').on('mouseover', function (e) {
+
+                e.preventDefault();
+
+                var form = $("#balance_val").val();
+                var data = {'to': 'azn', 'from': 'usd', 'currency': form};
+                console.log(data)
+                var error = function (response) {
+                    var jsonResponse = JSON.parse(response.responseText);
+                    console.log(jsonResponse.errors);
+                    $(jsonResponse.errors).each(function (index, value) {
+                        $('#' + jsonResponse.keys[index]).addClass('has-danger');
+                        $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
+                    })
+                }
+                var success = function (response) {
+                    // var url = '/setting';
+                    //
+                    // window.location.replace(url);
+                    $('#new_balance_val').attr('value', response);
+                };
+                var after = function () {
+                    // $('div.block2').unblock();
+                }
+                var before = function () {
+                    $('.form-control').removeClass('has-danger');
+                    $('.help-block').each(function () {
+                        $(this).remove();
+                    });
+                }
+                var option = {
+                    data: data,
+                    url: '/getCurrencyCalculator',
+                    type: "POST",
+                    dataType: "JSON",
+
+                    cache: false,
+                };
+                $.ajaxSetup(option);
+                $.ajax({
+                    beforeSend: function () {
+                        before()
+                    },
+                    success: function (response) {
+                        success(response)
+                    },
+                    error: function (response) {
+                        error(response)
+                    },
+                    complete: function () {
+                        after()
+                    }
+                });
+            });
+            $('#balance_val').on('click', function (e) {
+
+                e.preventDefault();
+
+                var form = $("#balance_val").val();
+                var data = {'to': 'azn', 'from': 'usd', 'currency': form};
+                console.log(data)
+                var error = function (response) {
+                    var jsonResponse = JSON.parse(response.responseText);
+                    console.log(jsonResponse.errors);
+                    $(jsonResponse.errors).each(function (index, value) {
+                        $('#' + jsonResponse.keys[index]).addClass('has-danger');
+                        $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
+                    })
+                }
+                var success = function (response) {
+                    // var url = '/setting';
+                    //
+                    // window.location.replace(url);
+                    $('#new_balance_val').attr('value', response);
+                };
+                var after = function () {
+                    // $('div.block2').unblock();
+                }
+                var before = function () {
+                    $('.form-control').removeClass('has-danger');
+                    $('.help-block').each(function () {
+                        $(this).remove();
+                    });
+                }
+                var option = {
+                    data: data,
+                    url: '/getCurrencyCalculator',
+                    type: "POST",
+                    dataType: "JSON",
+
+                    cache: false,
+                };
+                $.ajaxSetup(option);
+                $.ajax({
+                    beforeSend: function () {
+                        before()
+                    },
+                    success: function (response) {
+                        success(response)
+                    },
+                    error: function (response) {
+                        error(response)
+                    },
+                    complete: function () {
+                        after()
+                    }
+                });
+            });
+        });
+
+    </script>
     <script>
         $('input[name="amount"]').blur(function () {
             $('input[name="amount_azn"]').val(

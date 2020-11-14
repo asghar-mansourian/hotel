@@ -141,7 +141,7 @@
                     <div class="col-md-12 black">{{__('website.tariffs_by_countries')}}
                         <div class="hr"></div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="city_pink">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 city_title">
@@ -182,42 +182,6 @@
                                     <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                         <div class="city_money">2.00 $</div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 mb-5 p-0">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="city_grey">Turkey <i class="far fa-window-minimize"></i> Baku</div>
-                                        <div class="lit_pink">0 dan - 0.25 dek</div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                        <div class="city_money">2.00 $</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 mb-5 p-0">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="city_grey">Turkey <i class="far fa-window-minimize"></i> Baku</div>
-                                        <div class="lit_pink">0 dan - 0.25 dek</div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                        <div class="city_money">2.00 $</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 mb-5 p-0">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="city_grey">Turkey <i class="far fa-window-minimize"></i> Baku</div>
-                                        <div class="lit_pink">0 dan - 0.25 dek</div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                        <div class="city_money">2.00 $</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="city_blue">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 city_title">
-                                    <img src="./front/image/flg-az.png" class="mr-4"> <strong>Azerbaijan</strong>
                                 </div>
                                 <div class="col-md-12 col-sm-12 mb-5 p-0">
                                     <div class="col-md-6 col-sm-6 col-xs-6">

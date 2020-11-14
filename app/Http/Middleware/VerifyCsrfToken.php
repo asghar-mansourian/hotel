@@ -15,6 +15,8 @@ class VerifyCsrfToken extends Middleware
         "admin/*",
 
         "setting/getCurrency",
+        "getCurrencyFromTwoApi",
+        "getCurrencyCalculator",
         "convert",
     ];
 }
