@@ -75,7 +75,9 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('/faq', 'FaqController@index');
     Route::get('/getCurrency', 'CurrencyController@getCurrency');
+    Route::get('/getCurrencyFromTwoApi', 'CurrencyController@getCurrencyFromTwoApi');
     Route::post('/convert', 'CurrencyController@convert');
+    Route::post('/getCurrencyCalculator', 'CurrencyController@getCurrencyCalculator');
 
     Route::get('/how-we-work', function (){
         return view('web.how');

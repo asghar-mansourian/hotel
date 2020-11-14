@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(TranslateSeeder::class);
 
+        $this->call(UnitSeeder::class);
+
 
     }
 }

@@ -1,11 +1,11 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add blog
+    Dashboard | Add Region
 @endsection
 
 @section('styleCustom')
-        <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
+    {{--    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">--}}
     <style>
         .has-danger {
             border: 1px solid #d9534f !important;
@@ -14,85 +14,111 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" enctype="multipart/form-data" action="{{url('admin/blogs/store')}}">
+    <form class="form" method="post" id="mainForm" action="{{url('admin/calculatores/store')}}">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
                 @component('admin.components.panel')
                     @slot('items')
-
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                {{__('admin.title')}}
+                                {{__('admin.currency')}}
                             @endslot
                             @slot('name')
-                                title
+                                currency
                             @endslot
                             @slot('type')
                                 text
                             @endslot
                             @slot('placeholder')
-                                {{__('admin.pleasetitle')}}
+                                {{__('admin.pleasecurrency')}}
                             @endslot
                             @slot('value')
                             @endslot
                         @endcomponent
 
-                        @component('admin.components.form.textLabel')
+                        @component('admin.components.form.inputLabel')
                             @slot('label')
-                                {{__('admin.content')}}
+                                {{__('admin.discount')}}
                             @endslot
                             @slot('name')
-                                content
+                                discount
                             @endslot
-
+                            @slot('type')
+                                text
+                            @endslot
                             @slot('placeholder')
-                                {{__('admin.pleasecontent')}}
+                                {{__('admin.pleasediscount')}}
                             @endslot
                             @slot('value')
                             @endslot
-                            @slot('id')
-                                {{__('admin.ckeditor')}}
-                            @endslot
-
                         @endcomponent
-                            @component('admin.components.form.pictureLabel')
-                                @slot('label')
-                                {{__('admin.picture')}}
-                                @endslot
-                                @slot('name')
-                                picture
-                            @endslot
 
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                {{__('admin.from')}}
+                            @endslot
+                            @slot('name')
+                                from
+                            @endslot
+                            @slot('type')
+                                text
+                            @endslot
+                            @slot('placeholder')
+                                {{__('admin.pleaseenterfrom')}}
+                            @endslot
+                            @slot('value')
+                            @endslot
                         @endcomponent
+
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                {{__('admin.to')}}
+                            @endslot
+                            @slot('name')
+                                to
+                            @endslot
+                            @slot('type')
+                                text
+                            @endslot
+                            @slot('placeholder')
+                                {{__('admin.pleaseenterto')}}
+                            @endslot
+                            @slot('value')
+                            @endslot
+                        @endcomponent
+
                         @component('admin.components.form.optionLabel')
                             @slot('label')
-                                {{__('admin.author')}}
+                                {{__('admin.country')}}
                             @endslot
                             @slot('name')
-                                author_id
+                                country_id
                             @endslot
                             @slot('items')
-                                <option value="" selected> {{__('admin.pleaseauthor')}}</option>
-                                @foreach($authores as $author)
-                                    <option value="{{$author->id}}">{{$author->name}}</option>
+                                <option value="" selected>{{__('admin.pleaseentercountry')}}</option>
+                                @foreach($countries as $country)
+                                    <option value="{{$country->id}}" selected>{{$country->name}}</option>
                                 @endforeach
                             @endslot
                         @endcomponent
+
                         @component('admin.components.form.optionLabel')
                             @slot('label')
-                                {{__('admin.status')}}
+                                {{__('admin.unit')}}
                             @endslot
                             @slot('name')
-                                status
+                                unit_id
                             @endslot
                             @slot('items')
-                                <option value="" selected>{{__('admin.status')}}</option>
-                                <option value="0">{{__('admin.active')}}</option>
-                                <option value="1">{{__('admin.deactive')}}</option>
-
+                                <option value="" selected>{{__('admin.pleaseenterunit')}}</option>
+                                @foreach($units as $unit)
+                                    <option value="{{$unit->id}}" selected>{{$unit->title}}</option>
+                                @endforeach
                             @endslot
                         @endcomponent
+
+
                     @endslot
 
 
@@ -115,7 +141,7 @@
                                 btn-block btn-info
                             @endslot
                             @slot('title')
-                                Save
+                                {{__('admin.save')}}
                             @endslot
                         @endcomponent
 
@@ -130,19 +156,10 @@
 
 @endsection
 @section('scriptCustom')
-
     @component('admin.components.script.mainFormScript')
         @slot('mainFormUrlValue')
-            ../../../admin/blogs/
+            ../../../admin/calculatores/
         @endslot
-    @endcomponent
-
-    @component('admin.components.ckeditor')
-
-    @endcomponent
-
-    @component('admin.components.form.pictureScript')
-
     @endcomponent
 @endsection
 
@@ -153,7 +170,7 @@
 
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
-            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.addblog')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.addregion')}}</li>
         @endslot
     @endcomponent
 @endsection
