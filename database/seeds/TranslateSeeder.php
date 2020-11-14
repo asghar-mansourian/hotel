@@ -370,7 +370,7 @@ class TranslateSeeder extends Seeder
         'last30days' => 'Last 30 days',
         'type' => 'type',
         'refid' => 'refid',
-        'date' => 'refid',
+        'date' => 'date',
         'profileinformation' => 'Profile Information',
         'other' => 'Other',
         'baku' => 'Baku',
@@ -402,6 +402,24 @@ class TranslateSeeder extends Seeder
         'order.store_success' => 'Create success',
         'general.message.create_success' => 'Create success',
         'general.message.paid_successful' => 'Paid successful',
+        'city' => 'City',
+        'postal' =>'Postal',
+        'country' => 'Country',
+        'selectanarea' => 'Select an area',
+        'district' => 'District',
+        'home' => 'Home',
+        'makeadditionalnotes' => 'Make additional notes',
+        'confirm' => 'Confirm',
+        'courierorderscheduledtime' => 'Your courier order is scheduled within 24 hours.',
+        'courierworkinghours' => 'Courier working hours 10:00 - 19:00 (6 days a week)',
+        'selectinvoices' => 'Select invoice',
+        'bindingnumber'=> 'Binding number',
+        'title' => 'Title',
+        'lateorder' => 'Late order',
+        'packagedoesnotbelongtome' => 'A package that does not belong to me',
+        'complaintsandsuggestions' => 'Complaints and suggestions',
+        'enterconfirmpassword' => 'Password Confirmation',
+        'street' => 'Street'
     ];
 
     private $website_items = [
