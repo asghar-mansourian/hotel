@@ -19,7 +19,7 @@
                     style="width: 100px;margin-left: 10px;
     box-shadow: 0 0 black !important;">
                 <option class="">{{__('member.select')}}</option>
-                <option class="dropdown-item" value="AZN">AZN</option>
+                <option class="dropdown-item" value="RUB">RUB</option>
                 <option class="dropdown-item" value="USD">USD</option>
                 <option class="dropdown-item" value="TRY">TRY</option>
             </select>
@@ -32,7 +32,7 @@
                     style=" width: 100px;margin-left: 10px;
     box-shadow: 0 0 black !important;">
                 <option class="">{{__('member.select')}}</option>
-                <option class="dropdown-item" value="AZN">AZN</option>
+                <option class="dropdown-item" value="RUB">AZN</option>
                 <option class="dropdown-item" value="USD">USD</option>
                 <option class="dropdown-item" value="TRY">TRY</option>
             </select>
