@@ -58,12 +58,12 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.email')}} *</strong></h5>
-                                    <input type="text" name="email" placeholder="E-mail" value="{{$user->email}}"
+                                    <input type="text" name="email" placeholder="{{__('member.email')}} *" value="{{$user->email}}"
                                            readonly class="w-100 courier_input">
                                 </div>
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.phone')}} *</strong></h5>
-                                    <input type="text" name="phone" placeholder="Phone" class="w-100 courier_input"
+                                    <input type="text" name="phone" placeholder="{{__('member.phone')}} *" class="w-100 courier_input"
                                            readonly value="{{$user->phone}}">
                                 </div>
                                 <div class="col-md-12 button-part mt-4">
@@ -79,17 +79,17 @@
                                 <div class="col-md-12 col-sm-12 mb-4 p-0">
                                     <div class="col-md-6 col-sm-6 mb-4">
                                         <h5><strong>{{__('member.currentpassword')}}</strong></h5>
-                                        <input type="password" name="current_password" placeholder="Current Password"
+                                        <input type="password" name="current_password" placeholder="{{__('member.currentpassword')}}*"
                                                class="w-100 courier_input" required="">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 mb-4 p-0">
                                     <div class="col-md-6 col-sm-6 mb-4">
                                         <h5><strong>{{__('member.enternewpassword')}}</strong></h5>
-                                        <input type="password" name="password" placeholder="Password"
+                                        <input type="password" name="password" placeholder="{{__('member.enternewpassword')}} *"
                                                class="w-100 courier_input" required="">
                                         <input type="password" name="password_confirmation"
-                                               placeholder="Password Confrmation" class="w-100 mt-4 courier_input"
+                                               placeholder="{{__('member.enterconfirmpassword')}} *" class="w-100 mt-4 courier_input"
                                                required="">
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 mb-4">
@@ -115,17 +115,17 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.serialNumber')}} * </strong></h5>
-                                    <input type="text" name="serial_number" readonly placeholder="Serial Number" value="{{$user->serial_number}}"
+                                    <input type="text" name="serial_number" readonly placeholder="{{__('member.serialNumber')}} *" value="{{$user->serial_number}}"
                                            class="w-100 courier_input" required="">
                                 </div>
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.fin')}} *</strong></h5>
-                                    <input type="text" readonly placeholder="FIN *" value="{{$user->fin}}"
+                                    <input type="text" readonly placeholder="{{__('member.fin')}}*" value="{{$user->fin}}"
                                            class="w-100 courier_input">
                                 </div>
                                 <div class="col-md-7 col-sm-7 mb-4">
                                     <h5><strong>{{__('member.citizenship')}} *</strong></h5>
-                                    <input type="text" name="citizenship" placeholder="Citizenship" value="{{$user->citizenship}}"
+                                    <input type="text" name="citizenship" placeholder="{{__('member.citizenship')}} *" value="{{$user->citizenship}}"
                                            class="w-100 courier_input" required="">
                                 </div>
                                 <div class="col-md-5 col-sm-5 mb-4">
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 mb-4">
                                     <h5><strong>{{__('member.address')}} *</strong></h5>
-                                    <input type="text" name="address" placeholder="address *" value="{{$user->address}}"
+                                    <input type="text" name="address" placeholder="{{__('member.address')}} *" value="{{$user->address}}"
                                            class="w-100 courier_input" required="">
                                 </div>
                                 <div class="col-md-12 button-part mt-4">
