@@ -1,4 +1,4 @@
-<div class="card {{$class ?? ''}}" style=" {{$style ?? ''}}">
+<div class="card {{$class ?? ''}}" style=" {{$style ?? ''}}" id="{{$id ?? ''}}">
     <div class="card-header ">
 
         {{$header}}
