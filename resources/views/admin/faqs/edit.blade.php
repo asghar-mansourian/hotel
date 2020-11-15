@@ -14,7 +14,7 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" action="{{url('admin/faqs/update/' . $page->id)}}">
+    <form class="form" method="post" id="mainForm" action="{{url('admin/faqs/update/' . $FAQ->id)}}">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -35,7 +35,7 @@
                                 {{__('admin.pleasetitle')}}
                             @endslot
                             @slot('value')
-                                {{$page->title}}
+                                {{$FAQ->title}}
                             @endslot
                         @endcomponent
 

@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Http\Controllers\Admin\traits\scopeHelper;
+use App\Http\Controllers\traits\scopeHelper;
 use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model

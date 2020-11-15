@@ -16,7 +16,7 @@ class CreateCountryDetailsTable extends Migration
         Schema::create('country_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('country_id');
-            $table->foreign('country_id')->references('id')->on('currencies')->onDelete('cascade');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->string('name');
             $table->string('value');
             $table->timestamps();
