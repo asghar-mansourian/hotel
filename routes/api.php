@@ -43,5 +43,7 @@ Route::middleware('auth:api')->group(function () {
 
             Route::post('increment-balance', 'PaymentController@incrementBalance');
 
+            Route::post('currency', 'CurrencyController@getCurrency');
+
         });
 });

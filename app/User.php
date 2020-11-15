@@ -12,7 +12,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable, SoftDeletes, scopeHelper;
 
-    const  paginateNumber = 1;
+    const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
     const selectField = ['name', 'family', 'email', 'status', 'id'];

@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\admin\UpdateUserRequest;
 use App\Http\Requests\admin\CreateUserRequest;
+use App\Http\Requests\admin\UpdateUserRequest;
 use App\Region;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
-use MongoDB\Driver\Session;
 
 class UserController extends Controller
 {
@@ -115,21 +114,9 @@ class UserController extends Controller
     {
         $search = $request->input('search');
 
-        if ($search != ""){
-            session()->put('search' , $search);
-        }
-        if (session()->has('sort_type') && session()->has('sort_field'))
-        {
-            $field = session()->get('sort_field');
-            $type = session()->get('sort_type');
-        }
-        else{
-            $field = User::sortField;
-            $type = User::sortType;
-        }
         $users = User::query()
-            ->orderBy($field , $type)
-            ->Search($search)
+            ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('email', 'like', '%' . $search . '%')
             ->select(User::selectField)
             ->paginate(User::paginateNumber);
 
@@ -137,9 +124,9 @@ class UserController extends Controller
             ->Search($search)
             ->count();
 
-        return View::make('admin.users.table', compact('users'), with([
-            'sortField' => $field,
-            'sortType' => $type,
+        return View::make('admin.users.index', compact('users'), with([
+            'sortField' => User::sortArrowFieldChecked,
+            'sortType' => User::sortArrowTypeChecked,
             'countUsers' => $countUsers,
         ]));
     }

@@ -1,4 +1,4 @@
-<input type="hidden" id="mainFormUrlValue" value="{{$mainFormUrlValue ?? ''}}">
+<input type="hidden" id="mainFormUrlValue" value="{{$detailFormUrlValue ?? ''}}" params="{{$params ?? ''}}">
 
 <script>
     $(document).ready(function () {
@@ -7,18 +7,15 @@
         $('#mainForm').on('submit', function (e) {
 
             e.preventDefault();
-            if (typeof CKEDITOR !== 'undefined') {
-                for (instance in CKEDITOR.instances)
-                    CKEDITOR.instances[instance].updateElement();
-            }
 
             var form = $(this);
             var error = function (response) {
                 var jsonResponse = JSON.parse(response.responseText);
                 console.log(jsonResponse.errors);
                 $(jsonResponse.errors).each(function (index, value) {
-                    $('#' + jsonResponse.keys[index]).addClass('has-danger');
-                    $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
+                    split = jsonResponse.keys[index].split('.');
+                    $('#' + split[0] + split[1]).addClass('has-danger');
+                    $('#' + split[0] + split[1]).after('<span class="help-block"  style="color:red">' + value + '</span>');
                 })
 
             }

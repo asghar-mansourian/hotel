@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App;
 use App\Branch;
-use App\Country;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BranchRequest;
-use App\Http\Requests\Admin\CountryRequest;
 use App\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -79,10 +77,10 @@ class BranchController extends Controller
             ->paginate(Branch::paginateNumber);
 
         $countbranches = Branch::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('title', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.branches.table', compact('branches'), with([
+        return View::make('admin.branches.index', compact('branches'), with([
             'sortField' => Branch::sortField,
             'sortType' => Branch::sortType,
             'countbranches' => $countbranches,

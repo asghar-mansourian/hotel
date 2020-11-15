@@ -52,19 +52,19 @@ class InvoiceController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $orders = Invoice::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+        $invoices = Invoice::query()
+            ->orWhere('shop', 'like', '%' . $search . '%')
             ->select(Invoice::selectField)
             ->paginate(Invoice::paginateNumber);
 
-        $countorders = Invoice::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+        $countinvocies = Invoice::query()
+            ->orWhere('shop', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.invoices.table', compact('orders'), with([
+        return View::make('admin.invoices.index', compact('invoices'), with([
             'sortField' => Invoice::sortField,
             'sortType' => Invoice::sortType,
-            'countorders' => $countorders,
+            'countorders' => $countinvocies,
         ]));
     }
 

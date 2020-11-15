@@ -4,7 +4,6 @@
  'sortType'=>$sortType,
  'sortField'=>$sortField,
  'records' => $countries ,
-   'options' => [ 'edit' , 'delete'],
   'selects' => ['id' , 'name'  ]
   ]
 )
@@ -39,6 +38,6 @@
 @endcomponent
 @component('admin.components.script.mainFormScript')
     @slot('mainFormUrlValue')
-        ../../../admin/countries/index
+        ../../../admin/countries/details/index
     @endslot
 @endcomponent

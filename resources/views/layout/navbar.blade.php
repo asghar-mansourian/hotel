@@ -1,6 +1,6 @@
 <div class="row pt-3 pb-3 mob_dis " style="padding: 0 15px;">
     <div class="logo">
-        <a href="/"><img src="{{url('front/image/logo.svg')}}"></a>
+        <a href="/"><img src="{{url('front/image/logo-express.svg')}}"></a>
     </div>
 
     <div class="menu_sec">
@@ -33,7 +33,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdown_panel" style="z-index: 999999;">
                             <a class="dropdown-item" href="{{url('/home')}}">{{__('website.dashboard')}}</a><br/>
-                            <a class="dropdown-item" href="{{url('my-addresses-abroad')}}">{{str_limit(__('member.myaddressesabroad'),15)}}</a><br/>
+                            <a class="dropdown-item" href="{{ route('member.countrydetails.index') }}">{{str_limit(__('member.myaddressesabroad'),15)}}</a><br/>
                             <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('member.order_title')}}</a><br/>
                             <a class="dropdown-item" href="{{route('orders.index')}}">{{__('member.mybindings')}}</a><br/>
                             <a class="dropdown-item" href="#">{{__('member.aznBalance')}}</a><br/>

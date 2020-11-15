@@ -36,7 +36,7 @@
                         @endcomponent
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                title
+                                    {{__('admin.title')}}
                             @endslot
                             @slot('name')
                                 title
@@ -45,47 +45,37 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                Please Enter title...
+                                {{__('admin.pleasetitle')}}
                             @endslot
                             @slot('value')
                                 {{$blog->title}}
                             @endslot
                         @endcomponent
 
-                        @component('admin.components.form.textLabel')
-                            @slot('label')
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 Content
-                            @endslot
-                            @slot('name')
-                                content
-                            @endslot
+                            </label>
+                            <div class="col-md-9">
 
-                            @slot('placeholder')
-                                Please Enter Content...
-                            @endslot
-                            @slot('value')
-                                {!!  $blog->content !!}
-                            @endslot
-                            @slot('id')
-                                ckeditor
-                            @endslot
-
-                        @endcomponent
+                            <textarea class="form-control" name="content"
+                                      id="content" placeholder="" cols="30" rows="10">
+                                {!! $blog->content !!}
+                            </textarea>
+                            </div>
+                        </div>
 
 
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                picture
+                            </label>
+                            <div class="col-md-9">
 
-                        @component('admin.components.form.pictureLabel')
-                            @slot('label')
-                                Picture
-                            @endslot
-                            @slot('name')
-                                new_picture
-                            @endslot
-                            @slot('value')
-                                {{'images/'.$blog->picture}}
-                            @endslot
-                        @endcomponent
-
+                                <input type="file" name="picture" id="picture" class="dropify" data-max-file-size="500K"
+                                       data-allowed-file-extensions="jpg png" data-default-file="{{url('images/'.$blog->picture)}}">
+                            </div>
+                        </div>
 
                         @component('admin.components.form.optionLabel')
                             @slot('label')
@@ -95,7 +85,7 @@
                                 author_id
                             @endslot
                             @slot('items')
-                                <option value="" selected>Please Enter Author...</option>
+                                <option value="" selected>{{__('admin.pleaseauthor')}}</option>
                                 @foreach($authores as $author)
                                     <option value="{{$author->id}}" @if($blog->author_id == $author->id) selected @endif>{{$author->name}}</option>
                                 @endforeach
@@ -109,9 +99,9 @@
                                 status
                             @endslot
                             @slot('items')
-                                <option value="" selected>Please Select Status...</option>
-                                    <option value="0" @if($blog->status == 0) selected @endif>active</option>
-                                    <option value="1" @if($blog->status == 1) selected @endif>deactive</option>
+                                <option value="" selected>{{__('admin.status')}}</option>
+                                <option value="0" @if($blog->status == 0) selected @endif>{{__('admin.active')}}</option>
+                                <option value="1" @if($blog->status == 1) selected @endif>{{__('admin.deactive')}}</option>
 
                             @endslot
                         @endcomponent
@@ -119,7 +109,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Main Information</h2>
+                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
                 @endcomponent
 
@@ -129,7 +119,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Save Information</h2>
+                        <h2 class="card-title">{{__('admin.saveinformation')}}</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
@@ -174,8 +164,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>Add blog</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.addblog')}}</li>
         @endslot
     @endcomponent
 @endsection

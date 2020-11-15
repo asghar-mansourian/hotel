@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -66,39 +67,22 @@ class OrderController extends Controller
     {
         $search = $request->input('search');
 
-        if ($search != "") {
-            session()->put('search', $search);
-        }
-        if (session()->has('sort_type') && session()->has('sort_field')) {
-            $field = session()->get('sort_field');
-            $type = session()->get('sort_type');
-        } else {
-            $field = Order::sortField;
-            $type = Order::sortType;
-        }
+        $orders =
+            Order::query()
+                ->orWhere('authority', 'like', '%' . $search . '%')
+                ->orWhere('price', 'like', '%' . $search . '%')
+                ->orWhere('refid', 'like', '%' . $search . '%')
+                ->select(Order::selectField)
+                ->paginate(Order::paginateNumber);
 
-        $orders = Order::query()
-            ->Search($search)
-            ->select(Order::selectField)
-            ->get();
 
-        $rest = $orders->map(function ($order) use ($search) {
-            if ($order->user != null) {
-                return $order;
-            }
-        });
-        $orders = $rest->filter(function ($value) {
-            return !is_null($value);
-        })->take(10);
-
-//        $countorders = Order::query()
-//            ->Search($search)
-//            ->count()
-        $countorders = 12;
+        $countorders = Payment::query()
+            ->orWhere('price', 'like', '%' . $search . '%')
+            ->count();
 
         return View::make('admin.orders.table', compact('orders'), with([
-            'sortField' => $field,
-            'sortType' => $type,
+            'sortField' => Order::sortField,
+            'sortType' => Order::sortType,
             'countorders' => $countorders,
             'paginate' => false,
         ]));

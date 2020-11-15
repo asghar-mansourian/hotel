@@ -78,21 +78,21 @@
             users/load?page=
         @endslot
     @endcomponent
-    @component('admin.components.script.searchScript')
-        @slot('url')
-            ../../../admin/users/search/
-        @endslot
-    @endcomponent
-{{--    @component('admin.components.script.sortScript')--}}
-{{--        @slot('url')--}}
-{{--            ../../../admin/users/sort/--}}
-{{--        @endslot--}}
-{{--    @endcomponent--}}
-    @component('admin.components.script.sortTableScript')
-        @slot('url')
-            ../../../admin/users/sort/
-        @endslot
-    @endcomponent
+    {{--    @component('admin.components.script.searchScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/users/search/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/users/sort/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortTableScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/users/sort/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
     {{--    @component('admin.components.script.filterScript')--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.showScript')--}}

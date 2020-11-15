@@ -2,7 +2,7 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">
 
         <div class="font_grey" style="display: inline-block">
-            {{__('website.contactus')}} : +998 50 988 11 25
+            {{__('website.contactus')}} : {{\App\Setting::getValue(\App\Setting::FIELD_MOBILE)}}
         </div>
         <div class="dropdown" style="display: inline-block">
             <button class=" btn-secondary dropdown-toggle" style="border:0;" type="button" id="dropdown_panel"

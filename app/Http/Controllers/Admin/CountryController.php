@@ -21,7 +21,6 @@ class CountryController extends Controller
             ->orderBy(Country::sortField, Country::sortType)
             ->paginate(Country::paginateNumber);
 
-
         return View::make('admin.countries.index', compact('countries'), with([
             'sortField' => Country::sortField,
             'sortType' => Country::sortType
@@ -86,6 +85,7 @@ class CountryController extends Controller
         $search = $request->input('search');
         $countries = Country::query()
             ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('currency', 'like', '%' . $search . '%')
             ->select(Country::selectField)
             ->paginate(Country::paginateNumber);
 
@@ -93,10 +93,9 @@ class CountryController extends Controller
             ->orWhere('name', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.countries.table', compact('countries'), with([
+        return View::make('admin.countries.index', compact('countries'), with([
             'sortField' => Country::sortField,
-            'sortType' => Country::sortType,
-            'countcountries' => $countcountries,
+            'sortType' => Country::sortType
         ]));
     }
 

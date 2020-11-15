@@ -22,7 +22,7 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                title
+                                {{__('admin.title')}}
                             @endslot
                             @slot('name')
                                 title
@@ -31,37 +31,31 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                Please Enter title...
+                                {{__('admin.pleasetitle')}}
                             @endslot
                             @slot('value')
                             @endslot
                         @endcomponent
 
-                        @component('admin.components.form.textLabel')
-                            @slot('label')
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 Content
-                            @endslot
-                            @slot('name')
-                                content
-                            @endslot
+                            </label>
+                            <div class="col-md-9">
 
-                            @slot('placeholder')
-                                Please Enter Content...
-                            @endslot
-                            @slot('value')
-                            @endslot
-                                @slot('id')
-                                    ckeditor
-                                @endslot
+                            <textarea class="form-control" name="content"
+                                      id="content" placeholder="" cols="30" rows="10">
 
-                        @endcomponent
+                            </textarea>
+                            </div>
+                        </div>
 
 
                     @endslot
 
 
                     @slot('header')
-                        <h2 class="card-title">Main Information</h2>
+                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
                 @endcomponent
 
@@ -71,7 +65,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Save Information</h2>
+                        <h2 class="card-title">{{__('admin.saveinformation')}}</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
@@ -79,7 +73,7 @@
                                 btn-block btn-info
                             @endslot
                             @slot('title')
-                                Save
+                                {{__('admin.save')}}
                             @endslot
                         @endcomponent
 
@@ -112,8 +106,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>Add Page</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
         @endslot
     @endcomponent
 @endsection
