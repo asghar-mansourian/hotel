@@ -33,25 +33,25 @@
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="title_list">{{__('website.service')}}</div>
                 <div class="menu_list mt-5">
-                    <ul>
+                   {{-- <ul>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
-                    </ul>
+                    </ul>--}}
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="title_list">{{__('website.aboutus')}}</div>
                 <div class="menu_list mt-5">
-                    <ul>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                    </ul>
+                    {{--     <ul>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                         </ul>--}}
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
