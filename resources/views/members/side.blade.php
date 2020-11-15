@@ -11,28 +11,26 @@
     </div>
     <div class="rate_calculator mt-5">
         <div class="title_list mb-4">{{__('member.exchangeratecalculator')}}</div>
-        <form id="calBtn" method="post" action="{{url('/getCurrencyCalculator')}}">
+        <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
             <div class="float-left">
-                <input type="number" name="currency" required>
+                <input type="number" name="currency" required value="1">
             </div>
-            <select name="from" class=" " aria-labelledby="dropdown_baglama"
-                    style="width: 100px;margin-left: 10px;
-    box-shadow: 0 0 black !important;">
+            <select name="from" aria-labelledby="dropdown_baglama" style="width: 100px;margin-left: 10px; box-shadow: 0 0 black !important;">
                 <option class="">{{__('member.select')}}</option>
                 <option class="dropdown-item" value="RUB">RUB</option>
-                <option class="dropdown-item" value="USD">USD</option>
+                <option class="dropdown-item" selected value="USD">USD</option>
                 <option class="dropdown-item" value="TRY">TRY</option>
             </select>
             <div style="clear: both;"></div>
             <div class="mt-4"></div>
             <div class="float-left">
-                <input id="result_cal" type="number" readonly>
+                <input class="result_cal" type="number" readonly>
             </div>
             <select name="to" class=" " aria-labelledby="dropdown_baglama"
                     style=" width: 100px;margin-left: 10px;
     box-shadow: 0 0 black !important;">
                 <option class="">{{__('member.select')}}</option>
-                <option class="dropdown-item" value="RUB">AZN</option>
+                <option class="dropdown-item" selected value="RUB">RUB</option>
                 <option class="dropdown-item" value="USD">USD</option>
                 <option class="dropdown-item" value="TRY">TRY</option>
             </select>
@@ -50,8 +48,8 @@
         <ul>
             @php
                 $daySizeTRY = 1;
-                $daySizeUSD = \Illuminate\Support\Facades\DB::table('currencies')->where('from' , 'try')->where('to' , 'usd')->first()->to_value;
-                $daySizeAZN = \Illuminate\Support\Facades\DB::table('currencies')->where('from' , 'try')->where('to' , 'azn')->first()->to_value;
+                $daySizeUSD = number_format(\App\lib\Helpers::getCurrency('try', 'usd'), 2);
+                $daySizeRUB = number_format(\App\lib\Helpers::getCurrency('try', 'rub'), 2);
             @endphp
             <li>
                 <img src="{{url('front/image/flg-tr.png')}}" alt="flt-tr">
@@ -59,9 +57,9 @@
                 <span>TL</span>
             </li>
             <li>
-                <img src="{{url('front/image/flg-az.png')}}" alt="flt-az">
-                <span>{{substr($daySizeAZN , 0 , 4)}}</span>
-                <span>AZN</span>
+                <img src="{{url('front/image/flag-rub.png')}}" alt="flt-az">
+                <span>{{substr($daySizeRUB , 0 , 4)}}</span>
+                <span>RUB</span>
             </li>
             <li>
                 <img src="{{url('front/image/flg-usa.png')}}" alt="flt-usa">
@@ -71,67 +69,3 @@
         </ul>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script>
-
-    $(document).ready(function () {
-
-
-        $('#calBtn').on('change', function (e) {
-
-            e.preventDefault();
-
-            var form = $(this);
-            var error = function (response) {
-                var jsonResponse = JSON.parse(response.responseText);
-                console.log(jsonResponse.errors);
-                $(jsonResponse.errors).each(function (index, value) {
-                    $('#' + jsonResponse.keys[index]).addClass('has-danger');
-                    $('#' + jsonResponse.keys[index]).after('<span class="help-block"  style="color:red">' + value + '</span>');
-                })
-            }
-            var success = function (response) {
-                // var url = '/setting';
-                //
-                // window.location.replace(url);
-                $('#result_cal').attr('value', response);
-            };
-            var after = function () {
-                // $('div.block2').unblock();
-            }
-            var before = function () {
-                $('.form-control').removeClass('has-danger');
-                $('.help-block').each(function () {
-                    $(this).remove();
-                });
-            }
-            var option = {
-                data: new FormData(this),
-                url: form.attr('action'),
-                type: form.attr('method'),
-                dataType: "JSON",
-                processData: false,
-                contentType: false,
-                cache: false,
-            };
-            $.ajaxSetup(option);
-            $.ajax({
-                beforeSend: function () {
-                    before()
-                },
-                success: function (response) {
-                    success(response)
-                },
-                error: function (response) {
-                    error(response)
-                },
-                complete: function () {
-                    after()
-                }
-            });
-        });
-
-    });
-
-</script>

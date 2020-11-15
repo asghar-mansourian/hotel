@@ -20,7 +20,7 @@
                     <div class="col-md-12 col-sm-12 mt-5 mb-5 padding_25">
                         <div class="padding_15">
                             @php
-                                $topBlog = $blogs->count() ? $blogs->random() : null;
+                                $topBlog = $blogs->count() ? $blogs->first() : null;
                             @endphp
                             @if($topBlog)
                                 <div class="row">
@@ -38,7 +38,7 @@
                                                 {{\App\lib\Helpers::getContent($topBlog->content)}}
                                             </div>
                                             <div class="blog_a mt-4 mb-3">
-                                                <a href="blogs.html">{{__('website.readmore')}}</a>
+                                                <a href="{{url('/blog/' . $topBlog->slug)}}">{{__('website.readmore')}}</a>
                                             </div>
                                         </div>
                                     </div>
