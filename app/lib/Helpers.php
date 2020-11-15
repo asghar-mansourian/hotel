@@ -5,6 +5,7 @@ namespace App\lib;
 
 
 use App\Setting;
+use Illuminate\Support\Facades\DB;
 
 class Helpers
 {
@@ -33,5 +34,14 @@ class Helpers
         }
 
         return str_replace('.', '', $price);
+    }
+
+    public static function getCurrency($from, $to)
+    {
+        $currency = DB::table('currencies')
+            ->where('from', $from)
+            ->where('to', $to)
+            ->first();
+        return $currency->to_value ?? 0;
     }
 }
