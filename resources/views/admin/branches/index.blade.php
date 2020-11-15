@@ -49,7 +49,7 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $branches , 'selects' => ['id' , 'title'  , [ 'region','name']], 'options' => ['show' , 'edit' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $branches , 'selects' => ['id' , 'title'  ], 'options' => [ 'edit' , 'delete']])
                         @slot('paginate')
                             {{$branches->links()}}
                         @endslot
@@ -74,27 +74,27 @@
             ../../../admin/branches/
         @endslot
     @endcomponent
-    @component('admin.components.script.paginatorScript' , ['type' => 2])
-        @slot('paginatorUrl')
-            branches/load?page=
-        @endslot
-    @endcomponent
-    @component('admin.components.script.searchScript')
-        @slot('url')
-            ../../../admin/branches/search/
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortScript')
-        @slot('url')
-            ../../../admin/branches/sort/
+    {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}
+    {{--        @slot('paginatorUrl')--}}
+    {{--            branches/load?page=--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.searchScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/branches/search/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/branches/sort/--}}
 
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortTableScript')
-        @slot('url')
-            ../../../admin/branches/sort/
-        @endslot
-    @endcomponent
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortTableScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/branches/sort/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
     {{--    @component('admin.components.script.filterScript')--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.showScript')--}}

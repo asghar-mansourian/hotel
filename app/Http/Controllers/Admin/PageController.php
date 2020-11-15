@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\Page;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PageRequest;
+use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -68,16 +68,16 @@ class PageController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $Pages = Page::query()
+        $pages = Page::query()
             ->orWhere('title', 'like', '%' . $search . '%')
             ->select(Page::selectField)
             ->paginate(Page::paginateNumber);
 
         $countPages = Page::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('title', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.pages.table', compact('Pages'), with([
+        return View::make('admin.pages.index', compact('pages'), with([
             'sortField' => Page::sortField,
             'sortType' => Page::sortType,
             'countPages' => $countPages,

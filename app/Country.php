@@ -2,10 +2,12 @@
 
 namespace App;
 
+use App\Http\Controllers\Admin\traits\scopeHelper;
 use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
+    use scopeHelper;
 
     const  paginateNumber = 10;
     const sortType = 'desc';

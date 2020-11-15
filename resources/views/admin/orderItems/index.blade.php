@@ -35,7 +35,7 @@
         <div class="col-lg-4">
             @component('admin.components.search')
                 @slot('url')
-                    {{url('admin/orderItems/search')}}
+                    {{url('admin/order-items/search')}}
                 @endslot
             @endcomponent
         </div>
@@ -75,27 +75,7 @@
             ../../../admin/order-items/
         @endslot
     @endcomponent
-    @component('admin.components.script.paginatorScript' , ['type' => 2])
-        @slot('paginatorUrl')
-            order-items/load?page=
-        @endslot
-    @endcomponent
-    @component('admin.components.script.searchScript')
-        @slot('url')
-            ../../../admin/order-items/search/
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortScript')
-        @slot('url')
-            ../../../admin/order-items/sort/
 
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortTableScript')
-        @slot('url')
-            ../../../admin/order-items/sort/
-        @endslot
-    @endcomponent
     {{--    @component('admin.components.script.filterScript')--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.showScript')--}}

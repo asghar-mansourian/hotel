@@ -49,7 +49,7 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' , 'description' , [ 'country','name']] , 'options' => ['edit' , 'show' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' , 'description' ] , 'options' => ['edit' , 'delete']])
                         @slot('paginate')
                             {{$regions->links()}}
                         @endslot
@@ -74,16 +74,16 @@
             ../../../admin/regions/
         @endslot
     @endcomponent
-    @component('admin.components.script.paginatorScript' , ['type' => 2])
-        @slot('paginatorUrl')
-            regions/load?page=
-        @endslot
-    @endcomponent
-    @component('admin.components.script.searchScript')
-        @slot('url')
-            ../../../admin/regions/search/
-        @endslot
-    @endcomponent
+    {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}
+    {{--        @slot('paginatorUrl')--}}
+    {{--            regions/load?page=--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.searchScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/regions/search/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
     @component('admin.components.script.sortScript')
         @slot('url')
             ../../../admin/regions/sort/

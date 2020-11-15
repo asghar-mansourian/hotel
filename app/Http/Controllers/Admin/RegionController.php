@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App;
 use App\Country;
-use App\Region;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\RegionRequest;
+use App\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -79,7 +79,7 @@ class RegionController extends Controller
             ->orWhere('name', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.regions.table', compact('regions'), with([
+        return View::make('admin.regions.index', compact('regions'), with([
             'sortField' => Region::sortField,
             'sortType' => Region::sortType,
             'countregions' => $countregions,

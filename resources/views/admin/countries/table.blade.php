@@ -4,6 +4,7 @@
  'sortType'=>$sortType,
  'sortField'=>$sortField,
  'records' => $countries ,
+   'options' => [ 'edit' , 'delete'],
   'selects' => ['id' , 'name'  ]
   ]
 )

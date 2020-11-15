@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\Blog;
 use App\Admin;
+use App\Blog;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BlogRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class BlogController extends Controller
@@ -26,7 +25,7 @@ class BlogController extends Controller
             'sortField' => Blog::sortField,
             'sortType' => Blog::sortType
         ]));
-        
+
 
     }
 
@@ -97,7 +96,7 @@ class BlogController extends Controller
             ->orWhere('title', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.blogs.table', compact('blogs'), with([
+        return View::make('admin.blogs.index', compact('blogs'), with([
             'sortField' => Blog::sortField,
             'sortType' => Blog::sortType,
             'countblogs' => $countblogs,

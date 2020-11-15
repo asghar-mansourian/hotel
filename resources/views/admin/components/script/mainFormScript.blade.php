@@ -7,6 +7,10 @@
         $('#mainForm').on('submit', function (e) {
 
             e.preventDefault();
+            if (typeof CKEDITOR !== 'undefined') {
+                for (instance in CKEDITOR.instances)
+                    CKEDITOR.instances[instance].updateElement();
+            }
 
             var form = $(this);
             var error = function (response) {

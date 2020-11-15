@@ -24,12 +24,12 @@
                     Text
                 @endslot
             @endcomponent
-
-            <div class="list-card"  id="counts_parent" style="display: none">
+            <button type="submit" class="btn btn-block btn-sm btn-success">search</button>
+            <div class="list-card" id="counts_parent" style="display: none">
                 <span class="bg-info list-bar"></span>
                 <div class="row align-items-center" id="counts">
-                        <div class="text-center   w-100 "
-                             ></div>
+                    <div class="text-center   w-100 "
+                    ></div>
 
 
                 </div>

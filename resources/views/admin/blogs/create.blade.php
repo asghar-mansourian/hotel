@@ -5,7 +5,7 @@
 @endsection
 
 @section('styleCustom')
-        <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
+    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
     <style>
         .has-danger {
             border: 1px solid #d9534f !important;
@@ -38,33 +38,30 @@
                             @endslot
                         @endcomponent
 
-                        @component('admin.components.form.textLabel')
-                            @slot('label')
-                                {{__('admin.content')}}
-                            @endslot
-                            @slot('name')
-                                content
-                            @endslot
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                Content
+                            </label>
+                            <div class="col-md-9">
 
-                            @slot('placeholder')
-                                {{__('admin.pleasecontent')}}
-                            @endslot
-                            @slot('value')
-                            @endslot
-                            @slot('id')
-                                {{__('admin.ckeditor')}}
-                            @endslot
+                            <textarea class="form-control" name="content"
+                                      id="content" placeholder="" cols="30" rows="10">
 
-                        @endcomponent
-                            @component('admin.components.form.pictureLabel')
-                                @slot('label')
-                                {{__('admin.picture')}}
-                                @endslot
-                                @slot('name')
+                            </textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 picture
-                            @endslot
+                            </label>
+                            <div class="col-md-9">
 
-                        @endcomponent
+                                <input type="file" name="picture" id="picture" class="dropify" data-max-file-size="500K"
+                                       data-allowed-file-extensions="jpg png" data-default-file="">
+                            </div>
+                        </div>
                         @component('admin.components.form.optionLabel')
                             @slot('label')
                                 {{__('admin.author')}}
