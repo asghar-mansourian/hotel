@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusForCommentsTable extends Migration
+class AddStatusForTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddStatusForCommentsTable extends Migration
     public function up()
     {
         Schema::table('tickets', function (Blueprint $table) {
-            $table->enum('seen',['not-seen','seen']);
+            $table->enum('seen', ['not-seen', 'seen']);
         });
     }
 
