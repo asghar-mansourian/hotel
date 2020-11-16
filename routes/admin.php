@@ -176,3 +176,8 @@ route::post('/calculatores/update/{id}', 'CalculatorController@update');
 route::get('/calculatores/destroy/{id}', 'CalculatorController@destroy');
 route::post('/calculatores/search/', 'CalculatorController@search');
 route::post('/calculatores/sort/', 'CalculatorController@sort');
+
+//Inquiry
+route::get('/inquiry','InquiryController@index');
+route::get('/inquiry-show/{id}','InquiryController@show')->name('admin_inquiry_show');
+route::post('/inquiry-store','InquiryController@store')->name('admin_inquiry_store');

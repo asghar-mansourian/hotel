@@ -65,6 +65,12 @@ Route::group(['namespace' => 'Member'], function () {
     Route::get('/courier','Courier\CourierController@index')->name('courier');
 
     Route::get('/inquiry','Inquiry\InquiryController@index')->name('inquiry');
+
+    Route::post('/inquiry-store','Inquiry\InquiryController@store')->name('inquiry_store');
+
+    Route::get('/inquiry-show/{id}','Inquiry\InquiryController@show')->name('inquiry_show');
+
+    Route::get('/storage/{id}','ImageController@show')->name('storage_image');
 });
 
 // web

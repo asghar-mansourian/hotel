@@ -1,24 +1,30 @@
 <?php
 
-namespace App\Http\Controllers\Member\Inquiry;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Member\ImageController;
 use App\Http\Requests\Member\InquiryRequest;
 use App\Inquiry;
-use App\lib\Helpers;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Member\ImageController;
-use Illuminate\Support\Str;
+use App\lib\Helpers;
 class InquiryController extends Controller
 {
     public function index()
     {
-        $inquirys = Inquiry::where([
-            'user_id' => auth()->user()->id,
-            'parent_id' => null
-        ])->get();
-        return view('members.inquiry.index')->with('inquirys', $inquirys);
+        $inquirys = Inquiry::where(
+            'parent_id',null)->orderBy('seen')->orderBy('created_at','desc')->get();
+        return view('admin.inquiry.index')->with('inquirys',$inquirys);
     }
+
+    public function show($id)
+    {
+        $inquiry = Inquiry::findorfail($id);
+        $this->update($inquiry);
+        $inquiry = $inquiry->parent_id?$inquiry->inquiry:$inquiry;
+        return view('admin.inquiry.show')->with('inquiry',$inquiry);
+    }
+
     public function store(InquiryRequest $request)
     {
         $image = new ImageController();
@@ -29,32 +35,14 @@ class InquiryController extends Controller
         $inquiry->message = $request->message;
         $inquiry->parent_id = $request->parent_id?$request->parent_id : null;
         $inquiry->save();
-
         if($result != 'not_image'){
             $image->store($result,$inquiry);
         }
 
-        if($inquiry->parent_id){
-            request()->session()->flash('message', __('general.message.inquiry_create_successful'));
-            request()->session()->flash('success', 1);
-            return redirect()->route('inquiry_show',$inquiry->parent_id);
-        }
-
         request()->session()->flash('message', __('general.message.inquiry_create_successful'));
         request()->session()->flash('success', 1);
-        return redirect()->route('inquiry');
+        return redirect()->route('admin_inquiry_show',$inquiry->parent_id);
     }
-
-    public function show($id)
-    {
-        $inquiry = Inquiry::findOrfail($id);
-        $this->update($inquiry);
-        if($inquiry->parent_id){
-            abort(404, 'Page not found');
-        }
-        return view('members.inquiry.show')->with('inquiry',$inquiry);
-    }
-
     public function update($inquiry)
     {
         if($inquiry->inquirys()->where('seen','not-seen')->count())
