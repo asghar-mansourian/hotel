@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Order;
 use App\Http\Controllers\Controller;
+use App\Order;
 use App\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -54,15 +54,16 @@ class OrderItemsController extends Controller
     {
         $search = $request->input('search');
         $orders = OrderItem::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('link', 'like', '%' . $search . '%')
+            ->orWhere('order_id', 'like', '%' . $search . '%')
             ->select(OrderItem::selectField)
             ->paginate(OrderItem::paginateNumber);
 
         $countorders = OrderItem::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('link', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.orderItems.table', compact('orders'), with([
+        return View::make('admin.orderItems.index', compact('orders'), with([
             'sortField' => OrderItem::sortField,
             'sortType' => OrderItem::sortType,
             'countorders' => $countorders,

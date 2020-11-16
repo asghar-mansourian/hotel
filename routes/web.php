@@ -34,6 +34,10 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/home', 'PanelController@index')->name('panel');
 
+//    country details section
+    Route::get('/country-details', 'CountryDetailController@index')->name('member.countrydetails.index');
+
+
     Route::get('/setting', 'SettingController@index');
     Route::post('/setting/changeProfileInformation', 'SettingController@changeProfileInformation');
     Route::post('/setting/changePassword', 'SettingController@changePassword');

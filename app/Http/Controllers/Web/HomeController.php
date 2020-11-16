@@ -23,7 +23,7 @@ class HomeController extends Controller
         CurrencyController::getCurrencyFromCrawel();
         CurrencyController::getCurrencyFromTwoApi();
 
-        $blogs = Blog::latest()->take(2)->get();
+        $blogs = Blog::latest()->take(3)->get();
 
         $countries = Country::whereIn('id', Calculator::query()->distinct('country_id')->pluck('country_id')->take(2))->get();
 

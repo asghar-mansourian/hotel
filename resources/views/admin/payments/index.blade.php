@@ -48,7 +48,7 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $payments , 'selects' => ['id' , 'price' , 'authority' , ['user' , 'email'] ] , 'options' => ['show' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $payments , 'selects' => ['id' , 'price' , 'authority' ,'refid' ] , 'options' => ['show' , 'delete']])
                         @slot('paginate')
                             {{$payments->links()}}
                         @endslot
@@ -73,27 +73,27 @@
             ../../../admin/payments/
         @endslot
     @endcomponent
-    @component('admin.components.script.paginatorScript' , ['type' => 2])
-        @slot('paginatorUrl')
-            payments/load?page=
-        @endslot
-    @endcomponent
-    @component('admin.components.script.searchScript')
-        @slot('url')
-            ../../../admin/payments/search/
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortScript')
-        @slot('url')
-            ../../../admin/payments/sort/
+    {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}
+    {{--        @slot('paginatorUrl')--}}
+    {{--            payments/load?page=--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.searchScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/payments/search/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/payments/sort/--}}
 
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortTableScript')
-        @slot('url')
-            ../../../admin/payments/sort/
-        @endslot
-    @endcomponent
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortTableScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/payments/sort/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
     {{--    @component('admin.components.script.filterScript')--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.showScript')--}}

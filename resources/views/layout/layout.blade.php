@@ -25,5 +25,6 @@
 
 @include('layout.footerScript')
 @yield('footerCustom')
+@stack('scripts')
 </body>
 </html>

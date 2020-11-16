@@ -1,8 +1,8 @@
 <li class="{{url()->current() === url('/home') ? 'active_li' : ''}}">
     <a href="{{url('/home')}}"><i class="fas fa-th-large"></i><span class="use_dis_no">{{__('website.dashboard')}}</span></a>
 </li>
-<li class="{{url()->current() === url('/my-addresses-abroad') ? 'active_li' : ''}}">
-    <a href="{{route('my_addresses_abroad')}}"><i class="fas fa-search-location"></i><span class="use_dis_no">{{__('member.myaddressesabroad')}}</span></a>
+<li class="{{url()->current() === url('/country-details') ? 'active_li' : ''}}">
+    <a href="{{ route('member.countrydetails.index') }}"><i class="fas fa-globe"></i><span class="use_dis_no">{{__('member.countrydetails')}}</span></a>
 </li>
 <li class="{{url()->current() === url('/orders') ? 'active_li' : ''}}">
     <a href="{{url('/orders')}}"><i class="fas fa-shopping-basket"></i><span class="use_dis_no">{{__('member.orders')}}</span></a>

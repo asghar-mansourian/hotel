@@ -2,7 +2,7 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">
 
         <div class="font_grey" style="display: inline-block">
-            {{__('website.contactus')}} : +998 50 988 11 25
+            {{__('website.contactus')}} : {{\App\Setting::getValue(\App\Setting::FIELD_MOBILE)}}
         </div>
         <div class="dropdown" style="display: inline-block">
             <button class=" btn-secondary dropdown-toggle" style="border:0;" type="button" id="dropdown_panel"
@@ -19,9 +19,9 @@
             </div>
         </div>
         <div style="display: inline-block">
-            <form id="calBtn" method="post" action="{{url('/getCurrencyCalculator')}}">
+            <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
                 <div class="float-left">
-                    <input type="number" name="currency" style="    width: 104px;    height: 25px;" required>
+                    <input type="number" name="currency" style="    width: 104px;    height: 25px;" value="1" required>
                 </div>
                 <select name="from" class=" " aria-labelledby="dropdown_baglama"
                         style="width: 100px;margin-left: 10px;
@@ -33,14 +33,14 @@
 }
     box-shadow: 0 0 black !important;">
                     <option class="">{{__('member.select')}}</option>
-                    <option class="dropdown-item" value="AZN">RUB</option>
-                    <option class="dropdown-item" value="USD">USD</option>
+                    <option class="dropdown-item" value="RUB">RUB</option>
+                    <option class="dropdown-item" selected value="USD">USD</option>
                     <option class="dropdown-item" value="TRY">TRY</option>
                 </select>
                 <div style="clear: both;"></div>
                 <div class="mt-2"></div>
                 <div class="float-left">
-                    <input id="result_cal" type="number" style="    width: 104px;     height: 25px;" readonly>
+                    <input class="result_cal" type="number" value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}" style="    width: 104px;     height: 25px;" readonly>
                 </div>
                 <select name="to" class=" " aria-labelledby="dropdown_baglama"
                         style=" width: 100px;margin-left: 10px;
@@ -51,7 +51,7 @@
         height: 25px;
     box-shadow: 0 0 black !important;">
                     <option class="">{{__('member.select')}}</option>
-                    <option class="dropdown-item" value="AZN">RUB</option>
+                    <option class="dropdown-item" selected value="RUB">RUB</option>
                     <option class="dropdown-item" value="USD">USD</option>
                     <option class="dropdown-item" value="TRY">TRY</option>
                 </select>

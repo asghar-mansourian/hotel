@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5" style="z-index: 1">
-                        <div class="index_black pt-5">Kargo {{__('website.transport')}}</div>
+                        <div class="index_black pt-5">{{__('website.transport')}}</div>
                         <div class="font_grey">{{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}</div>
                     </div>
                     <div class="col-md-7">

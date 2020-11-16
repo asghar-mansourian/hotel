@@ -49,7 +49,7 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $countries , 'selects' => ['id' , 'name' , 'currency' ], 'options' => ['show' , 'edit' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $countries , 'selects' => ['id' , 'name' , 'currency' ], 'options' => [ 'edit' , 'delete']])
                         @slot('paginate')
                             {{$countries->links()}}
                         @endslot
@@ -73,16 +73,16 @@
             ../../../admin/countries/
         @endslot
     @endcomponent
-    @component('admin.components.script.paginatorScript' , ['type' => 2])
-        @slot('paginatorUrl')
-            countries/load?page=
-        @endslot
-    @endcomponent
-    @component('admin.components.script.searchScript')
-        @slot('url')
-            ../../../admin/countries/search/
-        @endslot
-    @endcomponent
+    {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}
+    {{--        @slot('paginatorUrl')--}}
+    {{--            countries/load?page=--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.searchScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/countries/search/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
     @component('admin.components.script.sortScript')
         @slot('url')
             ../../../admin/countries/sort/

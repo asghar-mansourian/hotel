@@ -74,27 +74,27 @@
             ../../../admin/calculatores/
         @endslot
     @endcomponent
-    @component('admin.components.script.paginatorScript' , ['type' => 2])
-        @slot('paginatorUrl')
-            calculatores/load?page=
-        @endslot
-    @endcomponent
-    @component('admin.components.script.searchScript')
-        @slot('url')
-            ../../../admin/calculatores/search/
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortScript')
-        @slot('url')
-            ../../../admin/calculatores/sort/
+    {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}
+    {{--        @slot('paginatorUrl')--}}
+    {{--            calculatores/load?page=--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.searchScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/calculatores/search/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/calculatores/sort/--}}
 
-        @endslot
-    @endcomponent
-    @component('admin.components.script.sortTableScript')
-        @slot('url')
-            ../../../admin/calculatores/sort/
-        @endslot
-    @endcomponent
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
+    {{--    @component('admin.components.script.sortTableScript')--}}
+    {{--        @slot('url')--}}
+    {{--            ../../../admin/calculatores/sort/--}}
+    {{--        @endslot--}}
+    {{--    @endcomponent--}}
     {{--    @component('admin.components.script.filterScript')--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.showScript')--}}

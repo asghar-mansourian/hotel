@@ -235,9 +235,9 @@ class CurrencyController
             ->first()->to_value;
 
         if ($currency == 1) {
-            return response()->json($value);
+            return response()->json(number_format($value, 2));
         } else {
-            return response()->json($value * $currency);
+            return response()->json(number_format($value * $currency, 2));
         }
 
     }

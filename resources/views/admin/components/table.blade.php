@@ -8,31 +8,35 @@
 
                     <th>
                         {{__('custom.other.' . $select[1])}}
-                        <a class="sort"
-                           style="@if($sortType == 'desc' && $sortField == $select[0].'_id') display:none;  @endif"
-                           href="#" data-sort-field="{{$select[0].'_id'}}" data-sort-type="desc">
-                            <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
-                        </a>
-                        <a class="sort"
-                           style="@if($sortType  == 'asc' && $sortField == $select[1].'_id') display:none;  @endif"
-                           href="#" data-sort-field="{{$select[0].'_id'}}" data-sort-type="asc">
-                            <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
-                        </a>
+                        <div class="" style="display: none!important;">
+                            <a class="sort"
+                               style="@if($sortType == 'desc' && $sortField == $select[0].'_id') display:none;  @endif"
+                               href="#" data-sort-field="{{$select[0].'_id'}}" data-sort-type="desc">
+                                <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                            </a>
+                            <a class="sort "
+                               style="@if($sortType  == 'asc' && $sortField == $select[1].'_id') display:none;  @endif"
+                               href="#" data-sort-field="{{$select[0].'_id'}}" data-sort-type="asc">
+                                <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                            </a>
+                        </div>
 
                     </th>
                 @else
 
                     <th>
                         {{__('custom.other.' . $select)}}
-                        <a class="sort" style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif"
-                           href="#" data-sort-field="{{$select}}" data-sort-type="desc">
-                            <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
-                        </a>
-                        <a class="sort" style="@if($sortType  == 'asc' && $sortField == $select) display:none;  @endif"
-                           href="#" data-sort-field="{{$select}}" data-sort-type="asc">
-                            <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
-                        </a>
+                        <div class="" style="display: none!important;">
 
+                            <a class="sort" style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif"
+                               href="#" data-sort-field="{{$select}}" data-sort-type="desc">
+                                <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                            </a>
+                            <a class="sort" style="@if($sortType  == 'asc' && $sortField == $select) display:none;  @endif"
+                               href="#" data-sort-field="{{$select}}" data-sort-type="asc">
+                                <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                            </a>
+                        </div>
                     </th>
                 @endif
             @endforeach

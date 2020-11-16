@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\Invoice;
-use App\Payment;
 use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PaymentRequest;
+use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -48,15 +47,17 @@ class PaymentController extends Controller
     {
         $search = $request->input('search');
         $payments = Payment::query()
-            ->orWhere('title', 'like', '%' . $search . '%')
+            ->orWhere('authority', 'like', '%' . $search . '%')
+            ->orWhere('price', 'like', '%' . $search . '%')
+            ->orWhere('refid', 'like', '%' . $search . '%')
             ->select(Payment::selectField)
             ->paginate(Payment::paginateNumber);
 
         $countpayments = Payment::query()
-            ->orWhere('name', 'like', '%' . $search . '%')
+            ->orWhere('price', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.payments.table', compact('payments'), with([
+        return View::make('admin.payments.index', compact('payments'), with([
             'sortField' => Payment::sortField,
             'sortType' => Payment::sortType,
             'countpayments' => $countpayments,

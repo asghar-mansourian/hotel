@@ -6,9 +6,9 @@
                     <img src="./front/image/logo.svg">
                     <div class="font_grey mt-5">
                         {{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}<br>
-                        <div class="mt-3"><a href="#" class="font_black blue"><strong>Shtormex.az@gmail.com</strong></a></div>
+                        <div class="mt-3"><a href="#" class="font_black blue"><strong>{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</strong></a></div>
                     </div>
-                    <div class="font_black blue mt-3"><strong>781-349-6679</strong></div>
+                    <div class="font_black blue mt-3"><strong>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</strong></div>
                     <div class="menu mt-5 ">
                         <ul class="p-0">
                             <li>
@@ -33,25 +33,25 @@
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="title_list">{{__('website.service')}}</div>
                 <div class="menu_list mt-5">
-                    <ul>
+                   {{-- <ul>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
                         <li><a href="#">Zwei flinke</a></li>
-                    </ul>
+                    </ul>--}}
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="title_list">{{__('website.aboutus')}}</div>
                 <div class="menu_list mt-5">
-                    <ul>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                        <li><a href="#">Zwei flinke</a></li>
-                    </ul>
+                    {{--     <ul>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                             <li><a href="#">Zwei flinke</a></li>
+                         </ul>--}}
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">

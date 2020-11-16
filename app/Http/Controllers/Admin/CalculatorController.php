@@ -76,18 +76,21 @@ class CalculatorController extends Controller
     public function search(Request $request)
     {
         $search = $request->input('search');
-        $calculatores = Region::query()
+        $calculatores = Calculator::query()
+            ->orWhere('from', 'like', '%' . $search . '%')
+            ->orWhere('to', 'like', '%' . $search . '%')
             ->orWhere('name', 'like', '%' . $search . '%')
-            ->select(Region::selectField)
-            ->paginate(Region::paginateNumber);
+            ->orWhere('currency', 'like', '%' . $search . '%')
+            ->select(Calculator::selectField)
+            ->paginate(Calculator::paginateNumber);
 
-        $countcalculatores = Region::query()
+        $countcalculatores = Calculator::query()
             ->orWhere('name', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.calculatores.table', compact('calculatores'), with([
-            'sortField' => Region::sortField,
-            'sortType' => Region::sortType,
+        return View::make('admin.calculatores.index', compact('calculatores'), with([
+            'sortField' => Calculator::sortField,
+            'sortType' => Calculator::sortType,
             'countcalculatores' => $countcalculatores,
         ]));
     }
