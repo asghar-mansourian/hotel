@@ -54,7 +54,12 @@
                     <tr>
                         <td>{{$inquiry->id}}</td>
                         <td>{{$inquiry->user ->name}}</td>
-                        <td><a href="{{'inquiry-show/'.$inquiry->id}}">{{$inquiry->inquirys->last()->message}}
+                        <td><a href="{{'inquiry-show/'.$inquiry->id}}">
+                                @if($inquiry->inquirys->count())
+                                    {{$inquiry->inquirys->last()->message}}
+                                @else
+                                    {{$inquiry->message}}
+                                @endif
                                 @if($inquiry->inquirys()->where('seen','not-seen')->where('user_id','!=',auth()->user()->id)->count())
                                 <span class="badge badge-success side-badge">
                                     {{$inquiry->inquirys()->where('seen','not-seen')->where('user_id','!=',auth()->user()->id)->count()}}
