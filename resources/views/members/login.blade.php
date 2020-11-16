@@ -55,6 +55,9 @@
                 </div>
                 <div class="col-md-12 button-part mt-5">
                     <div class="text-center">
+                        <a href="/register" class="mr-3">
+                            <strong>{{__('website.register')}}</strong>
+                        </a>
                         <button type="submit" class="btn-effect">{{__('member.login')}}</button>
                     </div>
                 </div>

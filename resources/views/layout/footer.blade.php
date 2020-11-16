@@ -52,13 +52,13 @@
                     {{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}<br>
                 </div>
                 <div class="mt-5">
-                    <button style="text-align: left; border-radius: 5px;margin-bottom: 10px; width: 215px;"
+                    <button style="text-align: left; border-radius: 5px;margin-bottom: 10px; width: 215px;     height: 48px;"
                             onclick="window.open('{{\App\Setting::getValue(\App\Setting::FIELD_LINK_GOOGLE_PLAY)}}', '_blank');">
                         <img src="{{url('./front/image/android.svg')}}" style="width: 28px">
                         <span>{{__('website.google_play')}}</span>
                     </button>
                     <br>
-                    <button style="text-align: left; border-radius: 5px; width: 215px;"
+                    <button style="text-align: left; border-radius: 5px; width: 215px;    height: 48px;"
                             onclick="window.open('{{\App\Setting::getValue(\App\Setting::FIELD_LINK_APP_STORE)}}', '_blank');">
                         <img src="{{url('./front/image/apple.svg')}}" style="width: 28px">
                         <span>{{__('website.app_store')}}</span>
