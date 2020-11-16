@@ -4,10 +4,10 @@
         <div class="font_grey " style="display: inline-block">
             <ul>
                 <li style="display: inline; border-right: 1px solid pink">
-                    <a style="    font-size: 9px;" class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}"> {{__('website.faq')}} </a>
+                    <a style="    font-size: 12px;" class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}"> {{__('website.faq')}} </a>
                 </li>
                 <li style="display: inline">
-                    <a style="    font-size: 9px;" class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">&ensp;{{__('website.howwework')}} </a>
+                    <a style="    font-size: 12px;" class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">&ensp;{{__('website.howwework')}} </a>
                 </li>
             </ul>
         </div>
@@ -62,6 +62,7 @@ width: 100px;
     height: 7px;
     font-size: 11px;
     border: 0px;
+    background-color: white;
     text-align: center;" readonly>
                 </div>
                 <select name="to" class=" " aria-labelledby="dropdown_baglama"
@@ -114,12 +115,12 @@ width: 100px;
                     </li>
                 @endauth
                 @guest('web')
-                        <li>
-                            <a style="    font-size: 9px;" href="/login">
-                                <strong>{{__('website.login')}}</strong>
-                            </a> |
-                            <a style="    font-size: 9px;" href="/register">
-                                <strong>{{__('website.register')}}</strong>
+                    <li>
+                        <a style="    font-size: 12px;" href="/login">
+                            <strong>{{__('website.login')}}</strong>
+                        </a> |
+                        <a style="    font-size: 12px;" href="/register">
+                            <strong>{{__('website.register')}}</strong>
                         </a>
                     </li>
                     @endguest
