@@ -255,6 +255,9 @@ class TranslateSeeder extends Seeder
         'showuser' => 'Show User',
         'calculator' => 'calculator',
         'showcalculator' => 'Showcalculator',
+        'answer' => 'Answer',
+        'send' => 'Send',
+        'date' => 'date'
     ];
 
     private $member_items = [
@@ -402,6 +405,7 @@ class TranslateSeeder extends Seeder
         'order.store_success' => 'Create success',
         'general.message.create_success' => 'Create success',
         'general.message.paid_successful' => 'Paid successful',
+        'general.message.inquiry_create_successful' =>'Inquiry create successful',
         'city' => 'City',
         'postal' =>'Postal',
         'country' => 'Country',
@@ -419,7 +423,9 @@ class TranslateSeeder extends Seeder
         'packagedoesnotbelongtome' => 'A package that does not belong to me',
         'complaintsandsuggestions' => 'Complaints and suggestions',
         'enterconfirmpassword' => 'Password Confirmation',
-        'street' => 'Street'
+        'street' => 'Street',
+        'admin' => 'Admin',
+        'id' => 'ID'
     ];
 
     private $website_items = [
