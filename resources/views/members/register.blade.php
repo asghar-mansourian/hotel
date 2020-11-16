@@ -15,7 +15,7 @@
                     </div>
                     <div class="text-center">
 
-                        <input type="text" name="name" placeholder="name"
+                        <input type="text" name="name"
                                class="@error('name') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;" value="{{ old('name') }}">
                         @error('name')
@@ -33,7 +33,7 @@
                     </div>
                     <div class="text-center">
 
-                        <input type="text" name="family" placeholder="family"
+                        <input type="text" name="family"
                                class="@error('family') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;" value="{{ old('family') }}">
                         @error('family')
@@ -51,7 +51,7 @@
                     </div>
                     <div class="text-center">
 
-                        <input type="email" value="{{ old('email') }}" name="email" placeholder="email"
+                        <input type="email" value="{{ old('email') }}" name="email"
                                class="@error('email') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         @error('email')
@@ -67,7 +67,7 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.password')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="password" name="password" placeholder="password"
+                        <input type="password" name="password"
                                class="@error('password') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         @error('password')
@@ -82,8 +82,8 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.passwordconfirmation')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="password" name="password_confirmation" placeholder="Password Confirmation"
-                               class="@error('password') is-invalid @enderror w-100 courier_input"
+                        <input type="password" name="password_confirmation" "
+                        class="@error('password') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         <br>
                         @error('password')
@@ -97,8 +97,8 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.serialnumber')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" name="serial_number" maxlength="9" placeholder="serial number"
-                               class="@error('serial_number') is-invalid @enderror w-100 courier_input"
+                        <input type="text" name="serial_number" maxlength="9" "
+                        class="@error('serial_number') is-invalid @enderror w-100 courier_input"
                                value="{{ old('serial_number') }}" style="width: 450px!important;">
                         <br>
                         @error('serial_number')
@@ -112,7 +112,7 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.citizenship')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" value="{{ old('citizenship') }}" name="citizenship" placeholder="citizenship"
+                        <input type="text" value="{{ old('citizenship') }}" name="citizenship"
                                class="@error('citizenship') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         @error('citizenship')
@@ -127,7 +127,7 @@
                         <label style="width: 450px!important;text-align: left">Fin:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" value="{{ old('fin') }}" maxlength="7" name="fin" placeholder="fin"
+                        <input type="text" value="{{ old('fin') }}" maxlength="7" name="fin"
                                class="@error('fin') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         @error('fin')
@@ -142,7 +142,7 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.phone')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input value="{{ old('email') }}" type="text" name="phone" placeholder="phone"
+                        <input value="{{ old('email') }}" type="text" name="phone"
                                class="@error('phone') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;"
                                pattern="^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
@@ -159,7 +159,7 @@
                     </div>
                     <div class="text-center">
                         <input value="{{ old('birthdate') }}" autocomplete="birthdate" type="date" name="birthdate"
-                               placeholder="birthdate"
+
                                class="@error('birthdate') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;"
                                pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
@@ -176,7 +176,7 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.address')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input value="{{ old('address') }}" type="text" name="address" placeholder="address"
+                        <input value="{{ old('address') }}" type="text" name="address"
                                class="@error('address') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         <br style="">

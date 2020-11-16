@@ -1,10 +1,10 @@
-@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $payments , 'selects' => ['id' , 'price' , 'authority' , ['user' , 'email'] ] , 'options' => ['show' , 'delete']])
+@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $settings , 'selects' => ['id' , 'key' , 'value']])
 
     @slot('paginate')
-        {{$payments->links()}}
+        {{$settings->links()}}
     @endslot
     @slot('url')
-        payments
+        settings
     @endslot
 @endcomponent
 

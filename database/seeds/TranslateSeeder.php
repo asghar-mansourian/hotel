@@ -542,6 +542,7 @@ class TranslateSeeder extends Seeder
         'follow_video_instructions_new_style' => 'Discover a new style of shopping with Colibri',
         'follow_video_instructions_online_shopping' => 'With easy instructions, your online shopping will be more fun and hassle-free than ever.',
         'customers' => 'Customers',
-
+        'google_play' => 'Install Google Play',
+        'app_store' => 'Install App Store',
     ];
 }

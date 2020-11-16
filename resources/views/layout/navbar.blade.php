@@ -6,16 +6,7 @@
     <div class="menu_sec">
         <ul>
             <li>
-                <a href="/" class="{{url()->current() === url('/') ? 'active' : ''}}">{{__('website.home')}}</a>
-            </li>
-            <li>
                 <a href="#">{{__('website.pricing')}}</a>
-            </li>
-            <li>
-                <a class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">{{__('website.howwework')}}</a>
-            </li>
-            <li>
-                <a class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}</a>
             </li>
             <li>
                 <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">{{__('website.blog')}}</a>
@@ -23,39 +14,6 @@
             <li>
                 <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
             </li>
-            @auth('web')
-                <li>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{\Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->family}}
-                            <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdown_panel" style="z-index: 999999;">
-                            <a class="dropdown-item" href="{{url('/home')}}">{{__('website.dashboard')}}</a><br/>
-                            <a class="dropdown-item" href="{{ route('member.countrydetails.index') }}">{{str_limit(__('member.myaddressesabroad'),15)}}</a><br/>
-                            <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('member.order_title')}}</a><br/>
-                            <a class="dropdown-item" href="{{route('orders.index')}}">{{__('member.mybindings')}}</a><br/>
-                            <a class="dropdown-item" href="#">{{__('member.aznBalance')}}</a><br/>
-                            <a class="dropdown-item" href="{{url('tl-balance')}}">{{__('member.tlBalance')}}</a><br/>
-                            <a class="dropdown-item" href="{{route('courier')}}">{{__('website.balance.courier')}}</a><br/>
-                            <a class="dropdown-item" href="{{route('inquiry')}}">{{__('website.balance.inquiry')}}</a><br/>
-                            <a class="dropdown-item" href="{{url('/setting')}}">{{__('website.settings')}}</a><br/>
-                            <a class="dropdown-item" href="{{url('/logout')}}">{{__('website.logout')}}</a><br/>
-                        </div>
-                    </div>
-                </li>
-            @endauth
-            @guest('web')
-                <li>
-                    <a href="/login">
-                        <strong>{{__('website.login')}}</strong>
-                    </a> |
-                    <a href="/register">
-                        <strong>{{__('website.register')}}</strong>
-                    </a>
-                </li>
-            @endguest
         </ul>
     </div>
 </div>
