@@ -13,7 +13,7 @@ class AddStatusForCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
+        Schema::table('tickets', function (Blueprint $table) {
             $table->enum('seen',['not-seen','seen']);
         });
     }
@@ -25,8 +25,8 @@ class AddStatusForCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            //
+        Schema::table('tickets', function (Blueprint $table) {
+            $table->dropColumn('seen');
         });
     }
 }

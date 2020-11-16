@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inquiry extends Model
 {
-    protected $table = 'comments';
+    protected $table = 'tickets';
 
     protected $guarded = ['id'];
+
     public function image()
     {
         return $this->morphOne('App\Image','imageable');

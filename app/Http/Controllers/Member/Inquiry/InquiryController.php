@@ -29,14 +29,17 @@ class InquiryController extends Controller
         $inquiry->message = $request->message;
         $inquiry->parent_id = $request->parent_id?$request->parent_id : null;
         $inquiry->save();
+
         if($result != 'not_image'){
             $image->store($result,$inquiry);
         }
+
         if($inquiry->parent_id){
             request()->session()->flash('message', __('general.message.inquiry_create_successful'));
             request()->session()->flash('success', 1);
             return redirect()->route('inquiry_show',$inquiry->parent_id);
         }
+
         request()->session()->flash('message', __('general.message.inquiry_create_successful'));
         request()->session()->flash('success', 1);
         return redirect()->route('inquiry');
