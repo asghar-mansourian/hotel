@@ -144,6 +144,7 @@
 
             <ul class="slide-menu">
                 <li><a href="{{url('admin/contacts')}}" class="slide-item">Show</a></li>
+                <li><a href="{{url('admin/inquiry')}}" class="slide-item">inquiry</a></li>
             </ul>
 
 
