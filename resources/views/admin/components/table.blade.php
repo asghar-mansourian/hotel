@@ -77,7 +77,11 @@
                             <td>{{$v}}</td>
 
                         @else
-                            <td>{{$record->$select}}</td>
+                            @if($select == 'customer_image')
+                                <td><img style="width:100px;height: 100px" src="{{asset('images/customers/'.$record->image->file_name)}}"></td>
+                            @else
+                                 <td>{{$record->$select}}</td>
+                            @endif
                         @endif
 
                     @endif

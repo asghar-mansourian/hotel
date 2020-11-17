@@ -294,52 +294,11 @@ width: 100px;
                     <div class="owl-carousel owl-theme owl-loaded owl-drag">
                         <div class="owl-stage-outer">
                             <div class="owl-stage" style="transform: translate3d(-2300px, 0px, 0px); transition: all 0.25s ease 0s; width: 4025px;">
+                                @foreach($customers as $customer)
                                 <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://i2.wp.com/naxosgrandevista.com/wp-content/uploads/2019/10/logo-light-grey.png?fit=700%2C300&amp;ssl=1" alt=""></a></div>
+                                    <div class="item"><a href="{{$customer->link}}"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a></div>
                                 </div>
-                                <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://www.psyjukebox.com/labels/label119/images/flyer.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://iguanamedia.org/images/logos/nmcGry.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://socialmediaweek.org/conference/files/2016/04/voxmedia-logo-horiz.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://henrikdamthomsen.com/wp-content/uploads/2014/08/wordpress_logo_white.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img
-                                                src="https://images.squarespace-cdn.com/content/v1/5c80744a94d71ab0d0755ae5/1597237780592-M1S8686ORI5OZODQVPSD/ke17ZwdGBToddI8pDm48kMX3kvVuZF0k0qXuePz5b31Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxJZM6kmh3pZ0wlO5hEh2gNWvjG9u7FN0ikQLI8MIVi1iyM8CW3unfJTJlcD8_7AHU/CEW-Logo-Frame-grey.png"
-                                                alt=""></a></div>
-                                </div>
-                                <div class="owl-item" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://i2.wp.com/naxosgrandevista.com/wp-content/uploads/2019/10/logo-light-grey.png?fit=700%2C300&amp;ssl=1" alt=""></a></div>
-                                </div>
-                                <div class="owl-item" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://www.psyjukebox.com/labels/label119/images/flyer.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item active" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://iguanamedia.org/images/logos/nmcGry.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item active" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://socialmediaweek.org/conference/files/2016/04/voxmedia-logo-horiz.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item cloned active" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://henrikdamthomsen.com/wp-content/uploads/2014/08/wordpress_logo_white.png" alt=""></a></div>
-                                </div>
-                                <div class="owl-item cloned active" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img
-                                                src="https://images.squarespace-cdn.com/content/v1/5c80744a94d71ab0d0755ae5/1597237780592-M1S8686ORI5OZODQVPSD/ke17ZwdGBToddI8pDm48kMX3kvVuZF0k0qXuePz5b31Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxJZM6kmh3pZ0wlO5hEh2gNWvjG9u7FN0ikQLI8MIVi1iyM8CW3unfJTJlcD8_7AHU/CEW-Logo-Frame-grey.png"
-                                                alt=""></a></div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://i2.wp.com/naxosgrandevista.com/wp-content/uploads/2019/10/logo-light-grey.png?fit=700%2C300&amp;ssl=1" alt=""></a></div>
-                                </div>
-                                <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="#"><img src="https://www.psyjukebox.com/labels/label119/images/flyer.png" alt=""></a></div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
