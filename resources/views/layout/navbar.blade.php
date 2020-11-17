@@ -1,4 +1,4 @@
-<div class="row pt-3 pb-3 mob_dis " style="padding: 0 15px;">
+<div class="row pt-3 pb-3 mob_dis " style="padding: 0 15px; display: flex; align-items: center; text-align: right;">
     <div class="logo">
         <a href="/"><img src="{{url('front/image/logo-express.svg')}}"></a>
     </div>
