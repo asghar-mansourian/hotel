@@ -9,9 +9,9 @@ use Response;
 
 class ImageController extends Controller
 {
-    public function store($file_name,$inquiry)
+    public function store($file_name,$relate)
     {
-        $image = $inquiry->image()->create([
+        $image = $relate->image()->create([
            'file_name' => $file_name
         ]);
     }
