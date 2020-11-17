@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Blog;
 use App\Calculator;
 use App\Country;
+use App\Customer;
 use App\Http\Controllers\Controller;
 use App\lib\Helpers;
 use Illuminate\Contracts\Support\Renderable;
@@ -27,7 +28,9 @@ class HomeController extends Controller
 
         $countries = Country::whereIn('id', Calculator::query()->distinct('country_id')->pluck('country_id')->take(2))->get();
 
-        return view('web.home', compact('blogs', 'countries'));
+        $customers = Customer::all();
+
+        return view('web.home', compact('blogs', 'countries','customers'));
     }
 
     public function setLocale($locale)

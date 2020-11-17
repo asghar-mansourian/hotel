@@ -135,6 +135,24 @@
             <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                      width="24">
+                    <i class="fa fa-users" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+
+                </svg>
+                <span class="side-menu__label">{{__('admin.customers')}}</span><i class="angle fa fa-angle-right"></i>
+            </a>
+
+
+            <ul class="slide-menu">
+                <li><a href="{{url('admin/customers')}}" class="slide-item">{{__('admin.customers')}}</a></li>
+                <li><a href="{{url('admin/create')}}" class="slide-item">{{__('admin.customers')}} Add</a></li>
+            </ul>
+
+
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                     width="24">
                     <i class="fa fa-envelope-open-o" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
 
                 </svg>

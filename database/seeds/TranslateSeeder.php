@@ -257,7 +257,11 @@ class TranslateSeeder extends Seeder
         'showcalculator' => 'Showcalculator',
         'answer' => 'Answer',
         'send' => 'Send',
-        'date' => 'date'
+        'date' => 'date',
+        'customers' => 'Customers',
+        'general.message.customer_create_successful' => 'Customer Create Successful',
+        'general.message.customer_update_successful' => 'Customer Update Successful',
+        'general.message.customer_delete_successful' => 'Customer Delete Successful',
     ];
 
     private $member_items = [
@@ -407,6 +411,7 @@ class TranslateSeeder extends Seeder
         'general.message.create_success' => 'Create success',
         'general.message.paid_successful' => 'Paid successful',
         'general.message.inquiry_create_successful' =>'Inquiry create successful',
+        'general.message.customer_create_successful' => 'Customer create successful',
         'city' => 'City',
         'postal' => 'Postal',
         'country' => 'Country',

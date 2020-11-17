@@ -181,3 +181,13 @@ route::post('/calculatores/sort/', 'CalculatorController@sort');
 route::get('/inquiry','InquiryController@index');
 route::get('/inquiry-show/{id}','InquiryController@show')->name('admin_inquiry_show');
 route::post('/inquiry-store','InquiryController@store')->name('admin_inquiry_store');
+
+
+//Customers
+route::get('/customers','CustomerController@index');
+route::get('/customers/create','CustomerController@create');
+route::post('/customers/store','CustomerController@store');
+route::get('/customers/edit/{id}','CustomerController@edit');
+route::post('/customers/update/{id}','CustomerController@update');
+route::get('/customers/destroy/{id}','CustomerController@delete');
+route::post('customers/search','CustomerController@search');
