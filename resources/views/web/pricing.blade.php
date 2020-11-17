@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <div class="bacg_img">
+                <div class="bacg_img" style="margin-top: 0">
                     <div class="pricing_wi border_sh">
                         <div class="row">
                             <div class="col-md-12 mb-4 font_pink"><strong>{{__('website.calculator')}}</strong>	</div>
