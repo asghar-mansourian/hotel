@@ -12,7 +12,7 @@ class CustomerController extends Controller
 
     public function __invoke()
     {
-        $customers = Customer::latest()->get();
+        $customers = Customer::all();
 
         return view('web.customers', compact('customers'));
     }

@@ -45,7 +45,7 @@
                             </label>
                             <div class="col-md-9">
                                     <textarea class="form-control" name="content" id="content" placeholder="" cols="30" rows="10">
-                                        {!! $faq->content !!}
+                                        {!! $page->content !!}
                                     </textarea>
                             </div>
                         </div>

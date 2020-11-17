@@ -29,6 +29,7 @@ class SettingSeeder extends Seeder
             Setting::FIELD_ABOUT_US => 'about us',
             Setting::FIELD_LINK_GOOGLE_PLAY => 'link google play',
             Setting::FIELD_LINK_APP_STORE => 'link app store',
+            Setting::FIELD_CONTACT_URL_MAP => 'https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed',
         ];
 
         foreach ($settings as $index => $value) {

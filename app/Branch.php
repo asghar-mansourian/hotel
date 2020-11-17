@@ -46,7 +46,7 @@ class Branch extends Model
 
     public function region()
     {
-        return $this->belongsTo('App\region');
+        return $this->belongsTo(Branch::class);
     }
 
 }

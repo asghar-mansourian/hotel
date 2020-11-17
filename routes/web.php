@@ -99,6 +99,8 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('customers', 'CustomerController');
 
+    Route::get('pages/{slug}', 'PageController');
+
 });
 
 

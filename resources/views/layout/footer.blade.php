@@ -40,7 +40,7 @@
                     <br>
                     <a href="{{url('/how-we-work')}}">{{__('website.howwework')}} </a>
                     <br>
-                    <a href="#">{{__('website.pricing')}}</a>
+                    <a href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
                     <br>
                     <a href="{{url('/blog')}}">{{__('website.blog')}}</a>
                 </div>
@@ -53,9 +53,9 @@
                     </span>--}}
                     <a href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
                     <br>
-                    <a href="{{url('/about-us')}}">{{__('website.aboutus')}}</a>
+                    <a href="{{url('pages/about-us')}}">{{__('website.aboutus')}}</a>
                     <br>
-                    <a href="{{url('/rules')}}">{{__('website.rules')}}</a>
+                    <a href="{{url('pages/rules')}}">{{__('website.rules')}}</a>
                     <br>
                     <a href="{{url('/customers')}}">{{__('website.customers')}}</a>
                 </div>
