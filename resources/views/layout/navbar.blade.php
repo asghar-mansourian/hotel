@@ -3,7 +3,7 @@
         <a href="/"><img src="{{url('front/image/logo-express.svg')}}"></a>
     </div>
 
-    <div class="menu_sec">
+    <div class="menu_sec" style="position: relative; right: -294px;">
         <ul>
             <li>
                 <a href="/customers">{{__('website.customers')}}</a>
