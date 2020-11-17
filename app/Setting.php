@@ -31,6 +31,7 @@ class Setting extends Model
     const FIELD_ABOUT_US = 'about_us';
     const FIELD_LINK_GOOGLE_PLAY = 'link_google_play';
     const FIELD_LINK_APP_STORE = 'link_app_store';
+    const FIELD_CONTACT_URL_MAP = 'contact_url_map';
 
     public function scopeGetValue($query, $key)
     {

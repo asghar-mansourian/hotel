@@ -40,7 +40,7 @@
                     <br>
                     <a href="{{url('/how-we-work')}}">{{__('website.howwework')}} </a>
                     <br>
-                    <a href="#">{{__('website.pricing')}}</a>
+                    <a href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
                     <br>
                     <a href="{{url('/blog')}}">{{__('website.blog')}}</a>
                 </div>
