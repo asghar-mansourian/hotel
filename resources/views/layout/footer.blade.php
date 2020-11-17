@@ -57,7 +57,7 @@
                     <br>
                     <a href="{{url('/rules')}}">{{__('website.rules')}}</a>
                     <br>
-                    <a href="{{url('/rules')}}">{{__('website.customers')}}</a>
+                    <a href="{{url('/customers')}}">{{__('website.customers')}}</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">

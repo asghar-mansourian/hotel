@@ -60,17 +60,17 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/my-addresses-abroad', 'AddressesAbroad\AddressesAbroadController@index')->name('my_addresses_abroad');
 
-    Route::get('/tl-balance','TlBalance\TlBalanceController@index')->name('tl_balance');
+    Route::get('/tl-balance', 'TlBalance\TlBalanceController@index')->name('tl_balance');
 
-    Route::get('/courier','Courier\CourierController@index')->name('courier');
+    Route::get('/courier', 'Courier\CourierController@index')->name('courier');
 
-    Route::get('/inquiry','Inquiry\InquiryController@index')->name('inquiry');
+    Route::get('/inquiry', 'Inquiry\InquiryController@index')->name('inquiry');
 
-    Route::post('/inquiry-store','Inquiry\InquiryController@store')->name('inquiry_store');
+    Route::post('/inquiry-store', 'Inquiry\InquiryController@store')->name('inquiry_store');
 
-    Route::get('/inquiry-show/{id}','Inquiry\InquiryController@show')->name('inquiry_show');
+    Route::get('/inquiry-show/{id}', 'Inquiry\InquiryController@show')->name('inquiry_show');
 
-    Route::get('/storage/{id}','ImageController@show')->name('storage_image');
+    Route::get('/storage/{id}', 'ImageController@show')->name('storage_image');
 });
 
 // web
@@ -91,12 +91,13 @@ Route::group(['namespace' => 'Web'], function () {
     Route::post('/convert', 'CurrencyController@convert');
     Route::post('/getCurrencyCalculator', 'CurrencyController@getCurrencyCalculator');
 
-    Route::get('/how-we-work', function (){
+    Route::get('/how-we-work', function () {
         return view('web.how');
     });
 
     Route::get('/pricing', 'FaqController@index');
 
+    Route::get('customers', 'CustomerController');
 
 });
 

@@ -6,7 +6,7 @@
     <div class="menu_sec" style="position: relative; right: -294px;">
         <ul>
             <li>
-                <a href="#">{{__('website.customers')}}</a>
+                <a href="/customers">{{__('website.customers')}}</a>
             </li>
             <li>
                 <a href="#">{{__('website.pricing')}}</a>

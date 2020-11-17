@@ -291,16 +291,12 @@ width: 100px;
                     <div class="black pt-5 text-center">{{__('website.customers')}}
                         <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
                     </div>
-                    <div class="owl-carousel owl-theme owl-loaded owl-drag">
-                        <div class="owl-stage-outer">
-                            <div class="owl-stage" style="transform: translate3d(-2300px, 0px, 0px); transition: all 0.25s ease 0s; width: 4025px;">
-                                @foreach($customers as $customer)
-                                <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="{{$customer->link}}"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a></div>
-                                </div>
-                                @endforeach
+                    <div class="owl-carousel owl-theme">
+                        @foreach($customers as $customer)
+                            <div class="item">
+                                <a href="{{$customer->link}}"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -338,7 +334,7 @@ width: 100px;
     </script>
     <script type="text/javascript">
         $('.owl-carousel').owlCarousel({
-            loop: true,
+            loop: false,
             margin: 10,
             // nav:true,
             autoplay: 800,
