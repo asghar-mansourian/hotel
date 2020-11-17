@@ -10,10 +10,13 @@ use App\Http\Requests\Admin\UpdateCustomerRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\lib\Customer as CustomerHelper;
+use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use function Sodium\compare;
 
 class CustomerController extends Controller
 {
+    use ValidatorRequest;
+
     public function index()
     {
         $customers = Customer::paginate(Customer::paginateNumber);
@@ -29,8 +32,12 @@ class CustomerController extends Controller
         return view('admin.customers.create');
     }
 
-    public function store(CustomerRequest $request)
+    public function store(Request $request)
     {
+        $CustomerValidate = new CustomerRequest();
+        $validate = $this->validateRules($CustomerValidate->rules(), $request);
+        if ($validate != null)
+            return $this->validateRules($CustomerValidate->rules(), $request);
         $customer = new Customer();
         $file_name = CustomerHelper::uploadImage($request->file('picture'));
         $customer->name = $request->name;
@@ -50,8 +57,12 @@ class CustomerController extends Controller
         return view('admin.customers.edit',compact('customer'));
     }
 
-    public function update(UpdateCustomerRequest $request,$id)
+    public function update(Request $request,$id)
     {
+        $CustomerValidate = new UpdateCustomerRequest();
+        $validate = $this->validateRules($CustomerValidate->rules(), $request);
+        if ($validate != null)
+            return $this->validateRules($CustomerValidate->rules(), $request);
         $customer = Customer::findorfail($id);
         if($request->hasFile('picture'))
         {

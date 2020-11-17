@@ -144,7 +144,7 @@
 
             <ul class="slide-menu">
                 <li><a href="{{url('admin/customers')}}" class="slide-item">{{__('admin.customers')}}</a></li>
-                <li><a href="{{url('admin/create')}}" class="slide-item">{{__('admin.customers')}} Add</a></li>
+                <li><a href="{{url('admin/customers/create')}}" class="slide-item">{{__('admin.customers')}} Add</a></li>
             </ul>
 
 
