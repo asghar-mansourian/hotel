@@ -550,5 +550,8 @@ class TranslateSeeder extends Seeder
         'customers' => 'Customers',
         'google_play' => 'Install Google Play',
         'app_store' => 'Install App Store',
+        'rules' => 'rules',
+        'footer_bottom_left' => 'footer bottom left text',
+        'header_up_right' => 'header up right text',
     ];
 }

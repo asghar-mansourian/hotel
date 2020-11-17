@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-5" style="z-index: 1">
                         <div class="index_black pt-5">{{__('website.transport')}}</div>
-                        <div class="font_grey">{{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}</div>
+                        <div class="font_grey">{{__('website.header_up_right')}}</div>
                     </div>
                     <div class="col-md-7">
                         <div class="img_slider">
@@ -108,8 +108,9 @@
                                 <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
                                     <div class="float-left">
                                         <input type="text" name="currency" style="width: 104px;
-    height: 12px;
-    font-size: 11px;
+    width: 104px;
+    height: 7px;
+    font-size: 15px;
     border-top: 0px;
     border-right: 0px;
     border-left: 0px;
@@ -123,11 +124,11 @@ width: 100px;
     padding-top: 0px;
     padding-left: 0px;
     padding-bottom: 0px;
-    height: 22px;
-    font-size: 11px;
+    height: 21px;
+    font-size: 15px;
     border-top: 0px;
     border-right: 0px;
-        text-align-last: center;
+    text-align-last: center;
     border-left: 0px;">
                                         <option class="">{{__('member.select')}}</option>
                                         <option class="dropdown-item" value="RUB">RUB</option>
@@ -138,24 +139,24 @@ width: 100px;
                                     <div class="mt-2"></div>
                                     <div class="float-left">
                                         <input class="result_cal" type="number" value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}" style="       width: 104px;
+    width: 104px;
     height: 7px;
-    font-size: 11px;
+    font-size: 15px;
     border: 0px;
     background-color: white;
     text-align: center;" readonly>
                                     </div>
                                     <select name="to" class=" " aria-labelledby="dropdown_baglama"
-                                            style="    width: 100px;
+                                            style="       width: 100px;
     margin-left: 10px;
     padding-right: 0px;
     padding-top: 0px;
     padding-left: 0px;
     padding-bottom: 0px;
-        text-align-last: center;
-
-    height: 22px;
+    text-align-last: center;
+    height: 27px;
     box-shadow: 0 0 black !important;
-    font-size: 11px;
+    font-size: 15px;
     border: 0;
     text-align: center;
 ">
