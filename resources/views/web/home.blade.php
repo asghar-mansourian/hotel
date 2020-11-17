@@ -110,7 +110,7 @@
         <div class="site_center">
             <div class="container">
                 <div class="row">
-                    <div class="black pt-5 text-center">{{__('website.how')}} shtormex {{__('website.works')}}?
+                    <div class="black pt-5 text-center">{{__('website.howwework')}}?
                         <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -149,20 +149,20 @@
                                         <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4"> <strong>{{$country->name}}</strong>
                                     </div>
                                     @foreach($country->priceCalculators as $priceCalculator)
-                                        <div class="col-md-12 col-sm-12 mb-5 p-0">
+                                        <div class="col-md-12 col-sm-12 mb-3 p-0">
 
                                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="city_grey">{{$country->name}}</div>
-                                                <div class="lit_pink">{{$priceCalculator->from }} - {{$priceCalculator->to }} {{$priceCalculator->unit->title}}</div>
+                                                <div class="lit_pink" style="    font-size: 22px;margin-top: 0;">{{$priceCalculator->from }} - {{$priceCalculator->to }} {{$priceCalculator->unit->title}}</div>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                                 @if($priceCalculator->discount)
                                                     <div class="city_money">
-                                                        <del style="color: pink">{{$priceCalculator->currency}} {{$country->currency}}</del>
-                                                        {{$priceCalculator->currency -  (($priceCalculator->discount / 100) * $priceCalculator->currency)  }} {{$country->currency}}</div>
+                                                        <del style="color: pink">{{$priceCalculator->currency}} $</del>
+                                                        {{$priceCalculator->currency -  (($priceCalculator->discount / 100) * $priceCalculator->currency)  }} $
+                                                    </div>
                                                 @else
                                                     <div class="city_money">
-                                                        {{$priceCalculator->currency}} {{$country->currency}}
+                                                        {{$priceCalculator->currency}} $
                                                     </div>
                                                 @endif
                                             </div>

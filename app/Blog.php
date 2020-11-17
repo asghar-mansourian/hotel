@@ -38,7 +38,7 @@ class Blog extends Model
 
     ];
     const  paginateNumber = 10;
-    const sortType = 'desc';
+    const sortType = 'asc';
     const sortField = 'created_at';
     const selectField = ['title', 'slug', 'created_at', 'content', 'author_id', 'picture', 'status', 'id'];
     const sortArrowTypeChecked = 'desc';

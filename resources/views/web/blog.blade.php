@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('website.blog')}}</div>
+                <div class="black pt-5"><span class="yellow mr-3"></span>{{__('website.blog')}}</div>
                 <div class="italic">{{__('website.subtitle2')}}<br/>{{__('website.subtitle1')}}</div>
             </div>
             <div class="col-md-12 slider_search mt-5">
@@ -20,13 +20,17 @@
                     <div class="col-md-12 col-sm-12 mt-5 mb-5 padding_25">
                         <div class="padding_15">
                             @php
-                                $topBlog = $blogs->count() ? $blogs->first() : null;
+                                $topBlog = $blogs->count() ? $blogs->first() : null
                             @endphp
                             @if($topBlog)
                                 <div class="row">
                                     <div class="col-md-7 p-0">
                                         <div class="blog_mage">
-                                            <div class="blog_img_he"><img src="{{url('images/' . $topBlog->picture)}}"></div>
+                                            <div class="blog_img_he">
+                                                <a href="{{url('/blog/' . $topBlog->slug)}}">
+                                                    <img src="{{url('images/' . $topBlog->picture)}}">
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
@@ -53,7 +57,11 @@
                         <div class="col-md-4 col-sm-6 height_380 mb-5">
                             <div class="p-0">
                                 <div class="blog_mage">
-                                    <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}" class="w-100"></div>
+                                    <div class="blog_img">
+                                        <a href="{{url('/blog/' . $blog->slug)}}">
+                                            <img src="{{url('images/' . $blog->picture)}}" class="w-100">
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="mob_p-4">
                                     <div class="new"><span class="new_span">New</span></div>

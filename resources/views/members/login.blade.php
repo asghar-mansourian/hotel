@@ -16,7 +16,7 @@
                     </div>
                     <div class="text-center">
 
-                        <input type="email" name="email" placeholder="email"
+                        <input type="email" name="email"
                                class="@error('email') is-invalid @enderror w-100 courier_input"
                                value="{{ old('email') }}" style="width: 450px!important;">
                         @error('email')
@@ -34,7 +34,7 @@
                         <label for="" style="width: 450px!important;text-align: left">{{__('member.password')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="password" name="password" placeholder="password" class="w-100 courier_input"
+                        <input type="password" name="password" class="w-100 courier_input"
                                style="width: 450px!important;">
                         @error('password')
                         <br>
@@ -55,6 +55,9 @@
                 </div>
                 <div class="col-md-12 button-part mt-5">
                     <div class="text-center">
+                        <a href="/register" class="mr-3">
+                            <strong>{{__('website.register')}}</strong>
+                        </a>
                         <button type="submit" class="btn-effect">{{__('member.login')}}</button>
                     </div>
                 </div>
