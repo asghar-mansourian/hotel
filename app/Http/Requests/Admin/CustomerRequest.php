@@ -25,7 +25,7 @@ class CustomerRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'picture' => 'required|image|dimensions:width=700,height=300',
+            'picture' => 'required|image',
             'link' => 'required|url'
         ];
     }

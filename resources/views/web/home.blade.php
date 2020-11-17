@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-5" style="z-index: 1">
                         <div class="index_black pt-5">{{__('website.transport')}}</div>
-                        <div class="font_grey">{{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}</div>
+                        <div class="font_grey">{{__('website.header_up_right')}}</div>
                     </div>
                     <div class="col-md-7">
                         <div class="img_slider">
@@ -101,6 +101,71 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 " style="padding-left: 104px; margin-top: 123px;">
+                            <div class="mt-50">
+                                <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
+                                    <div class="float-left">
+                                        <input type="text" name="currency" style="width: 104px;
+    width: 104px;
+    height: 7px;
+    font-size: 15px;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    text-align: center;" value="1" required>
+                                    </div>
+                                    <select name="from" class=" " aria-labelledby="dropdown_baglama"
+                                            style="
+width: 100px;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    height: 21px;
+    font-size: 15px;
+    border-top: 0px;
+    border-right: 0px;
+    text-align-last: center;
+    border-left: 0px;">
+                                        <option class="">{{__('member.select')}}</option>
+                                        <option class="dropdown-item" value="RUB">RUB</option>
+                                        <option class="dropdown-item" selected value="USD">USD</option>
+                                        <option class="dropdown-item" value="TRY">TRY</option>
+                                    </select>
+                                    <div style="clear: both;"></div>
+                                    <div class="mt-2"></div>
+                                    <div class="float-left">
+                                        <input class="result_cal" type="number" value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}" style="       width: 104px;
+    width: 104px;
+    height: 7px;
+    font-size: 15px;
+    border: 0px;
+    background-color: white;
+    text-align: center;" readonly>
+                                    </div>
+                                    <select name="to" class=" " aria-labelledby="dropdown_baglama"
+                                            style="       width: 100px;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    text-align-last: center;
+    height: 27px;
+    box-shadow: 0 0 black !important;
+    font-size: 15px;
+    border: 0;
+    text-align: center;
+">
+                                        <option class="">{{__('member.select')}}</option>
+                                        <option class="dropdown-item" selected value="RUB">RUB</option>
+                                        <option class="dropdown-item" value="USD">USD</option>
+                                        <option class="dropdown-item" value="TRY">TRY</option>
+                                    </select>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -226,16 +291,12 @@
                     <div class="black pt-5 text-center">{{__('website.customers')}}
                         <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
                     </div>
-                    <div class="owl-carousel owl-theme owl-loaded owl-drag">
-                        <div class="owl-stage-outer">
-                            <div class="owl-stage" style="transform: translate3d(-2300px, 0px, 0px); transition: all 0.25s ease 0s; width: 4025px;">
-                                @foreach($customers as $customer)
-                                <div class="owl-item cloned" style="width: 277.5px; margin-right: 10px;">
-                                    <div class="item"><a href="{{$customer->link}}"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a></div>
-                                </div>
-                                @endforeach
+                    <div class="owl-carousel owl-theme">
+                        @foreach($customers as $customer)
+                            <div class="item">
+                                <a href="{{$customer->link}}"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -273,7 +334,7 @@
     </script>
     <script type="text/javascript">
         $('.owl-carousel').owlCarousel({
-            loop: true,
+            loop: false,
             margin: 10,
             // nav:true,
             autoplay: 800,

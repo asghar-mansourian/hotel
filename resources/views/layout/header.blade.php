@@ -4,10 +4,10 @@
         <div class="font_grey " style="display: inline-block">
             <ul>
                 <li style="display: inline; border-right: 1px solid pink">
-                    <a style="    font-size: 9px;" class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}"> {{__('website.faq')}} </a>
+                    <a style="    font-size: 12px;" class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}"> {{__('website.faq')}} </a>
                 </li>
                 <li style="display: inline">
-                    <a style="    font-size: 9px;" class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">&ensp;{{__('website.howwework')}} </a>
+                    <a style="    font-size: 12px;" class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">&ensp;{{__('website.howwework')}} </a>
                 </li>
             </ul>
         </div>
@@ -24,67 +24,6 @@
                     @endif
                 @endforeach
             </div>
-        </div>
-        <div style="display: inline-block">
-            <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
-                <div class="float-left">
-                    <input type="text" name="currency" style="width: 104px;
-    height: 12px;
-    font-size: 11px;
-    border-top: 0px;
-    border-right: 0px;
-    border-left: 0px;
-    text-align: center;" value="1" required>
-                </div>
-                <select name="from" class=" " aria-labelledby="dropdown_baglama"
-                        style="
-width: 100px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-    height: 22px;
-    font-size: 11px;
-    border-top: 0px;
-    border-right: 0px;
-        text-align-last: center;
-    border-left: 0px;">
-                    <option class="">{{__('member.select')}}</option>
-                    <option class="dropdown-item" value="RUB">RUB</option>
-                    <option class="dropdown-item" selected value="USD">USD</option>
-                    <option class="dropdown-item" value="TRY">TRY</option>
-                </select>
-                <div style="clear: both;"></div>
-                <div class="mt-2"></div>
-                <div class="float-left">
-                    <input class="result_cal" type="number" value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}" style="       width: 104px;
-    height: 7px;
-    font-size: 11px;
-    border: 0px;
-    text-align: center;" readonly>
-                </div>
-                <select name="to" class=" " aria-labelledby="dropdown_baglama"
-                        style="    width: 100px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-        text-align-last: center;
-
-    height: 22px;
-    box-shadow: 0 0 black !important;
-    font-size: 11px;
-    border: 0;
-    text-align: center;
-">
-                    <option class="">{{__('member.select')}}</option>
-                    <option class="dropdown-item" selected value="RUB">RUB</option>
-                    <option class="dropdown-item" value="USD">USD</option>
-                    <option class="dropdown-item" value="TRY">TRY</option>
-                </select>
-            </form>
         </div>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">
@@ -114,12 +53,12 @@ width: 100px;
                     </li>
                 @endauth
                 @guest('web')
-                        <li>
-                            <a style="    font-size: 9px;" href="/login">
-                                <strong>{{__('website.login')}}</strong>
-                            </a> |
-                            <a style="    font-size: 9px;" href="/register">
-                                <strong>{{__('website.register')}}</strong>
+                    <li>
+                        <a style="    font-size: 12px;" href="/login">
+                            <strong>{{__('website.login')}}</strong>
+                        </a> |
+                        <a style="    font-size: 12px;" href="/register">
+                            <strong>{{__('website.register')}}</strong>
                         </a>
                     </li>
                     @endguest

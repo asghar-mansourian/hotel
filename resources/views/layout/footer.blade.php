@@ -5,7 +5,7 @@
                 <div class="logo">
                     <img src="./front/image/logo.svg">
                     <div class="font_grey mt-5">
-                        {{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}<br>
+                        {{__('website.footer_bottom_left')}}
                         <div class="mt-3"><a href="#" class="font_black blue"><strong>{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</strong></a></div>
                     </div>
                     <div class="font_black blue mt-3"><strong>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</strong></div>
@@ -33,17 +33,31 @@
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="title_list">{{__('website.service')}}</div>
                 <div class="menu_list mt-5">
-                   <span>
-                       {{\App\Setting::getValue(\App\Setting::FIELD_SERVICE)}}
-                   </span>
+                    {{-- <span>
+                         {{\App\Setting::getValue(\App\Setting::FIELD_SERVICE)}}
+                     </span>--}}
+                    <a href="{{url('/faq')}}"> {{__('website.faq')}} </a>
+                    <br>
+                    <a href="{{url('/how-we-work')}}">{{__('website.howwework')}} </a>
+                    <br>
+                    <a href="#">{{__('website.pricing')}}</a>
+                    <br>
+                    <a href="{{url('/blog')}}">{{__('website.blog')}}</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
                 <div class="title_list">{{__('website.aboutus')}}</div>
                 <div class="menu_list mt-5">
-                    <span>
+                    {{--<span>
                         {{\App\Setting::getValue(\App\Setting::FIELD_ABOUT_US)}}
-                    </span>
+                    </span>--}}
+                    <a href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
+                    <br>
+                    <a href="{{url('/about-us')}}">{{__('website.aboutus')}}</a>
+                    <br>
+                    <a href="{{url('/rules')}}">{{__('website.rules')}}</a>
+                    <br>
+                    <a href="{{url('/customers')}}">{{__('website.customers')}}</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -52,17 +66,14 @@
                     {{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}<br>
                 </div>
                 <div class="mt-5">
-                    <button style="text-align: left; border-radius: 5px;margin-bottom: 10px; width: 215px;     height: 48px;"
-                            onclick="window.open('{{\App\Setting::getValue(\App\Setting::FIELD_LINK_GOOGLE_PLAY)}}', '_blank');">
-                        <img src="{{url('./front/image/android.svg')}}" style="width: 28px">
-                        <span>{{__('website.google_play')}}</span>
-                    </button>
+                    <a href="{{\App\Setting::getValue(\App\Setting::FIELD_LINK_GOOGLE_PLAY)}}">
+                        <img src="{{url('./front/image/android.png')}}" alt="">
+                    </a>
                     <br>
-                    <button style="text-align: left; border-radius: 5px; width: 215px;    height: 48px;"
-                            onclick="window.open('{{\App\Setting::getValue(\App\Setting::FIELD_LINK_APP_STORE)}}', '_blank');">
-                        <img src="{{url('./front/image/apple.svg')}}" style="width: 28px">
-                        <span>{{__('website.app_store')}}</span>
-                    </button>
+                    <br>
+                    <a href="{{\App\Setting::getValue(\App\Setting::FIELD_LINK_APP_STORE)}}">
+                        <img src="{{url('./front/image/apple.png')}}" alt="">
+                    </a>
                 </div>
             </div>
         </div>

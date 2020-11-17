@@ -1,10 +1,13 @@
-<div class="row pt-3 pb-3 mob_dis " style="padding: 0 15px;">
+<div class="row pt-3 pb-3 mob_dis " style="padding: 0 15px; display: flex; align-items: center; text-align: right;">
     <div class="logo">
         <a href="/"><img src="{{url('front/image/logo-express.svg')}}"></a>
     </div>
 
-    <div class="menu_sec">
+    <div class="menu_sec" style="position: relative; right: -294px;">
         <ul>
+            <li>
+                <a href="/customers">{{__('website.customers')}}</a>
+            </li>
             <li>
                 <a href="#">{{__('website.pricing')}}</a>
             </li>
