@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-7 col-sm-7">
-                        <div class="black pt-5">{{__('website.contact')}}<span class="yellow ml-3">Kargo</span></div>
+                        <div class="black pt-5">{{__('website.contact')}}<span class="yellow ml-3"></span></div>
                         <div class="italic">{{__('website.subtitle2')}}<br/>{{__('website.subtitle1')}}</div>
                     </div>
                     <div class="col-md-5 col-sm-5">
@@ -29,25 +29,25 @@
                                     <div class="contact_about">
                                         {{__('website.aboutdesc1')}} <br/>
                                         {{__('website.aboutdesc2')}}
-                                        <div class="contact_bold">Kargoaz@gmail.com</div>
-                                        <div class="contact_bold">781-349-6679</div>
+                                        <div class="contact_bold">{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</div>
+                                        <div class="contact_bold">{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</div>
                                     </div>
                                     <div class="sosyal_list">
                                         <ul class="p-0">
                                             <li>
-                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_FACEBOOK)}}"><i class="fab fa-facebook-f"></i></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_GOOGLE_PLUS)}}"><i class="fab fa-google-plus-g"></i></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_INSTAGRAM)}}"><i class="fab fa-instagram"></i></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_LINKEDIN_IN)}}"><i class="fab fa-linkedin-in"></i></a>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_PINTEREST)}}"><i class="fab fa-pinterest-p"></i></a>
                                             </li>
                                         </ul>
                                     </div>

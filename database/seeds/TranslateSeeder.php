@@ -555,6 +555,9 @@ class TranslateSeeder extends Seeder
         'customers' => 'Customers',
         'google_play' => 'Install Google Play',
         'app_store' => 'Install App Store',
+        'rules' => 'rules',
+        'footer_bottom_left' => 'footer bottom left text',
+        'header_up_right' => 'header up right text',
         'how_calculate' => 'How do I calculate?',
         'how_calculate_description' => 'Record the total amount of products you selected in the "Converter" section. The total amount you will pay in the calculator in manats',
         'country' => 'Country',
@@ -564,7 +567,6 @@ class TranslateSeeder extends Seeder
         'note_description' => 'Remember to take into account the amount of domestic cargo in Turkey required by the sellers in the amounts you calculate',
         'information' => 'Information',
         'company_information_description1' => 'Our company is engaged in the transportation of goods from Turkey and America. Your orders are delivered to Baku twice a week from Turkey and once a week from America.',
-        'company_information_description2' => 'Shtormex offers you affordable delivery from Turkey, starting from $ 2, and from the United States, depending on the weight of your parcels.'
-
+        'company_information_description2'
     ];
 }

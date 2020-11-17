@@ -6,6 +6,9 @@
     <div class="menu_sec">
         <ul>
             <li>
+                <a href="/customers">{{__('website.customers')}}</a>
+            </li>
+            <li>
                 <a class="{{url()->current() === url('/pricing') ? 'active' : ''}}" href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
             </li>
             <li>
