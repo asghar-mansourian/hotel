@@ -95,7 +95,7 @@ Route::group(['namespace' => 'Web'], function () {
         return view('web.how');
     });
 
-    Route::get('/pricing', 'FaqController@index');
+    Route::get('/pricing', 'PricingController@index');
 
     Route::get('customers', 'CustomerController');
 

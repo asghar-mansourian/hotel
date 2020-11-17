@@ -9,7 +9,7 @@
                 <a href="/customers">{{__('website.customers')}}</a>
             </li>
             <li>
-                <a href="#">{{__('website.pricing')}}</a>
+                <a class="{{url()->current() === url('/pricing') ? 'active' : ''}}" href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
             </li>
             <li>
                 <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">{{__('website.blog')}}</a>
