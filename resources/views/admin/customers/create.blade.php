@@ -59,7 +59,7 @@
                             </label>
                             <div class="col-md-9">
 
-                                <input type="file" name="picture" id="picture" class="dropify" data-max-file-size="500K"
+                                <input type="file" name="picture" id="picture" class="dropify"
                                        data-allowed-file-extensions="jpg png" data-default-file="">
                             </div>
                         </div>

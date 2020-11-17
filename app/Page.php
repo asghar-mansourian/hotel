@@ -15,7 +15,7 @@ class Page extends Model
      * @var array
      */
     protected $fillable = [
-        'title' , 'slug' , 'content' , 'status'
+        'title', 'slug', 'content', 'status'
     ];
 
     /**
@@ -26,7 +26,6 @@ class Page extends Model
     protected $hidden = [
 
     ];
-
 
 
     /**
@@ -40,7 +39,7 @@ class Page extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['title', 'content', 'status' , 'id'];
+    const selectField = ['title', 'content', 'status', 'id'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
     const GENDER_MAN = 1;
@@ -49,4 +48,10 @@ class Page extends Model
         self::GENDER_MAN => 'gender_man',
         self::GENDER_WOMAN => 'gender_woman',
     ];
+
+
+    public function scopeFindViaSlug($query, $slug)
+    {
+        return $query->where('slug', $slug)->where('status', 0)->first() ?? abort(404);
+    }
 }
