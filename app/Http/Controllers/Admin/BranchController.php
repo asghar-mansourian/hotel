@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App;
 use App\Branch;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\BranchRequest;
 use App\Region;
 use Illuminate\Http\Request;

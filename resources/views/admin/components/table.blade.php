@@ -25,7 +25,7 @@
                 @else
 
                     <th>
-                        {{__('custom.other.' . $select)}}
+                        {{$select}}
                         <div class="" style="display: none!important;">
 
                             <a class="sort" style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif"
@@ -40,7 +40,7 @@
                     </th>
                 @endif
             @endforeach
-            <th style="text-align: center">{{__('custom.other.actions')}}</th>
+            <th style="text-align: center">Actions</th>
 
         </tr>
         </thead>
@@ -53,9 +53,9 @@
                     @if($select == "status")
                         <td>
                             @if($record->status)
-                                <div class="">  {{__('custom.other.active')}}</div>
+                                <div class=""> Active</div>
                             @else
-                                <div class="">{{__('custom.other.deactive')}}</div>
+                                <div class="">Deactive</div>
                             @endif
                         </td>
                     @else
@@ -92,20 +92,20 @@
                         @if($option == 'show')
                             <a href="{{url('admin/' . $url . '/show/' . $record->id)}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">
-                                <i class="fe fe-eye mr-2"></i>{{__('custom.other.show')}}
+                                <i class="fe fe-eye mr-2"></i>Show
                             </a>
                         @endif
                         @if($option == 'edit')
                             <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
                                data-toggle="tooltip"
                                title="Edit" class="m-l-10 btn btn-success btn-sm">
-                                <i class="fe fe-edit mr-2"></i>{{__('custom.other.edit')}}
+                                <i class="fe fe-edit mr-2"></i>Edit
                             </a>
                         @endif
                         @if($option == 'delete')
                             <a href="{{url('admin/' . $url . '/delete/' . $record->id)}}" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
                                title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
-                                <i class="fe fe-trash mr-2"></i>{{__('custom.other.delete')}}
+                                <i class="fe fe-trash mr-2"></i>Delete
                             </a>
                         @endif
                     @endforeach

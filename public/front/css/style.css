@@ -593,7 +593,7 @@ select:focus, input:focus, textarea:focus {
 
 .footer_yellow {
     background: #f25c68;
-    padding: 40px 0;
+    padding: 17px 0;
     color: #fff;
     font-size: 18px;
     font-family: Montserrat-Bold;
@@ -1970,7 +1970,7 @@ blockquote {
 
 .blog_img img {
     height: 200px;
-    object-fit: cover;
+    object-fit: scale-down;
     border-radius: 30px;
     border: 1px solid #888;
 }

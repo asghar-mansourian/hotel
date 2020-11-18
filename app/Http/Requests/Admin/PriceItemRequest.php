@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FaqRequest extends FormRequest
+class PriceItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class FaqRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,10 +24,13 @@ class FaqRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
-            'content' => ['required', 'max:2550'],
-            'contentru' => ['max:2550'],
-            'contentaz' => ['max:2550'],
+            'froms' => ['required', 'array', 'min:1'],
+            'froms.*' => ['required'],
+            'tos' => ['required', 'array', 'min:1'],
+            'tos.*' => ['required'],
+            'prices' => ['required', 'array', 'min:1'],
+            'prices.*' => ['required'],
+
         ];
     }
 }

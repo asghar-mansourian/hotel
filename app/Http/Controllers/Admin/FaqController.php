@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App;
 use App\Faq;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\FaqRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -56,6 +56,10 @@ class FaqController extends Controller
         Faq::query()->insert([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
         ]);
 
         session()->flash('message', __('custom.FAQ.message.create'));
@@ -122,7 +126,10 @@ class FaqController extends Controller
         Faq::query()->where('id', $id)->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
         ]);
 
         session()->flash('message', __('custom.FAQ.message.update'));

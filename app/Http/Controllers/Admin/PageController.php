@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\PageRequest;
 use App\Page;
 use Illuminate\Http\Request;
@@ -57,6 +57,10 @@ class PageController extends Controller
             'title' => $request->input('title'),
             'slug' => $title,
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'status' => $request->input('status'),
         ]);
 
@@ -126,6 +130,10 @@ class PageController extends Controller
             'title' => $request->input('title'),
             'slug' => $title,
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'status' => $request->input('status'),
         ]);
 

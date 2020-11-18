@@ -101,6 +101,8 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('pages/{slug}', 'PageController');
 
+    Route::get('get-price-via-weight/{weight}', 'PriceItemController');
+
 });
 
 

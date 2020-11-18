@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\traits;
+namespace App\Http\Controllers\Traits;
 
 use Illuminate\Support\Facades\Validator;
 
-trait ValidatorRequest{
+trait ValidatorRequest
+{
 
-    public function validateRules($rules ,$request)
+    public function validateRules($rules, $request)
     {
         $validator = Validator::make($request->all(), $rules);
 

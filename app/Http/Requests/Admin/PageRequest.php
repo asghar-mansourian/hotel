@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Rules\ExistsGender;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PageRequest extends FormRequest
@@ -26,7 +25,9 @@ class PageRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'content' => ['required',  'max:2550'],
+            'content' => ['required', 'max:2550'],
+            'contentru' => ['max:2550'],
+            'contentaz' => ['max:2550'],
             'status' => ['required'],
 
         ];

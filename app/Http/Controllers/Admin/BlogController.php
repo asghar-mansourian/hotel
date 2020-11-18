@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App;
 use App\Admin;
 use App\Blog;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\BlogRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -75,6 +75,10 @@ class BlogController extends Controller
             'slug' => $title,
             'picture' => $name,
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'author_id' => $request->input('author_id'),
             'status' => $request->input('status'),
         ]);
@@ -163,6 +167,10 @@ class BlogController extends Controller
             'slug' => $title,
             'picture' => $name,
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'author_id' => $request->input('author_id'),
             'status' => $request->input('status'),
         ]);

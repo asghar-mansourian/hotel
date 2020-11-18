@@ -4,7 +4,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="logo">
                     <img src="./front/image/logo.svg">
-                    <div class="font_grey mt-5">
+                    <div class="font_grey mt-5" style="    color: #151f59;">
                         {{__('website.footer_bottom_left')}}
                         <div class="mt-3"><a href="#" class="font_black blue"><strong>{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</strong></a></div>
                     </div>
@@ -38,11 +38,11 @@
                      </span>--}}
                     <a href="{{url('/faq')}}"> {{__('website.faq')}} </a>
                     <br>
-                    <a href="{{url('/how-we-work')}}">{{__('website.howwework')}} </a>
+                    <a style="line-height: 43px;" href="{{url('/how-we-work')}}">{{__('website.howwework')}} </a>
                     <br>
                     <a href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
                     <br>
-                    <a href="{{url('/blog')}}">{{__('website.blog')}}</a>
+                    <a style="line-height: 43px;" href="{{url('/blog')}}">{{__('website.blog')}}</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
@@ -53,26 +53,26 @@
                     </span>--}}
                     <a href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
                     <br>
-                    <a href="{{url('pages/about-us')}}">{{__('website.aboutus')}}</a>
+                    <a style="line-height: 43px;" href="{{url('pages/about-us')}}">{{__('website.aboutus')}}</a>
                     <br>
                     <a href="{{url('pages/rules')}}">{{__('website.rules')}}</a>
                     <br>
-                    <a href="{{url('/customers')}}">{{__('website.customers')}}</a>
+                    <a style="line-height: 43px;" href="{{url('/customers')}}">{{__('website.customers')}}</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="title_list">{{__('website.ouraddress')}}</div>
-                <div class="font_grey mt-5">
+                <div class="font_grey mt-5" style="    color: #151f59;">
                     {{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}<br>
                 </div>
                 <div class="mt-5">
                     <a href="{{\App\Setting::getValue(\App\Setting::FIELD_LINK_GOOGLE_PLAY)}}">
-                        <img src="{{url('./front/image/android.png')}}" alt="">
+                        <img src="{{url('./front/image/android.png')}}" alt="" style="    width: 45%;">
                     </a>
                     <br>
                     <br>
                     <a href="{{\App\Setting::getValue(\App\Setting::FIELD_LINK_APP_STORE)}}">
-                        <img src="{{url('./front/image/apple.png')}}" alt="">
+                        <img src="{{url('./front/image/apple.png')}}" alt="" style="    width: 45%;">
                     </a>
                 </div>
             </div>

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Web;
 use App;
 use App\Blog;
 use App\Faq;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use Illuminate\Support\Facades\View;
 
 class FaqController extends Controller
@@ -16,7 +16,7 @@ class FaqController extends Controller
     public function index()
     {
         $faqs = Faq::query()
-            ->select(Faq::selectField)
+            ->select($this->customSelectedFields())
             ->orderBy(Faq::sortField, Blog::sortType)
             ->paginate(Faq::paginateNumber);
         return View::make('web.faq', compact('faqs'), with([
@@ -26,5 +26,14 @@ class FaqController extends Controller
 
     }
 
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $content = app()->getLocale() !== 'en' ? "content_{$locale} as content" : 'content';
+        $title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
+
+        return [$title, $content, 'id'];
+    }
 
 }

@@ -3,16 +3,10 @@
 namespace App\Http\Controllers\Web;
 
 use App;
-use App\Blog;
-use App\Admin;
 use App\Contact;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
-use App\Rules\ExistsGender;
-use App\User;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
 
 class ContactController extends Controller
 {

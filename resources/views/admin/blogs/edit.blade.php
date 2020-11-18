@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add blog
+    {{__('admin.dashboard')}} |  {{__('admin.editblog')}}
 @endsection
 
 @section('styleCustom')
@@ -51,10 +51,28 @@
                                 {{$blog->title}}
                             @endslot
                         @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                {{__('admin.title_ru')}}
+                            @endslot
+                            @slot('name')
+                                title_ru
+                            @endslot
+                            @slot('type')
+                                text
+                            @endslot
+                            @slot('placeholder')
+                                {{__('admin.pleasetitle_ru')}}
+                            @endslot
+                            @slot('value')
+                                {{$blog->title_ru}}
+                            @endslot
+                        @endcomponent
+
 
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                Content
+                                {{__('admin.content')}}
                             </label>
                             <div class="col-md-9">
 
@@ -68,7 +86,21 @@
 
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                picture
+                                {{__('admin.content_ru')}}
+                            </label>
+                            <div class="col-md-9">
+
+                            <textarea class="form-control" name="contentru"
+                                      id="contentru" placeholder="" cols="30" rows="10">
+ {!! $blog->content_ru !!}
+                            </textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                {{__('admin.picture')}}
                             </label>
                             <div class="col-md-9">
 
@@ -130,7 +162,7 @@
                                 Save
                             @endslot
                         @endcomponent
-                            <a href="{{url('admin/blogs')}}" class="btn btn-danger btn-block ">{{__('custom.other.cancel')}}</a>
+                        <a href="{{url('admin/blogs')}}" class="btn btn-danger btn-block ">{{__('admin.cancel')}}</a>
                     @endslot
                 @endcomponent
 
@@ -150,7 +182,9 @@
     @endcomponent
 
     @component('admin.components.ckeditor')
-
+        @slot('ids')
+            content,contentru,contentaz
+        @endslot
     @endcomponent
 
     @component('admin.components.form.pictureScript')
@@ -165,7 +199,7 @@
 
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
-            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.addblog')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.editblog')}}</li>
         @endslot
     @endcomponent
 @endsection

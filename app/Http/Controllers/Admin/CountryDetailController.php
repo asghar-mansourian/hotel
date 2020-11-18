@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Country;
 use App\CountryDetail;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\CountryDetailRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;

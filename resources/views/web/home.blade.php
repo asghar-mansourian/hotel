@@ -24,82 +24,7 @@
                         <div class="col-md-7">
                             <div class="bacg_img">
                                 <div class="pricing_wi border_sh">
-                                    <div class="row">
-                                        <div class="col-md-12 mb-4 font_pink"><strong>{{__('website.calculator')}}</strong></div>
-                                        <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <div class="pricing_box_cou">
-                                                <select>
-                                                    <option>{{__('website.home_page.country')}}</option>
-                                                    <option>Türkiye</option>
-                                                    <option>Chin</option>
-                                                    <option>ABŞ</option>
-                                                    <option>Almania</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <div class="pricing_box_cou">
-                                                <select>
-                                                    <option>{{__('website.home_page.region')}}</option>
-                                                    <option>Bakı</option>
-                                                    <option>Gəncə</option>
-                                                    <option>Sumqayıt</option>
-                                                    <option>Zaqatala</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.binding_number')}}">
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.weight')}}">
-                                            <div class="pricing_box">
-                                                <select>
-                                                    <option>{{__('website.home_page.weights.kg')}}</option>
-                                                    <option>{{__('website.home_page.weights.gram')}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.home_page.en')}}">
-                                            <div class="pricing_box">
-                                                <select>
-                                                    <option>{{__('website.home_page.sm')}}</option>
-                                                    <option>{{__('website.home_page.m')}}</option>
-                                                    <option>{{__('website.home_page.dm')}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.length')}}">
-                                            <div class="pricing_box">
-                                                <select>
-                                                    <option>{{__('website.home_page.sm')}}</option>
-                                                    <option>{{__('website.home_page.m')}}</option>
-                                                    <option>{{__('website.home_page.dm')}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 mt-3 mb-3">
-                                            <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.height')}}">
-                                            <div class="pricing_box">
-                                                <select>
-                                                    <option>{{__('website.home_page.sm')}}</option>
-                                                    <option>{{__('website.home_page.m')}}</option>
-                                                    <option>{{__('website.home_page.dm')}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-sm-12 col-xs-12 mt-4"></div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 mt-3 mb-3 pricing_price_blue">
-                                            <button id="calculate" class="btn-effect border-btn">{{__('website.calculate')}}</button>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 mt-3 mb-3 pricing_price text-right">
-                                            <div class="all">
-                                                {{__('website.total')}} : <strong class="ml-3"><i class="fas fa-dollar-sign"></i> 3</strong>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @include('web.partials.pricing')
                                 </div>
                             </div>
                         </div>
@@ -201,6 +126,38 @@ width: 100px;
                     </div>
                 </div>
             </div>
+            <div class="video">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <div class="video_bord">
+                                <img src="./front/image/blog/blog.png" class="w-100">
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="video_text">
+                                <h3><strong>{{__('website.follow_video_instructions')}}</strong></h3>
+                                <div class="font_pink">{{__('website.follow_video_instructions_new_style')}}</div>
+                                {{__('website.follow_video_instructions_online_shopping')}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="partner">
+                <div class="container">
+                    <div class="black pt-5 text-center">{{__('website.customers')}}
+                        <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        @foreach($customers as $customer)
+                            <div class="item">
+                                <a href="{{$customer->link}}" target="_blank"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row city">
                     <div class="col-md-12 black">{{__('website.tariffs_by_countries')}}
@@ -239,24 +196,6 @@ width: 100px;
                     @endforeach
                 </div>
             </div>
-            <div class="video">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8">
-                            <div class="video_bord">
-                                <img src="./front/image/blog/blog.png" class="w-100">
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="video_text">
-                                <h3><strong>{{__('website.follow_video_instructions')}}</strong></h3>
-                                <div class="font_pink">{{__('website.follow_video_instructions_new_style')}}</div>
-                                {{__('website.follow_video_instructions_online_shopping')}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="site_center mt-5">
                 <div class="container">
                     <div class="row">
@@ -281,20 +220,6 @@ width: 100px;
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-            <div class="partner">
-                <div class="container">
-                    <div class="black pt-5 text-center">{{__('website.customers')}}
-                        <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
-                    </div>
-                    <div class="owl-carousel owl-theme">
-                        @foreach($customers as $customer)
-                            <div class="item">
-                                <a href="{{$customer->link}}"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a>
                             </div>
                         @endforeach
                     </div>
