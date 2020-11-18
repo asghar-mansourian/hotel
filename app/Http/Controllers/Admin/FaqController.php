@@ -56,6 +56,8 @@ class FaqController extends Controller
         Faq::query()->insert([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
         ]);
 
         session()->flash('message', __('custom.FAQ.message.create'));
@@ -122,7 +124,8 @@ class FaqController extends Controller
         Faq::query()->where('id', $id)->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
         ]);
 
         session()->flash('message', __('custom.FAQ.message.update'));
