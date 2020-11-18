@@ -13,7 +13,7 @@ class InquiryController extends Controller
     public function index()
     {
         $inquirys = Inquiry::where(
-            'parent_id',null)->orderBy('seen')->orderBy('created_at','desc')->get();
+            'parent_id',null)->orderBy('seen')->orderBy('created_at','desc')->paginate(Inquiry::paginateNumber);
         return view('admin.inquiry.index')->with('inquirys',$inquirys);
     }
 

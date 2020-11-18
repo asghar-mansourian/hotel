@@ -4,10 +4,10 @@
             cursor:pointer
         }
         .img_comment{
-            with:50px;
+            width:auto;
             height:50px;
         }
-        pre{
+        p{
             background-color: darkseagreen;
         }
         .right{
@@ -18,39 +18,47 @@
     </style>
     @endsection
 <div class="right">
-<pre>
+<p>
     {{__('member.title')}}: {{$inquiry->title}}
+    <br>
     {{$inquiry->message}}
     @if($inquiry->image)
-        <img class="img1" src="{{storage_path($inquiry->image->file_name)}}">
+        <br>
+        <img class="img_comment" src="{{ route('storage_image',$inquiry->image->id) }}">
     @endif
-    {{__('member.date')}}{{$inquiry->created_at}}
-</pre>
+    <br>
+    {{__('member.date')}}: {{$inquiry->created_at}}
+</p>
 
 
 </div>
 @foreach($inquiry->inquirys as $inquiry_child)
        @if($inquiry_child->user_id == auth()->user()->id)
            <div class="right">
-               <pre>
+               <p>
                    {{$inquiry_child->message}}
                    @if($inquiry_child->image)
+                       <br>
                        <img class="img_comment" src="{{ route('storage_image',$inquiry_child->image->id) }}">
+
                    @endif
-                   {{__('member.date')}}{{$inquiry_child->created_at}}
-               </pre>
+                   <br>
+                   {{__('member.date')}}: {{$inquiry_child->created_at}}
+               </p>
            </div>
 
            @else
            <div class="right">
-               <pre style="background-color: #fff3cd">
-                   {{__('member.admin')}}
+               <p style="background-color: #fff3cd">
+                   {{__('member.answer')}}:
                    {{$inquiry_child->message}}
                    @if($inquiry_child->image)
+                       <br>
                        <img class="img_comment" src="{{ route('storage_image',$inquiry_child->image->id) }}">
                    @endif
-                   {{__('member.date')}}{{$inquiry_child->created_at}}
-               </pre>
+                   <br>
+                   {{__('member.date')}}: {{$inquiry_child->created_at}}
+               </p>
            </div>
        @endif
 @endforeach
@@ -74,6 +82,7 @@
         <img class="img-responsive" src="" id="show-img">
     </div>
 </div>
+       @section('footerCustom')
     <script>
         $(document).ready(function(){
             $(".img_comment").click(function(){
@@ -83,5 +92,6 @@
             });
         });
     </script>
+           @endsection
 
 

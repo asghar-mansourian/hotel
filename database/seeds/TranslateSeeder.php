@@ -265,6 +265,7 @@ class TranslateSeeder extends Seeder
         'general.message.customer_create_successful' => 'Customer Create Successful',
         'general.message.customer_update_successful' => 'Customer Update Successful',
         'general.message.customer_delete_successful' => 'Customer Delete Successful',
+        'custom.admin.inquiry.index.title' => 'Inquiry Index'
     ];
 
     private $member_items = [
@@ -434,7 +435,8 @@ class TranslateSeeder extends Seeder
         'enterconfirmpassword' => 'Password Confirmation',
         'street' => 'Street',
         'admin' => 'Admin',
-        'id' => 'ID'
+        'id' => 'ID',
+        'answer' => 'Answer'
     ];
 
     private $website_items = [
