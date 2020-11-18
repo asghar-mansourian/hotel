@@ -36,6 +36,22 @@
                             @slot('value')
                             @endslot
                         @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                {{__('admin.title_ru')}}
+                            @endslot
+                            @slot('name')
+                                title_ru
+                            @endslot
+                            @slot('type')
+                                text
+                            @endslot
+                            @slot('placeholder')
+                                {{__('admin.pleasetitle_ru')}}
+                            @endslot
+                            @slot('value')
+                            @endslot
+                        @endcomponent
 
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">

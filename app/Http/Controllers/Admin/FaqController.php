@@ -58,6 +58,8 @@ class FaqController extends Controller
             'content' => $request->input('content'),
             'content_ru' => $request->input('contentru') ?? null,
             'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
         ]);
 
         session()->flash('message', __('custom.FAQ.message.create'));
@@ -126,6 +128,8 @@ class FaqController extends Controller
             'content' => $request->input('content'),
             'content_ru' => $request->input('contentru') ?? null,
             'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
         ]);
 
         session()->flash('message', __('custom.FAQ.message.update'));
