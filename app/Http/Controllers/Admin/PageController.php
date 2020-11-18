@@ -57,6 +57,8 @@ class PageController extends Controller
             'title' => $request->input('title'),
             'slug' => $title,
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
             'status' => $request->input('status'),
         ]);
 
@@ -126,6 +128,8 @@ class PageController extends Controller
             'title' => $request->input('title'),
             'slug' => $title,
             'content' => $request->input('content'),
+            'content_ru' => $request->input('contentru') ?? null,
+            'content_az' => $request->input('contentaz') ?? null,
             'status' => $request->input('status'),
         ]);
 

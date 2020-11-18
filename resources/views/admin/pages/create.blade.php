@@ -52,6 +52,33 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                {{__('admin.content_ru')}}
+                            </label>
+                            <div class="col-md-9">
+
+                            <textarea class="form-control" name="contentru"
+                                      id="contentru" placeholder="" cols="30" rows="10">
+
+                            </textarea>
+                            </div>
+                        </div>
+
+                        {{--  <div class="form-group row">
+                              <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                  {{__('admin.content_az')}}
+                              </label>
+                              <div class="col-md-9">
+
+                          <textarea class="form-control" name="contentaz"
+                                    id="contentaz" placeholder="" cols="30" rows="10">
+
+                          </textarea>
+                              </div>
+                          </div>--}}
+
                         @component('admin.components.form.optionLabel')
                             @slot('label')
                                 {{__('admin.status')}}
@@ -111,7 +138,9 @@
     @endcomponent
 
     @component('admin.components.ckeditor')
-
+        @slot('ids')
+            content,contentru,contentaz
+        @endslot
     @endcomponent
 @endsection
 

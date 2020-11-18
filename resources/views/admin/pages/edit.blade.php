@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Page
+    {{__('admin.dashboard')}}  | {{__('admin.editpage')}}
 @endsection
 
 @section('styleCustom')
@@ -41,14 +41,42 @@
 
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                Content
+                                {{__('admin.content')}}
                             </label>
                             <div class="col-md-9">
-                                    <textarea class="form-control" name="content" id="content" placeholder="" cols="30" rows="10">
+                                    <textarea class="form-control" id="content" name="content" id="contents" placeholder="" cols="30" rows="10">
                                         {!! $page->content !!}
                                     </textarea>
                             </div>
+
                         </div>
+
+
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                {{__('admin.content_ru')}}
+                            </label>
+                            <div class="col-md-9">
+
+                            <textarea class="form-control" name="contentru"
+                                      id="contentru" placeholder="" cols="30" rows="10">
+ {!! $page->content_ru !!}
+                            </textarea>
+                            </div>
+                        </div>
+
+                        {{--              <div class="form-group row">
+                                          <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                              {{__('admin.content_az')}}
+                                          </label>
+                                          <div class="col-md-9">
+
+                                      <textarea class="form-control" name="contentaz"
+                                                id="contentaz" placeholder="" cols="30" rows="10">
+           {!! $page->content_az !!}
+                                      </textarea>
+                                          </div>
+                                      </div>--}}
 
                         @component('admin.components.form.optionLabel')
                             @slot('label')
@@ -86,7 +114,7 @@
                                 btn-block btn-info
                             @endslot
                             @slot('title')
-                                {{__('admin.save')}}
+                                    {{__('admin.save')}}
                             @endslot
                         @endcomponent
 
@@ -109,7 +137,9 @@
     @endcomponent
 
     @component('admin.components.ckeditor')
-
+        @slot('ids')
+            content,contentru,contentaz
+        @endslot
     @endcomponent
 @endsection
 
