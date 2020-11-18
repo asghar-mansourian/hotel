@@ -184,10 +184,22 @@ route::post('/inquiry-store','InquiryController@store')->name('admin_inquiry_sto
 
 
 //Customers
-route::get('/customers','CustomerController@index');
-route::get('/customers/create','CustomerController@create');
-route::post('/customers/store','CustomerController@store');
-route::get('/customers/edit/{id}','CustomerController@edit');
-route::post('/customers/update/{id}','CustomerController@update');
-route::get('/customers/destroy/{id}','CustomerController@delete');
-route::post('customers/search','CustomerController@search');
+route::get('/customers', 'CustomerController@index');
+route::get('/customers/create', 'CustomerController@create');
+route::post('/customers/store', 'CustomerController@store');
+route::get('/customers/edit/{id}', 'CustomerController@edit');
+route::post('/customers/update/{id}', 'CustomerController@update');
+route::get('/customers/destroy/{id}', 'CustomerController@delete');
+route::post('customers/search', 'CustomerController@search');
+
+
+/*      Country Details Routes      */
+route::get('/price-items', 'PriceItemController@index');
+route::get('/price-items/create', 'PriceItemController@create');
+route::post('/price-items/store/', 'PriceItemController@store');
+route::get('/price-items/edit/{id}', 'PriceItemController@edit');
+route::post('/price-items/update/{id}', 'PriceItemController@update');
+route::get('/price-items/destroy/{id}', 'PriceItemController@destroy');
+route::post('/price-items/search/', 'PriceItemController@search');
+route::post('/price-items/sort/', 'PriceItemController@sort');
+route::get('/price-items/load', 'PriceItemController@load');

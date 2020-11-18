@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\PageRequest;
 use App\Page;
 use Illuminate\Http\Request;

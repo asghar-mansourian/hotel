@@ -5,13 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\ImageController;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\CustomerRequest;
 use App\Http\Requests\Admin\UpdateCustomerRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\lib\Customer as CustomerHelper;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
-use function Sodium\compare;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {

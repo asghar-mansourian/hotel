@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Customer;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 
 class CustomerController extends Controller
 {

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App;
-use App\Country;
 use App\Contact;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ContactRequest;
 use Illuminate\Http\Request;

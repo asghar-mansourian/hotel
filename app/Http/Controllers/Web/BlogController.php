@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Web;
 
 use App;
 use App\Blog;
-use App\Http\Controllers\Admin\traits\ValidatorRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ValidatorRequest;
 use Illuminate\Support\Facades\View;
 
 class BlogController extends Controller

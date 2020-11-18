@@ -567,6 +567,8 @@ class TranslateSeeder extends Seeder
         'note_description' => 'Remember to take into account the amount of domestic cargo in Turkey required by the sellers in the amounts you calculate',
         'information' => 'Information',
         'company_information_description1' => 'Our company is engaged in the transportation of goods from Turkey and America. Your orders are delivered to Baku twice a week from Turkey and once a week from America.',
-        'company_information_description2'
+        'company_information_description2',
+        'russia' => 'russia',
+        'turkey' => 'turkey'
     ];
 }
