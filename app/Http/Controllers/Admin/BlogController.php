@@ -77,6 +77,8 @@ class BlogController extends Controller
             'content' => $request->input('content'),
             'content_ru' => $request->input('contentru') ?? null,
             'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'author_id' => $request->input('author_id'),
             'status' => $request->input('status'),
         ]);
@@ -167,6 +169,8 @@ class BlogController extends Controller
             'content' => $request->input('content'),
             'content_ru' => $request->input('contentru') ?? null,
             'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'author_id' => $request->input('author_id'),
             'status' => $request->input('status'),
         ]);
