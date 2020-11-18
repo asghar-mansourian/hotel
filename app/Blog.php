@@ -28,7 +28,6 @@ class Blog extends Model
     ];
 
 
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -37,6 +36,7 @@ class Blog extends Model
     protected $casts = [
 
     ];
+
     const  paginateNumber = 10;
     const sortType = 'asc';
     const sortField = 'created_at';
@@ -46,7 +46,7 @@ class Blog extends Model
 
     public function author()
     {
-        return $this->belongsTo(Admin::class ,'author_id' ,'id');
+        return $this->belongsTo(Admin::class, 'author_id', 'id');
     }
 
 }
