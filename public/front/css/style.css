@@ -1970,7 +1970,7 @@ blockquote {
 
 .blog_img img {
     height: 200px;
-    object-fit: cover;
+    object-fit: scale-down;
     border-radius: 30px;
     border: 1px solid #888;
 }
