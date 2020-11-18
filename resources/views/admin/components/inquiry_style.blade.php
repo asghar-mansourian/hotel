@@ -3,13 +3,13 @@
         cursor:pointer
     }
     .img_comment{
-        with:50px;
-        height:50px;
+        width:150px;
+        height:200px;
     }
     div{
         padding-right:10px;
     }
-    pre{
+    p{
         width:100%;
     }
     .right{

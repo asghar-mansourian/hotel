@@ -1,11 +1,20 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | Tl Balance
+    Kargo | Inquiry
 @endsection
 
 @section('main')
     @include('members.partials.top_panel')
+    @section('styles')
+       <style>
+           .truncate-paragraph{
+               width: 100px;
+               text-overflow: ellipsis;
+               overflow: hidden;
+           }
+       </style>
+    @endsection
     <div class="mt-5">
         <div class="border_sh courier_out">
             <div class="row">
@@ -27,7 +36,8 @@
                     <tr>
                         <td>{{$inquiry->id}}</td>
                         <td>{{$inquiry->user ->name}}</td>
-                        <td><a href="{{route('inquiry_show',$inquiry->id)}}">
+                        <td ><a  href="{{route('inquiry_show',$inquiry->id)}}">
+                                <p class="truncate-paragraph">
                                 @if($inquiry->inquirys->count())
                                 {{$inquiry->inquirys->last()->message}}
                                 @else
@@ -38,6 +48,7 @@
                                     {{$inquiry->inquirys()->where('seen','not-seen')->where('user_id','!=',auth()->user()->id)->count()}}
                                 </span>
                                 @endif
+                                </p>
                             </a>
                         </td>
                         @if($inquiry->inquirys()->where('seen','not-seen')->count())
@@ -49,6 +60,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{$inquirys->links()}}
             <div class="row">
                 @include('members.partials.validation_errors')
                 <form method="post" action="{{route('inquiry_store')}}" enctype="multipart/form-data">

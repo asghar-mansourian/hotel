@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.contact.index.title')}}
+    {{__('custom.admin.panel.title')}} | {{__('custom.admin.inquiry.index.title')}}
 @endsection
 
 @section('styleCustom')
@@ -32,36 +32,43 @@
         {{--        </div>--}}
 
         <div class="col-12" id="">
-            <div class="right">
-               <pre>
+            <div class="card">
+               <p>
                    {{__('admin.title')}}: {{$inquiry->title}}
-                   {{$inquiry->message}}
+                   <br>
+                        {{$inquiry->message}}
+                   <br>
                    @if($inquiry->image)
-                      <img class="img1" src="{{storage_path($inquiry->image->file_name)}}">
+                      <img class="img_comment" src="{{route('storage_image',$inquiry->image->id)}}">
+                       <br>
                    @endif
                    {{__('admin.date')}}: {{$inquiry->created_at}}
-               </pre>
+               </p>
             </div>
             @foreach($inquiry->inquirys as $inquiry_child)
                 @if($inquiry_child->user_id == auth()->user()->id)
-                    <div class="right">
-                        <pre>
+                    <div class="card" style="background-color: #2d7a4f">
+                        <p>
                             {{$inquiry_child->message}}
+                            <br>
                             @if($inquiry_child->image)
                                 <img class="img_comment" src="{{ route('storage_image',$inquiry_child->image->id) }}">
+                                <br>
                             @endif
                             {{__('admin.date')}}: {{$inquiry_child->created_at}}
-                        </pre>
+                        </p>
                     </div>
                 @else
-                    <div class="right">
-                        <pre style="background-color: #fff3cd">
+                    <div class="card" >
+                        <p >
                             {{$inquiry_child->message}}
+                            <br>
                             @if($inquiry_child->image)
                                 <img class="img_comment" src="{{ route('storage_image',$inquiry_child->image->id) }}">
+                                <br>
                             @endif
                             {{__('admin.date')}}: {{$inquiry_child->created_at}}
-                        </pre>
+                        </p>
                     </div>
                 @endif
             @endforeach
@@ -158,7 +165,7 @@
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
                     href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.contact.title')}}
+            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.inquiry.title')}}
             </li>
         @endslot
     @endcomponent
