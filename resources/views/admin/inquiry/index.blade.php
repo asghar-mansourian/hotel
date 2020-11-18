@@ -1,12 +1,19 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.contact.index.title')}}
+    {{__('custom.admin.panel.title')}} | {{__('custom.admin.inquiry.index.title')}}
 @endsection
 
 @section('styleCustom')
     @component('admin.components.pagination')
     @endcomponent
+    <style>
+        .truncate-paragraph{
+            width: 100px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    </style>
 @endsection
 
 @section('main')
@@ -54,23 +61,26 @@
                     <tr>
                         <td>{{$inquiry->id}}</td>
                         <td>{{$inquiry->user ->name}}</td>
-                        <td><a href="{{'inquiry-show/'.$inquiry->id}}">
-                                @if($inquiry->inquirys->count())
-                                    {{$inquiry->inquirys->last()->message}}
-                                @else
-                                    {{$inquiry->message}}
-                                @endif
-                                @if($inquiry->inquirys()->where('seen','not-seen')->where('user_id','!=',auth()->user()->id)->count())
-                                <span class="badge badge-success side-badge">
-                                    {{$inquiry->inquirys()->where('seen','not-seen')->where('user_id','!=',auth()->user()->id)->count()}}
-                                </span>
-                                @endif
+                        <td><a href="{{route('admin_inquiry_show',$inquiry->id)}}">
+                                <p class="truncate-paragraph">
+                                    @if($inquiry->inquirys->count())
+                                        {{$inquiry->inquirys->last()->message}}
+                                    @else
+                                        {{$inquiry->message}}
+                                    @endif
+                                    @if($inquiry->inquirys()->where('seen','not-seen')->where('user_id','!=',auth()->user()->id)->count())
+                                        <span class="badge badge-success side-badge">
+                                            {{$inquiry->inquirys()->where('seen','not-seen')->where('user_id','!=',auth()->user()->id)->count()}}
+                                        </span>
+                                    @endif
+                                </p>
                             </a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+            {{$inquirys->links()}}
         </div>
     </div>
 </div>
@@ -89,7 +99,7 @@
     @endcomponent
     @component('admin.components.script.paginatorScript' , ['type' => 2])
         @slot('paginatorUrl')
-            contacts/load?page=
+            inquiry?page=
         @endslot
     @endcomponent
     @component('admin.components.script.searchScript')
@@ -124,7 +134,7 @@
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
                     href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.contact.title')}}
+            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.inquiry.title')}}
             </li>
         @endslot
     @endcomponent

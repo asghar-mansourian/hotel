@@ -10,6 +10,7 @@ class Inquiry extends Model
 
     protected $guarded = ['id'];
 
+    const  paginateNumber = 10;
     public function image()
     {
         return $this->morphOne('App\Image','imageable');

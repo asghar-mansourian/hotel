@@ -16,7 +16,7 @@ class InquiryController extends Controller
         $inquirys = Inquiry::where([
             'user_id' => auth()->user()->id,
             'parent_id' => null
-        ])->get();
+        ])->orderBy('created_at','desc')->paginate(Inquiry::paginateNumber);
         return view('members.inquiry.index')->with('inquirys', $inquirys);
     }
     public function store(InquiryRequest $request)
