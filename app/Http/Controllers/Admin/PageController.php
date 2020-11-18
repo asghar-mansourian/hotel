@@ -59,6 +59,8 @@ class PageController extends Controller
             'content' => $request->input('content'),
             'content_ru' => $request->input('contentru') ?? null,
             'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'status' => $request->input('status'),
         ]);
 
@@ -130,6 +132,8 @@ class PageController extends Controller
             'content' => $request->input('content'),
             'content_ru' => $request->input('contentru') ?? null,
             'content_az' => $request->input('contentaz') ?? null,
+            'title_ru' => $request->input('title_ru') ?? null,
+            'title_az' => $request->input('title_az') ?? null,
             'status' => $request->input('status'),
         ]);
 

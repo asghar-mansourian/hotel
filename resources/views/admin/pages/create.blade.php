@@ -36,6 +36,23 @@
                             @slot('value')
                             @endslot
                         @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                {{__('admin.title_ru')}}
+                            @endslot
+                            @slot('name')
+                                title_ru
+                            @endslot
+                            @slot('type')
+                                text
+                            @endslot
+                            @slot('placeholder')
+                                {{__('admin.pleasetitle_ru')}}
+                            @endslot
+                            @slot('value')
+                            @endslot
+                        @endcomponent
+
 
 
 
