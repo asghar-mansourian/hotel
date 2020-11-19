@@ -31,7 +31,7 @@
                         <form action="{{url('/payment/gate')}}" method="post">
                             @csrf
                             <input type="number" id="balance_val" required="" placeholder="USD" name="amount">
-                            <input type="number" id="new_balance_val" required="" placeholder="AZN" name="amount_azn" readonly="">
+                            <input type="number" id="new_balance_val" required="" placeholder="TRY" name="amount_azn" readonly="">
                             <button type="submit" class="payment_button">{{__('member.balanceincreases')}}</button>
                         </form>
                     </div>
