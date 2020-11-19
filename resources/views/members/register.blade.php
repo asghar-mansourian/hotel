@@ -97,9 +97,10 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.country')}}:</label>
                     </div>
                     <div class="text-center">
-                        <select name="country_id" onchange="getRegion(this.value)" aria-labelledby="dropdown_baglama" style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
-                            <option class="dropdown-item" value="null">please select country</option>
-                        @foreach($countries as $country)
+                        <select name="country_id" onchange="getRegion(this.value)" aria-labelledby="dropdown_baglama"
+                                style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
+                            <option class="dropdown-item" value="null">{{__('member.please_select_country')}}</option>
+                            @foreach($countries as $country)
                                 <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
                             @endforeach
                         </select>
@@ -116,11 +117,6 @@
                     <div class="text-center">
                         <select name="region_id" id="region" aria-labelledby="dropdown_baglama"
                                 style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
-
-{{--                            <option class="">{{__('member.baku')}}</option>--}}
-{{--                            <option class="dropdown-item">{{__('member.ganja')}}</option>--}}
-{{--                            <option class="dropdown-item">{{__('member.sumgayit')}}</option>--}}
-{{--                            <option class="dropdown-item">{{__('member.zaqatala')}}</option>--}}
                         </select>
                         @error('region_id')
                         <span class="invalid-feedback"

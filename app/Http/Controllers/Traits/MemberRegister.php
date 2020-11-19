@@ -4,8 +4,6 @@
 namespace App\Http\Controllers\Traits;
 
 
-use App\Rules\ExistsGender;
-use App\Rules\Member\FormatDate;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -20,15 +18,15 @@ trait MemberRegister
             'family' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'numeric', 'unique:users', 'regex:/^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$/'],
-            'serial_number' => ['required', 'max:9', 'unique:users'],
-            'citizenship' => ['required', 'string', 'max:255'],
-            'birthdate' => ['required', 'string', new FormatDate()],
-            'gender' => ['required', 'numeric', new ExistsGender()],
+            'phone' => ['required', 'unique:users', 'max:14'],
+//            'serial_number' => ['required', 'max:9', 'unique:users'],
+//            'citizenship' => ['required', 'string', 'max:255'],
+//            'birthdate' => ['required', 'string', new FormatDate()],
+//            'gender' => ['required', 'numeric', new ExistsGender()],
 //            'fin' => ['required', 'min:7', 'max:7'],
             'address' => ['required', 'string', 'max:255'],
             'terms' => ['required'],
-            'region_id' => ['required'],
+            'region_id' => ['required', 'exists:regions,id'],
         ]);
     }
 
@@ -41,15 +39,13 @@ trait MemberRegister
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
-            'serial_number' => $data['serial_number'],
-            'citizenship' => $data['citizenship'],
-            'birthdate' => $data['birthdate'],
-            'gender' => $data['gender'],
-//            'fin' => $data['fin'],
-            'fin' => 1,
+            'serial_number' => $data['serial_number'] ?? 1,
+            'citizenship' => $data['citizenship'] ?? '',
+            'birthdate' => $data['birthdate'] ?? '',
+            'gender' => $data['gender'] ?? User::GENDER_MAN,
+            'fin' => $data['fin'],
             'address' => $data['address'],
-            'country_id' => $data['country_id'],
-            'region_id' => $data['region-id']
+            'region_id' => $data['region_id']
         ]);
 
     }
