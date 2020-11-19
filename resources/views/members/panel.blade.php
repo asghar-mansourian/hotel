@@ -9,8 +9,7 @@
 
     <div class="mt-5">
         <div class="row relative">
-
-        <div class="balance-block col-md-8 col-sm-7 col-xs-12">
+            <div class="balance-block col-md-8 col-sm-7 col-xs-12">
                 <div class="balance">
                     <picture>
                         <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
@@ -24,13 +23,13 @@
                         {{__('member.deliveryonlinecourier')}}
                         <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
-                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="#" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
 
                 </div>
             </div>
-            <div class="col-md-4 col-sm-5 col-xs-12 right-side">
-                <div class="border_sh right_time">
-                    <div class="tooltip"><span class="fa-fw select-all fas m-0 mr-0"></span>
+            <div class="col-md-4 col-sm-5 col-xs-12 right-side" style="visibility: hidden">
+                <div class="border_sh right_time" style="visibility: hidden">
+                    <div class="tooltip"><span class="fa-fw select-all fas m-0 mr-0" style="visibility: hidden"></span>
                         <span class="tooltiptext">
 									  {{__('member.amountyoupaiddelivery')}}</span>
                     </div>
@@ -40,27 +39,7 @@
                             <a href="#" onclick="showStuff('answer1', 'text1', this); return false;"><img
                                     src="{{url('front/image/wallet1.png')}}" width="150"></a>
                         </div>
-                        <span id="answer1" style="display: none;">
-											<h4 class="text-center mt-0"><strong> {{__('member.last30days')}}</strong></h4>
-											<div class="timer">
-											  <svg class="rotate" viewbox="0 0 250 250">
-											    <path id="loader" transform="translate(125, 125)"/>
-											  </svg>
-											  <div class="dots">
-											    <span class="time deg0"></span>
-											    <span class="time deg45"></span>
-											    <span class="time deg90"></span>
-											    <span class="time deg135"></span>
-											  </div>
-											</div>
-											<div class="spin-div relative">
-												<span id="procent">0.00</span>
-											</div>
-											<div style="clear: both;"></div>
-											<div class="text-center procent_dolar"><h4
-                                                    class="mb-0"><strong>0.00 <sup>$</sup></strong></h4></div>
-										</span>
-                        <span id="text1"></span>
+
                     </td>
                 </div>
             </div>
