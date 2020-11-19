@@ -71,6 +71,8 @@ Route::group(['namespace' => 'Member'], function () {
     Route::get('/inquiry-show/{id}', 'Inquiry\InquiryController@show')->name('inquiry_show');
 
     Route::get('/storage/{id}', 'ImageController@show')->name('storage_image');
+
+    Route::get('get-region/{id}','Auth\RegisterController@getRegion');
 });
 
 // web

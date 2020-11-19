@@ -19,6 +19,8 @@ Route::prefix('v1')
     ->group(function () {
         Route::post('login', 'Auth\LoginController@login');
         Route::post('register', 'Auth\RegisterController@register');
+        Route::get('/get-region/{id}','Auth\RegisterController@getRegion');
+
     });
 
 // authenticated
