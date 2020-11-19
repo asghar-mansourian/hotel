@@ -488,7 +488,8 @@ class TranslateSeeder extends Seeder
         'admin' => 'Admin',
         'id' => 'ID',
         'answer' => 'Answer',
-        'region' => 'region'
+        'region' => 'region',
+        'please_select_country' => 'please select country'
     ];
 
     private $website_items = [
