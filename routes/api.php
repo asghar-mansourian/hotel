@@ -19,6 +19,7 @@ Route::prefix('v1')
     ->group(function () {
         Route::post('login', 'Auth\LoginController@login');
         Route::post('register', 'Auth\RegisterController@register');
+        Route::get('regions', 'RegionController');
     });
 
 // authenticated
@@ -36,8 +37,6 @@ Route::middleware('auth:api')->group(function () {
             Route::apiResource('orders', 'OrderController');
 
             Route::get('countries', 'CountryController');
-
-            Route::get('regions', 'RegionController');
 
             Route::get('branches', 'BranchController');
 

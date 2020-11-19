@@ -97,11 +97,16 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.country')}}:</label>
                     </div>
                     <div class="text-center">
-                        <select name="country_id" aria-labelledby="dropdown_baglama" style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
-                            @foreach($countries as $country)
+                        <select name="country_id" onchange="getRegion(this.value)" aria-labelledby="dropdown_baglama" style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
+                            <option class="dropdown-item" value="null">please select country</option>
+                        @foreach($countries as $country)
                                 <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
                             @endforeach
                         </select>
+                        @error('country_id')
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-12 mt-4">
@@ -109,13 +114,18 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.region')}}:</label>
                     </div>
                     <div class="text-center">
-                        <select name="country_id" aria-labelledby="dropdown_baglama"
+                        <select name="region_id" id="region" aria-labelledby="dropdown_baglama"
                                 style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
-                            <option class="">{{__('member.baku')}}</option>
-                            <option class="dropdown-item">{{__('member.ganja')}}</option>
-                            <option class="dropdown-item">{{__('member.sumgayit')}}</option>
-                            <option class="dropdown-item">{{__('member.zaqatala')}}</option>
+
+{{--                            <option class="">{{__('member.baku')}}</option>--}}
+{{--                            <option class="dropdown-item">{{__('member.ganja')}}</option>--}}
+{{--                            <option class="dropdown-item">{{__('member.sumgayit')}}</option>--}}
+{{--                            <option class="dropdown-item">{{__('member.zaqatala')}}</option>--}}
                         </select>
+                        @error('region_id')
+                        <span class="invalid-feedback"
+                              role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-12 mt-4">
@@ -153,7 +163,7 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.phone')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input value="{{ old('email') }}" type="text" name="phone"
+                        <input value="{{ old('phone') }}" type="text" name="phone"
                                class="@error('phone') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         @error('phone')
@@ -188,4 +198,26 @@
     </div>
 @endsection
 @push('scripts')
+    <script>
+        function getRegion(country_id){
+            if(country_id != 'null'){
+                $.ajax({
+                    url:'/api/v1/regions?country_id='+country_id,
+                    success:function(response){
+                        regions = response.data;
+                        var html='';
+                        for(var i=0;i<regions.length;i++){
+                            html = html + '<option value="'+regions[i].id+'">'+regions[i].name+ '</option>';
+                        }
+                        $('#region').empty();
+                        $("#region").append(html);
+                    }
+                });
+            }
+            else{
+                $("#region").empty();
+            }
+
+        }
+    </script>
 @endpush

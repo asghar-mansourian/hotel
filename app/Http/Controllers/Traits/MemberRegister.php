@@ -28,6 +28,7 @@ trait MemberRegister
 //            'fin' => ['required', 'min:7', 'max:7'],
             'address' => ['required', 'string', 'max:255'],
             'terms' => ['required'],
+            'region_id' => ['required'],
         ]);
     }
 
@@ -46,7 +47,9 @@ trait MemberRegister
             'gender' => $data['gender'],
 //            'fin' => $data['fin'],
             'fin' => 1,
-            'address' => $data['address']
+            'address' => $data['address'],
+            'country_id' => $data['country_id'],
+            'region_id' => $data['region-id']
         ]);
 
     }
