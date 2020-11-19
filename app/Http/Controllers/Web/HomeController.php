@@ -24,7 +24,7 @@ class HomeController extends Controller
         CurrencyController::getCurrencyFromCrawel();
         CurrencyController::getCurrencyFromTwoApi();
 
-        $blogs = Blog::latest()->take(3)->get();
+        $blogs = Blog::select($this->customSelectedFields())->latest()->take(3)->get();
 
         $countries = Country::whereIn('id', Calculator::query()->distinct('country_id')->pluck('country_id')->take(2))->get();
 
@@ -40,5 +40,15 @@ class HomeController extends Controller
         }
 
         return back();
+    }
+
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $content = app()->getLocale() !== 'en' ? "content_{$locale} as content" : 'content';
+        $title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
+
+        return [$title, 'slug', 'created_at', $content, 'author_id', 'picture', 'status', 'id'];
     }
 }

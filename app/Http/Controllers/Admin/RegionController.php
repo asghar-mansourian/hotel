@@ -110,10 +110,10 @@ class RegionController extends Controller
     public function edit($id)
     {
 
-        $Region = Region::query()
+        $region = Region::query()
             ->where('id', $id)
             ->first();
-        return view('admin.regions.edit', compact('Region', 'id'));
+        return view('admin.regions.edit', compact('region', 'id'));
     }
 
     public function update(Request $request, $id)

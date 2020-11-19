@@ -82,8 +82,8 @@
                         <label style="width: 450px!important;text-align: left">{{__('member.passwordconfirmation')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="password" name="password_confirmation" "
-                        class="@error('password') is-invalid @enderror w-100 courier_input"
+                        <input type="password" name="password_confirmation"
+                               class="@error('password') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         <br>
                         @error('password')
@@ -94,40 +94,51 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('member.serialnumber')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.country')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" name="serial_number" maxlength="9" "
-                        class="@error('serial_number') is-invalid @enderror w-100 courier_input"
-                               value="{{ old('serial_number') }}" style="width: 450px!important;">
-                        <br>
-                        @error('serial_number')
-                        <span class="invalid-feedback"
-                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
-                        @enderror
+                        <select name="country_id" aria-labelledby="dropdown_baglama" style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
+                            @foreach($countries as $country)
+                                <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('member.citizenship')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.region')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" value="{{ old('citizenship') }}" name="citizenship"
-                               class="@error('citizenship') is-invalid @enderror w-100 courier_input"
+                        <select name="country_id" aria-labelledby="dropdown_baglama"
+                                style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
+                            <option class="">{{__('member.baku')}}</option>
+                            <option class="dropdown-item">{{__('member.ganja')}}</option>
+                            <option class="dropdown-item">{{__('member.sumgayit')}}</option>
+                            <option class="dropdown-item">{{__('member.zaqatala')}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <label style="width: 450px!important;text-align: left">{{__('member.address')}}:</label>
+                    </div>
+                    <div class="text-center">
+                        <input value="{{ old('address') }}" type="text" name="address"
+                               class="@error('address') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
-                        @error('citizenship')
-                        <br>
+                        <br style="">
+                        @error('address')
                         <span class="invalid-feedback"
-                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                              role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">Fin:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.fin')}}:</label>
                     </div>
                     <div class="text-center">
-                        <input type="text" value="{{ old('fin') }}" maxlength="7" name="fin"
+                        <input type="text" value="{{ old('fin') }}" name="fin"
                                class="@error('fin') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         @error('fin')
@@ -144,8 +155,7 @@
                     <div class="text-center">
                         <input value="{{ old('email') }}" type="text" name="phone"
                                class="@error('phone') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;"
-                               pattern="^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+                               style="width: 450px!important;">
                         @error('phone')
                         <br>
                         <span class="invalid-feedback"
@@ -153,58 +163,6 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mt-4">
-                    <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('member.birthday')}}:</label>
-                    </div>
-                    <div class="text-center">
-                        <input value="{{ old('birthdate') }}" autocomplete="birthdate" type="date" name="birthdate"
-
-                               class="@error('birthdate') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;"
-                               pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
-                        @error('birthdate')
-                        <br>
-                        <span class="invalid-feedback" role="alert"
-                              style="color: #b7474b "><strong>{{ $message }}</strong></span>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="col-md-12 mt-4">
-                    <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('member.address')}}:</label>
-                    </div>
-                    <div class="text-center">
-                        <input value="{{ old('address') }}" type="text" name="address"
-                               class="@error('address') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;">
-                        <br style="">
-                        @error('address')
-                        <span class="invalid-feedback"
-                              role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
-                        @enderror
-                    </div>
-                </div>
-
-
-                <div class="col-md-12 mt-4">
-                    <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('member.gender')}}:</label>
-                    </div>
-                    <div class="text-center">
-                        <select class="@error('gender') is-invalid @enderror form-control courier_input" name="gender"
-                                style="width: 450px!important;margin: 0 auto!important;">
-                            <option value="2">{{__('member.male')}}</option>
-                            <option value="1">{{__('member.female')}}</option>
-                        </select>
-                        @error('gender')
-                        <span class="invalid-feedback"
-                              role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
-                    </div>
-                </div>
-
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
 
@@ -229,3 +187,5 @@
         </form>
     </div>
 @endsection
+@push('scripts')
+@endpush

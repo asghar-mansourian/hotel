@@ -427,7 +427,7 @@ class TranslateSeeder extends Seeder
         'courierorderscheduledtime' => 'Your courier order is scheduled within 24 hours.',
         'courierworkinghours' => 'Courier working hours 10:00 - 19:00 (6 days a week)',
         'selectinvoices' => 'Select invoice',
-        'bindingnumber'=> 'Binding number',
+        'bindingnumber' => 'Binding number',
         'title' => 'Title',
         'lateorder' => 'Late order',
         'packagedoesnotbelongtome' => 'A package that does not belong to me',
@@ -436,7 +436,8 @@ class TranslateSeeder extends Seeder
         'street' => 'Street',
         'admin' => 'Admin',
         'id' => 'ID',
-        'answer' => 'Answer'
+        'answer' => 'Answer',
+        'region' => 'region'
     ];
 
     private $website_items = [
