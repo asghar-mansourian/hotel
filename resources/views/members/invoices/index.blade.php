@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div id="scrol_price" style="margin-top: 155px !important; height: 553px" class="mt-5">
+                                <div id="scrol_price" style="margin-top: 115px !important; height: 553px" class="mt-5">
                                     <div id="scrol_price_content">
                                         <div class="filterDiv_ul">
                                             <ul>

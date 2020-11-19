@@ -9,7 +9,8 @@
 
     <div class="mt-5">
         <div class="row relative">
-            <div class="balance-block col-md-8 col-sm-7 col-xs-12">
+
+        <div class="balance-block col-md-8 col-sm-7 col-xs-12">
                 <div class="balance">
                     <picture>
                         <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
@@ -23,7 +24,7 @@
                         {{__('member.deliveryonlinecourier')}}
                         <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
-                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="#" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
 
                 </div>
             </div>

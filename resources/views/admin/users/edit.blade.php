@@ -75,27 +75,27 @@
 
                         @endcomponent
 
-                        @component('admin.components.form.optionLabel')
-                            @slot('label')
-                                gender
-                            @endslot
-                            @slot('name')
-                                gender
-                            @endslot
-                            @slot('items')
-                                <option value="" selected>Please Enter Gender...</option>
-                                <option value="1" @if($user->gender == 1) selected @endif>Male</option>
-                                <option value="0" @if($user->gender == 0) selected @endif>Female</option>
-                            @endslot
+                            @component('admin.components.form.optionLabel')
+                                @slot('label')
+                                    gender
+                                @endslot
+                                @slot('name')
+                                    gender
+                                @endslot
+                                @slot('items')
+                                    <option value="" selected>Please Enter Gender...</option>
+                                    <option value="1" @if($user->gender == 1) selected @endif>Male</option>
+                                    <option value="2" @if($user->gender == 2) selected @endif>Female</option>
+                                @endslot
 
-                        @endcomponent
+                            @endcomponent
 
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
-                                Phone
-                            @endslot
-                            @slot('name')
-                                phone
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    Phone
+                                @endslot
+                                @slot('name')
+                                    phone
                             @endslot
                             @slot('type')
                                 text

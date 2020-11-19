@@ -47,5 +47,11 @@ Route::middleware('auth:api')->group(function () {
 
             Route::post('currency', 'CurrencyController@getCurrency');
 
+            Route::apiResource('blogs', 'BlogController')->except('update', 'destroy', 'store');
+
+            Route::get('balance/{id}', 'BalanceController@getBalance');
+
+            Route::get('pricing', 'PricingController@list');
+
         });
 });
