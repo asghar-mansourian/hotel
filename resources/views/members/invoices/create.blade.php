@@ -106,7 +106,7 @@
                                             <div class="col-md-6 col-sm-6">
                                                 <h5><strong>{{__('member.dateofordering')}} *</strong></h5>
                                                 <div class="col-md-12  courier_dr brit_year pl-0">
-                                                    <input type="date" name="order_date" value="{{ old('order_date') }}"
+                                                    <input type="date" name="order_date" id="datePicker" value="{{ old('order_date')  }}"
                                                            class="@error('order_date') is-invalid @enderror w-100 courier_input"
                                                            required="">
                                                     @error('order_date')
@@ -146,6 +146,15 @@
 @endsection
 
 @section('footerCustom')
-
+    <script>
+        Date.prototype.toDateInputValue = (function () {
+            var local = new Date(this);
+            local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+            return local.toJSON().slice(0, 10);
+        });
+        $(document).ready(function () {
+            $('#datePicker').val(new Date().toDateInputValue());
+        })
+    </script>
 
 @endsection
