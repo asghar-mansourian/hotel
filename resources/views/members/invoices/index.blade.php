@@ -116,14 +116,14 @@
                                                     <li>{{$invoice->created_at}}</li>
                                                     <li>{{$invoice->shop}}</li>
                                                     <li class="green bold">{{\App\lib\Invoice::getStatusViaKey($invoice->status)}}</li>
-                                                    <li>
-                                                        {{--<input type="button" value="Sifarişi izlə" class="btn btn-info">--}}
-                                                        <form action="{{route('invoices.destroy', ['invoice' => $invoice->id])}}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="submit" value="sil" class="btn btn-danger">
-                                                        </form>
-                                                    </li>
+                                                    {{--                                                    <li>--}}
+                                                    {{--                                                        --}}{{--<input type="button" value="Sifarişi izlə" class="btn btn-info">--}}
+                                                    {{--                                                        <form action="{{route('invoices.destroy', ['invoice' => $invoice->id])}}" method="post">--}}
+                                                    {{--                                                            @csrf--}}
+                                                    {{--                                                            @method('DELETE')--}}
+                                                    {{--                                                            <input type="submit" value="sil" class="btn btn-danger">--}}
+                                                    {{--                                                        </form>--}}
+                                                    {{--                                                    </li>--}}
                                                 </ul>
                                             </div>
                                         @endforeach
