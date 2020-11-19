@@ -66,7 +66,6 @@
 
                             </textarea>
                             </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
