@@ -162,7 +162,7 @@
                                 Save
                             @endslot
                         @endcomponent
-                        <a href="{{url('admin/blogs')}}" class="btn btn-danger btn-block ">{{__('custom.other.cancel')}}</a>
+                        <a href="{{url('admin/blogs')}}" class="btn btn-danger btn-block ">{{__('admin.cancel')}}</a>
                     @endslot
                 @endcomponent
 

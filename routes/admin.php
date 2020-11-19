@@ -93,6 +93,17 @@ route::get('/blogs/destroy/{id}' , 'BlogController@destroy');
 route::post('/blogs/search/' , 'BlogController@search');
 route::post('/blogs/sort/' , 'BlogController@sort');
 
+/*      Sliders Routes      */
+route::get('/sliders' , 'SliderController@index');
+route::get('/sliders/load' , 'SliderController@load');
+route::get('/sliders/create/' , 'SliderController@create');
+route::post('/sliders/store/' , 'SliderController@store');
+route::get('/sliders/edit/{id}' , 'SliderController@edit');
+route::post('/sliders/update/{id}' , 'SliderController@update');
+route::get('/sliders/destroy/{id}' , 'SliderController@destroy');
+route::post('/sliders/search/' , 'SliderController@search');
+route::post('/sliders/sort/' , 'SliderController@sort');
+
 
 /*      Contacts Routes      */
 route::get('/contacts' , 'ContactController@index');
