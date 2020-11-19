@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Show Country
+    {{__('admin.dashboard')}} | {{__('admin.showcontacts')}}
 @endsection
 
 @section('styleCustom')
@@ -22,7 +22,7 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                Name
+                                {{__('admin.name')}}
                             @endslot
                             @slot('name')
                                 name
@@ -43,7 +43,7 @@
 
                             @component('admin.components.form.inputLabel')
                                 @slot('label')
-                                    email
+                                {{__('admin.email')}}
                                 @endslot
 
                                 @slot('type')
@@ -90,7 +90,7 @@
                     @endslot
                     @slot('items')
 
-                            <a href="{{url('admin/contacts')}}" class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
+                        <a href="{{url('admin/contacts')}}" class="btn btn-danger btn-block ">{{__('admin.back')}}</a>
 
                     @endslot
                 @endcomponent

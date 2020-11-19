@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Edit User
+    {{__('admin.dashboard')}} | {{__('admin.edituser')}}
 @endsection
 
 @section('styleCustom')
@@ -284,7 +284,7 @@
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            {{trans('admin.panel.title')}}
+            {{trans('admin.dashboard')}}
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>

@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.branch.index.title')}}
+    {{__('admin.dashboard')}} | {{__('admin.branchtitle')}}
 @endsection
 
 @section('styleCustom')
@@ -43,9 +43,9 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fa fa-map   mr-2"></i>{{__('custom.admin.branch.index.table.header')}}
+                        <i class="fa fa-map   mr-2"></i>{{__('admin.branchtableheader')}}
                     </h3>
-                    <a href="{{url('/admin/branches/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> Add Branch </a>
+                    <a href="{{url('/admin/branches/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> {{__('admin.addbranch')}} </a>
                 @endslot
 
                 @slot('items')
@@ -54,7 +54,7 @@
                             {{$branches->links()}}
                         @endslot
                         @slot('url')
-                                branches
+                            branches
                         @endslot
 
                     @endcomponent
@@ -110,8 +110,8 @@
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('custom.admin.branch.title')}}
+                    href="{{url('/admin/home')}}"> {{__('admin.paneltitle')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i> {{__('admin.branchtitle')}}
             </li>
         @endslot
     @endcomponent

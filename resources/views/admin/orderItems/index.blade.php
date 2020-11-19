@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.orderItems.index.title')}}
+    {{__('admin.dashboard')}} | {{__('admin.orderitemstitle')}}
 @endsection
 
 @section('styleCustom')
@@ -44,7 +44,7 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fe fe-mail   mr-2"></i>{{__('custom.admin.orderItems.index.table.header')}}
+                        <i class="fe fe-mail   mr-2"></i>{{__('admin.orderitemstableheader')}}
                     </h3>
                 @endslot
 
@@ -54,7 +54,7 @@
                             {{$orders->links()}}
                         @endslot
                         @slot('url')
-                                order-items
+                            order-items
                         @endslot
                     @endcomponent
 
@@ -87,12 +87,12 @@
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            {{trans('admin.panel.title')}}
+            {{__('admin.paneltitle')}}
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.orderItems.title')}}
+                    href="{{url('/admin/home')}}">{{__('admin.paneltitle')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('admin.orderitemstitle')}}
             </li>
         @endslot
     @endcomponent

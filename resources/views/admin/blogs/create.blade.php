@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add blog
+    {{__('admin.dashboard')}} |  {{__('admin.addblog')}}
 @endsection
 
 @section('styleCustom')
@@ -57,7 +57,7 @@
 
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                Content
+                                {{__('admin.content')}}
                             </label>
                             <div class="col-md-9">
 
@@ -97,7 +97,7 @@
 
             <div class="form-group row">
                 <label for="example-text-input" class="col-md-3 form-label my-auto">
-                    picture
+                    {{__('admin.picture')}}
                 </label>
                 <div class="col-md-9">
 

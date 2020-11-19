@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Country
+    {{__('admin.dashboard')}}  | {{__('admin.editcountrydetails')}}
 @endsection
 
 @section('styleCustom')
@@ -26,13 +26,13 @@
                         @endslot
                         @component('admin.components.form.optionLabel')
                             @slot('label')
-                                country
+                                {{__('admin.country')}}
                             @endslot
                             @slot('name')
                                 country_id
                             @endslot
                             @slot('items')
-                                <option value="" selected>Please Enter Country...</option>
+                                <option value="" selected>{{__('admin.pleaseentercountry')}}</option>
                                 @foreach($countries as $country)
                                     <option
                                         value="{{$country->id}}" {{$country_details->id == $country->id ? 'selected' : ''}}>{{$country->name}}</option>
@@ -53,7 +53,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Main Information</h2>
+                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
                 @endcomponent
 
@@ -63,7 +63,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Save Information</h2>
+                        <h2 class="card-title">{{__('admin.saveinformation')}}</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
@@ -100,8 +100,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>Edit Country</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.editcountrydetails')}}</li>
         @endslot
     @endcomponent
 @endsection

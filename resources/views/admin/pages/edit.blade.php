@@ -32,7 +32,7 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                {{__('admin.pleasetitle')}}
+                                    {{__('admin.pleasetitle')}}
                             @endslot
                             @slot('value')
                                 {{$page->title}}

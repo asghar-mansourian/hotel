@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.contact.index.title')}}
+    {{__('admin.dashboard')}} | {{__('admin.contacttitle')}}
 @endsection
 
 @section('styleCustom')
@@ -43,7 +43,7 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fe fe-mail   mr-2"></i>{{__('custom.admin.contact.index.table.header')}}
+                        <i class="fe fe-mail   mr-2"></i>{{__('admin.contacttableheader')}}
                     </h3>
                 @endslot
 
@@ -104,12 +104,12 @@
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            {{trans('admin.panel.title')}}
+            {{trans('admin.paneltitle')}}
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('custom.admin.contact.title')}}
+                    href="{{url('/admin/home')}}">{{__('admin.paneltitle')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('admin.contacttitle')}}
             </li>
         @endslot
     @endcomponent

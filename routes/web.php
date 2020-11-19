@@ -79,7 +79,7 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('/set-locale/{locale}', 'HomeController@setLocale')->name('set_locale');
 
     Route::get('/blog', 'BlogController@index');
-    Route::get('/blog/{id}', 'BlogController@singel');
+    Route::get('/blog/{id}', 'BlogController@singel')->name('blog.shows');
 
     Route::get('/contact-us', 'ContactController@index');
     Route::post('/contact-us', 'ContactController@store');

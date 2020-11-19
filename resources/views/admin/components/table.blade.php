@@ -7,7 +7,7 @@
                 @if(is_array($select))
 
                     <th>
-                        {{__('custom.other.' . $select[1])}}
+                        {{__('admin.table' . $select[1])}}
                         <div class="" style="display: none!important;">
                             <a class="sort"
                                style="@if($sortType == 'desc' && $sortField == $select[0].'_id') display:none;  @endif"
@@ -25,7 +25,7 @@
                 @else
 
                     <th>
-                        {{$select}}
+                        {{__('admin.table' . $select)}}
                         <div class="" style="display: none!important;">
 
                             <a class="sort" style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif"
@@ -40,7 +40,7 @@
                     </th>
                 @endif
             @endforeach
-            <th style="text-align: center">Actions</th>
+            <th style="text-align: center">{{__('admin.tableaction')}}</th>
 
         </tr>
         </thead>
@@ -53,9 +53,9 @@
                     @if($select == "status")
                         <td>
                             @if($record->status)
-                                <div class=""> Active</div>
+                                <div class="">  {{__('admin.tableactive')}}</div>
                             @else
-                                <div class="">Deactive</div>
+                                <div class="">{{__('admin.tabledeactive')}}</div>
                             @endif
                         </td>
                     @else
@@ -77,11 +77,7 @@
                             <td>{{$v}}</td>
 
                         @else
-                            @if($select == 'customer_image')
-                                <td><img style="width:100px;height: 100px" src="{{asset('images/customers/'.$record->image->file_name)}}"></td>
-                            @else
-                                 <td>{{$record->$select}}</td>
-                            @endif
+                            <td>{{$record->$select}}</td>
                         @endif
 
                     @endif
@@ -92,20 +88,35 @@
                         @if($option == 'show')
                             <a href="{{url('admin/' . $url . '/show/' . $record->id)}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">
-                                <i class="fe fe-eye mr-2"></i>Show
+                                <i class="fe fe-eye mr-2"></i>{{__('admin.tableshow')}}
                             </a>
+                            {{--                            if route needs redirect to single page--}}
+                            @isset($key)
+                                @if ($key == 'singlePage')
+                                    <a href="{{route('blog.shows', $record->slug)}}" data-userid="{{$record->id}}"
+                                       title="Show" class="m-l-10 show-info btn-sm btn btn-info">
+                                        <i class="fe fe-eye mr-2"></i>{{__('admin.tableshow')}}
+                                    </a>
+                                @else
+                                    <a href="{{url('admin/' . $url . '/show/' . $record->id)}}"
+                                       data-userid="{{$record->id}}"
+                                       title="Show" class="m-l-10 show-info btn-sm btn btn-info">
+                                        <i class="fe fe-eye mr-2"></i>{{__('admin.tableshow')}}
+                                    </a>
+                                @endif
+                            @endif
                         @endif
                         @if($option == 'edit')
                             <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
                                data-toggle="tooltip"
                                title="Edit" class="m-l-10 btn btn-success btn-sm">
-                                <i class="fe fe-edit mr-2"></i>Edit
+                                <i class="fe fe-edit mr-2"></i>{{__('admin.tableedit')}}
                             </a>
                         @endif
                         @if($option == 'delete')
                             <a href="{{url('admin/' . $url . '/delete/' . $record->id)}}" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
                                title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
-                                <i class="fe fe-trash mr-2"></i>Delete
+                                <i class="fe fe-trash mr-2"></i>{{__('admin.tabledelete')}}
                             </a>
                         @endif
                     @endforeach

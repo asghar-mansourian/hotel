@@ -48,9 +48,9 @@
                                 <div class="card p-4">
                                     <div class="card-body">
                                         <div class="text-center title-style mb-6">
-                                            <h1 class="mb-2">Login</h1>
+                                            <h1 class="mb-2">{{__('admin.login')}}</h1>
                                             <hr>
-                                            <p class="text-muted">Sign In to your account</p>
+                                            <p class="text-muted">{{__('admin.singninaccount')}}</p>
                                         </div>
 
                                         <div class="btn-list d-flex">
@@ -100,18 +100,17 @@
 
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <button type="submit" class="btn  btn-primary btn-block px-4">Login
+                                                    <button type="submit" class="btn  btn-primary btn-block px-4">{{__('admin.login')}}
                                                     </button>
                                                 </div>
                                                 <div class="col-12 text-center">
                                                     <a href="forgot-password-3.html"
-                                                       class="btn btn-link box-shadow-0 px-0">Forgot
-                                                        password?</a>
+                                                       class="btn btn-link box-shadow-0 px-0">{{__('admin.forgetpass')}}</a>
                                                 </div>
                                             </div>
                                             <div class="text-center pt-4">
-                                                <div class="font-weight-normal fs-16">You Don't have an account <a
-                                                        class="btn-link font-weight-normal" href="#">Register Here</a>
+                                                <div class="font-weight-normal fs-16">{{__('admin.youdontaccount')}} <a
+                                                        class="btn-link font-weight-normal" href="#">{{__('admin.registerhere')}}</a>
                                                 </div>
                                             </div>
                                         </form>

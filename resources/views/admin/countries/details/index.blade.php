@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.country.index.title')}}
+    {{__('admin.dashboard')}} | {{__('admin.countrydetailtitle')}}
 @endsection
 
 @section('styleCustom')
@@ -30,9 +30,9 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fa fa-map   mr-2"></i>{{__('custom.admin.country.index.table.header')}}
+                        <i class="fa fa-map   mr-2"></i>{{__('admin.countrydetailstableheader')}}
                     </h3>
-                    <a href="{{url('/admin/countries/details/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> Add details </a>
+                    <a href="{{url('/admin/countries/details/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> {{__('admin.adddetails')}} </a>
                 @endslot
 
                 @slot('items')
@@ -92,14 +92,14 @@
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            {{trans('admin.panel.title')}}
+            {{trans('admin.paneltitle')}}
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('custom.admin.country.title')}}
+                    href="{{url('/admin/home')}}"> {{trans('admin.paneltitle')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.countrytitle')}}
             </li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('custom.admin.country.title')}}
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.countrydetailtitle')}}
             </li>
         @endslot
     @endcomponent
