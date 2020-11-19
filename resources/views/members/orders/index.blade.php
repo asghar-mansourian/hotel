@@ -92,23 +92,21 @@
                                                     <li style="width: 8%;">{{__('member.link')}}</li>
                                                     <li style="width: 8%;">{{__('member.price')}}</li>
                                                     <li style="width: 12%;">{{__('member.hascargo')}}</li>
-                                                    <li style="width: 8%;">{{__('member.cargo')}}</li>
-                                                    <li style="width: 8%;">{{__('member.quantity')}}</li>
-                                                    <li style="width: 12%;">{{__('member.description')}}</li>
-                                                    <li style="width: 8%;">{{__('member.total')}}</li>
-                                                    <li style="width: 16%;">{{__('member.specification')}}</li>
+{{--                                                    <li style="width: 8%;">{{__('member.cargo')}}</li>--}}
+{{--                                                    <li style="width: 8%;">{{__('member.quantity')}}</li>--}}
+{{--                                                    <li style="width: 12%;">{{__('member.description')}}</li>--}}
+{{--                                                    <li style="width: 8%;">{{__('member.total')}}</li>--}}
+{{--                                                    <li style="width: 16%;">{{__('member.specification')}}</li>--}}
                                                 </ul>
                                             </div>
                                             @php
 
-                                                $active_orders = $orders->with(['order.country' => function ($query) use ($country) {
-                                                    $query
-                                                       ->where('id', $country->id);
-                                                    }])->get();
+                                                $active_orders = $orders->where('country_id', $country->id)->get();
                                             @endphp
                                             @foreach($active_orders as $order)
 
-                                                @if($order->order->country != null)
+                                                @if($order->country != null)
+                                                    {{dd($order)}}
                                                     <div class="filterDiv income">
                                                         <ul>
                                                             <li style="width: 8%;">{{$order->id}}</li>

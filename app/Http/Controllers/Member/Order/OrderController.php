@@ -19,20 +19,15 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = OrderItem::query();
         $user = Auth::user();
+        $orders = Order::query()->where('user_id' , $user->id);
 
         if (isset($_GET['type'])) {
             $type = $_GET['type'];
             $orders->where('status', $type);
         }
-        $orders
-            ->with(
-                [
-                    'order.user' => function ($query) use ($user) {
-                        $query->where('id', $user->id);
-                    }
-                ]);
+
+
         $countries = Country::all();
 
         return view('members.orders.index', compact('orders', 'countries'));
