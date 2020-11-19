@@ -39,16 +39,6 @@ class RegisterController extends Controller
         return view('members.register', compact('countries'));
     }
 
-    public function getRegion($id)
-    {
-        $country = Country::findOrFail($id);
-        $regions = $country->regions;
-        $regions->map(function($region){
-            return $region->name = __('member.'.$region->name);
-        });
-        return response()->json(['regions' => $regions],200);
-    }
-
     protected function registered(Request $request, $user)
     {
         $response = Auth::Login()->object();

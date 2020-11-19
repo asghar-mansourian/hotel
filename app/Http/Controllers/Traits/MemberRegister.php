@@ -28,7 +28,6 @@ trait MemberRegister
 //            'fin' => ['required', 'min:7', 'max:7'],
             'address' => ['required', 'string', 'max:255'],
             'terms' => ['required'],
-            'country_id' => ['required'],
             'region_id' => ['required'],
         ]);
     }

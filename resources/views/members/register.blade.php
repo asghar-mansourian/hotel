@@ -202,9 +202,9 @@
         function getRegion(country_id){
             if(country_id != 'null'){
                 $.ajax({
-                    url:'/get-region/'+country_id,
+                    url:'/api/v1/regions?country_id='+country_id,
                     success:function(response){
-                        regions = response.regions;
+                        regions = response.data;
                         var html='';
                         for(var i=0;i<regions.length;i++){
                             html = html + '<option value="'+regions[i].id+'">'+regions[i].name+ '</option>';
