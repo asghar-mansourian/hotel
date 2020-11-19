@@ -9,7 +9,8 @@
 
     <div class="mt-5">
         <div class="row relative">
-            <div class="balance-block col-md-8 col-sm-7 col-xs-12">
+
+        <div class="balance-block col-md-8 col-sm-7 col-xs-12">
                 <div class="balance">
                     <picture>
                         <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
