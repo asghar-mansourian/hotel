@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('admin.paneltitle')}} | {{__('admin.regiontitle')}}
+    {{__('admin.dashboard')}} | {{__('admin.regiontitle')}}
 @endsection
 
 @section('styleCustom')

@@ -60,31 +60,31 @@
                             @endslot
                             @slot('type')
                                 text
-                            @endslot
-                            @slot('placeholder')
-                                {{__('admin.pleasetitle_ru')}}
-                            @endslot
-                            @slot('value')
-                                {{$blog->title_ru}}
-                            @endslot
-                        @endcomponent
+                                @endslot
+                                @slot('placeholder')
+                                    {{__('admin.pleasetitle_ru')}}
+                                @endslot
+                                @slot('value')
+                                    {{$blog->title_ru}}
+                                @endslot
+                            @endcomponent
 
 
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                {{__('admin.content')}}
-                            </label>
-                            <div class="col-md-9">
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    {{__('admin.content')}}
+                                </label>
+                                <div class="col-md-9">
 
                             <textarea class="form-control" name="content"
                                       id="content" placeholder="" cols="30" rows="10">
                                 {!! $blog->content !!}
                             </textarea>
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div class="form-group row">
+                            <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 {{__('admin.content_ru')}}
                             </label>
@@ -162,7 +162,7 @@
                                 Save
                             @endslot
                         @endcomponent
-                        <a href="{{url('admin/blogs')}}" class="btn btn-danger btn-block ">{{__('admin.cancel')}}</a>
+                        <a href="{{url('admin/blogs')}}" class="btn btn-danger btn-block ">{{__('custom.other.cancel')}}</a>
                     @endslot
                 @endcomponent
 
@@ -199,7 +199,7 @@
 
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
-            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.editblog')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.addblog')}}</li>
         @endslot
     @endcomponent
 @endsection

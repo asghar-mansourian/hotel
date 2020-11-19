@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Region
+    {{__('admin.dashboard')}} | {{__('admin.addregion')}}
 @endsection
 
 @section('styleCustom')

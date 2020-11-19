@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Country
+    {{__('admin.dashboard')}} | {{__('admin.addcountrydetails')}}
 @endsection
 
 @section('styleCustom')
@@ -49,7 +49,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Main Information</h2>
+                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
                 @endcomponent
 
@@ -57,7 +57,7 @@
             <div class="col-12 col-lg-4">
                 @component('admin.components.panel')
                     @slot('header')
-                        <h2 class="card-title">Save Information</h2>
+                        <h2 class="card-title">{{__('admin.saveinformation')}}</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
@@ -100,8 +100,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>Add Country</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}} </li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.addcountrydetails')}}</li>
         @endslot
     @endcomponent
 @endsection

@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Region
+    {{__('admin.dashboard')}} | {{__('admin.editregion')}}
 @endsection
 
 @section('styleCustom')
@@ -173,8 +173,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>Edit Region</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.editregion')}}</li>
         @endslot
     @endcomponent
 @endsection

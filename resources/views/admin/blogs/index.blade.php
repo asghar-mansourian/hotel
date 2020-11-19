@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.blog.index.title')}}
+    {{__('admin.dashboard')}} | {{__('admin.blogtitle')}}
 @endsection
 
 @section('styleCustom')
@@ -43,9 +43,9 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fa fa-clipboard   mr-2"></i>{{__('custom.admin.blog.index.table.header')}}
+                        <i class="fa fa-clipboard   mr-2"></i>{{__('admin.blogtableheader')}}
                     </h3>
-                    <a href="{{url('/admin/blogs/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> Add blog </a>
+                    <a href="{{url('/admin/blogs/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i>{{__('admin.addblog')}} </a>
                 @endslot
 
                 @slot('items')
@@ -54,7 +54,7 @@
                             {{$blogs->links()}}
                         @endslot
                         @slot('url')
-                                blogs
+                            blogs
                         @endslot
 
                     @endcomponent
@@ -106,12 +106,12 @@
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            {{trans('admin.panel.title')}}
+            {{__('admin.paneltitle')}}
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('custom.admin.blog.title')}}
+                    href="{{url('/admin/home')}}">{{__('admin.paneltitle')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('admin.blogtitle')}}
             </li>
         @endslot
     @endcomponent

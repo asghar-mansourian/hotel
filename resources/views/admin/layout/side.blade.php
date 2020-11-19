@@ -34,7 +34,7 @@
                     <path
                         d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z"></path>
                 </svg>
-                <span class="side-menu__label">{{__('custom.admin.panel.title')}}</span><span
+                <span class="side-menu__label">{{__('admin.paneltitle')}}</span><span
                     class="badge badge-danger side-badge">Main</span></a>
         </li>
         <li class="slide">
@@ -45,12 +45,12 @@
                     <path
                         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path>
                 </svg>
-                <span class="side-menu__label">{{__('custom.admin.user.title')}}</span><i
+                <span class="side-menu__label">{{__('admin.usertitle')}}</span><i
                     class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="{{url('admin/users')}}" class="slide-item">{{__('custom.admin.user.title')}}</a></li>
+                <li><a href="{{url('admin/users')}}" class="slide-item">{{__('admin.usertitle')}}</a></li>
                 <li><a href="{{url('admin/users/create')}}"
-                       class="slide-item">{{__('custom.admin.user.create.title')}}</a></li>
+                       class="slide-item">{{__('admin.usercreate')}}</a></li>
             </ul>
         </li>
         <li class="slide">
@@ -86,9 +86,9 @@
                         <circle cx="12" cy="9" r="2.5"></circle>
                     </svg>
                 </svg>
-                <span class="side-menu__label">country details</span><i class="angle fa fa-angle-right"></i></a>
+                <span class="side-menu__label">{{__('admin.countrydetail')}}</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
-                <li><a href="{{url('admin/countries/details')}}" class="slide-item">details</a></li>
+                <li><a href="{{url('admin/countries/details')}}" class="slide-item">{{__('admin.details')}}</a></li>
             </ul>
         </li>
         <li class="slide">

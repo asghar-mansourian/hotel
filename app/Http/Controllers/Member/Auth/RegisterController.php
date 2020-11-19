@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Member\Auth;
 
+use App\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Cowsel\Auth;
 use App\Http\Controllers\Traits\MemberRegister;
@@ -33,7 +34,9 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('members.register');
+        $countries = Country::all();
+
+        return view('members.register', compact('countries'));
     }
 
     protected function registered(Request $request, $user)

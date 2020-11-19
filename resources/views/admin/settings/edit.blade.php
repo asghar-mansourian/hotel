@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Edit Setting
+    {{__('admin.dashboard')}} | {{__('admin.editsetting')}}
 @endsection
 
 @section('styleCustom')
@@ -22,7 +22,7 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                Key
+                                {{__('admin.key')}}
                             @endslot
                                 @slot('attr')
                                     disabled
@@ -42,7 +42,7 @@
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                Value
+                                {{__('admin.value')}}
                             @endslot
                             @slot('name')
                                 value
@@ -51,7 +51,7 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                Please Enter Value...
+                                {{__('admin.pleaseentervalue')}}
                             @endslot
                             @slot('value')
                                 {{$setting->value}}
@@ -63,7 +63,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Main Information</h2>
+                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
                 @endcomponent
 
@@ -73,7 +73,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Save Information</h2>
+                        <h2 class="card-title">{{__('admin.saveinformation')}}</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
@@ -81,7 +81,7 @@
                                 btn-block btn-info
                             @endslot
                             @slot('title')
-                                Save
+                                {{__('admin.save')}}
                             @endslot
                         @endcomponent
 
@@ -109,8 +109,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>Edit Region</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.editsetting')}}</li>
         @endslot
     @endcomponent
 @endsection

@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('custom.admin.panel.title')}} | {{__('custom.admin.page.index.title')}}
+    {{__('admin.dashboard')}} | {{__('admin.pagetitle')}}
 @endsection
 
 @section('styleCustom')
@@ -106,12 +106,12 @@
 @section('crumb')
     @component('admin.components.crumb')
         @slot('title')
-            {{trans('admin.panel.title')}}
+            {{__('admin.paneltitle')}}
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}">{{__('custom.admin.panel.title')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('custom.admin.page.title')}}
+                    href="{{url('/admin/home')}}">{{__('admin.paneltitle')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('admin.pagetitle')}}
             </li>
         @endslot
     @endcomponent

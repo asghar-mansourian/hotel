@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Edit Branch
+    {{__('admin.dashboard')}} |  {{__('admin.addbranch')}}
 @endsection
 
 @section('styleCustom')

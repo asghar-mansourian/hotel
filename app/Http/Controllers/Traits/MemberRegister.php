@@ -25,7 +25,7 @@ trait MemberRegister
             'citizenship' => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'string', new FormatDate()],
             'gender' => ['required', 'numeric', new ExistsGender()],
-            'fin' => ['required', 'min:7', 'max:7'],
+//            'fin' => ['required', 'min:7', 'max:7'],
             'address' => ['required', 'string', 'max:255'],
             'terms' => ['required'],
         ]);
@@ -44,7 +44,8 @@ trait MemberRegister
             'citizenship' => $data['citizenship'],
             'birthdate' => $data['birthdate'],
             'gender' => $data['gender'],
-            'fin' => $data['fin'],
+//            'fin' => $data['fin'],
+            'fin' => 1,
             'address' => $data['address']
         ]);
 

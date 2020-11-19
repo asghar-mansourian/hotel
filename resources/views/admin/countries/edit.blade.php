@@ -1,11 +1,11 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Country
+    {{__('admin.dashboard')}} |  {{__('admin.editcountry')}}
 @endsection
 
 @section('styleCustom')
-        <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
+    <link rel="stylesheet" href="{{url('admin/fa/plugins/dropify/dist/css/dropify.min.css')}}">
     <style>
         .has-danger {
             border: 1px solid #d9534f !important;
@@ -135,8 +135,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>Edit Country</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.addcountry')}}</li>
         @endslot
     @endcomponent
 @endsection

@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Region
+    {{__('admin.dashboard')}} | {{__('admin.editregion')}}
 @endsection
 
 @section('styleCustom')
@@ -22,7 +22,7 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                Name
+                                {{__('admin.name')}}
                             @endslot
                             @slot('name')
                                 name
@@ -31,7 +31,7 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                Please Enter Name...
+                                {{__('admin.pleasename')}}
                             @endslot
                             @slot('value')
                                     {{$region->name}}
@@ -40,7 +40,7 @@
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                Description
+                                {{__('admin.description')}}
                             @endslot
                             @slot('name')
                                 description
@@ -49,19 +49,32 @@
                                 text
                             @endslot
                             @slot('placeholder')
-                                Please Enter Description...
+                                {{__('admin.pleaseenterdescription')}}
                             @endslot
                             @slot('value')
                                 {{$region->description}}
                             @endslot
                         @endcomponent
-
+                        @component('admin.components.form.optionLabel')
+                            @slot('label')
+                                {{__('admin.country')}}
+                            @endslot
+                            @slot('name')
+                                country_id
+                            @endslot
+                            @slot('items')
+                                <option value="" selected>{{__('admin.pleaseentercountry')}}</option>
+                                @foreach($countries as $country)
+                                    <option value="{{$country->id}}" {{$country->id == $region->country_id ? 'selected' : ''}}>{{$country->name}}</option>
+                                @endforeach
+                            @endslot
+                        @endcomponent
 
                     @endslot
 
 
                     @slot('header')
-                        <h2 class="card-title">Main Information</h2>
+                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
                 @endcomponent
 
@@ -71,7 +84,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Save Information</h2>
+                        <h2 class="card-title">{{__('admin.saveinformation')}}</h2>
                     @endslot
                     @slot('items')
                         @component('admin.components.form.submit')
@@ -79,7 +92,7 @@
                                 btn-block btn-info
                             @endslot
                             @slot('title')
-                                Save
+                                {{__('admin.save')}}
                             @endslot
                         @endcomponent
 
@@ -107,8 +120,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>Edit Region</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.editregion')}}</li>
         @endslot
     @endcomponent
 @endsection

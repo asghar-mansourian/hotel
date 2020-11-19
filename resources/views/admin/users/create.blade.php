@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add User
+    {{__('admin.dashboard')}} | {{__('admin.adduser')}}
 @endsection
 
 @section('styleCustom')

@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add Page
+    {{__('admin.dashboard')}} | {{__('admin.editfaq')}}
 @endsection
 
 @section('styleCustom')
@@ -59,7 +59,7 @@
 
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                Content
+                                {{__('admin.content')}}
                             </label>
                             <div class="col-md-9">
 
@@ -119,7 +119,7 @@
                                 btn-block btn-info
                             @endslot
                             @slot('title')
-                                {{__('admin.save')}}
+                                    {{__('admin.save')}}
                             @endslot
                         @endcomponent
 
@@ -155,7 +155,7 @@
 
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
-            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.editpage')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.editfaq')}}</li>
         @endslot
     @endcomponent
 @endsection

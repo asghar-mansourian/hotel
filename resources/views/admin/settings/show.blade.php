@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Show Payment
+    {{__('admin.dashboard')}} | {{__('admin.showsettings')}}
 @endsection
 
 @section('styleCustom')
@@ -22,14 +22,14 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                id
+                                {{__('admin.id')}}
                             @endslot
 
                             @slot('type')
                                 text
                             @endslot
                             @slot('placeholder')
-                                Please Enter Id...
+                                {{__('admin.pleaseenterid')}}
                             @endslot
                             @slot('value')
                                 {{$payment->id}}
@@ -40,7 +40,7 @@
                         @endcomponent
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                <span>user id</span>
+                                <span>{{__('admin.userid')}}</span>
                             @endslot
 
                             @slot('type')
@@ -54,85 +54,85 @@
                                 disabled
                             @endslot
                         @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>user id</span>
-                                    <a href="" class="ml-3 btn btn-info btn-sm">show</a>
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>{{__('admin.userid')}}</span>
+                                <a href="" class="ml-3 btn btn-info btn-sm">{{__('admin.show')}}</a>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$payment->type}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>description</span>
-                                @endslot
+                            @slot('value')
+                                {{$payment->type}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>{{__('admin.description')}}</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$payment->description}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$payment->description}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>price</span>
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>{{__('admin.price')}}</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$payment->price}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>discount</span>
-                                @endslot
+                            @slot('value')
+                                {{$payment->price}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>{{__('admin.discount')}}</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$payment->discount}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>authority</span>
-                                @endslot
+                            @slot('value')
+                                {{$payment->discount}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>{{__('admin.authority')}}</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$payment->authority}}
-                                @endslot
-                                @slot('attr')
+                            @slot('value')
+                                {{$payment->authority}}
+                            @endslot
+                            @slot('attr')
                                     disabled
                                 @endslot
                             @endcomponent
@@ -163,43 +163,43 @@
                                     text
                                 @endslot
 
-                                @slot('value')
-                                    {{$payment->ip}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>extra</span>
-                                @endslot
+                            @slot('value')
+                                {{$payment->ip}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>{{__('admin.extra')}}</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$payment->extra}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$payment->extra}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>status</span>
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>{{__('admin.status')}}</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$payment->status}}
-                                @endslot
-                                @slot('attr')
+                            @slot('value')
+                                {{$payment->status}}
+                            @endslot
+                            @slot('attr')
                                     disabled
                                 @endslot
                             @endcomponent
@@ -221,7 +221,7 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Main Information</h2>
+                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
                 @endcomponent
 
@@ -231,12 +231,12 @@
 
 
                     @slot('header')
-                        <h2 class="card-title">Back To Payments</h2>
+                        <h2 class="card-title">{{__('admin.backtopayments')}}</h2>
                     @endslot
                     @slot('items')
 
                         <a href="{{url('admin/payments')}}"
-                           class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
+                           class="btn btn-danger btn-block ">{{__('admin.back')}}</a>
 
                     @endslot
                 @endcomponent
@@ -262,8 +262,8 @@
     @component('admin.components.crumb')
 
         @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>Dashboard</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>Show Invoice</li>
+            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.showsettings')}}</li>
         @endslot
     @endcomponent
 @endsection

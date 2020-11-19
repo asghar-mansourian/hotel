@@ -146,9 +146,11 @@ width: 100px;
             </div>
             <div class="partner">
                 <div class="container">
-                    <div class="black pt-5 text-center">{{__('website.customers')}}
-                        <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
-                    </div>
+                    <a href="/customers">
+                        <div class="black pt-5 text-center">{{__('website.customers')}}
+                            <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
+                        </div>
+                    </a>
                     <div class="owl-carousel owl-theme">
                         @foreach($customers as $customer)
                             <div class="item">
@@ -160,36 +162,33 @@ width: 100px;
             </div>
             <div class="container">
                 <div class="row city">
-                    <div class="col-md-12 black">{{__('website.tariffs_by_countries')}}
-                        <div class="hr"></div>
+                    <div class="col-md-12 black text-center">{{__('website.tariffs_by_countries')}}
+                        <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
                     </div>
                     @foreach($countries as $country)
                         <div class="col-md-6">
                             <div class="@if($loop->first) city_pink @else city_blue @endif">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 city_title">
-                                        <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4"> <strong>{{$country->name}}</strong>
+                                        <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4"> <strong>{{__('website.home_page.countries.turkey')}}</strong>
                                     </div>
-                                    @foreach($country->priceCalculators as $priceCalculator)
-                                        <div class="col-md-12 col-sm-12 mb-3 p-0">
-
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="lit_pink" style="    font-size: 22px;margin-top: 0;">{{$priceCalculator->from }} - {{$priceCalculator->to }} {{$priceCalculator->unit->title}}</div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                    <ul style="padding: 0 26px;">
+                                        @foreach($country->priceCalculators as $priceCalculator)
+                                            <li style=" font-family: Calibri, sans-serif; font-size: 16px; border-bottom: 1px dashed #e2e5e7; padding: 10px 0;">
+                                                {{$priceCalculator->from }} - {{$priceCalculator->to }} {{$priceCalculator->unit->title}}
                                                 @if($priceCalculator->discount)
-                                                    <div class="city_money">
-                                                        <del style="color: pink">{{$priceCalculator->currency}} $</del>
+                                                    <del style="color: pink">
+                                                        <span style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
+                                                    </del>
+                                                    <span style=" color: #000; float: right; font-size: 22px; font-weight: 700;">
                                                         {{$priceCalculator->currency -  (($priceCalculator->discount / 100) * $priceCalculator->currency)  }} $
-                                                    </div>
+                                                    </span>
                                                 @else
-                                                    <div class="city_money">
-                                                        {{$priceCalculator->currency}} $
-                                                    </div>
+                                                    <span style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
                                                 @endif
-                                            </div>
-                                        </div>
-                                    @endforeach
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +261,8 @@ width: 100px;
             loop: false,
             margin: 10,
             // nav:true,
-            autoplay: 800,
+            autoplay: true,
+            autoplayTimeout: 3000,
             responsive: {
                 0: {
                     items: 2
