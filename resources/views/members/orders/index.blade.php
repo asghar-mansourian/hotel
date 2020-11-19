@@ -87,15 +87,15 @@
 
                                             <div class="filterDiv_ul">
                                                 <ul>
-                                                    <li style="width: 8%;">{{__('member.id')}}</li>
-                                                    <li style="width: 12%;">{{__('member.orderid')}}</li>
-                                                    <li style="width: 8%;">{{__('member.link')}}</li>
-                                                    <li style="width: 8%;">{{__('member.price')}}</li>
-                                                    <li style="width: 12%;">{{__('member.hascargo')}}</li>
+                                                    <li style="width: 10%;">{{__('member.id')}}</li>
+                                                    <li style="width: 10%;">{{__('member.country')}}</li>
+                                                    <li style="width: 10%;">{{__('member.total')}}</li>
+                                                    <li style="width: 10%;">{{__('member.status')}}</li>
+{{--                                                    <li style="width: 12%;">{{__('member.hascargo')}}</li>--}}
 {{--                                                    <li style="width: 8%;">{{__('member.cargo')}}</li>--}}
 {{--                                                    <li style="width: 8%;">{{__('member.quantity')}}</li>--}}
 {{--                                                    <li style="width: 12%;">{{__('member.description')}}</li>--}}
-{{--                                                    <li style="width: 8%;">{{__('member.total')}}</li>--}}
+                                                    <li style="width: 20%;">{{__('member.date')}}</li>
 {{--                                                    <li style="width: 16%;">{{__('member.specification')}}</li>--}}
                                                 </ul>
                                             </div>
@@ -106,23 +106,14 @@
                                             @foreach($active_orders as $order)
 
                                                 @if($order->country != null)
-                                                    {{dd($order)}}
                                                     <div class="filterDiv income">
                                                         <ul>
-                                                            <li style="width: 8%;">{{$order->id}}</li>
-                                                            <li style="width: 8%;">{{$order->created_at}}</li>
-                                                            <li style="width: 12%;">{{$order->order_id}}</li>
-                                                            <li style="width: 8%;"><a
-                                                                    href="{{'https://' . $order->link}}"
-                                                                    class="btn btn-info btn-sm">{{__('member.show')}}</a>
-                                                            </li>
-                                                            <li style="width: 12%;">{{$order->price}}</li>
-                                                            <li style="width: 8%;">{{$order->has_cargo}}</li>
-                                                            <li style="width: 8%;">{{$order->cargo}}</li>
-                                                            <li style="width: 8%;">{{$order->quantity}}</li>
-                                                            <li style="width: 12%;">{{$order->description}}</li>
-                                                            <li style="width: 8%;">{{$order->total}}</li>
-                                                            <li style="width: 16%;">{{$order->specification}}</li>
+                                                            <li style="width: 10%;">{{$order->id}}</li>
+                                                            <li style="width: 10%;">{{$order->country->name}}</li>
+                                                            <li style="width: 10%;">{{$order->total}}</li>
+                                                            <li style="width: 10%;">{{$order->status}}</li>
+                                                            <li style="width: 20%;">{{$order->created_at}}</li>
+
                                                         </ul>
                                                     </div>
                                                 @endif
