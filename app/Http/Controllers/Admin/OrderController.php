@@ -126,5 +126,16 @@ class OrderController extends Controller
         return redirect()->back();
 
     }
+    public function status($id , $type)
+    {
+        order::query()->find($id)->update([
+            'status' => $type,
+        ]);
+
+        session()->flash('message', __('custom.order.message.update'));
+        session()->flash('success', 1);
+        return redirect()->back();
+
+    }
 
 }
