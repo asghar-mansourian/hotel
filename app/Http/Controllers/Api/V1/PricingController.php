@@ -11,7 +11,7 @@ class PricingController extends Controller
     public function list()
     {
         return PricingResource::collection(
-            Calculator::all()
+            Calculator::with('unit')->get()
         );
     }
 }
