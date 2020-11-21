@@ -5,6 +5,12 @@
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
+    <style>
+        .bx-wrapper {
+            border-radius: 30px;
+            border: 0 !important;
+        }
+    </style>
 @endsection
 @section('content')
 
@@ -136,7 +142,8 @@ width: 100px;
                     <div class="row">
                         <div class="col-md-8 col-sm-8">
                             <div class="video_bord">
-                                <img src="./front/image/blog/blog.png" class="w-100">
+                                <iframe width="750" height="417" src="{{\App\Setting::getValue(\App\Setting::FIELD_HOME_URL_VIDEO)}}" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 15px;"></iframe>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">

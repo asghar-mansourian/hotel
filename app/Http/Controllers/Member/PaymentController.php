@@ -86,6 +86,5 @@ class PaymentController extends Controller
 
             $payment->user->increment('balance', $payment->price);
         }
-
     }
 }
