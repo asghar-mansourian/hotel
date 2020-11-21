@@ -285,7 +285,6 @@ width: 100px;
     <link rel="stylesheet" href="{{url('front/plugin/bxslider/jquery.bxslider.css')}}">
     <script src="{{url('front/plugin/bxslider/jquery.bxslider.min.js')}}"></script>
 
-    // Initialize the slider
     <script>
         $(document).ready(function(){
             $('.slider').bxSlider();
