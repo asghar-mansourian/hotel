@@ -17,10 +17,11 @@
                         <div class="font_grey">{{__('website.header_up_right')}}</div>
                     </div>
                     <div class="col-md-7">
-                        <div class="img_slider">
-                            <div class="slider">
-                                <div><img src="{{url('front/image/airplane.jpg')}}" alt=""></div>
-                                <div><img src="{{url('front/image/airplane_p.png')}}" alt=""></div>
+                        <div class="img_slider" >
+                            <div class="slider" style="border-radius: 30px!important;">
+                                @foreach($sliders as $slider)
+                                <div><img src="{{url('slider/images/' . $slider->picture)}}" alt=""></div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
