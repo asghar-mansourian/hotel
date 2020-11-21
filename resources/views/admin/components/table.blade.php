@@ -12,7 +12,8 @@
                             <a class="sort"
                                style="@if($sortType == 'desc' && $sortField == $select[0].'_id') display:none;  @endif"
                                href="#" data-sort-field="{{$select[0].'_id'}}" data-sort-type="desc">
-                                <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                <i class="fa fa-arrow-down"
+                                   style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
                             </a>
                             <a class="sort "
                                style="@if($sortType  == 'asc' && $sortField == $select[1].'_id') display:none;  @endif"
@@ -28,11 +29,14 @@
                         {{__('admin.table' . $select)}}
                         <div class="" style="display: none!important;">
 
-                            <a class="sort" style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif"
+                            <a class="sort"
+                               style="@if($sortType == 'desc' && $sortField == $select) display:none;  @endif"
                                href="#" data-sort-field="{{$select}}" data-sort-type="desc">
-                                <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                <i class="fa fa-arrow-down"
+                                   style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
                             </a>
-                            <a class="sort" style="@if($sortType  == 'asc' && $sortField == $select) display:none;  @endif"
+                            <a class="sort"
+                               style="@if($sortType  == 'asc' && $sortField == $select) display:none;  @endif"
                                href="#" data-sort-field="{{$select}}" data-sort-type="asc">
                                 <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
                             </a>
@@ -58,6 +62,34 @@
                                 <div class="">{{__('admin.tabledeactive')}}</div>
                             @endif
                         </td>
+                    @elseif($select == "status_type")
+                        @if($record->status == 0)
+                            <td> <div class=""> ORDERED</div> </td>
+
+                        @endif
+                        @if($record->status == 1)
+                                <td> <div class=""> WAREHOUSE ABROAD</div> </td>
+
+                        @endif
+                        @if($record->status == 2)
+                            <td><div class=""> ON WAY</div></td>
+
+                        @endif
+                        @if($record->status == 3)
+                            <td><div class=""> CUSTOMS INSPECTION</div></td>
+                        @endif
+                        @if($record->status == 4)
+                            <td><div class=""> IN WAREHOUSE</div></td>
+                        @endif
+                        @if($record->status == 5)
+                            <td><div class=""> COURIER DELIVERY</div></td>
+                        @endif
+                        @if($record->status == 6)
+                           <td> <div class=""> RETURN</div></td>
+                        @endif
+                        @if($record->status == 7)
+                           <td> <div class=""> COMPLETE</div></td>
+                        @endif
                     @else
                         @if(is_array($select))
                             @php
@@ -114,7 +146,8 @@
                             </a>
                         @endif
                         @if($option == 'delete')
-                            <a href="{{url('admin/' . $url . '/delete/' . $record->id)}}" class="btn btn-sm btn-danger delete" data-toggle="tooltip"
+                            <a href="{{url('admin/' . $url . '/delete/' . $record->id)}}"
+                               class="btn btn-sm btn-danger delete" data-toggle="tooltip"
                                title data-placement="top" data-value="{{$record->id}}" data-original-title="Delete">
                                 <i class="fe fe-trash mr-2"></i>{{__('admin.tabledelete')}}
                             </a>

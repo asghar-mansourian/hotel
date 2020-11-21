@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
 @endsection
 @section('content')
+
     <section>
         <div class="index_page">
             <div class="container">
@@ -16,8 +17,12 @@
                         <div class="font_grey">{{__('website.header_up_right')}}</div>
                     </div>
                     <div class="col-md-7">
-                        <div class="img_slider">
-                            <img src="./front/image/blog/blog.png" class="w-100">
+                        <div class="img_slider" >
+                            <div class="slider" style="border-radius: 30px!important;">
+                                @foreach($sliders as $slider)
+                                <div><img src="{{url('slider/images/' . $slider->picture)}}" alt=""></div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12 p-0">
@@ -275,6 +280,16 @@ width: 100px;
                 }
             }
         })
+    </script>
+
+    <link rel="stylesheet" href="{{url('front/plugin/bxslider/jquery.bxslider.css')}}">
+    <script src="{{url('front/plugin/bxslider/jquery.bxslider.min.js')}}"></script>
+
+    // Initialize the slider
+    <script>
+        $(document).ready(function(){
+            $('.slider').bxSlider();
+        });
     </script>
 
 @endsection

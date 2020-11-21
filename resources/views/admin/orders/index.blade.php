@@ -48,7 +48,7 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $orders , 'selects' => ['id' , 'status' , ['user' , 'email']] , 'options' => ['show' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $orders , 'selects' => ['id' , 'status_type' , ['user' , 'email']] , 'options' => ['show' , 'delete']])
                         @slot('paginate')
                             {{$orders->links()}}
                         @endslot
