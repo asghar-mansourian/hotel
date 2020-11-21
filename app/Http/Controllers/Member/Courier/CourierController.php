@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Member\Courier;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Invoice;
+use App\Order;
+use App\Stock;
 
 class CourierController extends Controller
 {
     public function index()
     {
-        return view('members.courier.index');
+        $stocks = Stock::all();
+
+        $orders = Order::where('status', Order::STATUS_COURIER_DELIVERY)->get();
+
+        $invoices = Invoice::where('status', Invoice::STATUS_COURIER_DELIVERY)->get();
+
+        return view('members.courier.index', compact('stocks', 'orders', 'invoices'));
     }
 }
