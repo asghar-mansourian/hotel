@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
 @endsection
 @section('content')
+
     <section>
         <div class="index_page">
             <div class="container">
@@ -17,7 +18,10 @@
                     </div>
                     <div class="col-md-7">
                         <div class="img_slider">
-                            <img src="./front/image/blog/blog.png" class="w-100">
+                            <div class="slider">
+                                <div><img src="{{url('front/image/airplane.jpg')}}" alt=""></div>
+                                <div><img src="{{url('front/image/airplane_p.png')}}" alt=""></div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12 p-0">
@@ -275,6 +279,16 @@ width: 100px;
                 }
             }
         })
+    </script>
+
+    <link rel="stylesheet" href="{{url('front/plugin/bxslider/jquery.bxslider.css')}}">
+    <script src="{{url('front/plugin/bxslider/jquery.bxslider.min.js')}}"></script>
+
+    // Initialize the slider
+    <script>
+        $(document).ready(function(){
+            $('.slider').bxSlider();
+        });
     </script>
 
 @endsection
