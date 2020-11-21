@@ -64,31 +64,47 @@
                         </td>
                     @elseif($select == "status_type")
                         @if($record->status == 0)
-                            <td> <div class=""> ORDERED</div> </td>
+                            <td>
+                                <div class=""> ORDERED</div>
+                            </td>
 
                         @endif
                         @if($record->status == 1)
-                                <td> <div class=""> WAREHOUSE ABROAD</div> </td>
+                            <td>
+                                <div class=""> WAREHOUSE ABROAD</div>
+                            </td>
 
                         @endif
                         @if($record->status == 2)
-                            <td><div class=""> ON WAY</div></td>
+                            <td>
+                                <div class=""> ON WAY</div>
+                            </td>
 
                         @endif
                         @if($record->status == 3)
-                            <td><div class=""> CUSTOMS INSPECTION</div></td>
+                            <td>
+                                <div class=""> CUSTOMS INSPECTION</div>
+                            </td>
                         @endif
                         @if($record->status == 4)
-                            <td><div class=""> IN WAREHOUSE</div></td>
+                            <td>
+                                <div class=""> IN WAREHOUSE</div>
+                            </td>
                         @endif
                         @if($record->status == 5)
-                            <td><div class=""> COURIER DELIVERY</div></td>
+                            <td>
+                                <div class=""> COURIER DELIVERY</div>
+                            </td>
                         @endif
                         @if($record->status == 6)
-                           <td> <div class=""> RETURN</div></td>
+                            <td>
+                                <div class=""> RETURN</div>
+                            </td>
                         @endif
                         @if($record->status == 7)
-                           <td> <div class=""> COMPLETE</div></td>
+                            <td>
+                                <div class=""> COMPLETE</div>
+                            </td>
                         @endif
                     @else
                         @if(is_array($select))
@@ -152,7 +168,45 @@
                                 <i class="fe fe-trash mr-2"></i>{{__('admin.tabledelete')}}
                             </a>
                         @endif
+                        @if($option === 'status_type')
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-warning btn-sm dropdown-toggle mt-2"
+                                        data-toggle="dropdown"
+                                        aria-expanded="false">
+                                    <i class="fe fe-alert-circle mr-2"></i>change status
+                                </button>
+                                <div class="dropdown-menu " style="">
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/' . $record->id . '/' . 0 )}}"
+                                       style="height: 20px;">ORDERED</a>
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/' . $record->id . '/' . 1 )}}"
+                                       style="height: 20px;"> WAREHOUSE ABROAD</a>
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/' . $record->id . '/' . 2 )}}"
+                                       style="height: 20px;">ON WAY</a>
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/' . $record->id . '/' . 3 )}}"
+                                       style="height: 20px;"> CUSTOMS INSPECTION</a>
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/' . $record->id . '/' . 4 )}}"
+                                       style="height: 20px;"> IN WAREHOUSE</a>
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/' . $record->id . '/' . 5 )}}"
+                                       style="height: 20px;"> COURIER DELIVERY</a>
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/' . $record->id . '/' . 6 )}}"
+                                       style="height: 20px;">RETURN</a>
+                                    <a class="dropdown-item"
+                                       href="{{url(request()->getPathInfo().'/status/'. $record->id . '/' . 7 )}}"
+                                       style="height: 20px;">COMPLETE</a>
+                                </div>
+
+                            </div>
+
+                        @endif
                     @endforeach
+
                 </td>
             </tr>
         @endforeach
