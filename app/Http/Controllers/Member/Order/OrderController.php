@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\PaymentController;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Order;
-use App\OrderItem;
 use App\Payment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -43,8 +42,7 @@ class OrderController extends Controller
     }
 
     public function stored($order)
-    {
-        // check balance
+    {        // check balance
         if ($order->payment_type == Order::PAYMENT_TYPE_CASH) {
             return $this->paidViaCash($order);
         }
