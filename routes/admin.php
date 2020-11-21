@@ -93,6 +93,17 @@ route::get('/blogs/destroy/{id}' , 'BlogController@destroy');
 route::post('/blogs/search/' , 'BlogController@search');
 route::post('/blogs/sort/' , 'BlogController@sort');
 
+/*      stocks Routes      */
+route::get('/stocks' , 'StockController@index');
+route::get('/stocks/load' , 'StockController@load');
+route::get('/stocks/create/' , 'StockController@create');
+route::post('/stocks/store/' , 'StockController@store');
+route::get('/stocks/edit/{id}' , 'StockController@edit');
+route::post('/stocks/update/{id}' , 'StockController@update');
+route::get('/stocks/destroy/{id}' , 'StockController@destroy');
+route::post('/stocks/search/' , 'StockController@search');
+route::post('/stocks/sort/' , 'StockController@sort');
+
 /*      Sliders Routes      */
 route::get('/sliders' , 'SliderController@index');
 route::get('/sliders/load' , 'SliderController@load');
