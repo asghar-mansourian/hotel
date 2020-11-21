@@ -101,7 +101,7 @@ class InvoiceController extends Controller
     }
     public function status($id , $type)
     {
-        $a = Invoice::query()->find($id)->update([
+        Invoice::query()->find($id)->update([
             'status' => $type,
         ]);
         session()->flash('message', __('custom.invoice.message.update'));
