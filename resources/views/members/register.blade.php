@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="col-md-12 text-center">
-            <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('member.login')}}</div>
+            <div class="black pt-5"><span class="yellow mr-3"></span>{{__('member.login')}}</div>
             {{--        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>--}}
         </div>
         <form action="{{ route('register') }}" method="post">
