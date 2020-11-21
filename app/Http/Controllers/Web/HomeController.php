@@ -8,6 +8,7 @@ use App\Country;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\lib\Helpers;
+use App\Slider;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Session;
 
@@ -30,7 +31,9 @@ class HomeController extends Controller
 
         $customers = Customer::all();
 
-        return view('web.home', compact('blogs', 'countries','customers'));
+        $sliders = Slider::all();
+
+        return view('web.home', compact('sliders' , 'blogs', 'countries','customers'));
     }
 
     public function setLocale($locale)
