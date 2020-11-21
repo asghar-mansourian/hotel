@@ -50,5 +50,11 @@ Route::middleware('auth:api')->group(function () {
 
             Route::get('pricing', 'PricingController@list');
 
+
+            Route::apiResource('user-settings', 'UserSettingController')->except(['index','store']);
+            Route::apiResource('user-password', 'UserPasswordController')->except(['index','store']);
+            Route::apiResource('user-other-settings', 'UserOtherSettingController')->except(['index','store']);
+
+
         });
 });
