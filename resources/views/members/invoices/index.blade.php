@@ -294,6 +294,7 @@
                                                                data-invoice="{{$invoice->id}}"
                                                                class="edit btn btn-danger">
 
+
                                                     </li>
                                                 </ul>
                                             </div>
