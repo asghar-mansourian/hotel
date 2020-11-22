@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Member;
 
 
+use App\Branch;
 use App\Http\Controllers\Controller;
 use App\lib\currency;
 use App\User;
@@ -22,19 +23,22 @@ class SettingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('members.setting', compact('user'));
+        $branches = Branch::all();
+        return view('members.setting', compact('user' , 'branches'));
     }
 
     public function changeProfileInformation(Request $request)
     {
+
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'family' => ['required', 'string', 'max:255'],
+//            'name' => ['required', 'string', 'max:255'],
+//            'family' => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'string', 'regex:/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/'],
         ]);
         User::query()->where('id', Auth::user()->id)->update([
-            'name' => $request->input('name'),
-            'family' => $request->input('family'),
+//            'name' => $request->input('name'),
+//            'family' => $request->input('family'),
+            'branch_id' => $request->input('branch_id'),
             'birthdate' => $request->input('birthdate'),
         ]);
 
