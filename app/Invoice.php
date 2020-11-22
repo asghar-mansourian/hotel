@@ -70,4 +70,9 @@ class Invoice extends Model
     {
         return $this->belongsTo(Branch::class, 'branch_id');
     }
+
+    public function CourierProductItems()
+    {
+        return $this->morphMany(CourierProductItem::class, 'productable');
+    }
 }
