@@ -42,12 +42,11 @@
                                 </div>
                                 <div class="col-md-5 col-sm-5 mb-4">
                                     <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
-                                    <select name="" class=" w-100 " aria-labelledby="dropdown_baglama"
+                                    <select name="branch_id" class=" w-100 " aria-labelledby="dropdown_baglama"
                                             style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
-                                        <option class="">{{__('member.baku')}}</option>
-                                        <option class="dropdown-item">{{__('member.ganja')}}</option>
-                                        <option class="dropdown-item">{{__('member.sumgayit')}}</option>
-                                        <option class="dropdown-item">{{__('member.zaqatala')}}</option>
+                                        @foreach($branches as $branch)
+                                            <option {{$user->branch_id == $branch->id ? 'selected' : ''}} class="dropdown-item">{{$branch->title}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-7 col-sm-7 mb-4">

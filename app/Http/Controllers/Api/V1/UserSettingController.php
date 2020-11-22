@@ -51,7 +51,7 @@ class UserSettingController extends Controller
         $request->validate([
             'name' => 'bail|required|string|max:255',
             'family' => 'bail|required|string|max:255',
-            'deliveryoffice' => 'bail|required|string|max:255',
+            'branch_id' => 'bail|required|string|max:255',
             'birthdate' => 'bail|required|string|max:255',
             'email' => 'bail|required|string|max:255|email|unique:users,email',
             'phone' => 'required|numeric|unique:users|string'
@@ -59,7 +59,7 @@ class UserSettingController extends Controller
 
         $user->name = $request->input('name');
         $user->family = $request->input('family');
-        $user->deliveryoffice = $request->input('deliveryoffice');
+        $user->branch_id = $request->input('branch_id');
         $user->birthdate = $request->input('birthdate');
         $user->phone = $request->input('phone');
         $user->email = $request->input('email');
