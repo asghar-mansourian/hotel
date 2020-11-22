@@ -29,8 +29,9 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
+
     protected $fillable = [
-        'name', 'family', 'email', 'password', 'code', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'fin', 'address', 'token'
+        'branch_id', 'name', 'family', 'email', 'password', 'code', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'fin', 'address', 'token'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -82,6 +83,12 @@ class User extends Authenticatable implements JWTSubject
     public function couriers()
     {
         return $this->hasMany(Courier::class, 'user_id');
+    }
+
+
+    public function branches()
+    {
+        return $this->hasMany(Branch::class, 'branch_id');
     }
 
 

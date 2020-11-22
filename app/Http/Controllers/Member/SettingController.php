@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Member;
 
 
+use App\Branch;
 use App\Http\Controllers\Controller;
 use App\lib\currency;
 use App\User;
@@ -21,8 +22,9 @@ class SettingController extends Controller
      */
     public function index()
     {
+        $branches= Branch::all();
         $user = Auth::user();
-        return view('members.setting', compact('user'));
+        return view('members.setting', compact('user','branches'));
     }
 
     public function changeProfileInformation(Request $request)
@@ -36,6 +38,9 @@ class SettingController extends Controller
             'name' => $request->input('name'),
             'family' => $request->input('family'),
             'birthdate' => $request->input('birthdate'),
+            'branch_id' => $request->input('branch_id'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
         ]);
 
         return redirect()->back()->with('success', 'Updated Profile Successful');

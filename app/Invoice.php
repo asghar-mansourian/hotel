@@ -21,14 +21,15 @@ class Invoice extends Model
         'order_track',
         'order_date',
         'order_file',
-        'description'
+        'description',
+        'status',
     ];
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
     const selectField = ['user_id', 'country_id', 'id',
         'branch_id', 'shop', 'product_type'
-        , 'quantity', 'price', 'order_track', 'order_date', 'order_file', 'description'];
+        , 'quantity', 'price', 'order_track', 'order_date', 'order_file', 'description' , 'status'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 

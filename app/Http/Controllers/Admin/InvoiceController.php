@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Invoice;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -98,5 +99,14 @@ class InvoiceController extends Controller
         return redirect()->back();
 
     }
+    public function status($id , $type)
+    {
+        Invoice::query()->find($id)->update([
+            'status' => $type,
+        ]);
+        session()->flash('message', __('custom.invoice.message.update'));
+        session()->flash('success', 1);
+        return redirect()->back();
 
+    }
 }

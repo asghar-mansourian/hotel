@@ -56,5 +56,10 @@ Route::middleware('auth:api')->group(function () {
 
             Route::apiResource('couriers', 'CourierController');
 
+            Route::apiResource('user-settings', 'UserSettingController')->except(['index','store']);
+            Route::apiResource('user-password', 'UserPasswordController')->except(['index','store']);
+            Route::apiResource('user-other-settings', 'UserOtherSettingController')->except(['index','store']);
+
+
         });
 });
