@@ -50,6 +50,11 @@ Route::middleware('auth:api')->group(function () {
 
             Route::get('pricing', 'PricingController@list');
 
+            Route::get('stocks', 'StockController');
+
+            Route::get('couriers/product-items', 'CourierController@productItems');
+
+            Route::apiResource('couriers', 'CourierController');
 
             Route::apiResource('user-settings', 'UserSettingController')->except(['index','store']);
             Route::apiResource('user-password', 'UserPasswordController')->except(['index','store']);

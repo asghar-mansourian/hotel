@@ -64,6 +64,8 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/courier', 'Courier\CourierController@index')->name('courier');
 
+    Route::post('/courier', 'Courier\CourierController@store')->name('courier.store');
+
     Route::get('/inquiry', 'Inquiry\InquiryController@index')->name('inquiry');
 
     Route::post('/inquiry-store', 'Inquiry\InquiryController@store')->name('inquiry_store');

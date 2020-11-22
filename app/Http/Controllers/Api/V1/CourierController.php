@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Member\Courier;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Courier;
 use App\CourierProductItem;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\StoreCourier;
 use App\Http\Requests\StoreCourierRequest;
+use App\Http\Resources\V1\Courier as CourierResource;
 use App\Invoice;
 use App\Order;
-use App\Stock;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -19,13 +19,9 @@ class CourierController extends Controller
 
     public function index()
     {
-        $stocks = Stock::all();
-
-        $orders = Order::where('status', Order::STATUS_COURIER_DELIVERY)->get();
-
-        $invoices = Invoice::where('status', Invoice::STATUS_COURIER_DELIVERY)->get();
-
-        return view('members.courier.index', compact('stocks', 'orders', 'invoices'));
+        return CourierResource::collection(
+            auth()->user()->couriers
+        );
     }
 
     public function store(StoreCourierRequest $request)
@@ -61,9 +57,20 @@ class CourierController extends Controller
 
     public function stored()
     {
-        request()->session()->flash('message', __('member.general.message.create_success'));
-        request()->session()->flash('success', 1);
+        return response([
+            'message' => __('member.general.message.create_success'),
+        ]);
+    }
 
-        return back();
+    public function productItems()
+    {
+        $orders = Order::where('status', Order::STATUS_COURIER_DELIVERY)->get();
+
+        $invoices = Invoice::where('status', Invoice::STATUS_COURIER_DELIVERY)->get();
+
+        return response([
+            'orders' => $orders,
+            'invoices' => $invoices
+        ]);
     }
 }

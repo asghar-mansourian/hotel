@@ -1,32 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Member\Courier;
+
+namespace App\Http\Controllers\Traits;
+
 
 use App\Courier;
 use App\CourierProductItem;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\StoreCourier;
 use App\Http\Requests\StoreCourierRequest;
-use App\Invoice;
-use App\Order;
-use App\Stock;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class CourierController extends Controller
+trait StoreCourier
 {
-    use StoreCourier;
-
-    public function index()
-    {
-        $stocks = Stock::all();
-
-        $orders = Order::where('status', Order::STATUS_COURIER_DELIVERY)->get();
-
-        $invoices = Invoice::where('status', Invoice::STATUS_COURIER_DELIVERY)->get();
-
-        return view('members.courier.index', compact('stocks', 'orders', 'invoices'));
-    }
 
     public function store(StoreCourierRequest $request)
     {
@@ -57,13 +42,5 @@ class CourierController extends Controller
         });
 
         return $this->stored();
-    }
-
-    public function stored()
-    {
-        request()->session()->flash('message', __('member.general.message.create_success'));
-        request()->session()->flash('success', 1);
-
-        return back();
     }
 }

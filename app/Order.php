@@ -71,4 +71,9 @@ class Order extends Model
     {
         return $this->morphOne(Payment::class, 'modelable');
     }
+
+    public function CourierProductItems()
+    {
+        return $this->morphMany(CourierProductItem::class, 'productable');
+    }
 }
