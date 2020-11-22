@@ -293,6 +293,7 @@
                                                         <input type="button" value="edit"
                                                                data-invoice="{{$invoice->id}}"
                                                                class="edit btn btn-danger">
+
                                                     </li>
                                                 </ul>
                                             </div>
