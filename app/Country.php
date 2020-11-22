@@ -43,6 +43,7 @@ class Country extends Model
     }
 
 
+
     public function priceCalculators()
     {
         return $this->hasMany(Calculator::class, 'country_id');

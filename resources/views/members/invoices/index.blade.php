@@ -289,6 +289,7 @@
                                                         </form>
                                                     </li>
 
+
                                                     <li>
                                                         <input type="button" value="edit"
                                                                data-invoice="{{$invoice->id}}"

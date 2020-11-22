@@ -16,7 +16,7 @@ class InvoiceController extends Controller
     {
         $branches= Branch::all();
         $countries = Country::with('invoices.branch')->get();
-//dd($countries);
+
         return view('members.invoices.index', compact('countries','branches'));
     }
 
