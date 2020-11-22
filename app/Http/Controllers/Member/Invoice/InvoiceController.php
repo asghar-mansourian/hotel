@@ -20,6 +20,7 @@ class InvoiceController extends Controller
         return view('members.invoices.index', compact('countries','branches'));
     }
 
+
     public function create()
     {
         $countries = Country::all();

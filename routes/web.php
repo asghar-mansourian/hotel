@@ -72,7 +72,6 @@ Route::group(['namespace' => 'Member'], function () {
 
     Route::get('/storage/{id}', 'ImageController@show')->name('storage_image');
 
-
 });
 
 // web

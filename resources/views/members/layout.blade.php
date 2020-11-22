@@ -165,6 +165,7 @@
                     contentType: false,
                     success : function(response){
 
+
                         if(response.success == true){
                             location.reload();
                         }else{
