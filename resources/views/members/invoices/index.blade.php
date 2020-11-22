@@ -7,7 +7,7 @@
 
     <style>
         .filterDiv_ul ul li {
-            width: 19.99%;
+            width: 15.99%;
         }
 
         .filterDiv ul li {
@@ -268,7 +268,7 @@
                                                 <li>{{__('member.orderdate')}}</li>
                                                 <li>{{__('member.shop')}}</li>
                                                 <li>{{__('member.status')}}</li>
-                                                <li>{{__('member.action')}}</li>
+                                                <li style="width: 36%">{{__('member.action')}}</li>
                                             </ul>
                                         </div>
                                         @foreach($country->invoices->filterViaStatus(request()->query('status')) as $invoice)
@@ -290,7 +290,7 @@
                                                     </li>
 
                                                     <li>
-                                                        <input type="button" value="editt"
+                                                        <input type="button" value="edit"
                                                                data-invoice="{{$invoice->id}}"
                                                                class="edit btn btn-danger">
                                                     </li>
