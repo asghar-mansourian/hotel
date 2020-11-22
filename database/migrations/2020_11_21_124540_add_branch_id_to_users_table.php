@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDeliveryOfficeToUsersTable extends Migration
+class AddBranchIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddDeliveryOfficeToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('deliveryoffice')->nullable()->after('email');
+            $table->unsignedBigInteger('branch_id')->after('id')->nullable();
+            $table->foreign('branch_id')->references('id')->on('branches');
         });
     }
 
@@ -26,7 +27,7 @@ class AddDeliveryOfficeToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('branch_id');
         });
     }
 }
