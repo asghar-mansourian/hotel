@@ -134,6 +134,47 @@
 
         });
 
+        $(document).ready(function(){
+            $(".edit").click(function(e) {
+                var invoice= $(this).attr('data-invoice');
+                // $("#invoicepopup-"+invoice).modal()
+                $("#invoicepopup-"+invoice).modal('toggle');
+
+
+            });
+            $(".update").click(function(e) {
+                e.preventDefault();
+                var invoice= $(this).attr('data-invoice');
+                console.log(document.getElementById("country-"+invoice))
+                var form=$('#country-'+invoice);
+                var url = '{{ route("invoices.update", ":id") }}';
+                url = url.replace(':id',invoice);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type : "post",
+                    url : url,
+                    dataType : "json",
+                    data: new FormData(document.getElementById("invoice-"+invoice)),
+                    processData: false,
+                    contentType: false,
+                    success : function(response){
+                        // console.log('response')
+                        if(response.success == true){
+                            location.reload();
+                        }else{
+                            $.each(response.errors,function(k,error){
+                                alert(error);
+                            });
+                        }
+                    }
+                });
+
+            });
+        });
 
     </script>
 @endsection

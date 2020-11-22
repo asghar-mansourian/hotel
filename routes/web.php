@@ -54,6 +54,7 @@ Route::group(['namespace' => 'Member'], function () {
     Route::get('/az-balance', 'PaymentController@verify');
     Route::get('/tl-balance', 'PaymentController@verify');
 
+
     Route::resource('invoices', 'Invoice\InvoiceController');
 
     Route::resource('orders', 'Order\OrderController');
