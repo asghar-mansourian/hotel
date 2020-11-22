@@ -9,7 +9,7 @@
     <div class="mt-5">
         <div class="row">
             <div class="hide-alert">
-                @include('admin.components.error');
+                @include('admin.components.error')
             </div>
             <div class="col-md-12">
                 <div class="tab">

@@ -39,7 +39,7 @@ trait MemberRegister
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
-            'serial_number' => $data['serial_number'] ?? 1,
+            'serial_number' => $data['serial_number'] ?? time(),
             'citizenship' => $data['citizenship'] ?? '',
             'birthdate' => $data['birthdate'] ?? '',
             'gender' => $data['gender'] ?? User::GENDER_MAN,

@@ -500,7 +500,9 @@ class TranslateSeeder extends Seeder
         'id' => 'ID',
         'answer' => 'Answer',
         'region' => 'region',
-        'please_select_country' => 'please select country'
+        'please_select_country' => 'please select country',
+        'city_address' => 'please select country',
+        'pack_to_order_a_courier' => 'You do not have to pack to order a courier'
     ];
 
     private $website_items = [

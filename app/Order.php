@@ -11,7 +11,7 @@ class Order extends Model
     use SoftDeletes, scopeHelper;
 
     protected $guarded = ['id'];
-    protected $fillable = ['country_id', 'user_id', 'id', 'status', 'branch_id'];
+    protected $fillable = ['country_id', 'user_id', 'id', 'status', 'branch_id', 'payment_type'];
 
     const PAYMENT_TYPE_ONLINE = 0;
     const PAYMENT_TYPE_CASH = 1;
@@ -70,5 +70,10 @@ class Order extends Model
     public function payment()
     {
         return $this->morphOne(Payment::class, 'modelable');
+    }
+
+    public function CourierProductItems()
+    {
+        return $this->morphMany(CourierProductItem::class, 'productable');
     }
 }

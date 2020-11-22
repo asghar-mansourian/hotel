@@ -23,22 +23,19 @@ class SettingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $branches = Branch::all();
-        return view('members.setting', compact('user' , 'branches'));
+        return view('members.setting', compact('user'));
     }
 
     public function changeProfileInformation(Request $request)
     {
-
         $request->validate([
-//            'name' => ['required', 'string', 'max:255'],
-//            'family' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'family' => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'string', 'regex:/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/'],
         ]);
         User::query()->where('id', Auth::user()->id)->update([
-//            'name' => $request->input('name'),
-//            'family' => $request->input('family'),
-            'branch_id' => $request->input('branch_id'),
+            'name' => $request->input('name'),
+            'family' => $request->input('family'),
             'birthdate' => $request->input('birthdate'),
         ]);
 
