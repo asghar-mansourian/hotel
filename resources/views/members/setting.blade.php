@@ -42,10 +42,12 @@
                                 </div>
                                 <div class="col-md-5 col-sm-5 mb-4">
                                     <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
+
                                     <select name="branch_id" class=" w-100 " aria-labelledby="dropdown_baglama"
                                             style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
                                         @foreach($branches as $branch)
-                                            <option {{$user->branch_id == $branch->id ? 'selected' : ''}} class="dropdown-item">{{$branch->title}}</option>
+
+                                            <option value="{{$branch->id}}" @if($branch->id == $user->branch_id) selected @endif>{{$branch->title}}</option>
                                         @endforeach
                                     </select>
                                 </div>
