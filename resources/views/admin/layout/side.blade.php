@@ -138,7 +138,7 @@
                     <path d="M0 0h24v24H0V0z" fill="none"></path>
                     <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                         <path d="M0 0h24v24H0z" fill="none"></path>
-                        <i class="fa fa-wordpress" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+                        <i class="fa fa-compress" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                     </svg>
                 </svg>
                 <span class="side-menu__label">{{ __('admin.stocks') }}</span><i class="angle fa fa-angle-right"></i>
@@ -159,7 +159,7 @@
                     <path d="M0 0h24v24H0V0z" fill="none"></path>
                     <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                         <path d="M0 0h24v24H0z" fill="none"></path>
-                        <i class="fa fa-wordpress" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+                        <i class="fa fa-image" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                     </svg>
                 </svg>
                 <span class="side-menu__label">sliders</span><i class="angle fa fa-angle-right"></i>
@@ -353,6 +353,22 @@
                 <span class="side-menu__label">Price Items</span><i class="angle fa fa-angle-right"></i></a>
             <ul class="slide-menu">
                 <li><a href="{{url('admin/price-items')}}" class="slide-item">show</a></li>
+            </ul>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                     width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <i class="fa fa-money" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+
+                    </svg>
+                </svg>
+                <span class="side-menu__label">Courier</span><i class="angle fa fa-angle-right"></i></a>
+            <ul class="slide-menu">
+                <li><a href="{{url('admin/couriers')}}" class="slide-item">Couriers</a></li>
             </ul>
         </li>
         <li class="slide">

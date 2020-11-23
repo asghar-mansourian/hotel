@@ -374,10 +374,10 @@
                                             <div class="card-body">
                                                 <article class="card">
                                                     <div class="card-body row">
-                                                        <div class="col"><strong>order</strong><br>ssss</div>
-                                                        <div class="col"><strong>date</strong> <br>29 nov 2019</div>
-                                                        <div class="col"><strong>user</strong> <br>majid</div>
-                                                        <div class="col"><strong>status</strong> <br>dddd</div>
+                                                        <div class="col"><strong>order</strong><br>{{$invoice->order_track}}</div>
+                                                        <div class="col"><strong>date</strong> <br>{{$invoice->order_date}}</div>
+                                                        <div class="col"><strong>user</strong> <br>{{$invoice->user->name}}</div>
+                                                        <div class="col"><strong>status</strong> <br>{{\App\Invoice::STATUS_ALL[$invoice->status]}}</div>
                                                     </div>
                                                 </article>
                                                 @php
