@@ -19,13 +19,12 @@ class OrderController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $orders = Order::query()->where('user_id' , $user->id);
+        $orders = Order::query()->withCount('orderItems')->where('user_id' , $user->id);
 
         if (isset($_GET['type'])) {
             $type = $_GET['type'];
             $orders->where('status', $type);
         }
-
 
         $countries = Country::all();
 

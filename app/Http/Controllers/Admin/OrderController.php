@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\OrderItem;
 use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -120,7 +121,7 @@ class OrderController extends Controller
     public function destroy($id)
     {
         order::query()->find($id)->delete();
-
+        orderItem::query()->where('order_id' , $id)->delete();
         session()->flash('message', __('custom.order.message.delete'));
         session()->flash('success', 1);
         return redirect()->back();

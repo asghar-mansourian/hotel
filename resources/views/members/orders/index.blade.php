@@ -96,6 +96,7 @@
 {{--                                                    <li style="width: 8%;">{{__('member.quantity')}}</li>--}}
 {{--                                                    <li style="width: 12%;">{{__('member.description')}}</li>--}}
                                                     <li style="width: 20%;">{{__('member.date')}}</li>
+{{--                                                    <li style="width: 20%;">{{__('member.option')}}</li>--}}
 {{--                                                    <li style="width: 16%;">{{__('member.specification')}}</li>--}}
                                                 </ul>
                                             </div>
@@ -110,7 +111,7 @@
                                                         <ul>
                                                             <li style="width: 10%;">{{$order->id}}</li>
                                                             <li style="width: 10%;">{{$order->country->name}}</li>
-                                                            <li style="width: 10%;">{{$order->total}}</li>
+                                                            <li style="width: 10%;">{{$order->order_items_count}}</li>
                                                             <li style="width: 10%;">{{$order->status}}</li>
                                                             <li style="width: 20%;">{{$order->created_at}}</li>
 
