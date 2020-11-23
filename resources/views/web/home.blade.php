@@ -23,10 +23,10 @@
                         <div class="font_grey">{{__('website.header_up_right')}}</div>
                     </div>
                     <div class="col-md-7">
-                        <div class="img_slider" >
+                        <div class="img_slider" style="display: none">
                             <div class="slider" style="border-radius: 30px!important;">
                                 @foreach($sliders as $slider)
-                                <div><img src="{{url('slider/images/' . $slider->picture)}}" alt=""></div>
+                                    <div><img src="{{url('slider/images/' . $slider->picture)}}" alt=""></div>
                                 @endforeach
                             </div>
                         </div>
@@ -293,9 +293,11 @@ width: 100px;
     <script src="{{url('front/plugin/bxslider/jquery.bxslider.min.js')}}"></script>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
+            $('div .img_slider').css('display', 'block')
+
             $('.slider').bxSlider();
-        });
+        })
     </script>
 
 @endsection

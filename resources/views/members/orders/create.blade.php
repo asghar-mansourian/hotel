@@ -237,5 +237,5 @@
         @endif
         var taxOrder = {{$taxOrder}};
     </script>
-    <script src="/front/js/orders/create.js"></script>
+    <script src="/front/js/orders/create.js?v=1.0.1"></script>
 @endsection

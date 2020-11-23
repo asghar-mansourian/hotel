@@ -83,7 +83,6 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Courier::class, 'user_id');
     }
 
-
     public function branches()
     {
         return $this->hasMany(Branch::class, 'branch_id');

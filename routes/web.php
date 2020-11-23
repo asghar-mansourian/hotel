@@ -26,9 +26,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/logout', 'Auth\LoginController@logout');
 });
 
-// user panel (Member)
 Route::group(['namespace' => 'Member'], function () {
     Auth::routes();
+});
+// user panel (Member)
+Route::group(['namespace' => 'Member', 'middleware' => ['auth']], function () {
 
     Route::get('/logout', 'Auth\LoginController@logout');
 

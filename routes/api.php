@@ -18,8 +18,16 @@ Route::prefix('v1')
     ->namespace('Api\V1')
     ->group(function () {
         Route::post('login', 'Auth\LoginController@login');
+
         Route::post('register', 'Auth\RegisterController@register');
+
         Route::get('regions', 'RegionController');
+
+        Route::get('countries', 'CountryController');
+
+        Route::get('pages/{slug}', 'PageController');
+
+        Route::apiResource('blogs', 'BlogController')->except('update', 'destroy', 'store');
     });
 
 // authenticated
@@ -36,15 +44,11 @@ Route::middleware('auth:api')->group(function () {
 
             Route::apiResource('orders', 'OrderController');
 
-            Route::get('countries', 'CountryController');
-
             Route::get('branches', 'BranchController');
 
             Route::post('increment-balance', 'PaymentController@incrementBalance');
 
             Route::post('currency', 'CurrencyController@getCurrency');
-
-            Route::apiResource('blogs', 'BlogController')->except('update', 'destroy', 'store');
 
             Route::get('balance/{id}', 'BalanceController@getBalance');
 
