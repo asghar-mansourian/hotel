@@ -99,7 +99,7 @@
                                                 <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
                                                         name="branch_id">
                                                     @foreach($branches as $branch)
-                                                        <option value="{{$branch->id}}">{{$branch->title}}</option>
+                                                        <option value="{{$branch->id}}" @if(auth()->user()->branch_id == $branch->id) selected @endif>{{$branch->title}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
