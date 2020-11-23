@@ -24,6 +24,10 @@ Route::prefix('v1')
         Route::get('regions', 'RegionController');
 
         Route::get('countries', 'CountryController');
+
+        Route::get('pages/{slug}', 'PageController');
+
+        Route::apiResource('blogs', 'BlogController')->except('update', 'destroy', 'store');
     });
 
 // authenticated
@@ -45,8 +49,6 @@ Route::middleware('auth:api')->group(function () {
             Route::post('increment-balance', 'PaymentController@incrementBalance');
 
             Route::post('currency', 'CurrencyController@getCurrency');
-
-            Route::apiResource('blogs', 'BlogController')->except('update', 'destroy', 'store');
 
             Route::get('balance/{id}', 'BalanceController@getBalance');
 
