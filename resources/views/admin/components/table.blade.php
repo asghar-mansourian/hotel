@@ -7,7 +7,7 @@
                 @if(is_array($select))
 
                     <th>
-                        {{__('admin.table' . $select[1])}}
+                        {{__('admin.table' . $select[1].$select[0])}}
                         <div class="" style="display: none!important;">
                             <a class="sort"
                                style="@if($sortType == 'desc' && $sortField == $select[0].'_id') display:none;  @endif"

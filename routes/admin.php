@@ -227,3 +227,14 @@ route::get('/price-items/destroy/{id}', 'PriceItemController@destroy');
 route::post('/price-items/search/', 'PriceItemController@search');
 route::post('/price-items/sort/', 'PriceItemController@sort');
 route::get('/price-items/load', 'PriceItemController@load');
+
+
+//Customers
+route::get('/couriers', 'CourierController@index');
+route::get('/couriers/create', 'CourierController@create');
+route::post('/couriers/store', 'CourierController@store');
+route::get('/couriers/edit/{id}', 'CourierController@edit');
+route::post('/couriers/update/{id}', 'CourierController@update');
+route::get('/couriers/destroy/{id}', 'CourierController@delete');
+route::get('/couriers/show/{id}', 'CourierController@show');
+route::post('/couriers/search', 'CourierController@search');
