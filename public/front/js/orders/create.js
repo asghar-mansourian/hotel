@@ -1,12 +1,64 @@
 $(document).ready(function () {
+
+// calc once order
+    var totalPriceOrder = function (blurInput) {
+        var parent = blurInput.closest('div .container-order');
+
+        var price = parseFloat(parent.find('input[name="price[]"]').val());
+        var cargo = parseFloat(parent.find('input[name="cargo[]"]').val());
+        var quantity = parseInt(parent.find('input[name="quantity[]"]').val());
+
+        quantity = (quantity === '' || quantity === 0 || isNaN(quantity)) ? 1 : quantity
+        price = (price === '' || isNaN(price)) ? 0 : price
+        cargo = (cargo === '' || isNaN(cargo)) ? 0 : cargo
+
+        var total = (quantity * price) + cargo;
+
+        var percentage = ((taxOrder / 100) * total);
+
+        return (total + percentage).toFixed(2);
+    }
+
+// calc total orders
+    var totalPriceOrders = function () {
+        var parent = $('#country-' + countryId);
+
+        var totalPriceOrders = 0;
+        parent.children('div').each(function () {
+            if (parseFloat($(this).find('input[name="total[]"]').val())) {
+                totalPriceOrders += parseFloat($(this).find('input[name="total[]"]').val())
+            }
+        })
+
+        return (totalPriceOrders).toFixed(2);
+    }
+
 // change select
     $(document).on('change', 'select[name="has_cargo[]"]', function () {
+
+        $(this)
+            .closest('div')
+            .next()
+            .children()
+            .find('input[name="cargo[]"]')
+            .val(0)
+
         $(this)
             .closest('div')
             .next()
             .children()[0]
             .classList
             .toggle('hidden');
+
+        var parent = $(this).closest('div .container-order');
+
+        parent.find('input[name="total[]"]').val(
+            totalPriceOrder($(this))
+        )
+
+        $('#total-price-orders').text(
+            totalPriceOrders() + ' TL'
+        )
     });
 
 // add row
@@ -76,39 +128,6 @@ $(document).ready(function () {
         form.find('.btn-submit-form').trigger('click');
 
     });
-
-// calc once order
-    var totalPriceOrder = function (blurInput) {
-        var parent = blurInput.closest('div .container-order');
-
-        var price = parseFloat(parent.find('input[name="price[]"]').val());
-        var cargo = parseFloat(parent.find('input[name="cargo[]"]').val());
-        var quantity = parseInt(parent.find('input[name="quantity[]"]').val());
-
-        quantity = (quantity === '' || quantity === 0 || isNaN(quantity)) ? 1 : quantity
-        price = (price === '' || isNaN(price)) ? 0 : price
-        cargo = (cargo === '' || isNaN(cargo)) ? 0 : cargo
-
-        var total = (quantity * price) + cargo;
-
-        var percentage = ((taxOrder / 100) * total);
-
-        return (total + percentage).toFixed(2);
-    }
-
-// calc total orders
-    var totalPriceOrders = function () {
-        var parent = $('#country-' + countryId);
-
-        var totalPriceOrders = 0;
-        parent.children('div').each(function () {
-            if (parseFloat($(this).find('input[name="total[]"]').val())) {
-                totalPriceOrders += parseFloat($(this).find('input[name="total[]"]').val())
-            }
-        })
-
-        return (totalPriceOrders).toFixed(2);
-    }
 
     $(document).on('blur', 'input[name="price[]"], input[name="cargo[]"], input[name="quantity[]"]', function () {
         var parent = $(this).closest('div .container-order');
