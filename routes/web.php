@@ -85,6 +85,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('/blog', 'BlogController@index');
     Route::get('/blog/{id}', 'BlogController@singel')->name('blog.shows');
+    Route::post('/blog-search','BlogController@search')->name('blog.search');
 
     Route::get('/contact-us', 'ContactController@index');
     Route::post('/contact-us', 'ContactController@store');
