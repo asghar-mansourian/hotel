@@ -99,37 +99,7 @@
                 </div>
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12">
-                <div class="border_sh right_time">
-                    <div class="tooltip"><span class="fa-fw select-all fas m-0 mr-0"></span>
-                        <span class="tooltiptext">
-                   {{__('member.tooltipdesc')}}</span>
-                    </div>
-                    <div style="clear: both;"></div>
 
-                    <span id="answer1" style="display: block;">
-                          <h4 class="text-center mt-0"><strong>{{__('member.lastdays')}}</strong></h4>
-                          <div class="timer">
-                            <svg class="rotate" viewBox="0 0 250 250">
-                              <path id="loader" transform="translate(125, 125)"
-                                    d="M 0 0 v -125 A 125 125 1 1 1 -113.28847337958123 -52.82728271758745 z"></path>
-                            </svg>
-                            <div class="dots">
-                              <span class="time deg0"></span>
-                              <span class="time deg45"></span>
-                              <span class="time deg90"></span>
-                              <span class="time deg135"></span>
-                            </div>
-                          </div>
-                          <div class="spin-div relative">
-                              <span id="procent">0.00</span>
-                          </div>
-                          <div style="clear: both;"></div>
-                          <div class="text-center procent_dolar"><h4
-                                  class="mb-0"><strong>{{auth()->user()->balance}} <sup>$</sup></strong></h4></div>
-                      </span>
-                    <span id="text1"></span>
-
-                </div>
                 <div class="border_sh mt-5">
                     <h4 class="text-center"><strong>{{__('member.order_title')}}</strong></h4>
                     <div class="danger">
