@@ -20,7 +20,7 @@ class OrderController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $orders = Order::query()->withCount('orderItems')->where('user_id' , $user->id);
+        $orders = Order::query()->withCount('orderItems')->where('user_id', $user->id);
 
 
         if (isset($_GET['type'])) {
@@ -28,7 +28,7 @@ class OrderController extends Controller
             $orders->where('status', $type);
         }
 
-        $countries = Country::with('orders')->get();
+        $countries = Country::with('orders.orderItems')->get();
         return view('members.orders.index', compact('orders', 'countries'));
     }
 
