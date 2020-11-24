@@ -23,7 +23,7 @@
                         {{__('member.deliveryonlinecourier')}}
                         <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
-                    <a href="#/azn_balance" class=""><a data-v-27fd2a5d="" href="#" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+                    <a href="{{url('az-balance')}}" class=""><a data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
 
                 </div>
             </div>
