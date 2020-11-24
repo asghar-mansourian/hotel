@@ -11,8 +11,11 @@
             </div>
             <div class="col-md-12 slider_search mt-5">
                 <div class="search text-center">
-                    <input type="text" name="" placeholder="{{__('website.search')}} ...">
-                    <button>{{__('website.search')}}</button>
+                    <form method="post" action="{{route('blog.search')}}">
+                        @csrf
+                        <input type="text" name="search" placeholder="{{__('website.search')}} ...">
+                        <button type="submit">{{__('website.search')}}</button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-12 mt-50">
