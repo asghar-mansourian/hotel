@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\PaymentController;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Order;
+use App\OrderItem;
 use App\Payment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -21,13 +22,13 @@ class OrderController extends Controller
         $user = Auth::user();
         $orders = Order::query()->withCount('orderItems')->where('user_id' , $user->id);
 
+
         if (isset($_GET['type'])) {
             $type = $_GET['type'];
             $orders->where('status', $type);
         }
 
-        $countries = Country::all();
-
+        $countries = Country::with('orders')->get();
         return view('members.orders.index', compact('orders', 'countries'));
     }
 

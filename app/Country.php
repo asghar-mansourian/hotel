@@ -32,6 +32,11 @@ class Country extends Model
         return $this->hasMany('App\Region');
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function details()
     {
         return $this->hasMany(CountryDetail::class);
