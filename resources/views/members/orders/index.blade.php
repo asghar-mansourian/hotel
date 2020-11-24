@@ -207,6 +207,10 @@
             border-color: #ff2b00;
             border-radius: 1px
         }
+    /*    end order tracking*/
+        .items.modal .modal-dialog{
+            top: 150px;
+        }
     </style>
 @endsection
 @section('main')
@@ -270,15 +274,15 @@
                     </div>
                     {{--            end popup--}}
                     {{--start order status popup--}}
-                    <div id="items-{{$invoice->id}}" class="modal fade bd-example-modal-lg" tabindex="-1"
+                    <div id="items-{{$invoice->id}}" class="modal items fade bd-example-modal-lg" tabindex="-1"
                          role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="table-responsive">
-                                            <table class="table table-condensed">
-                                                <thead>
+                                            <table class="table table-hover">
+                                                <thead class="thead-light">
                                                 <tr>
                                                     <th>link</th>
                                                     <th>price</th>
