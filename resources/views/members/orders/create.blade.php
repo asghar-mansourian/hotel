@@ -111,7 +111,7 @@
                         <input type="radio" id="balance" name="payment_type" value="{{\App\Order::PAYMENT_TYPE_CASH}}">
                         <label for="balance">
                             <span class="exp">{{__('member.paymenttlbalance')}}</span> <br>
-                            <span class="description">( {{__('member.paymenttlbalancedsc')}} <br><b>{{__('member.yourtlbalance')}}: 0.00TL</b> )
+                            <span class="description">( {{__('member.paymenttlbalancedsc')}} <br><b>{{__('member.yourtlbalance')}}: {{auth()->user()->balance}}TL</b> )
                             </span></label><br>
                         <div style="clear: both;"></div>
                     </div>
