@@ -207,6 +207,10 @@
             border-color: #ff2b00;
             border-radius: 1px
         }
+    /*    end order tracking*/
+        .items.modal .modal-dialog{
+            top: 150px;
+        }
     </style>
 @endsection
 @section('main')
@@ -263,6 +267,48 @@
                                                 </div>
                                             </div>
                                         </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{--            end popup--}}
+                    {{--start order status popup--}}
+                    <div id="items-{{$invoice->id}}" class="modal items fade bd-example-modal-lg" tabindex="-1"
+                         role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>link</th>
+                                                    <th>price</th>
+                                                    <th>cargo</th>
+                                                    <th>quantity</th>
+                                                    <th>description</th>
+                                                    <th>total</th>
+                                                    <th>specification</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($invoice->orderItems as $item)
+                                                    <tr>
+                                                        <td>{{$item->link}}</td>
+                                                        <td>{{$item->price}}</td>
+                                                        <td>{{$item->cargo}}</td>
+                                                        <td>{{$item->quantity}}</td>
+                                                        <td>{{$item->description}}</td>
+                                                        <td>{{$item->total}}</td>
+                                                        <td>{{$item->specification}}</td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -362,13 +408,8 @@
                                                     <li>{{__('member.country')}}</li>
                                                     <li>{{__('member.total')}}</li>
                                                     <li>{{__('member.status')}}</li>
-                                                    {{--                                                    <li style="width: 12%;">{{__('member.hascargo')}}</li>--}}
-                                                    {{--                                                    <li style="width: 8%;">{{__('member.cargo')}}</li>--}}
-                                                    {{--                                                    <li style="width: 8%;">{{__('member.quantity')}}</li>--}}
-                                                    {{--                                                    <li style="width: 12%;">{{__('member.description')}}</li>--}}
                                                     <li>{{__('member.date')}}</li>
-                                                    <li style="width: 16.6%">{{__('member.option')}}</li>
-                                                    {{--                                                    <li style="width: 16%;">{{__('member.specification')}}</li>--}}
+                                                    <li style="width: 19.6%">{{__('member.option')}}</li>
                                                 </ul>
                                             </div>
                                             @php
@@ -383,7 +424,12 @@
                                                             <li>{{$order->order_items_count}}</li>
                                                             <li>{{$order->status}}</li>
                                                             <li>{{$order->created_at}}</li>
-                                                            <li style="width: 16.6%">
+                                                            <li style="width: 9.6%">
+                                                                <input type="button" value="items"
+                                                                       data-items="{{$order->id}}"
+                                                                       class="items btn btn-dark">
+                                                            </li>
+                                                            <li style="width: 9.6%">
                                                                 <input type="button" value="status"
                                                                        data-invoice="{{$order->id}}"
                                                                        class="status btn btn-primary">
