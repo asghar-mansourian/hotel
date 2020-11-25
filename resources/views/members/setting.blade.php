@@ -65,7 +65,7 @@
                                 <div class="col-md-6 col-sm-6 mb-4">
                                     <h5><strong>{{__('member.phone')}} *</strong></h5>
                                     <input type="text" name="phone" placeholder="{{__('member.phone')}} *" class="w-100 courier_input"
-                                           readonly value="{{$user->phone}}">
+                                            value="{{$user->phone}}">
                                 </div>
                                 <div class="col-md-12 button-part mt-4">
                                     <button type="submit" class="btn-effect">{{__('member.save')}}</button>
