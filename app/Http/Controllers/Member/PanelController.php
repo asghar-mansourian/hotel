@@ -15,6 +15,7 @@ class PanelController extends Controller
         CurrencyController::getCurrencyFromTwoApi();
         $wallet = Auth::user()->balance;
         $payments = Payment::where('user_id' , Auth::user()->id)
+            ->where('type' , Payment::PAYMENT_TYPE_CASH)
             ->orderBy('created_at','DESC')
             ->latest()
             ->paginate(10);
