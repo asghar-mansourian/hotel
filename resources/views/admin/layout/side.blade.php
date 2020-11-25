@@ -378,6 +378,22 @@
                     <path d="M0 0h24v24H0V0z" fill="none"></path>
                     <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                         <path d="M0 0h24v24H0z" fill="none"></path>
+                        <i class="fa fa-adn" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+
+                    </svg>
+                </svg>
+                <span class="side-menu__label">Custom Script</span><i class="angle fa fa-angular"></i></a>
+            <ul class="slide-menu">
+                <li><a href="{{url('admin/scripts/index')}}" class="slide-item">Scripts</a></li>
+            </ul>
+        </li>
+        <li class="slide">
+            <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                     width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
                         <i class="fa fa-wrench" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
 
                     </svg>

@@ -5,6 +5,7 @@
     <div class="col-md-9">
 
         <input type="file" class="form-control col-12 " id="{{$name ?? ''}}" name="{{$name ?? ""}}">
+        <input type="hidden" name="hidden_file" value="{{$uploaded ?? ''}}" />
     </div>
 </div>
 
