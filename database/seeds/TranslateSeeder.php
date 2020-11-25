@@ -502,7 +502,17 @@ class TranslateSeeder extends Seeder
         'region' => 'region',
         'please_select_country' => 'please select country',
         'city_address' => 'please select country',
-        'pack_to_order_a_courier' => 'You do not have to pack to order a courier'
+        'pack_to_order_a_courier' => 'You do not have to pack to order a courier',
+        'forgotPassword' => 'Forgot password',
+        'resetPasswordSuccess' => 'Reset Password Success. Please Check Your Email',
+        'resetPassword' => 'Reset Password',
+        'hello' => 'Hello',
+        'regards' => 'Regards',
+        'resetPasswordDescription' => 'You are receiving this email because we received a password reset request for your account.',
+        'resetPasswordExpireDescription'=>'This password reset link will expire in 60 minutes.
+        If you did not request a password reset, no further action is required.',
+        'troubleClicking1' =>'If you’re having trouble clicking the ',
+        'troubleClicking2' => 'button, copy and paste the URL below. into your web browser: ',
     ];
 
     private $website_items = [
