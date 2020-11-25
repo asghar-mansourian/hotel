@@ -296,7 +296,9 @@ width: 100px;
         $(document).ready(function () {
             $('div .img_slider').css('display', 'block')
 
-            $('.slider').bxSlider();
+            $('.slider').bxSlider({
+                auto: true,
+            });
         })
     </script>
 
