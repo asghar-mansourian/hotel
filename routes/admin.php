@@ -238,3 +238,14 @@ route::post('/couriers/update/{id}', 'CourierController@update');
 route::get('/couriers/destroy/{id}', 'CourierController@delete');
 route::get('/couriers/show/{id}', 'CourierController@show');
 route::post('/couriers/search', 'CourierController@search');
+
+//custom scripts
+route::get('/scripts/index', 'ScriptController@index');
+route::get('/scripts/create', 'ScriptController@create');
+route::post('/scripts/store', 'ScriptController@store');
+route::get('/scripts/edit/{id}', 'ScriptController@edit');
+route::post('/scripts/update/{id}', 'ScriptController@update');
+route::get('/scripts/destroy/{id}', 'ScriptController@destroy');
+route::get('/scripts/show/{id}', 'ScriptController@show');
+route::post('/scripts/search', 'ScriptController@search');
+
