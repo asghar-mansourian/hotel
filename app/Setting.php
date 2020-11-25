@@ -37,6 +37,7 @@ class Setting extends Model
     const FIELD_CONTACT_URL_MAP = 'contact_url_map';
     const FIELD_HOME_URL_VIDEO = 'home_url_video';
     const FIELD_GATE_PAYTR_OR_PULPAL = 'gate_bank_paytr_or_pulpal';
+    const FIELD_HAS_COURIERS_IN_PROJECT = 'has_couriers_in_project';
 
     public function scopeGetValue($query, $key)
     {
