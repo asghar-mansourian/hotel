@@ -16,7 +16,7 @@
                 <input type="number" name="currency" required value="1">
             </div>
             <select name="from" aria-labelledby="dropdown_baglama" style="width: 100px;margin-left: 10px; box-shadow: 0 0 black !important;">
-                <option class="">{{__('member.select')}}</option>
+{{--                <option class="">{{__('member.select')}}</option>--}}
                 <option class="dropdown-item" value="RUB">RUB</option>
                 <option class="dropdown-item" selected value="USD">USD</option>
                 <option class="dropdown-item" value="TRY">TRY</option>
@@ -29,7 +29,7 @@
             <select name="to" class=" " aria-labelledby="dropdown_baglama"
                     style=" width: 100px;margin-left: 10px;
     box-shadow: 0 0 black !important;">
-                <option class="">{{__('member.select')}}</option>
+                {{--                <option class="">{{__('member.select')}}</option>--}}
                 <option class="dropdown-item" selected value="RUB">RUB</option>
                 <option class="dropdown-item" value="USD">USD</option>
                 <option class="dropdown-item" value="TRY">TRY</option>
@@ -43,7 +43,7 @@
 
         <div class="font_grey mt-4">{{__('member.calculateexchange')}}</div>
     </div>
-    <div class="daily_unit mt-5">
+    {{--<div class="daily_unit mt-5">
         <div class="title_list mb-4">{{__('member.dailysize')}}</div>
         <ul>
             @php
@@ -67,5 +67,5 @@
                 <span>USD</span>
             </li>
         </ul>
-    </div>
+    </div>--}}
 </div>
