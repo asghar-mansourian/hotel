@@ -21,9 +21,9 @@ class CourierController extends Controller
     {
         $stocks = Stock::all();
 
-        $orders = Order::where('status', Order::STATUS_COURIER_DELIVERY)->get();
+        $orders = auth()->user()->orders()->where('status', Order::STATUS_COURIER_DELIVERY)->get();
 
-        $invoices = Invoice::where('status', Invoice::STATUS_COURIER_DELIVERY)->get();
+        $invoices = auth()->user()->invoices()->where('status', Invoice::STATUS_COURIER_DELIVERY)->get();
 
         return view('members.courier.index', compact('stocks', 'orders', 'invoices'));
     }

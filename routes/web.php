@@ -47,12 +47,12 @@ Route::group(['namespace' => 'Member', 'middleware' => ['auth']], function () {
     Route::post('/setting/getCurrency', 'SettingController@getCurrency');
     Route::get('/setting/getCurrency/{id}/{type}', 'SettingController@getCurrencyOnce');
 
-    Route::get('/payment/verify', 'PaymentController@index');
-    Route::post('/payment/verify', 'PaymentController@card');
-    Route::post('/payment/gate', 'PaymentController@gate');
-    Route::get('/payment/redirect', 'PaymentController@redirect');
-    Route::get('/payment/delivery', 'PaymentController@delivery');
+    Route::get('/payment/callback', 'PaytrController@callback');
 
+    Route::get('/payment/redirect', 'PulpalController@redirect');
+    Route::get('/payment/delivery', 'PulpalController@delivery');
+
+    Route::post('/payment/gate', 'PaymentController@gate');
     Route::get('/az-balance', 'PaymentController@verify');
     Route::get('/tl-balance', 'PaymentController@verify');
 
@@ -85,7 +85,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('/blog', 'BlogController@index');
     Route::get('/blog/{id}', 'BlogController@singel')->name('blog.shows');
-    Route::post('/blog-search','BlogController@search')->name('blog.search');
+    Route::post('/blog-search', 'BlogController@search')->name('blog.search');
 
     Route::get('/contact-us', 'ContactController@index');
     Route::post('/contact-us', 'ContactController@store');
@@ -112,5 +112,12 @@ Route::group(['namespace' => 'Web'], function () {
 });
 
 
+Route::get('/pay', function () {
+    return view('web.payment');
+});
 
+
+Route::post('/pay', function () {
+    return view('web.payment');
+});
 

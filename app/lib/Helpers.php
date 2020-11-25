@@ -36,11 +36,12 @@ class Helpers
 
         return str_replace('.', '', $price);
     }
+
     public static function upload($request)
     {
         $file = $request->file;
-        $file_name = Str::random(20).$file->getClientOriginalName();
-        $result = $file->move(storage_path().'/app/comment/',$file_name)? $file_name: false;
+        $file_name = Str::random(20) . $file->getClientOriginalName();
+        $result = $file->move(storage_path() . '/app/comment/', $file_name) ? $file_name : false;
         return $result;
     }
 
@@ -51,5 +52,10 @@ class Helpers
             ->where('to', $to)
             ->first();
         return $currency->to_value ?? 0;
+    }
+
+    public static function hasGatePaytr()
+    {
+        return Setting::getValue(Setting::FIELD_GATE_PAYTR_OR_PULPAL) ? Setting::GATE_PAYTR : Setting::GATE_PULPAL;
     }
 }

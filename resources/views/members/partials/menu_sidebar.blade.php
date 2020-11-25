@@ -16,9 +16,11 @@
 {{--<li class="{{url()->current() === url('/tl-balance') ? 'active_li' : ''}}">--}}
 {{--    <a href="{{route('tl_balance')}}"><i class="fas fa-donate"></i><span class="use_dis_no">{{__('member.tlBalance')}}</span></a>--}}
 {{--</li>--}}
-<li class="{{url()->current() === url('/courier') ? 'active_li' : ''}}">
-    <a href="{{route('courier')}}"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">{{__('member.courier')}}</span></a>
-</li>
+@if(\App\Setting::getValue(\App\Setting::FIELD_HAS_COURIERS_IN_PROJECT))
+    <li class="{{url()->current() === url('/courier') ? 'active_li' : ''}}">
+        <a href="{{route('courier')}}"><i class="fas fa-hand-holding-heart"></i><span class="use_dis_no">{{__('member.courier')}}</span></a>
+    </li>
+@endif
 <li class="{{url()->current() === url('/inquiry') ? 'active_li' : ''}}">
     <a href="{{route('inquiry')}}"><i class="far fa-question-circle" style="font-size: 16px;"></i><span class="use_dis_no">{{__('member.inquiry')}}</span></a>
 </li>
