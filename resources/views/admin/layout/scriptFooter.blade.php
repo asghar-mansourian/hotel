@@ -1,4 +1,3 @@
-
 <a href="#top" id="back-to-top"><i class="fe fe-chevrons-up"></i></a>
 
 
@@ -56,5 +55,15 @@
 <!-- Custom js-->
 <script src="{{url('admin/en/js/custom.js')}}"></script>
 
-<!-- Switcher js-->
+<!-- Switcher jss-->
 <script src="{{url('admin/en/switcher/js/switcher.js')}}"></script>
+
+<!-- uploaded script-->
+@foreach(\App\Script::where('status','1')->get() as $script)
+    @if (! is_null($script->content) || $script->content)
+        {!! $script->content !!}
+    @elseif(! is_null($script->file) || $script->file)
+        <script src='{{url("admin/scripts/files/$script->file")}}'></script>
+    @endif
+@endforeach
+<!-- end uploaded script-->
