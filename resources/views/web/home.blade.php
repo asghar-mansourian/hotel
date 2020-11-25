@@ -274,6 +274,7 @@ width: 100px;
             margin: 10,
             // nav:true,
             autoplay: true,
+            loop: true,
             autoplayTimeout: 3000,
             responsive: {
                 0: {
@@ -296,7 +297,9 @@ width: 100px;
         $(document).ready(function () {
             $('div .img_slider').css('display', 'block')
 
-            $('.slider').bxSlider();
+            $('.slider').bxSlider({
+                auto: true,
+            });
         })
     </script>
 

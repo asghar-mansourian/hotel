@@ -16,7 +16,7 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{$wallet}}<sup>₼</sup></span>
+                        <span class="count">{{$wallet}}<sup>TL</sup></span>
                     </div>
                     <div class="balance-date">{{__('member.lastaddeddate')}}</div>
                     <div class="balance-text">

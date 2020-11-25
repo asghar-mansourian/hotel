@@ -145,6 +145,10 @@
                 var invoice= $(this).attr('data-invoice');
                 $("#orderstatus-"+invoice).modal('toggle');
             });
+            $(".items").click(function(e) {
+                var items= $(this).attr('data-items');
+                $("#items-"+items).modal('toggle');
+            });
 
             $(".update").click(function(e) {
                 e.preventDefault();
