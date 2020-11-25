@@ -428,68 +428,82 @@
                         @if(request()->query('country') == $country->id) display: block;  @endif
                         @if(is_null(request()->query('country')) && $loop->first) display: block;  @endif">
                             <div class="row">
-                                <div class="col-md-12 mt-5" style="margin-top: 0 !important;">
-                                    <div class="tab">
-                                        <a class="tablinks width_30" href="{{url("/invoices?country={$country->id}")}}">
-                                            <img src="./front/image/my_order/note.svg">
+                                <!-- Small button groups (default and split) -->
+                                <div class="btn-group">
+                                    <button class="btn btn-warning btn-sm dropdown-toggle" type="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{__('member.filter')}}
+                                    </button>
+                                    <div class="dropdown-menu p-2" style="width: 300px;">
+
+                                        <a href="{{url("/invoices?country={$country->id}")}}" style="font-size: 14px; padding: 10px;">
+                                            <img  style="width: 15px;height: 15px;" src="./front/image/my_order/note.svg">
                                             <span class="dis_no"> {{__('member.all')}}</span><span class="num">
                                                 ({{$country->invoices->count()}})
                                             </span>
                                         </a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ORDERED)}}">
-                                            <img src="./front/image/my_order/cargo.svg">
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ORDERED)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;" src="./front/image/my_order/cargo.svg">
                                             <span class="dis_no"> {{__('member.ordered')}}</span><span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ORDERED)->count()}})
                                             </span>
                                         </a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_WAREHOUSE_ABROAD)}}"><img
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_WAREHOUSE_ABROAD)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;"
                                                 src="./front/image/my_order/discount.svg">
                                             <span class="dis_no">{{$country->name}}  {{__('member.anbar')}}</span><span
                                                 class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_WAREHOUSE_ABROAD)->count()}})
                                             </span>
                                         </a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ON_WAY)}}"><img
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ON_WAY)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;"
                                                 src="./front/image/my_order/place.svg">
                                             <span class="dis_no">{{__('member.Heisway')}}</span><span
                                                 class="num"> ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ON_WAY)->count()}})
                                             </span>
                                         </a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_CUSTOMS_INSPECTION)}}"><img
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_CUSTOMS_INSPECTION)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;"
                                                 src="./front/image/my_order/bag.svg">
                                             <span class="dis_no">{{__('member.Customsinspection')}}</span><span
                                                 class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_CUSTOMS_INSPECTION)->count()}})
-                                            </span></a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_IN_WAREHOUSE)}}"><img
+                                            </span>
+                                        </a>
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_IN_WAREHOUSE)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;"
                                                 src="./front/image/my_order/wallet.svg">
                                             <span class="dis_no"> {{__('member.warehouse')}}</span><span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_IN_WAREHOUSE)->count()}})
                                             </span>
                                         </a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COURIER_DELIVERY)}}"><img
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COURIER_DELIVERY)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;"
                                                 src="./front/image/my_order/phone.svg">
                                             <span class="dis_no">{{__('member.courierdelivery')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COURIER_DELIVERY)->count()}})
                                             </span>
                                         </a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_RETURN)}}"><img
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_RETURN)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;"
                                                 src="./front/image/my_order/trash.svg">
                                             <span class="dis_no">{{__('member.return')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_RETURN)->count()}})
                                             </span>
                                         </a>
-                                        <a class="tablinks width_30"
-                                           href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COMPLETE)}}"><img
+                                        <br>
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COMPLETE)}}" style="font-size: 14px; padding: 10px;">
+                                            <img style="width: 15px;height: 15px;"
                                                 src="./front/image/my_order/bill.svg">
                                             <span class="dis_no">{{__('member.complete')}}</span>
                                             <span class="num">
@@ -499,7 +513,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <div id="scrol_price" style="margin-top: 300px !important; height: 553px" class="mt-5">
+                                <div id="scrol_price" style="height: 553px" class="mt-5">
                                     <div id="scrol_price_content">
                                         <div class="filterDiv_ul">
                                             <ul>
