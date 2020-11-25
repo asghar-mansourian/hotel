@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\IncrementBalanceRequest;
 use App\lib\Helpers;
-use App\lib\pulpal;
 use App\Order;
 use App\Payment;
 
@@ -20,20 +19,19 @@ class PaymentController extends Controller
     {
         $payment = new Payment();
         $payment->user_id = auth()->user()->id;
-        $payment->type = Payment:: PAYMENT_TYPE_ONLINE;
+        $payment->type = Payment:: PAYMENT_TYPE_CASH;
         $payment->price = $request->get('amount');
         $payment->description = 'increment balance';
         $payment->save();
 
-        $pulpal = new pulpal();
-        $payment_link = $pulpal->getUrl(
-            $payment->id,
-            Helpers::convertPriceToGatePulpal($payment->price),
-            $payment->description
-        );
+        if (Helpers::hasGatePaytr()) {
+            return response()->json([
+                'payment_url' => (new PaytrController())->pay($payment)
+            ]);
+        }
 
         return response()->json([
-            'payment_url' => $payment_link
+            'payment_url' => (new PulpalController())->pay($payment)
         ]);
     }
 
@@ -46,15 +44,14 @@ class PaymentController extends Controller
         $payment->description = 'payment by online. payment order';
         $order->payment()->save($payment);
 
-        $pulpal = new pulpal();
-        $payment_link = $pulpal->getUrl(
-            $payment->id,
-            Helpers::convertPriceToGatePulpal($payment->price),
-            $payment->description
-        );
+        if (Helpers::hasGatePaytr()) {
+            return response()->json([
+                'payment_url' => (new PaytrController())->pay($payment)
+            ]);
+        }
 
         return response()->json([
-            'payment_url' => $payment_link
+            'payment_url' => (new PulpalController())->pay($payment)
         ]);
     }
 }

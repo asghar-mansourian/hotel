@@ -30,7 +30,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'family', 'email', 'password', 'code', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'region_id', 'branch_id','fin', 'address', 'token'
+        'name', 'family', 'email', 'password', 'code', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'region_id', 'branch_id', 'fin', 'address', 'token'
     ];
     /**
      * The attributes that should be hidden for arrays.
@@ -48,6 +48,11 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return trim("{$this->name} {$this->family}");
+    }
 
     public function getJWTIdentifier()
     {
@@ -78,6 +83,7 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(Order::class, 'user_id');
     }
+
     public function couriers()
     {
         return $this->hasMany(Courier::class, 'user_id');
