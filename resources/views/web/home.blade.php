@@ -274,6 +274,7 @@ width: 100px;
             margin: 10,
             // nav:true,
             autoplay: true,
+            loop: true,
             autoplayTimeout: 3000,
             responsive: {
                 0: {
