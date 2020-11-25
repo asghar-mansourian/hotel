@@ -3,6 +3,42 @@
 @section('title')
     Kargo | Orders
 @endsection
+@section('styles')
+    <style>
+        .copy {
+            background: rgb(128, 128, 128);
+            position: relative;
+            border: none;
+            font-size: 1rem;
+            color: #FFFFFF;
+            text-align: center;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .copy:after {
+            content: "";
+            background: rgb(255 255 255);
+            display: block;
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px!important;
+            margin-top: -120%;
+            opacity: 0;
+            transition: all 0.8s
+        }
+
+        .copy:active:after {
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: 0s
+        }
+    </style>
+@endsection
 
 @section('main')
     @include('members.partials.top_panel')
@@ -38,7 +74,13 @@
                                                                 <div style="margin-bottom:10px;">
                                                                     <span
                                                                         style="font-size: 17px;font-weight: 800;">{{$detail->name}}</span>
-                                                                    <p>{{ $detail->value }}</p>
+                                                                    <div>
+                                                                        <p class="contents" style="display: contents">{{ $detail->value }}</p>
+                                                                        @if ($detail->can_copy == '1')
+                                                                            <button data-copy="{{$detail->id}}" class="copy btn btn-xs btn-danger btn-outline-dark" ><i class="fa fa-clone" aria-hidden="true"></i> Copy</button>
+                                                                        @endif
+                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         @endif

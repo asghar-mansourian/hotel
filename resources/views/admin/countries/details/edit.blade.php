@@ -47,6 +47,9 @@
                             @slot('value')
                                 {{ $country_details->value }}
                             @endslot
+                            @slot('copy')
+                                {{ $country_details->can_copy }}
+                            @endslot
                         @endcomponent
 
                     @endslot

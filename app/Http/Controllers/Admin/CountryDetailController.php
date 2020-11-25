@@ -45,6 +45,7 @@ class CountryDetailController extends Controller
             $details[] = [
                 'name' => $request->names[$i],
                 'value' => $request->values[$i],
+                'can_copy' => $request->copy[$i],
                 'country_id' => $request->input('country_id'),
             ];
         }
@@ -124,8 +125,6 @@ class CountryDetailController extends Controller
 
     public function update(Request $request, $id)
     {
-
-//        dd($request->all());
         $DetailValidate = new CountryDetailRequest();
         $validate = $this->validateRules($DetailValidate->rules(), $request);
 
@@ -136,6 +135,7 @@ class CountryDetailController extends Controller
         CountryDetail::query()->where('id', $id)->update([
             'name' => $request->names['0'],
             'value' => $request->values['0'],
+            'can_copy' => $request->copy['0'],
             'country_id' => $request->input('country_id'),
         ]);
 

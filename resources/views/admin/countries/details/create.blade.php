@@ -14,7 +14,8 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" enctype="multipart/form-data" action="{{url('admin/countries/details/store')}}">
+    <form class="form" method="post" id="mainForm" enctype="multipart/form-data"
+          action="{{url('admin/countries/details/store')}}">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -101,7 +102,8 @@
 
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}} </li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.addcountrydetails')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.addcountrydetails')}}
+            </li>
         @endslot
     @endcomponent
 @endsection
