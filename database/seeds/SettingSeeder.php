@@ -32,7 +32,9 @@ class SettingSeeder extends Seeder
             Setting::FIELD_CONTACT_URL_MAP => 'https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed',
             Setting::FIELD_HOME_URL_VIDEO => 'https://www.youtube.com/embed/sb3yU2L5U7Y',
             Setting::FIELD_GATE_PAYTR_OR_PULPAL => Setting::GATE_PAYTR,
-            Setting::FIELD_HAS_COURIERS_IN_PROJECT => 0
+            Setting::FIELD_HAS_COURIERS_IN_PROJECT => 0,
+            Setting::FIELD_MAX_WEIGHT => 10,
+            Setting::FIELD_MAX_WEIGHT_PRICE => 20.10
         ];
 
         foreach ($settings as $index => $value) {
