@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Kargo | Invoice
+    Kargo | {{__('member.invoice')}}
 @endsection
 @section('content')
     <div class="container">

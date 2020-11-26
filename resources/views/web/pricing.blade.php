@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Kargo | Contact Us
+    Kargo | {{ __('website.contactus') }}
 @endsection
 @section('content')
     <div class="container">

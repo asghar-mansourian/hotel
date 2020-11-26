@@ -31,7 +31,7 @@
         </style>
     @endsection
     <div class="col-md-12 text-center">
-        <div class="black pt-5"><span class="yellow mr-3"></span>{{__('member.login')}}</div>
+        <div class="black pt-5"><span class="yellow mr-3"></span>{{__('website.login')}}</div>
         {{--        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>--}}
     </div>
     <div class="container">
@@ -41,7 +41,7 @@
             <div class="row left-side">
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label for="" style="width: 450px!important;text-align: left">{{__('member.email')}}:</label>
+                        <label for="" style="width: 450px!important;text-align: left">{{__('website.email')}}:</label>
                     </div>
                     <div class="text-center">
 
@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label for="" style="width: 450px!important;text-align: left">{{__('member.password')}}:</label>
+                        <label for="" style="width: 450px!important;text-align: left">{{__('website.password')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="password" name="password" class="w-100 courier_input"
@@ -78,7 +78,7 @@
 
                         <input type="checkbox" style="vertical-align: middle!important;">
                         <label for="" style="margin-bottom: 10px!important;
-    margin-left: 4px!important;">{{__('member.rememberme')}}</label>
+    margin-left: 4px!important;">{{__('website.rememberme')}}</label>
                     </div>
                 </div>
                 <div class="col-md-12 button-part mt-5">
@@ -86,13 +86,13 @@
                         <a href="/register" class="mr-3">
                             <strong>{{__('website.register')}}</strong>
                         </a>
-                        <button type="submit" class="btn-effect">{{__('member.login')}}</button>
+                        <button type="submit" class="btn-effect">{{__('website.login')}}</button>
                     </div>
                 </div>
                 <br>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <a data-toggle="modal" data-target="#forgotPass" style="margin-bottom: 10px!important;margin-left: 4px!important;cursor: pointer">{{__('member.forgotPassword')}}</a>
+                        <a data-toggle="modal" data-target="#forgotPass" style="margin-bottom: 10px!important;margin-left: 4px!important;cursor: pointer">{{__('website.forgotPassword')}}</a>
                     </div>
                 </div>
 
@@ -107,20 +107,20 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">{{__('member.forgotPassword')}}</h4>
+                    <h4 class="modal-title">{{__('website.forgotPassword')}}</h4>
                 </div>
                 <form action="" method="post" id="forgotForm">
                     <div class="modal-body">
-                        <p>{{__('member.forgotPassword')}}.</p>
-                        <input type="email" id="forgotEmail" placeholder="{{__('member.email')}}" class="w-100 courier_input" style="width: 450px!important;">
+                        <p>{{__('website.forgotPassword')}}.</p>
+                        <input type="email" id="forgotEmail" placeholder="{{__('website.email')}}" class="w-100 courier_input" style="width: 450px!important;">
                         <br>
                         <span class="invalid-feedback" style="color:#a1272b" role="alert">
                                         <strong id="errorEmail"></strong>
                                                 </span>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">{{__('member.submit')}}</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('member.close')}}</button>
+                        <button type="submit" class="btn btn-primary">{{__('website.submit')}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('website.close')}}</button>
                     </div>
                 </form>
 

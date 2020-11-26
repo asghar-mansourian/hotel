@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | Inquiry
+    Kargo | {{__('member.inquiry')}}
 @endsection
 
 @section('main')

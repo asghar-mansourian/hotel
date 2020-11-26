@@ -1,6 +1,6 @@
 @extends('members.layout')
 @section('title')
-    Kargo | Invoices
+    Kargo | {{__('member.invoice')}}
 @endsection
 
 @section('styles')
@@ -374,10 +374,10 @@
                                             <div class="card-body">
                                                 <article class="card">
                                                     <div class="card-body row">
-                                                        <div class="col"><strong>order</strong><br>{{$invoice->order_track}}</div>
-                                                        <div class="col"><strong>date</strong> <br>{{$invoice->order_date}}</div>
-                                                        <div class="col"><strong>user</strong> <br>{{$invoice->user->name}}</div>
-                                                        <div class="col"><strong>status</strong> <br>{{\App\Invoice::STATUS_ALL[$invoice->status]}}</div>
+                                                        <div class="col"><strong>{{__('member.order')}}</strong><br>{{$invoice->order_track}}</div>
+                                                        <div class="col"><strong>{{__('member.date')}}</strong> <br>{{$invoice->order_date}}</div>
+                                                        <div class="col"><strong>{{__('member.user')}}</strong> <br>{{$invoice->user->name}}</div>
+                                                        <div class="col"><strong>{{__('member.status')}}</strong> <br>{{\App\Invoice::STATUS_ALL[$invoice->status]}}</div>
                                                     </div>
                                                 </article>
                                                 @php
@@ -538,20 +538,20 @@
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <input type="submit" value="sil" class="btn btn-danger">
+                                                            <input type="submit" value="{{__('member.delete')}}" class="btn btn-danger">
                                                         </form>
                                                     </li>
 
 
                                                     <li>
-                                                        <input type="button" value="edit"
+                                                        <input type="button" value="{{__('member.edit')}}"
                                                                data-invoice="{{$invoice->id}}"
                                                                class="edit btn btn-danger">
 
 
                                                     </li>
                                                     <li>
-                                                        <input type="button" value="status"
+                                                        <input type="button" value="{{__('member.status')}}"
                                                                data-invoice="{{$invoice->id}}"
                                                                class="status btn btn-primary">
 
