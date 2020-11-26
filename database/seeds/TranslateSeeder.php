@@ -534,7 +534,7 @@ class TranslateSeeder extends Seeder
         'productLink' => 'Product Link',
         'productDetails' => 'Product Details',
         'yes' => 'Yes',
-        'no' => 'NO',
+        'no' => 'No',
     ];
 
     private $website_items = [

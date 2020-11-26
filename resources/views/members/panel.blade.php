@@ -76,11 +76,13 @@
                         <div class="filterDiv income">
                             <ul>
                                 <li style="width: 20%;">{{$payment->type}}</li>
-                                @if($payment->modelable_type) <li style="width: 20%;" class="red">-{{$payment->price}}</li>  @else <li style="width: 20%;" class="green">+{{$payment->price}}</li> @endif
-
-
+                                @if($payment->modelable_type)
+                                    <li style="width: 20%;" class="red">-{{$payment->price}}</li>
+                                @else
+                                    <li style="width: 20%;" class="green">+{{$payment->price}}</li>
+                                @endif
                                 <li style="width: 20%;">{{$payment->refid}}</li>
-                                <li style="width: 20%;">{{$payment->status}}</li>
+                                <li style="width: 20%;">{{is_null($payment->status) ? 0 : $payment->status}}</li>
                                 <li style="width: 20%;">{{$payment->created_at}}</li>
                             </ul>
                         </div>
