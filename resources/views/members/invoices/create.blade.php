@@ -34,7 +34,7 @@
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 mb-5">
                                                 <input type="text" name="shop" value="{{ old('shop') }}"
-                                                       placeholder="Mağaza adı *"
+                                                       placeholder="{{__('member.invoiceName')}} *"
                                                        class=" @error('shop') is-invalid @enderror w-100 courier_input"
                                                        required="">
                                                 @error('shop')
@@ -46,7 +46,7 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 mb-5">
                                                 <input type="text" name="product_type" value="{{ old('product_type') }}"
-                                                       placeholder="Bağlamadakı məhsulun növü *"
+                                                       placeholder="{{__('member.productType')}} *"
                                                        class="@error('product_type') is-invalid @enderror w-100 courier_input"
                                                        required="">
                                                 @error('product_type')
@@ -59,7 +59,7 @@
                                             <div class="col-xs-12"></div>
                                             <div class="col-md-4 col-sm-6 mb-4">
                                                 <input type="number" name="quantity" value="{{ old('quantity') }}"
-                                                       placeholder="Bağlamadakı məhsulun sayı *"
+                                                       placeholder="{{__('member.productNumber')}} *"
                                                        class=" @error('quantity') is-invalid @enderror w-100 courier_input"
                                                        required="">
                                                 @error('quantity')
@@ -71,7 +71,7 @@
                                             </div>
                                             <div class="col-md-4 col-sm-6 mb-4">
                                                 <input type="number" name="price" value="{{ old('price') }}"
-                                                       placeholder="Qiyməti ({{$country->currency}}) * "
+                                                       placeholder="{{__('member.price')}} ({{$country->currency}}) * "
                                                        class="@error('price') is-invalid @enderror w-100 courier_input"
                                                        required="">
                                                 @error('price')
@@ -83,7 +83,7 @@
                                             </div>
                                             <div class="col-md-4 col-sm-6 mb-4">
                                                 <input type="number" name="order_track" value="{{ old('order_track') }}"
-                                                       placeholder="Sifarişin İzləmə kodu * "
+                                                       placeholder="{{__('member.orderTrackingCode')}} * "
                                                        class="@error('order_track') is-invalid @enderror w-100 courier_input"
                                                        required="">
                                                 @error('order_track')
@@ -119,7 +119,7 @@
                                             </div>
                                             <div class="col-md-12 mt-0">
                                             <textarea class="courier_textare" name="description"
-                                                      placeholder="Bağlamanıza aid qeydləriniz varsa yazın">{{ old('description') }}</textarea>
+                                                      placeholder="{{__('member.productAbout')}}">{{ old('description') }}</textarea>
                                             </div>
                                             <div class="col-md-12">
                                                 {{--                                            <input type="file" name="" class="courier_file float-left mr-5">--}}

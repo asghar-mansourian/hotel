@@ -524,7 +524,16 @@ class TranslateSeeder extends Seeder
         'close' => 'Close',
         'passwordRequired' => 'password is required',
         'passwordConfirmed' => 'The password confirmation does not match.',
-        'userNotFound' => 'User not found'
+        'userNotFound' => 'User not found',
+        'invoiceName' => 'Invoice Name',
+        'productType' => 'Product Type',
+        'productNumber' => 'Product Number',
+        'orderTrackingCode' => 'Order Tracking Code',
+        'productAbout' => 'If you have notes about your package, write',
+        'productLink' => 'Product Link',
+        'productDetails' => 'Product Details',
+        'yes' => 'Yes',
+        'no' => 'NO',
     ];
 
     private $website_items = [
