@@ -29,6 +29,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 Route::group(['namespace' => 'Member'], function () {
     Auth::routes();
 });
+
+Route::match(['GET', 'POST'], '/payment/callback', 'Member\PaytrController@callback');
 // user panel (Member)
 Route::group(['namespace' => 'Member', 'middleware' => ['auth']], function () {
 
@@ -46,8 +48,6 @@ Route::group(['namespace' => 'Member', 'middleware' => ['auth']], function () {
     Route::post('/setting/changeOther', 'SettingController@changeOther');
     Route::post('/setting/getCurrency', 'SettingController@getCurrency');
     Route::get('/setting/getCurrency/{id}/{type}', 'SettingController@getCurrencyOnce');
-
-    Route::get('/payment/callback', 'PaytrController@callback');
 
     Route::get('/payment/redirect', 'PulpalController@redirect');
     Route::get('/payment/delivery', 'PulpalController@delivery');
@@ -110,14 +110,3 @@ Route::group(['namespace' => 'Web'], function () {
     Route::get('get-price-via-weight/{weight}', 'PriceItemController');
 
 });
-
-
-Route::get('/pay', function () {
-    return view('web.payment');
-});
-
-
-Route::post('/pay', function () {
-    return view('web.payment');
-});
-

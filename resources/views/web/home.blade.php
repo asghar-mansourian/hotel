@@ -66,7 +66,6 @@ width: 100px;
     border-right: 0px;
     text-align-last: center;
     border-left: 0px;">
-                                        <option class="">{{__('member.select')}}</option>
                                         <option class="dropdown-item" value="RUB">RUB</option>
                                         <option class="dropdown-item" selected value="USD">USD</option>
                                         <option class="dropdown-item" value="TRY">TRY</option>
@@ -96,7 +95,6 @@ width: 100px;
     border: 0;
     text-align: center;
 ">
-                                        <option class="">{{__('member.select')}}</option>
                                         <option class="dropdown-item" selected value="RUB">RUB</option>
                                         <option class="dropdown-item" value="USD">USD</option>
                                         <option class="dropdown-item" value="TRY">TRY</option>
