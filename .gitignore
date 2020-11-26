@@ -19,3 +19,5 @@ resources/lang
 
 public/images
 /public/slider/images
+
+/public/admin/scripts

@@ -13,10 +13,10 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         "admin/*",
-
         "setting/getCurrency",
         "getCurrencyFromTwoApi",
         "getCurrencyCalculator",
         "convert",
+        "payment/callback"
     ];
 }

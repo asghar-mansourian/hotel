@@ -222,7 +222,7 @@
                 e.preventDefault();
 
                 var form = $("#balance_val").val();
-                var data = {'to': 'azn', 'from': 'usd', 'currency': form};
+                var data = {'to': 'try', 'from': 'usd', 'currency': form};
                 console.log(data)
                 var error = function (response) {
                     var jsonResponse = JSON.parse(response.responseText);

@@ -483,6 +483,7 @@ class TranslateSeeder extends Seeder
         'order.store_success' => 'Create success',
         'general.message.create_success' => 'Create success',
         'general.message.paid_successful' => 'Paid successful',
+        'general.message.paid_unsuccessful' => 'Paid unsuccessful',
         'general.message.inquiry_create_successful' => 'Inquiry create successful',
         'general.message.customer_create_successful' => 'Customer create successful',
         'city' => 'City',

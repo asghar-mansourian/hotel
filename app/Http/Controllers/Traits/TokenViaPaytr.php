@@ -22,8 +22,8 @@ trait TokenViaPaytr
         $user_name = auth()->user()->fullName;
         $user_address = auth()->user()->address;
         $user_phone = auth()->user()->phone;
-        $merchant_ok_url = url('/payment/callback');
-        $merchant_fail_url = url('/payment/callback');
+        $merchant_ok_url = url('/payment/callback?success=1');
+        $merchant_fail_url = url('/payment/callback?fail=1');
         $user_basket = base64_encode(json_encode(array(
             array("Order", $payment->price, $payment->id)
         )));

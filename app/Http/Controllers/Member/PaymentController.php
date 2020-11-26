@@ -11,7 +11,7 @@ class PaymentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('web')->except(['redirect', 'redirect']);
+        $this->middleware('web')->except(['redirect']);
     }
 
     public function verify()
