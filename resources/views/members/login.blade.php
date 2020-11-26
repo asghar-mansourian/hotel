@@ -78,10 +78,6 @@
                         <input type="checkbox" style="vertical-align: middle!important;">
                         <label for="" style="vertical-align: middle!important; margin-left: 4px!important;    margin-bottom: 0px;">{{__('member.rememberme')}}</label>
                     </div>
-                    <div class="text-center">
-                        <a data-toggle="modal" data-target="#forgotPass" style="margin-bottom: 10px!important;margin-left: 4px!important;cursor: pointer">{{__('member.forgotPassword')}}</a>
-                    </div>
-
                 </div>
                 <div class="col-md-12 button-part mt-5">
                     <div class="text-center">
@@ -89,6 +85,12 @@
                             <strong>{{__('website.register')}}</strong>
                         </a>
                         <button type="submit" class="btn-effect">{{__('member.login')}}</button>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12 mt-4">
+                    <div class="text-center">
+                        <a data-toggle="modal" data-target="#forgotPass" style="margin-bottom: 10px!important;margin-left: 4px!important;cursor: pointer">{{__('member.forgotPassword')}}</a>
                     </div>
                 </div>
 
@@ -115,8 +117,8 @@
                                                 </span>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">submit</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">{{__('member.submit')}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('member.close')}}</button>
                     </div>
                 </form>
 
@@ -145,8 +147,7 @@
                     },
                     error:function(error){
                         $body.removeClass("loading");
-                        error = JSON.parse(error.responseText);
-                        $('#errorEmail').html(error.message);
+                        $('#errorEmail').html('{{__('member.userNotFound')}}');
                     }
                 })
             });

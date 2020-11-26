@@ -66,6 +66,17 @@
             });
         });
 
+        $( ".convert-currency" ).trigger( "change" );
+
+
     });
 
 </script>
+<!-- uploaded script-->
+@foreach(\App\Script::where('status','1')->get() as $script)
+    @if (! is_null($script->content) || $script->content)
+        {!! $script->content !!}
+    @elseif(! is_null($script->file) || $script->file)
+        <script src='{{url("admin/scripts/files/$script->file")}}'></script>
+    @endif
+@endforeach

@@ -521,6 +521,11 @@ class TranslateSeeder extends Seeder
         If you did not request a password reset, no further action is required.',
         'troubleClicking1' =>'If you’re having trouble clicking the ',
         'troubleClicking2' => 'button, copy and paste the URL below. into your web browser: ',
+        'submit' => 'Submit',
+        'close' => 'Close',
+        'passwordRequired' => 'password is required',
+        'passwordConfirmed' => 'The password confirmation does not match.',
+        'userNotFound' => 'User not found'
     ];
 
     private $website_items = [
