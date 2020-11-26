@@ -28,6 +28,9 @@ Route::prefix('v1')
         Route::get('pages/{slug}', 'PageController');
 
         Route::apiResource('blogs', 'BlogController')->except('update', 'destroy', 'store');
+
+        Route::get('get-price-via-weight/{weight}', 'PriceItemController');
+
     });
 
 // authenticated

@@ -38,6 +38,8 @@ class Setting extends Model
     const FIELD_HOME_URL_VIDEO = 'home_url_video';
     const FIELD_GATE_PAYTR_OR_PULPAL = 'gate_bank_paytr_or_pulpal';
     const FIELD_HAS_COURIERS_IN_PROJECT = 'has_couriers_in_project';
+    const FIELD_MAX_WEIGHT = 'max_weight';
+    const FIELD_MAX_WEIGHT_PRICE = 'max_weight_price';
 
     public function scopeGetValue($query, $key)
     {
