@@ -75,10 +75,8 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-
                         <input type="checkbox" style="vertical-align: middle!important;">
-                        <label for="" style="margin-bottom: 10px!important;
-    margin-left: 4px!important;">{{__('member.rememberme')}}</label>
+                        <label for="" style="vertical-align: middle!important; margin-left: 4px!important;    margin-bottom: 0px;">{{__('member.rememberme')}}</label>
                     </div>
                     <div class="text-center">
                         <a data-toggle="modal" data-target="#forgotPass" style="margin-bottom: 10px!important;margin-left: 4px!important;cursor: pointer">{{__('member.forgotPassword')}}</a>

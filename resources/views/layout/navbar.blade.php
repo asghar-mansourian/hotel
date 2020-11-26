@@ -18,7 +18,7 @@
                 <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
             </li>
             <li>
-                <a href="/login" class="btn btn-secondary" type="button" style="    margin-top: -4px;
+                <a href="/orders/create" class="btn btn-secondary" type="button" style="    margin-top: -4px;
     background: #f25c69;
     color: #fff;
     font-size: 11px;
