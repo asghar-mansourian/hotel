@@ -66,6 +66,8 @@
             });
         });
 
+        $( ".convert-currency" ).trigger( "change" );
+
 
     });
 
