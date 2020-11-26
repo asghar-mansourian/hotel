@@ -25,7 +25,7 @@ class UpdateCustomerRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'picture' => 'image|dimensions:width=700,height=300',
+            'picture' => 'image',
             'link' => 'required|url'
         ];
     }
