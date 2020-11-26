@@ -78,7 +78,10 @@ trait ResetsPasswords
      */
     protected function validationErrorMessages()
     {
-        return [];
+        return [
+            'password.required' => __('member.passwordRequired'),
+            'password.confirmed' => __('member.passwordConfirmed'),
+        ];
     }
 
     /**
