@@ -11,7 +11,7 @@
             <div class="row left-side">
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.name')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.name')}}:</label>
                     </div>
                     <div class="text-center">
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.family')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.family')}}:</label>
                     </div>
                     <div class="text-center">
 
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.email')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.email')}}:</label>
                     </div>
                     <div class="text-center">
 
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.password')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.password')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="password" name="password"
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.passwordconfirmation')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.passwordconfirmation')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="password" name="password_confirmation"
@@ -94,12 +94,12 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.country')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.country')}}:</label>
                     </div>
                     <div class="text-center">
                         <select name="country_id" onchange="getRegion(this.value)" aria-labelledby="dropdown_baglama"
                                 style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 450px!important">
-                            <option class="dropdown-item" value="null">{{__('website.please_select_country')}}</option>
+                            <option class="dropdown-item" value="null">{{__('member.please_select_country')}}</option>
                             @foreach($countries as $country)
                                 <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
                             @endforeach
@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.region')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.region')}}:</label>
                     </div>
                     <div class="text-center">
                         <select name="region_id" id="region" aria-labelledby="dropdown_baglama"
@@ -126,7 +126,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.address')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.address')}}:</label>
                     </div>
                     <div class="text-center">
                         <input value="{{ old('address') }}" type="text" name="address"
@@ -141,7 +141,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.fin')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.fin')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="text" value="{{ old('fin') }}" name="fin"
@@ -156,7 +156,7 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <label style="width: 450px!important;text-align: left">{{__('website.phone')}}:</label>
+                        <label style="width: 450px!important;text-align: left">{{__('member.phone')}}:</label>
                     </div>
                     <div class="text-center">
                         <input value="{{ old('phone') }}" type="text" name="phone"
@@ -175,7 +175,7 @@
                         <input class="@error('terms') is-invalid @enderror" type="checkbox" name="terms" required
                                style="vertical-align: middle!important;">
                         <label style="margin-bottom: 10px!important;
-    margin-left: 4px!important;">{{__('website.Agreepolicy')}}</label>
+    margin-left: 4px!important;">{{__('member.Agreepolicy')}}</label>
                         @error('terms')
                         <span class="invalid-feedback"
                               role="alert"><strong>{{ $message }}</strong></span>
@@ -185,7 +185,7 @@
                 </div>
                 <div class="col-md-12 button-part mt-5">
                     <div class="text-center">
-                        <button type="submit" class="btn-effect">{{__('website.register')}}</button>
+                        <button type="submit" class="btn-effect">{{__('member.register')}}</button>
                     </div>
                 </div>
 

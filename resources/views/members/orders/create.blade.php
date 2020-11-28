@@ -54,6 +54,8 @@
                                                 <select class="courier_input w-100" name="has_cargo[]">
                                                     <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.no')}}</option>
                                                     <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yes')}}</option>
+                                                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.no')}} !</option>
+                                                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yes')}} !</option>
                                                 </select>
                                             </div>
 
@@ -157,8 +159,8 @@
             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
                 <h5><strong>{{__('member.cargointurkey')}} *</strong></h5>
                 <select class="courier_input w-100" name="has_cargo[]">
-                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.no')}} !</option>
-                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yes')}}</option>
+                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.noitnot')}} !</option>
+                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">Bəli !</option>
                 </select>
             </div>
 

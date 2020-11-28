@@ -15,11 +15,27 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12">
         <div class="menu_sec">
             <ul class="text-right">
+                <li>
+                    <div class="dropdown" style="display: inline-block">
+                        <button class=" btn-secondary dropdown-toggle" style="border:0;height: 34px; " type="button" id="dropdown_panel"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ app()->getLocale() }}
+                            <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
+                        </button>
+                        <div class="dropdown-menu lang-a" aria-labelledby="dropdown_panel">
+                            @foreach(\App\lib\Helpers::getLocales() as $locale)
+                                @if($locale->locale != app()->getLocale())
+                                    <a class="dropdown-item " href="/set-locale/{{$locale->locale}}"> {{$locale->locale}}</a><br/>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </li>
                 @auth('web')
                     <li>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -5px;">
                                 {{\Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->family}}
                                 <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
                             </button>
@@ -40,22 +56,6 @@
                         </div>
                     </li>
                 @endauth
-                <li>
-                    <div class="dropdown" style="display: inline-block">
-                        <button class=" btn-secondary dropdown-toggle" style="border:0;height: 34px;" type="button" id="dropdown_panel"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ app()->getLocale() }}
-                            <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
-                        </button>
-                        <div class="dropdown-menu lang-a" aria-labelledby="dropdown_panel">
-                            @foreach(\App\lib\Helpers::getLocales() as $locale)
-                                @if($locale->locale != app()->getLocale())
-                                    <a class="dropdown-item " href="/set-locale/{{$locale->locale}}"> {{$locale->locale}}</a><br/>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                </li>
                 @guest('web')
                     <li style="margin-top: 7px;">
                         <a style="    font-size: 12px;" href="/login">

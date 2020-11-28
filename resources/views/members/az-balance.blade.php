@@ -32,7 +32,7 @@
                             @csrf
                             <input type="number" min="1" max="50" id="balance_val" required="" placeholder="USD" name="amount">
                             <input type="number" id="new_balance_val" required="" placeholder="TRY" name="amount_azn" readonly="">
-                            <button type="submit" class="payment_button">{{__('member.balanceincreases')}}</button>
+                            <button type="submit" class="payment_button ">{{__('member.balanceincreases')}}</button>
                         </form>
                     </div>
                     <div class="visa-logo">
@@ -220,9 +220,11 @@
             $('#balance_val').on('change', function (e) {
 
                 e.preventDefault();
+                var context = $(this);
 
+                context.closest('form').find('button[type="submit"]').attr('disabled', true)
                 var form = $("#balance_val").val();
-                var data = {'to': 'azn', 'from': 'usd', 'currency': form};
+                var data = {'to': 'try', 'from': 'usd', 'currency': form};
                 console.log(data)
                 var error = function (response) {
                     var jsonResponse = JSON.parse(response.responseText);
@@ -233,10 +235,7 @@
                     })
                 }
                 var success = function (response) {
-                    // var url = '/setting';
-                    //
-                    // window.location.replace(url);
-                    console.log(response);
+
                     $('#new_balance_val').attr('value', response);
                 };
                 var after = function () {
@@ -263,6 +262,7 @@
                     },
                     success: function (response) {
                         success(response)
+                        context.closest('form').find('button[type="submit"]').removeAttr('disabled')
                     },
                     error: function (response) {
                         error(response)

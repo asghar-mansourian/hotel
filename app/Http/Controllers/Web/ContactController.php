@@ -6,7 +6,9 @@ use App;
 use App\Contact;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\ValidatorRequest;
+use App\Mail\contactUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -20,6 +22,7 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
+        Mail::to('info@shtormex.ru')->send(new contactUs($request));
         $request->validate([
 //            'serial_number' => ['required', 'max:9', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
