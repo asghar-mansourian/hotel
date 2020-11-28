@@ -176,12 +176,10 @@
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
 
-                        <input class="@error('terms') is-invalid @enderror" id="terms" type="checkbox" name="terms" required
+                        <input data-target="#polices" data-toggle="modal" class="@error('terms') is-invalid @enderror" id="terms" type="checkbox" name="terms" required
                                style="vertical-align: middle!important;">
-                        <label for="terms" style="margin-bottom: 10px!important;cursor: pointer;
+                        <label data-target="#polices" data-toggle="modal" style="margin-bottom: 10px!important;cursor: pointer;
     margin-left: 4px!important">{{__('member.Agreepolicy')}}</label>
-                        <label data-target="#polices" data-toggle="modal" style="cursor: pointer;margin-bottom: 10px!important;color: blue;
-    margin-left: 4px!important;">{{__('member.readPolices')}}</label>
                         @error('terms')
                         <span class="invalid-feedback"
                               role="alert"><strong>{{ $message }}</strong></span>
