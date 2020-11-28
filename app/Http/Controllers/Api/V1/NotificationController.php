@@ -14,6 +14,9 @@ class NotificationController extends Controller
 {
     public function send(Request $request)
     {
+        if ($this->validation($request)){
+            return $this->validationMessage();
+        }
         $user = $this->getUser($request);
         $type = $this->getValue($request);
         $this->sendEmail($user, $type);
@@ -45,6 +48,26 @@ class NotificationController extends Controller
      */
     public function getUser(Request $request)
     {
-        return User::find($request->user_id);
+        return User::whereCode($request->user_id)->first();
+    }
+
+    /**
+     * @param Request $request
+     * @return bool
+     */
+    public function validation(Request $request): bool
+    {
+        return $request->user_id == null || $request->type == null;
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function validationMessage(): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([
+            'message' => 'user ',
+            'message' => 'user or type is incorrect',
+        ], 404);
     }
 }
