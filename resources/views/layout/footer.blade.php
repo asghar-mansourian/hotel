@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="logo">
-                    <img src="./front/image/logo.svg">
+                    <img src="{{url('front/image/logo.svg')}}">
                     <div class="font_grey mt-5" style="    color: #151f59;">
                         {{__('website.footer_bottom_left')}}
                         <div class="mt-3"><a href="#" class="font_black blue"><strong>{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</strong></a></div>
