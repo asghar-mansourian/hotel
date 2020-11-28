@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Kargo | {{ __('website.how.title_page') }}
+    Kargo | {{ __('website.howtitle') }}
 @endsection
 @section('content')
     <div class="container">

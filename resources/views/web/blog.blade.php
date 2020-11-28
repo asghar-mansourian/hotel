@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Kargo | Blog
+    Kargo | {{__('website.blog')}}
 @endsection
 @section('content')
     <div class="container">
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div class="mob_p-4">
-                                    <div class="new"><span class="new_span">New</span></div>
+                                    <div class="new"><span class="new_span">{{__('website.new')}}</span></div>
                                     <h4><strong>{{$blog->title}}</strong></h4>
                                     <p class="font_grey mb-3">{{$blog->author->name}} <i class="far fa-comment ml-3 mr-1"></i> 3</p>
                                     <div class="line_he mt-2 mb-2">

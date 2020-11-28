@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | Setting
+    Kargo | {{__('member.setting')}}
 @endsection
 
 @section('main')
