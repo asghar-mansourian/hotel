@@ -178,8 +178,8 @@
 
                         <input data-target="#polices" data-toggle="modal" class="@error('terms') is-invalid @enderror" id="terms" type="checkbox" name="terms" required
                                style="vertical-align: middle!important;">
-                        <label data-target="#polices" data-toggle="modal" style="margin-bottom: 10px!important;cursor: pointer;
-    margin-left: 4px!important">{{__('member.Agreepolicy')}}</label>
+                        <label data-target="#polices" data-toggle="modal"
+                               style="margin-bottom: 0!important;cursor: pointer; margin-left: 4px!important;vertical-align: middle!important">{{__('member.Agreepolicy')}}</label>
                         @error('terms')
                         <span class="invalid-feedback"
                               role="alert"><strong>{{ $message }}</strong></span>
