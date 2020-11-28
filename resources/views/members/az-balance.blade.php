@@ -8,6 +8,7 @@
     @include('members.partials.code')
     <div class="mt-5">
         <div class="row relative">
+            @include('admin.components.error')
             <div class="col-md-5 col-sm-5 col-xs-12 balance-block balance_azn">
                 <div class="balance">
                     <picture>

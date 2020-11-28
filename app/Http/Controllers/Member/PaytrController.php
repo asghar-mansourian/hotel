@@ -20,6 +20,12 @@ class PaytrController extends Controller
     public function pay($payment)
     {
         $token = $this->getToken($payment);
+        if (!$token) {
+            request()->session()->flash('danger', 1);
+            request()->session()->flash('message', __('member.payment_failed_try_again'));
+
+            return back();
+        }
 
         return view('members.pay_gate_paytr', compact('token'));
     }
