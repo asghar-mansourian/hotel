@@ -1,6 +1,6 @@
 @extends('members.layout')
 @section('title')
-    Kargo | {{__('member.invoice')}}
+    Kargo | {{__('member.invoice_title')}}
 @endsection
 
 @section('styles')
@@ -374,7 +374,7 @@
                                             <div class="card-body">
                                                 <article class="card">
                                                     <div class="card-body row">
-                                                        <div class="col"><strong>{{__('member.order')}}</strong><br>{{$invoice->order_track}}</div>
+                                                        <div class="col"><strong>{{__('member.order_title')}}</strong><br>{{$invoice->order_track}}</div>
                                                         <div class="col"><strong>{{__('member.date')}}</strong> <br>{{$invoice->order_date}}</div>
                                                         <div class="col"><strong>{{__('member.user')}}</strong> <br>{{$invoice->user->name}}</div>
                                                         <div class="col"><strong>{{__('member.status')}}</strong> <br>{{\App\Invoice::STATUS_ALL[$invoice->status]}}</div>
