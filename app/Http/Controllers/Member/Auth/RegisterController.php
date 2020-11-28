@@ -34,9 +34,20 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        $countries = Country::all();
+        $countries = Country::query()
+        ->select($this->customSelectedFields())
+        ->get();
 
         return view('members.register', compact('countries'));
+    }
+
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        return [$name, 'id'];
     }
 
     protected function registered(Request $request, $user)

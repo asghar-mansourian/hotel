@@ -335,6 +335,9 @@ class TranslateSeeder extends Seeder
         'generalmessagecustomer_delete_successful' => 'Customer Delete Successful',
         'customadmininquiryindextitle' => 'Inquiry Index',
         'singninaccount' => 'Sign In to your account',
+        'name_ru' => 'Name Ru',
+        'pleasename_ru' => 'Please Enter Name Ru',
+        'TABLENAME_RU' => 'Name Ru'
     ];
 
     private $member_items = [
@@ -538,7 +541,11 @@ class TranslateSeeder extends Seeder
         'close' => 'Close',
         'passwordRequired' => 'password is required',
         'passwordConfirmed' => 'The password confirmation does not match.',
-        'userNotFound' => 'User not found'
+        'userNotFound' => 'User not found',
+        'readPolices' => 'Read Polices',
+        'polices' => 'Polices',
+        'policesList' => 'Polices List',
+        'notAcceptPolices' => 'Not Accept'
     ];
 
     private $website_items = [

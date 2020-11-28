@@ -17,7 +17,7 @@
 
                         <input type="text" name="name"
                                class="@error('name') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;" value="{{ old('name') }}">
+                               style="width: 450px!important;" placeholder="{{__('member.name')}}" value="{{ old('name') }}">
                         @error('name')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
@@ -35,7 +35,7 @@
 
                         <input type="text" name="family"
                                class="@error('family') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;" value="{{ old('family') }}">
+                               style="width: 450px!important;" placeholder="{{__('member.family')}}" value="{{ old('family') }}">
                         @error('family')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
@@ -53,7 +53,7 @@
 
                         <input type="email" value="{{ old('email') }}" name="email"
                                class="@error('email') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;">
+                               placeholder="{{__('member.email')}}" style="width: 450px!important;">
                         @error('email')
                         <br>
                         <span class="invalid-feedback"
@@ -62,14 +62,14 @@
                     </div>
 
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
                         <label style="width: 450px!important;text-align: left">{{__('member.password')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="password" name="password"
                                class="@error('password') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;">
+                               placeholder="{{__('member.password')}}" style="width: 450px!important;">
                         @error('password')
                         <br>
                         <span class="invalid-feedback"
@@ -77,13 +77,13 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
                         <label style="width: 450px!important;text-align: left">{{__('member.passwordconfirmation')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="password" name="password_confirmation"
-                               class="@error('password') is-invalid @enderror w-100 courier_input"
+                               placeholder="{{__('member.passwordconfirmation')}}" class="@error('password') is-invalid @enderror w-100 courier_input"
                                style="width: 450px!important;">
                         <br>
                         @error('password')
@@ -92,7 +92,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
                         <label style="width: 450px!important;text-align: left">{{__('member.country')}}:</label>
                     </div>
@@ -110,7 +110,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
                         <label style="width: 450px!important;text-align: left">{{__('member.region')}}:</label>
                     </div>
@@ -124,14 +124,14 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
                         <label style="width: 450px!important;text-align: left">{{__('member.address')}}:</label>
                     </div>
                     <div class="text-center">
                         <input value="{{ old('address') }}" type="text" name="address"
                                class="@error('address') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;">
+                               placeholder="{{__('member.address')}}" style="width: 450px!important;">
                         <br style="">
                         @error('address')
                         <span class="invalid-feedback"
@@ -139,14 +139,14 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
                         <label style="width: 450px!important;text-align: left">{{__('member.fin')}}:</label>
                     </div>
                     <div class="text-center">
                         <input type="text" value="{{ old('fin') }}" name="fin"
                                class="@error('fin') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;">
+                               placeholder="{{__('member.fin')}}" style="width: 450px!important;">
                         @error('fin')
                         <br>
                         <span class="invalid-feedback"
@@ -154,28 +154,34 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
                         <label style="width: 450px!important;text-align: left">{{__('member.phone')}}:</label>
                     </div>
-                    <div class="text-center">
-                        <input value="{{ old('phone') }}" type="text" name="phone"
-                               class="@error('phone') is-invalid @enderror w-100 courier_input"
-                               style="width: 450px!important;">
-                        @error('phone')
-                        <br>
-                        <span class="invalid-feedback"
-                              role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
-                        @enderror
+                    <div style="display: table;margin-left: auto;margin-right: auto;">
+                        <div class="input-group">
+                            <span class="input-group-addon">+7</span>
+                            <input value="{{ old('phone') }}" type="text" name="phone"
+                                   class="@error('phone') is-invalid @enderror form-control w-100 courier_input"
+                                   placeholder="{{__('member.phone')}}" style="width: 407px!important;">
+                            @error('phone')
+                            <br>
+                            <span class="invalid-feedback"
+                                  role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
                     </div>
+
                 </div>
-                <div class="col-md-12 mt-4">
+                <div class="col-md-12 mt-2">
                     <div class="text-center">
 
-                        <input class="@error('terms') is-invalid @enderror" type="checkbox" name="terms" required
+                        <input class="@error('terms') is-invalid @enderror" id="terms" type="checkbox" name="terms" required
                                style="vertical-align: middle!important;">
-                        <label style="margin-bottom: 10px!important;
-    margin-left: 4px!important;">{{__('member.Agreepolicy')}}</label>
+                        <label for="terms" style="margin-bottom: 10px!important;cursor: pointer;
+    margin-left: 4px!important">{{__('member.Agreepolicy')}}</label>
+                        <label data-target="#polices" data-toggle="modal" style="cursor: pointer;margin-bottom: 10px!important;color: blue;
+    margin-left: 4px!important;">{{__('member.readPolices')}}</label>
                         @error('terms')
                         <span class="invalid-feedback"
                               role="alert"><strong>{{ $message }}</strong></span>
@@ -192,18 +198,51 @@
             </div>
         </form>
     </div>
+    <div id="polices" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{__('member.polices')}}</h4>
+                </div>
+                    <div class="modal-body">
+                        <p>{{__('member.policesList')}}.</p>
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="check(true)"  data-dismiss="modal" class="btn btn-primary">{{__('member.Agreepolicy')}}</button>
+                        <button  onclick="check(false)" class="btn btn-default" data-dismiss="modal">{{__('member.notAcceptPolices')}}</button>
+                    </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('scripts')
     <script>
+        function check(type){
+            if(type)
+                $("#terms").prop("checked", true);
+            else
+                $("#terms").prop("checked", false);
+
+        }
         function getRegion(country_id){
             if(country_id != 'null'){
+                var lang ='{{app()->getLocale()}}';
+                console.log(lang);
                 $.ajax({
                     url:'/api/v1/regions?country_id='+country_id,
                     success:function(response){
                         regions = response.data;
                         var html='';
                         for(var i=0;i<regions.length;i++){
-                            html = html + '<option value="'+regions[i].id+'">'+regions[i].name+ '</option>';
+                            if(lang == 'en')
+                                html = html + '<option value="'+regions[i].id+'">'+regions[i].name+ '</option>';
+                            else{
+                                html = html + '<option value="'+regions[i].id+'">'+regions[i].name_ru+ '</option>';
+                            }
                         }
                         $('#region').empty();
                         $("#region").append(html);
