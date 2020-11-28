@@ -42,18 +42,16 @@
                                         <div class="row container-order">
 
                                             <div class="col-md-7 col-sm-7 mb-4">
-                                                <input type="url" name="link[]" placeholder="Məhsul linki *" class="w-100 courier_input" required>
+                                                <input type="url" name="link[]" placeholder="{{__('member.productLink')}} *" class="w-100 courier_input" required>
                                             </div>
 
                                             <div class="col-md-5 col-sm-5 mb-4">
-                                                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ({{$country->currency}}) *" class="w-100 courier_input" required>
+                                                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{__('member.price')}}({{$country->currency}}) *" class="w-100 courier_input" required>
                                             </div>
 
                                             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
                                                 <h5><strong>{{__('member.cargointurkey')}} *</strong></h5>
                                                 <select class="courier_input w-100" name="has_cargo[]">
-                                                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.no')}}</option>
-                                                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yes')}}</option>
                                                     <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.no')}} !</option>
                                                     <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yes')}} !</option>
                                                 </select>
@@ -73,16 +71,16 @@
                                             <div class="col-md-12 col-sm-12 p-0">
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                                                     <h5><strong>{{__('member.number')}} *</strong></h5>
-                                                    <input type="number" min="1" value="1" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                                                    <input type="number" min="1" value="1" name="quantity[]" placeholder="{{__('member.number')}} *" class="w-100 courier_input" required="">
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                                                     <h5><strong>{{__('member.measure')}} *</strong></h5>
-                                                    <input type="text" name="specification[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                                                    <input type="text" name="specification[]" placeholder="{{__('member.measure')}} *" class="w-100 courier_input" required="">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12 mt-0">
-                                                <textarea class="courier_textare" name="description[]" placeholder="Məhsulun detalları"></textarea>
+                                                <textarea class="courier_textare" name="description[]" placeholder="{{__('member.productDetails')}}"></textarea>
                                             </div>
 
                                             <div class="col-md-12 text-right">
@@ -149,18 +147,18 @@
             <hr>
             <br>
             <div class="col-md-7 col-sm-7 mb-4">
-                <input type="url" name="link[]" placeholder="Məhsul linki *"  class="w-100 courier_input" required>
+                <input type="url" name="link[]" placeholder="{{__('member.productLink')}} *"  class="w-100 courier_input" required>
             </div>
 
             <div class="col-md-5 col-sm-5 mb-4">
-                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="Məbləğ *" class="w-100 courier_input" required>
+                <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{__('member.price')}} *" class="w-100 courier_input" required>
             </div>
 
             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
                 <h5><strong>{{__('member.cargointurkey')}} *</strong></h5>
                 <select class="courier_input w-100" name="has_cargo[]">
-                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.noitnot')}} !</option>
-                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">Bəli !</option>
+                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.no')}} !</option>
+                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yes')}} !</option>
                 </select>
             </div>
 
@@ -178,16 +176,16 @@
             <div class="col-md-12 col-sm-12 p-0">
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                     <h5><strong>{{__('member.number')}} *</strong></h5>
-                    <input type="number" value="1" name="quantity[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                    <input type="number" value="1" name="quantity[]" placeholder="{{__('member.number')}} *" class="w-100 courier_input" required="">
                 </div>
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                     <h5><strong>{{__('member.measure')}} *</strong></h5>
-                    <input type="text" name="specification[]" placeholder="Sayı *" class="w-100 courier_input" required="">
+                    <input type="text" name="specification[]" placeholder="{{__('member.measure')}} *" class="w-100 courier_input" required="">
                 </div>
             </div>
 
             <div class="col-md-12 mt-0">
-                <textarea class="courier_textare" name="description[]" placeholder="Məhsulun detalları"></textarea>
+                <textarea class="courier_textare" name="description[]" placeholder="{{__('member.productDetails')}}"></textarea>
             </div>
 
             <div class="col-md-12 text-right">

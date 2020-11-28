@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\PaymentController;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Order;
-use App\OrderItem;
 use App\Payment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -61,7 +60,7 @@ class OrderController extends Controller
             $order->delete();
 
             request()->session()->flash('danger', 1);
-            request()->session()->flash('message', 'member.general.message.your_balance_is_less');
+            request()->session()->flash('message', __('member.general.message.your_balance_is_less'));
 
             return back();
         }
