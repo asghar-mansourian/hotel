@@ -71,6 +71,7 @@ class CountryController extends Controller
 
         Country::query()->insert([
             'name' => $request->input('name'),
+            'name_ru' => $request->input('name_ru'),
             'flag' => $name,
             'currency' => $request->input('currency'),
         ]);
@@ -154,6 +155,7 @@ class CountryController extends Controller
         }
         Country::query()->where('id' , $id)->update([
             'name' => $request->input('name'),
+            'name_ru' => $request->input('name_ru'),
             'flag' => $name,
             'currency' => $request->input('currency'),
         ]);

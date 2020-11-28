@@ -58,6 +58,7 @@ class RegionController extends Controller
 
         Region::query()->insert([
             'name' => $request->input('name'),
+            'name_ru' => $request->input('name_ru'),
             'description' => $request->input('description'),
             'country_id' => $request->input('country_id'),
         ]);
@@ -127,6 +128,7 @@ class RegionController extends Controller
 
         Region::query()->where('id' , $id)->update([
             'name' => $request->input('name'),
+            'name_ru' => $request->input('name_ru'),
             'description' => $request->input('description'),
             'country_id' => $request->input('country_id'),
         ]);

@@ -529,9 +529,9 @@ class TranslateSeeder extends Seeder
         'hello' => 'Hello',
         'regards' => 'Regards',
         'resetPasswordDescription' => 'You are receiving this email because we received a password reset request for your account.',
-        'resetPasswordExpireDescription' => 'This password reset link will expire in 60 minutes.
+        'resetPasswordExpireDescription'=>'This password reset link will expire in 60 minutes.
         If you did not request a password reset, no further action is required.',
-        'troubleClicking1' => 'If you’re having trouble clicking the ',
+        'troubleClicking1' =>'If you’re having trouble clicking the ',
         'troubleClicking2' => 'button, copy and paste the URL below. into your web browser: ',
         'submit' => 'Submit',
         'copy' => 'copy',
@@ -539,7 +539,11 @@ class TranslateSeeder extends Seeder
         'passwordRequired' => 'password is required',
         'passwordConfirmed' => 'The password confirmation does not match.',
         'userNotFound' => 'User not found',
-        'payment_failed_try_again' => 'payment failed please try again'
+        'payment_failed_try_again' => 'payment failed please try again',
+        'readPolices' => 'Read Polices',
+        'polices' => 'Polices',
+        'policesList' => 'Polices List',
+        'notAcceptPolices' => 'Not Accept'
     ];
 
     private $website_items = [
@@ -694,7 +698,6 @@ class TranslateSeeder extends Seeder
         'company_information_description1' => 'Our company is engaged in the transportation of goods from Turkey and America. Your orders are delivered to Baku twice a week from Turkey and once a week from America.',
         'company_information_description2',
         'russia' => 'russia',
-        'turkey' => 'turkey',
-        'top' => 'Top'
+        'turkey' => 'turkey'
     ];
 }

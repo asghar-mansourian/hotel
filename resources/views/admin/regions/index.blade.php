@@ -49,7 +49,7 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' , 'description' ] , 'options' => ['edit' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' ,'name_ru', 'description' ] , 'options' => ['edit' , 'delete']])
                         @slot('paginate')
                             {{$regions->links()}}
                         @endslot

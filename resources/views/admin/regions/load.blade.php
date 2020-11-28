@@ -1,4 +1,4 @@
-@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' , 'description']])
+@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' ,'name_ru', 'description']])
 
     @slot('paginate')
         {{$regions->links()}}

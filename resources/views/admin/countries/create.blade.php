@@ -36,7 +36,22 @@
                             @slot('value')
                             @endslot
                         @endcomponent
-
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    Name Ru
+                                @endslot
+                                @slot('name')
+                                    name_ru
+                                @endslot
+                                @slot('type')
+                                    text
+                                @endslot
+                                @slot('placeholder')
+                                    Please Enter Name Ru...
+                                @endslot
+                                @slot('value')
+                                @endslot
+                            @endcomponent
                             @component('admin.components.form.pictureLabel')
                                 @slot('label')
                                     flag
