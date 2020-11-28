@@ -131,8 +131,10 @@
                                             style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
                                         <option class="dropdown-item" value="null">{{__('member.please_select_country')}}</option>
                                         @foreach($countries as $country)
-                                            @if($user->region->country->id == $country->id)
-                                                <option class="dropdown-item" selected value="{{$country->id}}">{{$country->name}}</option>
+                                            @if($user->region_id)
+                                                @if($user->region->country->id == $country->id)
+                                                    <option class="dropdown-item" selected value="{{$country->id}}">{{$country->name}}</option>
+                                                @endif
                                             @else
                                                 <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
                                             @endif
