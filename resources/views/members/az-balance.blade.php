@@ -42,25 +42,25 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 mt-5 ">
-            <div class="row border_sh">
-                <div class="col-md-10 col-sm-9 pl-0 pr-0">
-                    <div class="title_list mb-4">{{__('member.balanceincreasesdesc')}}</div>
-                    <div class="million">
-                        <strong>
-                            <div class="million_num">{{__('member.accountnumber')}}:</div>
-                            <div class="million_nn">000000</div>
-                        </strong>
-                    </div>
-                    <p>{{__('member.accountnumberdesc1')}}</p>
-                    <p>{{__('member.accountnumberdesc2')}}</p>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-3 pr-0">
-                    <img src="{{url('front/image/terminal.png')}}" class="million_img">
-                </div>
+        {{--        <div class="col-md-12 mt-5 ">--}}
+        {{--            <div class="row border_sh">--}}
+        {{--                <div class="col-md-10 col-sm-9 pl-0 pr-0">--}}
+        {{--                    <div class="title_list mb-4">{{__('member.balanceincreasesdesc')}}</div>--}}
+        {{--                    <div class="million">--}}
+        {{--                        <strong>--}}
+        {{--                            <div class="million_num">{{__('member.accountnumber')}}:</div>--}}
+        {{--                            <div class="million_nn">000000</div>--}}
+        {{--                        </strong>--}}
+        {{--                    </div>--}}
+        {{--                    <p>{{__('member.accountnumberdesc1')}}</p>--}}
+        {{--                    <p>{{__('member.accountnumberdesc2')}}</p>--}}
+        {{--                </div>--}}
+        {{--                <div class="col-md-2 col-sm-3 col-xs-3 pr-0">--}}
+        {{--                    <img src="{{url('front/image/terminal.png')}}" class="million_img">--}}
+        {{--                </div>--}}
 
-            </div>
-        </div>
+        {{--            </div>--}}
+        {{--        </div>--}}
         <div class="col-md-12 mt-5 border_sh">
             <div class="dropdown_dr">
                 <div class="dropdown myBtnContainer">
@@ -224,8 +224,10 @@
 
                 context.closest('form').find('button[type="submit"]').attr('disabled', true)
                 var form = $("#balance_val").val();
-                var data = {'to': 'try', 'from': 'usd', 'currency': form};
-                console.log(data)
+                var formData = new FormData()
+                formData.append('to', 'try');
+                formData.append('from', 'usd');
+                formData.append('currency', form);
                 var error = function (response) {
                     var jsonResponse = JSON.parse(response.responseText);
                     console.log(jsonResponse.errors);
@@ -248,11 +250,12 @@
                     });
                 }
                 var option = {
-                    data: data,
+                    data: formData,
                     url: '/getCurrencyCalculator',
                     type: "POST",
                     dataType: "JSON",
-
+                    processData: false,
+                    contentType: false,
                     cache: false,
                 };
                 $.ajaxSetup(option);
