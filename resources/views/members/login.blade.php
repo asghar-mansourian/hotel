@@ -128,6 +128,7 @@
 
         </div>
     </div>
+
     @push('scripts')
         <script>
             $('#forgotForm').on('submit',function(event){
