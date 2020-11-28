@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UnitSeeder::class);
 
+        $this->call(NotificationSeeder::class);
+
 
     }
 }
