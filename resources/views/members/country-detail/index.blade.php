@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | Orders
+    Kargo | {{__('member.orders')}}
 @endsection
 @section('styles')
     <style>
@@ -77,7 +77,7 @@
                                                                     <div>
                                                                         <p class="contents" style="display: contents">{{ $detail->value }}</p>
                                                                         @if ($detail->can_copy == '1')
-                                                                            <button data-copy="{{$detail->id}}" class="copy btn btn-xs btn-danger btn-outline-dark" ><i class="fa fa-clone" aria-hidden="true"></i> Copy</button>
+                                                                            <button data-copy="{{$detail->id}}" class="copy btn btn-xs btn-danger btn-outline-dark" ><i class="fa fa-clone" aria-hidden="true"></i> {{__('member.copy')}}</button>
                                                                         @endif
                                                                     </div>
 

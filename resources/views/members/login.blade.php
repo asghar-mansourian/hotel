@@ -75,8 +75,9 @@
                 </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
+
                         <input type="checkbox" style="vertical-align: middle!important;">
-                        <label for="" style="vertical-align: middle!important; margin-left: 4px!important;    margin-bottom: 0px;">{{__('member.rememberme')}}</label>
+                        <label for="" style="vertical-align: middle!important; margin-left: 4px!important;    margin-bottom: 0px;">{{__('website.rememberme')}}</label>
                     </div>
                 </div>
                 <div class="col-md-12 button-part mt-5">
@@ -123,7 +124,6 @@
                 </form>
 
             </div>
-
         </div>
     </div>
     @push('scripts')

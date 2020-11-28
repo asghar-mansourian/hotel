@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | Orders
+    Kargo | {{__('member.addrabroad')}}
 @endsection
 
 @section('main')

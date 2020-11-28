@@ -4,7 +4,7 @@
     $taxOrder = Helpers::getTaxOrder()
 @endphp
 @section('title')
-    Kargo | Invoice
+    Kargo | {{__('member.invoice')}}
 @endsection
 @section('content')
     <div class="container">
@@ -52,8 +52,8 @@
                                             <div class="col-md-4 col-sm-4 col-sm-5 mb-4">
                                                 <h5><strong>{{__('member.cargointurkey')}} *</strong></h5>
                                                 <select class="courier_input w-100" name="has_cargo[]">
-                                                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">Xeyir !</option>
-                                                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">Bəli !</option>
+                                                    <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.noitnot')}}</option>
+                                                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yesitis')}}</option>
                                                 </select>
                                             </div>
 
@@ -84,7 +84,7 @@
                                             </div>
 
                                             <div class="col-md-12 text-right">
-                                                <button type="button" data-country-id="{{$country->id}}" class="courier_button mr-4 btn-add-container-order" style="width: auto;">Yeni link əlavə et<i
+                                                <button type="button" data-country-id="{{$country->id}}" class="courier_button mr-4 btn-add-container-order" style="width: auto;">{{__('member.addanewlink')}}<i
                                                         class="fas fa-plus ml-3"></i></button>
 
                                                 <button type="button" class="invoice_button btn-remove-container-order">{{__('member.deletelink')}}<i class="fas fa-trash-alt ml-3"></i></button>
@@ -187,7 +187,7 @@
                 <h5><strong>{{__('member.cargointurkey')}} *</strong></h5>
                 <select class="courier_input w-100" name="has_cargo[]">
                     <option selected value="{{\App\OrderItem::HAS_CARGO_FALSE}}">{{__('member.noitnot')}} !</option>
-                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">Bəli !</option>
+                    <option value="{{\App\OrderItem::HAS_CARGO_TRUE}}">{{__('member.yesitis')}}</option>
                 </select>
             </div>
 

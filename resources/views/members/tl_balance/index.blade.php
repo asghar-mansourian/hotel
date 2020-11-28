@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | Tl Balance
+    Kargo | {{__('member.tlBalance')}}
 @endsection
 
 @section('main')
@@ -82,98 +82,98 @@
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="green">40 $</li>
-                                <li>Balans artırılması</li>
+                                <li>{{__('member.increasebalance')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv expenditure">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="red">-33.9 $</li>
-                                <li>Sifariş Ödənişi</li>
+                                <li>{{__('member.orderpayment')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv income">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="green">50 ₺</li>
-                                <li>Balans artırılması</li>
+                                <li>{{__('member.increasebalance')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv expenditure">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="red">- 43.77 ₺</li>
-                                <li>Sifariş Ödənişi</li>
+                                <li>{{__('member.orderpayment')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv income">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="green">50 $</li>
-                                <li>Balans artırılması</li>
+                                <li>{{__('member.increasebalance')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv expenditure">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="red">-43.9 $</li>
-                                <li>Sifariş Ödənişi</li>
+                                <li>{{__('member.orderpayment')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv income">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="green">40 ₺</li>
-                                <li>Balans artırılması</li>
+                                <li>{{__('member.increasebalance')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv expenditure">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="red">- 33.77 ₺</li>
-                                <li>Sifariş Ödənişi</li>
+                                <li>{{__('member.orderpayment')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv income">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="green">40 $</li>
-                                <li>Balans artırılması</li>
+                                <li>{{__('member.increasebalance')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv expenditure">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="red">-33.9 $</li>
-                                <li>Sifariş Ödənişi</li>
+                                <li>{{__('member.orderpayment')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv income">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="green">50 ₺</li>
-                                <li>Balans artırılması</li>
+                                <li>{{__('member.increasebalance')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv expenditure">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="red">- 43.77 ₺</li>
-                                <li>Sifariş Ödənişi</li>
+                                <li>{{__('member.orderpayment')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv income">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="green">50 $</li>
-                                <li>Balans artırılması</li>
+                                <li>{{__('member.increasebalance')}}</li>
                             </ul>
                         </div>
                         <div class="filterDiv expenditure">
                             <ul>
                                 <li>22.09.2020 22:28</li>
                                 <li class="red">-43.9 $</li>
-                                <li>Sifariş Ödənişi</li>
+                                <li>{{__('member.orderpayment')}}</li>
                             </ul>
                         </div>
                     </div>

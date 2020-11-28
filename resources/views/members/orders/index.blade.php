@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | Orders
+    Kargo | {{__('member.orders')}}
 @endsection
 
 @section('styles')
@@ -237,12 +237,12 @@
                                                 <article class="card">
                                                     <div class="card-body row">
                                                         <div class="col">
-                                                            <strong>order</strong><br>{{$invoice->order_track}}</div>
-                                                        <div class="col"><strong>date</strong>
+                                                            <strong>{{__('member.orders')}}</strong><br>{{$invoice->order_track}}</div>
+                                                        <div class="col"><strong>{{__('member.date')}}</strong>
                                                             <br>{{$invoice->order_date}}</div>
-                                                        <div class="col"><strong>user</strong>
+                                                        <div class="col"><strong>{{__('member.user')}}</strong>
                                                             <br>{{$invoice->user->name}}</div>
-                                                        <div class="col"><strong>status</strong>
+                                                        <div class="col"><strong>{{__('member.status')}}</strong>
                                                             <br>{{\App\Invoice::STATUS_ALL[$invoice->status]}}</div>
                                                     </div>
                                                 </article>
@@ -284,13 +284,13 @@
                                             <table class="table table-hover">
                                                 <thead class="thead-light">
                                                 <tr>
-                                                    <th>link</th>
-                                                    <th>price</th>
-                                                    <th>cargo</th>
-                                                    <th>quantity</th>
-                                                    <th>description</th>
-                                                    <th>total</th>
-                                                    <th>specification</th>
+                                                    <th>{{__('member.link')}}</th>
+                                                    <th>{{__('member.price')}}</th>
+                                                    <th>{{__('member.cargo')}}</th>
+                                                    <th>{{__('member.quantity')}}</th>
+                                                    <th>{{__('member.description')}}</th>
+                                                    <th>{{__('member.total')}}</th>
+                                                    <th>{{__('member.specification')}}</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -425,12 +425,12 @@
                                                             <li>{{$order->status}}</li>
                                                             <li>{{$order->created_at}}</li>
                                                             <li style="width: 9.6%">
-                                                                <input type="button" value="items"
+                                                                <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"
                                                                        class="items btn btn-dark">
                                                             </li>
                                                             <li style="width: 9.6%">
-                                                                <input type="button" value="status"
+                                                                <input type="button" value="{{__('member.status')}}"
                                                                        data-invoice="{{$order->id}}"
                                                                        class="status btn btn-primary">
                                                             </li>
