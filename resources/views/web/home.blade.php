@@ -218,9 +218,9 @@ width: 100px;
                                         <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}" class="w-100"></div>
                                     </div>
                                     <div class="mob_p-4">
-                                        <div class="top mt-3"><span class="top_span">Top</span></div>
+                                        <div class="top mt-3"><span class="top_span">{{__('website.top')}}</span></div>
                                         <h4><strong>{{$blog->title}}</strong></h4>
-                                        <p class="font_grey mb-3">{{$blog->author->name}}<i class="far fa-comment ml-3 mr-1"></i> 3</p>
+                                        <p class="font_grey mb-3">{{$blog->author->name}}{{--<i class="far fa-comment ml-3 mr-1"></i> 3--}}</p>
                                         <div class="line_he mt-2 mb-2">
                                             {{\App\lib\Helpers::getContent($blog->content, 45)}}
                                         </div>

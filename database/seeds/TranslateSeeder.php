@@ -672,6 +672,7 @@ class TranslateSeeder extends Seeder
         'company_information_description1' => 'Our company is engaged in the transportation of goods from Turkey and America. Your orders are delivered to Baku twice a week from Turkey and once a week from America.',
         'company_information_description2',
         'russia' => 'russia',
-        'turkey' => 'turkey'
+        'turkey' => 'turkey',
+        'top' => 'Top'
     ];
 }
