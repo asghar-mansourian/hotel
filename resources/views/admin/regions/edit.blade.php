@@ -37,6 +37,23 @@
                                     {{$region->name}}
                             @endslot
                         @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    {{__('admin.name_ru')}}
+                                @endslot
+                                @slot('name')
+                                    name_ru
+                                @endslot
+                                @slot('type')
+                                    text
+                                @endslot
+                                @slot('placeholder')
+                                    {{__('admin.pleasename_ru')}}
+                                @endslot
+                                @slot('value')
+                                    {{$region->name_ru}}
+                                @endslot
+                            @endcomponent
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')

@@ -1,4 +1,4 @@
-@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $countries , 'selects' => ['id' , 'name' , 'email',   'status'  ] , 'options' => [ 'edit' , 'delete']])
+@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $countries , 'selects' => ['id' , 'name','name_ru' , 'email',   'status'  ] , 'options' => [ 'edit' , 'delete']])
 
     @slot('paginate')
         {{$users->links()}}
