@@ -29,7 +29,7 @@ class HomeController extends Controller
 
         $countries = Country::whereIn('id', Calculator::query()->distinct('country_id')->pluck('country_id')->take(2))->get();
 
-        $customers = Customer::all();
+        $customers = Customer::paginate(16);
 
         $sliders = Slider::all();
 
