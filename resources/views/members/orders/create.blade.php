@@ -121,7 +121,7 @@
                           <h3><strong id="total-price-orders">0 TL</strong></h3>
                       </span>
                     </div>
-                    <div class="mt-5">
+                  {{--  <div class="mt-5">
                         <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
                         <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
                                 name="branch_id">
@@ -130,7 +130,7 @@
                                 <option value="{{$branch->id}}" @if(auth()->user()->branch_id == $branch->id) selected @endif>{{$branch->title}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div>--}}
                     <div class="mt-5">
                         <button id="btn-save-order" type="button" class="order_button w-100 ml-0">{{__('member.makepayment')}}</button>
                     </div>

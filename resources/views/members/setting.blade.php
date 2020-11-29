@@ -40,7 +40,7 @@
                                     <input type="text" name="family" placeholder="Family *" value="{{$user->family}}"
                                            class="w-100 courier_input" readonly="readonly">
                                 </div>
-                                <div class="col-md-5 col-sm-5 mb-4">
+                            {{--    <div class="col-md-5 col-sm-5 mb-4">
                                     <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
 
                                     <select name="branch_id" class=" w-100 " aria-labelledby="dropdown_baglama"
@@ -50,7 +50,7 @@
                                             <option value="{{$branch->id}}" @if($branch->id == $user->branch_id) selected @endif>{{$branch->title}}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div>--}}
                                 {{--                                <div class="col-md-7 col-sm-7 mb-4">--}}
                                 {{--                                    <h5><strong>{{__('member.birthdate')}} </strong></h5>--}}
                                 {{--                                    <input type="date" name="birthdate" placeholder="Birthdate *"--}}

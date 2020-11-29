@@ -47,9 +47,9 @@
                                 <a class="dropdown-item" href="#">{{__('member.aznBalance')}}</a><br/>
                                 <a class="dropdown-item" href="{{url('tl-balance')}}">{{__('member.tlBalance')}}</a><br/>
                                 @if(\App\Setting::getValue(\App\Setting::FIELD_HAS_COURIERS_IN_PROJECT))
-                                    <a class="dropdown-item" href="{{route('courier')}}">{{__('website.balance.courier')}}</a><br/>
+                                    <a class="dropdown-item" href="{{route('courier')}}">{{__('website.balancecourier')}}</a><br/>
                                 @endif
-                                <a class="dropdown-item" href="{{route('inquiry')}}">{{__('website.balance.inquiry')}}</a><br/>
+                                <a class="dropdown-item" href="{{route('inquiry')}}">{{__('website.balanceinquiry')}}</a><br/>
                                 <a class="dropdown-item" href="{{url('/setting')}}">{{__('website.settings')}}</a><br/>
                                 <a class="dropdown-item" href="{{url('/logout')}}">{{__('website.logout')}}</a><br/>
                             </div>
