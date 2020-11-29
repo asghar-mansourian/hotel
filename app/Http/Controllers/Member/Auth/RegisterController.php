@@ -67,6 +67,7 @@ class RegisterController extends Controller
             : redirect($this->redirectPath());
     }
 
+
     protected function registered(Request $request, $user)
     {
 //        Todo: remove this comment
