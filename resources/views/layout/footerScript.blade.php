@@ -79,7 +79,7 @@
                 },
                 dataType:'json',
                 success:function(success){
-                    alert('کد جدید ارسال شد');
+                    alert('{{__('member.newVerificationCodeSent')}}');
                 },
                 error:function(error){
                     console.log(error)

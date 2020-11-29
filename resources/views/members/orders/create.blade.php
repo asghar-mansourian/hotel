@@ -60,7 +60,7 @@
                                             <div class="col-md-8 col-sm-8 p-0">
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                                                     <h5><strong>{{__('member.amountofcargo')}} *</strong></h5>
-                                                    <input type="text" name="cargo[]" class="w-100 courier_input">
+                                                    <input type="text" name="cargo[]" placeholder="{{__('member.amountofcargo')}}" class="w-100 courier_input">
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                                                     <h5><strong>{{__('member.total')}}(+{{$taxOrder}}%)</strong></h5>
@@ -165,7 +165,7 @@
             <div class="col-md-8 col-sm-8 p-0">
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                     <h5><strong>{{__('member.theamountcargo')}} *</strong></h5>
-                    <input type="text" pattern="[0-9]+(\.[0-9]{1,2})?%?" name="cargo[]" class="w-100 courier_input">
+                    <input type="text" placeholder="{{__('member.theamountcargo')}}" pattern="[0-9]+(\.[0-9]{1,2})?%?" name="cargo[]" class="w-100 courier_input">
                 </div>
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                     <h5><strong>{{__('member.total')}}(+{{$taxOrder}}%)</strong></h5>
