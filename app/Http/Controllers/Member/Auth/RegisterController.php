@@ -57,7 +57,6 @@ class RegisterController extends Controller
         session()->put('varifysms_email_user_id_' . $user->id, $request->email);
         session()->put('varifysms_password_user_id_' . $user->id, $request->password);
 
-
 //        $this->guard()->login($user);
 
         if ($response = $this->registered($request, $user)) {
