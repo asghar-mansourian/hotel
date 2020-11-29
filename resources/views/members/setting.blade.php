@@ -1,7 +1,7 @@
     @extends('members.layout')
 
 @section('title')
-    Kargo | {{__('member.setting')}}
+    {{__('member.site_name')}}| {{__('member.setting')}}
 @endsection
 
 @section('main')

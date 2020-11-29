@@ -1,6 +1,6 @@
 @extends('members.layout')
 @section('title')
-    Kargo | {{__('member.invoice_title')}}
+    {{__('member.site_name')}}| {{__('member.invoice_title')}}
 @endsection
 
 @section('styles')

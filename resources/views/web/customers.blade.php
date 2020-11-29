@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Kargo | {{__('website.customers')}}
+    {{__('member.site_name')}}| {{__('website.customers')}}
 @endsection
 @section('content')
     <div class="container">

@@ -1,7 +1,7 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | {{__('member.tlBalance')}}
+    {{__('member.site_name')}}| {{__('member.tlBalance')}}
 @endsection
 
 @section('main')

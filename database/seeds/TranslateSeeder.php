@@ -543,6 +543,7 @@ class TranslateSeeder extends Seeder
         'readPolices' => 'Read Polices',
         'polices' => 'Polices',
         'policesList' => 'Polices List',
+        'site_name' => 'Shtormex',
         'notAcceptPolices' => 'Not Accept',
         'mobileCodeVerification' => 'Mobile Code Verification',
         'enterVerificationCode' => 'Enter The Verification Code',
