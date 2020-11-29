@@ -13,11 +13,6 @@
             <input type="hidden" name="email" value="{{ request()->get('email') }}">
             <div class="row left-side">
                 <div class="col-md-12 mt-4 text-center">
-                    <pre>
-                    @php
-                        var_dump($errors);
-                    @endphp
-                        </pre>
                     @error('email')
                     <br>
                     <span class="invalid-feedback" style="color:#a1272b;" role="alert">
