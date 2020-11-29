@@ -60,7 +60,7 @@
                                             <div class="col-md-8 col-sm-8 p-0">
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                                                     <h5><strong>{{__('member.amountofcargo')}} *</strong></h5>
-                                                    <input type="text" name="cargo[]" class="w-100 courier_input">
+                                                    <input type="text" name="cargo[]" placeholder="{{__('member.amountofcargo')}}" class="w-100 courier_input">
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                                                     <h5><strong>{{__('member.total')}}(+{{$taxOrder}}%)</strong></h5>
@@ -121,7 +121,7 @@
                           <h3><strong id="total-price-orders">0 TL</strong></h3>
                       </span>
                     </div>
-                    <div class="mt-5">
+                  {{--  <div class="mt-5">
                         <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
                         <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
                                 name="branch_id">
@@ -130,7 +130,7 @@
                                 <option value="{{$branch->id}}" @if(auth()->user()->branch_id == $branch->id) selected @endif>{{$branch->title}}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div>--}}
                     <div class="mt-5">
                         <button id="btn-save-order" type="button" class="order_button w-100 ml-0">{{__('member.makepayment')}}</button>
                     </div>
@@ -165,7 +165,7 @@
             <div class="col-md-8 col-sm-8 p-0">
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr hidden ">
                     <h5><strong>{{__('member.theamountcargo')}} *</strong></h5>
-                    <input type="text" pattern="[0-9]+(\.[0-9]{1,2})?%?" name="cargo[]" class="w-100 courier_input">
+                    <input type="text" placeholder="{{__('member.theamountcargo')}}" pattern="[0-9]+(\.[0-9]{1,2})?%?" name="cargo[]" class="w-100 courier_input">
                 </div>
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr">
                     <h5><strong>{{__('member.total')}}(+{{$taxOrder}}%)</strong></h5>

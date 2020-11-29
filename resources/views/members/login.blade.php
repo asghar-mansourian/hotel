@@ -35,6 +35,11 @@
         {{--        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>--}}
     </div>
     <div class="container">
+            @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    {{$errors->first()}}
+                </div>
+            @endif
         <div class="loader"><!-- Place at bottom of page --></div>
         <form action="{{ route('login') }}" method="post">
             @csrf

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,12 @@
     <style>
         a.status-1{
             font-weight: bold;
+        }
+        .btn-danger{
+            display: none;
+        }
+        .glyphicon-trash{
+            display: none;
         }
     </style>
     <script>
@@ -288,7 +295,7 @@
                                 &times;
                             </button>
                             <?php echo $locale ?>
-                            
+
                         </div>
                     </li>
                 <?php endforeach; ?>

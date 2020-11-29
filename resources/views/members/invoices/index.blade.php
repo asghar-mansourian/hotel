@@ -315,7 +315,7 @@
                                                             @enderror
                                                         </div>
                                                         <div class="col-xs-12"></div>
-                                                        <div class="col-md-6 col-sm-6 col-sm-5 mb-6">
+                                                        {{--<div class="col-md-6 col-sm-6 col-sm-5 mb-6">
                                                             <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
                                                             <select
                                                                 class="@error('branch_id') is-invalid @enderror w-100 courier_input "
@@ -326,7 +326,7 @@
                                                                         value="{{$branch->id}}">{{$branch->title}}</option>
                                                                 @endforeach
                                                             </select>
-                                                        </div>
+                                                        </div>--}}
                                                         <div class="col-md-6 col-sm-6">
                                                             <h5><strong>{{__('member.dateofordering')}} *</strong></h5>
                                                             <div class="col-md-12  courier_dr brit_year pl-0">
