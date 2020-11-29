@@ -36,6 +36,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
     public function showRegistrationForm()
     {
         $countries = Country::query()
