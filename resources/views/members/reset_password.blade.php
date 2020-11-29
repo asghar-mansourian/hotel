@@ -6,11 +6,25 @@
         {{--        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>--}}
     </div>
     <div class="container">
-
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
+
             <input type="hidden" name="token" value="{{ $token }}">
+            <input type="hidden" name="email" value="{{ request()->get('email') }}">
             <div class="row left-side">
+                <div class="col-md-12 mt-4 text-center">
+                    <pre>
+                    @php
+                        var_dump($errors);
+                    @endphp
+                        </pre>
+                    @error('email')
+                    <br>
+                    <span class="invalid-feedback" style="color:#a1272b;" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                                </span>
+                    @enderror
+                </div>
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
                         <label for="" style="width: 450px!important;text-align: left">{{__('member.password')}}:</label>
