@@ -1,17 +1,17 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | {{__('member.tlBalance')}}
+    {{__('member.site_name')}}| {{__('member.tlBalance')}}
 @endsection
 
 @section('main')
     @include('members.partials.top_panel')
-        <div class="mt-5">
-            <div class="row relative">
-                <div class="col-md-5 col-sm-5 col-xs-12 balance-block balance_azn">
-                    <div class="balance">
-                        <picture>
-                            <img src="{{url('front/image/balans-mob.png')}}" alt="balans" class="img-responsive w-100">
+    <div class="mt-5">
+        <div class="row relative">
+            <div class="col-md-5 col-sm-5 col-xs-12 balance-block balance_azn">
+                <div class="balance">
+                    <picture>
+                        <img src="{{url('front/image/balans-mob.png')}}" alt="balans" class="img-responsive w-100">
                         </picture>
                         <div class="balance-count">
                             <span>{{__('member.mybalance')}}</span> <br/>

@@ -543,7 +543,8 @@ class TranslateSeeder extends Seeder
         'readPolices' => 'Read Polices',
         'polices' => 'Polices',
         'policesList' => 'Polices List',
-        'notAcceptPolices' => 'Not Accept'
+        'notAcceptPolices' => 'Not Accept',
+        'site_name' => 'Shtormex'
     ];
 
     private $website_items = [

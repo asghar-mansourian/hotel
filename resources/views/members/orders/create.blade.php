@@ -4,7 +4,7 @@
     $taxOrder = Helpers::getTaxOrder()
 @endphp
 @section('title')
-    Kargo | {{__('member.orders')}}
+    {{__('member.site_name')}}| {{__('member.orders')}}
 @endsection
 @section('content')
     <div class="container">

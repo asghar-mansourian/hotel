@@ -1,17 +1,17 @@
 @extends('members.layout')
 
 @section('title')
-    Kargo | {{__('member.inquiry')}}
+    {{__('member.site_name')}}| {{__('member.inquiry')}}
 @endsection
 
 @section('main')
     @include('members.partials.top_panel')
-    @section('styles')
-       <style>
-           .truncate-paragraph{
-               width: 100px;
-               text-overflow: ellipsis;
-               overflow: hidden;
+@section('styles')
+    <style>
+        .truncate-paragraph {
+            width: 100px;
+            text-overflow: ellipsis;
+            overflow: hidden;
            }
        </style>
     @endsection
