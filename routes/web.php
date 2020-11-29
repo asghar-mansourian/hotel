@@ -28,6 +28,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 Route::group(['namespace' => 'Member'], function () {
     Auth::routes();
+    Route::get('/verify/code-page', 'Auth\RegisterController@verifySmsCode')->name('user.verify.code');
+    Route::post('/verify/code', 'Auth\RegisterController@verifySmsCode')->name('user.verify.code');
+    Route::post('/verify/resendcode', 'Auth\RegisterController@resendSms')->name('user.resend.code');
 });
 
 Route::match(['GET', 'POST'], '/payment/callback', 'Member\PaytrController@callback');

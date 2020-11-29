@@ -68,6 +68,24 @@
 
         $( ".convert-currency" ).trigger( "change" );
 
+        $('#resend_sms').click(function (e) {
+            id=$('#frm-mobile-verification #id').val();
+            $.ajax({
+                url:'{{route('user.resend.code')}}',
+                type:'post',
+                data:{
+                    '_token':'{{csrf_token()}}',
+                    'id':id
+                },
+                dataType:'json',
+                success:function(success){
+                    alert('کد جدید ارسال شد');
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+        });
 
     });
 
