@@ -543,7 +543,20 @@ class TranslateSeeder extends Seeder
         'readPolices' => 'Read Polices',
         'polices' => 'Polices',
         'policesList' => 'Polices List',
-        'notAcceptPolices' => 'Not Accept'
+        'notAcceptPolices' => 'Not Accept',
+        'mobileCodeVerification' => 'Mobile Code Verification',
+        'enterVerificationCode' => 'Enter The Verification Code',
+        'verify' => 'Verify',
+        'resendVerificationCode' => 'Resend Verification Code',
+        'newVerificationCodeSent' => 'New Verification Code Sent.',
+        'productLink' => 'Product Link',
+        'invoiceName' => 'Invoice Name',
+        'productType' => 'Product Type',
+        'productNumber' => 'Product Number',
+        'orderTrackingCode' => 'Order Tracking Code',
+        'productAbout' => 'If you have notes about your package, write',
+        'productDetails' => 'Product Details',
+
     ];
 
     private $website_items = [
