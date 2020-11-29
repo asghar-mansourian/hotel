@@ -287,6 +287,44 @@
 @endsection
 @push('scripts')
     <script>
+            $('.form-input').on('change' , function () {
+                if ($(this).val != ""){
+                    $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
+                }
+
+
+            })
+
+
+            $('.form-input').on('keydown' , function () {
+                if ($(this).val != ""){
+                    $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
+                }
+
+
+            })
+            $('.form-input').on('click' , function () {
+                if ($(this).val != ""){
+                    $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
+                }
+
+
+            })
+            $('.form-input').each(function (key , item) {
+                console.log(item.value)
+                if (item.value != ""){
+                    $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
+                }
+            })
+
+            $('.form-input').on('change' , function () {
+                if (this.value == ""){
+                    $(this).next().css({"-webkit-transform":"scale(1) translate(0,2px)"});
+                }
+
+            })
+
+
         function check(type) {
             if (type)
                 $("#terms").prop("checked", true);
