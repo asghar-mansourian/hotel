@@ -538,7 +538,12 @@ class TranslateSeeder extends Seeder
         'close' => 'Close',
         'passwordRequired' => 'password is required',
         'passwordConfirmed' => 'The password confirmation does not match.',
-        'userNotFound' => 'User not found'
+        'userNotFound' => 'User not found',
+        'payment_failed_try_again' => 'payment failed please try again',
+        'readPolices' => 'Read Polices',
+        'polices' => 'Polices',
+        'policesList' => 'Polices List',
+        'notAcceptPolices' => 'Not Accept'
     ];
 
     private $website_items = [

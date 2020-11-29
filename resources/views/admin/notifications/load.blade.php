@@ -1,17 +1,17 @@
-@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $countries , 'selects' => ['id' , 'name','name_ru' , 'email',   'status'  ] , 'options' => [ 'edit' , 'delete']])
+@component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $settings , 'selects' => ['id' , 'key' , 'value']])
 
     @slot('paginate')
-        {{$users->links()}}
+        {{$settings->links()}}
     @endslot
     @slot('url')
-        users
+        settings
     @endslot
 @endcomponent
 
 @component('admin.components.script.paginatorScript' , ['type' => 1])
 
     @slot('paginatorUrl')
-        ../../../admin/users/load
+        ../../../admin/payments/load
     @endslot
 @endcomponent
 @component('admin.components.script.sortTableScript')
@@ -22,6 +22,6 @@
 @endcomponent
 @component('admin.components.script.mainFormScript')
     @slot('mainFormUrlValue')
-        ../../../admin/users/index
+        ../../../admin/payments/index
     @endslot
 @endcomponent

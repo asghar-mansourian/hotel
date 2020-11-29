@@ -67,6 +67,6 @@ Route::middleware('auth:api')->group(function () {
             Route::apiResource('user-password', 'UserPasswordController')->except(['index','store']);
             Route::apiResource('user-other-settings', 'UserOtherSettingController')->except(['index','store']);
 
-
+            Route::post('/notifications', 'NotificationController@send');
         });
 });

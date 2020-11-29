@@ -152,6 +152,15 @@ route::post('/settings/sort/' , 'SettingController@sort');
 route::get('/settings/edit/{id}' , 'SettingController@edit');
 route::post('/settings/update/{id}' , 'SettingController@update');
 
+
+/*      Setting Routes      */
+route::get('/notifications' , 'NotificationController@index');
+route::get('/notifications/load' , 'NotificationController@load');
+route::post('/notifications/search/' , 'NotificationController@search');
+route::post('/notifications/sort/' , 'NotificationController@sort');
+route::get('/notifications/edit/{id}' , 'NotificationController@edit');
+route::post('/notifications/update/{id}' , 'NotificationController@update');
+
 /*      Branch Routes      */
 route::get('/branches' , 'BranchController@index');
 route::get('/branches/load' , 'BranchController@load');
@@ -248,4 +257,7 @@ route::post('/scripts/update/{id}', 'ScriptController@update');
 route::get('/scripts/destroy/{id}', 'ScriptController@destroy');
 route::get('/scripts/show/{id}', 'ScriptController@show');
 route::post('/scripts/search', 'ScriptController@search');
+
+
+
 

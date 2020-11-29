@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Traits;
 
 
 use App\lib\Helpers;
+use Exception;
 use Illuminate\Support\Facades\Http;
 
 trait TokenViaPaytr
 {
     public function getToken($payment)
     {
-
         $merchant_id = config('payment.merchant_id');
         $merchant_key = config('payment.merchant_key');
         $merchant_salt = config('payment.merchant_salt');
@@ -60,12 +60,16 @@ trait TokenViaPaytr
             'test_mode' => $test_mode
         );
 
-        $result = Http::asForm()
-            ->post(config('payment.url'), $post_vals)
-            ->object();
+        try {
+            $result = Http::asForm()
+                ->post(config('payment.url'), $post_vals)
+                ->object();
+        } catch (Exception $exception) {
+            return false;
+        }
 
         if ($result->status !== 'success') {
-            return abort(422, json_encode($result));
+            return false;
         }
 
         return $result->token;

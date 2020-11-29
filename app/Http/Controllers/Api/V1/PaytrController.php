@@ -11,7 +11,14 @@ class PaytrController extends Controller
 
     public function pay($payment)
     {
-        return config('payment.url_gate') . $this->getToken($payment);
+        $token = $this->getToken($payment);
+        if (!$token) {
+            return response()->json([
+                'message' => __('member.payment_failed_try_again')
+            ], 422);
+        }
+
+        return config('payment.url_gate') . $token;
     }
 
 }

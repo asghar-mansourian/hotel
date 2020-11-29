@@ -13,7 +13,7 @@ class Region extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['name',  'id' , 'description' , 'country_id'];
+    const selectField = ['name',  'id' , 'name_ru','description' , 'country_id'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 

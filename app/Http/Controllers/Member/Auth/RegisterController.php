@@ -25,10 +25,6 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-    /**
-     * @var int
-     */
-
 
     /**
      * Create a new controller instance.
@@ -40,10 +36,11 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-
     public function showRegistrationForm()
     {
-        $countries = Country::all();
+        $countries = Country::query()
+        ->select($this->customSelectedFields())
+        ->get();
 
         return view('members.register', compact('countries'));
     }
@@ -68,6 +65,15 @@ class RegisterController extends Controller
             : redirect($this->redirectPath());
     }
 
+
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        return [$name, 'id'];
+    }
 
     protected function registered(Request $request, $user)
     {

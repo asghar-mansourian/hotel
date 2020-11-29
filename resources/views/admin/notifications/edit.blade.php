@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('admin.dashboard')}} | {{__('admin.editregion')}}
+    {{__('admin.dashboard')}} | {{__('admin.editnotification')}}
 @endsection
 
 @section('styleCustom')
@@ -14,7 +14,7 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" action="{{url('admin/regions/update/' . $region->id)}}">
+    <form class="form" method="post" id="mainForm" action="{{url('admin/notifications/update/' . $notification->id)}}">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
@@ -22,70 +22,42 @@
                     @slot('items')
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                {{__('admin.name')}}
+                                {{__('admin.key')}}
                             @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
                             @slot('name')
-                                name
+                                key
                             @endslot
                             @slot('type')
                                 text
                             @endslot
-                            @slot('placeholder')
-                                {{__('admin.pleasename')}}
-                            @endslot
+
                             @slot('value')
-                                    {{$region->name}}
+                                    {{$notification->key}}
                             @endslot
+
                         @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    {{__('admin.name_ru')}}
-                                @endslot
-                                @slot('name')
-                                    name_ru
-                                @endslot
-                                @slot('type')
-                                    text
-                                @endslot
-                                @slot('placeholder')
-                                    {{__('admin.pleasename_ru')}}
-                                @endslot
-                                @slot('value')
-                                    {{$region->name_ru}}
-                                @endslot
-                            @endcomponent
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                {{__('admin.description')}}
+                                {{__('admin.value')}}
                             @endslot
                             @slot('name')
-                                description
+                                value
                             @endslot
                             @slot('type')
                                 text
                             @endslot
                             @slot('placeholder')
-                                {{__('admin.pleaseenterdescription')}}
+                                {{__('admin.pleaseentervalue')}}
                             @endslot
                             @slot('value')
-                                {{$region->description}}
+                                {{$notification->value}}
                             @endslot
                         @endcomponent
-                        @component('admin.components.form.optionLabel')
-                            @slot('label')
-                                {{__('admin.country')}}
-                            @endslot
-                            @slot('name')
-                                country_id
-                            @endslot
-                            @slot('items')
-                                <option value="" selected>{{__('admin.pleaseentercountry')}}</option>
-                                @foreach($countries as $country)
-                                    <option value="{{$country->id}}" {{$country->id == $region->country_id ? 'selected' : ''}}>{{$country->name}}</option>
-                                @endforeach
-                            @endslot
-                        @endcomponent
+
 
                     @endslot
 
@@ -126,7 +98,7 @@
 @section('scriptCustom')
     @component('admin.components.script.mainFormScript')
         @slot('mainFormUrlValue')
-            ../../../admin/regions/
+            ../../../admin/notifications/
         @endslot
     @endcomponent
 @endsection
@@ -138,7 +110,7 @@
 
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.editregion')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i>{{__('admin.editnotification')}}</li>
         @endslot
     @endcomponent
 @endsection

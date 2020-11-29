@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('admin.dashboard')}} | {{__('admin.regiontitle')}}
+    {{__('admin.dashboard')}} | {{__('admin.notificationtitle')}}
 @endsection
 
 @section('styleCustom')
@@ -17,13 +17,7 @@
         </div>
 
 
-        <div class="col-lg-4">
-            @component('admin.components.search')
-                @slot('url')
-                    {{url('admin/regions/search')}}
-                @endslot
-            @endcomponent
-        </div>
+
 
 
         {{--        <div class="col-lg-4">--}}
@@ -43,18 +37,17 @@
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fa fa-map   mr-2"></i>{{__('admin.regiontableheader')}}
+                        <i class="fa fa-clipboard   mr-2"></i>{{__('admin.faqtableheader')}}
                     </h3>
-                    <a href="{{url('/admin/regions/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> {{__('admin.addregion')}} </a>
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $regions , 'selects' => ['id' , 'name' ,'name_ru', 'description' ] , 'options' => ['edit' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $notifications , 'selects' => ['id' , 'key' , 'value'] , 'options' => ['edit']])
                         @slot('paginate')
-                            {{$regions->links()}}
+                            {{$notifications->links()}}
                         @endslot
                         @slot('url')
-                            regions
+                            notifications
                         @endslot
 
                     @endcomponent
@@ -71,28 +64,28 @@
 
     @component('admin.components.script.sweetAlertScript')
         @slot('url')
-            ../../../admin/regions/
+            ../../../admin/notifications/
         @endslot
     @endcomponent
-    {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}
-    {{--        @slot('paginatorUrl')--}}
-    {{--            regions/load?page=--}}
-    {{--        @endslot--}}
-    {{--    @endcomponent--}}
-    {{--    @component('admin.components.script.searchScript')--}}
-    {{--        @slot('url')--}}
-    {{--            ../../../admin/regions/search/--}}
-    {{--        @endslot--}}
-    {{--    @endcomponent--}}
+    @component('admin.components.script.paginatorScript' , ['type' => 2])
+        @slot('paginatorUrl')
+            notifications/load?page=
+        @endslot
+    @endcomponent
+    @component('admin.components.script.searchScript')
+        @slot('url')
+            ../../../admin/notifications/search/
+        @endslot
+    @endcomponent
     @component('admin.components.script.sortScript')
         @slot('url')
-            ../../../admin/regions/sort/
+            ../../../admin/notifications/sort/
 
         @endslot
     @endcomponent
     @component('admin.components.script.sortTableScript')
         @slot('url')
-            ../../../admin/regions/sort/
+            ../../../admin/notifications/sort/
         @endslot
     @endcomponent
     {{--    @component('admin.components.script.filterScript')--}}
@@ -110,8 +103,8 @@
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}">{{__('admin.paneltitle')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-map mr-2 fs-14"></i> {{__('admin.regiontitle')}}
+                    href="{{url('/admin/home')}}"> {{__('admin.paneltitle')}}</a></li>
+            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('admin.notificationtitle')}}
             </li>
         @endslot
     @endcomponent

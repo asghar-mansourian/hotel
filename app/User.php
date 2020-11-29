@@ -94,4 +94,9 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Branch::class, 'branch_id');
     }
 
+    public function region()
+    {
+        return $this->belongsTo(Region::class, 'region_id');
+    }
+
 }
