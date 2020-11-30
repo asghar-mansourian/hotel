@@ -82,7 +82,7 @@
                                     <li style="width: 20%;" class="green">+{{$payment->price}}</li>
                                 @endif
                                 <li style="width: 20%;">{{is_null($payment->refid) ? 0 : $payment->refid}}</li>
-                                <li style="width: 20%;">{{is_null($payment->status) ? 0 : $payment->status}}</li>
+                                <li style="width: 20%;">{!! $payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
                                 <li style="width: 20%;">{{$payment->created_at}}</li>
                             </ul>
                         </div>
