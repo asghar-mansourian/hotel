@@ -26,7 +26,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'country_id' => ['required', 'exists:countries,id'],
-            'branch_id' => ['required', 'exists:branches,id'],
+//            'branch_id' => ['required', 'exists:branches,id'],
             'payment_type' => ['required', new ExistsPaymentType()],
             'description' => ['nullable'],
             'link' => 'required|array|min:1',

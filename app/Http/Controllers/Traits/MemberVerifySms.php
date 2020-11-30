@@ -16,28 +16,25 @@ trait MemberVerifySms
 
     protected function generateCodeForUserSmsVerify()
     {
-
-        do {
-            $code = rand(00000, 99999);
-
-            $exists = User::where('sms_code', $code)->exists();
-            if (!$exists) {
-                return $code;
-            }
-
-        } while (!$exists);
+        $code = rand(00000, 99999);
+        return $code;
     }
 
-    public function verifySms($user_id, $resend = false)
+    public function removeSmsSessions($user_id)
     {
-        $code = $this->generateCodeForUserSmsVerify();
-        //        Todo: use sms api
-        session()->put('varifysms_user_id_' . $user_id, $user_id);
-        if (session()->exists(['varifysms_code_' . $user_id])) {
-            session()->forget('varifysms_code_' . $user_id);
-        }
-        session()->put('varifysms_code_' . $user_id, $code);
+        session()->forget("verifysms.$user_id");
+    }
 
+    public function sendSms($user, $resend = false)
+    {
+        $user_id=$user->id;
+        $code = $this->generateCodeForUserSmsVerify();
+//        echo $code;
+        //        Todo: use sms api
+        session()->push("verifysms.$user->id.varifysms_email_user", $user->email);
+        session()->push("verifysms.$user->id.varifysms_user", $user->id);
+        session()->push("verifysms.$user->id.varifysms_code_user", $code);
+//        dd(session('verifysms'));
         if (!$resend) {
             return view('members.auth.verify-code-login', compact('user_id'));
         }
@@ -45,18 +42,15 @@ trait MemberVerifySms
 
     public function verifySmsCode(Request $request)
     {
-        $code = session()->get('varifysms_code_' . $request->id);
-        $user_id = session()->get('varifysms_user_id_' . $request->id);
-        session()->put('varifysms_redirect_user_id_' . $user_id, false);
+        $code = session('verifysms')[$request->id]['varifysms_code_user'][0];
+        $user_id = session('verifysms')[$request->id]['varifysms_user'][0];
+        if (is_null($user_id) || $request->sms_code != $code ) {
+            session()->push("verifysms.$user_id.varifysms_redirect_user", true);
 
-        if ($request->sms_code == $code) {
-            User::where('id', $user_id)->update(['sms_code' => $request->sms_code, 'verified' => '1']);
         } else {
-            session()->put('varifysms_redirect_user_id_' . $user_id, true);
+            $user=User::where('id', $user_id)->update(['verified' => '1']);
         }
 
-        session()->forget('varifysms_user_id_' . $user_id);
-        session()->forget('varifysms_code_' . $user_id);
     }
 
 }

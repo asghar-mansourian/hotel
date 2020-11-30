@@ -79,7 +79,8 @@
                 },
                 dataType:'json',
                 success:function(success){
-                    alert('{{__('member.newVerificationCodeSent')}}');
+                    $('#msg').empty();
+                    $('#msg').append('<div class="alert alert-danger"> {!!__("website.newsmscodesend")!!} </div>');
                 },
                 error:function(error){
                     console.log(error)
