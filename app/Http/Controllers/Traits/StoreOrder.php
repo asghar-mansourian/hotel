@@ -15,24 +15,25 @@ trait StoreOrder
     {
         $countryId = $request->get('country_id');
         $paymentType = $request->get('payment_type');
-        $branchId = $request->get('branch_id');
+        $branchId = $request->get('branch_id') ?? null;
 
         $links = $request->get('link');
         $prices = $request->get('price');
-        $has_cargos = $request->get('has_cargo');
-        $cargos = $request->get('cargo');
+//        $has_cargos = $request->get('has_cargo');
+//        $cargos = $request->get('cargo');
         $quantities = $request->get('quantity');
         $specifications = $request->get('specification');
+        $colors = $request->get('color');
         $descriptions = $request->get('description');
 
         $order = false;
-        DB::transaction(function () use (&$order, $countryId, $paymentType, $branchId, $links, $prices, $has_cargos, $cargos, $quantities, $specifications, $descriptions) {
+        DB::transaction(function () use (&$order, $countryId, $paymentType, $branchId, $links, $prices, $quantities, $specifications, $colors, $descriptions) {
 
             $order = auth()->user()->orders()->create(
                 [
                     'country_id' => $countryId,
                     'payment_type' => $paymentType,
-                    'branch_id' => $branchId
+                    'branch_id' => null
                 ]
             );
 
@@ -41,10 +42,11 @@ trait StoreOrder
                 $orderItem = new OrderItem();
                 $orderItem->link = $link;
                 $orderItem->price = $prices[$key];
-                $orderItem->has_cargo = $has_cargos[$key];
-                $orderItem->cargo = $cargos[$key] ?? 0;
+//                $orderItem->has_cargo = $has_cargos[$key];
+//                $orderItem->cargo = $cargos[$key] ?? 0;
                 $orderItem->quantity = $quantities[$key];
                 $orderItem->specification = $specifications[$key];
+                $orderItem->color = $colors[$key];
                 $orderItem->description = $descriptions[$key];
                 $orderItem->total = $this->calcTotalOrderPrice($orderItem);
 

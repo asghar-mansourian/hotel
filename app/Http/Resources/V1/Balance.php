@@ -2,13 +2,15 @@
 
 namespace App\Http\Resources\V1;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class Balance extends ResourceCollection
+class Balance extends JsonResource
 {
 
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'balance' => $this->balance
+        ];
     }
 }

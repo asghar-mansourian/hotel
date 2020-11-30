@@ -53,7 +53,7 @@ Route::middleware('auth:api')->group(function () {
 
             Route::post('currency', 'CurrencyController@getCurrency');
 
-            Route::get('balance/{id}', 'BalanceController@getBalance');
+            Route::post('user/balance', 'BalanceController');
 
             Route::get('pricing', 'PricingController@list');
 

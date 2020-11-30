@@ -90,7 +90,7 @@
             -webkit-box-flex: 1;
             -ms-flex-positive: 1;
             flex-grow: 1;
-            width:11%;
+            width: 11%;
             margin-top: -18px;
             text-align: center;
             position: relative
@@ -116,13 +116,16 @@
         .track .step.active .icon {
             border: 2px solid #ee5435;
         }
+
         .track .step.deactive .icon {
             border: 2px solid gainsboro;
         }
-        .track .step.active .icon span{
+
+        .track .step.active .icon span {
             background-color: #ee5435 !important;
         }
-        .track .step.deactive .icon span{
+
+        .track .step.deactive .icon span {
             background-color: inherit !important;
         }
 
@@ -140,6 +143,7 @@
             font-weight: 800;
             color: #e44a4a
         }
+
         .track .step.deactive .text {
             font-weight: 400;
             color: #333
@@ -381,12 +385,12 @@
                                                     </div>
                                                 </article>
                                                 @php
-                                                    $num= 10000;
+                                                    $num= 10000
                                                 @endphp
                                                 <div class="track">
                                                     @foreach(\App\Invoice::STATUS_ALL as $k=>$status )
                                                         @php
-                                                            $invoice->status === $k ? $num=$loop->index : '';
+                                                            $invoice->status === $k ? $num=$loop->index : ''
                                                         @endphp
                                                         <div class="step {{$loop->index <= $num ? 'active' : 'deactive'}}">
                                                         <span class="icon">
@@ -437,7 +441,7 @@
                                     <div class="dropdown-menu p-2" style="width: 300px;">
 
                                         <a href="{{url("/invoices?country={$country->id}")}}" style="font-size: 14px; padding: 10px;">
-                                            <img  style="width: 15px;height: 15px;" src="./front/image/my_order/note.svg">
+                                            <img style="width: 15px;height: 15px;" src="./front/image/my_order/note.svg">
                                             <span class="dis_no"> {{__('member.all')}}</span><span class="num">
                                                 ({{$country->invoices->count()}})
                                             </span>
@@ -452,7 +456,7 @@
                                         <br>
                                         <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_WAREHOUSE_ABROAD)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;"
-                                                src="./front/image/my_order/discount.svg">
+                                                 src="./front/image/my_order/discount.svg">
                                             <span class="dis_no">{{$country->name}}  {{__('member.anbar')}}</span><span
                                                 class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_WAREHOUSE_ABROAD)->count()}})
@@ -461,7 +465,7 @@
                                         <br>
                                         <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ON_WAY)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;"
-                                                src="./front/image/my_order/place.svg">
+                                                 src="./front/image/my_order/place.svg">
                                             <span class="dis_no">{{__('member.Heisway')}}</span><span
                                                 class="num"> ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ON_WAY)->count()}})
                                             </span>
@@ -469,7 +473,7 @@
                                         <br>
                                         <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_CUSTOMS_INSPECTION)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;"
-                                                src="./front/image/my_order/bag.svg">
+                                                 src="./front/image/my_order/bag.svg">
                                             <span class="dis_no">{{__('member.Customsinspection')}}</span><span
                                                 class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_CUSTOMS_INSPECTION)->count()}})
@@ -478,7 +482,7 @@
                                         <br>
                                         <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_IN_WAREHOUSE)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;"
-                                                src="./front/image/my_order/wallet.svg">
+                                                 src="./front/image/my_order/wallet.svg">
                                             <span class="dis_no"> {{__('member.warehouse')}}</span><span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_IN_WAREHOUSE)->count()}})
                                             </span>
@@ -486,7 +490,7 @@
                                         <br>
                                         <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COURIER_DELIVERY)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;"
-                                                src="./front/image/my_order/phone.svg">
+                                                 src="./front/image/my_order/phone.svg">
                                             <span class="dis_no">{{__('member.courierdelivery')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COURIER_DELIVERY)->count()}})
@@ -495,7 +499,7 @@
                                         <br>
                                         <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_RETURN)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;"
-                                                src="./front/image/my_order/trash.svg">
+                                                 src="./front/image/my_order/trash.svg">
                                             <span class="dis_no">{{__('member.return')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_RETURN)->count()}})
@@ -504,7 +508,7 @@
                                         <br>
                                         <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_COMPLETE)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;"
-                                                src="./front/image/my_order/bill.svg">
+                                                 src="./front/image/my_order/bill.svg">
                                             <span class="dis_no">{{__('member.complete')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COMPLETE)->count()}})
@@ -524,23 +528,25 @@
                                                 <li style="width: 35%">{{__('member.action')}}</li>
                                             </ul>
                                         </div>
-                                        @foreach($country->invoices->filterViaStatus(request()->query('status')) as $invoice)
+                                        @foreach(auth()->user()->invoices->where('country_id', $country->id)->filterViaStatus(request()->query('status')) as $invoice)
                                             <div class="filterDiv income">
                                                 <ul>
                                                     <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>
                                                     <li>{{$invoice->created_at}}</li>
                                                     <li>{{$invoice->shop}}</li>
                                                     <li class="green bold">{{\App\lib\Invoice::getStatusViaKey($invoice->status)}}</li>
-                                                    <li>
-                                                        {{--<input type="button" value="Sifarişi izlə" class="btn btn-info">--}}
-                                                        <form
-                                                            action="{{route('invoices.destroy', ['invoice' => $invoice->id])}}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="submit" value="{{__('member.delete')}}" class="btn btn-danger">
-                                                        </form>
-                                                    </li>
+                                                    @if($invoice->status  === \App\Invoice::STATUS_ORDERED)
+                                                        <li>
+                                                            {{--<input type="button" value="Sifarişi izlə" class="btn btn-info">--}}
+                                                            <form
+                                                                action="{{route('invoices.destroy', ['invoice' => $invoice->id])}}"
+                                                                method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <input type="submit" value="{{__('member.delete')}}" class="btn btn-danger">
+                                                            </form>
+                                                        </li>
+                                                    @endif
 
 
                                                     <li>
