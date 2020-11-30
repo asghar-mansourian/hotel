@@ -31,7 +31,7 @@ class InvoiceRequest extends FormRequest
             'price' => ['required', 'numeric', 'min:1'],
             'order_track' => ['required', 'numeric'],
             'order_date' => ['required', new FormatDate()],
-            'branch_id' => ['required', 'exists:branches,id'],
+//            'branch_id' => ['required', 'exists:branches,id'],
             'country_id' => ['required', 'exists:countries,id'],
             'description' => ['nullable'],
         ];

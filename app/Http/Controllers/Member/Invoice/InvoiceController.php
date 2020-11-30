@@ -41,7 +41,7 @@ class InvoiceController extends Controller
             $request->session()->flash('success', 1);
         } else {
             $request->session()->flash('danger', 1);
-            $request->session()->flash('message', 'member.invoice.message.create_failed');
+            $request->session()->flash('message', 'member.invoicemessage.create_failed');
         }
 
         return redirect()->route('invoices.index');

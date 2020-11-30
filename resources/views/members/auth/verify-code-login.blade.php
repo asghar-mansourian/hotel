@@ -11,11 +11,12 @@
             <form action="{{ route('login') }}" method="post" id="frm-mobile-verification">
                 @csrf
                 <input type="hidden" id="id" name="id" value="{{$user_id}}">
+                <div id="msg"></div>
                 <div style="margin-bottom: 15px" class="form-heading">{{__('member.mobileCodeVerification')}}</div>
 
                 <div style="margin-bottom: 15px" class="form-row">
-                    <input require name="sms_code" type="number" id="mobile" class="form-input"
-                           placeholder="{{__('member.enterVerificationCode')}}">
+                    <input required name="sms_code" type="number" id="mobile" class="form-input"
+                           placeholder="Enter the code">
                 </div>
 
                 <input type="submit" class="btnSubmit" value="{{__('member.verify')}}">
