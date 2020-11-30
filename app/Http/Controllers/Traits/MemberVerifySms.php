@@ -48,9 +48,10 @@ trait MemberVerifySms
         $code_created_time= $user->sms_verified_at;
         $expire_sms_duration= env('SMS_CODE_EXPIRE_TIME');
         $expire_time=strtotime($code_created_time)+$expire_sms_duration;
-        if (strtotime($now_time) > $expire_time){
-            return true;
+        if (strtotime($now_time) < $expire_time){
+            return false;
         }
+        return true;
 
     }
     public function verifySmsCode(Request $request)
@@ -59,7 +60,7 @@ trait MemberVerifySms
         $user=User::whereId($user_id)->first();
         $expired=$this->isExpTime($user);
 
-        if (is_null($expired) || is_null($user_id) || $request->sms_code != $user->sms_code ) {
+        if ($expired || is_null($user_id) || $request->sms_code != $user->sms_code ) {
             session()->push("verifysms.$user_id.varifysms_redirect_user", true);
         } else {
             $user->update(['verified' => '1']);
