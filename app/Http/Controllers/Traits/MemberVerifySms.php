@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Traits;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 trait MemberVerifySms
 {
@@ -29,7 +30,8 @@ trait MemberVerifySms
     {
         $user_id=$user->id;
         $code = $this->generateCodeForUserSmsVerify();
-//        echo $code;
+        $user->update(['sms_code'=> $code, 'sms_verified_at'=> Carbon::now()->toDateTimeString()]);
+
         //        Todo: use sms api
         session()->push("verifysms.$user->id.varifysms_email_user", $user->email);
         session()->push("verifysms.$user->id.varifysms_user", $user->id);
@@ -40,15 +42,28 @@ trait MemberVerifySms
         }
     }
 
+    public function isExpTime($user)
+    {
+        $now_time= Carbon::now()->toDateTimeString();
+        $code_created_time= $user->sms_verified_at;
+        $expire_sms_duration= env('SMS_CODE_EXPIRE_TIME');
+        $expire_time=strtotime($code_created_time)+$expire_sms_duration;
+        if (strtotime($now_time) < $expire_time){
+            return false;
+        }
+        return true;
+
+    }
     public function verifySmsCode(Request $request)
     {
-        $code = session('verifysms')[$request->id]['varifysms_code_user'][0];
         $user_id = session('verifysms')[$request->id]['varifysms_user'][0];
-        if (is_null($user_id) || $request->sms_code != $code ) {
-            session()->push("verifysms.$user_id.varifysms_redirect_user", true);
+        $user=User::whereId($user_id)->first();
+        $expired=$this->isExpTime($user);
 
+        if ($expired || is_null($user_id) || $request->sms_code != $user->sms_code ) {
+            session()->push("verifysms.$user_id.varifysms_redirect_user", true);
         } else {
-            $user=User::where('id', $user_id)->update(['verified' => '1']);
+            $user->update(['verified' => '1']);
         }
 
     }
