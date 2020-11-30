@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Kargo | {{__('website.home')}}
+    {{__('member.site_name')}}| {{__('website.home')}}
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">

@@ -7,11 +7,13 @@ use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
 use App\lib\currency;
+use App\Rules\UniquePhoneCheck;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class SettingController extends Controller
 {
@@ -35,14 +37,17 @@ class SettingController extends Controller
         $request->validate([
 //            'name' => ['required', 'string', 'max:255'],
 //            'family' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric', 'unique:users', 'regex:/^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$/'],
-
+            'phone' => ['required', 'numeric', Rule::unique('users')->ignore(\auth()->user()->id), 'regex:/^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$/'],
+            'address' => ['required', 'string', 'max:255'],
+            'region_id' => ['required', 'exists:regions,id'],
 //            'birthdate' => ['required', 'string', 'regex:/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/'],
         ]);
         User::query()->where('id', Auth::user()->id)->update([
 //            'birthdate' => $request->input('birthdate'),
             'phone' => $request->input('phone'),
-            'branch_id' => $request->input('branch_id'),
+            'address' => $request->input('address'),
+            'region_id' => $request->input('region_id'),
+//            'branch_id' => $request->input('branch_id'),
         ]);
 
         return redirect()->back()->with('success', 'Updated Profile Successful');
@@ -72,18 +77,7 @@ class SettingController extends Controller
 
     public function changeOther(Request $request)
     {
-        $request->validate([
-//            'serial_number' => ['required', 'max:9', 'unique:users'],
-//            'citizenship' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
-            'region_id' => ['required', 'exists:regions,id'],
-        ]);
-        User::query()->where('id', Auth::user()->id)->update([
-//            'serial_number' => $request->input('serial_number'),
-//            'citizenship' => $request->input('citizenship'),
-            'address' => $request->input('address'),
-            'region_id' => $request->input('region_id'),
-        ]);
+
 
         return redirect()->back()->with('success', 'Updated Profile Successful');
     }

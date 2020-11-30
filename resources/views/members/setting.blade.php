@@ -1,7 +1,7 @@
-@extends('members.layout')
+    @extends('members.layout')
 
 @section('title')
-    Kargo | {{__('member.setting')}}
+    {{__('member.site_name')}}| {{__('member.setting')}}
 @endsection
 
 @section('main')
@@ -21,9 +21,9 @@
                     <button class="tablinks" onclick="openCity(event, 'parol')">
                         <i class="fas fa-user-lock mr-0"></i><span class="use_dis_no">{{__('member.password')}}</span>
                     </button>
-                    <button class="tablinks" onclick="openCity(event, 'cv_text')">
-                        <i class="fas fa-address-card mr-0"></i><span class="use_dis_no">{{__('member.other')}}</span>
-                    </button>
+{{--                    <button class="tablinks" onclick="openCity(event, 'cv_text')">--}}
+{{--                        <i class="fas fa-address-card mr-0"></i><span class="use_dis_no">{{__('member.other')}}</span>--}}
+{{--                    </button>--}}
                 </div>
                 <div class="border_bar">
                     <div id="profil_text" class="tabcontent" style="display: block">
@@ -66,6 +66,61 @@
                                     <h5><strong>{{__('member.phone')}} *</strong></h5>
                                     <input type="text" name="phone" placeholder="{{__('member.phone')}} *" class="w-100 courier_input"
                                            value="{{$user->phone}}">
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <h5><strong>{{__('member.fin')}} *</strong></h5>
+                                    <input type="text" readonly placeholder="{{__('member.fin')}}*" value="{{$user->fin}}"
+                                           class="w-100 courier_input">
+                                </div>
+                                <div class="col-md-6 col-sm-6 mb-4">
+
+                                    <h5><strong>{{__('member.country')}} *</strong></h5>
+                                    <select class="form-control" name="country_id" onchange="getRegion(this.value)" aria-labelledby="dropdown_baglama"
+                                            style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
+                                        <option class="dropdown-item" value="null">{{__('member.please_select_country')}}</option>
+                                        @foreach($countries as $country)
+                                            @if($user->region_id)
+                                                @if($user->region->country->id == $country->id)
+                                                    <option class="dropdown-item" selected value="{{$country->id}}">{{$country->name}}</option>
+                                                @endif
+                                            @else
+                                                <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    @error('country_id')
+                                    <span class="invalid-feedback"
+                                          role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
+                                    @enderror
+
+                                </div>
+                                <div class="col-md-6 col-sm-6 mb-4">
+                                    <h5><strong>{{__('member.region')}} *</strong></h5>
+                                    <select name="region_id" id="region" aria-labelledby="dropdown_baglama" class="form-control"
+                                            style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
+                                        @if($user->region_id)
+                                            <option value="{{$user->region_id}}">{{\App\Region::find($user->region_id)->name}}</option>
+                                        @endif
+                                    </select>
+                                    @error('region_id')
+                                    <span class="invalid-feedback"
+                                          role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
+                                    @enderror
+                                </div>
+                                {{--                                <div class="col-md-7 col-sm-7 mb-4">--}}
+                                {{--                                    <h5><strong>{{__('member.citizenship')}} *</strong></h5>--}}
+                                {{--                                    <input type="text" name="citizenship" placeholder="{{__('member.citizenship')}} *" value="{{$user->citizenship}}"--}}
+                                {{--                                           class="w-100 courier_input" required="">--}}
+                                {{--                                </div>--}}
+                                {{--                                <div class="col-md-5 col-sm-5 mb-4">--}}
+                                {{--                                    <h5><strong>{{__('member.gender')}}</strong></h5>--}}
+                                {{--                                    <input type="text" value="{{\App\lib\User::getGenderName($user->gender)}}" readonly--}}
+                                {{--                                           class="w-100 courier_input">--}}
+                                {{--                                </div>--}}
+                                <div class="col-md-12 col-sm-12 mb-4">
+                                    <h5><strong>{{__('member.address')}} *</strong></h5>
+                                    <input type="text" name="address" placeholder="{{__('member.address')}} *" value="{{$user->address}}"
+                                           class="w-100 courier_input" required="">
                                 </div>
                                 <div class="col-md-12 button-part mt-4">
                                     <button type="submit" class="btn-effect">{{__('member.save')}}</button>
@@ -119,61 +174,7 @@
                                 {{--                                    <input type="text" name="serial_number" readonly placeholder="{{__('member.serialNumber')}} *" value="{{$user->serial_number}}"--}}
                                 {{--                                           class="w-100 courier_input" required="">--}}
                                 {{--                                </div>--}}
-                                <div class="col-md-12 mb-4">
-                                    <h5><strong>{{__('member.fin')}} *</strong></h5>
-                                    <input type="text" readonly placeholder="{{__('member.fin')}}*" value="{{$user->fin}}"
-                                           class="w-100 courier_input">
-                                </div>
-                                <div class="col-md-5 col-sm-5 mb-4">
 
-                                    <h5><strong>{{__('member.country')}} *</strong></h5>
-                                    <select class="form-control" name="country_id" onchange="getRegion(this.value)" aria-labelledby="dropdown_baglama"
-                                            style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
-                                        <option class="dropdown-item" value="null">{{__('member.please_select_country')}}</option>
-                                        @foreach($countries as $country)
-                                            @if($user->region_id)
-                                                @if($user->region->country->id == $country->id)
-                                                    <option class="dropdown-item" selected value="{{$country->id}}">{{$country->name}}</option>
-                                                @endif
-                                            @else
-                                                <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                    @error('country_id')
-                                    <span class="invalid-feedback"
-                                          role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
-                                    @enderror
-
-                                </div>
-                                <div class="col-md-5 col-sm-5 mb-4">
-                                    <h5><strong>{{__('member.region')}} *</strong></h5>
-                                    <select name="region_id" id="region" aria-labelledby="dropdown_baglama" class="form-control"
-                                            style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
-                                        @if($user->region_id)
-                                            <option value="{{$user->region_id}}">{{\App\Region::find($user->region_id)->name}}</option>
-                                        @endif
-                                    </select>
-                                    @error('region_id')
-                                    <span class="invalid-feedback"
-                                          role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
-                                    @enderror
-                                </div>
-                                {{--                                <div class="col-md-7 col-sm-7 mb-4">--}}
-                                {{--                                    <h5><strong>{{__('member.citizenship')}} *</strong></h5>--}}
-                                {{--                                    <input type="text" name="citizenship" placeholder="{{__('member.citizenship')}} *" value="{{$user->citizenship}}"--}}
-                                {{--                                           class="w-100 courier_input" required="">--}}
-                                {{--                                </div>--}}
-                                {{--                                <div class="col-md-5 col-sm-5 mb-4">--}}
-                                {{--                                    <h5><strong>{{__('member.gender')}}</strong></h5>--}}
-                                {{--                                    <input type="text" value="{{\App\lib\User::getGenderName($user->gender)}}" readonly--}}
-                                {{--                                           class="w-100 courier_input">--}}
-                                {{--                                </div>--}}
-                                <div class="col-md-12 col-sm-12 mb-4">
-                                    <h5><strong>{{__('member.address')}} *</strong></h5>
-                                    <input type="text" name="address" placeholder="{{__('member.address')}} *" value="{{$user->address}}"
-                                           class="w-100 courier_input" required="">
-                                </div>
                                 <div class="col-md-12 button-part mt-4">
                                     <button type="submit" class="btn-effect">{{__('member.save')}}</button>
                                 </div>
