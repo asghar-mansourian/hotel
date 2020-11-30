@@ -562,7 +562,7 @@ class TranslateSeeder extends Seeder
         'orderTrackingCode' => 'Order Tracking Code',
         'productAbout' => 'If you have notes about your package, write',
         'productDetails' => 'Product Details',
-
+        'color' => 'color',
     ];
 
     private $website_items = [
