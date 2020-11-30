@@ -7,17 +7,15 @@ use App\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Invoice;
-use App\Rules\Member\FormatDate;
-use Clockwork\Request\Request;
 
 class InvoiceController extends Controller
 {
     public function index()
     {
-        $branches= Branch::all();
+        $branches = Branch::all();
         $countries = Country::with('invoices.branch')->get();
 
-        return view('members.invoices.index', compact('countries','branches'));
+        return view('members.invoices.index', compact('countries', 'branches'));
     }
 
 
@@ -46,21 +44,18 @@ class InvoiceController extends Controller
 
         return redirect()->route('invoices.index');
     }
+
     public function update(InvoiceRequest $request)
     {
 
-        $invoice = auth()->user()->invoices()->whereId($request->invoice_id)->update(
+        auth()->user()->invoices()->whereId($request->invoice_id)->update(
             $request->validated()
         );
 
-        if ($invoice) {
-            $request->session()->flash('message', __('member.invoice.message.create_success'));
-            $request->session()->flash('success', 1);
-        } else {
-            $request->session()->flash('danger', 1);
-            $request->session()->flash('message', 'member.invoice.message.create_failed');
-        }
-        return response()->json(['success'=>true]);
+        $request->session()->flash('message', __('member.invoice.message.update_success'));
+        $request->session()->flash('success', 1);
+
+        return response()->json(['success' => true]);
 
     }
 
