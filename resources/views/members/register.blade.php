@@ -54,7 +54,7 @@
                             <input type="text" name="name"
                                    class="@error('name') is-invalid @enderror w-100 form-input courier_input "
                                    style=""
-                                   value="{{ old('name') }}">
+                                  id="name" value="{{ old('name') }}" required>
                             <label class="form-label" for="name">{{__('member.name')}} *</label>
                             @error('name')
                             <br>
@@ -73,9 +73,9 @@
                         <input type="text" name="family"
                                class="@error('family') is-invalid @enderror w-100 form-input courier_input "
                                style=""
-                               value="{{ old('family') }}">
+                               id="family" value="{{ old('family') }}" required>
                         <label class="form-label" for="family">{{__('member.family')}} *</label>
-                        @error('name')
+                        @error('family')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
                                         <strong>{{ $message }}</strong>
@@ -92,9 +92,9 @@
                         <input type="text" name="email"
                                class="@error('email') is-invalid @enderror w-100 form-input courier_input "
                                style=""
-                               value="{{ old('email') }}">
+                              id="email" value="{{ old('email') }}" required>
                         <label class="form-label" for="email">{{__('member.email')}} *</label>
-                        @error('name')
+                        @error('email')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
                                         <strong>{{ $message }}</strong>
@@ -112,7 +112,7 @@
                         <input type="password" name="password"
                                class="@error('password') is-invalid @enderror w-100 form-input courier_input "
                                style=""
-                               value="{{ old('password') }}">
+                               id="password" value="{{ old('password') }}" required>
                         <label class="form-label" for="password">{{__('member.password')}} *</label>
                         @error('password')
                         <br>
@@ -130,10 +130,10 @@
                     <fieldset class="form-field">
 
                         <input type="password" name="password_confirmation"
-                               class="@error('password') is-invalid @enderror w-100 form-input courier_input "
+                               id="confirm-password" class="@error('password') is-invalid @enderror w-100 form-input courier_input "
                                style=""
-                               value="{{ old('password') }}">
-                        <label class="form-label" for="password">{{__('member.passwordconfirmation')}} *</label>
+                               value="{{ old('password') }}" required>
+                        <label class="form-label" for="confirm-password">{{__('member.passwordconfirmation')}} *</label>
                         @error('password')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
@@ -189,7 +189,7 @@
                         <input type="text" name="address"
                                class="@error('address') is-invalid @enderror w-100 form-input courier_input "
                                style=""
-                               value="{{ old('address') }}">
+                               value="{{ old('address') }}" id="address" required>
                         <label class="form-label" for="address">{{__('member.address')}} *</label>
                         @error('address')
                         <br>
@@ -202,16 +202,14 @@
                 </div>
 
                 <div class="col-md-6 mt-2">
-
-
                     <fieldset class="form-field">
 
                         <input type="text" name="fin"
-                               class="@error('fin') is-invalid @enderror w-100 form-input courier_input "
+                               id="fin" class="@error('fin') is-invalid @enderror w-100 form-input courier_input "
                                style=""
-                               value="{{ old('fin') }}">
+                               value="{{ old('fin') }}" required>
                         <label class="form-label" for="fin">{{__('member.fin')}} *</label>
-                        @error('address')
+                        @error('fin')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
                                         <strong>{{ $message }}</strong>
@@ -287,53 +285,25 @@
 @endsection
 @push('scripts')
     <script>
-            $('.form-input').on('change' , function () {
-                if ($(this).val != ""){
+
+            $('.form-input').on('focusin' , function () {
                     $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
-                }
-
-
             })
 
-
-            $('.form-input').on('keydown' , function () {
-                if ($(this).val != ""){
-                    $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
-                }
-
-
-            })
-            $('.form-input').on('click' , function () {
-                if ($(this).val != ""){
-                    $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
-                }
-
-
-            })
             $('.form-input').each(function (key , item) {
                 if (item.value != ""){
                     $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
                 }
             })
 
-            $('.form-input').on('change' , function () {
-                if (this.value == ""){
+            $('.form-input').on('focusout' , function () {
+                if (this.value != ""){
+                    $(this).next().css({"-webkit-transform":"scale(0.8) translate(0,-24px)"});
+                }
+                else{
                     $(this).next().css({"-webkit-transform":"scale(1) translate(0,2px)"});
                 }
-
             })
-
-
-            $('.form-input').on('click' , function () {
-                if (this.value == ""){
-                    $(this).next().css({"-webkit-transform":"scale(1) translate(0,2px)"});
-                }
-
-            })
-
-
-
-
 
             function check(type) {
             if (type)
