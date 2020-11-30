@@ -29,7 +29,7 @@ trait MemberVerifySms
     {
         $user_id=$user->id;
         $code = $this->generateCodeForUserSmsVerify();
-        echo $code;
+//        echo $code;
         //        Todo: use sms api
         session()->push("verifysms.$user->id.varifysms_email_user", $user->email);
         session()->push("verifysms.$user->id.varifysms_user", $user->id);
