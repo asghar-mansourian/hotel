@@ -52,8 +52,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
-        session()->put('varifysms_email_user_id_' . $user->id, $request->email);
-        session()->put('varifysms_password_user_id_' . $user->id, $request->password);
+
 
 //        $this->guard()->login($user);
 
@@ -98,16 +97,18 @@ class RegisterController extends Controller
 //        send sms for verify user
 
         //        event(new Registered($user = $this->create($request->all())));
-
-
-        return $this->verifySms($user->id);
+        $this->removeSmsSessions($user->id);
+        session()->push("verifysms.$user->id.varifysms_password_user", $request->password);
+//        session('verifysms')[$user->id]['varifysms_password_user'][0];
+        return $this->sendSms($user);
 
     }
 
+
     public function resendSms(Request $request)
     {
-        $this->verifySms($request->id, true);
-        return response()->json(['success'=>'1']);
+        $this->sendSms($request->id, true);
+        return response()->json(true);
     }
 
 }

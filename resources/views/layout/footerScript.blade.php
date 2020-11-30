@@ -79,7 +79,8 @@
                 },
                 dataType:'json',
                 success:function(success){
-                    alert('کد جدید ارسال شد');
+                    $('#msg').empty();
+                    $('#msg').append('<div class="alert alert-danger"> {!!__("website.newsmscodesend")!!} </div>');
                 },
                 error:function(error){
                     console.log(error)
