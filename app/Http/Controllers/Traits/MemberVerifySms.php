@@ -42,7 +42,7 @@ trait MemberVerifySms
     {
         $now_time = Carbon::now()->toDateTimeString();
         $code_created_time = $user->sms_verified_at;
-        $expire_sms_duration = env('SMS_CODE_EXPIRE_TIME');
+        $expire_sms_duration = config()->get('app.expire_time');
         $expire_time = strtotime($code_created_time) + $expire_sms_duration;
         if (strtotime($now_time) < $expire_time) {
             return false;
@@ -55,11 +55,12 @@ trait MemberVerifySms
     {
         $user = auth()->user();
         $expired = $this->isExpTime($user);
+
         if ($expired || is_null($user) || $request->sms_code != $user->sms_code) {
             return false;
         }
-        return $user->update(['verified' => '1']);
-
+        $user->update(['verified' => '1']);
+        return true;
 
     }
 
