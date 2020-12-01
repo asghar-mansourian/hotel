@@ -13,7 +13,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $branches = Branch::all();
-        $countries = Country::with('invoices.branch')->get();
+        $countries = Country::getCountriesWithoutCompanyCountry()->with('invoices.branch')->get();
 
         return view('members.invoices.index', compact('countries', 'branches'));
     }
@@ -21,7 +21,7 @@ class InvoiceController extends Controller
 
     public function create()
     {
-        $countries = Country::all();
+        $countries = Country::getCountriesWithoutCompanyCountry()->get();
 
         $branches = Branch::latest()->get();
 
