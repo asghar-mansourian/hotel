@@ -73,7 +73,6 @@ class LoginController extends Controller
     public function verifySms(Request $request)
     {
         $status = $this->verifySmsCode($request);
-        dd($status);
         if (!$status) {
             return response()->json(['success' => false]);
         }
