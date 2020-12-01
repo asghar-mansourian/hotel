@@ -51,68 +51,46 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', 'verifySmsCodeView', 'verifySms', 'resendSms']);
     }
 
-    public function beforeLogin(Request $request)
+//    this section is for verify by sms
+    public function verifySmsCodeView($id)
     {
-
-//        check if user filled email and password
-        if ($request->has('email')) {
-            $this->validateLogin($request);
-            //          find user in database
-            $this->user = User::where('email', $request->email)->first();
-            //            sessions for identify user
-            if (is_object($this->user)) {
-                $user_id=$this->user->id;
-                $this->removeSmsSessions($this->user->id);
-                //            sessions for identify user
-                session()->push("verifysms.$user_id.varifysms_email_user", $this->user->email);
-                session()->push("verifysms.$user_id.varifysms_password_user", $request->password);
-            }
-        } elseif ($request->has('sms_code')) {
-            $this->verifySmsCode($request);
+        if ($id != \auth()->id()) {
+            Auth::logout();
+            return redirect('/login');
         }
 
+        $user = User::findOrFail($id);
+        if ($user->verified == '1') {
+            return redirect()->route('home');
+        }
+        $this->sendSms($user);
+        return view('members.auth.verify-code-login', compact('user'));
     }
 
-    public function login(Request $request)
+    public function verifySms(Request $request)
     {
-        $request->merge(['verified' => '1']);
-
-        $this->beforeLogin($request);
-
-        if ($request->has('email') && $this->user->verified == '0') {
-            return $this->sendSms($this->user);
-        } elseif ($request->has('sms_code')) {
-
-            if (isset(session('verifysms')[$request->id]['varifysms_redirect_user'])) {
-                return redirect()->route('login')->withErrors([trans('website.smscodeerror')]);
-            }
-
-            $request->merge(['password' => session('verifysms')[$request->id]['varifysms_password_user'][0]]);
-            $request->merge(['email' => session('verifysms')[$request->id]['varifysms_email_user'][0]]);
+        $status = $this->verifySmsCode($request);
+        if (!$status) {
+            return response()->json(['success' => false]);
         }
+        return response()->json(['success' => true]);
 
-        if (method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)) {
-            $this->fireLockoutEvent($request);
-            return $this->sendLockoutResponse($request);
-        }
-
-        if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
-        }
-
-        $this->incrementLoginAttempts($request);
-
-        return $this->sendFailedLoginResponse($request);
     }
 
-    protected function authenticated(Request $request, $user)
+    public function resendSms(Request $request)
     {
-//        $this->removeSmsSessions($user);
+        if ($request->id != \auth()->id()) {
+            return response()->json(['success' => false]);
+        }
+        $user = User::whereId($request->id)->first();
+        $this->sendSms($user);
+
+        return response()->json(['success' => true]);
     }
+//
 
 
     protected function credentials(Request $request)
@@ -122,11 +100,6 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-        $this->removeSmsSessions($request->id);
-        if (isset($request['id']) && isset($request['sms_code'])) {
-            unset($request['id']);
-            unset($request['sms_code']);
-        }
 
         return $this->guard()->attempt(
             $this->credentials($request), $request->filled('remember')
@@ -136,8 +109,6 @@ class LoginController extends Controller
 
     public function logout()
     {
-        $user = \auth()->user();
-        $this->removeSmsSessions($user->id);
         Auth::logout();
         return redirect('/login');
     }
