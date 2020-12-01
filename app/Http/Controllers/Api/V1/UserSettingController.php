@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Member\UpdateUserProfileRequest;
 use App\Http\Resources\V1\UserSettingsResourceCollection as SettingResource;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class UserSettingController extends Controller
@@ -54,12 +53,5 @@ class UserSettingController extends Controller
         $user->update();
 
         return (new SettingResource($user))->response();
-    }
-
-    public function destroy()
-    {
-        auth()->user()->delete();
-
-        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
