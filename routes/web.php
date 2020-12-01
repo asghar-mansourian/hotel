@@ -32,14 +32,12 @@ Route::group(['namespace' => 'Member'], function () {
     Route::post('/verify/resend-code', 'Auth\LoginController@resendSms')->name('user.resend.code')->middleware(['auth']);
     Route::post('/verify/code', 'Auth\LoginController@verifySms')->name('user.verify.save')->middleware(['auth']);
     Route::get('/verify/code-page', 'Auth\LoginController@verifySmsCodeView')->name('user.verify.page')->middleware(['auth']);
-
+    Route::get('/logout', 'Auth\LoginController@logout')->middleware(['auth']);
 });
 
 Route::match(['GET', 'POST'], '/payment/callback', 'Member\PaytrController@callback');
 // user panel (Member)
 Route::group(['namespace' => 'Member', 'middleware' => ['auth','verified_sms']], function () {
-
-    Route::get('/logout', 'Auth\LoginController@logout');
 
     Route::get('/home', 'PanelController@index')->name('panel');
 
