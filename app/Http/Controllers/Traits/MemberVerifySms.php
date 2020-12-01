@@ -53,7 +53,7 @@ trait MemberVerifySms
 
     public function verifySmsCode(Request $request)
     {
-        $user = User::whereId($request->id)->first();
+        $user = auth()->user();
         $expired = $this->isExpTime($user);
         if ($expired || is_null($user) || $request->sms_code != $user->sms_code) {
             return false;

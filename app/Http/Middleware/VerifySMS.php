@@ -17,7 +17,7 @@ class VerifySMS
     {
         $user= auth()->user();
         if (auth()->check() && $user->verified != '1'){
-            return redirect()->route('user.verify.page', [$user->id]);
+            return redirect()->route('user.verify.page');
         }
         return $next($request);
     }
