@@ -54,7 +54,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
 
-//        $this->guard()->login($user);
+        $this->guard()->login($user);
 
         if ($response = $this->registered($request, $user)) {
             return $response;
@@ -78,7 +78,7 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
 
-        \auth()->loginUsingId($user->id);
+//        \auth()->loginUsingId($user->id);
 //        dd(\auth()->user());
 //        Todo: remove this comment
         /*$response = Auth::Login()->object();
