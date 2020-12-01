@@ -27,13 +27,13 @@ class OrderController extends Controller
             $orders->where('status', $type);
         }
 
-        $countries = Country::with('orders.orderItems')->get();
+        $countries = Country::getCountriesWithoutCompanyCountry()->with('orders.orderItems')->get();
         return view('members.orders.index', compact('orders', 'countries'));
     }
 
     public function create()
     {
-        $countries = Country::all();
+        $countries = Country::getCountriesWithoutCompanyCountry()->get();
 
         $branches = Branch::latest()->get();
 
