@@ -33,7 +33,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except(['logout', 'verifySmsCodeView', 'verifySms', 'resendSms']);
     }
 
 
@@ -77,6 +77,9 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
+
+        \auth()->loginUsingId($user->id);
+//        dd(\auth()->user());
 //        Todo: remove this comment
         /*$response = Auth::Login()->object();
 
@@ -95,20 +98,25 @@ class RegisterController extends Controller
         }*/
 
 //        send sms for verify user
-
         //        event(new Registered($user = $this->create($request->all())));
-        $this->removeSmsSessions($user->id);
-        session()->push("verifysms.$user->id.varifysms_password_user", $request->password);
-//        session('verifysms')[$user->id]['varifysms_password_user'][0];
-        return $this->sendSms($user);
+
+        return $this->verifySmsCodeView($user->id);
 
     }
 
-
-    public function resendSms(Request $request)
+    public function verifySmsCodeView($id)
     {
-        $this->sendSms($request->id, true);
-        return response()->json(true);
+        if ($id != \auth()->id()) {
+           \auth()->logout();
+            return redirect('/login');
+        }
+
+        $user = User::findOrFail($id);
+        if ($user->verified == '1') {
+            return redirect()->route('home');
+        }
+        $this->sendSms($user);
+        return view('members.auth.verify-code-login', compact('user'));
     }
 
 }

@@ -26,16 +26,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/logout', 'Auth\LoginController@logout');
 });
 
+
 Route::group(['namespace' => 'Member'], function () {
     Auth::routes();
-    Route::get('/verify/code-page', 'Auth\RegisterController@verifySmsCode')->name('user.verify.code');
-    Route::post('/verify/code', 'Auth\RegisterController@verifySmsCode')->name('user.verify.code');
-    Route::post('/verify/resendcode', 'Auth\RegisterController@resendSms')->name('user.resend.code');
+    Route::post('/verify/resend-code', 'Auth\LoginController@resendSms')->name('user.resend.code')->middleware(['auth']);
+    Route::post('/verify/code', 'Auth\LoginController@verifySms')->name('user.verify.save')->middleware(['auth']);
+    Route::get('/verify/code-page/{user}', 'Auth\LoginController@verifySmsCodeView')->name('user.verify.page')->middleware(['auth']);
+
 });
 
 Route::match(['GET', 'POST'], '/payment/callback', 'Member\PaytrController@callback');
 // user panel (Member)
-Route::group(['namespace' => 'Member', 'middleware' => ['auth']], function () {
+Route::group(['namespace' => 'Member', 'middleware' => ['auth','verified_sms']], function () {
 
     Route::get('/logout', 'Auth\LoginController@logout');
 

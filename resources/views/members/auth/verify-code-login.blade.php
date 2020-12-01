@@ -8,9 +8,8 @@
                     <h4>{{$errors->first()}}</h4>
                 @endif
             </div>
-            <form action="{{ route('login') }}" method="post" id="frm-mobile-verification">
-                @csrf
-                <input type="hidden" id="id" name="id" value="{{$user_id}}">
+            <form action="" method="post" id="frm-mobile-verification">
+                <input type="hidden" id="id" name="id" value="{{$user->id}}">
                 <div id="msg"></div>
                 <div style="margin-bottom: 15px" class="form-heading">{{__('member.mobileCodeVerification')}}</div>
 
@@ -19,7 +18,7 @@
                            placeholder="Enter the code">
                 </div>
 
-                <input type="submit" class="btnSubmit" value="{{__('member.verify')}}">
+                <input id="send_sms" type="button" class="btnSubmit" value="{{__('member.verify')}}">
                 <input id="resend_sms" type="button" class="btnSubmit" value="{{__('member.resendVerificationCode')}}">
             </form>
         </div>

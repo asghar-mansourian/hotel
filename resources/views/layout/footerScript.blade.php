@@ -78,16 +78,50 @@
                     'id':id
                 },
                 dataType:'json',
-                success:function(success){
-                    $('#msg').empty();
-                    $('#msg').append('<div class="alert alert-danger"> {!!__("website.newsmscodesend")!!} </div>');
+                success:function(data){
+                    if (data.success){
+                        $('#msg').empty();
+                        $('#msg').append('<div class="alert alert-success"> {!!__("website.newsmscodesend")!!} </div>');
+                    }else {
+                        $('#msg').empty();
+                        $('#msg').append('<div class="alert alert-danger"> {!!__("website.newsmserror")!!} </div>');
+                    }
+
                 },
                 error:function(error){
-                    console.log(error)
+                    // console.log(error)
                 }
             })
         });
 
+        $('#send_sms').click(function (e) {
+            id=$('#frm-mobile-verification #id').val();
+            mobile=$('#frm-mobile-verification #mobile').val();
+            $.ajax({
+                url:'{{ route('user.verify.save') }}',
+                type:'post',
+                data:{
+                    '_token':'{{csrf_token()}}',
+                    'id':id,
+                    'sms_code':mobile
+                },
+                dataType:'json',
+                success:function(data){
+                    if (data.success){
+                        $('#msg').empty();
+                        $('#msg').append('<div class="alert alert-success"> {!!__("website.successsmscode")!!} </div>');
+                        window.location.replace("{{ route('panel') }}");
+                    }else {
+                        $('#msg').empty();
+                        $('#msg').append('<div class="alert alert-danger"> {!!__("website.smscodeerror")!!} </div>');
+                    }
+
+                },
+                error:function(error){
+
+                }
+            })
+        });
     });
 
 </script>
