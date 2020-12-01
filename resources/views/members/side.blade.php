@@ -24,7 +24,7 @@
             <div style="clear: both;"></div>
             <div class="mt-4"></div>
             <div class="float-left">
-                <input class="result_cal" type="number" readonly>
+                <input class="result_cal" type="text" readonly>
             </div>
             <select name="to" class=" " aria-labelledby="dropdown_baglama"
                     style=" width: 100px;margin-left: 10px;
