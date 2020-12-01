@@ -9,7 +9,7 @@
                 @endif
             </div>
             <form action="" method="post" id="frm-mobile-verification">
-                <input type="hidden" id="id" name="id" value="{{$user->id}}">
+                @csrf
                 <div id="msg"></div>
                 <div style="margin-bottom: 15px" class="form-heading">{{__('member.mobileCodeVerification')}}</div>
 

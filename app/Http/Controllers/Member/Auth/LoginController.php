@@ -55,14 +55,14 @@ class LoginController extends Controller
     }
 
 //    this section is for verify by sms
-    public function verifySmsCodeView($id)
+    public function verifySmsCodeView()
     {
-        if ($id != \auth()->id()) {
-            Auth::logout();
-            return redirect('/login');
-        }
+//        if ($id != \auth()->id()) {
+//            Auth::logout();
+//            return redirect('/login');
+//        }
 
-        $user = User::findOrFail($id);
+        $user = auth()->user();
         if ($user->verified == '1') {
             return redirect()->route('home');
         }
@@ -73,6 +73,7 @@ class LoginController extends Controller
     public function verifySms(Request $request)
     {
         $status = $this->verifySmsCode($request);
+        dd($status);
         if (!$status) {
             return response()->json(['success' => false]);
         }

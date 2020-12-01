@@ -79,14 +79,10 @@ class RegisterController extends Controller
         return $this->verifySmsCodeView($user->id);
     }
 
-    public function verifySmsCodeView($id)
+    public function verifySmsCodeView()
     {
-        if ($id != \auth()->id()) {
-           \auth()->logout();
-            return redirect('/login');
-        }
+        $user = auth()->user();
 
-        $user = User::findOrFail($id);
         if ($user->verified == '1') {
             return redirect()->route('home');
         }
