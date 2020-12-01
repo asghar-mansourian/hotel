@@ -43,7 +43,7 @@
                             <div class="mt-50">
                                 <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
                                     <div class="float-left">
-                                        <input type="text" name="currency" style="width: 104px;
+                                        <input type="text" id="calculate-currency-number" name="currency" style="width: 104px;
     width: 104px;
     height: 7px;
     font-size: 15px;

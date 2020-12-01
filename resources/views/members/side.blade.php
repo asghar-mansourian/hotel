@@ -13,7 +13,7 @@
         <div class="title_list mb-4">{{__('member.exchangeratecalculator')}}</div>
         <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
             <div class="float-left">
-                <input type="number" name="currency" required value="1">
+                <input type="number" name="currency" id="calculate-currency-number" required value="1">
             </div>
             <select name="from" aria-labelledby="dropdown_baglama" style="width: 100px;margin-left: 10px; box-shadow: 0 0 black !important;">
 {{--                <option class="">{{__('member.select')}}</option>--}}

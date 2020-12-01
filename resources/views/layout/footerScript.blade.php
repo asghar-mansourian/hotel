@@ -67,6 +67,9 @@
         });
 
         $( ".convert-currency" ).trigger( "change" );
+        $( "#calculate-currency-number" ).bind('input',function (){
+            $( ".convert-currency" ).trigger( "change" );
+        })
 
         $('#resend_sms').click(function (e) {
             id=$('#frm-mobile-verification #id').val();
