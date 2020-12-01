@@ -21,16 +21,17 @@
                                 <div class="blog_share">{{__('website.share')}}</div>
                                 <ul class="p-0">
                                     <li>
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url('/blog/' . $blog->slug)}}" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fab fa-instagram"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url('/blog/' . $blog->slug)}}&title={{$blog->title}}&summary=&source=" target="_blank"><i
+                                                class="fab fa-linkedin-in"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="https://api.whatsapp.com/send?text={{url('/blog/' . $blog->slug)}}" target="_blank"><i class="fab fa-whatsapp"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -45,12 +46,13 @@
                         <div class="border_sh">
                             <h3 class="mt-0"><strong>{{__('website.latestnews')}}</strong></h3>
                             @foreach($last_news as $news)
+
                                 <div class="blog_list">
                                     <a href="{{url('/blog/' . $news->slug)}}">
                                         <div class="news">
-                                            <img src="{{url('images/' . $news->picture)}}"></div>
+                                            <img src="{{url('images/' . $news->picture)}}" style="    width: 41px; height:  41px;"></div>
                                         <p class="news_p">{{$news->title}}</p></a>
-                                    <div class="font_grey text-right"><span class="fa-fw select-all fas ml-0 mr-3"></span>{{$news->created_at}}</div>
+                                    <div class="font_grey text-right">{{$news->updated_at}}<span class="fa-fw select-all fas ml-0 mr-3"></span></div>
                                 </div>
                             @endforeach
                         </div>

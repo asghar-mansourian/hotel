@@ -56,7 +56,7 @@ class BlogController extends Controller
         $content = app()->getLocale() !== 'en' ? "content_{$locale} as content" : 'content';
         $title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
 
-        return [$title, 'slug', 'created_at', $content, 'author_id', 'picture', 'status', 'id'];
+        return [$title, 'slug', 'created_at', 'updated_at', $content, 'author_id', 'picture', 'status', 'id'];
     }
 
     private function customSearchTitle(){

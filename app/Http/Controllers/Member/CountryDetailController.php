@@ -12,12 +12,9 @@ class CountryDetailController extends Controller
 
     public function index()
     {
-        $countries = Country::all();
+        $countries = Country::getCountriesWithoutCompanyCountry()->get();
         $details = CountryDetail::all();
 
-
         return view('members.country-detail.index', compact('countries', 'details'));
-
-
     }
 }

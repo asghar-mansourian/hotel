@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Member\Auth;
 
 use App\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Cowsel\Auth;
 use App\Http\Controllers\Traits\MemberRegister;
 use App\Http\Controllers\Traits\MemberVerifySms;
 use App\Providers\RouteServiceProvider;
@@ -77,31 +76,7 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-
-//        \auth()->loginUsingId($user->id);
-//        dd(\auth()->user());
-//        Todo: remove this comment
-        /*$response = Auth::Login()->object();
-
-
-        if ($response->Sonuc == 1) {
-            $user->token = $response->Token;
-
-            $response = Auth::register($user)->object();
-
-            if (isset($response->code)) {
-                if ($response->code == 1)
-                    $user->code = $response->data->code;
-            }
-
-            $user->save();
-        }*/
-
-//        send sms for verify user
-        //        event(new Registered($user = $this->create($request->all())));
-
         return $this->verifySmsCodeView($user->id);
-
     }
 
     public function verifySmsCodeView($id)

@@ -5,6 +5,9 @@ namespace App;
 use App\Http\Controllers\traits\scopeHelper;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static getCountriesWithoutCompanyCountry()
+ * */
 class Country extends Model
 {
     use scopeHelper;
@@ -12,11 +15,11 @@ class Country extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['name', 'name_ru','id' , 'flag' , 'currency'];
+    const selectField = ['name', 'name_ru', 'id', 'flag', 'currency'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
     protected $fillable = [
-        'name',  'flag' , 'currency'
+        'name', 'flag', 'currency'
     ];
     protected $table = 'countries';
 
@@ -50,5 +53,10 @@ class Country extends Model
     public function priceCalculators()
     {
         return $this->hasMany(Calculator::class, 'country_id');
+    }
+
+    public function scopeGetCountriesWithoutCompanyCountry($query)
+    {
+        return $query->where('id', '!=', Setting::getValue(Setting::FIELD_COMPANY_COUNTRY_ID));
     }
 }
