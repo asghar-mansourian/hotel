@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')
     ->namespace('Api\V1')
     ->group(function () {
+        Route::post('/notif/', 'NotificationController@storeWithFireBase');
         Route::post('login', 'Auth\LoginController@login');
 
         Route::post('register', 'Auth\RegisterController@register');
@@ -63,9 +64,13 @@ Route::middleware('auth:api')->group(function () {
 
             Route::apiResource('couriers', 'CourierController');
 
-            Route::apiResource('user-settings', 'UserSettingController')->except(['index','store']);
-            Route::apiResource('user-password', 'UserPasswordController')->except(['index','store']);
-            Route::apiResource('user-other-settings', 'UserOtherSettingController')->except(['index','store']);
+
+            Route::get('user-settings/show', 'UserSettingController@show');
+            Route::put('user-settings/update', 'UserSettingController@update');
+            Route::delete('user-settings/delete', 'UserSettingController@destroy');
+
+            Route::put('user-settings/update-password', 'UserSettingController@updatePassword');
+
 
             Route::post('/notifications', 'NotificationController@send');
         });
