@@ -64,13 +64,9 @@ Route::middleware('auth:api')->group(function () {
 
             Route::apiResource('couriers', 'CourierController');
 
-
             Route::get('user-settings/show', 'UserSettingController@show');
             Route::put('user-settings/update', 'UserSettingController@update');
-            Route::delete('user-settings/delete', 'UserSettingController@destroy');
-
             Route::put('user-settings/update-password', 'UserSettingController@updatePassword');
-
 
             Route::post('/notifications', 'NotificationController@send');
         });
