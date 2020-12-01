@@ -43,7 +43,7 @@
                             <div class="mt-50">
                                 <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
                                     <div class="float-left">
-                                        <input type="text" name="currency" style="width: 104px;
+                                        <input type="text" id="calculate-currency-number" name="currency" style="width: 104px;
     width: 104px;
     height: 7px;
     font-size: 15px;
@@ -73,7 +73,7 @@ width: 100px;
                                     <div style="clear: both;"></div>
                                     <div class="mt-2"></div>
                                     <div class="float-left">
-                                        <input class="result_cal" type="number" value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}" style="       width: 104px;
+                                        <input class="result_cal" type="text" value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}" style="       width: 104px;
     width: 104px;
     height: 7px;
     font-size: 15px;
