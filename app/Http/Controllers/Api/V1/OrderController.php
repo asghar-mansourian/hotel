@@ -16,6 +16,15 @@ class OrderController extends Controller
 
     public function index()
     {
+        if(request('type') != null)
+        {
+            $type = request('type');
+            return OrderResource::collection(
+                auth()->user()->orders()->where('status',$type)->with('orderItems')->paginate(
+                    request('per_page', 10)
+                )
+            );
+        }
         return OrderResource::collection(
             auth()->user()->orders()->with('orderItems')->paginate(
                 request('per_page', 10)
