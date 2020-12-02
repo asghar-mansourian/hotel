@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Traits;
 
 
+use App\lib\sms;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -34,8 +35,9 @@ trait MemberVerifySms
     {
         $code = $this->generateCodeForUserSmsVerify();
         is_object($user) ? $user->update(['sms_code' => $code, 'sms_verified_at' => Carbon::now()->toDateTimeString()]) : null;
+        $api = new sms();
 
-        //        Todo: use sms api
+        $api->sendSingle(strval($code), strval($user->phone));
     }
 
     public function isExpTime($user)
