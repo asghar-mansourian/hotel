@@ -40,6 +40,7 @@ class Setting extends Model
     const FIELD_HAS_COURIERS_IN_PROJECT = 'has_couriers_in_project';
     const FIELD_MAX_WEIGHT = 'max_weight';
     const FIELD_MAX_WEIGHT_PRICE = 'max_weight_price';
+    const FIELD_AREA_CODE = 'area_code';
 
     public function scopeGetValue($query, $key)
     {
