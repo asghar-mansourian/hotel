@@ -69,13 +69,11 @@
         $( ".convert-currency" ).trigger( "change" );
 
         $('#resend_sms').click(function (e) {
-            id=$('#frm-mobile-verification #id').val();
             $.ajax({
                 url:'{{route('user.resend.code')}}',
                 type:'post',
                 data:{
                     '_token':'{{csrf_token()}}',
-                    'id':id
                 },
                 dataType:'json',
                 success:function(data){
@@ -95,14 +93,12 @@
         });
 
         $('#send_sms').click(function (e) {
-            id=$('#frm-mobile-verification #id').val();
             mobile=$('#frm-mobile-verification #mobile').val();
             $.ajax({
                 url:'{{ route('user.verify.save') }}',
                 type:'post',
                 data:{
                     '_token':'{{csrf_token()}}',
-                    'id':id,
                     'sms_code':mobile
                 },
                 dataType:'json',
