@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\IncrementBalanceRequest;
+use App\Http\Resources\V1\CashPayments;
 use App\lib\Helpers;
 use App\Order;
 use App\Payment;
@@ -53,5 +54,14 @@ class PaymentController extends Controller
         return response()->json([
             'payment_url' => (new PulpalController())->pay($payment)
         ]);
+    }
+
+    public function getPaymentsCash(){
+        $payments = auth()->user()->payments()->where('type','cash')->get();
+        $payments->map(function($payment){
+            $payment->modelable_type ? $payment->price = '-'.$payment->price:$payment->price ='+'.$payment->price;
+
+        });
+        return CashPayments::collection($payments);
     }
 }

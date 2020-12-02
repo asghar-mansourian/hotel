@@ -69,5 +69,7 @@ Route::middleware('auth:api')->group(function () {
             Route::put('user-settings/update-password', 'UserSettingController@updatePassword');
 
             Route::post('/notifications', 'NotificationController@send');
+
+            Route::get('/cash-payments','PaymentController@getPaymentsCash');
         });
 });
