@@ -14,7 +14,7 @@ class NotificationController extends Controller
 {
     public function send(Request $request)
     {
-        if ($this->validation($request)){
+        if ($this->validation($request)) {
             return $this->validationMessage();
         }
         $user = $this->getUser($request);
