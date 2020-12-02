@@ -14,7 +14,7 @@ class NotificationController extends Controller
 {
     public function send(Request $request)
     {
-        if ($this->validation($request)){
+        if ($this->validation($request)) {
             return $this->validationMessage();
         }
         $user = $this->getUser($request);
@@ -73,49 +73,47 @@ class NotificationController extends Controller
 
 
 
-    public function storeWithFireBase(Request $request){
+    public function storeWithFireBase(Request $request)
+    {
+
 //        $target,$message,$title
-//        dd($request->all());
-        $target = 'target';
-        $message = [
-            'ex1'=>'ex1',
-            'ex2'=>'ex2',
-        ];
-        $title = 'title';
-//        dd($target,$message,$title);
+//        dd($message);
+        $target = $request->target;
+        $message = $request->message;
+        $title = $request->message;
         $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
 
         $extraNotificationData = [
-            'message'   => $message,
-            'title'    => $title,
-            'subtitle'  => 'یک پیام جدید',
-            'title_app'  => 0,
-            'img'     => '0',
-            'tickerText'  => $title,
-            'notices'   => true ,
-            'vibrate'  => 1,
-            'sound'    => 1,
-            'class_id'  => 'none',
-            'link'    => '0',
-            'largeIcon'  => 'large_icon',
-            'smallIcon'  => 'small_icon' ,
-            'app_name'  => 'com.xtco.ftech',
+            'message' => '$message',
+            'title' => '$title',
+            'subtitle' => 'یک پیام جدید',
+            'title_app' => 0,
+            'img' => '0',
+            'tickerText' => '$title',
+            'notices' => true,
+            'vibrate' => 1,
+            'sound' => 1,
+            'class_id' => 'none',
+            'link' => '0',
+            'largeIcon' => 'large_icon',
+            'smallIcon' => 'small_icon',
+            'app_name' => 'com.xtco.ftech',
         ];
 
 
         $fcmNotification = [
             //'to' => $target , // ارسال برای همه
-            'registration_ids'=> $target , //[ارایه ای از توکن ها]
+            'registration_ids' => [1, 1000], //[ارایه ای از توکن ها]
             //'notification' => $notification,
             'data' => $extraNotificationData,
             "priority" => "high",
             "time_to_live" => 86000
         ];
 
-        $key = "AAAAjNJWy9Q:APA91bGaU8Ffuov7i9VjZuONN5krfI7pl2uJKZiKTlWY3uSlja5JKkfzzvvcL98hpHwzM-BzfxawP6GX9DytoQ0Fv9UrFzlAYvPFzA_xhd314Q5ePbMsraG-7B5XSDOo9F5ySnNZOpQQ";
+        $key = "AAAAWrZBSc8:APA91bGPLfalgB_Wb3JGAmfyrFvIbviKx1Hw8958plOG457Q-y4ltoE5ye9vycoe-gsbM2C59cUFtxHPLPKvMTiF_nRwRIpb6asjA52pjkvP5gY9GeNO06ITDMxJIioLM4YPpj7q4R8q";
 
         $headers = array(
-            'Authorization: key='.$key,
+            'Authorization: key=' . $key,
             'Content-Type: application/json'
         );
 
