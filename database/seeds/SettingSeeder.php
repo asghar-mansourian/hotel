@@ -34,7 +34,8 @@ class SettingSeeder extends Seeder
             Setting::FIELD_GATE_PAYTR_OR_PULPAL => Setting::GATE_PAYTR,
             Setting::FIELD_HAS_COURIERS_IN_PROJECT => 0,
             Setting::FIELD_MAX_WEIGHT => 10,
-            Setting::FIELD_MAX_WEIGHT_PRICE => 20.10
+            Setting::FIELD_MAX_WEIGHT_PRICE => 20.10,
+            Setting::FIELD_AREA_CODE => "+7",
         ];
 
         foreach ($settings as $index => $value) {
