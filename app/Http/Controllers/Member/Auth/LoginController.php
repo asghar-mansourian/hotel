@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MemberVerifySms;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -67,6 +68,7 @@ class LoginController extends Controller
 
     public function verifySms(Request $request)
     {
+
         $status = $this->verifySmsCode($request);
         if (!$status) {
             return response()->json(['success' => false]);
@@ -99,9 +101,8 @@ class LoginController extends Controller
     }
 
 
-    public function logout()
+    protected function loggedOut(Request $request)
     {
-        Auth::logout();
         return redirect('/login');
     }
 

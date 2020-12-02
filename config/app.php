@@ -14,6 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'expire_time' => env('SMS_CODE_EXPIRE_TIME', '100'),
 
     /*
     |--------------------------------------------------------------------------
