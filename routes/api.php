@@ -32,10 +32,13 @@ Route::prefix('v1')
 
         Route::get('get-price-via-weight/{weight}', 'PriceItemController');
 
+        Route::get('send-sms', 'Auth\SmsController@sendSmsToUser')->middleware('auth:api');
+        Route::post('verify-sms', 'Auth\SmsController@verifiedUser')->middleware('auth:api');
+
     });
 
 // authenticated
-Route::middleware('auth:api')->group(function () {
+Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
     // v1
     Route::prefix('v1')
         ->namespace('Api\V1')
