@@ -72,6 +72,7 @@
         })
 
         $('#resend_sms').click(function (e) {
+            e.preventDefault();
             $.ajax({
                 url:'{{route('user.resend.code')}}',
                 type:'post',
@@ -96,7 +97,8 @@
         });
 
         $('#send_sms').click(function (e) {
-            mobile=$('#frm-mobile-verification #mobile').val();
+            e.preventDefault();
+            mobile=$('#mobile').val();
             $.ajax({
                 url:'{{ route('user.verify.save') }}',
                 type:'post',
