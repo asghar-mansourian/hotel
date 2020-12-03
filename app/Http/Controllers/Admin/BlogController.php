@@ -8,6 +8,7 @@ use App\Blog;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\BlogRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -81,6 +82,8 @@ class BlogController extends Controller
             'title_az' => $request->input('title_az') ?? null,
             'author_id' => $request->input('author_id'),
             'status' => $request->input('status'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         session()->flash('message', __('custom.Blog.message.create'));
@@ -173,6 +176,7 @@ class BlogController extends Controller
             'title_az' => $request->input('title_az') ?? null,
             'author_id' => $request->input('author_id'),
             'status' => $request->input('status'),
+            'updated_at' => Carbon::now(),
         ]);
 
         session()->flash('message', __('custom.Blog.message.update'));
