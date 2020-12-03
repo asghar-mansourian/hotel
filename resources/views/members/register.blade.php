@@ -239,7 +239,7 @@
                 <div class="col-md-12 mt-2">
                     <div class="text-center">
 
-                        <input data-target="#polices" data-toggle="modal" class="@error('terms') is-invalid @enderror"
+                        <input data-target="#polices"  class="@error('terms') is-invalid @enderror"
                                id="terms" type="checkbox" name="terms" required
                                style="vertical-align: middle!important;">
                         <label data-target="#polices" data-toggle="modal"
