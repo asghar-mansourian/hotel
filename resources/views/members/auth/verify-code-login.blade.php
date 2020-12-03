@@ -11,11 +11,11 @@
             <form action="" method="post" id="frm-mobile-verification">
                 @csrf
                 <div id="msg"></div>
-                <div style="margin-bottom: 15px" class="form-heading">{{__('member.mobileCodeVerification')}}</div>
+                <div style="margin-bottom: 15px" class="form-heading">{{__('member.enterVerificationCode')}}</div>
 
                 <div style="margin-bottom: 15px" class="form-row">
                     <input required name="sms_code" type="number" id="mobile" class="form-input"
-                           placeholder="Enter the code">
+                           placeholder="{{__('member.mobileCodeVerification')}}">
                 </div>
 
                 <input id="send_sms" type="button" class="btnSubmit" value="{{__('member.verify')}}">
