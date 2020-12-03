@@ -71,5 +71,10 @@ Route::middleware('auth:api')->group(function () {
             Route::post('/notifications', 'NotificationController@send');
 
             Route::get('/cash-payments','PaymentController@getPaymentsCash');
+
+            Route::get('/invoice-status-key','InvoiceController@getStatusKey');
+
+            Route::get('/order-status-key','OrderController@getStatusKey');
+
         });
 });

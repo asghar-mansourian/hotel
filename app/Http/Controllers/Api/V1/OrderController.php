@@ -16,9 +16,9 @@ class OrderController extends Controller
 
     public function index()
     {
-        if(request('type') != null)
+        if(request('status') != null)
         {
-            $type = request('type');
+            $type = request('status');
             return OrderResource::collection(
                 auth()->user()->orders()->where('status',$type)->with('orderItems')->paginate(
                     request('per_page', 10)
@@ -83,5 +83,17 @@ class OrderController extends Controller
     public function paidViaOnline($order)
     {
         return (new PaymentController())->paymentOrder($order);
+    }
+
+    public function getStatusKey()
+    {
+        $collections = collect([]);
+        foreach (Order::STATUS_ALL as $key=>$value){
+            $collections->put(str_replace('_',' ',Order::STATUS_ALL[$key]),$key);
+        }
+        $statusKey = $collections->all();
+        return response()->json([
+            'data' => $statusKey
+        ] , 200);
     }
 }
