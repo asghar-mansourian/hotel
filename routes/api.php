@@ -24,6 +24,8 @@ Route::prefix('v1')
 
         Route::get('regions', 'RegionController');
 
+        Route::post('countryByRegion', 'RegionController@countryByRegion');
+
         Route::get('countries', 'CountryController');
 
         Route::get('pages/{slug}', 'PageController');
