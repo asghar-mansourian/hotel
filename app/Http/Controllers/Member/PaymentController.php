@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Http\Controllers\Controller;
 use App\lib\Helpers;
 use App\Payment;
+use Illuminate\Support\Facades\Auth;
 use function request;
 
 class PaymentController extends Controller
@@ -16,22 +17,42 @@ class PaymentController extends Controller
 
     public function verify()
     {
+        $payments = Payment::query()->where('user_id' , Auth::user()->id)
+            ->where('type' , Payment::PAYMENT_TYPE_CASH)
+            ->orderBy('created_at','DESC')
+            ->latest()
+            ->paginate(10);
+
+
         if (request()->is('az-balance')) {
-            return view('members.az-balance');
+            $payments = $payments->where('balance_type' , 'tl');
+            return view('members.az-balance'  , compact('payments'));
         } else {
-            return view('members.tl-balance');
+            $payments = $payments->where('balance_type' , 'usd');
+            return view('members.tl-balance' , compact('payments'));
         }
 
     }
 
     public function gate($order = null)
     {
+
         $payment = new Payment();
         $payment->user_id = auth()->user()->id;
-
-        if (request()->has('amount_azn')) {
+        if (request()->has('amount_tl') || request()->has('amount_usd')){
+            if (request()->has('amount_tl')){
+                $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
+                $payment_balance = request()->get('amount_tl');
+            }
+            else{
+                $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_TWO;
+                $payment_balance = request()->get('amount_usd');
+            }
+        }
+        if ($payment_balance) {
             $payment->type = Payment:: PAYMENT_TYPE_CASH;
-            $payment->price = request()->get('amount_azn');
+            $payment->balance_type = $payment_balance_type;
+            $payment->price = $payment_balance;
             $payment->description = 'payment by online . increment wallet';
             $payment->save();
         } elseif ($order) {

@@ -57,7 +57,7 @@ Route::group(['namespace' => 'Member', 'middleware' => ['auth','verified_sms']],
 
     Route::post('/payment/gate', 'PaymentController@gate');
     Route::get('/az-balance', 'PaymentController@verify');
-    Route::get('/tl-balance', 'PaymentController@verify');
+    Route::get('/tl-balance', 'PaymentController@verify')->name('tl_balance');
 
     Route::resource('invoices', 'Invoice\InvoiceController');
 
@@ -65,7 +65,7 @@ Route::group(['namespace' => 'Member', 'middleware' => ['auth','verified_sms']],
 
     Route::get('/my-addresses-abroad', 'AddressesAbroad\AddressesAbroadController@index')->name('my_addresses_abroad');
 
-    Route::get('/tl-balance', 'TlBalance\TlBalanceController@index')->name('tl_balance');
+//    Route::get('/tl-balance', 'TlBalance\TlBalanceController@index')->name('tl_balance');
 
     Route::get('/courier', 'Courier\CourierController@index')->name('courier');
 

@@ -53,7 +53,7 @@ class PaytrController extends Controller
 
 
         $payment = Payment::find($request->get('merchant_oid'));
-
+        $payment_type_balance = $payment->balance_type;
         if ($request->get('status') == 'success') {
 
             $payment->update(
@@ -65,6 +65,13 @@ class PaytrController extends Controller
 
             if ($payment->where('type', Payment::PAYMENT_TYPE_CASH)->exists()) {
                 $payment->user->increment('balance', $payment->price);
+                if ($payment_type_balance == Payment::PAYMENT_TYPE_BALANCE_ONE){
+                    $payment->user->increment('balance', $payment->price);
+                }
+                else{
+                    $payment->user->increment('usd_balance', $payment->price);
+                }
+
             }
         } else {
             $payment->update(

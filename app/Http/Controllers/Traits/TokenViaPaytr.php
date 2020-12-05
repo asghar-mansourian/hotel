@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Traits;
 
 
 use App\lib\Helpers;
+use App\Payment;
 use Exception;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 trait TokenViaPaytr
 {
@@ -34,7 +36,7 @@ trait TokenViaPaytr
         $test_mode = config('payment.test_mode');
         $no_installment = config('payment.no_installment');
         $max_installment = config('payment.max_installment');
-        $currency = config('payment.currency');
+        $currency = config('payment.currency.' . Str::upper(Payment::PAYMENT_TYPE_BALANCE_TYPES[$payment->balance_type]));
 
 
         $hash_str = $merchant_id . $user_ip . $merchant_oid . $email . $payment_amount . $user_basket . $no_installment . $max_installment . $currency . $test_mode;

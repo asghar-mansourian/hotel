@@ -8,7 +8,10 @@ return [
     'test_mode' => 1,
     'no_installment' => 0,
     'max_installment' => 0,
-    'currency' => 'TL',
+    'currency' => [
+        'TL' => 'TL' ,
+        'USD' => 'USD'
+    ],
     'url' => 'https://www.paytr.com/odeme/api/get-token',
     'url_gate' => 'https://www.paytr.com/odeme/guvenli/',
 ];
