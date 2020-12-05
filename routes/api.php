@@ -37,6 +37,8 @@ Route::prefix('v1')
         Route::get('send-sms', 'Auth\SmsController@sendSmsToUser')->middleware('auth:api');
         Route::post('verify-sms', 'Auth\SmsController@verifiedUser')->middleware('auth:api');
 
+        Route::get('/get-translate-list/{locale}','TranslateController@getTranslate');
+
     });
 
 // authenticated
