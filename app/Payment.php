@@ -15,7 +15,7 @@ class Payment extends Model
      * @var array
      */
     protected $fillable = [
-        'type' , 'description' , 'price' , 'refid' , 'status' ,'ip' , 'extra' , 'authority' , 'user_id'
+        'type' , 'description' , 'price' , 'refid' , 'status' ,'ip' , 'extra' , 'authority' , 'user_id' , 'balance_type'
     ];
 
     /**
@@ -47,6 +47,13 @@ class Payment extends Model
 
     const PAYMENT_TYPE_ONLINE = 'online';
     const PAYMENT_TYPE_CASH = 'cash';
+    const PAYMENT_TYPE_BALANCE_ONE = 'tl';
+    const PAYMENT_TYPE_BALANCE_TWO = 'usd';
+
+    const PAYMENT_TYPE_BALANCE_TYPES = [
+        self::PAYMENT_TYPE_BALANCE_TWO => self::PAYMENT_TYPE_BALANCE_TWO,
+        self::PAYMENT_TYPE_BALANCE_ONE => self::PAYMENT_TYPE_BALANCE_ONE,
+    ];
 
     const PAYMENT_STATUS_PAID = 1;
     const PAYMENT_STATUS_NO_PAID = 0;

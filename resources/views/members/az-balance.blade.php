@@ -31,13 +31,13 @@
                     <div class="payment">
                         <form action="{{url('/payment/gate')}}" method="post">
                             @csrf
-                            <input type="number" min="1" max="50" id="balance_val" required="" placeholder="USD" name="amount">
-                            <input type="number" id="new_balance_val" required="" placeholder="TRY" name="amount_azn" readonly="">
+{{--                            <input type="number" min="1" max="50" id="balance_val" required="" placeholder="USD" name="amount">--}}
+                            <input type="number" min="1" id="new_balance_val" style="width: 50%" required="" placeholder="TL" name="amount_tl">
                             <button type="submit" class="payment_button ">{{__('member.balanceincreases')}}</button>
                         </form>
                     </div>
                     <div class="visa-logo">
-                        <span class="font_grey">{{__('member.min')}}: 1 USD - {{__('member.max')}}: 50 USD</span>
+                        <span  style="visibility: hidden" class="font_grey">{{__('member.min')}}: 1 USD - {{__('member.max')}}: 50 USD</span>
                         <img src="{{url('front/image/visa-logo-master.png')}}" alt="visa-logo-master">
                     </div>
                 </div>
@@ -72,10 +72,9 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown_hamisi">
                         <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> {{__('member.all')}}</button>
                         <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> {{__('member.expenditure')}}
-                        </button>
+                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> {{__('member.expenditure')}}</button>
                         <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> {{__('member.income')}}</button>
+                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> {{__('member.expenditure')}}</button>
                         <br>
                     </div>
                 </div>
@@ -84,123 +83,28 @@
                 <div id="scrol_price_content">
                     <div class="filterDiv_ul">
                         <ul>
-                            <li>{{__('member.history')}}</li>
-                            <li>{{__('member.amount')}}</li>
-                            <li>{{__('member.operation')}}</li>
+                            <li style="width: 25%;">{{__('member.type')}}</li>
+                            <li style="width: 25%;">{{__('member.price')}}</li>
+                            <li style="width: 25%;">{{__('member.status')}}</li>
+                            <li style="width: 25%;">{{__('member.date')}}</li>
                         </ul>
                     </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 ₺</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 33.77 ₺</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 $</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-33.9 $</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 ₺</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 43.77 ₺</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 $</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-43.9 $</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 ₺</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 33.77 ₺</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">40 $</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-33.9 $</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 ₺</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">- 43.77 ₺</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv income">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="green">50 $</li>
-                            <li>{{__('member.increasebalance')}}</li>
-                        </ul>
-                    </div>
-                    <div class="filterDiv expenditure">
-                        <ul>
-                            <li>22.09.2020 22:28</li>
-                            <li class="red">-43.9 $</li>
-                            <li>{{__('member.orderpayment')}}</li>
-                        </ul>
-                    </div>
+                    @foreach($payments as $payment)
+                        <div class="filterDiv income" style="display: block">
+                            <ul>
+                                <li style="width: 25%;">{{$payment->type}}</li>
+                                @if($payment->modelable_type)
+                                    <li style="width: 25%;" class="red">-{{$payment->price}}</li>
+                                @else
+                                    <li style="width: 25%;" class="green">+{{$payment->price}}</li>
+                                @endif
+                                <li style="width: 25%;">{!! $payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
+                                <li style="width: 25%;">{{$payment->created_at}}</li>
+                            </ul>
+                        </div>
+                    @endforeach
+
+
                 </div>
             </div>
         </div>
