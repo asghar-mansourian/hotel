@@ -63,25 +63,23 @@
                 <div id="scrol_price_content">
                     <div class="filterDiv_ul">
                         <ul>
-                            <li style="width: 20%;">{{__('member.type')}}</li>
-                            <li style="width: 20%;">{{__('member.price')}}</li>
-                            <li style="width: 20%;">{{__('member.refid')}}</li>
-                            <li style="width: 20%;">{{__('member.status')}}</li>
-                            <li style="width: 20%;">{{__('member.date')}}</li>
+                            <li style="width: 25%;">{{__('member.type')}}</li>
+                            <li style="width: 25%;">{{__('member.price')}}</li>
+                            <li style="width: 25%;">{{__('member.status')}}</li>
+                            <li style="width: 25%;">{{__('member.date')}}</li>
                         </ul>
                     </div>
                     @foreach($payments as $payment)
                         <div class="filterDiv income" style="display: block">
                             <ul>
-                                <li style="width: 20%;">{{$payment->type}}</li>
+                                <li style="width: 25%;">{{$payment->type}}</li>
                                 @if($payment->modelable_type)
-                                    <li style="width: 20%;" class="red">-{{$payment->price}}</li>
+                                    <li style="width: 25%;" class="red">-{{$payment->price . ' ' . $payment->balance_type}}</li>
                                 @else
-                                    <li style="width: 20%;" class="green">+{{$payment->price}}</li>
+                                    <li style="width: 25%;" class="green">+{{$payment->price . ' ' . $payment->balance_type}}</li>
                                 @endif
-                                <li style="width: 20%;">{{is_null($payment->refid) ? 0 : $payment->refid}}</li>
-                                <li style="width: 20%;">{!! $payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
-                                <li style="width: 20%;">{{$payment->created_at}}</li>
+                                <li style="width: 25%;">{!! $payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
+                                <li style="width: 25%;">{{$payment->created_at}}</li>
                             </ul>
                         </div>
                     @endforeach

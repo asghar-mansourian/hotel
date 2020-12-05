@@ -14,12 +14,13 @@ class PanelController extends Controller
         CurrencyController::getCurrencyFromCrawel();
         CurrencyController::getCurrencyFromTwoApi();
         $wallet = Auth::user()->balance;
+        $wallet_usd = Auth::user()->usd_balance;
         $payments = Payment::where('user_id' , Auth::user()->id)
             ->where('type' , Payment::PAYMENT_TYPE_CASH)
             ->orderBy('created_at','DESC')
             ->latest()
             ->paginate(10);
 
-        return view('members.panel' , compact('payments' ,'wallet'));
+        return view('members.panel' , compact('payments' ,'wallet' , 'wallet_usd'));
     }
 }
