@@ -296,7 +296,7 @@
                                                 <tbody>
                                                 @foreach($invoice->orderItems as $item)
                                                     <tr>
-                                                        <td>{{$item->link}}</td>
+                                                        <td><a href="{{$item->link}}">{{$item->link}}</a></td>
                                                         <td>{{$item->price}}</td>
                                                         <td>{{$item->cargo}}</td>
                                                         <td>{{$item->quantity}}</td>

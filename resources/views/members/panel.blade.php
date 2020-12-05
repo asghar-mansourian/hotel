@@ -9,7 +9,7 @@
 
     <div class="mt-5">
         <div class="row relative">
-            <div class="balance-block col-md-8 col-sm-7 col-xs-12">
+            <div class="balance-block col-md-6 col-sm-7 col-xs-12">
                 <div class="balance">
                     <picture>
                         <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
@@ -27,20 +27,23 @@
 
                 </div>
             </div>
-            <div class="col-md-4 col-sm-5 col-xs-12 right-side" style="visibility: hidden">
-                <div class="border_sh right_time" style="visibility: hidden">
-                    <div class="tooltip"><span class="fa-fw select-all fas m-0 mr-0" style="visibility: hidden"></span>
-                        <span class="tooltiptext">
-									  {{__('member.amountyoupaiddelivery')}}</span>
-                    </div>
-                    <div style="clear: both;"></div>
-                    <td class="post">
-                        <div class="text-center">
-                            <a href="#" onclick="showStuff('answer1', 'text1', this); return false;"><img
-                                    src="{{url('front/image/wallet1.png')}}" width="150"></a>
-                        </div>
 
-                    </td>
+            <div class="col-md-6 col-sm-5 col-xs-12 right-side" style="">
+                <div class="balance">
+                    <picture>
+                        <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
+                    </picture>
+                    <div class="balance-count">
+                        <span>{{__('member.mybalance')}}</span> <br/>
+                        <span class="count">{{$wallet_usd}}<sup>$</sup></span>
+                    </div>
+                    <div class="balance-date">{{__('member.lastaddeddate')}}</div>
+                    <div class="balance-text">
+                        {{__('member.deliveryonlinecourier')}}
+                        <p><b>{{__('member.increasenotreturned')}}</b></p>
+                    </div>
+                    <a href="{{url('tl-balance')}}" class=""><a data-v-27fd2a5d="" href="{{url('tl-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+
                 </div>
             </div>
         </div>
@@ -76,9 +79,9 @@
                             <ul>
                                 <li style="width: 25%;">{{$payment->type}}</li>
                                 @if($payment->modelable_type)
-                                    <li style="width: 25%;" class="red">-{{$payment->price}}</li>
+                                    <li style="width: 25%;" class="red">-{{$payment->price . ' ' . $payment->balance_type}}</li>
                                 @else
-                                    <li style="width: 25%;" class="green">+{{$payment->price}}</li>
+                                    <li style="width: 25%;" class="green">+{{$payment->price . ' ' . $payment->balance_type}}</li>
                                 @endif
                                 <li style="width: 25%;">{!! $payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
                                 <li style="width: 25%;">{{$payment->created_at}}</li>
