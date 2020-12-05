@@ -8,18 +8,23 @@
     @include('members.partials.top_panel')
 
     <div class="mt-5">
-        <div class="row relative">
+        <div class="row relative" style="height: 236px!important;">
             <div class="balance-block col-md-6 col-sm-7 col-xs-12">
                 <div class="balance">
-                    <picture>
-                        <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
+                    <picture >
+                        <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive" style="height: 236px!important;">
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">{{$wallet}}<sup>TL</sup></span>
                     </div>
                     <div class="balance-date">{{__('member.lastaddeddate')}}</div>
-                    <div class="balance-text">
+                    <div class="balance-text" style="    position: absolute;
+    bottom: 6px;
+    font-size: 13px;
+    left: 30px;
+    width: 222px;
+    line-height: 1.7;">
                         {{__('member.deliveryonlinecourier')}}
                         <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
@@ -31,14 +36,19 @@
             <div class="col-md-6 col-sm-5 col-xs-12 right-side" style="">
                 <div class="balance">
                     <picture>
-                        <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive">
+                        <img src="{{url('front/image/balans.png')}}" alt="balans" style="height: 236px!important" class="img-responsive">
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">{{$wallet_usd}}<sup>$</sup></span>
                     </div>
                     <div class="balance-date">{{__('member.lastaddeddate')}}</div>
-                    <div class="balance-text">
+                    <div class="balance-text" style="    position: absolute;
+    bottom: 6px;
+    font-size: 13px;
+    left: 30px;
+    width: 222px;
+    line-height: 1.7;">
                         {{__('member.deliveryonlinecourier')}}
                         <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
