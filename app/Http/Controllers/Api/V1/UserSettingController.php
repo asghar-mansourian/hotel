@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Member\UpdateUserProfileRequest;
+use App\Http\Resources\User as UserResource;
 use App\Http\Resources\V1\UserSettingsResourceCollection as SettingResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,7 @@ class UserSettingController extends Controller
 
     public function show()
     {
-        return SettingResource::make(auth()->user());
+        return UserResource::make(auth()->user());
     }
 
     public function update(UpdateUserProfileRequest $request)
