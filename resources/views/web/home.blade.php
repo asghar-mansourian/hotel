@@ -180,7 +180,7 @@ width: 100px;
                             <div class="@if($loop->first) city_pink @else city_blue @endif">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 city_title">
-                                        <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4"> <strong>{{__('website.home_page.countries.turkey')}}</strong>
+                                        <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4"> <strong>{{$country->flag}}</strong>
                                     </div>
                                     <ul style="padding: 0 26px;">
                                         @foreach($country->priceCalculators as $priceCalculator)
