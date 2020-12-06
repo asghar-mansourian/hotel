@@ -32,7 +32,7 @@ class UserSettingController extends Controller
         $user->address = $request->input('address');
         $user->update();
 
-        return (new SettingResource($user))->response();
+        return (new UserResource($user))->response();
     }
 
     public function updatePassword(Request $request)
