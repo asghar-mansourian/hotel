@@ -16,7 +16,7 @@ class PriceItemController extends Controller
             ->value('price');
 
         if ($weight >= Setting::getValue(Setting::FIELD_MAX_WEIGHT)) {
-            $price = Setting::getValue(Setting::FIELD_MAX_WEIGHT_PRICE);
+            $price = number_format(Setting::getValue(Setting::FIELD_MAX_WEIGHT_PRICE) * $weight, 2);
         }
 
         return response()->json(
