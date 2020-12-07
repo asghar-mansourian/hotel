@@ -57,7 +57,7 @@ class PaymentController extends Controller
             $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
 
         }
-        if ($payment_balance_type) {
+        if (!$order) {
             $payment->type = Payment:: PAYMENT_TYPE_CASH;
             $payment->balance_type = $payment_balance_type;
             $payment->price = $payment_balance;
@@ -65,7 +65,7 @@ class PaymentController extends Controller
             $payment->save();
         } else{
             $payment->type = Payment:: PAYMENT_TYPE_ONLINE;
-            $payment->price = $order->total;
+            $payment->price = $payment_balance;
             $payment->description = 'payment by online . paid order';
             $order->payment()->save($payment);
         }
