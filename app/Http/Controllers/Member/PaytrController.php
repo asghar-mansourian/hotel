@@ -64,7 +64,6 @@ class PaytrController extends Controller
             );
 
             if ($payment->where('type', Payment::PAYMENT_TYPE_CASH)->exists()) {
-                $payment->user->increment('balance', $payment->price);
                 if ($payment_type_balance == Payment::PAYMENT_TYPE_BALANCE_ONE){
                     $payment->user->increment('balance', $payment->price);
                 }
