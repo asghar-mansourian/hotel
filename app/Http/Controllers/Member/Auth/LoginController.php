@@ -62,7 +62,7 @@ class LoginController extends Controller
         if ($user->verified == '1') {
             return redirect()->route('home');
         }
-        $this->sendSms($user);
+//        $this->sendSms($user);
         return view('members.auth.verify-code-login', compact('user'));
     }
 
@@ -106,5 +106,9 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
-
+    public function authenticated()
+    {
+        if (auth()->user()->verified == 0)
+                $this->sendSms(auth()->user());
+    }
 }

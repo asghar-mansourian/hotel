@@ -76,7 +76,10 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        return $this->verifySmsCodeView($user->id);
+        $this->sendSms($user);
+        return $this->verifySmsCodeView();
+
+
     }
 
     public function verifySmsCodeView()
@@ -86,7 +89,6 @@ class RegisterController extends Controller
         if ($user->verified == '1') {
             return redirect()->route('home');
         }
-        $this->sendSms($user);
         return view('members.auth.verify-code-login', compact('user'));
     }
 
