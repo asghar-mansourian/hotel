@@ -116,17 +116,17 @@ class SettingController extends Controller
 //        $validate = $this->validateRules($CountryValidate->rules(), $request);
 //        if ($validate != null)
 //            return $this->validateRules($CountryValidate->rules(), $request);
-        $type = Setting::query()->where('id', $id)->first();
+//        $type = Setting::query()->where('id', $id)->first();
 
-        if (Str::of($type->key)->substr(0, 3) == "ENV") {
-            $config = Str::of($type->key)->substr(4);
-            Config::set(strval($config), $request->input('value'));
-
-            Artisan::call("config:clear");
-            Artisan::call("view:clear");
-            Artisan::call("route:clear");
-            Artisan::call("cache:clear");
-        }
+//        if (Str::of($type->key)->substr(0, 3) == "ENV") {
+//            $config = Str::of($type->key)->substr(4);
+//            Config::set(strval($config), $request->input('value'));
+//
+//            Artisan::call("config:clear");
+//            Artisan::call("view:clear");
+//            Artisan::call("route:clear");
+//            Artisan::call("cache:clear");
+//        }
         Setting::query()->where('id', $id)->update([
             'value' => $request->input('value'),
         ]);
