@@ -50,8 +50,12 @@ class PaymentController extends Controller
             }
         }
         if (request()->has('total')){
+            $payment_balance = 0;
+            foreach (request()->get('total') as $amount){
+                $payment_balance += $amount;
+            }
             $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
-            $payment_balance =request()->get('total')[0];
+
         }
         if ($payment_balance) {
             $payment->type = Payment:: PAYMENT_TYPE_CASH;
