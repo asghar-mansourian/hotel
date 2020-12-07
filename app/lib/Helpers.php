@@ -28,12 +28,12 @@ class Helpers
     public static function convertPriceToGatePulpal($price)
     {
 
-        if (!is_float($price)) {
-            $price = str_replace(',', '',
-                number_format($price, 2)
-            );
-        }
-
+//        if (!is_float($price)) {
+//            $price = str_replace(',', '',
+//                number_format($price, 2)
+//            );
+//        }
+        $price = str_replace(',' , '' , number_format($price, 2));
         return str_replace('.', '', $price);
     }
 
