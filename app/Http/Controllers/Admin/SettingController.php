@@ -8,7 +8,11 @@ use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\SettingRequest;
 use App\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Env;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class SettingController extends Controller
 {
@@ -16,6 +20,11 @@ class SettingController extends Controller
 
     public function index()
     {
+
+        Artisan::call("config:clear");
+        Artisan::call("view:clear");
+        Artisan::call("route:clear");
+        Artisan::call("cache:clear");
         $settings = Setting::query()
             ->select(Setting::selectField)
             ->orderBy(Setting::sortField, Setting::sortType)
@@ -63,12 +72,13 @@ class SettingController extends Controller
     public function show($id)
     {
         $Setting = Setting::query()
-            ->with( 'user')
+            ->with('user')
             ->where('id', $id)
             ->first();
 
-        return view('admin.settings.show' , compact('Setting'));
+        return view('admin.settings.show', compact('Setting'));
     }
+
     public function sort(Request $request)
     {
         $sort_field = $request->input('sort_field');
@@ -106,8 +116,18 @@ class SettingController extends Controller
 //        $validate = $this->validateRules($CountryValidate->rules(), $request);
 //        if ($validate != null)
 //            return $this->validateRules($CountryValidate->rules(), $request);
+        $type = Setting::query()->where('id', $id)->first();
 
-        Setting::query()->where('id' , $id)->update([
+        if (Str::of($type->key)->substr(0, 3) == "ENV") {
+            $config = Str::of($type->key)->substr(4);
+            Config::set(strval($config), $request->input('value'));
+
+            Artisan::call("config:clear");
+            Artisan::call("view:clear");
+            Artisan::call("route:clear");
+            Artisan::call("cache:clear");
+        }
+        Setting::query()->where('id', $id)->update([
             'value' => $request->input('value'),
         ]);
 
