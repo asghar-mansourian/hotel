@@ -77,7 +77,7 @@
                                                            placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
                                                 </div>
                                                 <div class="col-md-12 mb-4 ">
-                                                    <textarea class="courier_textare mt-0" name="description[]"
+                                                    <textarea class="courier_textare mt-0 h-auto" rows="2" cols="0" name="description[]"
                                                               placeholder="{{__('member.productDetails')}}"></textarea>
                                                 </div>
                                             </div>
@@ -179,7 +179,7 @@
                            placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
                 </div>
                 <div class="col-md-12 mb-4 ">
-                    <textarea class="courier_textare mt-0" name="description[]"
+                    <textarea class="courier_textare mt-0 h-auto" cols="0" rows="2" name="description[]"
                               placeholder="{{__('member.productDetails')}}"></textarea>
                 </div>
             </div>
@@ -207,17 +207,27 @@
     <script>
 
         function numberValidation(num) {
-            var value = num.value;
             var textValid = $("#validTextPrice").val();
+            var value = num.value;
+            var myStr = value.search(",");
 
-            var valid = (value.match(/^-?\d*(\.\d+)?$/));
-            if (valid == null) {
-                $(num).next().html(textValid) ;
-                $("#btn-save-order").fadeOut() ;
+            if (myStr != -1){
+                value = value.replace(",", ".");
+                num.value = value;
             }
+
+
             else{
-                $(num).next().html("") ;
-                $("#btn-save-order").fadeIn();
+                var valid = (num.value.match(/^-?\d*(\.\d+)?$/));
+                if (valid == null) {
+                    $(num).next().html(textValid) ;
+                    $("#btn-save-order").fadeOut() ;
+
+                }
+                else{
+                    $(num).next().html("") ;
+                    $("#btn-save-order").fadeIn();
+                }
             }
 
         }
