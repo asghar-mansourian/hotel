@@ -13,6 +13,7 @@
             @include('members.partials.validation_errors')
         </div>
         <div class="row">
+            <input type="hidden" id="validTextPrice" value="{{__('member.validPriceCalculator')}}">
             <div class="col-md-12 col-sm-12 col-xs-12 invoice_buttons">
                 @include('members.partials.buttons')
             </div>
@@ -33,7 +34,8 @@
                             </div>
                             <div class="border_bar">
                                 @foreach($countries as $country)
-                                    <form action="{{route('orders.store')}}" method="POST" id="country-{{$country->id}}" class="tabcontent" style="
+                                    <form action="{{route('orders.store')}}" method="POST" id="country-{{$country->id}}"
+                                          class="tabcontent" style="
                                     @if(request()->query('country') == $country->id) display: block;  @endif
                                     @if(is_null(request()->query('country')) && $loop->first) display: block;  @endif">
                                         @csrf
@@ -42,34 +44,52 @@
                                         <div class="row container-order">
 
                                             <div class="mb-4 col-md-12">
-                                                <input type="url" name="link[]" placeholder="{{__('member.productLink')}} *" class="w-100 courier_input" required>
+                                                <input type="url" name="link[]"
+                                                       placeholder="{{__('member.productLink')}} *"
+                                                       class="w-100 courier_input" required>
                                             </div>
                                             <br>
                                             <div class="col-md-12 col-sm-12 p-0">
                                                 <div class="col-md-2 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
-                                                    <input type="text" name="specification[]" placeholder="{{__('member.measure')}} *" class="w-100 courier_input" required="">
+                                                    <input type="text" name="specification[]"
+                                                           placeholder="{{__('member.measure')}} *"
+                                                           class="w-100 courier_input" required="">
                                                 </div>
                                                 <div class="col-md-3 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
-                                                    <input type="text" name="color[]" placeholder="{{__('member.color')}} *" class="w-100 courier_input" required="">
+                                                    <input type="text" name="color[]"
+                                                           placeholder="{{__('member.color')}} *"
+                                                           class="w-100 courier_input" required="">
                                                 </div>
                                                 <div class="col-md-2 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
-                                                    <input type="number" min="1" name="quantity[]" placeholder="{{__('member.number')}} *" class="w-100 courier_input" required="">
+                                                    <input type="number" min="1" name="quantity[]"
+                                                           placeholder="{{__('member.number')}} *"
+                                                           class="w-100 courier_input" required="">
                                                 </div>
                                                 <div class="col-md-3 col-sm-5 mb-4" style="padding-right: 0">
-                                                    <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{__('member.price')}}({{$country->currency}}) *" class="w-100 courier_input" required>
+                                                    <input type="text"  onkeyup="return numberValidation(this)" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?"
+                                                           placeholder="{{__('member.price')}}({{$country->currency}}) *"
+                                                           class="w-100 courier_input" required>
+                                                    <span id="numberText"></span>
                                                 </div>
                                                 <div class="col-md-2 col-xs-6 mb-4 courier_dr">
-                                                    <input type="text" name="total[]" class="w-100 courier_input" readonly placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
+                                                    <input type="text" name="total[]" class="w-100 courier_input"
+                                                           readonly
+                                                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
                                                 </div>
                                                 <div class="col-md-12 mb-4 ">
-                                                    <textarea class="courier_textare mt-0" name="description[]" placeholder="{{__('member.productDetails')}}"></textarea>
+                                                    <textarea class="courier_textare mt-0" name="description[]"
+                                                              placeholder="{{__('member.productDetails')}}"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 text-right">
-                                                <button type="button" data-country-id="{{$country->id}}" class="courier_button mr-4 btn-add-container-order" style="width: auto;">{{__('member.addanewlink')}}<i
+                                                <button type="button" data-country-id="{{$country->id}}"
+                                                        class="courier_button mr-4 btn-add-container-order"
+                                                        style="width: auto;">{{__('member.addanewlink')}}<i
                                                         class="fas fa-plus ml-3"></i></button>
 
-                                                <button type="button" class="invoice_button btn-remove-container-order">{{__('member.deletelink')}}<i class="fas fa-trash-alt ml-3"></i></button>
+                                                <button type="button"
+                                                        class="invoice_button btn-remove-container-order">{{__('member.deletelink')}}
+                                                    <i class="fas fa-trash-alt ml-3"></i></button>
                                             </div>
                                         </div>
                                         <input type="submit" class="hidden btn-submit-form">
@@ -85,7 +105,8 @@
                 <div class="border_sh mt-5">
                     <h4 class="text-center"><strong>{{__('member.order_title')}}</strong></h4>
                     <div class="danger">
-                        <input type="radio" id="kart" checked name="payment_type" value="{{\App\Order::PAYMENT_TYPE_ONLINE}}">
+                        <input type="radio" id="kart" checked name="payment_type"
+                               value="{{\App\Order::PAYMENT_TYPE_ONLINE}}">
                         <label for="kart">
                             <span class="exp">{{__('member.paymentcard')}}</span> <br> <span class="description">( {{__('member.paymentcarddesc')}} )
                         </span></label><br>
@@ -114,7 +135,8 @@
                           </select>
                       </div>--}}
                     <div class="mt-5">
-                        <button id="btn-save-order" type="button" class="order_button w-100 ml-0">{{__('member.makepayment')}}</button>
+                        <button id="btn-save-order" type="button"
+                                class="order_button w-100 ml-0">{{__('member.makepayment')}}</button>
                     </div>
                 </div>
             </div>
@@ -129,33 +151,44 @@
             <hr>
             <br>
             <div class="mb-4 col-md-12">
-                <input type="url" name="link[]" placeholder="{{__('member.productLink')}} *" class="w-100 courier_input" required>
+                <input type="url" name="link[]" placeholder="{{__('member.productLink')}} *" class="w-100 courier_input"
+                       required>
             </div>
             <br>
-              <div class="col-md-12 col-sm-12 p-0">
+            <div class="col-md-12 col-sm-12 p-0">
                 <div class="col-md-2 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
-                    <input type="text" name="specification[]" placeholder="{{__('member.measure')}} *" class="w-100 courier_input" required="">
+                    <input type="text" name="specification[]" placeholder="{{__('member.measure')}} *"
+                           class="w-100 courier_input" required="">
                 </div>
                 <div class="col-md-3 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
-                    <input type="text" name="color[]" placeholder="{{__('member.color')}} *" class="w-100 courier_input" required="">
+                    <input type="text" name="color[]" placeholder="{{__('member.color')}} *" class="w-100 courier_input"
+                           required="">
                 </div>
                 <div class="col-md-2 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
-                    <input type="number" min="1" name="quantity[]" placeholder="{{__('member.number')}} *" class="w-100 courier_input" required="">
+                    <input type="number" min="1" name="quantity[]" placeholder="{{__('member.number')}} *"
+                           class="w-100 courier_input" required="">
                 </div>
                 <div class="col-md-3 col-sm-5 mb-4" style="padding-right: 0">
-                    <input type="text" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?" placeholder="{{__('member.price')}}({{$country->currency}}) *" class="w-100 courier_input" required>
+                    <input type="text" onkeyup="return numberValidation(this)" name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?"
+                           placeholder="{{__('member.price')}}({{$country->currency}}) *" class="w-100 courier_input"
+                           required>
+                    <span id="numberText"></span>
                 </div>
                 <div class="col-md-2 col-xs-6 mb-4 courier_dr">
-                    <input type="text" name="total[]" class="w-100 courier_input" readonly placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
+                    <input type="text" name="total[]" class="w-100 courier_input" readonly
+                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
                 </div>
                 <div class="col-md-12 mb-4 ">
-                    <textarea class="courier_textare mt-0" name="description[]" placeholder="{{__('member.productDetails')}}"></textarea>
+                    <textarea class="courier_textare mt-0" name="description[]"
+                              placeholder="{{__('member.productDetails')}}"></textarea>
                 </div>
-              </div>
+            </div>
 
             <div class="col-md-12 text-right">
-                <button type="button" class="courier_button mr-4 btn-add-container-order" style="width: auto;">{{__('member.addanewlink')}}<i class="fas fa-plus ml-3"></i></button>
-                <button type="button" class="invoice_button btn-remove-container-order">{{__('member.deletelink')}}<i class="fas fa-trash-alt ml-3"></i></button>
+                <button type="button" class="courier_button mr-4 btn-add-container-order"
+                        style="width: auto;">{{__('member.addanewlink')}}<i class="fas fa-plus ml-3"></i></button>
+                <button type="button" class="invoice_button btn-remove-container-order">{{__('member.deletelink')}}<i
+                        class="fas fa-trash-alt ml-3"></i></button>
             </div>
         </div>
 
@@ -171,4 +204,27 @@
         var taxOrder = {{$taxOrder}};
     </script>
     <script src="/front/js/orders/create.js?v=1.0.1"></script>
+    <script>
+
+        function numberValidation(num) {
+            var value = num.value;
+            var textValid = $("#validTextPrice").val();
+
+            var valid = (value.match(/^-?\d*(\.\d+)?$/));
+            if (valid == null) {
+                $(num).next().html(textValid) ;
+                $("#btn-save-order").fadeOut() ;
+            }
+            else{
+                $(num).next().html("") ;
+                $("#btn-save-order").fadeIn();
+            }
+
+        }
+    </script>
+    <style>
+        #numberText{
+            color: red;
+        }
+    </style>
 @endsection
