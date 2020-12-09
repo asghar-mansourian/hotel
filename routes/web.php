@@ -79,6 +79,8 @@ Route::group(['namespace' => 'Member', 'middleware' => ['auth','verified_sms']],
 
     Route::get('/storage/{id}', 'ImageController@show')->name('storage_image');
 
+    Route::post('/crawler','CrawlerWebsiteController@index')->name('crawler');
+
 });
 
 // web

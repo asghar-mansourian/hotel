@@ -46,7 +46,7 @@
                                             <div class="mb-4 col-md-12">
                                                 <input type="url" name="link[]"
                                                        placeholder="{{__('member.productLink')}} *"
-                                                       class="w-100 courier_input" required>
+                                                       class="w-100 courier_input" oninput="crawler(this)" required>
                                             </div>
                                             <br>
                                             <div class="col-md-12 col-sm-12 p-0">
@@ -151,7 +151,7 @@
             <hr>
             <br>
             <div class="mb-4 col-md-12">
-                <input type="url" name="link[]" placeholder="{{__('member.productLink')}} *" class="w-100 courier_input"
+                <input type="url" name="link[]" oninput="crawler(this)" placeholder="{{__('member.productLink')}} *" class="w-100 courier_input"
                        required>
             </div>
             <br>
@@ -205,7 +205,37 @@
     </script>
     <script src="/front/js/orders/create.js?v=1.0.1"></script>
     <script>
-
+        function crawler(input){
+            var link = input.value;
+            var price = $(input).closest('div').parent().find('[name="price[]"]');
+            if(link!=''){
+                $.ajax({
+                    url:'{{route('crawler')}}',
+                    data:{
+                        '_token':'{{csrf_token()}}',
+                        link:link
+                    },
+                    method:'POST',
+                    success:function(response){
+                        price.val(response.price);
+                        $(price).trigger('blur');
+                    },
+                    error:function(error){
+                        if(error.status == 500)
+                        {
+                            alert('{{__('member.crawlerLinkError')}}')
+                            price.val('');
+                            $(price).trigger('blur');
+                        }
+                        else {
+                            alert(error.responseJSON.message);
+                            price.val('');
+                            $(price).trigger('blur');
+                        }
+                    }
+                })
+            }
+        }
         function numberValidation(num) {
             var textValid = $("#validTextPrice").val();
             var value = num.value;
