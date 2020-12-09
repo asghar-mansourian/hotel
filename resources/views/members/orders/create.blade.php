@@ -14,6 +14,7 @@
         </div>
         <div class="row">
             <input type="hidden" id="validTextPrice" value="{{__('member.validPriceCalculator')}}">
+            <input type="hidden" id="crawlerLinkError" value="{{__('member.crawlerLinkError')}}">
             <div class="col-md-12 col-sm-12 col-xs-12 invoice_buttons">
                 @include('members.partials.buttons')
             </div>
@@ -47,6 +48,7 @@
                                                 <input type="url" name="link[]"
                                                        placeholder="{{__('member.productLink')}} *"
                                                        class="w-100 courier_input" oninput="crawler(this)" required>
+                                                <span class="linkText"  style="color: red!important;"></span>
                                             </div>
                                             <br>
                                             <div class="col-md-12 col-sm-12 p-0">
@@ -153,6 +155,7 @@
             <div class="mb-4 col-md-12">
                 <input type="url" name="link[]" oninput="crawler(this)" placeholder="{{__('member.productLink')}} *" class="w-100 courier_input"
                        required>
+                <span class="linkText"  style="color: red!important;"></span>
             </div>
             <br>
             <div class="col-md-12 col-sm-12 p-0">
@@ -207,6 +210,7 @@
     <script>
         function crawler(input){
             var link = input.value;
+            var textCrawel = $("#crawlerLinkError").val();
             var price = $(input).closest('div').parent().find('[name="price[]"]');
             if(link!=''){
                 $.ajax({
@@ -217,18 +221,22 @@
                     },
                     method:'POST',
                     success:function(response){
+                        $("#btn-save-order").fadeIn() ;
+                        $(input).next().html("") ;
                         price.val(response.price);
                         $(price).trigger('blur');
                     },
                     error:function(error){
                         if(error.status == 500)
                         {
-                            alert('{{__('member.crawlerLinkError')}}')
+                            $(input).next().html(textCrawel) ;
+                            $("#btn-save-order").fadeOut() ;
                             price.val('');
                             $(price).trigger('blur');
                         }
                         else {
-                            alert(error.responseJSON.message);
+                            $(input).next().html(textCrawel) ;
+                            $("#btn-save-order").fadeOut() ;
                             price.val('');
                             $(price).trigger('blur');
                         }
