@@ -37,7 +37,7 @@ class SettingController extends Controller
         $request->validate([
 //            'name' => ['required', 'string', 'max:255'],
 //            'family' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric', Rule::unique('users')->ignore(\auth()->user()->id), 'regex:/^(?:0|\(?\+994\)?\s?)[1-79](?:[\.\-\s]?\d\d){4}$/'],
+            'phone' => ['required', 'numeric', Rule::unique('users')->ignore(\auth()->user()->id), 'regex:/(9)[0-9]{9}/'],
             'address' => ['required', 'string', 'max:255'],
             'region_id' => ['required', 'exists:regions,id'],
 //            'birthdate' => ['required', 'string', 'regex:/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/'],
