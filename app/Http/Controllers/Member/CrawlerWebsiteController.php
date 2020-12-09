@@ -17,7 +17,7 @@ class CrawlerWebsiteController extends Controller
         ]);
         $result = $this->checkExistLink($request->link);
         if($result)
-            return response()->json(['price' => str_replace(' TL','',$result->price)]);
+            return response()->json(['price' => $result->price]);
         return response()->json(['status' => 'error','message' => 'Check link!'],500);
     }
 
@@ -38,23 +38,24 @@ class CrawlerWebsiteController extends Controller
                 $name = 'www.boyner.com.tr';
                 $price = $crawler->filter('.price-payable')->first()->text();
                 $image = $crawler->filter('.zoom')->first()->filter('img')->attr('data-lazy');
-                $image = str_replace('"','',$image);
-                $imageName = Str::random(40).'.jpg';
-                copy($image,public_path('/images/'.$imageName));
             }
             else{
                 $name = 'www.trendyol.com';
                 $price = $crawler->filter('.prc-dsc')->first()->text();
                 $image = $crawler->filter('.slick-current')->eq(1)->filter('img')->attr('src');
-                $image = str_replace('"','',$image);
-                $imageName = Str::random(40).'.jpg';
-                copy($image,public_path('/images/'.$imageName));
-                $price = str_replace(',','.',$price);
             }
+            $image = str_replace('"','',$image);
+            $imageName = Str::random(40).'.jpg';
+            copy($image,public_path('/images/'.$imageName));
+            $price = str_replace(',','.',$price);
+            $type_price = substr($price,strpos($price, " ") + 1);
+            $price = str_replace(' TL','',$price);
+
             $crawlerWebsit = new CrawlerWebsite();
             $crawlerWebsit->link =$link;
             $crawlerWebsit->name =$name;
             $crawlerWebsit->price =$price;
+            $crawlerWebsit->type_price =$type_price;
             $crawlerWebsit->photo =$imageName;
             $crawlerWebsit->save();
             return  $crawlerWebsit;

@@ -18,6 +18,7 @@ class CreateCrowlerWebsitesTable extends Migration
             $table->string('link');
             $table->string('name');
             $table->string('price');
+            $table->string('type_price');
             $table->string('photo');
             $table->text('data')->nullable();
             $table->timestamps();
