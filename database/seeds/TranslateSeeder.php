@@ -560,6 +560,7 @@ class TranslateSeeder extends Seeder
         'color' => 'color',
         'paid_success' => 'paid success',
         'paid_failed' => 'paid failed',
+        'crawlerLinkError' => 'Please check link address'
     ];
 
     private $website_items = [
