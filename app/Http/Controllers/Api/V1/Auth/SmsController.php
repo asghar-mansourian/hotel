@@ -16,7 +16,7 @@ class SmsController extends Controller
 
         $this->sendSms(auth()->user());
         return response()->json([
-            'code' => auth()->user()->sms_code,
+            'sms_code' => auth()->user()->sms_code,
         ],200);
 
     }
