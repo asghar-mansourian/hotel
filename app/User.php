@@ -99,4 +99,9 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo(Region::class, 'region_id');
     }
 
+    public function baskets()
+    {
+        return $this->hasMany(Basket::class , 'user_id');
+    }
+
 }

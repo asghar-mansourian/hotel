@@ -35,7 +35,7 @@
                             </div>
                             <div class="border_bar">
                                 @foreach($countries as $country)
-                                    <form action="{{route('orders.store')}}" method="POST" id="country-{{$country->id}}"
+                                    <form action="{{route('basketStore')}}" method="POST" id="country-{{$country->id}}"
                                           class="tabcontent" style="
                                     @if(request()->query('country') == $country->id) display: block;  @endif
                                     @if(is_null(request()->query('country')) && $loop->first) display: block;  @endif">
@@ -105,9 +105,9 @@
             <div class="col-md-3 col-sm-12 col-xs-12">
 
                 <div class="border_sh mt-5">
-                    <h4 class="text-center"><strong>{{__('member.order_title')}}</strong></h4>
-                    <div class="danger">
-                        <input type="radio" id="kart" checked name="payment_type"
+                    <h4 class="text-center" style="display: none"><strong>{{__('member.order_title')}}</strong></h4>
+                    <div class="danger" style="display: none">
+                        <input  type="radio" id="kart" checked name="payment_type"
                                value="{{\App\Order::PAYMENT_TYPE_ONLINE}}">
                         <label for="kart">
                             <span class="exp">{{__('member.paymentcard')}}</span> <br> <span class="description">( {{__('member.paymentcarddesc')}} )

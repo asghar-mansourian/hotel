@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Basket;
 use App\Blog;
 use App\Calculator;
 use App\Country;
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\Order;
+use App\Order as OrderModel;
 use App\lib\Helpers;
+use App\Payment;
 use App\Slider;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Session;
@@ -22,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
         CurrencyController::getCurrencyFromCrawel();
         CurrencyController::getCurrencyFromTwoApi();
 

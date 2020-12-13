@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Member;
 
+use App\Basket;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\TokenViaPaytr;
+use App\Http\Resources\V1\Order;
 use App\Payment;
 use Illuminate\Http\Request;
 use function view;
@@ -54,8 +56,14 @@ class PaytrController extends Controller
 
         $payment = Payment::find($request->get('merchant_oid'));
         $payment_type_balance = $payment->balance_type;
-        if ($request->get('status') == 'success') {
 
+        if ($request->get('status') == 'success') {
+            if ($payment->modelable_type == "App\Order" && $payment->modelable_id != null){
+                $order = Order::where('id' , $payment->modelable_id);
+                foreach ($order->orderItems as $item){
+                    Basket::where('link' , $item->link)->where('user_id' , auth()->user()->id)->delete();
+                }
+            }
             $payment->update(
                 [
                     'status' => 1,

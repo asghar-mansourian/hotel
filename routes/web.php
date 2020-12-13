@@ -62,6 +62,9 @@ Route::group(['namespace' => 'Member', 'middleware' => ['auth','verified_sms']],
     Route::resource('invoices', 'Invoice\InvoiceController');
 
     Route::resource('orders', 'Order\OrderController');
+    Route::post('storeToBasket' , 'Order\OrderController@storeToBasket')->name('basketStore');
+    Route::get('basket' , 'Order\OrderController@basket')->name('basketIndex');
+    Route::get('basket/delete/{id}' , 'Order\OrderController@deleteBasket')->name('basketDelete');
 
     Route::get('/my-addresses-abroad', 'AddressesAbroad\AddressesAbroadController@index')->name('my_addresses_abroad');
 
