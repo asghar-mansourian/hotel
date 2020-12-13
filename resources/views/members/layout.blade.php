@@ -206,8 +206,10 @@
 
     <script>
         $(document).ready(function () {
+            $("#basketFooter").hide();
             $('.clickBasket').on('change' , function (){
                 let value = $(this).attr('data-value');
+                let counter = 0;
                 let typePrice = $(this).attr('data-typePrice');
                 let price = parseFloat($(this).attr('data-price'));
                 let finalAmountValue = parseFloat($("#finalAmountValue").val());
@@ -216,7 +218,8 @@
                     $("#form-basket").append(
                         `<input type="hidden" name="basketItem[]" value="${value}">`
                     );
-                    finalAmountValue += price;
+
+                    finalAmountValue += price.toPrecision(6);
                     $("#finalAmountValue").attr('value' , finalAmountValue);
                     finalAmount.html(finalAmountValue + ' ' + typePrice);
                 }
@@ -225,11 +228,32 @@
                     $("input[name='basketItem[]']").each((key , item)=>{
                        if ($(item).val() == value){
                            $(item).remove();
+
+
                            finalAmountValue -= price;
                            $("#finalAmountValue").attr('value' , finalAmountValue);
                            finalAmount.html(finalAmountValue + ' ' + typePrice);
                        }
                     });
+                }
+
+                $("input[name='basketItem[]']").each((key , item)=>{
+
+                    if ($(this).prop('checked') == true){
+                        counter++;
+                        $("#basketFooter").show();
+                        if ($("#terms").prop('checked') == true){
+                            $("#basketSubmit").show();
+                        }
+                    }
+                    else{
+                        counter--;
+                    }
+
+                });
+                if (counter == 0){
+                    $("#basketFooter").hide();
+                    $("#basketSubmit").hide();
                 }
             });
         })
