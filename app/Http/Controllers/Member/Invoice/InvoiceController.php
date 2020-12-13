@@ -33,7 +33,7 @@ class InvoiceController extends Controller
     {
         $store = InvoiceCowsel::Store($request);
         $invoice = null;
-        if(strpos($store->body(),'"msg":"ok"'))
+        if(strpos($store->body(),'"msg":"ok"')!==false)
             $invoice = auth()->user()->invoices()->create(
                 $request->validated()
             );
