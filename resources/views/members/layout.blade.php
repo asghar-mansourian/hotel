@@ -134,13 +134,14 @@
 
         });
 
-        $(document).ready(function(){
-            $(".copy").click(function(e) {
-                thisEl=$(this);
-                copyId=thisEl.attr('data-copy')
-                text=$(this).parent().children('p.contents').text();
+        $(document).ready(function () {
+            $(".copy").click(function (e) {
+                thisEl = $(this);
+                copyId = thisEl.attr('data-copy')
+                text = $(this).parent().children('p.contents').text();
                 copyToClipboard(text)
             });
+
             function copyToClipboard(text) {
                 var elem = document.createElement("textarea");
                 document.body.appendChild(elem);
@@ -151,27 +152,27 @@
             }
 
 
-            $(".edit").click(function(e) {
-                var invoice= $(this).attr('data-invoice');
+            $(".edit").click(function (e) {
+                var invoice = $(this).attr('data-invoice');
                 // $("#invoicepopup-"+invoice).modal()
-                $("#invoicepopup-"+invoice).modal('toggle');
+                $("#invoicepopup-" + invoice).modal('toggle');
             });
 
-            $(".status").click(function(e) {
-                var invoice= $(this).attr('data-invoice');
-                $("#orderstatus-"+invoice).modal('toggle');
+            $(".status").click(function (e) {
+                var invoice = $(this).attr('data-invoice');
+                $("#orderstatus-" + invoice).modal('toggle');
             });
-            $(".items").click(function(e) {
-                var items= $(this).attr('data-items');
-                $("#items-"+items).modal('toggle');
+            $(".items").click(function (e) {
+                var items = $(this).attr('data-items');
+                $("#items-" + items).modal('toggle');
             });
 
-            $(".update").click(function(e) {
+            $(".update").click(function (e) {
                 e.preventDefault();
-                var invoice= $(this).attr('data-invoice');
-                var form=$('#country-'+invoice);
+                var invoice = $(this).attr('data-invoice');
+                var form = $('#country-' + invoice);
                 var url = '{{ route("invoices.update", ":id") }}';
-                url = url.replace(':id',invoice);
+                url = url.replace(':id', invoice);
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -180,19 +181,19 @@
 
 
                 $.ajax({
-                    type : "post",
-                    url : url,
-                    dataType : "json",
-                    data: new FormData(document.getElementById("invoice-"+invoice)),
+                    type: "post",
+                    url: url,
+                    dataType: "json",
+                    data: new FormData(document.getElementById("invoice-" + invoice)),
                     processData: false,
                     contentType: false,
-                    success : function(response){
+                    success: function (response) {
 
 
-                        if(response.success == true){
+                        if (response.success == true) {
                             location.reload();
-                        }else{
-                            $.each(response.errors,function(k,error){
+                        } else {
+                            $.each(response.errors, function (k, error) {
                                 alert(error);
                             });
                         }
@@ -207,51 +208,49 @@
     <script>
         $(document).ready(function () {
             $("#basketFooter").hide();
-            $('.clickBasket').on('change' , function (){
+            $('.clickBasket').on('change', function () {
                 let value = $(this).attr('data-value');
                 let counter = 0;
                 let typePrice = $(this).attr('data-typePrice');
                 let price = parseFloat($(this).attr('data-price'));
                 let finalAmountValue = parseFloat($("#finalAmountValue").val());
                 let finalAmount = $("#finalAmount");
-                if($(this).prop('checked') == true){
+                if ($(this).prop('checked') == true) {
                     $("#form-basket").append(
                         `<input type="hidden" name="basketItem[]" value="${value}">`
                     );
 
                     finalAmountValue += price;
-                    $("#finalAmountValue").attr('value' , finalAmountValue);
-                    finalAmount.html(finalAmountValue + ' ' + typePrice);
-                }
-                else{
+                    $("#finalAmountValue").attr('value', finalAmountValue);
+                    finalAmount.html(finalAmountValue.toFixed(2) + ' ' + typePrice);
+                } else {
 
-                    $("input[name='basketItem[]']").each((key , item)=>{
-                       if ($(item).val() == value){
-                           $(item).remove();
+                    $("input[name='basketItem[]']").each((key, item) => {
+                        if ($(item).val() == value) {
+                            $(item).remove();
 
-
-                           finalAmountValue -= price;
-                           $("#finalAmountValue").attr('value' , finalAmountValue);
-                           finalAmount.html(finalAmountValue + ' ' + typePrice);
-                       }
+                            finalAmountValue = finalAmountValue.toFixed(3);
+                            finalAmountValue -= price.toFixed(3);
+                            $("#finalAmountValue").attr('value', finalAmountValue);
+                            finalAmount.html(finalAmountValue.toFixed(2) + ' ' + typePrice);
+                        }
                     });
                 }
 
-                $("input[name='basketItem[]']").each((key , item)=>{
+                $("input[name='basketItem[]']").each((key, item) => {
 
-                    if ($(this).prop('checked') == true){
+                    if ($(this).prop('checked') == true) {
                         counter++;
                         $("#basketFooter").show();
-                        if ($("#terms").prop('checked') == true){
+                        if ($("#terms").prop('checked') == true) {
                             $("#basketSubmit").show();
                         }
-                    }
-                    else{
+                    } else {
                         counter--;
                     }
 
                 });
-                if (counter == 0){
+                if (counter == 0) {
                     $("#basketFooter").hide();
                     $("#basketSubmit").hide();
                 }
