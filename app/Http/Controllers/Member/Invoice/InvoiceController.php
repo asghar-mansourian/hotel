@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Member\Invoice;
 use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Cowsel\Buy;
+use App\Http\Controllers\Cowsel\Invoice as InvoiceCowsel;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Invoice;
 
@@ -31,17 +31,19 @@ class InvoiceController extends Controller
 
     public function store(InvoiceRequest $request)
     {
-        $store = Buy::Store($request);
+        $store = InvoiceCowsel::Store($request);
+        $invoice = null;
+        if(strpos($store->body(),'"msg":"ok"'))
             $invoice = auth()->user()->invoices()->create(
                 $request->validated()
             );
-            if ($invoice) {
-                $request->session()->flash('message', __('member.invoice.message.create_success'));
-                $request->session()->flash('success', 1);
-            } else {
-                $request->session()->flash('danger', 1);
-                $request->session()->flash('message', 'member.invoicemessage.create_failed');
-            }
+        if ($invoice) {
+            $request->session()->flash('message', __('member.invoice.message.create_success'));
+            $request->session()->flash('success', 1);
+        } else {
+            $request->session()->flash('danger', 1);
+            $request->session()->flash('message', 'member.invoicemessage.create_failed');
+        }
 
         return redirect()->route('invoices.index');
     }

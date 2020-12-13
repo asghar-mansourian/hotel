@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Cowsel;
 
 use Illuminate\Support\Facades\Http;
 
-class Buy
+class Invoice
 {
     public static function store($request)
     {
