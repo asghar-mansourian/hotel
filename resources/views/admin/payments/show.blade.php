@@ -40,7 +40,8 @@
                         @endcomponent
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                <span>{{__('admin.userid')}}</span>
+                                <span>{{__('admin.paymenttype')}}</span>
+                                    <a href="{{url('admin/users/edit/' . $payment->user_id)}}" class="ml-3 btn btn-info btn-sm">{{__('admin.show')}}</a>
                             @endslot
 
                             @slot('type')
@@ -57,7 +58,7 @@
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 <span>{{__('admin.userid')}}</span>
-                                <a href="" class="ml-3 btn btn-info btn-sm">{{__('admin.show')}}</a>
+
                             @endslot
 
                             @slot('type')
