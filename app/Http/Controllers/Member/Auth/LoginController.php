@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Member\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cowsel\Customer as CowselCustomer;
 use App\Http\Controllers\Traits\MemberVerifySms;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -31,19 +29,12 @@ class LoginController extends Controller
      */
     protected $is_loggedIn = false;
     protected $user;
-
-    public function showLoginForm()
-    {
-        return view('members.login');
-    }
-
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-
 
     /**
      * Create a new controller instance.
@@ -55,7 +46,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except(['logout', 'verifySmsCodeView', 'verifySms', 'resendSms']);
     }
 
+    public function showLoginForm()
+    {
+        return view('members.login');
+    }
+
 //    this section is for verify by sms
+
     public function verifySmsCodeView()
     {
         $user = auth()->user();
@@ -84,12 +81,15 @@ class LoginController extends Controller
 
         return response()->json(['success' => true]);
     }
+
 //end
 
-
-    protected function credentials(Request $request)
+    public function authenticated()
     {
-        return $request->only($this->username(), 'password', 'verified');
+        (new CowselCustomer())->login(auth()->user());
+
+        if (auth()->user()->verified == 0)
+            $this->sendSms(auth()->user());
     }
 
     protected function attemptLogin(Request $request)
@@ -100,15 +100,13 @@ class LoginController extends Controller
         );
     }
 
+    protected function credentials(Request $request)
+    {
+        return $request->only($this->username(), 'password', 'verified');
+    }
 
     protected function loggedOut(Request $request)
     {
         return redirect('/login');
-    }
-
-    public function authenticated()
-    {
-        if (auth()->user()->verified == 0)
-                $this->sendSms(auth()->user());
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static getValue(string $Key)
+ * @method static where(string $key, string $value)
  */
 class Setting extends Model
 {
@@ -41,6 +42,7 @@ class Setting extends Model
     const FIELD_MAX_WEIGHT = 'max_weight';
     const FIELD_MAX_WEIGHT_PRICE = 'max_weight_price';
     const FIELD_AREA_CODE = 'area_code';
+    const FIELD_COWSEL_TOKEN = 'cowsel_token';
 
     public function scopeGetValue($query, $key)
     {
