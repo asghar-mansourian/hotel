@@ -19,6 +19,17 @@
             </li>
             @auth('web')
                 <li>
+                    <a href="{{url('/basket')}}" class="btn btn-outline-danger " type="button" style="    margin-top: -4px;
+    border:2px solid #f25c69;
+    color: #fff;
+    font-size: 11px;
+    padding: 6px 24px;">
+                        <i style="color:#f25c69 " class="fa fa-shopping-basket"></i>
+                    </a>
+                </li>
+            @endauth
+            @auth('web')
+                <li>
                     <a href="/orders/create" class="btn btn-secondary" type="button" style="    margin-top: -4px;
     background: #f25c69;
     color: #fff;
