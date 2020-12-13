@@ -17,7 +17,7 @@
         </div>
 
 
-        <div class="col-lg-4">
+        <div class="col-4">
             @component('admin.components.search')
                 @slot('url')
                     {{url('admin/orders/search')}}
@@ -111,7 +111,7 @@
         @endslot
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}"> {{__('admin.dashboard')}}/a></li>
+                    href="{{url('/admin/home')}}"> {{__('admin.dashboard')}}</a></li>
             <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('admin.ordertitle')}}
             </li>
         @endslot

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\OrderItem;
 use App\Payment;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -70,22 +71,20 @@ class OrderController extends Controller
 
         $orders =
             Order::query()
-                ->orWhere('authority', 'like', '%' . $search . '%')
-                ->orWhere('price', 'like', '%' . $search . '%')
-                ->orWhere('refid', 'like', '%' . $search . '%')
-                ->select(Order::selectField)
-                ->paginate(Order::paginateNumber);
 
+                ->whereHas('user', function (Builder $query) use ($search) {
+                })
+                ->select(Order::selectField)
+                ->paginate(30);
 
         $countorders = Payment::query()
             ->orWhere('price', 'like', '%' . $search . '%')
             ->count();
 
-        return View::make('admin.orders.table', compact('orders'), with([
+        return View::make('admin.orders.index', compact('orders'), with([
             'sortField' => Order::sortField,
             'sortType' => Order::sortType,
             'countorders' => $countorders,
-            'paginate' => false,
         ]));
     }
 
@@ -121,13 +120,14 @@ class OrderController extends Controller
     public function destroy($id)
     {
         order::query()->find($id)->delete();
-        orderItem::query()->where('order_id' , $id)->delete();
+        orderItem::query()->where('order_id', $id)->delete();
         session()->flash('message', __('custom.order.message.delete'));
         session()->flash('success', 1);
         return redirect()->back();
 
     }
-    public function status($id , $type)
+
+    public function status($id, $type)
     {
         order::query()->find($id)->update([
             'status' => $type,

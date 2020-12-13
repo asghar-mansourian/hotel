@@ -41,7 +41,8 @@
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 <span>{{__('admin.userid')}}</span>
-                                <a href="{{url('admin/users/edit/' . $order->user_id)}}" class="ml-3 btn btn-info btn-sm">{{__('admin.show')}}</a>
+                                <a href="{{url('admin/users/edit/' . $order->user_id)}}"
+                                   class="ml-3 btn btn-info btn-sm">{{__('admin.show')}}</a>
                             @endslot
 
                             @slot('type')
@@ -87,7 +88,10 @@
                             @endslot
 
                             @slot('value')
-                                {{$order->branch->region->name}}
+                                    @if($order->branch != null)
+                                        {{$order->branch->region->name}}
+                                    @endif
+
                             @endslot
                             @slot('attr')
                                 disabled
@@ -105,7 +109,9 @@
                             @endslot
 
                             @slot('value')
-                                {{$order->branch->title}}
+                                @if($order->branch != null)
+                                    {{$order->branch->title}}
+                                @endif
                             @endslot
                             @slot('attr')
                                 disabled
@@ -162,10 +168,10 @@
                             @slot('value')
                                 {{$order->status}}
                             @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
                         {{--                        @component('admin.components.form.textLabel')--}}
                         {{--                            @slot('label')--}}
                         {{--                                message--}}
