@@ -25,7 +25,6 @@
         <table
             class="table table-striped card-table table-vcenter text-nowrap table-responsive table-bordered table-hover"
             style="width: 100%;
-    display: block;
     height: auto;
     overflow-x: scroll;"
         >
