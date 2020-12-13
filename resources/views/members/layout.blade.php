@@ -219,7 +219,7 @@
                         `<input type="hidden" name="basketItem[]" value="${value}">`
                     );
 
-                    finalAmountValue += price.toPrecision(6);
+                    finalAmountValue += price;
                     $("#finalAmountValue").attr('value' , finalAmountValue);
                     finalAmount.html(finalAmountValue + ' ' + typePrice);
                 }
