@@ -91,7 +91,7 @@
             @endif
         </div>
         @if(count($baskets) > 0)
-            <div class="text-center">
+            <div class="text-center" id="basketFooter">
 
                 <input data-target="#polices" onclick="check2(this)" class="@error('terms') is-invalid @enderror"
                        id="terms" type="checkbox" name="terms" required
