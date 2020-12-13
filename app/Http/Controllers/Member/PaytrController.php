@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Basket;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\TokenViaPaytr;
-use App\Http\Resources\V1\Order;
+use App\OrderItem;
 use App\Payment;
 use Illuminate\Http\Request;
 use function view;
@@ -56,12 +56,14 @@ class PaytrController extends Controller
 
         $payment = Payment::find($request->get('merchant_oid'));
         $payment_type_balance = $payment->balance_type;
+        $modelable_id = $payment->modelable_id;
+        $modelable_type = $payment->modelable_type;
 
         if ($request->get('status') == 'success') {
             if ($payment->modelable_type == "App\Order" && $payment->modelable_id != null){
-                $order = Order::where('id' , $payment->modelable_id);
-                foreach ($order->orderItems as $item){
-                    Basket::where('link' , $item->link)->where('user_id' , auth()->user()->id)->delete();
+                $orders = OrderItem::where('order_id' , $payment->modelable_id)->get();
+                foreach ($orders as $item){
+                    Basket::where('link' , $item->link)->where('user_id' , $payment->user_id)->delete();
                 }
             }
             $payment->update(
@@ -72,11 +74,12 @@ class PaytrController extends Controller
             );
 
             if ($payment->where('type', Payment::PAYMENT_TYPE_CASH)->exists()) {
-                if ($payment_type_balance == Payment::PAYMENT_TYPE_BALANCE_ONE){
-                    $payment->user->increment('balance', $payment->price);
-                }
-                else{
-                    $payment->user->increment('usd_balance', $payment->price);
+                if ($modelable_id == null && $modelable_type == null) {
+                    if ($payment_type_balance == Payment::PAYMENT_TYPE_BALANCE_ONE) {
+                        $payment->user->increment('balance', $payment->price);
+                    } else {
+                        $payment->user->increment('usd_balance', $payment->price);
+                    }
                 }
 
             }
