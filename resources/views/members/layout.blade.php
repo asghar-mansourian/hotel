@@ -203,4 +203,35 @@
         });
 
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.clickBasket').on('change' , function (){
+                let value = $(this).attr('data-value');
+                let typePrice = $(this).attr('data-typePrice');
+                let price = parseFloat($(this).attr('data-price'));
+                let finalAmountValue = parseFloat($("#finalAmountValue").val());
+                let finalAmount = $("#finalAmount");
+                if($(this).prop('checked') == true){
+                    $("#form-basket").append(
+                        `<input type="hidden" name="basketItem[]" value="${value}">`
+                    );
+                    finalAmountValue += price;
+                    $("#finalAmountValue").attr('value' , finalAmountValue);
+                    finalAmount.html(finalAmountValue + ' ' + typePrice);
+                }
+                else{
+
+                    $("input[name='basketItem[]']").each((key , item)=>{
+                       if ($(item).val() == value){
+                           $(item).remove();
+                           finalAmountValue -= price;
+                           $("#finalAmountValue").attr('value' , finalAmountValue);
+                           finalAmount.html(finalAmountValue + ' ' + typePrice);
+                       }
+                    });
+                }
+            });
+        })
+    </script>
 @endsection

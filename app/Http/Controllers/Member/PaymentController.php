@@ -17,53 +17,57 @@ class PaymentController extends Controller
 
     public function verify()
     {
-        $payments = Payment::query()->where('user_id' , Auth::user()->id)
-            ->where('type' , Payment::PAYMENT_TYPE_CASH)
-            ->orderBy('created_at','DESC')
+        $payments = Payment::query()->where('user_id', Auth::user()->id)
+            ->where('type', Payment::PAYMENT_TYPE_CASH)
+            ->orderBy('created_at', 'DESC')
             ->latest()
             ->paginate(10);
 
 
         if (request()->is('az-balance')) {
-            $payments = $payments->where('balance_type' , 'tl');
-            return view('members.az-balance'  , compact('payments'));
+            $payments = $payments->where('balance_type', 'tl');
+            return view('members.az-balance', compact('payments'));
         } else {
-            $payments = $payments->where('balance_type' , 'usd');
-            return view('members.tl-balance' , compact('payments'));
+            $payments = $payments->where('balance_type', 'usd');
+            return view('members.tl-balance', compact('payments'));
         }
 
     }
 
     public function gate($order = null)
     {
-
         $payment = new Payment();
         $payment->user_id = auth()->user()->id;
-        if (request()->has('amount_tl') || request()->has('amount_usd')){
-            if (request()->has('amount_tl')){
+        $payment_balance = null;
+        $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
+        if (request()->has('amount_tl') || request()->has('amount_usd')) {
+            if (request()->has('amount_tl')) {
                 $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
                 $payment_balance = request()->get('amount_tl');
-            }
-            else{
+            } else {
                 $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_TWO;
                 $payment_balance = request()->get('amount_usd');
             }
         }
-        if (request()->has('total')){
+        if (request()->has('total')) {
             $payment_balance = 0;
-            foreach (request()->get('total') as $amount){
+            foreach (request()->get('total') as $amount) {
                 $payment_balance += $amount;
             }
             $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
 
         }
+
         if (!$order) {
             $payment->type = Payment:: PAYMENT_TYPE_CASH;
             $payment->balance_type = $payment_balance_type;
             $payment->price = $payment_balance;
             $payment->description = 'payment by online . increment wallet';
             $payment->save();
-        } else{
+        } else {
+            if (!$payment_balance) {
+                $payment_balance = $order->total;
+            }
             $payment->type = Payment:: PAYMENT_TYPE_ONLINE;
             $payment->price = $payment_balance;
             $payment->description = 'payment by online . paid order';

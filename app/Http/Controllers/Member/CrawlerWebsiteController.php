@@ -21,6 +21,14 @@ class CrawlerWebsiteController extends Controller
         return response()->json(['status' => 'error','message' => 'Check link!'],500);
     }
 
+    public function get($link)
+    {
+        $result = $this->checkExistLink($link);
+        if($result)
+            return $result->price;
+        return false;
+    }
+
     public function checkExistLink($link)
     {
         $result = CrawlerWebsite::where('link',$link)->first();

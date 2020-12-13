@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Member\Order;
 
+use App\Basket;
 use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
@@ -51,6 +52,7 @@ class OrderController extends Controller
         }
     }
 
+
     public function paidViaCash($order)
     {
         // if balance less order total then remove order & order items
@@ -68,6 +70,9 @@ class OrderController extends Controller
         DB::transaction(function () use ($order) {
             $user = auth()->user();
 
+            foreach ($order->orderItems as $item){
+                Basket::where('link' , $item->link)->where('user_id' , $user->id)->delete();
+            }
             $payment = new Payment();
             $payment->user_id = $user->id;
             $payment->type = Payment:: PAYMENT_TYPE_CASH;
