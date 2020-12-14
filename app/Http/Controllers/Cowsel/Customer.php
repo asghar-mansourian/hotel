@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cowsel;
 
 
 use App\lib\Cowsel;
+use App\Setting;
 use Illuminate\Support\Facades\Http;
 
 class Customer
@@ -20,20 +21,29 @@ class Customer
             ->get($url)
             ->object();
 
+        if (isset($response->code)) {
+            if ($response->code == 1) {
+                if (!isset($response->data[0]->cr_no)) {
+                    $this->register($user);
 
-        if ($response->code == 1) {
-            if (!isset($response->data->cr_no)) {
-                $this->register($user);
+                    return;
+                }
 
-                return;
-            }
+                if ($user->code != $response->data[0]->cr_kod) {
+                    $user->code = $response->data[0]->cr_kod;
+                }
 
-            if ($user->cowsel_id != $response->data->cr_no) {
-
-                $user->cowsel_id = $response->data->cr_no;
-                $user->code = $response->data->cr_kod;
+                if ($user->cowsel_id != $response->data[0]->cr_no) {
+                    $user->cowsel_id = $response->data[0]->cr_no;
+                }
 
                 $user->save();
+            }
+        } elseif (isset($response->message)) {
+            if ($response->message == 'Token Hatası.') {
+                Setting::where('key', Setting::FIELD_COWSEL_TOKEN)->update(['value' => '']);
+
+                $this->login($user);
             }
         }
     }
@@ -65,13 +75,21 @@ class Customer
                 ]
             )->object();
 
+        if (isset($response->code)) {
+            if ($response->code == 1) {
+                $user->code = $response->data->code;
+                $user->cowsel_id = $response->data->id;
 
-        if ($response->code == 1) {
-            $user->code = $response->data->code;
-            $user->cowsel_id = $response->data->id;
+                $user->save();
+            }
+        } elseif (isset($response->message)) {
+            if ($response->message == 'Token Hatası.') {
+                Setting::where('key', Setting::FIELD_COWSEL_TOKEN)->update(['value' => '']);
 
-            $user->save();
+                $this->register($user);
+            }
         }
+
     }
 
 }
