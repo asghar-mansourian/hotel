@@ -18,10 +18,20 @@ class PaymentController extends Controller
 
     public function incrementBalance(IncrementBalanceRequest $request)
     {
+        if (request()->has('amount_tl') || request()->has('amount_usd')) {
+            if (request()->has('amount_tl')) {
+                $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
+                $payment_balance = request()->get('amount_tl');
+            } else {
+                $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_TWO;
+                $payment_balance = request()->get('amount_usd');
+            }
+        }
         $payment = new Payment();
         $payment->user_id = auth()->user()->id;
         $payment->type = Payment:: PAYMENT_TYPE_CASH;
-        $payment->price = $request->get('amount');
+        $payment->price = $payment_balance;
+        $payment->balance_type = $payment_balance_type;
         $payment->description = 'increment balance';
         $payment->save();
 
