@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\incrementBalance;
 use Illuminate\Foundation\Http\FormRequest;
 
 class IncrementBalanceRequest extends FormRequest
@@ -24,7 +25,8 @@ class IncrementBalanceRequest extends FormRequest
     public function rules()
     {
         return [
-            'amount' => 'required|numeric|min:1'
+            'amount_tl' => ['numeric','min:1'],
+            'amount_usd' => ['numeric','min:1'],
         ];
     }
 }

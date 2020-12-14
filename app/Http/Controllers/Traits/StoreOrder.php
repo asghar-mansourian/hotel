@@ -6,10 +6,12 @@ namespace App\Http\Controllers\Traits;
 
 use App\Basket;
 use App\Http\Controllers\Member\CrawlerWebsiteController;
+use App\Http\Requests\Member\BasketRequest;
 use App\Http\Requests\Member\OrderRequest;
 use App\lib\Helpers;
 use App\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -24,6 +26,7 @@ trait StoreOrder
         else{
             $paymentType = 0;
         }
+
         $countryId = $orders->first()->country_id;
         $branchId = $orders->first()->branch_id ?? null;
         $links = $request->get('link');
@@ -64,11 +67,10 @@ trait StoreOrder
             $order->total = $order->orderItems()->sum('total');
             $order->save();
         });
-
         return $this->stored($order);
     }
 
-    public function storeToBasket(OrderRequest $request)
+    public function storeToBasket(BasketRequest $request)
     {
         $countryId = $request->get('country_id');
         $paymentType = $request->get('payment_type');
@@ -101,20 +103,28 @@ trait StoreOrder
                 $basketItem->specification = $specifications[$key];
                 $basketItem->color = $colors[$key];
                 $basketItem->description = $descriptions[$key];
-                $basketItem->total = $this->calcTotalOrderPrice($basketItem);
-                $basketItem->save();
                 $resultPrice = $crawel_model->get($link);
+                $basketItem->total = $this->calcTotalOrderPrice($basketItem);
                 if ($resultPrice){
                     if ($resultPrice != $prices[$key]){
-                        DB::rollBack();
+                        continue;
                     }
-
                 }
+                $basketItem->save();
+
             }
 
         });
+        if (request()->is('api/v*')) {
+            return response()->json([
+                "message" => "save order has been successful",
+            ],200);
+        }
+        else{
+            return redirect()->to('/basket');
+        }
 
-        return redirect()->to('/basket');
+
 
     }
 
@@ -137,16 +147,5 @@ trait StoreOrder
         return $order;
     }
 
-    public function deleteBasket($id)
-    {
-        $basket = Basket::where('id' , $id)->where('user_id' , auth()->user()->id)->first();
-        if (!!$basket)
-            Basket::where('id' , $id)->delete();
 
-        request()->session()->flash('message', __('member.deleteSuccessful'));
-        request()->session()->flash('success', 1);
-
-        return back();
-
-    }
 }
