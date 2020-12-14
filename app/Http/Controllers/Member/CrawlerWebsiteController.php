@@ -29,6 +29,14 @@ class CrawlerWebsiteController extends Controller
         return false;
     }
 
+    public function getAll($link)
+    {
+        $result = $this->checkExistLink($link);
+        if($result)
+            return $result;
+        return false;
+    }
+
     public function checkExistLink($link)
     {
         $result = CrawlerWebsite::where('link',$link)->first();
