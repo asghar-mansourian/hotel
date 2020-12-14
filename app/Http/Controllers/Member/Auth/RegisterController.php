@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Member\Auth;
 
 use App\Country;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cowsel\Customer as CowselCustomer;
 use App\Http\Controllers\Traits\MemberRegister;
 use App\Http\Controllers\Traits\MemberVerifySms;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\JsonResponse;
@@ -39,12 +39,20 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $countries = Country::query()
-        ->select($this->customSelectedFields())
-        ->get();
+            ->select($this->customSelectedFields())
+            ->get();
 
         return view('members.register', compact('countries'));
     }
 
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        return [$name, 'id'];
+    }
 
     public function register(Request $request)
     {
@@ -64,22 +72,13 @@ class RegisterController extends Controller
             : redirect($this->redirectPath());
     }
 
-
-    private function customSelectedFields()
-    {
-        $locale = app()->getLocale();
-
-        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
-
-        return [$name, 'id'];
-    }
-
     protected function registered(Request $request, $user)
     {
         $this->sendSms($user);
+
+        (new CowselCustomer())->register($user);
+
         return $this->verifySmsCodeView();
-
-
     }
 
     public function verifySmsCodeView()

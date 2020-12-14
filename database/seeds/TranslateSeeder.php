@@ -27,8 +27,7 @@ class TranslateSeeder extends Seeder
                     [
                         'locale' => $this->locale,
                         'group' => $list,
-                        'key' => $key,
-                        'value' => $item,
+                        'key' => $key
                     ],
                     [
                         'key' => $key,

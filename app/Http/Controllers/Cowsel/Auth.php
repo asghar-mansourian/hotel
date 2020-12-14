@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Cowsel;
 
 
-use App\User;
 use Illuminate\Support\Facades\Http;
 
 class Auth
@@ -19,30 +18,5 @@ class Auth
         );
 
         return Http::get($url);
-    }
-
-    public static function register($user)
-    {
-        $url = sprintf("%s/android/cari/cari/store",
-            env('COWSEL_API_URL')
-        );
-
-        return Http::withHeaders(['Authorization' => auth()->user()->token])
-            ->asForm()
-            ->post(
-                $url,
-                [
-                    'name' => $user->name,
-                    'family' => $user->family,
-                    'email' => $user->email,
-                    'phone' => $user->phone,
-                    'address' => $user->address,
-                    'fin' => $user->fin,
-                    'gender' => User::GENDER_ALL[$user->gender],
-                    'serial_number' => $user->serial_number,
-                    'birthdate' => $user->birthdate,
-                    'citizenship' => $user->citizenship
-                ]
-            );
     }
 }
