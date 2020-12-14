@@ -83,5 +83,9 @@ Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
 
             Route::get('/order-status-key','OrderController@getStatusKey');
 
+            Route::post('/basket/store','OrderController@storeToBasket');
+            Route::get('/basket','OrderController@basket');
+            Route::post('/basket/delete','OrderController@deleteBasket');
+
         });
 });

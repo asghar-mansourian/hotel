@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Basket;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Http\Resources\V1\Order as OrderResource;
 use App\Order;
 use App\Payment;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -60,7 +62,9 @@ class OrderController extends Controller
 
         DB::transaction(function () use ($order) {
             $user = auth()->user();
-
+            foreach ($order->orderItems as $item){
+                Basket::where('link' , $item->link)->where('user_id' , $user->id)->delete();
+            }
             $payment = new Payment();
             $payment->user_id = $user->id;
             $payment->type = Payment:: PAYMENT_TYPE_CASH;
@@ -95,5 +99,28 @@ class OrderController extends Controller
         return response()->json([
             'data' => $statusKey
         ] , 200);
+    }
+
+
+    public function basket()
+    {
+        $baskets = Basket::where('user_id' , auth()->user()->id)->get();
+        return response()->json([
+            'data' => $baskets,
+        ] , 200);
+    }
+
+    public function deleteBasket(Request $request)
+    {
+        $basket = Basket::where('id' , $request->id)->where('user_id' , auth()->user()->id)->first();
+        if (!!$basket){
+            Basket::where('id' , $id)->delete();
+
+        }
+
+        return response()->json([
+            'message' => 'deleted successful',
+        ] , 200);
+
     }
 }

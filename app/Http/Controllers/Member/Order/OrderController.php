@@ -97,4 +97,17 @@ class OrderController extends Controller
     {
         return (new PaymentController())->gate($order);
     }
+
+    public function deleteBasket($id)
+    {
+        $basket = Basket::where('id' , $id)->where('user_id' , auth()->user()->id)->first();
+        if (!!$basket)
+            Basket::where('id' , $id)->delete();
+
+        request()->session()->flash('message', __('member.deleteSuccessful'));
+        request()->session()->flash('success', 1);
+
+        return back();
+
+    }
 }
