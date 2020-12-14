@@ -114,7 +114,7 @@ class OrderController extends Controller
     {
         $basket = Basket::where('id' , $request->id)->where('user_id' , auth()->user()->id)->first();
         if (!!$basket){
-            Basket::where('id' , $id)->delete();
+            Basket::where('id' , $request->id)->delete();
 
         }
 
