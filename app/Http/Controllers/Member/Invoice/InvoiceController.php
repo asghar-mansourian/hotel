@@ -31,13 +31,12 @@ class InvoiceController extends Controller
 
     public function store(InvoiceRequest $request)
     {
-        $store = InvoiceCowsel::Store($request);
-        $invoice = null;
-        if(strpos($store->body(),'"msg":"ok"')!==false)
+
             $invoice = auth()->user()->invoices()->create(
                 $request->validated()
             );
         if ($invoice) {
+            $store = InvoiceCowsel::Store($request);
             $request->session()->flash('message', __('member.invoice.message.create_success'));
             $request->session()->flash('success', 1);
         } else {
