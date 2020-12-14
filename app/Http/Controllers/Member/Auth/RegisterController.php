@@ -81,8 +81,7 @@ class RegisterController extends Controller
         return $this->verifySmsCodeView();
     }
 
-    public
-    function verifySmsCodeView()
+    public function verifySmsCodeView()
     {
         $user = auth()->user();
 
