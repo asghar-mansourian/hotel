@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cowsel\Customer as CowselCustomer;
 use App\Http\Controllers\Traits\MemberResponseToken;
 use Illuminate\Http\JsonResponse;
 
@@ -27,6 +28,8 @@ class LoginController extends Controller
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+
+        (new CowselCustomer())->login(auth()->user());
 
         return $this->respondWithToken($token, 'Login Successfully');
     }

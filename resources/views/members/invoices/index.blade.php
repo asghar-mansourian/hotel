@@ -221,7 +221,7 @@
             </div>
 
             @foreach($countries as $country)
-                @foreach($country->invoices->filterViaStatus(request()->query('status')) as $invoice)
+                @foreach(auth()->user()->invoices->filterViaStatus(request()->query('status'))  as $invoice)
                     {{--            popup edit--}}
                     <div id="invoicepopup-{{$invoice->id}}" class="modal fade bd-example-modal-lg" tabindex="-1"
                          role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
