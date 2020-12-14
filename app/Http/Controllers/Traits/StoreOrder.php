@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Traits;
 
 
 use App\Basket;
+use App\Http\Controllers\Cowsel\Order as OrderAlias;
 use App\Http\Controllers\Member\CrawlerWebsiteController;
 use App\Http\Requests\Member\BasketRequest;
 use App\Http\Requests\Member\OrderRequest;
@@ -47,6 +48,11 @@ trait StoreOrder
                     'branch_id' => null
                 ]
             );
+//            $myorder = [
+//                'color' =>
+//            ];
+            $cowsel_id = OrderAlias::storeGetId();
+
             foreach ($orders as $item) {
 
                 $orderItem = new OrderItem();
@@ -60,6 +66,7 @@ trait StoreOrder
                 $orderItem->description = $item->description;
                 $orderItem->total = $this->calcTotalOrderPrice($orderItem);
 
+                OrderAlias::urunStore($orderItem , $cowsel_id);
                 $order->orderItems()->save($orderItem);
 
             }
