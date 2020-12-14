@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member\Invoice;
 use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cowsel\Invoice as InvoiceCowsel;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Invoice;
 
@@ -30,11 +31,12 @@ class InvoiceController extends Controller
 
     public function store(InvoiceRequest $request)
     {
-        $invoice = auth()->user()->invoices()->create(
-            $request->validated()
-        );
 
+            $invoice = auth()->user()->invoices()->create(
+                $request->validated()
+            );
         if ($invoice) {
+            $store = InvoiceCowsel::Store($request);
             $request->session()->flash('message', __('member.invoice.message.create_success'));
             $request->session()->flash('success', 1);
         } else {
