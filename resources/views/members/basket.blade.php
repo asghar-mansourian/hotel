@@ -241,26 +241,18 @@
                         <span class="checkbox-custom circular"></span>
                     </label>
                 </td>
-{{--                <td>{{__('member.picture')}}</td>--}}
+                <td>{{__('member.link')}}</td>
 
-{{--                <td>{{__('member.link')}}</td>--}}
-{{--                <td>{{__('member.quantity')}}</td>--}}
-{{--                <td>{{__('member.comission')}}</td>--}}
-{{--                <td>{{__('member.price')}}</td>--}}
-{{--                <td>{{__('member.total')}}</td>--}}
-{{--                <td>{{__('member.cargo')}}</td>--}}
-{{--                <th>{{__('member.delete')}}</th>--}}
+                <td>{{__('member.picture')}}</td>
+
+                <td>{{__('member.quantity')}}</td>
+                <td>{{__('member.comission')}}</td>
+                <td>{{__('member.price')}}</td>
+                <td>{{__('member.total')}}</td>
+                <td>{{__('member.cargo')}}</td>
+                <td>{{__('member.delete')}}</td>
 
 
-                                <td>link</td>
-                <td>picture</td>
-
-                <td>quantity</td>
-                                <td>comission</td>
-                                <td>price</td>
-                                <td>total</td>
-                                <td>cargo</td>
-                                <td>delete</td>
             </tr>
             </thead>
             <tbody>
@@ -280,12 +272,13 @@
                         <span class="checkbox-custom circular"></span>
                     </label>
 
-                    <td><img style="height: 200px;" class="img-responsive img-rounded"
-                             src="@if($crwal != null) {{ url('images/'.$crwal->photo)   }}@else null @endif" alt="">
-                    </td>
+
                     <td>
-                        <a href="@if($crwal != null) {{  "https://" .$crwal->name   }} @else {{  $basket->link }} @endif "
+                        <a style="color: #15b2ec!important;text-decoration: underline" href="@if($crwal != null) {{  "https://" .$crwal->name   }} @else {{  $basket->link }} @endif "
                            target="_blank"> @if($crwal != null) {{  $crwal->name   }}@else {{  str_limit($basket->link, 15) }} @endif</a>
+                    </td>
+                    <td><img style="height: 60px;" class="img-responsive img-rounded"
+                             src="@if($crwal != null) {{ url('images/'.$crwal->photo)   }}@else null @endif" alt="">
                     </td>
                     <td>{{$basket->quantity}}</td>
                     <td>{{abs(($basket->price * $basket->quantity) - $basket->total)}}</td>
@@ -302,16 +295,17 @@
         <div class="text-center">
             @if(count($baskets) > 0)
                 <div class="text-left" id="basketFooter">
+                    <label class="checkbox-label m-0">
+                        <input type="checkbox"
+                               data-target="#polices" onclick="check2(this)" class="@error('terms') is-invalid @enderror"
+                               id="terms" type="checkbox" name="terms" required>
+                        <span class="checkbox-custom circular">
 
-                    <input data-target="#polices" onclick="check2(this)" class="@error('terms') is-invalid @enderror"
-                           id="terms" type="checkbox" name="terms" required
-                           style="vertical-align: middle!important;">
-                    <label data-target="#polices" data-toggle="modal"
-                           style="color:#15b2ec!important;margin-bottom: 0!important;cursor: pointer; margin-left: 4px!important;vertical-align: middle!important">{{__('member.Agreepolicy')}}</label>
-                    @error('terms')
-                    <span class="invalid-feedback"
-                          role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
+                        </span>
+                        <p  data-target="#polices" data-toggle="modal" style="margin-left: 30px;font-weight: bold;font-size: 14px;color: #15b2ec">{{__('member.Agreepolicy')}}</p>
+                    </label>
+
+
                 </div>
             @endif
             @if(count($baskets) > 0)
