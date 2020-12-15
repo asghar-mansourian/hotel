@@ -5,15 +5,16 @@ namespace App\Http\Controllers\Cowsel;
 
 use App\Http\Controllers\Cowsel\Customer as CowselCustomer;
 use App\lib\Cowsel;
+use App\Payment;
 use App\Setting;
 use Illuminate\Support\Facades\Http;
 
 class Balance
 {
-    public static function increase($balance, $currency_type)
+    public static function increase($user, $balance, $currency_type)
     {
-        if (!auth()->user()->cowsel_id) {
-            (new CowselCustomer())->login(auth()->user());
+        if (!$user->cowsel_id) {
+            (new CowselCustomer())->login($user);
         }
 
         $url = sprintf("%s/android/cari/cari/balance/increase",
@@ -25,7 +26,7 @@ class Balance
             ->post(
                 $url,
                 [
-                    'customer_id' => auth()->user()->cowsel_id,
+                    'customer_id' => $user->cowsel_id,
                     'balance' => $balance,
                     'currency_type' => $currency_type
                 ]
@@ -35,7 +36,7 @@ class Balance
             if ($response->message == 'Token Hatası.') {
                 Setting::where('key', Setting::FIELD_COWSEL_TOKEN)->update(['value' => '']);
 
-                self::increase($balance, $currency_type);
+                self::increase($user, $balance, $currency_type);
             }
         }
 
@@ -71,6 +72,52 @@ class Balance
         }
 
         return true;
+    }
+
+    public function storeUSDPaymentsOfCowsel()
+    {
+        if (!auth()->user()->cowsel_id) {
+            (new CowselCustomer())->login(auth()->user());
+        }
+
+        $url = sprintf("%s/android/cari/cari/balanceList/%s",
+            env('COWSEL_API_URL'),
+            auth()->user()->cowsel_id
+        );
+
+        $response = Http::withHeaders(['Authorization' => Cowsel::getToken()])
+            ->get($url)
+            ->object();
+
+        if (isset($response->code)) {
+            if ($response->code == 1) {
+
+                foreach ($response->data as $currency) {
+                    if ($currency->price_currency == '$' && $currency->debt_price) {
+
+                        Payment::firstOrCreate(
+                            [
+                                'user_id' => auth()->user()->id,
+                                'price' => $currency->debt_price,
+                                'description' => "unit_price:{$currency->unit_price};explanation:{$currency->explanation};date:{$currency->date}",
+                                'balance_type' => Payment::PAYMENT_TYPE_BALANCE_TWO
+                            ],
+                            [
+                                'type' => Payment:: PAYMENT_TYPE_CASH,
+                                'modelable_type' => 'DecreaseUSD',
+                                'status' => 1
+                            ]
+                        );
+                    }
+                }
+            } elseif (isset($response->message)) {
+                if ($response->message == 'Token Hatası.') {
+                    Setting::where('key', Setting::FIELD_COWSEL_TOKEN)->update(['value' => '']);
+
+                    $this->storeUSDPaymentsOfCowsel();
+                }
+            }
+        }
     }
 
     public function syncBalancesOfCowsel($user)
@@ -110,5 +157,4 @@ class Balance
             }
         }
     }
-
 }

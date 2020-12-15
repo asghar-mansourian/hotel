@@ -222,7 +222,7 @@
 
                     finalAmountValue += price;
                     $("#finalAmountValue").attr('value', finalAmountValue);
-                    finalAmount.html(finalAmountValue.toFixed(2) + ' ' + typePrice);
+                    finalAmount.html(finalAmountValue.toFixed(2) + ' ' + '₺');
                 } else {
 
                     $("input[name='basketItem[]']").each((key, item) => {
@@ -232,7 +232,7 @@
                             finalAmountValue = finalAmountValue.toFixed(3);
                             finalAmountValue -= price.toFixed(3);
                             $("#finalAmountValue").attr('value', finalAmountValue);
-                            finalAmount.html(finalAmountValue.toFixed(2) + ' ' + typePrice);
+                            finalAmount.html(finalAmountValue.toFixed(2) + ' ' + '₺');
                         }
                     });
                 }
@@ -255,6 +255,9 @@
                     $("#basketSubmit").hide();
                 }
             });
+        })
+        $('#all-basket-select').on('click' , function () {
+            $('.clickBasket').trigger('click');
         })
     </script>
 @endsection
