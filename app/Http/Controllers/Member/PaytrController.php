@@ -78,10 +78,10 @@ class PaytrController extends Controller
                 if ($modelable_id == null && $modelable_type == null) {
                     if ($payment_type_balance == Payment::PAYMENT_TYPE_BALANCE_ONE) {
                         $payment->user->increment('balance', $payment->price);
-                        BalanceCowsel::increase($payment->price, 'TL');
+                        BalanceCowsel::increase($payment->user, $payment->price, 'TL');
                     } else {
                         $payment->user->increment('usd_balance', $payment->price);
-                        BalanceCowsel::increase($payment->price, 'USD');
+                        BalanceCowsel::increase($payment->user, $payment->price, 'USD');
                     }
                 }
 

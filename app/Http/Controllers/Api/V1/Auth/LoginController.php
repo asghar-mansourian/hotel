@@ -34,6 +34,9 @@ class LoginController extends Controller
 
         (new Balance())->syncBalancesOfCowsel(auth()->user());
 
+        (new Balance())->storeUSDPaymentsOfCowsel();
+
+
         return $this->respondWithToken($token, 'Login Successfully');
     }
 
