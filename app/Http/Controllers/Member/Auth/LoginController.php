@@ -91,6 +91,8 @@ class LoginController extends Controller
 
         (new Balance())->syncBalancesOfCowsel(auth()->user());
 
+        (new Balance())->storeUSDPaymentsOfCowsel();
+
         if (auth()->user()->verified == 0)
             $this->sendSms(auth()->user());
     }
