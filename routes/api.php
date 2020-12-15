@@ -87,5 +87,7 @@ Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
             Route::get('/basket','OrderController@basket');
             Route::post('/basket/delete','OrderController@deleteBasket');
 
+            Route::post('/crawler/get','CrawlerController@get');
+
         });
 });

@@ -421,7 +421,7 @@
                                                         <ul>
                                                             <li>{{$order->id}}</li>
                                                             <li>{{$order->country->name}}</li>
-                                                            <li>{{$order->order_items_count}}</li>
+                                                            <li>{{$order->total}}</li>
                                                             <li>{{$order->status}}</li>
                                                             <li>{{$order->created_at}}</li>
                                                             <li style="width: 9.6%">
