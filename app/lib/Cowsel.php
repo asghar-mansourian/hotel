@@ -6,6 +6,7 @@ namespace App\lib;
 
 use App\Http\Controllers\Cowsel\Auth;
 use App\Setting;
+use Illuminate\Support\Facades\Http;
 
 class Cowsel
 {
@@ -21,6 +22,23 @@ class Cowsel
 
         if (!Setting::getValue(Setting::FIELD_COWSEL_TOKEN)) {
             return self::refreshToken();
+        } elseif (auth()->check()) {
+            $url = sprintf("%s/android/cari/cari/show/%s/0/0/0",
+                env('COWSEL_API_URL'),
+                auth()->user()->email
+            );
+
+            $response = Http::withHeaders(['Authorization' => Setting::getValue(Setting::FIELD_COWSEL_TOKEN)])
+                ->get($url)
+                ->object();
+            if (isset($response->message)) {
+                if ($response->message == 'Token Hatası.') {
+                    Setting::where('key', Setting::FIELD_COWSEL_TOKEN)->update(['value' => '']);
+
+                    self::getToken();
+                }
+            }
+
         }
 
         return Setting::getValue(Setting::FIELD_COWSEL_TOKEN);
