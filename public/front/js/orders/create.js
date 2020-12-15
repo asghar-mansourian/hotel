@@ -69,8 +69,12 @@ $(document).ready(function () {
 
         $('#country-' + countryId).append(
             $('#template-order').html()
-        )
 
+        )
+        var factorNum = $('#factor-number-header').val();
+        $('.factor-result-num').last().html("#" + $('#factor-number-header').val());
+        factorNum++;
+        $('#factor-number-header').val(factorNum);
         $(this).fadeOut();
     });
 
@@ -93,6 +97,9 @@ $(document).ready(function () {
         $('#total-price-orders').text(
             totalPriceOrders() + ' TL'
         )
+        var factorNum = $('#factor-number-header').val();
+        factorNum--;
+        $('#factor-number-header').val(factorNum);
     })
 
 // save order
