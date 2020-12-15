@@ -302,7 +302,7 @@
                         <span class="checkbox-custom circular">
 
                         </span>
-                        <p  data-target="#polices" data-toggle="modal" style="margin-left: 30px;font-weight: bold;font-size: 14px;color: #15b2ec">{{__('member.Agreepolicy')}}</p>
+                        <p  data-target="#polices" data-toggle="modal" style="width: 200px;margin-left: 30px;font-weight: bold;font-size: 14px;color: #15b2ec">{{__('member.Agreepolicy')}}</p>
                     </label>
 
 
