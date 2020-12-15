@@ -11,12 +11,12 @@
         <div class="row relative" style="height: 236px!important;">
             <div class="balance-block col-md-6 col-sm-7 col-xs-12">
                 <div class="balance">
-                    <picture >
+                    <picture>
                         <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive" style="height: 236px!important;">
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{$wallet}}<sup>TL</sup></span>
+                        <span class="count">{{number_format($wallet, 2)}}<sup>TL</sup></span>
                     </div>
                     <div class="balance-date">{{__('member.lastaddeddate')}}</div>
                     <div class="balance-text" style="    position: absolute;
@@ -40,7 +40,7 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{$wallet_usd}}<sup>$</sup></span>
+                        <span class="count">{{number_format($wallet_usd, 2)}}<sup>$</sup></span>
                     </div>
                     <div class="balance-date">{{__('member.lastaddeddate')}}</div>
                     <div class="balance-text" style="    position: absolute;

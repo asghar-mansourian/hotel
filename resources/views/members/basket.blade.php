@@ -58,7 +58,8 @@
                              src="@if($crwal != null) {{ url('images/'.$crwal->photo)   }}@else null @endif" alt="">
                     </td>
                     <td>
-                        <a href="@if($crwal != null) {{  "https://" .$crwal->name   }} @else {{  $basket->link }} @endif "> @if($crwal != null) {{  $crwal->name   }}@else {{  $basket->link }} @endif</a>
+                        <a href="@if($crwal != null) {{  "https://" .$crwal->name   }} @else {{  $basket->link }} @endif "
+                           target="_blank"> @if($crwal != null) {{  $crwal->name   }}@else {{  str_limit($basket->link, 15) }} @endif</a>
                     </td>
                     <td>{{$basket->quantity}}</td>
                     <td>{{abs(($basket->price * $basket->quantity) - $basket->total)}}</td>
