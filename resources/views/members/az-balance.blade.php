@@ -16,7 +16,7 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{Auth::user()->balance}}<sup>TL</sup></span>
+                        <span class="count">{{\App\lib\Helpers::formatPrice(Auth::user()->balance)}}<sup>TL</sup></span>
                     </div>
                     <div class="balance-date">{{__('member.lastaddeddate')}}</div>
                     <div class="balance-text">

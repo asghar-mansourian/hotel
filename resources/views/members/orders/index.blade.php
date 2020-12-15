@@ -422,7 +422,7 @@
                                                             <li>{{$order->id}}</li>
                                                             <li>{{$order->country->name}}</li>
                                                             <li>{{$order->total}}</li>
-                                                            <li>{{$order->status}}</li>
+                                                            <li>{!! $order->payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
                                                             <li>{{$order->created_at}}</li>
                                                             <li style="width: 9.6%">
                                                                 <input type="button" value="{{__('member.items')}}"
