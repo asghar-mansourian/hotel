@@ -11,7 +11,7 @@
         <div class="row relative" style="height: 236px!important;">
             <div class="balance-block col-md-6 col-sm-7 col-xs-12">
                 <div class="balance">
-                    <picture >
+                    <picture>
                         <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive" style="height: 236px!important;">
                     </picture>
                     <div class="balance-count">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Member;
 
 use App\Basket;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cowsel\Balance as BalanceCowsel;
 use App\Http\Controllers\Traits\TokenViaPaytr;
 use App\OrderItem;
 use App\Payment;
@@ -77,8 +78,10 @@ class PaytrController extends Controller
                 if ($modelable_id == null && $modelable_type == null) {
                     if ($payment_type_balance == Payment::PAYMENT_TYPE_BALANCE_ONE) {
                         $payment->user->increment('balance', $payment->price);
+                        BalanceCowsel::increase($payment->user, $payment->price, 'TL');
                     } else {
                         $payment->user->increment('usd_balance', $payment->price);
+                        BalanceCowsel::increase($payment->user, $payment->price, 'USD');
                     }
                 }
 

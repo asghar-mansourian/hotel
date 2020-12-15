@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cowsel\Balance;
 use App\Http\Controllers\Cowsel\Customer as CowselCustomer;
 use App\Http\Controllers\Traits\MemberResponseToken;
 use Illuminate\Http\JsonResponse;
@@ -30,6 +31,11 @@ class LoginController extends Controller
         }
 
         (new CowselCustomer())->login(auth()->user());
+
+        (new Balance())->syncBalancesOfCowsel(auth()->user());
+
+        (new Balance())->storeUSDPaymentsOfCowsel();
+
 
         return $this->respondWithToken($token, 'Login Successfully');
     }
