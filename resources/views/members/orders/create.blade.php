@@ -102,13 +102,13 @@
 
                                                     <span style="font-weight:bold;color:#15b2ec!important;font-size: 26px; ">=</span>
                                                 </div>
-                                                <div class="col-md-4 col-xs-6 mb-4 courier_dr">
+                                                <div class="col-md-4  mb-4 courier_dr " style="padding-right: 0;">
                                                     <label style="margin-bottom: 10px;font-size: 12px;font-weight: bold;" for="">{{__('member.total')}}</label>
-                                                    <input type="text" name="total[]" class="w-100 courier_input"
+                                                    <input type="text" name="total[]" class=" w-100 courier_input"
                                                            readonly style="background: rgba(0,0,0,.03)"
-                                                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
+                                                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)" >
                                                 </div>
-                                                <div class="col-md-12 mb-4 mt-3">
+                                                <div class="col-md-12 mb-4 mt-3 " style="padding-right: 0;">
                                                     <label style="margin-bottom: 10px;font-size: 12px;font-weight: bold;" for="">{{__('member.description')}}</label>
                                                     <textarea class="courier_textare mt-0 h-auto" rows="4" cols="0"
                                                               name="description[]"
@@ -213,7 +213,7 @@
 
                 <div class="">
                                                     <span  class="factor-result-num" style="font-weight:bold;background-color: #15b2ec;color: white;border-radius: 50px;padding: 4px;">
-                                                                #1
+
                                                     </span>
                     <span style="margin-left: 10px;color: black;font-weight: bold"> About Product</span>
                 </div>
@@ -265,13 +265,13 @@
 
                     <span style="font-weight:bold;color:#15b2ec!important;font-size: 26px; ">=</span>
                 </div>
-                <div class="col-md-4 col-xs-6 mb-4 courier_dr">
+                <div class="col-md-4  mb-4 courier_dr " style="padding-right: 0;">
                     <label style="margin-bottom: 10px;font-size: 12px;font-weight: bold;" for="">{{__('member.total')}}</label>
-                    <input type="text" name="total[]" class="w-100 courier_input"
+                    <input type="text" name="total[]" class=" w-100 courier_input"
                            readonly style="background: rgba(0,0,0,.03)"
-                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
+                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)" >
                 </div>
-                <div class="col-md-12 mb-4 mt-3">
+                <div class="col-md-12 mb-4 mt-3 " style="padding-right: 0;">
                     <label style="margin-bottom: 10px;font-size: 12px;font-weight: bold;" for="">{{__('member.description')}}</label>
                     <textarea class="courier_textare mt-0 h-auto" rows="4" cols="0"
                               name="description[]"
