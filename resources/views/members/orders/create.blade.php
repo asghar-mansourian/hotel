@@ -215,7 +215,7 @@
                                                     <span  class="factor-result-num" style="font-weight:bold;background-color: #15b2ec;color: white;border-radius: 50px;padding: 4px;">
 
                                                     </span>
-                    <span style="margin-left: 10px;color: black;font-weight: bold"> About Product</span>
+                    <span style="margin-left: 10px;color: black;font-weight: bold">{{__('member.aboutproduct')}}</span>
                 </div>
                 <button style="border: none;color: #fd475d" type="button"
                         class=" btn-remove-container-order">
