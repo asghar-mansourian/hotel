@@ -41,7 +41,7 @@
                         <div class="float-left">
                             @php
                                 $rescal = \Illuminate\Support\Facades\DB::table('currencies')
-                                    ->where('from' , 'USD')
+                                    ->where('from' , 'usd')
                                     ->where('to' , 'rub')
                                     ->first()->to_value;
 
