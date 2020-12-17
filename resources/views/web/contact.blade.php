@@ -27,8 +27,8 @@
                                             <a href="https://www.maps.ie/route-planner.htm"></a></div>
                                     </div>
                                     <div class="contact_about">
-                                        {{__('website.aboutdesc1')}} <br/>
-                                        {{__('website.aboutdesc2')}}
+                                        {{__('website.subtitle1')}} <br/>
+                                        {{__('website.subtitle2')}}
                                         <div class="contact_bold">{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</div>
                                         <div class="contact_bold">{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</div>
                                     </div>
