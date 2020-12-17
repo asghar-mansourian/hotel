@@ -20,14 +20,18 @@
                    href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
             </li>
             <li>
-                <a href="{{url('/basket')}}" class="btn btn-outline-danger " type="button" style="margin-top: -4px;
-    border: 1px solid #bfbfbf;
-    color: #fff;
-    font-size: 11px;
-    padding: 6px 9px;
-    border-radius: 10px;position: relative">
+                <a class="btn btn-outline-danger btn-header-basket-parent"  href="{{url('/basket')}}" style="position: relative" >
                     <i style="    color: #7a7a7b;
-    font-size: 12px;" class="fa fa-shopping-cart"></i>
+    font-size: 12px;
+
+    border: 1px solid #bfbfbf !important;
+    font-size: 13px;
+    padding: 7px 7px;
+    border-radius: 27px;
+    position: absolute;
+    left: -7px;
+    bottom: -9px;
+        " class="fa fa-shopping-cart"></i>
                     @auth('web')
                         @if (auth()->check())
                             @php
@@ -38,7 +42,7 @@
     background-color: #f25c69;
     padding: 3px 6px;
     position: absolute;
-    top: -7px;
+    top: -15px;
     border-radius: 100%;
     font-size: 8px;">{{$basketnum}}</span>
                         @endif
@@ -54,7 +58,8 @@
     padding: 9px 24px;
     border: 1px solid #7a7a7b;
     border-radius: 11px;
-    box-shadow: 0 0 5px 2px #e8e8e8;        transition: all 0.2s;
+    box-shadow: 0 0 5px 2px #e8e8e8;
+        transition: all 0.2s;
 ">
                         {{__('member.order_title')}}
                     </a>
@@ -71,4 +76,5 @@
         border: 1px solid #f25c69 !important;
         transition: all 0.2s;
     }
+
 </style>
