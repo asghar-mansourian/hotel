@@ -20,6 +20,11 @@
 
 
                 </div>
+                <div class="text-center mt-4">
+                    <a href="{{url('/home')}}" class="invoice_button">
+                        {{__('member.dashboard')}}
+                    </a>
+                </div>
 
             </div>
 
