@@ -64,6 +64,7 @@ class CalculatorController extends Controller
             'from' => $request->input('from'),
             'to' => $request->input('to'),
             'discount' => $request->input('discount'),
+            'des' => $request->input('des') ?? "",
             'unit_id' => $request->input('unit_id'),
             'country_id' => $request->input('country_id'),
         ]);
@@ -139,6 +140,7 @@ class CalculatorController extends Controller
             'to' => $request->input('to'),
             'discount' => $request->input('discount'),
             'unit_id' => $request->input('unit_id'),
+            'des' => $request->input('des') ?? "",
             'country_id' => $request->input('country_id'),
         ]);
 

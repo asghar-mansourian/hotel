@@ -118,7 +118,22 @@
                             @endslot
                         @endcomponent
 
-
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    description
+                                @endslot
+                                @slot('name')
+                                    des
+                                @endslot
+                                @slot('type')
+                                    text
+                                @endslot
+                                @slot('placeholder')
+                                        description
+                                @endslot
+                                @slot('value')
+                                @endslot
+                            @endcomponent
                     @endslot
 
 

@@ -66,7 +66,7 @@
             });
         });
 
-        $( ".convert-currency" ).trigger( "change" );
+
         $( "#calculate-currency-number" ).bind('input',function (){
             $( ".convert-currency" ).trigger( "change" );
         })
@@ -123,6 +123,8 @@
                 }
             })
         });
+
+        $( ".convert-currency" ).trigger( "change" );
     });
 
 </script>

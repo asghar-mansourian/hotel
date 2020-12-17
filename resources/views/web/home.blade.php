@@ -185,12 +185,20 @@ width: 100px;
                                     <ul style="padding: 0 26px;">
                                         @foreach($country->priceCalculators as $priceCalculator)
                                             <li style=" font-family: Calibri, sans-serif; font-size: 16px; border-bottom: 1px dashed #e2e5e7; padding: 10px 0;">
-                                                {{$priceCalculator->from }} - {{$priceCalculator->to }} {{$priceCalculator->unit->title}}
+                                                {{$priceCalculator->from }} - {{$priceCalculator->to }} {{$priceCalculator->unit->title}} {{$priceCalculator->des ?? ""}}
                                                 @if($priceCalculator->discount)
                                                     <del style="color: pink">
                                                         <span style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
                                                     </del>
-                                                    <span style=" color: #000; float: right; font-size: 22px; font-weight: 700;">
+                                                    <span style="    color: #ffffff;
+    float: right;
+    font-size: 17px;
+    font-weight: 700;
+    background-color: #f25c69;
+    padding: 0px 6px;
+    border-radius: 15px;
+    margin: 4px 7px;
+}">
                                                         {{$priceCalculator->currency -  (($priceCalculator->discount / 100) * $priceCalculator->currency)  }} $
                                                     </span>
                                                 @else
