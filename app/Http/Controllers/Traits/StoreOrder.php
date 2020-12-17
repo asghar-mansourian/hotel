@@ -32,8 +32,7 @@ trait StoreOrder
         $branchId = $orders->first()->branch_id ?? null;
         $links = $request->get('link');
         $prices = $request->get('price');
-//        $has_cargos = $request->get('has_cargo');
-//        $cargos = $request->get('cargo');
+
         $quantities = $request->get('quantity');
         $specifications = $request->get('specification');
         $colors = $request->get('color');
@@ -54,12 +53,11 @@ trait StoreOrder
             $cowsel_id = OrderAlias::storeGetId();
 
             foreach ($orders as $item) {
-
                 $orderItem = new OrderItem();
                 $orderItem->link = $item->link;
                 $orderItem->price = $item->price;
-//                $orderItem->has_cargo = $has_cargos[$key];
-//                $orderItem->cargo = $cargos[$key] ?? 0;
+                $orderItem->has_cargo = $item->has_cargo;
+                $orderItem->cargo = $item->cargo;
                 $orderItem->quantity = $item->quantity;
                 $orderItem->specification = $item->specification;
                 $orderItem->color = $item->color;
@@ -91,21 +89,26 @@ trait StoreOrder
         $specifications = $request->get('specification');
         $colors = $request->get('color');
         $descriptions = $request->get('description');
-
+        if ($request->has('cargo')){
+            $has_cargos = 1;
+            $cargos = $request->get('cargo');
+        }
+        else{
+            $has_cargos = 0;
+            $cargos = 0;
+        }
         $order = false;
         $crawel_model = new CrawlerWebsiteController();
-        DB::transaction(function () use (&$order,$crawel_model ,  $countryId, $paymentType, $branchId, $links, $prices, $quantities, $specifications, $colors, $descriptions) {
-
+        DB::transaction(function () use (&$order,$crawel_model , $cargos , $has_cargos ,  $countryId, $paymentType, $branchId, $links, $prices, $quantities, $specifications, $colors, $descriptions) {
             foreach ($links as $key => $link) {
-
                 $basketItem = new Basket();
                 $basketItem->link = $link;
                 $basketItem->country_id = $countryId;
                 $basketItem->branch_id = null;
                 $basketItem->user_id = auth()->user()->id;
                 $basketItem->price = $prices[$key];
-//                $basketItem->has_cargo = $has_cargos[$key];
-//                $basketItem->cargo = $cargos[$key] ?? 0;
+                $basketItem->has_cargo = $cargos[$key] ? "1" : "0";
+                $basketItem->cargo = $cargos[$key] ?? 0;
                 $basketItem->quantity = $quantities[$key];
                 $basketItem->specification = $specifications[$key];
                 $basketItem->color = $colors[$key];

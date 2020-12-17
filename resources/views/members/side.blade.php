@@ -5,7 +5,7 @@
 
     <div class="left-side mt-5">
         <ul>
-            @yield('menuItem')
+            @include('members.partials.menu_sidebar')
         </ul>
 
     </div>

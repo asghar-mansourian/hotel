@@ -319,7 +319,7 @@
 
                 <form action="{{route('orders.store')}}" method="post" id="form-basket">
                     @csrf
-                    <button id="basketSubmit" class=" invoice_button" style="display: none;background-color: #e6a41a!important;border-radius: 15px">{{__('member.makepayment')}}</button>
+                    <button id="basketSubmit" disabled class=" invoice_button" style="background-color: #e6a41a!important;border-radius: 15px">{{__('member.makepayment')}}</button>
                 </form>
             @else
                 <h3>{{__('member.basketempty')}}
@@ -354,22 +354,22 @@
             function check(type) {
                 if (type){
                     $("#terms").prop("checked", true);
-                    $("#basketSubmit").fadeIn();
+                    $("#basketSubmit").prop('disabled', false);
                 }
 
 
                 else{
                     $("#terms").prop("checked", false);
-                    $("#basketSubmit").fadeOut();
+                    $("#basketSubmit").prop('disabled', true);
 
                 }
             }
             function check2(type) {
                 if ($(type).prop("checked") == true){
-                    $("#basketSubmit").fadeIn();
+                    $("#basketSubmit").prop('disabled', false);
                 }
                 else{
-                    $("#basketSubmit").fadeOut();
+                    $("#basketSubmit").prop('disabled', true);
                 }
 
 

@@ -56,8 +56,8 @@ $(document).ready(function () {
             totalPriceOrder($(this))
         )
 
-        $('#total-price-orders').text(
-            totalPriceOrders() + ' TL'
+        $('.total-price-orders').last().text(
+            totalPriceOrders() + ' ₺'
         )
     });
 
@@ -71,7 +71,12 @@ $(document).ready(function () {
             $('#template-order').html()
 
         )
+        $('.order-create-footer1').hide();
+        $('.order-create-footer2').hide();
+        $('.order-create-footer1').last().show();
+        $('.order-create-footer2').last().show();
         var factorNum = $('#factor-number-header').val();
+         $('.total-price-orders').html(totalPriceOrders() + ' ₺');
         $('.factor-result-num').last().html("#" + $('#factor-number-header').val());
         factorNum++;
         $('#factor-number-header').val(factorNum);
@@ -94,9 +99,13 @@ $(document).ready(function () {
             .find('.btn-add-container-order')
             .fadeIn();
 
-        $('#total-price-orders').text(
-            totalPriceOrders() + ' TL'
+        $('.total-price-orders').last().text(
+            totalPriceOrders() + ' ₺'
         )
+        $('.order-create-footer1').hide();
+        $('.order-create-footer2').hide();
+        $('.order-create-footer1').last().show();
+        $('.order-create-footer2').last().show();
         var factorNum = $('#factor-number-header').val();
         factorNum--;
         $('#factor-number-header').val(factorNum);
@@ -143,9 +152,20 @@ $(document).ready(function () {
             totalPriceOrder($(this))
         )
 
-        $('#total-price-orders').text(
-            totalPriceOrders() + ' TL'
+        $('.total-price-orders').last().text(
+            totalPriceOrders() + ' ₺'
         )
+
+    });
+
+    $(document).on('keyup', 'input[name="price[]"]', function () {
+        var parent = $(this).closest('div .container-order');
+
+        parent.find('input[name="total[]"]').val(
+            totalPriceOrder($(this))
+        )
+
+
 
     });
 })
