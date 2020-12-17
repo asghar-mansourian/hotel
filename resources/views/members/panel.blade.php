@@ -87,7 +87,13 @@
                     @foreach($payments as $payment)
                         <div class="filterDiv income" style="display: block">
                             <ul>
-                                <li style="width: 25%;">{{$payment->type}}</li>
+                                <li style="width: 25%;">
+                                    @if($payment->type == "cash")
+                                        {{__('member.cash')}}
+                                    @else
+                                        {{__('member.online')}}
+                                    @endif
+                                </li>
                                 @if($payment->modelable_type)
                                     <li style="width: 25%;" class="red">-{{$payment->price . ' ' . $payment->balance_type}}</li>
                                 @else
