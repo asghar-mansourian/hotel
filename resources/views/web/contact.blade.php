@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-7 col-sm-7">
                         <div class="black pt-5">{{__('website.contact')}}<span class="yellow ml-3"></span></div>
-                        <div class="italic">{{__('website.subtitle2')}}<br/>{{__('website.subtitle1')}}</div>
+                        <div class="italic">{{__('website.subtitle1')}}<br/>{{__('website.subtitle2')}}</div>
                     </div>
                     <div class="col-md-5 col-sm-5">
                         <div class="img_slider_con">

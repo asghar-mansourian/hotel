@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-7">
                         <div class="black pt-5">{{__('website.how')}}<span class="yellow ml-3 mr-3">kargo</span>{{__('website.works')}} ?</div>
-                        <div class="italic">{{__('website.subtitle2')}}<br/>{{__('website.subtitle1')}}
+                        <div class="italic">{{__('website.subtitle1')}}<br/>{{__('website.subtitle2')}}
                         </div>
                         <div class="col-md-12 mt-5 mb-5">
                             <div class="row">
