@@ -19,8 +19,8 @@
                         <span class="count">{{$wallet}}<sup>TL</sup></span>
                     </div>
                     <div class="balance-date">
-                        <a href="{{url('az-balance')}}" class=""><a style="top: 30px!important;
-    right: 5px!important;" data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+                        <a  href="{{url('az-balance')}}" class="btn-balance-home"><a style="top: 30px!important;
+    right: 5px!important;min-height: 62px" data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
                     </div>
                     <div class="balance-text" style="    position: absolute;
     bottom: 6px;
@@ -45,8 +45,8 @@
                         <span class="count">{{$wallet_usd}}<sup>$</sup></span>
                     </div>
                     <div class="balance-date">
-                        <a href="{{url('tl-balance')}}" class=""><a data-v-27fd2a5d="" style="top: 30px!important;
-    right: 5px!important;" href="{{url('tl-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+                        <a href="{{url('tl-balance')}}" class="btn-balance-home"><a data-v-27fd2a5d="" style="top: 30px!important;
+    right: 5px!important;min-height: 62px" href="{{url('tl-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
                     </div>
                     <div class="balance-text" style="    position: absolute;
     bottom: 6px;
@@ -113,6 +113,15 @@
                 </div>
             </div>
         </div>
+        <style>
+            @media only screen and (max-width: 600px) {
+                .btn-balance-home {
+                    width: 130px!important;
+                    display: block!important;
+                    min-height: 120px;
+                }
+            }
+        </style>
 @endsection
 @section('menuItem')
     @include('members.partials.menu_sidebar')
