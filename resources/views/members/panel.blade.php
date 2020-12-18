@@ -8,27 +8,29 @@
     @include('members.partials.top_panel')
 
     <div class="mt-5">
-        <div class="row relative" style="height: 236px!important;">
+        <div class="row relative" style="height: 190px!important;">
             <div class="balance-block col-md-6 col-sm-7 col-xs-12">
                 <div class="balance">
                     <picture>
-                        <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive" style="height: 236px!important;">
+                        <img src="{{url('front/image/balans.png')}}" alt="balans" class="img-responsive" style="height: 185px!important;">
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">{{$wallet}}<sup>TL</sup></span>
                     </div>
-                    <div class="balance-date">{{__('member.lastaddeddate')}}</div>
+                    <div class="balance-date">
+                        <a href="{{url('az-balance')}}" class=""><a style="top: 30px!important;
+    right: 5px!important;" data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+                    </div>
                     <div class="balance-text" style="    position: absolute;
     bottom: 6px;
     font-size: 13px;
     left: 30px;
     width: 222px;
     line-height: 1.7;">
-                        {{__('member.deliveryonlinecourier')}}
                         <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
-                    <a href="{{url('az-balance')}}" class=""><a data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+
 
                 </div>
             </div>
@@ -36,23 +38,25 @@
             <div class="col-md-6 col-sm-5 col-xs-12 right-side" style="">
                 <div class="balance">
                     <picture>
-                        <img src="{{url('front/image/balans.png')}}" alt="balans" style="height: 236px!important" class="img-responsive">
+                        <img src="{{url('front/image/balans.png')}}" alt="balans" style="height: 185px!important" class="img-responsive">
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">{{$wallet_usd}}<sup>$</sup></span>
                     </div>
-                    <div class="balance-date">{{__('member.lastaddeddate')}}</div>
+                    <div class="balance-date">
+                        <a href="{{url('tl-balance')}}" class=""><a data-v-27fd2a5d="" style="top: 30px!important;
+    right: 5px!important;" href="{{url('tl-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+                    </div>
                     <div class="balance-text" style="    position: absolute;
     bottom: 6px;
     font-size: 13px;
     left: 30px;
     width: 222px;
     line-height: 1.7;">
-                        {{__('member.deliveryonlinecourier')}}
                         <p><b>{{__('member.increasenotreturned')}}</b></p>
                     </div>
-                    <a href="{{url('tl-balance')}}" class=""><a data-v-27fd2a5d="" href="{{url('tl-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
+
 
                 </div>
             </div>
