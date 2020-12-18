@@ -1,3 +1,9 @@
+{{--<a href="{{route('orders.create')}}" class="order_button"> {{__('member.order_title')}}</a>--}}
+
+<div class="text-center side-invoice-button" style="margin-bottom: 20px;">
+    <a href="{{route('invoices.create')}}" class="invoice_button" style="margin-right:0;    border-radius: 6px;"> {{__('member.invoice_title')}}</a>
+
+</div>
 <li class="{{url()->current() === url('/home') ? 'active_li' : ''}}">
     <a href="{{url('/home')}}"><i class="fas fa-th-large"></i><span class="use_dis_no">{{__('member.dashboard')}}</span></a>
 </li>
@@ -30,3 +36,11 @@
 <li>
     <a href="{{url('/logout')}}"><i class="fas fa-power-off"></i><span class="use_dis_no">{{__('member.logout')}}</span></a>
 </li>
+
+<style>
+    @media only screen and (max-width: 1200px) {
+        .side-invoice-button {
+            display: none!important;
+        }
+    }
+</style>
