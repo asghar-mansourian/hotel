@@ -81,4 +81,5 @@
 </div>
 <div class="footer_yellow text-center">
     <div class="title_list">{{__('website.copyright')}}</div>
+    <a href="https://medyaturk.az/" style="font-size: 14px;">{{__('website.copyright2')}}</a>
 </div>
