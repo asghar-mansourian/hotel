@@ -46,10 +46,20 @@
     border-radius: 100%;
     font-size: 8px;">{{$basketnum}}</span>
                         @endif
+                    @endauth
+                    @guest()
 
+                            <span style="    color: white;
+    background-color: #f25c69;
+    padding: 3px 6px;
+    position: absolute;
+    top: -15px;
+    border-radius: 100%;
+    font-size: 8px;">0</span>
+                    @endauth
                 </a>
             </li>
-            @endauth
+
             @auth('web')
                 <li>
                     <a class="btn-header-1" href="/orders/create" class="btn btn-secondary" type="button" style="    margin-top: -4px;
