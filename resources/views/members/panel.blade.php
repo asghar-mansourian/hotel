@@ -114,11 +114,11 @@
             </div>
         </div>
         <style>
-            @media only screen and (max-width: 600px) {
+            @media only screen and (max-width: 1200px) {
                 .btn-balance-home {
                     width: 130px!important;
                     display: block!important;
-                    min-height: 120px;
+                    min-height: 120px!important;
                 }
             }
         </style>
