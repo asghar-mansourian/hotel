@@ -8,9 +8,10 @@ use App\Page;
 class PageController extends Controller
 {
 
-    public function __invoke($slug)
+    public function __invoke($id)
     {
-        $page = Page::select($this->customSelectedFields())->findViaSlug($slug);
+        $page = Page::select($this->customSelectedFields())->where('id' , $id)->first();
+
 
         return view('web.page', compact('page'));
     }
