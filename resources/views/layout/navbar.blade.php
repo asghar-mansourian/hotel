@@ -60,7 +60,6 @@
                 </a>
             </li>
 
-            @auth('web')
                 <li>
                     <a class="btn-header-1" href="/orders/create" class="btn btn-secondary" type="button" style="    margin-top: -4px;
     color: #040404;
@@ -74,7 +73,6 @@
                         {{__('member.order_title')}}
                     </a>
                 </li>
-            @endauth
         </ul>
     </div>
 </div>
