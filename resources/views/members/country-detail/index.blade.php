@@ -66,7 +66,7 @@
                 <div class="border_bar">
                     @foreach($countries as $country)
                         <div id="{{$country->name}}" class="tabcontent @if($loop->first) active @endif"
-                             style="display: block!important;">
+                             style="@if($loop->first) display:block; @endif">
                             <div class="row">
                                 <div class="col-md-12 ">
                                     <!-- Small button groups (default and split) -->
