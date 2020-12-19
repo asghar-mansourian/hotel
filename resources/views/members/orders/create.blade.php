@@ -169,7 +169,7 @@
                                                         for="">{{__('member.price')}}</label>
                                                     <input type="text" onkeyup="return numberValidation(this)"
                                                            name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?"
-                                                           placeholder="{{__('member.price')}}({{$country->currency}}) *"
+                                                           placeholder="0 ₺"
                                                            class="w-100 courier_input" required>
                                                     <span id="numberText"></span>
                                                 </div>
@@ -213,7 +213,7 @@
                                                         for="">{{__('member.total')}}</label>
                                                     <input type="text" name="total[]" class=" w-100 courier_input"
                                                            readonly style="background: rgba(0,0,0,.03)"
-                                                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
+                                                           placeholder="0 ₺">
                                                 </div>
                                                 <div class="col-md-6 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
                                                     <label
@@ -342,7 +342,7 @@
                            for="">{{__('member.price')}}</label>
                     <input type="text" onkeyup="return numberValidation(this)"
                            name="price[]" pattern="[0-9]+(\.[0-9]{1,2})?%?"
-                           placeholder="{{__('member.price')}}({{$country->currency}}) *"
+                           placeholder="0 ₺"
                            class="w-100 courier_input" required>
                     <span id="numberText"></span>
                 </div>
@@ -379,7 +379,7 @@
                            for="">{{__('member.total')}}</label>
                     <input type="text" name="total[]" class=" w-100 courier_input"
                            readonly style="background: rgba(0,0,0,.03)"
-                           placeholder="{{__('member.total')}}(+{{$taxOrder}}%)">
+                           placeholder="0 ₺">
                 </div>
                 <div class="col-md-6 col-xs-6 mb-4 courier_dr" style="padding-right: 0">
                     <label style="margin-bottom: 10px;font-size: 12px;font-weight: bold;"

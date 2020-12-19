@@ -16,7 +16,7 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{\App\lib\Helpers::formatPrice($wallet)}}<sup>TL</sup></span>
+                        <span class="count">{{$wallet}}<sup>₺</sup></span>
                     </div>
                     <div class="balance-date">
                         <a  href="{{url('az-balance')}}" class="btn-balance-home"><a style="top: 30px!important;
@@ -42,7 +42,7 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{ \App\lib\Helpers::formatPrice($wallet_usd)  }}<sup>$</sup></span>
+                        <span class="count">{{$wallet_usd}}<sup>$</sup></span>
                     </div>
                     <div class="balance-date">
                         <a href="{{url('tl-balance')}}" class="btn-balance-home"><a data-v-27fd2a5d="" style="top: 30px!important;
@@ -99,9 +99,9 @@
                                     @endif
                                 </li>
                                 @if($payment->modelable_type)
-                                    <li style="width: 25%;" class="red">-{{$payment->price . ' ' . $payment->balance_type}}</li>
+                                    <li style="width: 25%;" class="red">-{{$payment->price . ' ' . ' '  }} @if($payment->balance_type == "tl")  ₺ @else $ @endif</li>
                                 @else
-                                    <li style="width: 25%;" class="green">+{{$payment->price . ' ' . $payment->balance_type}}</li>
+                                    <li style="width: 25%;" class="green">+{{$payment->price . ' '  }} @if($payment->balance_type == "tl")  ₺ @else $ @endif</li>
                                 @endif
                                 <li style="width: 25%;">{!! $payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
                                 <li style="width: 25%;">{{$payment->created_at}}</li>

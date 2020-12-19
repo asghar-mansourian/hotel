@@ -149,7 +149,7 @@ $(document).ready(function () {
         var parent = $(this).closest('div .container-order');
 
         parent.find('input[name="total[]"]').val(
-            totalPriceOrder($(this))
+            totalPriceOrder($(this)) + ' ₺'
         )
 
         $('.total-price-orders').last().text(
@@ -162,10 +162,28 @@ $(document).ready(function () {
         var parent = $(this).closest('div .container-order');
 
         parent.find('input[name="total[]"]').val(
-            totalPriceOrder($(this))
+            totalPriceOrder($(this)) + ' ₺'
         )
 
 
+
+    });
+
+    $(document).on('keyup', 'input[name="cargo[]"]', function () {
+        var parent = $(this).closest('div .container-order');
+
+        parent.find('input[name="total[]"]').val(
+            totalPriceOrder($(this)) + ' ₺'
+        )
+
+    });
+
+    $(document).on('keyup', 'input[name="quantity[]"]', function () {
+        var parent = $(this).closest('div .container-order');
+
+        parent.find('input[name="total[]"]').val(
+            totalPriceOrder($(this)) + ' ₺'
+        )
 
     });
 })
