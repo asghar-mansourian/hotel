@@ -405,7 +405,6 @@
                                             <div class="filterDiv_ul">
                                                 <ul>
                                                     <li>{{__('member.id')}}</li>
-                                                    <li>{{__('member.country')}}</li>
                                                     <li>{{__('member.total')}}</li>
                                                     <li>{{__('member.status')}}</li>
                                                     <li>{{__('member.date')}}</li>
@@ -420,7 +419,6 @@
                                                     <div class="filterDiv income">
                                                         <ul>
                                                             <li>{{$order->id}}</li>
-                                                            <li>{{$order->country->name}}</li>
                                                             <li>{{$order->total}}</li>
                                                             <li>{!! $order->payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
                                                             <li>{{$order->created_at}}</li>
