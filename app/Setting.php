@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Setting extends Model
 {
-    public $timestamps = false;
     const  paginateNumber = 100;
     const sortType = 'desc';
     const sortField = 'id';
@@ -31,6 +30,8 @@ class Setting extends Model
     const FIELD_SOCIAL_INSTAGRAM = 'social_instagram';
     const FIELD_SOCIAL_LINKEDIN_IN = 'social_linkedin_in';
     const FIELD_SOCIAL_PINTEREST = 'social_pinterest';
+    const FIELD_SOCIAL_TELEGRAM = 'social_telegram';
+    const FIELD_SOCIAL_WHATSUP = 'social_whatsup';
     const FIELD_SERVICE = 'service';
     const FIELD_ABOUT_US = 'about_us';
     const FIELD_LINK_GOOGLE_PLAY = 'link_google_play';
@@ -48,4 +49,6 @@ class Setting extends Model
     {
         return $query->where('key', $key)->value('value') ?? '';
     }
+    public $timestamps = false;
+
 }
