@@ -53,9 +53,9 @@
                     </span>--}}
                     <a href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
                     <br>
-                    <a style="line-height: 43px;" href="{{url('pages/about-us')}}">{{__('website.aboutus')}}</a>
+                    <a style="line-height: 43px;" href="{{url('pages/3')}}">{{__('website.aboutus')}}</a>
                     <br>
-                    <a href="{{url('pages/rules')}}">{{__('website.rules')}}</a>
+                    <a href="{{url('pages/rules/2')}}">{{__('website.rules')}}</a>
                     <br>
                     <a style="line-height: 43px;" href="{{url('/customers')}}">{{__('website.customers')}}</a>
                 </div>
