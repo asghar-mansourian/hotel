@@ -55,7 +55,7 @@
                     <br>
                     <a style="line-height: 43px;" href="{{url('pages/3')}}">{{__('website.aboutus')}}</a>
                     <br>
-                    <a href="{{url('pages/rules/1')}}">{{__('website.rules')}}</a>
+                    <a href="{{url('pages/1')}}">{{__('website.rules')}}</a>
                     <br>
                     <a style="line-height: 43px;" href="{{url('/customers')}}">{{__('website.customers')}}</a>
                 </div>
