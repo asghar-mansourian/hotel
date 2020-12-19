@@ -270,7 +270,16 @@
                     <h4 class="modal-title">{{__('member.polices')}}</h4>
                 </div>
                 <div class="modal-body">
-                    <p>{{__('member.policesList')}}.</p>
+                    <p>
+                        @php
+                            $locale = app()->getLocale();
+
+$content = app()->getLocale() !== 'en' ? "content_{$locale} as content" : 'content';
+$title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
+                        $agency = \Illuminate\Support\Facades\DB::table('pages')->where('id' , 4)->select([$content , $title])->first();
+                        @endphp
+                        {!! $agency->content !!}
+                    </p>
                     <br>
                 </div>
                 <div class="modal-footer">
