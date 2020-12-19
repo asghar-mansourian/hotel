@@ -35,7 +35,7 @@
                                 <option value="" selected>{{__('admin.pleaseentercountry')}}</option>
                                 @foreach($countries as $country)
                                     <option
-                                        value="{{$country->id}}" {{$country_details->id == $country->id ? 'selected' : ''}}>{{$country->name}}</option>
+                                        value="{{$country->id}}" {{$country_details->country_id == $country->id ? 'selected' : ''}}>{{$country->name}}</option>
                                 @endforeach
                             @endslot
 
