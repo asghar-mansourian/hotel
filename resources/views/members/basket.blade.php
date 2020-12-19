@@ -274,7 +274,7 @@
 
 
                     <td>
-                        <a style="color: #15b2ec!important;text-decoration: underline" href="@if($crwal != null) {{  "https://" .$crwal->name   }} @else {{  $basket->link }} @endif "
+                        <a style="color: #15b2ec!important;text-decoration: underline" href="@if($crwal != null) {{  $crwal->link   }} @else {{  $basket->link }} @endif "
                            target="_blank"> @if($crwal != null) {{  $crwal->name   }}@else {{  str_limit($basket->link, 15) }} @endif</a>
                     </td>
                     <td><img style="height: 60px;" class="img-responsive img-rounded"
