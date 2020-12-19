@@ -21,10 +21,10 @@
                                 <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_INSTAGRAM)}}"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li>
-                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_LINKEDIN_IN)}}"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_WHATSUP)}}"><i class="fab fa-whatsapp"></i></a>
                             </li>
                             <li>
-                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_PINTEREST)}}"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_TELEGRAM)}}"><i class="fab fa-telegram"></i></a>
                             </li>
                         </ul>
                     </div>
