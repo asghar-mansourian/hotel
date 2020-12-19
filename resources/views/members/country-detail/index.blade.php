@@ -46,12 +46,19 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tab">
-
+                    @php
+                        $ctn = \Illuminate\Support\Facades\DB::table('country_details')->groupBy('country_id')->get();
+                    @endphp
                     @foreach($countries as $country)
-                        <button class="tablinks  @if($loop->first) active @endif"
-                                onclick="openCity(event,   {{ '\'' . $country->name . '\'' }} )"><img
-                                src="{{url("images/$country->flag")}}" style="width: 25px;height: 25px;"><span
-                                class="dis_no"> {{$country->name}}</span></button>
+                        @foreach($ctn as $c)
+                            @if($c->country_id == $country->id)
+                                <button class="tablinks  @if($loop->first) active @endif"
+                                        onclick="openCity(event,   {{ '\'' . $country->name . '\'' }} )"><img
+                                        src="{{url("images/$country->flag")}}" style="width: 25px;height: 25px;"><span
+                                        class="dis_no"> {{$country->name}}</span></button>
+                            @endif
+                        @endforeach
+
                     @endforeach
                     {{--                    <button class="tablinks" onclick="openCity(event, 'amerika')"><img src="../image/order-Us.png"><span--}}
                     {{--                            class="dis_no">Amerika</span></button>--}}
@@ -59,7 +66,7 @@
                 <div class="border_bar">
                     @foreach($countries as $country)
                         <div id="{{$country->name}}" class="tabcontent @if($loop->first) active @endif"
-                             style="@if($loop->first) display: block; @endif">
+                             style="display: block!important;">
                             <div class="row">
                                 <div class="col-md-12 ">
                                     <!-- Small button groups (default and split) -->
