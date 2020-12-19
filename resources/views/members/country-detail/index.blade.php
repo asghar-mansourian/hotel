@@ -65,20 +65,61 @@
                                     <!-- Small button groups (default and split) -->
 
                                     <div id="scrol_price" class="mt-5">
-                                        <div id="scrol_price_content" style="padding: 31px 88px 60px;">
+                                        <div id="scrol_price_content" style="">
                                             <div class="container-fluid">
                                                 <div class="row">
                                                     @foreach($details as $detail)
                                                         @if ($country->id == $detail->country_id)
-                                                            <div class="col-md-6">
+
+                                                            <div class="col-md-6 btn-detail-custom">
                                                                 <div style="margin-bottom:10px;">
                                                                     <span
-                                                                        style="font-size: 17px;font-weight: 800;">{{$detail->name}}</span>
-                                                                    <div>
-                                                                        <p class="contents" style="display: contents">{{ $detail->value }}</p>
-                                                                        @if ($detail->can_copy == '1')
-                                                                            <button data-copy="{{$detail->id}}" class="copy btn btn-xs btn-danger btn-outline-dark" ><i class="fa fa-clone" aria-hidden="true"></i> {{__('member.copy')}}</button>
-                                                                        @endif
+                                                                        style="    width: 100%;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #999999;
+    margin-bottom: 11px;">{{$detail->name}} </span>
+                                                                    <div style="background-color: #f5f5f5;
+    border-radius: 6px;
+    margin-top: 10px;">
+                                                                        <p class="contents" style="display: contents;    height: 44px;
+    border-radius: 8px;
+    /* border: solid 1px #ddd; */
+    background-color: #fbfbfb;
+    width: 100%;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: left;
+    color: #2c2c51;
+    display: flex;
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    padding: 0 15px;
+}">{{ $detail->value }}
+                                                                            @if ($detail->can_copy == '1')
+                                                                            <button data-copy="{{$detail->id}}" class=" ml-auto btn-copy-custom" style="visibility:hidden;border: none">
+                                                                                <i class="fa fa-clone" aria-hidden="true"></i>
+                                                                            </button>
+                                                                            @endif
+                                                                        </p>
+
+
                                                                     </div>
 
                                                                 </div>
@@ -99,6 +140,12 @@
             </div>
         </div>
     </div>
+    <style>
+        .btn-detail-custom:hover .btn-copy-custom{
+            visibility: visible!important;
+            transition: all 0.2s!important;
+        }
+    </style>
 @endsection
 
 @section('menuItem')
