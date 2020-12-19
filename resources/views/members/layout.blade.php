@@ -135,10 +135,10 @@
         });
 
         $(document).ready(function () {
-            $(".copy").click(function (e) {
+            $(".btn-copy-custom").click(function (e) {
                 thisEl = $(this);
                 copyId = thisEl.attr('data-copy')
-                text = $(this).parent().children('p.contents').text();
+                text = $(this).parent().text();
                 copyToClipboard(text)
             });
 
