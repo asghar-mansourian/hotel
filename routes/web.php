@@ -113,7 +113,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('customers', 'CustomerController');
 
-    Route::get('pages/{slug}', 'PageController');
+    Route::get('pages/{id}', 'PageController');
 
     Route::get('get-price-via-weight/{weight}', 'PriceItemController');
 
