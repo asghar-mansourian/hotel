@@ -42,7 +42,7 @@
                                 <div class="col-md-4 col-sm-6">
                                     <div class="how_work_list">
                                         <div class="how_work_page text-center">
-                                            <img src="{{url('/front/image/ship.png')}}">
+                                            <img src="{{url('/front/image/Group_137.svg')}}">
                                             <h4><strong>{{__('website.getpackage')}}</strong></h4>
                                             <div class="yellow_border"></div>
                                             <div class="how_work_page_text">
