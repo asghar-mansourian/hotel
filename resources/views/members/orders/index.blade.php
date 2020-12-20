@@ -407,7 +407,7 @@
                                                     <li>{{__('member.id')}}</li>
                                                     <li>{{__('member.total')}}</li>
                                                     <li>{{__('member.status')}}</li>
-                                                    <li>{{__('member.date')}}</li>
+                                                    <li style="width: 20%!important">{{__('member.date')}}</li>
                                                     <li style="width: 19.6%">{{__('member.option')}}</li>
                                                 </ul>
                                             </div>
@@ -421,7 +421,7 @@
                                                             <li>{{$order->id}}</li>
                                                             <li>{{$order->total}}</li>
                                                             <li>{!! $order->payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
-                                                            <li>{{$order->created_at}}</li>
+                                                            <li style="width: 20%!important;">{{$order->created_at}}</li>
                                                             <li style="width: 9.6%">
                                                                 <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"
