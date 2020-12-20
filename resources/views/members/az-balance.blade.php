@@ -18,22 +18,22 @@
                         <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">{{Auth::user()->balance}}<sup>₺</sup></span>
                     </div>
-                    <div class="balance-date">{{__('member.lastaddeddate')}}</div>
+                    <div class="balance-date">{{__('member.balance3')}}</div>
                     <div class="balance-text">
-                        {{__('member.lastaddeddatedesc')}}
-                        <p><b>{{__('member.lastaddeddatedesc1')}}</b></p>
+                        {{__('member.balance4')}}
+                        <p><b>{{__('member.balance5')}}</b></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12 right-side">
                 <div class="border_sh">
-                    <h5><strong>{{__('member.balanceincreasepayment')}}</strong></h5>
+                    <h5><strong>{{__('member.balance6')}}</strong></h5>
                     <div class="payment">
                         <form action="{{url('/payment/gate')}}" method="post">
                             @csrf
 {{--                            <input type="number" min="1" max="50" id="balance_val" required="" placeholder="USD" name="amount">--}}
                             <input type="number" min="1" id="new_balance_val" style="width: 50%" required="" placeholder="TL" name="amount_tl">
-                            <button type="submit" class="payment_button ">{{__('member.balanceincreases')}}</button>
+                            <button type="submit" class="payment_button ">{{__('member.balance')}}</button>
                         </form>
                     </div>
                     <div class="visa-logo">

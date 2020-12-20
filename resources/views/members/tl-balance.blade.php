@@ -17,16 +17,16 @@
                         <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">{{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup></span>
                     </div>
-                    <div class="balance-date">{{__('member.lastaddeddate')}}</div>
+                    <div class="balance-date">{{__('member.balance7')}}</div>
                     <div class="balance-text">
-                        {{__('member.lastaddeddatedesc')}}
-                        <p><b>{{__('member.lastaddeddatedesc1')}}</b></p>
+                        {{__('member.balance8')}}
+                        <p><b>{{__('member.balance9')}}</b></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12 right-side">
                 <div class="border_sh">
-                    <h5><strong>{{__('member.balanceincreasepayment')}}</strong></h5>
+                    <h5><strong>{{__('member.balance10')}}</strong></h5>
                     <div class="payment">
                         <form action="{{url('/payment/gate')}}" method="post">
                             @csrf

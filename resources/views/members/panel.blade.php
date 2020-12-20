@@ -28,7 +28,7 @@
     left: 30px;
     width: 222px;
     line-height: 1.7;">
-                        <p><b>{{__('member.increasenotreturned')}}</b></p>
+                        <p><b>{{__('member.balance1')}}</b></p>
                     </div>
 
 
@@ -54,7 +54,7 @@
     left: 30px;
     width: 222px;
     line-height: 1.7;">
-                        <p><b>{{__('member.increasenotreturned')}}</b></p>
+                        <p><b>{{__('member.balance2')}}</b></p>
                     </div>
 
 
