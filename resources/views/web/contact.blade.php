@@ -44,10 +44,10 @@
                                                 <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_INSTAGRAM)}}"><i class="fab fa-instagram" style="color: #fff !important;"></i></a>
                                             </li>
                                             <li>
-                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_LINKEDIN_IN)}}"><i class="fab fa-linkedin-in" style="color: #fff !important;"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_WHATSUP)}}"><i class="fab fa-whatsapp" style="color: #fff !important;"></i></a>
                                             </li>
                                             <li>
-                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_PINTEREST)}}"><i class="fab fa-pinterest-p" style="color: #fff !important;"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_TELEGRAM)}}"><i class="fab fa-telegram" style="color: #fff !important;"></i></a>
                                             </li>
                                         </ul>
                                     </div>
