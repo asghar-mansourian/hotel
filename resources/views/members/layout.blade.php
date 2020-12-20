@@ -252,7 +252,7 @@
                 });
                 if (counter == 0) {
                     $("#basketFooter").hide();
-                    $("#basketSubmit").hide();
+                    // $("#basketSubmit").hide();
                 }
             });
         })
