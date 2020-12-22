@@ -37,6 +37,7 @@ class SettingSeeder extends Seeder
             Setting::FIELD_MAX_WEIGHT_PRICE => 20.10,
             Setting::FIELD_AREA_CODE => "+7",
             Setting::FIELD_COWSEL_TOKEN => "",
+            Setting::FIELD_IS_CALCULATE_THE_WEIGHT => 0,
 //            'ENV_mail.mailers.smtp.host' => "mail.shtormex.ru",
 //            'ENV_mail.mailers.smtp.transport' => "smtp",
 //            'ENV_mail.mailers.smtp.port' => 587,
