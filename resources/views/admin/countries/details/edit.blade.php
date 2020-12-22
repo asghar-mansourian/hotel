@@ -44,9 +44,15 @@
                             @slot('name')
                                 {{ $country_details->name }}
                             @endslot
+                                @slot('name_ru')
+                                    {{ $country_details->name_ru }}
+                                @endslot
                             @slot('value')
                                 {{ $country_details->value }}
                             @endslot
+                                @slot('value_ru')
+                                    {{ $country_details->value_ru }}
+                                @endslot
                             @slot('copy')
                                 {{ $country_details->can_copy }}
                             @endslot

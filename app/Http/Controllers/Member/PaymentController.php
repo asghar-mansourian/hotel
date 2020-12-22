@@ -70,8 +70,10 @@ class PaymentController extends Controller
             }
             $payment->type = Payment:: PAYMENT_TYPE_ONLINE;
             $payment->price = $payment_balance;
+            $payment->modelable_id = $order;
             $payment->description = 'payment by online . paid order';
             $order->payment()->save($payment);
+            $payment->save();
         }
 
         if (Helpers::hasGatePaytr()) {

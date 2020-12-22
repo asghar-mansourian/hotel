@@ -79,7 +79,13 @@
         </div>
     </div>
 </div>
-<div class="footer_yellow text-center">
-    <div class="title_list">{{__('website.copyright')}}</div>
-    <a href="https://medyaturk.az/" style="font-size: 14px;">{{__('website.copyright2')}}</a>
+<div class="footer_yellow text-left" style="padding: 0!important;height: 50px!important;">
+    <a href="https://medyaturk.az/" style="font-size: 14px;height: 50px;display: block;position: relative">
+        <span style="    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #151f59;
+    color: white;
+    padding: 0 10px;">https://medyaturk.az</span>
+    </a>
 </div>

@@ -177,9 +177,9 @@
                                                     <label
                                                         style="margin-bottom: 10px;font-size: 12px;font-weight: bold;"
                                                         for="">{{__('member.cargointurkey')}}</label>
-                                                    <input type="text" onkeyup="return numberValidation(this)"
+                                                    <input type="text"  onkeyup="return numberValidation(this)"
                                                            name="cargo[]" pattern="[0-9]+(\.[0-9]{1,2})?%?"
-                                                           placeholder="{{__('member.cargointurkey')}} *"
+                                                           placeholder="0 ₺"
                                                            class="w-100 courier_input" >
                                                     <span id="numberText"></span>
                                                 </div>
@@ -352,7 +352,7 @@
                         for="">{{__('member.cargointurkey')}}</label>
                     <input type="text" onkeyup="return numberValidation(this)"
                            name="cargo[]" pattern="[0-9]+(\.[0-9]{1,2})?%?"
-                           placeholder="{{__('member.cargointurkey')}} *"
+                           placeholder="0 ₺"
                            class="w-100 courier_input" >
                     <span id="numberText"></span>
                 </div>
