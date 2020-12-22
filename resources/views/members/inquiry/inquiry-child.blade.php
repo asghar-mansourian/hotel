@@ -18,7 +18,14 @@
     </style>
     @endsection
 <div class="right">
-<p>
+<p style="    word-break: break-all;
+    height: auto;
+    text-align: justify;
+    direction: ltr;
+    color: #f25c69;
+    padding: 26px;
+    border-radius: 6px;
+    border: 2px solid #f25c69;background-color: white">
     {{__('member.title')}}: {{$inquiry->title}}
     <br>
     {{$inquiry->message}}
@@ -35,7 +42,14 @@
 @foreach($inquiry->inquirys as $inquiry_child)
        @if($inquiry_child->user_id == auth()->user()->id)
            <div class="right">
-               <p>
+               <p style="  word-break: break-all;
+    height: auto;
+    text-align: justify;
+    direction: ltr;
+    color: #f25c69;
+    padding: 26px;
+    border-radius: 6px;
+    border: 2px solid #f25c69;background-color: white">
                    {{$inquiry_child->message}}
                    @if($inquiry_child->image)
                        <br>
