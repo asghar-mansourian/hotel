@@ -44,6 +44,7 @@ class Setting extends Model
     const FIELD_MAX_WEIGHT_PRICE = 'max_weight_price';
     const FIELD_AREA_CODE = 'area_code';
     const FIELD_COWSEL_TOKEN = 'cowsel_token';
+    const FIELD_IS_CALCULATE_THE_WEIGHT = 'is_calculate_the_weight';
 
     public function scopeGetValue($query, $key)
     {
