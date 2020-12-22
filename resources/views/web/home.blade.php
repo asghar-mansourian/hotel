@@ -128,7 +128,7 @@ width: 100px;
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="index_cont">
-                            <div class="index_cont_img"><img src="./front/image/ship.png" class="w-100"></div>
+                            <div class="index_cont_img"><img src="{{url('/front/image/Group_137.svg')}}"></div>
                             <h5><strong>{{__('website.getpackage')}}</strong></h5>
                             <div class="mb-2">{{__('website.getpackageloc')}}</div>
                         </div>

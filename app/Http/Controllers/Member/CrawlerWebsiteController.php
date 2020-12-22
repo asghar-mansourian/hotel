@@ -47,38 +47,55 @@ class CrawlerWebsiteController extends Controller
 
     public function crawler($link)
     {
-        try {
-            $client = new Client();
-            $crawler = $client->request('GET', $link,['timeout' => 800]);
-            if(strpos($link, 'www.boyner.com.tr')){
-                $name = 'www.boyner.com.tr';
-                $price = $crawler->filter('.price-payable')->first()->text();
-                $image = $crawler->filter('.zoom')->first()->filter('img')->attr('data-lazy');
-            }
-            else{
-                $name = 'www.trendyol.com';
-                $price = $crawler->filter('.prc-dsc')->first()->text();
-                $image = $crawler->filter('.slick-current')->eq(1)->filter('img')->attr('src');
-            }
-            $image = str_replace('"','',$image);
-            $imageName = Str::random(40).'.jpg';
-            copy($image,public_path('/images/'.$imageName));
-            $price = str_replace(',','.',$price);
-            $type_price = substr($price,strpos($price, " ") + 1);
-            $price = str_replace(' TL','',$price);
+        $trendyol = 1;
+       while (true) {
+           try {
+               $client = new Client();
+               $crawler = $client->request('GET', $link,['timeout' => 800]);
+               if(strpos($link, 'www.boyner.com.tr')){
+                   $name = 'www.boyner.com.tr';
+                   $price = $crawler->filter('.price-payable')->first()->text();
+                   $image = $crawler->filter('.zoom')->first()->filter('img')->attr('data-lazy');
+               }
+               else{
 
-            $crawlerWebsit = new CrawlerWebsite();
-            $crawlerWebsit->link =$link;
-            $crawlerWebsit->name =$name;
-            $crawlerWebsit->price =$price;
-            $crawlerWebsit->type_price =$type_price;
-            $crawlerWebsit->photo =$imageName;
-            $crawlerWebsit->save();
-            return  $crawlerWebsit;
-        }
-        catch (\Throwable  $e){
-            return false;
-        }
+
+                   if ($trendyol == 2){
+                       $price = $crawler->filter('.prc-slg')->html();
+                   }
+                   else{
+                       $price = $crawler->filter('.prc-dsc')->html();
+                   }
+
+                   $name = 'www.trendyol.com';
+
+
+                   $image = $crawler->filter('.slick-current')->eq(1)->filter('img')->attr('src');
+               }
+               $image = str_replace('"','',$image);
+               $imageName = Str::random(40).'.jpg';
+               copy($image,public_path('/images/'.$imageName));
+               $price = str_replace(',','.',$price);
+               $type_price = substr($price,strpos($price, " ") + 1);
+               $price = str_replace(' TL','',$price);
+
+               $crawlerWebsit = new CrawlerWebsite();
+               $crawlerWebsit->link =$link;
+               $crawlerWebsit->name =$name;
+               $crawlerWebsit->price =$price;
+               $crawlerWebsit->type_price =$type_price;
+               $crawlerWebsit->photo =$imageName;
+               $crawlerWebsit->save();
+               return  $crawlerWebsit;
+           }
+           catch (\Throwable  $e){
+                if ($trendyol == 2){
+                    break;
+                }
+               $trendyol = 2;
+           }
+       }
+       return  false;
     }
 
 }

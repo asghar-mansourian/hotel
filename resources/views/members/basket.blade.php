@@ -281,10 +281,10 @@
                              src="@if($crwal != null) {{ url('images/'.$crwal->photo)   }}@else null @endif" alt="">
                     </td>
                     <td>{{$basket->quantity}}</td>
-                    <td>{{abs(($basket->price * $basket->quantity) - $basket->total)}}</td>
-                    <td>{{$basket->price}}</td>
-                    <td>{{$basket->total}}</td>
-                    <td>{{$basket->cargo}}</td>
+                    <td>{{abs(($basket->price * $basket->quantity) - $basket->total) . ' ₺'}}</td>
+                    <td>{{$basket->price . ' ₺'}}</td>
+                    <td>{{$basket->total . ' ₺'}}</td>
+                    <td>{{$basket->cargo . ' ₺'}}</td>
                     <td class="text-center"><a href="{{url('basket/delete/' .$basket->id )}}" style="color: #7b7b93!important;"><i
                                 class="fas fa-times"></i></a></td>
                 </tr>

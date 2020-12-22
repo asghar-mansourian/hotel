@@ -44,7 +44,9 @@ class CountryDetailController extends Controller
         for ($i = 0; $i < count($request->names); $i++) {
             $details[] = [
                 'name' => $request->names[$i],
+                'name_ru' => $request->names_ru[$i],
                 'value' => $request->values[$i],
+                'value_ru' => $request->values_ru[$i],
                 'can_copy' => $request->copy[$i],
                 'country_id' => $request->input('country_id'),
             ];
@@ -134,7 +136,9 @@ class CountryDetailController extends Controller
 
         CountryDetail::query()->where('id', $id)->update([
             'name' => $request->names['0'],
+            'name_ru' => $request->names_ru['0'],
             'value' => $request->values['0'],
+            'value_ru' => $request->values_ru['0'],
             'can_copy' => $request->copy['0'],
             'country_id' => $request->input('country_id'),
         ]);
