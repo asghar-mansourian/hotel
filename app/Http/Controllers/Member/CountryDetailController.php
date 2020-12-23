@@ -8,8 +8,6 @@ use App\Http\Controllers\Controller;
 
 class CountryDetailController extends Controller
 {
-
-
     public function index()
     {
         $countries = Country::select($this->customSelectedFieldsCountry())
