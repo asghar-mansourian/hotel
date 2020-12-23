@@ -29,13 +29,25 @@ class OrderController extends Controller
             $orders->where('status', $type);
         }
 
-        $countries = Country::getCountriesWithoutCompanyCountry()->with('orders.orderItems')->get();
+        $countries = Country::select($this->customSelectedFields())
+            ->getCountriesWithoutCompanyCountry()->with('orders.orderItems')->get();
+
         return view('members.orders.index', compact('orders', 'countries'));
+    }
+
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        return [$name, 'id', 'flag', 'currency'];
     }
 
     public function create()
     {
-        $countries = Country::getCountriesWithoutCompanyCountry()->get();
+        $countries = Country::select($this->customSelectedFields())
+            ->getCountriesWithoutCompanyCountry()->get();
 
         $branches = Branch::latest()->get();
 
@@ -52,7 +64,6 @@ class OrderController extends Controller
             return $this->paidViaOnline($order);
         }
     }
-
 
     public function paidViaCash($order)
     {
@@ -71,8 +82,8 @@ class OrderController extends Controller
         DB::transaction(function () use ($order) {
             $user = auth()->user();
 
-            foreach ($order->orderItems as $item){
-                Basket::where('link' , $item->link)->where('user_id' , $user->id)->delete();
+            foreach ($order->orderItems as $item) {
+                Basket::where('link', $item->link)->where('user_id', $user->id)->delete();
             }
             $payment = new Payment();
             $payment->user_id = $user->id;
@@ -103,9 +114,9 @@ class OrderController extends Controller
 
     public function deleteBasket($id)
     {
-        $basket = Basket::where('id' , $id)->where('user_id' , auth()->user()->id)->first();
+        $basket = Basket::where('id', $id)->where('user_id', auth()->user()->id)->first();
         if (!!$basket)
-            Basket::where('id' , $id)->delete();
+            Basket::where('id', $id)->delete();
 
         request()->session()->flash('message', __('member.deleteSuccessful'));
         request()->session()->flash('success', 1);

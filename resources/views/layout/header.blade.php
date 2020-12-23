@@ -35,7 +35,7 @@
                     <li>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -5px;background-color: #fff;color: black">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -5px;background-color: #fff;    color: #151f59;font-weight: 700; font-size: 12px">
                                 {{\Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->family}}
                                 <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
                             </button>

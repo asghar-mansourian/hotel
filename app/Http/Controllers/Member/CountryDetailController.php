@@ -12,10 +12,14 @@ class CountryDetailController extends Controller
 
     public function index()
     {
-        $countries = Country::all();
+        $countries = Country::select($this->customSelectedFieldsCountry())
+            ->getCountriesWithoutCompanyCountry()->get();
+
         $details = CountryDetail::query()->select($this->customSelectedFields())->get();
+
         return view('members.country-detail.index', compact('countries', 'details'));
     }
+
     private function customSelectedFields()
     {
         $locale = app()->getLocale();
@@ -23,7 +27,17 @@ class CountryDetailController extends Controller
         $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
         $value = app()->getLocale() !== 'en' ? "value_{$locale} as value" : 'value';
 
-        return [$name , $value , 'country_id' , 'can_copy'];
+        return [$name, $value, 'country_id', 'can_copy'];
 
     }
+
+    private function customSelectedFieldsCountry()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        return [$name, 'id', 'flag', 'currency'];
+    }
+
 }

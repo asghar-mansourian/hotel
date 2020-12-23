@@ -14,7 +14,8 @@ class InvoiceController extends Controller
     public function index()
     {
         $branches = Branch::all();
-        $countries = Country::getCountriesWithoutCompanyCountry()->with('invoices.branch')->get();
+        $countries = Country::select($this->customSelectedFields())
+            ->getCountriesWithoutCompanyCountry()->with('invoices.branch')->get();
 
         return view('members.invoices.index', compact('countries', 'branches'));
     }
@@ -22,11 +23,21 @@ class InvoiceController extends Controller
 
     public function create()
     {
-        $countries = Country::getCountriesWithoutCompanyCountry()->get();
+        $countries = Country::select($this->customSelectedFields())
+            ->getCountriesWithoutCompanyCountry()->get();
 
         $branches = Branch::latest()->get();
 
         return view('members.invoices.create', compact('countries', 'branches'));
+    }
+
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        return [$name, 'id', 'flag', 'currency'];
     }
 
     public function store(InvoiceRequest $request)
