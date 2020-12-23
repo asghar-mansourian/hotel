@@ -207,8 +207,9 @@
             border-color: #ff2b00;
             border-radius: 1px
         }
-    /*    end order tracking*/
-        .items.modal .modal-dialog{
+
+        /*    end order tracking*/
+        .items.modal .modal-dialog {
             top: 150px;
         }
     </style>
@@ -247,12 +248,12 @@
                                                     </div>
                                                 </article>
                                                 @php
-                                                    $num= 10000;
+                                                    $num= 10000
                                                 @endphp
                                                 <div class="track">
                                                     @foreach(\App\Order::STATUS_ALL as $k=>$status )
                                                         @php
-                                                            $invoice->status === $k ? $num=$loop->index : '';
+                                                            $invoice->status === $k ? $num=$loop->index : ''
                                                         @endphp
                                                         <div
                                                             class="step {{$loop->index <= $num ? 'active' : 'deactive'}}">
@@ -260,7 +261,19 @@
                                                              <span
                                                                  style="background: url(/front/image/ordertracking/{{$status}}.png) no-repeat center ;display: block;width: 100%;height: 100%; border-radius: 50%;"></span>
                                                         </span>
-                                                            <span class="text"> {{$status}}</span>
+                                                            @php
+                                                                $status_trans =  \Illuminate\Support\Str::of($status)->studly()->lower()
+                                                            @endphp
+
+                                                            @if('customs_inspection' === $status)
+                                                                <span class="text"> {{__('member.custominspection')}}</span>
+                                                            @elseif('in_warehouse' === $status)
+                                                                <span class="text"> {{__('member.inwarehose')}}</span>
+                                                            @elseif('warehouse_abroad' === $status)
+                                                                <span class="text"> {{__('member.warehoseabroad')}}</span>
+                                                            @else
+                                                                <span class="text"> {{__("member.{$status_trans}")}}</span>
+                                                            @endif
                                                         </div>
                                                     @endforeach
 
@@ -412,7 +425,7 @@
                                                 </ul>
                                             </div>
                                             @php
-                                                $active_orders=$orders->where('user_id', auth()->user()->id)->where('country_id', $country->id)->get();
+                                                $active_orders=$orders->where('user_id', auth()->user()->id)->where('country_id', $country->id)->get()
                                             @endphp
                                             @foreach($active_orders as $order)
                                                 @if($order->country != null)
@@ -420,7 +433,11 @@
                                                         <ul>
                                                             <li>{{$order->id}}</li>
                                                             <li>{{$order->total}}</li>
-                                                            <li>{!! $order->payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
+                                                            @isset($order->payment->status)
+                                                                <li>{!! $order->payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
+                                                            @else
+                                                                <li>{!! '<span class="danger">'.__('member.paid_failed').'</span>' !!}</li>
+                                                            @endisset
                                                             <li style="width: 32%!important;">{{$order->created_at}}</li>
                                                             <li style="width: 9.6%">
                                                                 <input type="button" value="{{__('member.items')}}"
