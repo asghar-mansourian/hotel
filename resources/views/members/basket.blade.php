@@ -95,6 +95,7 @@
                 transform: rotate(0deg) scale(1);
                 opacity:1;
                 border: 2px solid #FFFFFF;
+
             }
 
 
@@ -183,6 +184,8 @@
                 background-color: #FFFFFF;
                 border-radius: 50%;
                 border: 2px solid #FFFFFF;
+                border: 1px solid #a4a4a4;
+
             }
             .checkbox-label input:checked ~ .checkbox-custom.circular::after {
                 border: solid #009BFF;
