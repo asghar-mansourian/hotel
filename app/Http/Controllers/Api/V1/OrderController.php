@@ -92,6 +92,8 @@ class OrderController extends Controller
     public function getStatusKey()
     {
         $collections = collect([]);
+        $collections->put('all' , -1 );
+
         foreach (Order::STATUS_ALL as $key=>$value){
             $collections->put(str_replace('_',' ',Order::STATUS_ALL[$key]),$key);
         }

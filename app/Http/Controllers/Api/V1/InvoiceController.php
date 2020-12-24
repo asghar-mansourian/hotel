@@ -56,6 +56,7 @@ class InvoiceController extends Controller
     public function getStatusKey()
     {
         $collections = collect([]);
+        $collections->put('all' , -1 );
         foreach (Invoice::STATUS_ALL as $key => $value) {
             $collections->put(str_replace('_', ' ', Invoice::STATUS_ALL[$key]), $key);
         }
