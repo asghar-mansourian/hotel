@@ -62,12 +62,14 @@
                 height: 24px;
                 width: 24px;
                 clear: both;
+
             }
 
             .checkbox-label input {
                 position: absolute;
                 opacity: 0;
                 cursor: pointer;
+
             }
 
             .checkbox-label .checkbox-custom {
@@ -84,6 +86,7 @@
                 -ms-transition: all 0.3s ease-out;
                 -o-transition: all 0.3s ease-out;
                 border: 2px solid #FFFFFF;
+
             }
 
 
@@ -95,6 +98,7 @@
                 transform: rotate(0deg) scale(1);
                 opacity:1;
                 border: 2px solid #FFFFFF;
+
             }
 
 
@@ -117,6 +121,7 @@
                 -moz-transition: all 0.3s ease-out;
                 -ms-transition: all 0.3s ease-out;
                 -o-transition: all 0.3s ease-out;
+
             }
 
 
@@ -133,6 +138,7 @@
                 border-width: 0 2px 2px 0;
                 background-color: transparent;
                 border-radius: 0;
+
             }
 
 
@@ -150,6 +156,7 @@
                 -webkit-transform: scale(0);
                 -ms-transform: scale(0);
                 transform: scale(0);
+
             }
 
             .checkbox-label input:checked ~ .checkbox-custom::before {
@@ -168,6 +175,7 @@
                 -moz-transition: all 0.3s ease-out;
                 -ms-transition: all 0.3s ease-out;
                 -o-transition: all 0.3s ease-out;
+
             }
 
 
@@ -177,12 +185,16 @@
             .checkbox-label .checkbox-custom.circular {
                 border-radius: 50%;
                 border: 2px solid #efefef;
+                border: 1px solid #b3b3b3;
+
             }
 
             .checkbox-label input:checked ~ .checkbox-custom.circular {
                 background-color: #FFFFFF;
                 border-radius: 50%;
                 border: 2px solid #FFFFFF;
+                border: 1px solid #a4a4a4;
+
             }
             .checkbox-label input:checked ~ .checkbox-custom.circular::after {
                 border: solid #009BFF;
