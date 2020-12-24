@@ -169,8 +169,8 @@
                             </a>
                         @endif
                         @if($option === 'status_type')
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-warning btn-sm dropdown-toggle mt-2"
+                            <div class="dropdown" style="display:inline!important;">
+                                <button type="button" class="btn btn-warning btn-sm dropdown-toggle "
                                         data-toggle="dropdown"
                                         aria-expanded="false">
                                     <i class="fe fe-alert-circle mr-2"></i>change status
