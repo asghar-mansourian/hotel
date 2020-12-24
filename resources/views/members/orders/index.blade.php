@@ -207,9 +207,8 @@
             border-color: #ff2b00;
             border-radius: 1px
         }
-
-        /*    end order tracking*/
-        .items.modal .modal-dialog {
+    /*    end order tracking*/
+        .items.modal .modal-dialog{
             top: 150px;
         }
     </style>
@@ -442,12 +441,19 @@
                                                             <li style="width: 9.6%">
                                                                 <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"
-                                                                       class="items btn btn-dark">
+                                                                       class="items btn btn-dark" style=" width: 80px;
+                                                                       height: 31px;
+                                                                       font-size: 12px;
+    font-weight: bold;"
+                                                                >
                                                             </li>
-                                                            <li style="width: 9.6%">
+                                                            <li style="width: 10%;margin-left: 15px;">
                                                                 <input type="button" value="{{__('member.status')}}"
                                                                        data-invoice="{{$order->id}}"
-                                                                       class="status btn btn-primary">
+                                                                       class="status btn btn-primary" style="width: 80px;
+    height: 31px;
+    font-size: 12px;
+    font-weight: bold;">
                                                             </li>
                                                         </ul>
                                                     </div>

@@ -40,18 +40,18 @@
                                 <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdown_panel" style="z-index: 999999;right: 0;left: unset">
-                                <a class="dropdown-item" href="{{url('/home')}}">{{__('website.dashboard')}}</a><br/>
-                                <a class="dropdown-item" href="{{ route('member.countrydetails.index') }}">{{str_limit(__('member.myaddressesabroad'),15)}}</a><br/>
-                                <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('member.order_title')}}</a><br/>
+                                <a class="dropdown-item" href="{{url('/home')}}">{{__('member.dashboard')}}</a><br/>
+                                <a class="dropdown-item" href="{{ route('member.countrydetails.index') }}">{{str_limit(__('member.countrydetails'),15)}}</a><br/>
+                                <a class="dropdown-item" href="{{route('invoices.index')}}">{{__('member.orders')}}</a><br/>
                                 <a class="dropdown-item" href="{{route('orders.index')}}">{{__('member.mybindings')}}</a><br/>
                                 <a class="dropdown-item" href="{{url('/az-balance')}}">{{__('member.aznBalance')}}</a><br/>
                                 <a class="dropdown-item" href="{{url('tl-balance')}}">{{__('member.tlBalance')}}</a><br/>
                                 @if(\App\Setting::getValue(\App\Setting::FIELD_HAS_COURIERS_IN_PROJECT))
                                     <a class="dropdown-item" href="{{route('courier')}}">{{__('website.balancecourier')}}</a><br/>
                                 @endif
-                                <a class="dropdown-item" href="{{route('inquiry')}}">{{__('website.balanceinquiry')}}</a><br/>
-                                <a class="dropdown-item" href="{{url('/setting')}}">{{__('website.settings')}}</a><br/>
-                                <a class="dropdown-item" href="{{url('/logout')}}">{{__('website.logout')}}</a><br/>
+                                <a class="dropdown-item" href="{{route('inquiry')}}">{{__('member.inquiry')}}</a><br/>
+                                <a class="dropdown-item" href="{{url('/setting')}}">{{__('member.settings')}}</a><br/>
+                                <a class="dropdown-item" href="{{url('/logout')}}">{{__('member.logout')}}</a><br/>
                             </div>
                         </div>
                     </li>

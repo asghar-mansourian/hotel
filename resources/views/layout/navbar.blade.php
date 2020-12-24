@@ -70,7 +70,7 @@
     box-shadow: 0 0 5px 2px #e8e8e8;
         transition: all 0.2s;
 ">
-                        {{__('member.order_title')}}
+                        {{__('member.neworder')}}
                     </a>
                 </li>
         </ul>
