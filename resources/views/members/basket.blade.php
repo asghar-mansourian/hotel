@@ -355,7 +355,7 @@
 
     $content = app()->getLocale() !== 'en' ? "content_{$locale} as content" : 'content';
     $title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
-                            $agency = \Illuminate\Support\Facades\DB::table('pages')->where('id' , 4)->select([$content , $title])->first();
+                            $agency = \Illuminate\Support\Facades\DB::table('pages')->where('id' , 5)->select([$content , $title])->first();
                             @endphp
                             {!! $agency->content !!}
                         </p>
