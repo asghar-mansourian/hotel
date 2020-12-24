@@ -7,7 +7,6 @@ use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
 use App\lib\currency;
-use App\Rules\UniquePhoneCheck;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -40,7 +39,7 @@ class SettingController extends Controller
             'phone' => ['required', 'numeric', Rule::unique('users')->ignore(\auth()->user()->id), 'regex:/(9)[0-9]{9}/'],
             'address' => ['required', 'string', 'max:255'],
             'region_id' => ['required', 'exists:regions,id'],
-            'birthdate' => ['required', 'string', 'regex:/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/'],
+//            'birthdate' => ['required', 'string', 'regex:/(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/'],
         ]);
         User::query()->where('id', Auth::user()->id)->update([
 //            'birthdate' => $request->input('birthdate'),

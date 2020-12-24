@@ -35,6 +35,7 @@
     </style>
     <div class="container">
         <div class="col-md-12 text-center">
+            @include('members.partials.validation_errors')
             <div class="black pt-5"><span class="yellow mr-3"></span>{{__('website.register')}}</div>
             {{--        <div class="italic">Global turkey logistics and transportation<br/>services via sea, land and air.</div>--}}
         </div>
@@ -56,12 +57,12 @@
                                    style=""
                                   id="name" value="{{ old('name') }}" required>
                             <label class="form-label" for="name">{{__('member.name')}} *</label>
-                            @error('name')
-                            <br>
-                            <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
+                            {{--  @error('name')
+                              <br>
+                              <span class="invalid-feedback" style="color: #b7474b " role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                              @enderror--}}
                         </fieldset>
 
                 </div>
@@ -75,12 +76,12 @@
                                style=""
                                id="family" value="{{ old('family') }}" required>
                         <label class="form-label" for="family">{{__('member.family')}} *</label>
-                        @error('family')
+                        {{--@error('family')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                        @enderror--}}
                     </fieldset>
 
                 </div>
@@ -94,12 +95,12 @@
                                style=""
                               id="email" value="{{ old('email') }}" required>
                         <label class="form-label" for="email">{{__('member.email')}} *</label>
-                        @error('email')
+                        {{--@error('email')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                        @enderror--}}
                     </fieldset>
 
                 </div>
@@ -114,12 +115,12 @@
                                style=""
                                id="password" value="{{ old('password') }}" required>
                         <label class="form-label" for="password">{{__('member.password')}} *</label>
-                        @error('password')
+                        {{--@error('password')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                        @enderror--}}
                     </fieldset>
 
                 </div>
@@ -134,12 +135,12 @@
                                style=""
                                value="{{ old('password') }}" required>
                         <label class="form-label" for="confirm-password">{{__('member.passwordconfirmation')}} *</label>
-                        @error('password')
-                        <br>
-                        <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
+                        {{--    @error('password')
+                            <br>
+                            <span class="invalid-feedback" style="color: #b7474b " role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                            @enderror--}}
                     </fieldset>
 
                 </div>
@@ -156,10 +157,10 @@
                                 <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
                             @endforeach
                         </select>
-                        @error('country_id')
-                        <span class="invalid-feedback"
-                              role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
-                        @enderror
+                        {{-- @error('country_id')
+                         <span class="invalid-feedback"
+                               role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
+                         @enderror--}}
                     </fieldset>
 
                 </div>
@@ -173,10 +174,10 @@
                                 style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 100%">
                             <option value="">{{__('member.please_select_region')}}</option>
                         </select>
-                        @error('region_id')
-                        <span class="invalid-feedback"
-                              role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
-                        @enderror
+                        {{-- @error('region_id')
+                         <span class="invalid-feedback"
+                               role="alert" style="color: #b7474b"><strong>{{ $message }}</strong></span>
+                         @enderror--}}
                     </fieldset>
 
                 </div>
@@ -191,12 +192,12 @@
                                style=""
                                value="{{ old('address') }}" id="address" required>
                         <label class="form-label" for="address">{{__('member.address')}} *</label>
-                        @error('address')
-                        <br>
-                        <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
+                        {{-- @error('address')
+                         <br>
+                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
+                                         <strong>{{ $message }}</strong>
+                                     </span>
+                         @enderror--}}
                     </fieldset>
 
                 </div>
@@ -209,12 +210,12 @@
                                style=""
                                value="{{ old('fin') }}" required>
                         <label class="form-label" for="fin">{{__('member.fin')}} *</label>
-                        @error('fin')
+                        {{--@error('fin')
                         <br>
                         <span class="invalid-feedback" style="color: #b7474b " role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                        @enderror--}}
                     </fieldset>
 
                 </div>
@@ -226,11 +227,11 @@
                             <input value="{{ old('phone') }}" type="text" name="phone"
                                    class="@error('phone') is-invalid @enderror form-control w-100 courier_input "
                                    placeholder="{{__('member.phone')}}" style="">
-                            @error('phone')
-                            <br>
-                            <span class="invalid-feedback"
-                                  role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
-                            @enderror
+                            {{--   @error('phone')
+                               <br>
+                               <span class="invalid-feedback"
+                                     role="alert" style="color: #b7474b "><strong>{{ $message }}</strong></span>
+                               @enderror--}}
                         </div>
 
                 </div>
@@ -244,10 +245,10 @@
                                style="vertical-align: middle!important;">
                         <label data-target="#polices" data-toggle="modal"
                                style="margin-bottom: 0!important;cursor: pointer; margin-left: 4px!important;vertical-align: middle!important">{{__('member.Agreepolicy')}}</label>
-                        @error('terms')
-                        <span class="invalid-feedback"
-                              role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
+                        {{--  @error('terms')
+                          <span class="invalid-feedback"
+                                role="alert"><strong>{{ $message }}</strong></span>
+                          @enderror--}}
                     </div>
 
                 </div>
