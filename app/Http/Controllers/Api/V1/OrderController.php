@@ -95,6 +95,7 @@ class OrderController extends Controller
         foreach (Order::STATUS_ALL as $key=>$value){
             $collections->put(str_replace('_',' ',Order::STATUS_ALL[$key]),$key);
         }
+        $collections->put('all' , 8 );
         $statusKey = $collections->all();
         return response()->json([
             'data' => $statusKey

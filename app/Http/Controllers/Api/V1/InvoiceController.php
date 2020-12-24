@@ -59,6 +59,7 @@ class InvoiceController extends Controller
         foreach (Invoice::STATUS_ALL as $key => $value) {
             $collections->put(str_replace('_', ' ', Invoice::STATUS_ALL[$key]), $key);
         }
+        $collections->put('all' , 8 );
         $statusKey = $collections->all();
         return response()->json([
             'data' => $statusKey
