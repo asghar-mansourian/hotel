@@ -25,7 +25,7 @@ class PageRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'content' => ['required', 'max:2550'],
+            'content' => ['required'],
             'contentru' => ['max:2550'],
             'contentaz' => ['max:2550'],
             'status' => ['required'],
