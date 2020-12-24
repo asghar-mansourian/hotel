@@ -45,18 +45,7 @@
         <div class="col-md-12 mt-5 border_sh">
             <div class="dropdown_dr">
                 <div class="dropdown myBtnContainer">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_hamisi"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        {{__('member.all')}}<i class="fas fa-chevron-down ml-2" style="font-size: 11px"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdown_hamisi">
-                        <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> {{__('member.all')}}</button>
-                        <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> {{__('member.expenditure')}}</button>
-                        <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> {{__('member.expenditure')}}</button>
-                        <br>
-                    </div>
+                    @include('members.partials.filter_payment')
                 </div>
             </div>
             <div id="scrol_price" class="mt-5">

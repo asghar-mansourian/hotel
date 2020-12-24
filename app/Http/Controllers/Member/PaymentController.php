@@ -20,8 +20,18 @@ class PaymentController extends Controller
         $payments = Payment::query()->where('user_id', Auth::user()->id)
             ->where('type', Payment::PAYMENT_TYPE_CASH)
             ->orderBy('created_at', 'DESC')
-            ->latest()
-            ->paginate(10);
+            ->latest();
+
+        switch (request()->get('filter_payment')) {
+            case 'income':
+                $payments->whereNull('modelable_type');
+                break;
+            case 'output':
+                $payments->whereNotNull('modelable_type');
+                break;
+        }
+
+        $payments = $payments->get();
 
 
         if (request()->is('az-balance')) {

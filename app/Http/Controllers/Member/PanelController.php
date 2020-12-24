@@ -13,14 +13,27 @@ class PanelController extends Controller
     {
         CurrencyController::getCurrencyFromCrawel();
         CurrencyController::getCurrencyFromTwoApi();
-        $wallet = Auth::user()->balance;
-        $wallet_usd = Auth::user()->usd_balance;
-        $payments = Payment::where('user_id' , Auth::user()->id)
-            ->where('type' , Payment::PAYMENT_TYPE_CASH)
-            ->orderBy('created_at','DESC')
-            ->latest()
-            ->paginate(10);
 
-        return view('members.panel' , compact('payments' ,'wallet' , 'wallet_usd'));
+        $wallet = Auth::user()->balance;
+
+        $wallet_usd = Auth::user()->usd_balance;
+
+        $payments = Payment::where('user_id', Auth::user()->id)
+            ->where('type', Payment::PAYMENT_TYPE_CASH)
+            ->orderBy('created_at', 'DESC')
+            ->latest();
+
+        switch (request()->get('filter_payment')) {
+            case 'income':
+                $payments->whereNull('modelable_type');
+                break;
+            case 'output':
+                $payments->whereNotNull('modelable_type');
+                break;
+        }
+
+        $payments = $payments->get();
+
+        return view('members.panel', compact('payments', 'wallet', 'wallet_usd'));
     }
 }
