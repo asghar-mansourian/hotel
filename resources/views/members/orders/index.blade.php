@@ -421,16 +421,23 @@
                                                             <li>{{$order->id}}</li>
                                                             <li>{{$order->total}}</li>
                                                             <li>{!! $order->payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
-                                                            <li style="width: 32%!important;">{{$order->created_at}}</li>
-                                                            <li style="width: 9.6%">
+                                                            <li style="width: 30%!important;">{{$order->created_at}}</li>
+                                                            <li style="width: 10%">
                                                                 <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"
-                                                                       class="items btn btn-dark">
+                                                                       class="items btn btn-dark" style=" width: 80px;
+                                                                       height: 31px;
+                                                                       font-size: 12px;
+    font-weight: bold;"
+                                                                >
                                                             </li>
-                                                            <li style="width: 9.6%">
+                                                            <li style="width: 10%;margin-left: 15px;">
                                                                 <input type="button" value="{{__('member.status')}}"
                                                                        data-invoice="{{$order->id}}"
-                                                                       class="status btn btn-primary">
+                                                                       class="status btn btn-primary" style="width: 80px;
+    height: 31px;
+    font-size: 12px;
+    font-weight: bold;">
                                                             </li>
                                                         </ul>
                                                     </div>
