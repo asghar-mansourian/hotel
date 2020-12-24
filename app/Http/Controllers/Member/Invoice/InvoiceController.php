@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Cowsel\Invoice as InvoiceCowsel;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Invoice;
+use App\lib\Helpers;
 
 class InvoiceController extends Controller
 {
@@ -20,6 +21,15 @@ class InvoiceController extends Controller
         return view('members.invoices.index', compact('countries', 'branches'));
     }
 
+    private function customSelectedFields()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        return [$name, 'id', 'flag', 'currency'];
+    }
+
     public function create()
     {
         $countries = Country::select($this->customSelectedFields())
@@ -30,20 +40,13 @@ class InvoiceController extends Controller
         return view('members.invoices.create', compact('countries', 'branches'));
     }
 
-    private function customSelectedFields()
-    {
-        $locale = app()->getLocale();
-
-        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
-
-        return [$name, 'id', 'flag', 'currency'];
-    }
-
     public function store(InvoiceRequest $request)
     {
+        $data = $request->validated();
+        $data['order_file'] = $request->hasFile('order_file') ? Helpers::upload($request, $request->order_file, '/app/invoice-files') : null;
 
         $invoice = auth()->user()->invoices()->create(
-            $request->validated()
+            $data
         );
 
         if ($invoice) {

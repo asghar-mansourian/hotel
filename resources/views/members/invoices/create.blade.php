@@ -2,6 +2,37 @@
 @section('title')
     {{__('member.site_name')}}| {{__('member.invoice_title')}}
 @endsection
+@section('styles')
+    <style>
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+
+        .custom-file-input::before {
+            content: 'Select some files';
+            display: inline-block;
+            background: linear-gradient(top, #f9f9f9, #e3e3e3);
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            cursor: pointer;
+            text-shadow: 1px 1px #fff;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+        .custom-file-input:hover::before {
+            border-color: black;
+        }
+
+        .custom-file-input:active::before {
+            background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+        }
+    </style>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -28,7 +59,7 @@
                                 @foreach($countries as $country)
 
                                     <form action="{{route('invoices.store')}}" method="POST" id="country-{{$country->id}}" class="tabcontent"
-                                          style="@if($loop->first) display: block; @endif">
+                                          style="@if($loop->first) display: block; @endif" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="country_id" value="{{$country->id}}">
                                         <div class="row">
@@ -94,15 +125,15 @@
                                                 @enderror
                                             </div>
                                             <div class="col-xs-12"></div>
-                                           {{-- <div class="col-md-6 col-sm-6 col-sm-5 mb-6">
-                                                <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
-                                                <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
-                                                        name="branch_id">
-                                                    @foreach($branches as $branch)
-                                                        <option value="{{$branch->id}}" @if(auth()->user()->branch_id == $branch->id) selected @endif>{{$branch->title}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>--}}
+                                            {{-- <div class="col-md-6 col-sm-6 col-sm-5 mb-6">
+                                                 <h5><strong>{{__('member.deliveryoffice')}} *</strong></h5>
+                                                 <select class="@error('branch_id') is-invalid @enderror w-100 courier_input "
+                                                         name="branch_id">
+                                                     @foreach($branches as $branch)
+                                                         <option value="{{$branch->id}}" @if(auth()->user()->branch_id == $branch->id) selected @endif>{{$branch->title}}</option>
+                                                     @endforeach
+                                                 </select>
+                                             </div>--}}
                                             <div class="col-md-6 col-sm-6">
                                                 <h5><strong>{{__('member.dateofordering')}} *</strong></h5>
                                                 <div class="col-md-12  courier_dr brit_year pl-0">
@@ -122,8 +153,9 @@
                                                       placeholder="{{__('member.productAbout')}}">{{ old('description') }}</textarea>
                                             </div>
                                             <div class="col-md-12">
-                                                {{--                                            <input type="file" name="" class="courier_file float-left mr-5">--}}
+                                                <button class="btn courier_button" type="button" onclick="document.getElementById('upload-file').click()">{{__('member.upload_file')}}</button>
                                                 <button class="btn courier_button" type="submit">{{__('member.send')}}</button>
+                                                <input type="file" id="upload-file" name="order_file" class="  courier_file float-right mr-5" style="visibility:hidden">
                                             </div>
                                         </div>
                                     </form>

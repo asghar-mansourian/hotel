@@ -40,11 +40,13 @@ class Helpers
         return str_replace('.', '', $price);
     }
 
-    public static function upload($request)
+    public static function upload($request, $customFieldRequest = null, $url = '/app/comment/')
     {
-        $file = $request->file;
+        $file = $customFieldRequest ? $customFieldRequest : $request->file;
+
         $file_name = Str::random(20) . $file->getClientOriginalName();
-        $result = $file->move(storage_path() . '/app/comment/', $file_name) ? $file_name : false;
+        $result = $file->move(storage_path() . $url, $file_name) ? $file_name : false;
+
         return $result;
     }
 
