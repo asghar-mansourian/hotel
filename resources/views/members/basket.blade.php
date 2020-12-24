@@ -242,14 +242,12 @@
                     </label>
                 </td>
                 <td>{{__('member.link')}}</td>
-
                 <td>{{__('member.picture')}}</td>
-
+                <td>{{__('member.price')}}</td>
                 <td>{{__('member.quantity')}}</td>
                 <td>{{__('member.comission')}}</td>
-                <td>{{__('member.price')}}</td>
-                <td>{{__('member.total')}}</td>
                 <td>{{__('member.cargo')}}</td>
+                <td>{{__('member.total')}}</td>
                 <td>{{__('member.delete')}}</td>
 
 
@@ -271,20 +269,22 @@
                                data-price="{{$basket->total}}" data-value="{{$basket->id}}">
                         <span class="checkbox-custom circular"></span>
                     </label>
+                    </td>
 
-
-                    <td>
+                    <td class="text-center">
                         <a style="color: #15b2ec!important;text-decoration: underline" href="@if($crwal != null) {{  $crwal->link   }} @else {{  $basket->link }} @endif "
                            target="_blank"> @if($crwal != null) {{  $crwal->name   }}@else {{  str_limit($basket->link, 15) }} @endif</a>
                     </td>
-                    <td><img style="height: 60px;" class="img-responsive img-rounded"
-                             src="@if($crwal != null) {{ url('images/'.$crwal->photo)   }}@else null @endif" alt="">
+
+                    <td class="text-center"><img style="height: 60px;" class="img-responsive img-rounded"
+                                                 src="@if($crwal != null) {{ url('images/'.$crwal->photo)   }}@else null @endif" alt="">
                     </td>
-                    <td>{{$basket->quantity}}</td>
-                    <td>{{abs(($basket->price * $basket->quantity) - $basket->total) . ' ₺'}}</td>
-                    <td>{{$basket->price . ' ₺'}}</td>
-                    <td>{{$basket->total . ' ₺'}}</td>
-                    <td>{{$basket->cargo . ' ₺'}}</td>
+                    <td class="text-center">{{$basket->price . ' ₺'}}</td>
+
+                    <td class="text-center">{{$basket->quantity}}</td>
+                    <td class="text-center">{{abs(($basket->price * $basket->quantity) - $basket->total) . ' ₺'}}</td>
+                    <td class="text-center">{{$basket->cargo . ' ₺'}}</td>
+                    <td class="text-center">{{$basket->total . ' ₺'}}</td>
                     <td class="text-center"><a href="{{url('basket/delete/' .$basket->id )}}" style="color: #7b7b93!important;"><i
                                 class="fas fa-times"></i></a></td>
                 </tr>
