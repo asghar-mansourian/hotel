@@ -19,6 +19,7 @@ class FaqController extends Controller
             ->select($this->customSelectedFields())
             ->orderBy(Faq::sortField, Blog::sortType)
             ->paginate(Faq::paginateNumber);
+
         return View::make('web.faq', compact('faqs'), with([
             'sortField' => Faq::sortField,
             'sortType' => Faq::sortType

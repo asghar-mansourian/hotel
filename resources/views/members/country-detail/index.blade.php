@@ -18,6 +18,7 @@
             overflow: hidden;
             cursor: pointer;
         }
+
         .copy:after {
             content: "";
             background: rgb(255 255 255);
@@ -25,7 +26,7 @@
             position: absolute;
             padding-top: 300%;
             padding-left: 350%;
-            margin-left: -20px!important;
+            margin-left: -20px !important;
             margin-top: -120%;
             opacity: 0;
             transition: all 0.8s
@@ -47,7 +48,7 @@
             <div class="col-md-12">
                 <div class="tab">
                     @php
-                        $ctn = \Illuminate\Support\Facades\DB::table('country_details')->groupBy('country_id')->get();
+                        use Illuminate\Support\Facades\DB;$ctn = DB::table('country_details')->groupBy('country_id')->get()
                     @endphp
                     @foreach($countries as $country)
                         @foreach($ctn as $c)
@@ -67,21 +68,21 @@
                     @foreach($countries as $country)
                         @foreach($ctn as $c)
 
-                        <div id="{{$country->name}}" class="tabcontent @if($c->country_id == $country->id) active @endif"
-                             style="@if($c->country_id == $country->id) display:block; @endif">
-                            <div class="row">
-                                <div class="col-md-12 ">
-                                    <!-- Small button groups (default and split) -->
+                            <div id="{{$country->name}}" class="tabcontent @if($c->country_id == $country->id) active @endif"
+                                 style="@if($c->country_id == $country->id) display:block; @endif">
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <!-- Small button groups (default and split) -->
 
-                                    <div id="scrol_price" class="mt-5">
-                                        <div id="scrol_price_content" style="">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    @foreach($details as $detail)
-                                                        @if ($country->id == $detail->country_id)
+                                        <div id="scrol_price" class="mt-5">
+                                            <div id="scrol_price_content" style="">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        @foreach($details as $detail)
+                                                            @if ($country->id == $detail->country_id)
 
-                                                            <div class="col-md-6 btn-detail-custom">
-                                                                <div style="margin-bottom:10px;">
+                                                                <div class="col-md-6 btn-detail-custom">
+                                                                    <div style="margin-bottom:10px;">
                                                                     <span
                                                                         style="    width: 100%;
     font-size: 12px;
@@ -93,10 +94,8 @@
     text-align: left;
     color: #999999;
     margin-bottom: 11px;">{{$detail->name}} </span>
-                                                                    <div style="background-color: #f5f5f5;
-    border-radius: 6px;
-    margin-top: 10px;">
-                                                                        <p class="contents" style="display: contents;    height: 44px;
+                                                                        <div style="background-color: #f5f5f5; border-radius: 6px; margin-top: 10px;">
+                                                                            <p class="contents" style="display: contents;    height: 44px;
     border-radius: 8px;
     /* border: solid 1px #ddd; */
     background-color: #fbfbfb;
@@ -120,28 +119,26 @@
     -ms-align-items: center;
     -o-align-items: center;
     padding: 0 15px;
-}">{{ $detail->value }}
-                                                                            @if ($detail->can_copy == '1')
-                                                                            <button data-copy="{{$detail->id}}" class=" ml-auto btn-copy-custom" style="visibility:hidden;border: none">
-                                                                                <i class="fa fa-clone" aria-hidden="true"></i>
-                                                                            </button>
-                                                                            @endif
-                                                                        </p>
-
+}">{{ str_replace('%code%',auth()->user()->code.' - ',$detail->value) }}
+                                                                                @if ($detail->can_copy == '1')
+                                                                                    <button data-copy="{{$detail->id}}" class=" ml-auto btn-copy-custom" style="visibility:hidden;border: none">
+                                                                                        <i class="fa fa-clone" aria-hidden="true"></i>
+                                                                                    </button>
+                                                                                @endif
+                                                                            </p>
+                                                                        </div>
 
                                                                     </div>
-
                                                                 </div>
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                             @break
                         @endforeach
                     @endforeach
@@ -151,9 +148,9 @@
         </div>
     </div>
     <style>
-        .btn-detail-custom:hover .btn-copy-custom{
-            visibility: visible!important;
-            transition: all 0.2s!important;
+        .btn-detail-custom:hover .btn-copy-custom {
+            visibility: visible !important;
+            transition: all 0.2s !important;
         }
     </style>
 @endsection

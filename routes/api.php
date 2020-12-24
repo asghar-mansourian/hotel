@@ -28,6 +28,8 @@ Route::prefix('v1')
 
         Route::get('countries', 'CountryController');
 
+        Route::get('faqs', 'FaqController');
+
         Route::get('pages/{slug}', 'PageController');
 
         Route::apiResource('blogs', 'BlogController')->except('update', 'destroy', 'store');

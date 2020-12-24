@@ -397,7 +397,19 @@
                                                              <span
                                                                  style="background: url(/front/image/ordertracking/{{$status}}.png) no-repeat center ;display: block;width: 100%;height: 100%; border-radius: 50%;"></span>
                                                         </span>
-                                                            <span class="text"> {{$status}}</span>
+                                                            @php
+                                                                $status_trans =  \Illuminate\Support\Str::of($status)->studly()->lower()
+                                                            @endphp
+
+                                                            @if('customs_inspection' === $status)
+                                                                <span class="text"> {{__('member.custominspection')}}</span>
+                                                            @elseif('in_warehouse' === $status)
+                                                                <span class="text"> {{__('member.inwarehose')}}</span>
+                                                            @elseif('warehouse_abroad' === $status)
+                                                                <span class="text"> {{__('member.warehoseabroad')}}</span>
+                                                            @else
+                                                                <span class="text"> {{__("member.{$status_trans}")}}</span>
+                                                            @endif
                                                         </div>
                                                     @endforeach
 

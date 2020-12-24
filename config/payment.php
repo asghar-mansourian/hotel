@@ -5,11 +5,11 @@ return [
     'merchant_salt' => 'Cf5cjn6XCPDTuaJh',
     'timeout_limit' => "30",
     'debug_on' => 1,
-    'test_mode' => 1,
+    'test_mode' => 0,
     'no_installment' => 0,
     'max_installment' => 0,
     'currency' => [
-        'TL' => 'TL' ,
+        'TL' => 'TL',
         'USD' => 'USD'
     ],
     'url' => 'https://www.paytr.com/odeme/api/get-token',

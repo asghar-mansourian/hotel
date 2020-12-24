@@ -19,7 +19,7 @@
                         <span class="count">{{$wallet}}<sup>₺</sup></span>
                     </div>
                     <div class="balance-date">
-                        <a  href="{{url('az-balance')}}" class="btn-balance-home"><a style="top: 30px!important;
+                        <a href="{{url('az-balance')}}" class="btn-balance-home"><a style="top: 30px!important;
     right: 5px!important;min-height: 62px" data-v-27fd2a5d="" href="{{url('az-balance')}}" class="border-btn btn-effect">{{__('member.balanceincreases')}}</a></a>
                     </div>
                     <div class="balance-text" style="    position: absolute;
@@ -64,18 +64,7 @@
         <div class="col-md-12 mt-5 border_sh">
             <div class="dropdown_dr">
                 <div class="dropdown myBtnContainer">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_hamisi"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        {{__('member.all')}}<i class="fas fa-chevron-down ml-2" style="font-size: 11px"></i>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdown_hamisi">
-                        <button class="dropdown-item w-100 active" onclick="filterSelection('all')"> {{__('member.all')}}</button>
-                        <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('expenditure')"> {{__('member.expenditure')}}</button>
-                        <br>
-                        <button class="dropdown-item w-100" onclick="filterSelection('income')"> {{__('member.expenditure')}}</button>
-                        <br>
-                    </div>
+                    @include('members.partials.filter_payment')
                 </div>
             </div>
             <div id="scrol_price" class="mt-5">
@@ -109,16 +98,15 @@
                         </div>
                     @endforeach
 
-
                 </div>
             </div>
         </div>
         <style>
             @media only screen and (max-width: 1200px) {
                 .btn-balance-home {
-                    width: 130px!important;
-                    display: block!important;
-                    min-height: 120px!important;
+                    width: 130px !important;
+                    display: block !important;
+                    min-height: 120px !important;
                 }
             }
         </style>
