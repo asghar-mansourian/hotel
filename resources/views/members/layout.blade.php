@@ -138,7 +138,8 @@
             $(".btn-copy-custom").click(function (e) {
                 thisEl = $(this);
                 copyId = thisEl.attr('data-copy')
-                text = $(this).parent().text();
+                textIgnorCopy = thisEl.attr('data-ingnor-text')
+                text = $(this).parent().text().replace(textIgnorCopy, '');
                 copyToClipboard(text)
             });
 

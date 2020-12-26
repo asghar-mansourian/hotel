@@ -13,11 +13,16 @@ class PriceItemController extends Controller
     public function __invoke($weight)
     {
         $price = PriceItem::where('from', '<=', $weight)
-            ->where('to', '>=', $weight)
-            ->value('price');
+            ->where('to', '>=', $weight);
 
-        if (Setting::getValue(Setting::FIELD_IS_CALCULATE_THE_WEIGHT)) {
-            $price = Helpers::formatPrice($price * $weight);
+        if ($price->exists()) {
+            $has_weight = $price->value('has_weight');
+
+            if ($has_weight) {
+                $price = Helpers::formatPrice($price->value('price') * $weight);
+            } else {
+                $price = $price->value('price');
+            }
         }
 
         if ($weight >= Setting::getValue(Setting::FIELD_MAX_WEIGHT)) {

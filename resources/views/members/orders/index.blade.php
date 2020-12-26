@@ -419,8 +419,8 @@
                                                     <li>{{__('member.id')}}</li>
                                                     <li>{{__('member.total')}}</li>
                                                     <li>{{__('member.status')}}</li>
-                                                    <li style="width: 32%!important">{{__('member.date')}}</li>
-                                                    <li style="width: 19.6%">{{__('member.option')}}</li>
+                                                    <li style="width: 27%!important">{{__('member.date')}}</li>
+                                                    <li style="width: 24.9%;">{{__('member.option')}}</li>
                                                 </ul>
                                             </div>
                                             @php
@@ -437,7 +437,7 @@
                                                             @else
                                                                 <li>{!! '<span class="danger">'.__('member.paid_failed').'</span>' !!}</li>
                                                             @endisset
-                                                            <li style="width: 32%!important;">{{$order->created_at}}</li>
+                                                            <li style="width: 27%!important;">{{$order->created_at}}</li>
                                                             <li style="width: 9.6%">
                                                                 <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"

@@ -179,7 +179,7 @@
                             @component('admin.components.form.inputLabel')
                                 @slot('label')
                                     <span>Order File</span>
-                                    <a href="" class="ml-3 btn btn-info btn-sm">Download</a>
+                                    <a href="{{route('invoices.show_file',$invoice->id)}}" class="ml-3 btn btn-info btn-sm">Download</a>
                                 @endslot
 
                                 @slot('type')
