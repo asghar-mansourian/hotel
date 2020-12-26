@@ -16,7 +16,7 @@
     </style>
 @endsection
 <div class="mt-5">
-    <div class="border_sh courier_out">
+    <div class="border_sh courier_out" style="width: 872px;">
         <div class="row">
             <div class="hide-alert">
                 @include('admin.components.error')

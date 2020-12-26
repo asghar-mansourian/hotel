@@ -10,7 +10,7 @@
                 <div class="row">
 
                     <div class="col-md-7 col-sm-7">
-                        <div class="black pt-5"><span class="yellow mr-3">Kargo</span>{{__('website.faq')}}</div>
+                        <div class="black pt-5"><span class="yellow mr-3"></span>{{__('website.faq')}}</div>
                     </div>
                 </div>
             </div>
