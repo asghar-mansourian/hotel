@@ -113,10 +113,10 @@
 
                                 $count = count($select);
                                 if ($count == 2){
-                                    $v = $record->{$select[0]}->{$select[1]};
+                                    $v = isset($record->{$select[0]}->{$select[1]}) ? $record->{$select[0]}->{$select[1]} : '';
                                 }
                                 else{
-                                     $v = $record->{$select[0]}->{$select[1]}->{$select[2]};
+                                     $v = isset($record->{$select[0]}->{$select[1]}->{$select[2]}) ? $record->{$select[0]}->{$select[1]}->{$select[2]} : '';
                                 }
 
 
