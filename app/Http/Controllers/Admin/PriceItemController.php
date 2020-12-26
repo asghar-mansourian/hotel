@@ -43,7 +43,8 @@ class PriceItemController extends Controller
             $details[] = [
                 'from' => $request->froms[$i],
                 'to' => $request->tos[$i],
-                'price' => $request->prices[$i]
+                'price' => $request->prices[$i],
+                'has_weight' => isset($request->weight[$i]) ? true : false,
             ];
         }
 
@@ -90,6 +91,7 @@ class PriceItemController extends Controller
             'from' => $request->input('from'),
             'to' => $request->input('to'),
             'price' => $request->input('price'),
+            'has_weight' => isset($request->has_weight) ? true : false,
         ]);
 
         session()->flash('message', __('custom.price_items.message.update'));
