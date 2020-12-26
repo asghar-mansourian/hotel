@@ -24,9 +24,9 @@ class UpdatePriceItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'from' => ['required', 'numeric', 'min:1'],
-            'to' => ['required', 'numeric', 'min:1'],
-            'price' => ['required', 'numeric', 'min:1'],
+            'from' => ['required'],
+            'to' => ['required'],
+            'price' => ['required'],
         ];
     }
 }
