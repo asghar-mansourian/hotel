@@ -86,6 +86,6 @@
     left: 0;
     background-color: #151f59;
     color: white;
-    padding: 0 10px;">https://medyaturk.az</span>
+    padding: 0 10px;"></span>
     </a>
 </div>

@@ -20,6 +20,14 @@
             <div class="col-12 col-lg-8">
                 @component('admin.components.panel')
                     @slot('items')
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                has weight
+                            </label>
+                            <div class="col-md-9">
+                                <input class="form-control " style="    width: 21px;" name="has_weight" type="checkbox" @if($price_item->has_weight) checked @endif id="has_weight">
+                            </div>
+                        </div>
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 From

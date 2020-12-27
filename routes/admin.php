@@ -197,7 +197,10 @@ route::get('/invoices/destroy/{id}', 'InvoiceController@destroy');
 route::post('/invoices/search/', 'InvoiceController@search');
 route::post('/invoices/sort/', 'InvoiceController@sort');
 route::get('/invoices/show/{id}', 'InvoiceController@show');
-route::get('/invoices/status/{id}/{type}' , 'InvoiceController@status');
+route::get('/invoices/status/{id}/{type}', 'InvoiceController@status');
+route::get('/invoices/status/{id}/{type}', 'InvoiceController@status');
+Route::get('/invoices/file/{invoice}', 'InvoiceController@showFile')->name('invoices.show_file');
+
 
 /*      Calculator Routes      */
 route::get('/calculatores', 'CalculatorController@index');

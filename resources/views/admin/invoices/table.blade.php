@@ -3,12 +3,12 @@
  [
  'sortType'=>$sortType,
  'sortField'=>$sortField,
- 'records' => $countries ,
+ 'records' => $orders ,
   'selects' => ['id' , 'name'  ]
   ]
 )
     @slot('paginate')
-        {{$countries->appends(Request::except('page'))->links()}}
+        {{$orders->appends(Request::except('page'))->links()}}
     @endslot
     @slot('url')
         countries

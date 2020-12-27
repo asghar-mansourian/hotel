@@ -536,8 +536,8 @@
                                                 <li>{{__('member.order№')}}</li>
                                                 <li>{{__('member.orderdate')}}</li>
                                                 <li>{{__('member.shop')}}</li>
-                                                <li style="width: 23%">{{__('member.status')}}</li>
-                                                <li style="width: 35%">{{__('member.action')}}</li>
+                                                <li style="width: 14%">{{__('member.status')}}</li>
+                                                <li style="width: 44%">{{__('member.action')}}</li>
                                             </ul>
                                         </div>
                                         @foreach(auth()->user()->invoices->where('country_id', $country->id)->filterViaStatus(request()->query('status')) as $invoice)
@@ -562,13 +562,13 @@
 
 
                                                     <li>
-                                                        <input type="button" value="{{__('member.edit')}}"
+                                                        <input type="button" value="{{__('member.edit')}}" style="    border-radius: 4px;"
                                                                data-invoice="{{$invoice->id}}"
-                                                               class="edit btn btn-danger">
+                                                               class="edit btn btn-warning">
 
 
                                                     </li>
-                                                    <li>
+                                                    <li style="margin-left: 16px;">
                                                         <input type="button" value="{{__('member.status')}}"
                                                                data-invoice="{{$invoice->id}}"
                                                                class="status btn btn-primary">

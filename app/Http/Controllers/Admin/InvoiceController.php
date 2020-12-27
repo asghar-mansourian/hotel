@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Invoice;
-use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
 
 class InvoiceController extends Controller
@@ -41,13 +41,18 @@ class InvoiceController extends Controller
 
     }
 
+    public function showFile(Invoice $invoice)
+    {
+        return Response::make(\Storage::get("invoice-files/" . $invoice->order_file), 200);
+    }
+
     public function show($id)
     {
         $invoice = Invoice::query()
-            ->with('country' , 'user')
+            ->with('country', 'user')
             ->where('id', $id)
             ->first();
-        return view('admin.invoices.show' , compact('invoice'));
+        return view('admin.invoices.show', compact('invoice'));
     }
 
     public function search(Request $request)

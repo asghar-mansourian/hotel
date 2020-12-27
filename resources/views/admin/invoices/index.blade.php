@@ -16,10 +16,6 @@
             @include('admin.components.error')
         </div>
 
-
-
-
-
         {{--        <div class="col-lg-4">--}}
         {{--            @component('admin.components.filter')--}}
         {{--                @slot('options')--}}
@@ -75,11 +71,11 @@
             ../../../admin/invoices/
         @endslot
     @endcomponent
-    @component('admin.components.script.paginatorScript' , ['type' => 2])
+{{--    @component('admin.components.script.paginatorScript' , ['type' => 2])
         @slot('paginatorUrl')
             invoices/load?page=
         @endslot
-    @endcomponent
+    @endcomponent--}}
     @component('admin.components.script.searchScript')
         @slot('url')
             ../../../admin/invoices/search/
