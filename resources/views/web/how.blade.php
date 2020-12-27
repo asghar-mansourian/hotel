@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12 col-sm-7">
-                        <div class="black pt-5">{{__('website.how')}}<span class="yellow ml-3 mr-3">kargo</span>{{__('website.works')}} ?</div>
+                        <div class="black pt-5">{{__('website.works')}} ?</div>
                         <div class="italic">{{__('website.subtitle1')}}<br/>{{__('website.subtitle2')}}
                         </div>
                         <div class="col-md-12 mt-5 mb-5">
@@ -23,7 +23,6 @@
                                                 {{__('website.registeron')}}
                                             </div>
                                         </div>
-                                        <div class="how_work_num" style="margin-top: -1px!important;">1</div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
@@ -36,7 +35,6 @@
                                                 {{__('website.sendvoteshopping')}}
                                             </div>
                                         </div>
-                                        <div class="how_work_num" style="margin-top: -15px!important;">2</div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-6">
@@ -49,7 +47,6 @@
                                                 {{__('website.getpackageloc')}}
                                             </div>
                                         </div>
-                                        <div class="how_work_num" style="margin-top: 7px!important;">3</div>
                                     </div>
                                 </div>
                             </div>

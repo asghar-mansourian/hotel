@@ -80,12 +80,12 @@
     </div>
 </div>
 <div class="footer_yellow text-left" style="padding: 0!important;height: 50px!important;">
-    <a href="https://medyaturk.az/" style="font-size: 14px;height: 50px;display: block;position: relative">
+    <div href="#" style="font-size: 14px;height: 50px;display: block;position: relative">
         <span style="    position: absolute;
     bottom: 0;
     left: 0;
     background-color: #151f59;
     color: white;
     padding: 0 10px;"></span>
-    </a>
+    </div>
 </div>
