@@ -175,10 +175,11 @@
                                     disabled
                                 @endslot
                             @endcomponent
+
                             @component('admin.components.form.inputLabel')
                                 @slot('label')
                                     <span>Order File</span>
-                                    <a href="{{url('admin/files/' . $invoice->order_file) }}" class="ml-3 btn btn-info btn-sm">Download</a>
+                                    <a href="" class="ml-3 btn btn-info btn-sm">Download</a>
                                 @endslot
 
                                 @slot('type')
@@ -209,8 +210,6 @@
                                     disabled
                                 @endslot
                             @endcomponent
-
-
 
                             @component('admin.components.form.inputLabel')
                                 @slot('label')
