@@ -26,6 +26,11 @@ class PriceItemController extends Controller
             }
         }
 
+        if (is_object($price)) {
+            $price = $price->value('price');
+        }
+
+
         if ($weight >= Setting::getValue(Setting::FIELD_MAX_WEIGHT)) {
             $price = Helpers::formatPrice(Setting::getValue(Setting::FIELD_MAX_WEIGHT_PRICE) * $weight);
         }
