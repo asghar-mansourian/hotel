@@ -27,7 +27,7 @@ class RegionController extends Controller
 
     public function countryByRegion(Request $request)
     {
-        $region = Region::find($request->id)->first();
+        $region = Region::findOrFail($request->id)->first();
         return response()->json([
             'data' => $region->country,
         ] , 200);

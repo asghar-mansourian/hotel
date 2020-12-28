@@ -49,7 +49,6 @@ Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
     Route::prefix('v1')
         ->namespace('Api\V1')
         ->group(function () {
-            Route::post('logout', 'Auth\LoginController@logout');
             Route::post('me', 'Auth\LoginController@me');
             Route::post('refresh', 'Auth\LoginController@refresh');
 
@@ -92,6 +91,16 @@ Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
             Route::post('/crawler/get','CrawlerController@get');
 
             Route::get('country-detail', 'CountryDetailController');
+
+        });
+});
+
+Route::middleware(['auth:api'])->group(function () {
+    // v1
+    Route::prefix('v1')
+        ->namespace('Api\V1')
+        ->group(function () {
+            Route::post('logout', 'Auth\LoginController@logout');
 
         });
 });
