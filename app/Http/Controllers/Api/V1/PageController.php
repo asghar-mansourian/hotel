@@ -12,7 +12,7 @@ class PageController extends Controller
     public function __invoke($slug)
     {
         return PageResource::make(
-            Page::findViaSlug($slug)
+            Page::find($slug)
         );
     }
 }
