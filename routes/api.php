@@ -91,5 +91,7 @@ Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
 
             Route::post('/crawler/get','CrawlerController@get');
 
+            Route::get('country-detail', 'CountryDetailController');
+
         });
 });
