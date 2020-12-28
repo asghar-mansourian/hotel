@@ -38,7 +38,7 @@
                                                 <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_FACEBOOK)}}"><i class="fab fa-facebook-f" style="color: #fff !important;"></i></a>
                                             </li>
                                             <li>
-                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_GOOGLE_PLUS)}}"><i class="fab fa-google-plus-g" style="color: #fff !important;"></i></a>
+                                                <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_GOOGLE_PLUS)}}"><i class="fab fa-youtube" style="color: #fff !important;"></i></a>
                                             </li>
                                             <li>
                                                 <a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_INSTAGRAM)}}"><i class="fab fa-instagram" style="color: #fff !important;"></i></a>
