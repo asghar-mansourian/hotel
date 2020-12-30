@@ -10,6 +10,14 @@
             border-radius: 30px;
             border: 0 !important;
         }
+        @media only screen and (max-width: 800px) {
+            .bx-wrapper {
+                height: 200px!important;
+            }
+        }
+        .bx-wrapper img , .img_slider img {
+            width: 100% !important;
+        }
     </style>
 @endsection
 @section('content')
@@ -26,7 +34,7 @@
                         <div class="img_slider" style="display: none">
                             <div class="slider" style="border-radius: 30px!important;">
                                 @foreach($sliders as $slider)
-                                    <div><img src="{{url('slider/images/' . $slider->picture)}}" alt=""></div>
+                                    <div><img src="{{url('slider/images/' . $slider->picture)}}" alt="" style=></div>
                                 @endforeach
                             </div>
                         </div>
@@ -73,7 +81,9 @@ width: 100px;
                                     <div style="clear: both;"></div>
                                     <div class="mt-2"></div>
                                     <div class="float-left">
-                                        <input class="result_cal" type="text" value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}" style="       width: 104px;
+                                        <input class="result_cal" type="text"
+                                               value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}"
+                                               style="       width: 104px;
     width: 104px;
     height: 7px;
     font-size: 15px;
@@ -128,20 +138,29 @@ width: 100px;
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="index_cont">
-                            <div class="index_cont_img"><img src="{{url('/front/image/Group_137.svg')}}" class="w-100"></div>
+                            <div class="index_cont_img"><img src="{{url('/front/image/Group_137.svg')}}" class="w-100">
+                            </div>
                             <h5><strong>{{__('website.getpackage')}}</strong></h5>
                             <div class="mb-2">{{__('website.getpackageloc')}}</div>
                         </div>
                     </div>
                 </div>
             </div>
+            <style>
+                iframe {
+                    width: 100%!important;
+                }
+            </style>
             <div class="video">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-sm-8">
                             <div class="video_bord">
-                                <iframe width="750" height="417" src="{{\App\Setting::getValue(\App\Setting::FIELD_HOME_URL_VIDEO)}}" frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 15px;"></iframe>
+                                <iframe width="750" height="417"
+                                        src="{{\App\Setting::getValue(\App\Setting::FIELD_HOME_URL_VIDEO)}}"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen style="border-radius: 15px;"></iframe>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
@@ -164,7 +183,9 @@ width: 100px;
                     <div class="owl-carousel owl-theme">
                         @foreach($customers as $customer)
                             <div class="item">
-                                <a href="{{$customer->link}}" target="_blank"><img src="{{asset('images/customers/'.$customer->image->file_name)}}" alt="{{$customer->name}}"></a>
+                                <a href="{{$customer->link}}" target="_blank"><img
+                                        src="{{asset('images/customers/'.$customer->image->file_name)}}"
+                                        alt="{{$customer->name}}"></a>
                             </div>
                         @endforeach
                     </div>
@@ -180,15 +201,18 @@ width: 100px;
                             <div class="@if($loop->first) city_pink @else city_blue @endif">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 city_title">
-                                        <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4"> <strong>{{app()->getLocale()=='en'?$country->name:$country->name_ru}}</strong>
+                                        <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4">
+                                        <strong>{{app()->getLocale()=='en'?$country->name:$country->name_ru}}</strong>
                                     </div>
                                     <ul style="padding: 0 26px;">
                                         @foreach($country->priceCalculators as $priceCalculator)
                                             <li style=" font-family: Calibri, sans-serif; font-size: 16px; border-bottom: 1px dashed #e2e5e7; padding: 10px 0;">
-                                                {{$priceCalculator->from }} - {{$priceCalculator->to }} {{$priceCalculator->unit->title}} {{$priceCalculator->des ?? ""}}
+                                                {{$priceCalculator->from }}
+                                                - {{$priceCalculator->to }} {{$priceCalculator->unit->title}} {{$priceCalculator->des ?? ""}}
                                                 @if($priceCalculator->discount)
                                                     <del style="color: pink">
-                                                        <span style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
+                                                        <span
+                                                            style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
                                                     </del>
                                                     <span style="    color: #ffffff;
     float: right;
@@ -202,7 +226,8 @@ width: 100px;
                                                         {{$priceCalculator->currency -  (($priceCalculator->discount / 100) * $priceCalculator->currency)  }} $
                                                     </span>
                                                 @else
-                                                    <span style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
+                                                    <span
+                                                        style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
                                                 @endif
                                             </li>
                                         @endforeach
@@ -223,7 +248,8 @@ width: 100px;
                             <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
                                 <div class="p-0">
                                     <div class="blog_mage">
-                                        <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}" class="w-100"></div>
+                                        <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}"
+                                                                   class="w-100"></div>
                                     </div>
                                     <div class="mob_p-4">
                                         <div class="top mt-3"><span class="top_span">{{__('website.top')}}</span></div>
@@ -247,6 +273,17 @@ width: 100px;
 @endsection
 
 @section('footerCustom')
+    <style>
+        @media (max-width: 980px) and (min-width: 320px){
+            .bacg_img {
+                margin-top: 520px!important;
+            }
+            .img_slider {
+                width: 100% !important;
+            }
+        }
+
+    </style>
     <script src="{{url('front/js/owl.carousel.min.js')}}"></script>
     <script>
         function showStuff(id, text, btn) {

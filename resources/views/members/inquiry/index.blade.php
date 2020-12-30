@@ -22,10 +22,9 @@
                     @include('admin.components.error')
                 </div>
             </div>
-            <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
+            <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover table-responsive" style="display:block;overflow: auto!important;">
                 <thead>
                 <tr>
-                    <th>{{__('member.id')}}</th>
                     <td>{{__('member.user')}}</td>
                     <th>{{__('member.message')}}</th>
                     <th>{{__('member.date')}}</th>
@@ -34,7 +33,6 @@
                 <tbody>
                 @foreach($inquirys as $inquiry)
                     <tr>
-                        <td>{{$inquiry->id}}</td>
                         <td>{{$inquiry->user ->name}}</td>
                         <td ><a  href="{{route('inquiry_show',$inquiry->id)}}">
                                 <p class="truncate-paragraph">
