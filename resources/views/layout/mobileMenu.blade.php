@@ -1,5 +1,5 @@
 <div class="mobil_menu">
-    <div id="mySidepanel" class="sidepanel">
+    <div id="mySidepanel" class="sidepanel" style="z-index: 5555">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a class="{{url()->current() === url('/') ? 'active' : ''}}" href="{{route('home')}}">{{__('website.home')}}</a>
         <a class="{{url()->current() === url('/pricing') ? 'active' : ''}}" href="{{url('/pricing')}}">{{__('website.pricing')}}</a>

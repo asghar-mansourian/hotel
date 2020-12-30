@@ -102,11 +102,15 @@
             </div>
         </div>
         <style>
+
             @media only screen and (max-width: 1200px) {
                 .btn-balance-home {
-                    width: 130px !important;
-                    display: block !important;
-                    min-height: 120px !important;
+                    width: 130px!important;
+                    display: block!important;
+                    min-height: 120px!important;
+                }
+                .border_sh{
+                    margin-top: 277px!important;
                 }
             }
         </style>
