@@ -214,9 +214,24 @@ route::post('/calculatores/search/', 'CalculatorController@search');
 route::post('/calculatores/sort/', 'CalculatorController@sort');
 
 //Inquiry
-route::get('/inquiry','InquiryController@index');
-route::get('/inquiry-show/{id}','InquiryController@show')->name('admin_inquiry_show');
-route::post('/inquiry-store','InquiryController@store')->name('admin_inquiry_store');
+route::get('/inquiry', 'InquiryController@index');
+route::get('/inquiry-show/{id}', 'InquiryController@show')->name('admin_inquiry_show');
+route::post('/inquiry-store', 'InquiryController@store')->name('admin_inquiry_store');
+
+
+//boxes
+route::get('/boxes', 'BoxController@index');
+route::get('/boxes/create', 'BoxController@create');
+route::post('/boxes/store', 'BoxController@store');
+route::get('/boxes/edit/{id}', 'BoxController@edit');
+route::post('/boxes/update/{id}', 'BoxController@update');
+route::get('/boxes/show/{id}', 'BoxController@show');
+route::get('/boxes/destroy/{id}', 'BoxController@delete');
+route::post('boxes/search', 'BoxController@search');
+route::get('/boxes/status/{id}/{type}', 'BoxController@status');
+
+//boxes items
+route::delete('/box-items/destroy/{id}', 'BoxItemController@delete');
 
 
 //Customers

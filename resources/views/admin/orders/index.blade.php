@@ -17,13 +17,13 @@
         </div>
 
 
-        <div class="col-4">
-            @component('admin.components.search')
-                @slot('url')
-                    {{url('admin/orders/search')}}
-                @endslot
-            @endcomponent
-        </div>
+        {{--        <div class="col-4">--}}
+        {{--            @component('admin.components.search')--}}
+        {{--                @slot('url')--}}
+        {{--                    {{url('admin/orders/search')}}--}}
+        {{--                @endslot--}}
+        {{--            @endcomponent--}}
+        {{--        </div>--}}
 
 
         {{--        <div class="col-lg-4">--}}
@@ -48,15 +48,188 @@
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $orders , 'selects' => ['id' , 'status_type' , ['user' , 'email']] , 'options' => ['status_type','show' , 'delete']])
-                        @slot('paginate')
-                            {{$orders->links()}}
-                        @endslot
-                        @slot('url')
-                            orders
-                        @endslot
+                    <div class="table-responsive">
 
-                    @endcomponent
+                        <table
+                            data-page-length='{{$counts}}' id="tableList"
+                            class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
+                            <thead>
+                            <th style="text-align: center">Id</th>
+                            <th style="text-align: center">Type</th>
+                            <th style="text-align: center">Username</th>
+                            <th style="text-align: center">Website</th>
+                            <th style="text-align: center">Price</th>
+                            <th style="text-align: center">Date and Time</th>
+                            {{--                            <th style="text-align: center">{{__('admin.tableaction')}}</th>--}}
+                            </thead>
+                            <thead>
+                            <th id="filter_col1" data-column="0">
+                                <input style="width: 50px!important;" type="text" class="column_filter"
+                                       id="col0_filter">
+                            </th>
+                            <th id="filter_col2" data-column="1">
+                                <input style="width: 120px!important;" type="text" class="column_filter"
+                                       id="col1_filter">
+                            </th>
+                            <th id="filter_col3" data-column="2">
+                                <input style="width: 120px!important;" type="text" class="column_filter"
+                                       id="col2_filter">
+                            </th>
+                            <th id="filter_col4" data-column="3">
+                                <input style="width: 150px!important;" type="text" class="column_filter"
+                                       id="col3_filter">
+                            </th>
+                            <th id="filter_col5" data-column="4">
+                                <input style="width: 80px!important;" type="text" class="column_filter"
+                                       id="col4_filter">
+                            </th>
+                            <th id="filter_col6" data-column="5">
+                                <input style="width: 150px!important;" type="text" class="column_filter"
+                                       id="col5_filter">
+                            </th>
+                            {{--                            <th id="filter_col7" data-column="6">--}}
+                            {{--                            </th>--}}
+
+                            </thead>
+                            <tbody class="mytbody">
+
+                            @foreach($orders as $record)
+                                @php
+                                    if($record->type == 1)
+                             {
+                                          $type = "orders";
+                                      $type2 = "order-items";
+                             }
+
+                                  if($record->type == 2)
+                                  {
+                                          $type = "invoices";
+                                      $type2 = "invoices";
+                                  }
+                                @endphp
+
+                                <tr>
+                                    <td>
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id . '?status=' . request()->get('status') ?? 0)}}">
+                                            {{$record->id}}
+                                        </a>
+
+                                    </td>
+                                    <td>
+                                        @if($record->type == 1)
+                                            <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                                <div class=""> Order</div>
+                                            </a>
+                                        @endif
+                                        @if($record->type == 2)
+                                            <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+
+                                                <div class="">Invoice</div>
+                                            </a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                            {{$record->name . ' ' . $record->family}}
+                                        </a>
+                                    </td>
+                                    @php
+                                        if ($record->type == 1)
+                                        {
+                                            $url_info = parse_url($record->website);
+                                        $url_info = $url_info['host'];
+                                        }
+                                        else{
+                                            $url_info = $record->website;
+                                        }
+                                    @endphp
+                                    <td>
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                            {{$url_info}}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                            {{$record->price . ' ₺'}}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                            {{$record->date}}
+                                        </a>
+                                    </td>
+
+
+                                    {{--                                    <td class="text-nowrap text-center">--}}
+
+
+                                    {{--                                        <a href="{{url('admin/' . $type . '/delete/' . $record->id)}}"--}}
+                                    {{--                                           class="btn btn-sm btn-danger delete" data-toggle="tooltip"--}}
+                                    {{--                                           title data-placement="top" data-value="{{$record->id}}"--}}
+                                    {{--                                           data-original-title="Delete">--}}
+                                    {{--                                            <i class="fe fe-trash "></i>--}}
+                                    {{--                                        </a>--}}
+
+                                    {{--                                        <a href="{{url('admin/' . 'order-items' . '/edit/' . $record->id . '/' . $type2)}}"--}}
+                                    {{--                                           class="btn btn-sm btn-success "--}}
+                                    {{--                                           data-value="{{$record->id}}"--}}
+                                    {{--                                        >--}}
+                                    {{--                                            <i class="fa fa-pencil "></i>--}}
+                                    {{--                                        </a>--}}
+
+                                    {{--                                        <div class="dropdown" style="display:inline!important;">--}}
+                                    {{--                                            <button type="button" class="btn btn-warning btn-sm dropdown-toggle "--}}
+                                    {{--                                                    data-toggle="dropdown"--}}
+                                    {{--                                                    aria-expanded="false">--}}
+                                    {{--                                                <i class="fe fe-alert-circle "></i>--}}
+                                    {{--                                            </button>--}}
+                                    {{--                                            <div class="dropdown-menu " style="">--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type .'/status/' . $record->id . '/' . 0 )}}"--}}
+                                    {{--                                                   style="height: 20px;">ORDERED</a>--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 1 )}}"--}}
+                                    {{--                                                   style="height: 20px;"> WAREHOUSE ABROAD</a>--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 2 )}}"--}}
+                                    {{--                                                   style="height: 20px;">ON WAY</a>--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 3 )}}"--}}
+                                    {{--                                                   style="height: 20px;"> CUSTOMS INSPECTION</a>--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 4 )}}"--}}
+                                    {{--                                                   style="height: 20px;"> IN WAREHOUSE</a>--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 5 )}}"--}}
+                                    {{--                                                   style="height: 20px;"> COURIER DELIVERY</a>--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 6 )}}"--}}
+                                    {{--                                                   style="height: 20px;">RETURN</a>--}}
+                                    {{--                                                <a class="dropdown-item"--}}
+                                    {{--                                                   href="{{url('admin/'. $type.'/status/'. $record->id . '/' . 7 )}}"--}}
+                                    {{--                                                   style="height: 20px;">COMPLETE</a>--}}
+                                    {{--                                            </div>--}}
+
+                                    {{--                                        </div>--}}
+
+
+                                    </td>
+                                </tr>
+
+
+                            @endforeach
+
+                            </tbody>
+                        </table>
+
+                        <style>
+                            nav {
+                                text-align: center;
+                            }
+                        </style>
+
+
+                    </div>
 
                 @endslot
 
@@ -69,7 +242,63 @@
 
 
 @section('scriptCustom')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <input type="hidden" id="allNumberOfCount" value="{{$counts}}">
+    <script>
+        {{--        $(document).ready(function () {--}}
+        {{--            $('#tableList').DataTable();--}}
+        {{--        });--}}
 
+        function filterGlobal() {
+            $('#tableList').DataTable().search(
+                $('#global_filter').val(),
+                $('#global_regex').prop('checked'),
+                $('#global_smart').prop('checked')
+            ).draw();
+        }
+
+        function filterColumn(i) {
+
+            $('#tableList').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                $('#col' + i + '_regex').prop('checked'),
+                $('#col' + i + '_smart').prop('checked')
+            ).draw();
+        }
+
+        $(document).ready(function () {
+            $('#tableList').DataTable();
+
+            $('input.global_filter').on('keyup click', function () {
+                filterGlobal();
+            });
+
+            $('input.column_filter').on('keyup click', function () {
+
+                filterColumn($(this).parent().attr('data-column'));
+            });
+
+
+            $("#tableList_filter").hide();
+            $("select[name='tableList_length']").html("");
+            $("select[name='tableList_length']").append("<option value={{$counts}}>all</option> <option value=30>30</option><option value=100>100</option><option value=500>500</option>");
+            $("#tableList_length").after().append("<span  style=margin-left:14px> TYPE FILTER:<select id=filterByType><option value=none>None</option> <option value=order>Order</option><option value=invoice>Invoice</option></select> </span>");
+            $("#filterByType").on('change', function () {
+                if ($(this).val() == "none") {
+                    $('#tableList').DataTable().column(1).search(
+                        ""
+                    ).draw();
+                } else {
+                    $('#tableList').DataTable().column(1).search(
+                        $(this).val(),
+                    ).draw();
+                }
+
+            })
+
+        });
+    </script>
     @component('admin.components.script.sweetAlertScript')
         @slot('url')
             ../../../admin/orders/
@@ -105,17 +334,7 @@
 
 
 @section('crumb')
-    @component('admin.components.crumb')
-        @slot('title')
-            {{trans('admin.panel.title')}}
-        @endslot
-        @slot('items')
-            <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
-                    href="{{url('/admin/home')}}"> {{__('admin.dashboard')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-mail mr-2 fs-14"></i>{{__('admin.ordertitle')}}
-            </li>
-        @endslot
-    @endcomponent
+
 @endsection
 
 

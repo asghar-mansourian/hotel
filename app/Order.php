@@ -11,7 +11,7 @@ class Order extends Model
     use SoftDeletes, scopeHelper;
 
     protected $guarded = ['id'];
-    protected $fillable = ['country_id', 'user_id','total', 'id', 'status', 'branch_id', 'payment_type'];
+    protected $fillable = ['country_id', 'user_id', 'total', 'id', 'status', 'branch_id', 'payment_type'];
 
     const PAYMENT_TYPE_ONLINE = 0;
     const PAYMENT_TYPE_CASH = 1;
@@ -21,21 +21,23 @@ class Order extends Model
     ];
 
     const STATUS_ORDERED = 0;
-    const STATUS_WAREHOUSE_ABROAD = 1;
-    const STATUS_ON_WAY = 2;
-    const STATUS_CUSTOMS_INSPECTION = 3;
-    const STATUS_IN_WAREHOUSE = 4;
-    const STATUS_COURIER_DELIVERY = 5;
-    const STATUS_RETURN = 6;
-    const STATUS_COMPLETE = 7;
+    const STATUS_PURCHASED = 1;
+    const STATUS_WAREHOUSE_ABROAD = 2;
+    const STATUS_FILL_IN_BOX = 3;
+    const STATUS_ON_WAY = 4;
+    const STATUS_CUSTOMS_INSPECTION = 5;
+    const STATUS_IN_WAREHOUSE = 6;
+    const STATUS_COURIER_DELIVERY = 7;
+    const STATUS_COMPLETE = 8;
     const STATUS_ALL = [
         self::STATUS_ORDERED => 'ordered',
+        self::STATUS_PURCHASED => 'purchased',
         self::STATUS_WAREHOUSE_ABROAD => 'warehouse_abroad',
+        self::STATUS_FILL_IN_BOX => 'fill_in_box',
         self::STATUS_ON_WAY => 'on_way',
         self::STATUS_CUSTOMS_INSPECTION => 'customs_inspection',
         self::STATUS_IN_WAREHOUSE => 'in_warehouse',
         self::STATUS_COURIER_DELIVERY => 'courier_delivery',
-        self::STATUS_RETURN => 'return',
         self::STATUS_COMPLETE => 'complete',
     ];
 

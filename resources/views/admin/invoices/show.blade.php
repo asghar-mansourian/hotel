@@ -39,220 +39,220 @@
                             @endslot
                         @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>user id</span>
-                                    <a href="" class="ml-3 btn btn-info btn-sm">show</a>
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>user id</span>
+                                <a href="" class="ml-3 btn btn-info btn-sm">show</a>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->user_id}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->user_id}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    country
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                country
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->country->name}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->country->name}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    Shop
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Shop
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->shop}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->shop}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    Product Type
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Product Type
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->product_type}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->product_type}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    Quantity
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Quantity
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->quantity}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->quantity}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    Price
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Price
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->price}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->price}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    Order Track
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Order Track
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->order_track}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->order_track}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    Order Date
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Order Date
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->order_date}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->order_date}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>Order File</span>
-                                    <a href="{{route('invoices.show_file',$invoice->id)}}" class="ml-3 btn btn-info btn-sm">Download</a>
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>Order File</span>
+                                <a href="{{route('invoices.show_file',$invoice->id)}}" class="ml-3 btn btn-info btn-sm">Download</a>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    Please Click To Download File
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                Please Click To Download File
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    Description
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                Description
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$invoice->description}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$invoice->description}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>status</span>
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>status</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    @switch($invoice->status)
-                                        @case('0')
-                                        ORDERED
-                                        @break
-                                        @case('1')
-                                        WAREHOUSE ABROAD
-                                        @break
-                                        @case('2')
-                                        ON WAY
-                                        @break
-                                        @case('3')
-                                        CUSTOMS INSPECTION
-                                        @break
-                                        @case('4')
-                                        IN WAREHOUSE
-                                        @break
-                                        @case('5')
-                                        COURIER DELIVERY
-                                        @break
-                                        @case('6')
-                                        RETURN
-                                        @break
-                                        @case('7')
-                                        COMPLETE
-                                        @break
-                                    @endswitch
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
-                            {{--                        @component('admin.components.form.textLabel')--}}
+                            @slot('value')
+                                @switch($invoice->status)
+                                    @case('0')
+                                    ORDERED
+                                    @break
+                                    @case('1')
+                                    WAREHOUSE ABROAD
+                                    @break
+                                    @case('2')
+                                    ON WAY
+                                    @break
+                                    @case('3')
+                                    CUSTOMS INSPECTION
+                                    @break
+                                    @case('4')
+                                    IN WAREHOUSE
+                                    @break
+                                    @case('5')
+                                    COURIER DELIVERY
+                                    @break
+                                    @case('6')
+                                    RETURN
+                                    @break
+                                    @case('7')
+                                    COMPLETE
+                                    @break
+                                @endswitch
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        {{--                        @component('admin.components.form.textLabel')--}}
                         {{--                            @slot('label')--}}
                         {{--                                message--}}
                         {{--                            @endslot--}}
@@ -284,9 +284,23 @@
                     @endslot
                     @slot('items')
 
+
                         <a href="{{url('admin/invoices')}}"
                            class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
 
+                        @if(request()->get('status') == 1)
+                            <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . 1 )}}"
+                               class="btn btn-primary btn-block ">Warehouse Abroad</a></a>
+                        @elseif(request()->get('status') == 6)
+                            <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . \App\Order::STATUS_COURIER_DELIVERY )}}"
+                               class="btn btn-primary btn-block ">Given to Courier</a>
+                        @elseif(request()->get('status') == 7)
+                            <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . \App\Order::STATUS_COMPLETE )}}"
+                               class="btn btn-primary btn-block ">Customer Deliverables</a>
+                        @else
+                            <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . 2 )}}"
+                               class="btn btn-primary btn-block ">Warehouse Abroad</a>
+                        @endif
                     @endslot
                 @endcomponent
 

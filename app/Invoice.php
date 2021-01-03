@@ -10,32 +10,16 @@ class Invoice extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = [
-        'user_id',
-        'branch_id',
-        'country_id',
-        'shop',
-        'product_type',
-        'quantity',
-        'price',
-        'order_track',
-        'order_date',
-        'order_file',
-        'description',
-        'status',
-    ];
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
     const selectField = ['user_id', 'country_id', 'id',
         'branch_id', 'shop', 'product_type'
-        , 'quantity', 'price', 'order_track', 'order_date', 'order_file', 'description' , 'status'];
+        , 'quantity', 'price', 'order_track', 'order_date', 'order_file', 'description', 'status'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
-
-
-    const STATUS_ORDERED = 0; // Yolda
-    const STATUS_WAREHOUSE_ABROAD = 1;
+    const STATUS_ORDERED = 0;
+    const STATUS_WAREHOUSE_ABROAD = 1; // Yolda
     const STATUS_ON_WAY = 2;
     const STATUS_CUSTOMS_INSPECTION = 3;
     const STATUS_IN_WAREHOUSE = 4;
@@ -51,6 +35,20 @@ class Invoice extends Model
         self::STATUS_COURIER_DELIVERY => 'courier_delivery',
         self::STATUS_RETURN => 'return',
         self::STATUS_COMPLETE => 'complete',
+    ];
+    protected $fillable = [
+        'user_id',
+        'branch_id',
+        'country_id',
+        'shop',
+        'product_type',
+        'quantity',
+        'price',
+        'order_track',
+        'order_date',
+        'order_file',
+        'description',
+        'status',
     ];
 
     public function newCollection(array $models = [])
@@ -76,5 +74,15 @@ class Invoice extends Model
     public function CourierProductItems()
     {
         return $this->morphMany(CourierProductItem::class, 'productable');
+    }
+
+    public function boxItems()
+    {
+        return $this->morphMany(BoxItem::class, 'orderable');
+    }
+
+    public function orderBarcode()
+    {
+        return $this->morphOne(OrderBarcode::class, 'orderable');
     }
 }

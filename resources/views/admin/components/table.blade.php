@@ -1,3 +1,9 @@
+@php
+    $__query_show = '';
+        if (isset($query_show)){
+            $__query_show = $query_show;
+        }
+@endphp
 <div class="table-responsive" id="tableList">
     <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
         <thead>
@@ -134,7 +140,7 @@
 
                     @foreach($options as $option)
                         @if($option == 'show')
-                            <a href="{{url('admin/' . $url . '/show/' . $record->id)}}" data-userid="{{$record->id}}"
+                            <a href="{{url('admin/' . $url . '/show/' . $record->id.$__query_show  )}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">
                                 <i class="fe fe-eye mr-2"></i>{{__('admin.tableshow')}}
                             </a>

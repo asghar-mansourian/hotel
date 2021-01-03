@@ -41,7 +41,6 @@
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 <span>order id</span>
-                                <a href="" class="ml-3 btn btn-info btn-sm">show</a>
                             @endslot
 
                             @slot('type')
@@ -155,41 +154,41 @@
 
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                <span>status</span>
-                            @endslot
+                                    <span>status</span>
+                                @endslot
 
-                            @slot('type')
-                                text
-                            @endslot
+                                @slot('type')
+                                    text
+                                @endslot
 
-                            @slot('value')
-                                @switch($order->status)
-                                    @case('0')
+                                @slot('value')
+                                    @switch($order->status)
+                                        @case('0')
                                         ORDERED
-                                    @break
-                                    @case('1')
-                                    WAREHOUSE ABROAD
                                         @break
-                                    @case('2')
-                                    ON WAY
+                                        @case('1')
+                                        WAREHOUSE ABROAD
                                         @break
-                                    @case('3')
-                                    CUSTOMS INSPECTION
+                                        @case('2')
+                                        ON WAY
                                         @break
-                                    @case('4')
+                                        @case('3')
+                                        CUSTOMS INSPECTION
+                                        @break
+                                        @case('4')
                                     IN WAREHOUSE
                                         @break
-                                    @case('5')
+                                        @case('5')
                                     COURIER DELIVERY
                                         @break
-                                    @case('6')
+                                        @case('6')
                                     RETURN
                                         @break
-                                    @case('7')
+                                        @case('7')
                                     COMPLETE
                                         @break
-                                @endswitch
-                            @endslot
+                                    @endswitch
+                                @endslot
                             @slot('attr')
                                 disabled
                             @endslot
@@ -230,7 +229,21 @@
                         <a href="{{url('admin/order-items')}}"
                            class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
 
+                        @if(request()->get('status') == 1)
+                            <a href="{{url('admin/orders/status/' . $order->id . '/' . 2 )}}"
+                               class="btn btn-primary btn-block ">Warehouse Abroad</a>
+                        @elseif(request()->get('status') == 6)
+                            <a href="{{url('admin/orders/status/' . $order->id . '/' . \App\Order::STATUS_COURIER_DELIVERY )}}"
+                               class="btn btn-primary btn-block ">Given to Courier</a>
+                        @elseif(request()->get('status') == 7)
+                            <a href="{{url('admin/orders/status/' . $order->id . '/' . \App\Order::STATUS_COMPLETE )}}"
+                               class="btn btn-primary btn-block ">Customer Deliverables</a>
+                        @else
+                            <a href="{{url('admin/orders/status/' . $order->id . '/' . 1 )}}"
+                               class="btn btn-primary btn-block ">Purchased</a>
+                        @endif
                     @endslot
+
                 @endcomponent
 
 
