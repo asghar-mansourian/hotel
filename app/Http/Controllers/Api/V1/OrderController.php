@@ -119,6 +119,12 @@ class OrderController extends Controller
             Basket::where('id' , $request->id)->delete();
 
         }
+        else{
+            return response()->json([
+                'message' => 'item not found',
+            ] , 404);
+
+        }
 
         return response()->json([
             'message' => 'deleted successful',
