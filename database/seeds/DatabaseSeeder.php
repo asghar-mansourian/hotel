@@ -29,6 +29,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(NotificationSeeder::class);
 
+        $this->call(CurrencyCodeSeeder::class);
+
+        $this->call(ProductCategorySeeder::class);
+
 
     }
 }
