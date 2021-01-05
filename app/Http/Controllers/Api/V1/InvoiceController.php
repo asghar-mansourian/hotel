@@ -7,6 +7,7 @@ use App\Http\Controllers\Cowsel\Invoice as InvoiceCowsel;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Http\Resources\V1\Invoice as InvoiceResource;
 use App\Invoice;
+use App\Order;
 
 class InvoiceController extends Controller
 {
@@ -35,8 +36,11 @@ class InvoiceController extends Controller
 
     public function store(InvoiceRequest $request)
     {
+        $data = $request->validated();
+        $data['status'] = Order::STATUS_PURCHASED;
+
         $invoice = auth()->user()->invoices()->create(
-            $request->validated()
+            $data
         );
 
         if (!$invoice) {

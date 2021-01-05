@@ -17,8 +17,9 @@ class Setting extends Model
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 
-    const GATE_PAYTR = 1;
     const GATE_PULPAL = 0;
+    const GATE_PAYTR = 1;
+    const GATE_PAYMES = 2;
 
     const FIELD_TAX_ORDER = 'tax_order';
     const FIELD_COMPANY_COUNTRY_ID = 'company_country_id';
@@ -45,11 +46,18 @@ class Setting extends Model
     const FIELD_AREA_CODE = 'area_code';
     const FIELD_COWSEL_TOKEN = 'cowsel_token';
     const FIELD_IS_CALCULATE_THE_WEIGHT = 'is_calculate_the_weight';
+    const FIELD_EXPORT_NAME = 'export_name';
+    const FIELD_EXPORT_ADDRESS = 'export_address';
+    const FIELD_COMPANY_FACTOR_ADDRESS = 'company_factor_address';
+    const FIELD_COMPANY_FACTOR_PHONE = 'company_factor_phone';
+    const FIELD_COMPANY_NAME = 'company_phone';
+    const FIELD_COMPANY_POSTAL_CODE = 'company_postal_code';
 
     public function scopeGetValue($query, $key)
     {
         return $query->where('key', $key)->value('value') ?? '';
     }
+
     public $timestamps = false;
 
 }

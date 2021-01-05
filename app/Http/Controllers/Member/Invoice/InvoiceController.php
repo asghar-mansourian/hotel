@@ -9,6 +9,8 @@ use App\Http\Controllers\Cowsel\Invoice as InvoiceCowsel;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Invoice;
 use App\lib\Helpers;
+use App\Order;
+use App\ProductCategory;
 
 class InvoiceController extends Controller
 {
@@ -17,17 +19,27 @@ class InvoiceController extends Controller
         $branches = Branch::all();
         $countries = Country::select($this->customSelectedFields())
             ->getCountriesWithoutCompanyCountry()->with('invoices.branch')->get();
-
-        return view('members.invoices.index', compact('countries', 'branches'));
+        $product_categories = ProductCategory::query()
+            ->select($this->selectField())
+            ->where('parent_id', null)->get();
+        return view('members.invoices.index', compact('countries', 'branches', 'product_categories'));
     }
 
     private function customSelectedFields()
     {
         $locale = app()->getLocale();
 
-        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+        $name = app()->getLocale() !== 'az' ? "name_{$locale} as name" : 'name';
 
         return [$name, 'id', 'flag', 'currency'];
+    }
+
+    public function selectField()
+    {
+        $locale = app()->getLocale();
+
+        $name = "name_{$locale} as name";
+        return ['id', $name];
     }
 
     public function create()
@@ -35,9 +47,13 @@ class InvoiceController extends Controller
         $countries = Country::select($this->customSelectedFields())
             ->getCountriesWithoutCompanyCountry()->get();
 
+        $product_categories = ProductCategory::query()
+            ->select($this->selectField())
+            ->where('parent_id', null)->get();
+
         $branches = Branch::latest()->get();
 
-        return view('members.invoices.create', compact('countries', 'branches'));
+        return view('members.invoices.create', compact('countries', 'branches', 'product_categories'));
     }
 
     public function store(InvoiceRequest $request)
@@ -45,6 +61,7 @@ class InvoiceController extends Controller
         $data = $request->validated();
         $data['order_file'] = $request->hasFile('order_file') ? Helpers::upload($request, $request->order_file, '/app/invoice-files') : null;
 
+        $data['status'] = Order::STATUS_PURCHASED;
         $invoice = auth()->user()->invoices()->create(
             $data
         );
@@ -77,7 +94,6 @@ class InvoiceController extends Controller
 
     }
 
-
     public function destroy(Invoice $invoice)
     {
         $invoice = $invoice->delete();
@@ -90,5 +106,16 @@ class InvoiceController extends Controller
         }
 
         return back();
+    }
+
+    public function getProductCategoryChild($parent_id)
+    {
+        $productChild = ProductCategory::query()
+            ->select($this->selectField())
+            ->where('parent_id', $parent_id)
+            ->get();
+        return response()
+            ->json(['data' => $productChild], '200');
+
     }
 }

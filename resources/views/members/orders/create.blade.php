@@ -112,7 +112,7 @@
                                     @if(is_null(request()->query('country')) && $loop->first) active @endif"
                                             onclick="window.location.href = '{{url("/orders/create?country={$country->id}")}}'">
                                         <img src="{{url("images/{$country->flag}")}}" width="20" alt="flag">
-                                        <span class="dis_no">{{$country->name}}</span>
+                                        <span class="dis_no">{{__('member.order_country_'.$country->id)}}</span>
                                     </button>
                                 @endforeach
                             </div>

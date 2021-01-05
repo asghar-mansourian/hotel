@@ -110,26 +110,26 @@
 
                                 <tr>
                                     <td>
-                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id . '?status=' . request()->get('status') ?? 0)}}">
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id . '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->id}}
                                         </a>
 
                                     </td>
                                     <td>
                                         @if($record->type == 1)
-                                            <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                            <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                                 <div class=""> Order</div>
                                             </a>
                                         @endif
                                         @if($record->type == 2)
-                                            <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                            <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
 
                                                 <div class="">Invoice</div>
                                             </a>
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->name . ' ' . $record->family}}
                                         </a>
                                     </td>
@@ -144,17 +144,17 @@
                                         }
                                     @endphp
                                     <td>
-                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$url_info}}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->price . ' ₺'}}
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? 0)}}">
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->date}}
                                         </a>
                                     </td>

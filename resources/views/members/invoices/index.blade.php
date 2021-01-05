@@ -347,6 +347,30 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <h5><strong>{{__('member.product_category')}} *</strong></h5>
+                                                            <input type="hidden" name="product_category_id" value="{{$invoice->product_category_id}}" id="product_category_id_{{$invoice->id}}">
+                                                            <select class="form-input" onchange="getProductCategoryChild(this.value,this.id)" id="{{$invoice->id}}" aria-labelledby="dropdown_baglama"
+                                                                    style=" width: 100%;   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
+                                                                <option class="dropdown-item" value="null">{{__('member.please_select_category')}}</option>
+                                                                @foreach($product_categories as $product_category)
+                                                                    <option class="dropdown-item" value="{{$product_category->id}}">{{$product_category->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('product_categories_id')
+                                                            <br>
+                                                            <span class="invalid-feedback" style="color: #b7474b " role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                        </span>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6" id="div_child_category_{{$invoice->id}}" style="display: none">
+                                                            <h5><strong>{{__('member.product_category')}} *</strong></h5>
+                                                            <select class="form-input" onchange="changeProductCategory(this.value,{{$invoice->id}})" id="child_category_{{$invoice->id}}" aria-labelledby="dropdown_baglama"
+                                                                    style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 100%">
+                                                                <option value="">{{__('member.please_select_category')}}</option>
+                                                            </select>
+                                                        </div>
                                                         <div class="col-md-12 mt-0">
                                             <textarea class="courier_textare" name="description"
                                                       placeholder="Bağlamanıza aid qeydləriniz varsa yazın">{{ $invoice->description }}</textarea>
@@ -380,8 +404,8 @@
                                                     <div class="card-body row">
                                                         <div class="col"><strong>{{__('member.order_title')}}</strong><br>{{$invoice->order_track}}</div>
                                                         <div class="col"><strong>{{__('member.date')}}</strong> <br>{{$invoice->order_date}}</div>
-                                                        <div class="col"><strong>{{__('member.user')}}</strong> <br>{{$invoice->user->name}}</div>
-                                                        <div class="col"><strong>{{__('member.status')}}</strong> <br>{{\App\Invoice::STATUS_ALL[$invoice->status]}}</div>
+                                                        <div class="col"><strong>{{__('member.weight')}}</strong> <br>{{$invoice->weight}} kg</div>
+                                                        <div class="col"><strong>{{__('member.weight_price')}}</strong> <br>{{$invoice->weight_price}} $</div>
                                                     </div>
                                                 </article>
                                                 @php
@@ -390,7 +414,11 @@
                                                 <div class="track">
                                                     @foreach(\App\Invoice::STATUS_ALL as $k=>$status )
                                                         @php
-                                                            $invoice->status === $k ? $num=$loop->index : ''
+                                                            if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection')
+                                                            {
+                                                                continue;
+                                                            }
+                                                                $invoice->status === $k ? $num=$loop->index : ''
                                                         @endphp
                                                         <div class="step {{$loop->index <= $num ? 'active' : 'deactive'}}">
                                                         <span class="icon">
@@ -398,12 +426,10 @@
                                                                  style="background: url(/front/image/ordertracking/{{$status}}.png) no-repeat center ;display: block;width: 100%;height: 100%; border-radius: 50%;"></span>
                                                         </span>
                                                             @php
-                                                                $status_trans =  \Illuminate\Support\Str::of($status)->studly()->lower()
+                                                                $status_trans =  Illuminate\Support\Str::of($status)->studly()->lower()
                                                             @endphp
 
-                                                            @if('customs_inspection' === $status)
-                                                                <span class="text"> {{__('member.custominspection')}}</span>
-                                                            @elseif('in_warehouse' === $status)
+                                                            @if('in_warehouse' === $status)
                                                                 <span class="text"> {{__('member.inwarehose')}}</span>
                                                             @elseif('warehouse_abroad' === $status)
                                                                 <span class="text"> {{__('member.warehoseabroad')}}</span>
@@ -434,7 +460,7 @@
                         @if(is_null(request()->query('country')) && $loop->first) active @endif"
                                 onclick="openCity(event, 'country-{{$country->id}}')">
                             <img src="{{url("images/{$country->flag}")}}" width="20" alt="flag">
-                            <span class="dis_no"> {{$country->name}}</span>
+                            <span class="dis_no"> {{__('member.invoice_country_'.$country->id)}}</span>
                         </button>
                     @endforeach
                 </div>
@@ -459,10 +485,10 @@
                                             </span>
                                         </a>
                                         <br>
-                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ORDERED)}}" style="font-size: 14px; padding: 10px;">
+                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_PURCHASED)}}" style="font-size: 14px; padding: 10px;">
                                             <img style="width: 15px;height: 15px;" src="./front/image/my_order/cargo.svg">
-                                            <span class="dis_no"> {{__('member.ordered')}}</span><span class="num">
-                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ORDERED)->count()}})
+                                            <span class="dis_no"> {{__('member.purchased')}}</span><span class="num">
+                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_PURCHASED)->count()}})
                                             </span>
                                         </a>
                                         <br>
@@ -472,23 +498,6 @@
                                             <span class="dis_no">{{$country->name}}  {{__('member.anbar')}}</span><span
                                                 class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_WAREHOUSE_ABROAD)->count()}})
-                                            </span>
-                                        </a>
-                                        <br>
-                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_ON_WAY)}}" style="font-size: 14px; padding: 10px;">
-                                            <img style="width: 15px;height: 15px;"
-                                                 src="./front/image/my_order/place.svg">
-                                            <span class="dis_no">{{__('member.Heisway')}}</span><span
-                                                class="num"> ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_ON_WAY)->count()}})
-                                            </span>
-                                        </a>
-                                        <br>
-                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_CUSTOMS_INSPECTION)}}" style="font-size: 14px; padding: 10px;">
-                                            <img style="width: 15px;height: 15px;"
-                                                 src="./front/image/my_order/bag.svg">
-                                            <span class="dis_no">{{__('member.Customsinspection')}}</span><span
-                                                class="num">
-                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_CUSTOMS_INSPECTION)->count()}})
                                             </span>
                                         </a>
                                         <br>
@@ -506,15 +515,6 @@
                                             <span class="dis_no">{{__('member.courierdelivery')}}</span>
                                             <span class="num">
                                                 ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_COURIER_DELIVERY)->count()}})
-                                            </span>
-                                        </a>
-                                        <br>
-                                        <a href="{{url("/invoices?country={$country->id}&status=".\App\Invoice::STATUS_RETURN)}}" style="font-size: 14px; padding: 10px;">
-                                            <img style="width: 15px;height: 15px;"
-                                                 src="./front/image/my_order/trash.svg">
-                                            <span class="dis_no">{{__('member.return')}}</span>
-                                            <span class="num">
-                                                ({{$country->invoices->filterViaStatus(\App\Invoice::STATUS_RETURN)->count()}})
                                             </span>
                                         </a>
                                         <br>
@@ -536,7 +536,7 @@
                                                 <li>{{__('member.order№')}}</li>
                                                 <li>{{__('member.orderdate')}}</li>
                                                 <li>{{__('member.shop')}}</li>
-                                                <li style="width: 14%">{{__('member.status')}}</li>
+                                                <li style="width: 14%">{{__('member.weight')}}</li>
                                                 <li style="width: 44%">{{__('member.action')}}</li>
                                             </ul>
                                         </div>
@@ -546,8 +546,8 @@
                                                     <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>
                                                     <li>{{$invoice->created_at}}</li>
                                                     <li>{{$invoice->shop}}</li>
-                                                    <li class="green bold">{{\App\lib\Invoice::getStatusViaKey($invoice->status)}}</li>
-                                                    @if($invoice->status  === \App\Invoice::STATUS_ORDERED)
+                                                    <li class="green bold">{{$invoice->weight != 0.00 ? $invoice->weight .' kg' : '-'}}</li>
+                                                    @if($invoice->status  === \App\Invoice::STATUS_PURCHASED)
                                                         <li>
                                                             {{--<input type="button" value="Sifarişi izlə" class="btn btn-info">--}}
                                                             <form
@@ -592,3 +592,40 @@
 @section('menuItem')
     @include('members.partials.menu_sidebar')
 @endsection
+@push('scripts')
+    <script>
+        function changeProductCategory(id, invoice_id) {
+            console.log(id)
+            $('#product_category_id_' + invoice_id).val(id);
+        }
+
+        function getProductCategoryChild(parent_id, invoice_id) {
+            if (parent_id != 'null') {
+                $.ajax({
+                    url: '/get_product_category_child/' + parent_id,
+                    type: 'GET',
+                    success: function (response) {
+                        productCategoryChild = response.data;
+                        if (productCategoryChild.length > 0) {
+                            var html = '';
+                            for (var i = 0; i < productCategoryChild.length; i++) {
+                                html = html + '<option value="' + productCategoryChild[i].id + '">' + productCategoryChild[i].name + '</option>';
+                            }
+                            $('#child_category_' + invoice_id).empty();
+                            $("#child_category_" + invoice_id).append(html);
+                            $('#div_child_category_' + invoice_id).css('display', 'block');
+                            $('#' + invoice_id).prev().val(productCategoryChild[0].id);
+                        } else {
+                            $('#' + invoice_id).prev().val(parent_id)
+                            $('#div_child_category_' + invoice_id).css('display', 'none');
+                        }
+                    }
+                });
+            } else {
+                $('#div_child_category_' + invoice_id).css('display', 'none');
+                $("#child_category_" + invoice_id).empty();
+            }
+
+        }
+    </script>
+@endpush

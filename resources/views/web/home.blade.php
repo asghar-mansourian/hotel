@@ -202,7 +202,7 @@ width: 100px;
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 city_title">
                                         <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4">
-                                        <strong>{{app()->getLocale()=='en'?$country->name:$country->name_ru}}</strong>
+                                        <strong>{{__('member.home_country_'.$country->id)}}</strong>
                                     </div>
                                     <ul style="padding: 0 26px;">
                                         @foreach($country->priceCalculators as $priceCalculator)

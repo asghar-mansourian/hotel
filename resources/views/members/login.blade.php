@@ -36,11 +36,6 @@
     </div>
     <div class="container">
         <div class="loader"><!-- Place at bottom of page --></div>
-        @if($errors->any())
-            <div class="alert alert-danger" role="alert">
-                {{$errors->first()}}
-            </div>
-        @endif
         <form action="{{ route('login') }}" method="post">
             @csrf
             <div class="row left-side">

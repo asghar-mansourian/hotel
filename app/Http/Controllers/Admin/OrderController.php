@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\lib\Barcode;
+use App\lib\Helpers;
 use App\Order;
+use App\OrderBarcode;
 use App\OrderItem;
 use App\Payment;
 use Illuminate\Database\Eloquent\Builder;
@@ -30,6 +33,14 @@ class OrderController extends Controller
                 ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.created_at as date')
                 ->where('order_items.deleted_at', null)
                 ->where('order_items.status', $status)
+                ->get();
+
+
+            $invoices = DB::table('invoices')
+                ->leftJoin('users', 'invoices.user_id', 'users.id')
+                ->select(DB::raw('2 as type'), 'users.name as name', 'users.family as family', 'invoices.id as id', 'invoices.shop as website', 'invoices.status', 'invoices.price as price', 'invoices.created_at as date')
+                ->where('invoices.deleted_at', null)
+                ->where('invoices.status', $status)
                 ->get();
 
         } elseif ($warehouse_abroad && $status == 2) {
@@ -192,9 +203,62 @@ class OrderController extends Controller
 
     public function status($id, $type)
     {
-        OrderItem::query()->find($id)->update([
+        $order = OrderItem::query()->find($id);
+
+        if ($type == Order::STATUS_WAREHOUSE_ABROAD) {
+            // assign barcode to order.
+            if (!$order->orderBarcode()->exists()) {
+                $nextId = DB::table('INFORMATION_SCHEMA.TABLES')
+                    ->where('table_name', 'order_barcodes')
+                    ->where('TABLE_SCHEMA', env('DB_DATABASE'))
+                    ->value('AUTO_INCREMENT');
+
+                if ($nextId) {
+                    $orderBarcode = $order->orderBarcode()->create([
+                        'barcode' => Barcode::generateEAN13($nextId)
+                    ]);
+
+                    // set code to order barcodes table.
+                    $code = 1000001;
+                    $orderBarcodeLastCode = OrderBarcode::max('code');
+                    if ($orderBarcodeLastCode) {
+                        $code += 1;
+                    }
+
+                    $orderBarcode->update([
+                        'code' => $code
+                    ]);
+                }
+            }
+
+        }
+
+        $order->update([
             'status' => $type,
         ]);
+
+
+        $user = $order->order->user;
+        if ($user) {
+            // send notification
+            switch ($type) {
+                case Order::STATUS_PURCHASED:
+                    Helpers::sendMessageWithId($user->id, 'Type_One');
+                    break;
+                case Order::STATUS_WAREHOUSE_ABROAD:
+                    Helpers::sendMessageWithId($user->id, 'Type_Two');
+                    break;
+                case Order::STATUS_ON_WAY:
+                    Helpers::sendMessageWithId($user->id, 'Type_Four');
+                    break;
+                case Order::STATUS_IN_WAREHOUSE:
+                    Helpers::sendMessageWithId($user->id, 'Type_Five');
+                    break;
+                case Order::STATUS_COURIER_DELIVERY:
+                    Helpers::sendMessageWithId($user->id, 'Type_Six');
+                    break;
+            }
+        }
 
 
         session()->flash('message', __('custom.order.message.update'));
