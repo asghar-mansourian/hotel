@@ -241,7 +241,7 @@
                                                         <div class="col"><strong>{{__('member.date')}}</strong>
                                                             <br>{{$invoice->order_date}}</div>
                                                         <div class="col"><strong>{{__('member.user')}}</strong>
-                                                            <br>{{$invoice->user->name}}</div>
+                                                            <br>{{auth()->user()->name . ' ' . auth()->user()->family}}</div>
                                                         <div class="col"><strong>{{__('member.status')}}</strong>
                                                             <br>{{\App\Invoice::STATUS_ALL[$invoice->status]}}</div>
                                                     </div>

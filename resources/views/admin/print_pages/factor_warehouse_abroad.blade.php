@@ -124,7 +124,7 @@
 <div class="list">
     <div class="images">
         <div class="left_img">
-            <img src="{{url('front/image/logo-linex.svg')}}">
+            <img src="{{url('front/image/logo-express.svg')}}">
         </div>
         <div class="right_img">
             <img src="{{url('/barcode/example/html/image.php?filetype=PNG&dpi=72&scale=1&rotation=0&font_family=Arial.ttf&font_size=8&text='.$barcode->barcode.'&thickness=30&code=BCGean13')}}">

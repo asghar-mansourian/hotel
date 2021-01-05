@@ -148,7 +148,7 @@
 <div class="list">
     <div class="images">
         <div class="left_img">
-            <img src="{{url('front/image/logo-linex.svg')}}">
+            <img src="{{url('front/image/logo-express.svg')}}">
         </div>
         <div class="center_img">
         </div>
