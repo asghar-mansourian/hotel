@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Invoice;
 use App\Order;
 use App\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class OrderItemsController extends Controller
@@ -47,7 +49,53 @@ class OrderItemsController extends Controller
             ->with('order')
             ->where('id', $id)
             ->first();
-        return view('admin.orderItems.show' , compact('order'));
+        return view('admin.orderItems.show', compact('order'));
+    }
+
+    public function edit($id, $type)
+    {
+        if ($type == "order-items") {
+
+            $order = OrderItem::query()
+                ->with('order')
+                ->where('id', $id)
+                ->first();
+        } else {
+
+            $order = Invoice::query()
+                ->where('id', $id)
+                ->first();
+        }
+        $cats = DB::table('product_categories')
+            ->get();
+        return view('admin.orderItems.edit', compact('order', 'cats', 'type'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $priceItem = new \App\Http\Controllers\Web\PriceItemController();
+
+        $weight_price = $priceItem($request->weight)
+            ->getData()
+            ->price;
+
+        // Save Data
+        $order_item = OrderItem::find($id);
+
+        $order_item->update([
+            'weight_price' => $weight_price,
+            'weight' => $request->weight,
+            'overseas_warehouse_number' => $request->overseas_warehouse_number,
+            'domestic_warehouse_number' => $request->domestic_warehouse_number,
+        ]);
+
+        // Decrease of balance user;
+        $order_item
+            ->order
+            ->user
+            ->decrement('usd_balance', $weight_price);
+
+        return response()->json(200);
     }
 
     public function search(Request $request)

@@ -89,6 +89,10 @@ class BoxController extends Controller
             return response()->json(['message' => 'Barcode Not Found!'], 404);
         }
 
+        if (!$barcode) {
+            return response()->json(['message' => 'Barcode Not Found!'], 404);
+        }
+
         if ($barcode->orderable->status != Order::STATUS_WAREHOUSE_ABROAD) {
             return response()->json(['message' => 'Already This Order Saved Another Box!!!'], 404);
         }

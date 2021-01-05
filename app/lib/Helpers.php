@@ -4,6 +4,7 @@
 namespace App\lib;
 
 
+use App\Notification;
 use App\Order;
 use App\Setting;
 use Illuminate\Contracts\Foundation\Application;
@@ -59,9 +60,16 @@ class Helpers
         return $currency->to_value ?? 0;
     }
 
-    public static function hasGatePaytr()
+    public static function getDefaultGate()
     {
-        return Setting::getValue(Setting::FIELD_GATE_PAYTR_OR_PULPAL) ? Setting::GATE_PAYTR : Setting::GATE_PULPAL;
+        switch (Setting::getValue(Setting::FIELD_GATE_PAYTR_OR_PULPAL)) {
+            case Setting::GATE_PAYTR:
+                return Setting::GATE_PAYTR;
+            case Setting::GATE_PULPAL:
+                return Setting::GATE_PULPAL;
+            default:
+                return Setting::GATE_PAYMES;
+        }
     }
 
     /**
@@ -82,8 +90,12 @@ class Helpers
         switch ($statusKey) {
             case Order::STATUS_ORDERED:
                 return __('member.ordered');
+            case Order::STATUS_PURCHASED:
+                return __('member.purchased');
             case Order::STATUS_WAREHOUSE_ABROAD:
                 return __('member.anbar');
+            case Order::STATUS_FILL_IN_BOX:
+                return __('member.fill_in_box');
             case Order::STATUS_ON_WAY:
                 return __('member.Heisway');
             case Order::STATUS_CUSTOMS_INSPECTION:
@@ -92,12 +104,27 @@ class Helpers
                 return __('member.warehouse');
             case Order::STATUS_COURIER_DELIVERY:
                 return __('member.courierdelivery');
-            case Order::STATUS_RETURN:
-                return __('member.return');
             case Order::STATUS_COMPLETE:
                 return __('member.complete');
             default:
                 return '';
+        }
+    }
+
+    public static function sendMessageWithId($users, $key)
+    {
+        $selectMessage = Notification::where('key', $key)->first();
+        $sms = new sms();
+        if (is_array($users)) {
+            foreach ($users as $user) {
+                $selectUser = \App\User::find($user);
+
+                $sms->sendSmsWithLinex($selectMessage->value, $selectUser->phone);
+            }
+        } else {
+            $selectUser = \App\User::find($users);
+            $sms->sendSmsWithLinex($selectMessage->value, $selectUser->phone);
+
         }
     }
 }

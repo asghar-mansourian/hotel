@@ -183,12 +183,17 @@ route::get('/orders/show/{id}' , 'OrderController@show');
 route::get('/orders/status/{id}/{type}' , 'OrderController@status');
 
 /*      Order Items Routes      */
-route::get('/order-items' , 'OrderItemsController@index');
-route::get('/order-items/load' , 'OrderItemsController@load');
-route::get('/order-items/destroy/{id}' , 'OrderItemsController@destroy');
-route::post('/order-items/search/' , 'OrderItemsController@search');
-route::post('/order-items/sort/' , 'OrderItemsController@sort');
+route::get('/order-items', 'OrderItemsController@index');
+route::get('/order-items/load', 'OrderItemsController@load');
+route::get('/order-items/destroy/{id}', 'OrderItemsController@destroy');
+route::post('/order-items/search/', 'OrderItemsController@search');
+route::post('/order-items/sort/', 'OrderItemsController@sort');
 route::get('/order-items/show/{id}', 'OrderItemsController@show');
+route::get('/order-items/edit/{id}/{type}', 'OrderItemsController@edit');
+route::post('/order-items/update/{id}', 'OrderItemsController@update');
+route::post('/order-items/update/{id}', 'OrderItemsController@update');
+
+route::get('/print-factor/{barcode}/{factor_id}', 'FactorPrintController@printFactorWarehouseAbroad');
 
 /*      Invoice Routes      */
 route::get('/invoices', 'InvoiceController@index');
@@ -196,6 +201,7 @@ route::get('/invoices/load', 'InvoiceController@load');
 route::get('/invoices/destroy/{id}', 'InvoiceController@destroy');
 route::post('/invoices/search/', 'InvoiceController@search');
 route::post('/invoices/sort/', 'InvoiceController@sort');
+route::post('/invoices/update/{id}', 'InvoiceController@update');
 route::get('/invoices/show/{id}', 'InvoiceController@show');
 route::get('/invoices/status/{id}/{type}', 'InvoiceController@status');
 route::get('/invoices/status/{id}/{type}', 'InvoiceController@status');
@@ -278,4 +284,14 @@ route::post('/scripts/search', 'ScriptController@search');
 
 
 
-
+/*      Admin Routes      */
+route::get('/admins' , 'AdminController@index');
+route::get('/admins/load' , 'AdminController@load');
+route::get('/admins/create/', 'AdminController@create');
+route::post('/admins/store/', 'AdminController@store');
+route::get('/admins/edit/{id}', 'AdminController@edit');
+route::post('/admins/update/{id}', 'AdminController@update');
+route::get('/admins/destroy/{id}', 'AdminController@destroy');
+route::get('/admins/show/{id}', 'AdminController@show');
+route::post('/admins/search/', 'AdminController@search');
+route::post('/admins/sort/', 'AdminController@sort');

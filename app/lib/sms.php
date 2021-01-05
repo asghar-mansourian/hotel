@@ -145,6 +145,12 @@ class sms
 
     }
 
+    // these bellow code  for linex site
+    public function sendSmsWithLinex($body, $number)
+    {
+        $this->sendSingle($body, $number);
+    }
+
     public function sendGroup($message, $numbers)
     {
         $messages = null;

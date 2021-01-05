@@ -14,12 +14,63 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm">
+    <div class="form">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
                 @component('admin.components.panel')
                     @slot('items')
+                        @if(request()->get('status') == \App\Order::STATUS_WAREHOUSE_ABROAD)
+                            <div class="form-group row">
+                                <div class="col-md-12 text-center">
+                                    @isset($invoice->orderBarcode->barcode)
+                                        <a href="{{url('/admin/print-factor/'.$invoice->orderBarcode->barcode . '/1')}}" class="ml-3 btn btn-info btn-sm" target="_blank">Print 1</a>
+                                        <a href="{{url('/admin/print-factor/'.$invoice->orderBarcode->barcode . '/2')}}" class="ml-3 btn btn-info btn-sm" target="_blank">Print 2</a>
+                                    @endisset
+                                </div>
+                            </div>
+                            <div action="" method="post">
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                        <span>Weight</span>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control " id="weight" name="weight" type="text" placeholder="Enter weight order" value="{{$invoice->weight}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                        <span>Weight Price</span>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control " type="text" id="weight-price" disabled value="{{$invoice->weight_price}}  $">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                        <span>Overseas Warehouse Rack Number</span>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" id="overseas-warehouse-number" value="{{$invoice->overseas_warehouse_number}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                        <span>Domestic Warehouse Rack Number</span>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" id="domestic-warehouse-number" value="{{$invoice->domestic_warehouse_number}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12 text-center">
+                                        <button class="ml-3 btn btn-success btn-md" id="btn-save">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        @endif
+
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 id
@@ -289,7 +340,7 @@
                            class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
 
                         @if(request()->get('status') == 1)
-                            <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . 1 )}}"
+                            <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . 2 )}}"
                                class="btn btn-primary btn-block ">Warehouse Abroad</a></a>
                         @elseif(request()->get('status') == 6)
                             <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . \App\Order::STATUS_COURIER_DELIVERY )}}"
@@ -297,7 +348,7 @@
                         @elseif(request()->get('status') == 7)
                             <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . \App\Order::STATUS_COMPLETE )}}"
                                class="btn btn-primary btn-block ">Customer Deliverables</a>
-                        @else
+                        @elseif(request()->get('status') != 2)
                             <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . 2 )}}"
                                class="btn btn-primary btn-block ">Warehouse Abroad</a>
                         @endif
@@ -308,10 +359,15 @@
             </div>
 
         </div>
-    </form>
+    </div>
 
 @endsection
 @section('scriptCustom')
+    @component('admin.components.script.weightOrderScript')
+        @slot('url')
+            {{url('/admin/invoices/update/' . $invoice->id)}}
+        @endslot
+    @endcomponent
     @component('admin.components.script.mainFormScript')
         @slot('mainFormUrlValue')
             ../../../admin/countries/

@@ -51,7 +51,7 @@
                                     <button class="tablinks @if($loop->first) active @endif"
                                             onclick="openCity(event, 'country-{{$country->id}}')"><img
                                             src="{{url("images/{$country->flag}")}}" width="20" alt="flag"><span
-                                            class="dis_no">{{$country->name}}</span>
+                                            class="dis_no">{{__('member.invoice_country_'.$country->id)}}</span>
                                     </button>
                                 @endforeach
                             </div>

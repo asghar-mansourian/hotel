@@ -207,7 +207,7 @@
             border-color: #ff2b00;
             border-radius: 1px
         }
-    /*    end order tracking*/
+        /*    end order tracking*/
         .items.modal .modal-dialog{
             top: 150px;
         }
@@ -252,7 +252,12 @@
                                                 <div class="track">
                                                     @foreach(\App\Order::STATUS_ALL as $k=>$status )
                                                         @php
-                                                            $invoice->status === $k ? $num=$loop->index : ''
+                                                            if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection')
+                                                               {
+                                                                   continue;
+                                                               }
+
+                                                               $invoice->status === $k ? $num=$loop->index : ''
                                                         @endphp
                                                         <div
                                                             class="step {{$loop->index <= $num ? 'active' : 'deactive'}}">
@@ -264,9 +269,7 @@
                                                                 $status_trans =  \Illuminate\Support\Str::of($status)->studly()->lower()
                                                             @endphp
 
-                                                            @if('customs_inspection' === $status)
-                                                                <span class="text"> {{__('member.custominspection')}}</span>
-                                                            @elseif('in_warehouse' === $status)
+                                                            @if('in_warehouse' === $status)
                                                                 <span class="text"> {{__('member.inwarehose')}}</span>
                                                             @elseif('warehouse_abroad' === $status)
                                                                 <span class="text"> {{__('member.warehoseabroad')}}</span>
@@ -286,6 +289,70 @@
                     </div>
                     {{--            end popup--}}
                     {{--start order status popup--}}
+                    @foreach($invoice->orderItems as $ordersItem)
+                        <div id="orderItemStatus-{{$ordersItem->id}}" class="modal fade bd-example-modal-lg" tabindex="-1"
+                             role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <article class="card">
+                                                <div class="card-body">
+                                                    <article class="card">
+                                                        <div class="card-body row">
+                                                            <div class="col">
+                                                                <strong>{{__('member.items')}}</strong><br>{{$ordersItem->order_track}}</div>
+                                                            <div class="col"><strong>{{__('member.date')}}</strong>
+                                                                <br>{{$ordersItem->created_at}}</div>
+                                                            <div class="col"><strong>{{__('member.weight')}}</strong>
+                                                                <br>{{$ordersItem->weight}}</div>
+                                                            <div class="col"><strong>{{__('member.weight_price')}}</strong>
+                                                                <br>{{$ordersItem->weight_price}}</div>
+                                                        </div>
+                                                    </article>
+                                                    @php
+                                                        $num= 10000
+                                                    @endphp
+                                                    <div class="track">
+                                                        @foreach(\App\OrderItem::STATUS_ALL as $k=>$status )
+                                                            @php
+                                                                if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection')
+                                                               {
+                                                                   continue;
+                                                               }
+                                                                   $ordersItem->status === $k ? $num=$loop->index : ''
+                                                            @endphp
+                                                            <div
+                                                                class="step {{$loop->index <= $num ? 'active' : 'deactive'}}">
+                                                        <span class="icon">
+                                                             <span
+                                                                 style="background: url(/front/image/ordertracking/{{$status}}.png) no-repeat center ;display: block;width: 100%;height: 100%; border-radius: 50%;"></span>
+                                                        </span>
+                                                                @php
+                                                                    $status_trans =  \Illuminate\Support\Str::of($status)->studly()->lower()
+                                                                @endphp
+
+                                                                @if('in_warehouse' === $status)
+                                                                    <span class="text"> {{__('member.inwarehose')}}</span>
+                                                                @elseif('warehouse_abroad' === $status)
+                                                                    <span class="text"> {{__('member.warehoseabroad')}}</span>
+                                                                @else
+                                                                    <span class="text"> {{__("member.{$status_trans}")}}</span>
+                                                                @endif
+                                                            </div>
+                                                        @endforeach
+
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{--            end popup--}}
+                    {{--start order status popup--}}
                     <div id="items-{{$invoice->id}}" class="modal items fade bd-example-modal-lg" tabindex="-1"
                          role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -297,6 +364,7 @@
                                                 <thead class="thead-light">
                                                 <tr>
                                                     <th>{{__('member.link')}}</th>
+                                                    <th>{{__('member.status')}}</th>
                                                     <th>{{__('member.price')}}</th>
                                                     <th>{{__('member.cargo')}}</th>
                                                     <th>{{__('member.quantity')}}</th>
@@ -309,6 +377,14 @@
                                                 @foreach($invoice->orderItems as $item)
                                                     <tr>
                                                         <td><a href="{{$item->link}}">{{$item->link}}</a></td>
+                                                        <td>
+                                                            <input type="button" value="{{__('member.status')}}"
+                                                                   data-orderItem="{{$item->id}}"
+                                                                   class="orderItemStatus btn btn-primary" style="width: 80px;
+    height: 31px;
+    font-size: 12px;
+    font-weight: bold;">
+                                                        </td>
                                                         <td>{{$item->price}}</td>
                                                         <td>{{$item->cargo}}</td>
                                                         <td>{{$item->quantity}}</td>
@@ -337,7 +413,7 @@
                         <button class="tablinks  @if($loop->first) active @endif"
                                 onclick="openCity(event,   {{ '\'' . $country->name . '\'' }} )"><img
                                 src="{{url("images/$country->flag")}}" style="width: 25px;height: 25px;"><span
-                                class="dis_no"> {{$country->name}}</span></button>
+                                class="dis_no"> {{__('member.order_country_'.$country->id)}}</span></button>
                     @endforeach
                 </div>
                 <div class="border_bar">
@@ -369,41 +445,28 @@
                                             <a href="{{url('/orders?type=1')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;"
                                                      src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.warehoseabroad')}}
+                                                {{__('member.ordered')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=2')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;"
                                                      src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.onway')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=3')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-
-                                                {{__('member.custominspection')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=4')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.inwarehose')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=5')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.courierdelivery')}}
+                                                {{__('member.warehoseabroad')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=6')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;"
                                                      src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.return')}}
+                                                {{__('member.inwarehose')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=7')}}" style="font-size: 14px; padding: 10px;">
+                                                <img style="width: 15px;height: 15px;"
+                                                     src="{{url('front/image/my_order/note.svg')}}">
+                                                {{__('member.courierdelivery')}}
+                                            </a>
+                                            <br>
+                                            <a href="{{url('/orders?type=8')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;"
                                                      src="{{url('front/image/my_order/note.svg')}}">
                                                 {{__('member.complete')}}
@@ -447,14 +510,7 @@
     font-weight: bold;"
                                                                 >
                                                             </li>
-                                                            <li style="width: 10%;margin-left: 15px;">
-                                                                <input type="button" value="{{__('member.status')}}"
-                                                                       data-invoice="{{$order->id}}"
-                                                                       class="status btn btn-primary" style="width: 80px;
-    height: 31px;
-    font-size: 12px;
-    font-weight: bold;">
-                                                            </li>
+
                                                         </ul>
                                                     </div>
                                                 @endif
@@ -478,3 +534,13 @@
 @section('menuItem')
     @include('members.partials.menu_sidebar')
 @endsection
+
+@push('scripts')
+    <script>
+        $(".orderItemStatus").click(function (e) {
+            $(".modal").modal('hide');
+            var orderItem = $(this).attr('data-orderItem');
+            $("#orderItemStatus-" + orderItem).modal('toggle');
+        });
+    </script>
+@endpush

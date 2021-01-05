@@ -294,7 +294,7 @@
                     <td class="text-center">{{$basket->price . ' ₺'}}</td>
 
                     <td class="text-center">{{$basket->quantity}}</td>
-                    <td class="text-center">{{abs(($basket->price * $basket->quantity) - $basket->total) . ' ₺'}}</td>
+                    <td class="text-center">{{((\App\lib\Helpers::getTaxOrder() / 100) * ($basket->price * $basket->quantity)) . ' ₺'}}</td>
                     <td class="text-center">{{$basket->cargo . ' ₺'}}</td>
                     <td class="text-center">{{$basket->total . ' ₺'}}</td>
                     <td class="text-center"><a href="{{url('basket/delete/' .$basket->id )}}" style="color: #7b7b93!important;"><i
