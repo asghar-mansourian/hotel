@@ -347,30 +347,6 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 col-sm-6">
-                                                            <h5><strong>{{__('member.product_category')}} *</strong></h5>
-                                                            <input type="hidden" name="product_category_id" value="{{$invoice->product_category_id}}" id="product_category_id_{{$invoice->id}}">
-                                                            <select class="form-input" onchange="getProductCategoryChild(this.value,this.id)" id="{{$invoice->id}}" aria-labelledby="dropdown_baglama"
-                                                                    style=" width: 100%;   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
-                                                                <option class="dropdown-item" value="null">{{__('member.please_select_category')}}</option>
-                                                                @foreach($product_categories as $product_category)
-                                                                    <option class="dropdown-item" value="{{$product_category->id}}">{{$product_category->name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            @error('product_categories_id')
-                                                            <br>
-                                                            <span class="invalid-feedback" style="color: #b7474b " role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                        </span>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6" id="div_child_category_{{$invoice->id}}" style="display: none">
-                                                            <h5><strong>{{__('member.product_category')}} *</strong></h5>
-                                                            <select class="form-input" onchange="changeProductCategory(this.value,{{$invoice->id}})" id="child_category_{{$invoice->id}}" aria-labelledby="dropdown_baglama"
-                                                                    style="    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;width: 100%">
-                                                                <option value="">{{__('member.please_select_category')}}</option>
-                                                            </select>
-                                                        </div>
                                                         <div class="col-md-12 mt-0">
                                             <textarea class="courier_textare" name="description"
                                                       placeholder="Bağlamanıza aid qeydləriniz varsa yazın">{{ $invoice->description }}</textarea>

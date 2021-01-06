@@ -18,6 +18,9 @@
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
+                <div class="col-12">
+                    @include('admin.components.error')
+                </div>
                 @component('admin.components.panel')
                     @slot('items')
                         @if(request()->get('status') == 2)
@@ -105,22 +108,14 @@
                             @endslot
                         @endcomponent
 
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 <span>Link</span>
-                            @endslot
-
-                            @slot('type')
-                                text
-                            @endslot
-
-                            @slot('value')
-                                {{$order->link}}
-                            @endslot
-                            @slot('attr')
-                                disabled
-                            @endslot
-                        @endcomponent
+                            </label>
+                            <div class="col-md-9">
+                                <input class="form-control " name="" type="text" placeholder="" value="{{$order->link}}" onclick="window.open('{{$order->link}}')" id="">
+                            </div>
+                        </div>
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 <span>Has Cargo</span>
@@ -164,6 +159,38 @@
 
                             @slot('value')
                                 {{$order->quantity}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>Color</span>
+                            @endslot
+
+                            @slot('type')
+                                text
+                            @endslot
+
+                            @slot('value')
+                                {{$order->color}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>Size</span>
+                            @endslot
+
+                            @slot('type')
+                                text
+                            @endslot
+
+                            @slot('value')
+                                {{$order->specification}}
                             @endslot
                             @slot('attr')
                                 disabled

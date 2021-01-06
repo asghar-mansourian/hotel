@@ -42,7 +42,7 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{auth()->user()->usd_balance}}<sup>$</sup></span>
+                        <span class="count">{{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup></span>
                     </div>
                     <div class="balance-date">
                         <a href="{{url('tl-balance')}}" class="btn-balance-home"><a data-v-27fd2a5d="" style="top: 30px!important;
@@ -56,8 +56,6 @@
     line-height: 1.7;">
                         <p><b>{{__('member.balance2')}}</b></p>
                     </div>
-
-
                 </div>
             </div>
         </div>

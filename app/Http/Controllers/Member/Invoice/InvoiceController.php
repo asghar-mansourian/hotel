@@ -29,7 +29,7 @@ class InvoiceController extends Controller
     {
         $locale = app()->getLocale();
 
-        $name = app()->getLocale() !== 'az' ? "name_{$locale} as name" : 'name';
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
 
         return [$name, 'id', 'flag', 'currency'];
     }

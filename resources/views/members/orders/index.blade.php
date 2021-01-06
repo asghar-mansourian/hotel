@@ -510,6 +510,14 @@
     font-weight: bold;"
                                                                 >
                                                             </li>
+                                                            <li style="width: 10%;margin-left: 15px;">
+                                                                <input type="button" value="{{__('member.status')}}"
+                                                                       data-invoice="{{$order->id}}"
+                                                                       class="status btn btn-primary" style="width: 80px;
+    height: 31px;
+    font-size: 12px;
+    font-weight: bold;">
+                                                            </li>
 
                                                         </ul>
                                                     </div>
