@@ -12,13 +12,13 @@ class NotificationSeeder extends Seeder
     public function run()
     {
         $settings = [
-            "Type_One" => null, // is default
-            "Type_Two" => null, // is default
-            "Type_Three" => null, // is default
-            "Type_Four" => null, // is default
-            "Type_Five" => null, // is default
-            "Type_Six" => null, // is default
-            "Type_Seven" => null, // is default
+            "Notification_Pattern_Status_Purchased" => null, // is default
+            "Notification_Pattern_Status_Warehouse_Abroad" => null, // is default
+            "Notification_Pattern_Status_On_Way" => null, // is default
+            "Notification_Pattern_Status_in_Warehouse" => null, // is default
+            "Notification_Pattern_Status_Courier_Delivery" => null, // is default
+            "Notification_Pattern_Status_Cancel" => null, // is default
+            "Notification_Pattern" => null, // is default
         ];
 
         foreach ($settings as $index => $value) {

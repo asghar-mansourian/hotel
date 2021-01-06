@@ -79,7 +79,7 @@
 
                     </svg>
                 </svg>
-                <span class="side-menu__label">Gansel Olan Siparişlər</span><i class="angle fa fa-angle-right"></i>
+                <span class="side-menu__label">Ləğv Edilmiş Siparişlər</span><i class="angle fa fa-angle-right"></i>
             </a>
 
         </li>

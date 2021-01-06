@@ -101,7 +101,7 @@
                                                 @enderror
                                             </div>
                                             <div class="col-md-4 col-sm-6 mb-4">
-                                                <input type="number" name="price" value="{{ old('price') }}"
+                                                <input type="text" name="price" value="{{ old('price') }}"
                                                        placeholder="{{__('member.price')}} ({{$country->currency}}) * "
                                                        class="@error('price') is-invalid @enderror w-100 courier_input"
                                                        required="">

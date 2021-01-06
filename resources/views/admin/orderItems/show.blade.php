@@ -199,44 +199,60 @@
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 <span>Description</span>
-                            @endslot
+                                @endslot
 
-                            @slot('type')
-                                text
-                            @endslot
+                                @slot('type')
+                                    text
+                                @endslot
 
-                            @slot('value')
-                                {{$order->description}}
-                            @endslot
-                            @slot('attr')
-                                disabled
-                            @endslot
-                        @endcomponent
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
-                                <span>Total</span>
-                            @endslot
+                                @slot('value')
+                                    {{$order->description}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>Price</span>
+                                @endslot
 
-                            @slot('type')
-                                text
-                            @endslot
+                                @slot('type')
+                                    text
+                                @endslot
 
-                            @slot('value')
-                                {{$order->total}}
-                            @endslot
-                            @slot('attr')
-                                disabled
-                            @endslot
-                        @endcomponent
+                                @slot('value')
+                                    {{$order->price}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>Total</span>
+                                @endslot
 
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
-                                <span>status</span>
-                            @endslot
+                                @slot('type')
+                                    text
+                                @endslot
 
-                            @slot('type')
-                                text
-                            @endslot
+                                @slot('value')
+                                    {{$order->total}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>status</span>
+                                @endslot
+
+                                @slot('type')
+                                    text
+                                @endslot
 
                             @slot('value')
                                 @switch($order->status)

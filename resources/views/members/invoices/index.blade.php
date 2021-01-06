@@ -516,7 +516,7 @@
                                                 <li style="width: 44%">{{__('member.action')}}</li>
                                             </ul>
                                         </div>
-                                        @foreach(auth()->user()->invoices->where('country_id', $country->id)->filterViaStatus(request()->query('status')) as $invoice)
+                                        @foreach(auth()->user()->invoices()->orderBy('id', 'desc')->get()->where('country_id', $country->id)->filterViaStatus(request()->query('status')) as $invoice)
                                             <div class="filterDiv income">
                                                 <ul>
                                                     <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>

@@ -241,29 +241,39 @@ class OrderController extends Controller
             'status' => $type,
         ]);
 
+        $order->statusLogs()->create([
+            'admin_id' => auth()->user()->id,
+            'status' => $type
+        ]);
 
         $user = $order->order->user;
         if ($user) {
             // send notification
             switch ($type) {
                 case Order::STATUS_PURCHASED:
-                    Helpers::sendMessageWithId($user->id, 'Type_One');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Purchased');
                     break;
                 case Order::STATUS_WAREHOUSE_ABROAD:
-                    Helpers::sendMessageWithId($user->id, 'Type_Two');
-                    break;
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Warehouse_Abroad');
+
+                    session()->flash('message', __('custom.order.message.update'));
+                    session()->flash('success', 1);
+
+                    return redirect()->to('/admin/order-items/show/' . $order->id . '?status=2');
                 case Order::STATUS_ON_WAY:
-                    Helpers::sendMessageWithId($user->id, 'Type_Four');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_On_Way');
                     break;
                 case Order::STATUS_IN_WAREHOUSE:
-                    Helpers::sendMessageWithId($user->id, 'Type_Five');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_in_Warehouse');
                     break;
                 case Order::STATUS_COURIER_DELIVERY:
-                    Helpers::sendMessageWithId($user->id, 'Type_Six');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Courier_Delivery');
+                    break;
+                case Order::STATUS_CANCEL:
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Cancel');
                     break;
             }
         }
-
 
         session()->flash('message', __('custom.order.message.update'));
         session()->flash('success', 1);

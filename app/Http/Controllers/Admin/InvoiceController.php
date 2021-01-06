@@ -174,25 +174,38 @@ class InvoiceController extends Controller
         ]);
 
 
+        $invoice->statusLogs()->create([
+            'admin_id' => auth()->user()->id,
+            'status' => $type
+        ]);
+
+
         $user = $invoice->user;
 
         if ($user) {
             // send notification
             switch ($type) {
                 case Invoice::STATUS_PURCHASED:
-                    Helpers::sendMessageWithId($user->id, 'Type_One');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Purchased');
                     break;
                 case Invoice::STATUS_WAREHOUSE_ABROAD:
-                    Helpers::sendMessageWithId($user->id, 'Type_Two');
-                    break;
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Warehouse_Abroad');
+
+                    session()->flash('message', __('custom.invoice.message.update'));
+                    session()->flash('success', 1);
+
+                    return redirect()->to('/admin/invoices/show/' . $invoice->id . '?status=2');
                 case Invoice::STATUS_ON_WAY:
-                    Helpers::sendMessageWithId($user->id, 'Type_Four');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_On_Way');
                     break;
                 case Invoice::STATUS_IN_WAREHOUSE:
-                    Helpers::sendMessageWithId($user->id, 'Type_Five');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_in_Warehouse');
                     break;
                 case Invoice::STATUS_COURIER_DELIVERY:
-                    Helpers::sendMessageWithId($user->id, 'Type_Six');
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Courier_Delivery');
+                    break;
+                case Invoice::STATUS_CANCEL:
+                    Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_Cancel');
                     break;
             }
         }

@@ -54,6 +54,11 @@ class BoxController extends Controller
                 $boxItem->orderable()->update([
                     'status' => Order::STATUS_ON_WAY
                 ]);
+
+                $boxItem->orderable->statusLogs()->create([
+                    'admin_id' => auth()->user()->id,
+                    'status' => Order::STATUS_ON_WAY
+                ]);
             }
         }
 
@@ -62,12 +67,22 @@ class BoxController extends Controller
                 $boxItem->orderable()->update([
                     'status' => Order::STATUS_CUSTOMS_INSPECTION
                 ]);
+
+                $boxItem->orderable->statusLogs()->create([
+                    'admin_id' => auth()->user()->id,
+                    'status' => Order::STATUS_CUSTOMS_INSPECTION
+                ]);
             }
         }
 
         if ($type == Box::STATUS_IN_WAREHOUSE) {
             foreach ($box->boxItems as $boxItem) {
                 $boxItem->orderable()->update([
+                    'status' => Order::STATUS_IN_WAREHOUSE
+                ]);
+
+                $boxItem->orderable->statusLogs()->create([
+                    'admin_id' => auth()->user()->id,
                     'status' => Order::STATUS_IN_WAREHOUSE
                 ]);
             }

@@ -487,7 +487,7 @@
                                                 </ul>
                                             </div>
                                             @php
-                                                $active_orders=$orders->where('user_id', auth()->user()->id)->where('country_id', $country->id)->get()
+                                                $active_orders=$orders->where('user_id', auth()->user()->id)->where('country_id', $country->id)->orderBy('id', 'desc')->get()
                                             @endphp
                                             @foreach($active_orders as $order)
                                                 @if($order->country != null)

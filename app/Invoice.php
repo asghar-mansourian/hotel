@@ -101,4 +101,9 @@ class Invoice extends Model
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
+
+    public function statusLogs()
+    {
+        return $this->morphMany(StatusLog::class, 'orderable');
+    }
 }

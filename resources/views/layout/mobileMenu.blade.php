@@ -7,12 +7,15 @@
         <a class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}</a>
         <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">{{__('website.blog')}}</a>
         <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
+        <hr>
+        <a class="{{url()->current() === url('/login') ? 'active' : ''}}" href="{{url('/login')}}">{{__('website.login')}}</a>
+        <a class="{{url()->current() === url('/register') ? 'active' : ''}}" href="{{url('/register')}}">{{__('website.register')}}</a>
     </div>
-        <div class="logo_mob">
-            <button class="openbtn" onclick="openNav()"><i class="fas fa-align-justify m-0"></i></button>
-            <a href="#"><img src="{{url('front/image/logo.svg')}}"></a>
-            @auth('web')
-                <span class="dropdown float-right">
+    <div class="logo_mob">
+        <button class="openbtn" onclick="openNav()"><i class="fas fa-align-justify m-0"></i></button>
+        <a href="#"><img src="{{url('front/image/logo.svg')}}"></a>
+        @auth('web')
+            <span class="dropdown float-right">
 			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			      {{\Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->family}}<i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
 			  </button>

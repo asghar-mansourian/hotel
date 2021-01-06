@@ -124,14 +124,14 @@ width: 100px;
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="index_cont">
-                            <div class="index_cont_img"><img src="./front/image/product_select.png" class="w-100"></div>
+                            <div class="index_cont_img"><img src="./front/image/product_select.svg" class="w-100"></div>
                             <h5><strong>{{__('website.register')}}</strong></h5>
                             <div class="mb-2">{{__('website.registeron')}}</div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="index_cont">
-                            <div class="index_cont_img"><img src="./front/image/how_work_box.png" class="w-100"></div>
+                            <div class="index_cont_img"><img src="./front/image/how_work_box.svg" class="w-100"></div>
                             <h5><strong>{{__('website.sendvote')}}</strong></h5>
                             <div class="mb-2">{{__('website.sendvoteshopping')}}</div>
                         </div>
