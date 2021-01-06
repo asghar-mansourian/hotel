@@ -204,6 +204,11 @@ class OrderController extends Controller
     {
         $order = OrderItem::query()->find($id);
 
+        // rollback balance to user.
+        if ($type == Order::STATUS_CANCEL) {
+            $order->order->user->increment('balance', $order->price);
+        }
+
         if ($type == Order::STATUS_WAREHOUSE_ABROAD) {
             // assign barcode to order.
             if (!$order->orderBarcode()->exists()) {
