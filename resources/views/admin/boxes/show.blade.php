@@ -18,6 +18,9 @@
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
+                <div class="col-12">
+                    @include('admin.components.error')
+                </div>
                 @component('admin.components.panel')
                     @slot('items')
 

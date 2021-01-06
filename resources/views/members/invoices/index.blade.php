@@ -396,7 +396,7 @@
                                                             }
                                                                 $invoice->status === $k ? $num=$loop->index : ''
                                                         @endphp
-                                                        <div class="step {{$loop->index <= $num ? 'active' : 'deactive'}}">
+                                                        <div class="step {{$invoice->status >= $k ? 'active' : 'deactive'}}">
                                                         <span class="icon">
                                                              <span
                                                                  style="background: url(/front/image/ordertracking/{{$status}}.png) no-repeat center ;display: block;width: 100%;height: 100%; border-radius: 50%;"></span>
