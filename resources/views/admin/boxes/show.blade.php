@@ -84,6 +84,9 @@
                                class="btn btn-primary btn-block ">Box Air Send</a>
                         @endif
 
+                        @if($box->barcode)
+                            <a href="{{url('/admin/print-factor/'.$box->barcode . '/3')}}" class="btn btn-info btn-block " target="_blank">Print Factor Box</a>
+                        @endif
 
                     @endslot
 

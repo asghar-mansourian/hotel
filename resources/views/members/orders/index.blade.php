@@ -252,7 +252,7 @@
                                                 <div class="track">
                                                     @foreach(\App\Order::STATUS_ALL as $k=>$status )
                                                         @php
-                                                            if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection')
+                                                            if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection' || $status == 'cancel')
                                                                {
                                                                    continue;
                                                                }
@@ -316,7 +316,7 @@
                                                     <div class="track">
                                                         @foreach(\App\OrderItem::STATUS_ALL as $k=>$status )
                                                             @php
-                                                                if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection')
+                                                                if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection' || $status == 'cancel')
                                                                {
                                                                    continue;
                                                                }

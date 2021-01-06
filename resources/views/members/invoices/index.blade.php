@@ -390,7 +390,7 @@
                                                 <div class="track">
                                                     @foreach(\App\Invoice::STATUS_ALL as $k=>$status )
                                                         @php
-                                                            if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection')
+                                                            if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection' || $status == 'cancel')
                                                             {
                                                                 continue;
                                                             }

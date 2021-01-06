@@ -6,9 +6,11 @@ use App\Box;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\ImageController;
 use App\Http\Controllers\Traits\ValidatorRequest;
+use App\lib\Barcode;
 use App\Order;
 use App\OrderBarcode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BoxController extends Controller
 {
@@ -97,8 +99,16 @@ class BoxController extends Controller
             return response()->json(['message' => 'Already This Order Saved Another Box!!!'], 404);
         }
 
-        $box = !$box_id ? Box::create() : Box::find($box_id);
+        $nextId = DB::table('INFORMATION_SCHEMA.TABLES')
+            ->where('table_name', 'boxes')
+            ->where('TABLE_SCHEMA', env('DB_DATABASE'))
+            ->value('AUTO_INCREMENT');
 
+        $box = !$box_id ?
+            Box::create([
+                'barcode' => Barcode::generateEAN13($nextId)
+            ]) :
+            Box::find($box_id);
 
         $order = $barcode->orderable;
 

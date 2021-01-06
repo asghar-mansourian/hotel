@@ -162,55 +162,12 @@
 
                                     {{--                                    <td class="text-nowrap text-center">--}}
 
-
-                                    {{--                                        <a href="{{url('admin/' . $type . '/delete/' . $record->id)}}"--}}
-                                    {{--                                           class="btn btn-sm btn-danger delete" data-toggle="tooltip"--}}
-                                    {{--                                           title data-placement="top" data-value="{{$record->id}}"--}}
-                                    {{--                                           data-original-title="Delete">--}}
-                                    {{--                                            <i class="fe fe-trash "></i>--}}
-                                    {{--                                        </a>--}}
-
                                     {{--                                        <a href="{{url('admin/' . 'order-items' . '/edit/' . $record->id . '/' . $type2)}}"--}}
                                     {{--                                           class="btn btn-sm btn-success "--}}
                                     {{--                                           data-value="{{$record->id}}"--}}
                                     {{--                                        >--}}
                                     {{--                                            <i class="fa fa-pencil "></i>--}}
                                     {{--                                        </a>--}}
-
-                                    {{--                                        <div class="dropdown" style="display:inline!important;">--}}
-                                    {{--                                            <button type="button" class="btn btn-warning btn-sm dropdown-toggle "--}}
-                                    {{--                                                    data-toggle="dropdown"--}}
-                                    {{--                                                    aria-expanded="false">--}}
-                                    {{--                                                <i class="fe fe-alert-circle "></i>--}}
-                                    {{--                                            </button>--}}
-                                    {{--                                            <div class="dropdown-menu " style="">--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type .'/status/' . $record->id . '/' . 0 )}}"--}}
-                                    {{--                                                   style="height: 20px;">ORDERED</a>--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 1 )}}"--}}
-                                    {{--                                                   style="height: 20px;"> WAREHOUSE ABROAD</a>--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 2 )}}"--}}
-                                    {{--                                                   style="height: 20px;">ON WAY</a>--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 3 )}}"--}}
-                                    {{--                                                   style="height: 20px;"> CUSTOMS INSPECTION</a>--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 4 )}}"--}}
-                                    {{--                                                   style="height: 20px;"> IN WAREHOUSE</a>--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 5 )}}"--}}
-                                    {{--                                                   style="height: 20px;"> COURIER DELIVERY</a>--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type.'/status/' . $record->id . '/' . 6 )}}"--}}
-                                    {{--                                                   style="height: 20px;">RETURN</a>--}}
-                                    {{--                                                <a class="dropdown-item"--}}
-                                    {{--                                                   href="{{url('admin/'. $type.'/status/'. $record->id . '/' . 7 )}}"--}}
-                                    {{--                                                   style="height: 20px;">COMPLETE</a>--}}
-                                    {{--                                            </div>--}}
-
-                                    {{--                                        </div>--}}
 
 
                                     </td>
@@ -269,6 +226,7 @@
 
         $(document).ready(function () {
             $('#tableList').DataTable();
+            $('#tableList').DataTable().order([[5, 'desc']]).draw();
 
             $('input.global_filter').on('keyup click', function () {
                 filterGlobal();
