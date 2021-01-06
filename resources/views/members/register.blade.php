@@ -154,7 +154,9 @@
                                 style=" width: 100%;   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0px 1px 6px rgb(204 204 207)!important;">
                             <option class="dropdown-item" value="null">{{__('member.please_select_country')}}</option>
                             @foreach($countries as $country)
+                                @if($country->id != 3)
                                 <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
+                                @endif
                             @endforeach
                         </select>
                         {{-- @error('country_id')

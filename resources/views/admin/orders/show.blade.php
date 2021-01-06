@@ -17,6 +17,9 @@
     <form class="form" method="post" id="mainForm">
         @csrf
         <div class="row">
+            <div class="col-12">
+                @include('admin.components.error')
+            </div>
             <div class="col-12 col-lg-8">
                 @component('admin.components.panel')
                     @slot('items')
