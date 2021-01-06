@@ -6,7 +6,6 @@ use App\Basket;
 use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Cowsel\Balance as BalanceCowsel;
 use App\Http\Controllers\Member\PaymentController;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Order;
@@ -94,8 +93,8 @@ class OrderController extends Controller
             $order->payment()->save($payment);
 
             $user->decrement('balance', $order->total);
-
-            BalanceCowsel::decrease($payment->price, 'TL');
+// coswel api
+//            BalanceCowsel::decrease($payment->price, 'TL');
 
             $order->status = 1;
             $order->save();

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Member\Invoice;
 use App\Branch;
 use App\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Cowsel\Invoice as InvoiceCowsel;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Invoice;
 use App\lib\Helpers;
@@ -68,7 +67,8 @@ class InvoiceController extends Controller
 
         if ($invoice) {
 
-            InvoiceCowsel::Store($request);
+//            cowsel api
+//            InvoiceCowsel::Store($request);
 
             $request->session()->flash('message', __('member.invoice.message.create_success'));
             $request->session()->flash('success', 1);

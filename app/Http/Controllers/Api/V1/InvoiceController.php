@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Cowsel\Invoice as InvoiceCowsel;
 use App\Http\Requests\Member\InvoiceRequest;
 use App\Http\Resources\V1\Invoice as InvoiceResource;
 use App\Invoice;
@@ -48,8 +47,8 @@ class InvoiceController extends Controller
                 'message' => __('member.invoice.failed_success')
             ], 500);
         }
-
-        InvoiceCowsel::Store($request);
+//          cowsel api
+//        InvoiceCowsel::Store($request);
 
         return response([
             'message' => __('member.invoice.store_success'),

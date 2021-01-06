@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Member\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Cowsel\Balance;
-use App\Http\Controllers\Cowsel\Customer as CowselCustomer;
 use App\Http\Controllers\Traits\MemberVerifySms;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -87,11 +85,13 @@ class LoginController extends Controller
 
     public function authenticated()
     {
-        (new CowselCustomer())->login(auth()->user());
+        /*
+         cowsel api
+         (new CowselCustomer())->login(auth()->user());
 
-        (new Balance())->syncBalancesOfCowsel(auth()->user());
+             (new Balance())->syncBalancesOfCowsel(auth()->user());
 
-        (new Balance())->storeUSDPaymentsOfCowsel();
+             (new Balance())->storeUSDPaymentsOfCowsel();*/
 
         if (auth()->user()->verified == 0)
             $this->sendSms(auth()->user());

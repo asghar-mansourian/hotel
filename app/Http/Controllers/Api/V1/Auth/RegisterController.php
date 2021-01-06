@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Country;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Cowsel\Customer as CowselCustomer;
 use App\Http\Controllers\Traits\MemberRegister;
 use App\Http\Controllers\Traits\MemberResponseToken;
 use App\Http\Resources\V1\Region;
@@ -40,6 +39,7 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        (new CowselCustomer())->register($user);
+//        cowsel api
+//        (new CowselCustomer())->register($user);
     }
 }
