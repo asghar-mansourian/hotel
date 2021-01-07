@@ -28,6 +28,7 @@ class OrderItem extends Model
     const STATUS_IN_WAREHOUSE = 6;
     const STATUS_COURIER_DELIVERY = 7;
     const STATUS_COMPLETE = 8;
+    const STATUS_CANCEL = 9;
     const STATUS_ALL = [
         self::STATUS_ORDERED => 'ordered',
         self::STATUS_PURCHASED => 'purchased',
@@ -38,6 +39,7 @@ class OrderItem extends Model
         self::STATUS_IN_WAREHOUSE => 'in_warehouse',
         self::STATUS_COURIER_DELIVERY => 'courier_delivery',
         self::STATUS_COMPLETE => 'complete',
+        self::STATUS_CANCEL => 'cancel',
     ];
 
     protected $fillable = ['status', 'weight_price', 'weight', 'overseas_warehouse_number', 'domestic_warehouse_number'];

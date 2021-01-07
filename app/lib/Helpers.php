@@ -114,17 +114,19 @@ class Helpers
     public static function sendMessageWithId($users, $key)
     {
         $selectMessage = Notification::where('key', $key)->first();
+        $areaCode = Setting::where('key', "area_code")->first()->value;
+
         $sms = new sms();
         if (is_array($users)) {
             foreach ($users as $user) {
                 $selectUser = \App\User::find($user);
-
-                $sms->sendSmsWithLinex($selectMessage->value, $selectUser->phone);
+                $phone = strval($areaCode) . strval($selectUser->phone);
+                $sms->sendSmsWithLinex($selectMessage->value, $phone);
             }
         } else {
             $selectUser = \App\User::find($users);
-            $sms->sendSmsWithLinex($selectMessage->value, $selectUser->phone);
-
+            $phone = strval($areaCode) . strval($selectUser->phone);
+            $sms->sendSmsWithLinex($selectMessage->value, $phone);
         }
     }
 }

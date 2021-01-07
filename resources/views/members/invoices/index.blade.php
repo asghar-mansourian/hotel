@@ -521,7 +521,13 @@
                                                 <ul>
                                                     <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>
                                                     <li>{{$invoice->created_at}}</li>
-                                                    <li>{{$invoice->shop}}</li>
+                                                    <li>
+                                                        @if(preg_match('/(http|ftp|mailto)/', $invoice->shop))
+                                                            {{explode('.',parse_url($invoice->shop)['host'])[1]}}
+                                                        @else
+                                                            {{str_limit($invoice->shop, 15)}}
+                                                        @endif
+                                                    </li>
                                                     <li class="green bold">{{$invoice->weight != 0.00 ? $invoice->weight .' kg' : '-'}}</li>
                                                     @if($invoice->status  === \App\Invoice::STATUS_PURCHASED)
                                                         <li>

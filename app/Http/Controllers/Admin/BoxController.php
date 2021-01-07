@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\ImageController;
 use App\Http\Controllers\Traits\ValidatorRequest;
 use App\lib\Barcode;
+use App\lib\Helpers;
 use App\Order;
 use App\OrderBarcode;
 use Illuminate\Http\Request;
@@ -59,6 +60,27 @@ class BoxController extends Controller
                     'admin_id' => auth()->user()->id,
                     'status' => Order::STATUS_ON_WAY
                 ]);
+
+                $getTable = $boxItem->orderable()->getModel()->getTable();
+                $user = null;
+
+                if ($getTable == 'invoices') {
+                    $user = $boxItem->orderable->user;
+                } elseif ($getTable == 'order_items') {
+                    $user = $boxItem->orderable->order->user;
+                }
+
+                if ($user) {
+                    if (!$box->boxItems()->where('has_send_sms', $user->id)->where('status', Box::STATUS_BOX_AIR_SEND)->exists()) {
+                        Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_On_Way');
+
+                        $boxItem->update([
+                            'has_send_sms' => $user->id,
+                            'status' => Box::STATUS_BOX_AIR_SEND,
+                        ]);
+                    }
+                }
+
             }
         }
 
@@ -85,6 +107,28 @@ class BoxController extends Controller
                     'admin_id' => auth()->user()->id,
                     'status' => Order::STATUS_IN_WAREHOUSE
                 ]);
+
+
+                $getTable = $boxItem->orderable()->getModel()->getTable();
+                $user = null;
+
+                if ($getTable == 'invoices') {
+                    $user = $boxItem->orderable->user;
+                } elseif ($getTable == 'order_items') {
+                    $user = $boxItem->orderable->order->user;
+                }
+
+                if ($user) {
+                    if (!$box->boxItems()->where('has_send_sms', $user->id)->where('status', Box::STATUS_IN_WAREHOUSE)->exists()) {
+                        Helpers::sendMessageWithId($user->id, 'Notification_Pattern_Status_in_Warehouse');
+
+                        $boxItem->update([
+                            'has_send_sms' => $user->id,
+                            'status' => Box::STATUS_IN_WAREHOUSE
+                        ]);
+                    }
+                }
+
             }
         }
 

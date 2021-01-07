@@ -323,7 +323,7 @@
                                                                    $ordersItem->status === $k ? $num=$loop->index : ''
                                                             @endphp
                                                             <div
-                                                                class="step {{$invoice->status >= $k  ? 'active' : 'deactive'}}">
+                                                                class="step {{$ordersItem->status >= $k  ? 'active' : 'deactive'}}">
                                                         <span class="icon">
                                                              <span
                                                                  style="background: url(/front/image/ordertracking/{{$status}}.png) no-repeat center ;display: block;width: 100%;height: 100%; border-radius: 50%;"></span>
@@ -376,7 +376,7 @@
                                                 <tbody>
                                                 @foreach($invoice->orderItems as $item)
                                                     <tr>
-                                                        <td><a href="{{$item->link}}">{{$item->link}}</a></td>
+                                                        <td><a href="{{$item->link}}">{{str_limit($item->link, 30)}}</a></td>
                                                         <td>
                                                             <input type="button" value="{{__('member.status')}}"
                                                                    data-orderItem="{{$item->id}}"
@@ -445,7 +445,7 @@
                                             <a href="{{url('/orders?type=1')}}" style="font-size: 14px; padding: 10px;">
                                                 <img style="width: 15px;height: 15px;"
                                                      src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.ordered')}}
+                                                {{__('member.purchased')}}
                                             </a>
                                             <br>
                                             <a href="{{url('/orders?type=2')}}" style="font-size: 14px; padding: 10px;">
@@ -501,7 +501,7 @@
                                                                 <li>{!! '<span class="danger">'.__('member.paid_failed').'</span>' !!}</li>
                                                             @endisset
                                                             <li style="width: 27%!important;">{{$order->created_at}}</li>
-                                                            <li style="width: 9.6%">
+                                                            <li style="width: 21.6%">
                                                                 <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"
                                                                        class="items btn btn-dark" style=" width: 80px;
@@ -510,14 +510,14 @@
     font-weight: bold;"
                                                                 >
                                                             </li>
-                                                            <li style="width: 10%;margin-left: 15px;">
-                                                                <input type="button" value="{{__('member.status')}}"
-                                                                       data-invoice="{{$order->id}}"
-                                                                       class="status btn btn-primary" style="width: 80px;
-    height: 31px;
-    font-size: 12px;
-    font-weight: bold;">
-                                                            </li>
+                                                            {{--   <li style="width: 10%;margin-left: 15px;">
+                                                                   <input type="button" value="{{__('member.status')}}"
+                                                                          data-invoice="{{$order->id}}"
+                                                                          class="status btn btn-primary" style="width: 80px;
+       height: 31px;
+       font-size: 12px;
+       font-weight: bold;">
+                                                               </li>--}}
 
                                                         </ul>
                                                     </div>
