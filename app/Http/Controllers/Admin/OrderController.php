@@ -205,7 +205,7 @@ class OrderController extends Controller
         $order = OrderItem::query()->find($id);
 
         // rollback balance to user.
-        if ($type == Order::STATUS_CANCEL) {
+        if ($type == Order::STATUS_CANCEL && $order->status != Order::STATUS_CANCEL) {
             $order->order->user->increment('balance', $order->price);
         }
 

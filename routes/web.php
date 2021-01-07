@@ -105,6 +105,8 @@ Route::group(['namespace' => 'Web'], function () {
     Route::post('/convert', 'CurrencyController@convert');
     Route::post('/getCurrencyCalculator', 'CurrencyController@getCurrencyCalculator');
 
+    Route::get('/get-currencies-of-cabr', 'CurrencyController@getCurrenciesFromCabrApi');
+
     Route::get('/how-we-work', function () {
         return view('web.how');
     });

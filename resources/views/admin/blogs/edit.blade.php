@@ -104,7 +104,7 @@
                             </label>
                             <div class="col-md-9">
 
-                                <input type="file" name="picture" id="picture" class="dropify" data-max-file-size="500K"
+                                <input type="file" name="new_picture" id="picture" class="dropify" data-max-file-size="500K"
                                        data-allowed-file-extensions="jpg png" data-default-file="{{url('images/'.$blog->picture)}}">
                             </div>
                         </div>

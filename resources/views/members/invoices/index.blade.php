@@ -447,7 +447,7 @@
                         @if(is_null(request()->query('country')) && $loop->first) display: block;  @endif">
                             <div class="row">
                                 <!-- Small button groups (default and split) -->
-                                <div class="btn-group">
+                                {{--<div class="btn-group">
                                     <button class="btn btn-warning btn-sm dropdown-toggle" type="button"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {{__('member.filter')}}
@@ -503,7 +503,7 @@
                                             </span>
                                         </a>
                                     </div>
-                                </div>
+                                </div>--}}
                                 <br>
                                 <div id="scrol_price" style="height: 553px" class="mt-5">
                                     <div id="scrol_price_content">
@@ -539,6 +539,10 @@
                                                                 @method('DELETE')
                                                                 <input type="submit" value="{{__('member.delete')}}" class="btn btn-danger">
                                                             </form>
+                                                        </li>
+                                                    @else
+                                                        <li>
+                                                            <input type="submit" value="{{__('member.delete')}}" class="btn btn-danger" disabled>
                                                         </li>
                                                     @endif
 

@@ -28,62 +28,62 @@ class CurrencyController
 
     }
 
-    public function getCurrency()
+    public static function getCurrenciesFromCabrApi()
     {
+        $urlWeb = sprintf('https://www.cbar.az/currencies/%s.%s.%s.xml',
+            date('d'),
+            date('m'),
+            date('Y')
+        );
 
-        $init = 1;
-        $res = Http::get($this->url, [
-            'access_key' => $this->apiKey,
-            "currencies" => $this->currencies,
-            "source" => $this->unit,
-            "format" => "1"
+        $response = Http::get($urlWeb);
+        $currencies = simplexml_load_string($response->body())->children()[1]->children();
+
+        foreach ($currencies as $currency) {
+            $code = $currency->attributes()[0];
+            $value = $currency->Value;
+
+            if ($code == 'USD' || $code == 'RUB' || $code == 'TRY' || $code == 'UAH' || $code == 'EUR' || $code == 'SEK') {
+                Currency::updateOrCreate(
+                    [
+                        'from' => $code,
+                        'to' => "AZN"
+                    ],
+                    [
+                        'from_value' => '1',
+                        'to_value' => $value,
+                    ]
+                );
+            }
+        }
+
+        Currency::updateOrCreate([
+            'from' => 'AZN',
+            'to' => "AZN",
+            'from_value' => '1',
+            'to_value' => '1',
         ]);
-        $result = $res->json();
-        $result = $result['quotes'];
-        foreach ($result as $key => $value) {
-            $key = Str::of($key)->replace($this->unit, "");
-            Currency::create([
-                'from' => $this->unit,
-                'to' => $key,
-                'from_value' => $init,
-                'to_value' => $value,
-            ]);
+
+        $tb_currencies = Currency::all();
+        foreach ($tb_currencies as $tb_currency) {
+            foreach ($tb_currencies as $tb_currency_in) {
+                if ($tb_currency->from != $tb_currency_in->from) {
+                    $convertValue = $tb_currency->to_value / $tb_currency_in->to_value;
+                    Currency::updateOrCreate(
+                        [
+                            'from' => $tb_currency->from,
+                            'to' => $tb_currency_in->from
+                        ],
+                        [
+                            'from_value' => '1',
+                            'to_value' => $convertValue,
+                        ]
+                    );
+                }
+            }
         }
 
-        return;
-//        $res = Currency::query()->get();
-//        foreach ($res as $key => $value) {
-//            dd($value->from_value / $value->to_value);
-////            Currency::create([
-////                'from' => "azn",
-////                'to' => "usd",
-////                'from_value' => $init,
-////                'to_value' => $value,
-////            ]);
-//        }
-//        dd($res);
-    }
-
-    public function convert(Request $request)
-    {
-        $from = $request['from'];
-        $unit = $request['unit'];
-        $to = $request['to'];
-        $currency = intval($request['currency']);
-
-        $value = Currency::query()
-            ->where('from', $from)
-            ->where('to', $to)
-            ->first();
-        if ($unit == $this->unit) {
-            $value = $value->to_value * $currency;
-            dd($value);
-        } else {
-            $value = ($value->from_value / $value->to_value) * $currency;
-            dd($value);
-        }
-
-
+        return response()->json(['message' => 'successful']);
     }
 
     public static function getCurrencyFromTwoApi()
@@ -220,6 +220,66 @@ class CurrencyController
 
 
         return;
+    }
+
+//     amir api
+
+    public function getCurrency()
+    {
+
+        $init = 1;
+        $res = Http::get($this->url, [
+            'access_key' => $this->apiKey,
+            "currencies" => $this->currencies,
+            "source" => $this->unit,
+            "format" => "1"
+        ]);
+        $result = $res->json();
+        $result = $result['quotes'];
+        foreach ($result as $key => $value) {
+            $key = Str::of($key)->replace($this->unit, "");
+            Currency::create([
+                'from' => $this->unit,
+                'to' => $key,
+                'from_value' => $init,
+                'to_value' => $value,
+            ]);
+        }
+
+        return;
+//        $res = Currency::query()->get();
+//        foreach ($res as $key => $value) {
+//            dd($value->from_value / $value->to_value);
+////            Currency::create([
+////                'from' => "azn",
+////                'to' => "usd",
+////                'from_value' => $init,
+////                'to_value' => $value,
+////            ]);
+//        }
+//        dd($res);
+    }
+
+    public function convert(Request $request)
+    {
+        $from = $request['from'];
+        $unit = $request['unit'];
+        $to = $request['to'];
+        $currency = intval($request['currency']);
+
+        $value = Currency::query()
+            ->where('from', $from)
+            ->where('to', $to)
+            ->first();
+        if ($unit == $this->unit) {
+            $value = $value->to_value * $currency;
+            dd($value);
+        } else {
+            $value = ($value->from_value / $value->to_value) * $currency;
+            dd($value);
+        }
+
+
     }
 
     public function getCurrencyCalculator(Request $request)

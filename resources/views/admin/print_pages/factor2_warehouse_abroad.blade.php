@@ -179,11 +179,13 @@
             <tr>
                 <td></td>
                 <td class="width_50">
-                @isset($barcode->orderable->shop)
-                    {{$barcode->orderable->shop}}
+                @if(preg_match('/(http|ftp|mailto)/', $barcode->orderable->shop))
+                    {{explode('.',parse_url($barcode->orderable->shop)['host'])[1]}}
+                @else
+                    {{str_limit($barcode->orderable->shop, 15)}}
                 @endif
 
-                @isset($barcode->orderable->link)
+                @if($barcode->orderable->link)
                     {{explode('.',parse_url($barcode->orderable->link)['host'])[1]}}
                 @endif
                 <td class="width_50">{{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_FACTOR_ADDRESS)}}</td>
@@ -280,7 +282,7 @@
                 @else
                     <td class="width_50">-</td>
                 @endisset
-                <td class="width_50">5.63 $</td>
+                <td class="width_50">{{\App\lib\Helpers::formatPrice($priceDollar + $barcode->orderable->weight_price)}} $</td>
             </tr>
         </table>
         <table class="table_total">

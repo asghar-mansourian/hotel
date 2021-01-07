@@ -423,7 +423,7 @@
                             <div class="row">
                                 <div class="col-md-12 mt-5 ">
                                     <!-- Small button groups (default and split) -->
-                                    <div class="btn-group">
+                             {{--       <div class="btn-group">
                                         <button class="btn btn-warning btn-sm dropdown-toggle" type="button"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{__('member.filter')}}
@@ -472,7 +472,7 @@
                                                 {{__('member.complete')}}
                                             </a>
                                         </div>
-                                    </div>
+                                    </div>--}}
 
                                     <div id="scrol_price" class="mt-5">
                                         <div id="scrol_price_content">

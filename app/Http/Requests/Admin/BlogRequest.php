@@ -27,7 +27,6 @@ class BlogRequest extends FormRequest
             'title' => ['required', 'string'],
             'content' => ['required'],
             'status' => ['required'],
-            'picture' => 'required',
             'author_id' => ['required'],
         ];
     }

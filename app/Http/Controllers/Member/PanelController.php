@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Member;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Web\CurrencyController;
 use App\Payment;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,9 +10,6 @@ class PanelController extends Controller
 {
     public function index()
     {
-        CurrencyController::getCurrencyFromCrawel();
-        CurrencyController::getCurrencyFromTwoApi();
-
         $wallet = Auth::user()->balance;
 
         $wallet_usd = Auth::user()->usd_balance;
