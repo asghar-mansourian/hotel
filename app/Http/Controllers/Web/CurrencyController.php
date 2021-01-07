@@ -227,13 +227,12 @@ class CurrencyController
         $from = $request['from'];
         $unit = $request['unit'];
         $to = $request['to'];
-        $currency = intval($request['currency']);
+        $currency = $request['currency'];
 
         $value = Currency::query()
             ->where('from', $from)
             ->where('to', $to)
             ->first()->to_value;
-
         if ($currency == 1) {
             return response()->json(number_format($value, 2));
         } else {
