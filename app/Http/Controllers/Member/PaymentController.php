@@ -86,7 +86,7 @@ class PaymentController extends Controller
             $payment->save();
         }
 
-        if (Helpers::hasGatePaytr()) {
+        if (Helpers::getDefaultGate()) {
             return (new PaytrController())->pay($payment);
         }
 

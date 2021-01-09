@@ -35,7 +35,7 @@ class PaymentController extends Controller
         $payment->description = 'increment balance';
         $payment->save();
 
-        if (Helpers::hasGatePaytr()) {
+        if (Helpers::getDefaultGate()) {
             return response()->json([
                 'payment_url' => (new PaytrController())->pay($payment)
             ]);
@@ -55,7 +55,7 @@ class PaymentController extends Controller
         $payment->description = 'payment by online. payment order';
         $order->payment()->save($payment);
 
-        if (Helpers::hasGatePaytr()) {
+        if (Helpers::getDefaultGate()) {
             return response()->json([
                 'payment_url' => (new PaytrController())->pay($payment)
             ]);
