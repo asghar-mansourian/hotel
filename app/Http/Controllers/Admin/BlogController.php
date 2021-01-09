@@ -16,6 +16,11 @@ class BlogController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Blog|edit Blog|create Blog|delete Blog']);
+    }
+
     public function index()
     {
         $blogs = Blog::query()

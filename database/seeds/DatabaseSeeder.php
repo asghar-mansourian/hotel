@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ProductCategorySeeder::class);
 
+        $this->call(PermissionSeeder::Class);
+
 
     }
 }

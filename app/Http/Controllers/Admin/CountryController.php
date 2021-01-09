@@ -14,6 +14,11 @@ class CountryController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Country|edit Country|create Country|delete Country']);
+    }
+
     public function index()
     {
         $countries = Country::query()

@@ -295,15 +295,38 @@ route::get('/scripts/show/{id}', 'ScriptController@show');
 route::post('/scripts/search', 'ScriptController@search');
 
 
-
 /*      Admin Routes      */
-route::get('/admins' , 'AdminController@index');
-route::get('/admins/load' , 'AdminController@load');
+route::get('/admins', 'AdminController@index');
+route::get('/admins/load', 'AdminController@load');
 route::get('/admins/create/', 'AdminController@create');
 route::post('/admins/store/', 'AdminController@store');
 route::get('/admins/edit/{id}', 'AdminController@edit');
 route::post('/admins/update/{id}', 'AdminController@update');
 route::get('/admins/destroy/{id}', 'AdminController@destroy');
-route::get('/admins/show/{id}', 'AdminController@show');
+route::get('/admins/assign_role/{id}', 'AdminController@assignRole');
+route::post('/admins/assign_role/{id}', 'AdminController@assignRoleAdmin');
 route::post('/admins/search/', 'AdminController@search');
 route::post('/admins/sort/', 'AdminController@sort');
+
+/*      Roles Routes      */
+route::get('/roles', 'RoleController@index');
+route::get('/roles/load', 'RoleController@load');
+route::get('/roles/create/', 'RoleController@create');
+route::post('/roles/store/', 'RoleController@store');
+route::get('/roles/edit/{id}', 'RoleController@edit');
+route::post('/roles/update/{id}', 'RoleController@update');
+route::get('/roles/destroy/{id}', 'RoleController@destroy');
+route::get('/roles/show/{id}', 'RoleController@show');
+route::post('/roles/search/', 'RoleController@search');
+route::post('/roles/sort/', 'RoleController@sort');
+
+/*      Permission Routes      */
+route::get('/permissions', 'PermissionController@index');
+route::get('/permissions/load', 'PermissionController@load');
+route::get('/permissions/create/', 'PermissionController@create');
+route::post('/permissions/store/', 'PermissionController@store');
+route::get('/permissions/edit/{id}', 'PermissionController@edit');
+route::post('/permissions/update/{id}', 'PermissionController@update');
+route::get('/permissions/destroy/{id}', 'PermissionController@destroy');
+route::post('/permissions/search/', 'PermissionController@search');
+route::post('/permissions/sort/', 'PermissionController@sort');

@@ -15,6 +15,11 @@ class ScriptController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Script|edit Script|create Script|delete Script']);
+    }
+
     public function index()
     {
         $scripts = Script::query()

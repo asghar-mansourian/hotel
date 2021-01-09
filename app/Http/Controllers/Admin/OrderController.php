@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\View;
 
 class OrderController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read Order|edit Order|create Order|delete Order']);
+
+    }
+
     public function index()
     {
         $status = \request()->get('status') ?? 0;
@@ -32,7 +39,6 @@ class OrderController extends Controller
                 ->where('order_items.deleted_at', null)
                 ->where('order_items.status', $status)
                 ->get();
-
 
             $invoices = DB::table('invoices')
                 ->leftJoin('users', 'invoices.user_id', 'users.id')

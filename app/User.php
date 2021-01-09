@@ -6,11 +6,12 @@ use App\Http\Controllers\Traits\scopeHelper;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, SoftDeletes, scopeHelper;
+    use HasRoles, Notifiable, SoftDeletes, scopeHelper;
 
     const  paginateNumber = 10;
     const sortType = 'desc';

@@ -17,6 +17,12 @@ class BoxController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Box|edit Box|create Box|delete Box']);
+    }
+
+
     public function index()
     {
         $status = \request()->get('status') ?? Box::STATUS_FILL_IN_BOX;

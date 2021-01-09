@@ -15,6 +15,11 @@ class BranchController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Branch|edit Branch|create Branch|delete Branch']);
+    }
+
     public function index()
     {
         $branches = Branch::query()

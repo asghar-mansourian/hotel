@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Notification as Notif;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\NotificationRequest;
+use App\Notification as Notif;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class NotificationController extends Controller
 {
     use ValidatorRequest;
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read Notification|edit Notification|create Notification|delete Notification']);
+
+    }
 
     public function index()
     {

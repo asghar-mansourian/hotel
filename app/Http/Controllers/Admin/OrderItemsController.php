@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\View;
 class OrderItemsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read OrderItems|edit OrderItems|create OrderItems|delete OrderItems']);
+
+    }
 
     public function index()
     {

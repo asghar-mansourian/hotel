@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$config = array_merge(config('translation-manager.route'), ['namespace' => 'Barryvdh\TranslationManager' , 'middleware' => ['web', 'admin', 'auth:admin']]);
+$config = array_merge(config('translation-manager.route'), ['namespace' => 'Barryvdh\TranslationManager', 'middleware' => ['web', 'admin', 'auth:admin', 'permission:read Translate|edit Translate|create Translate|delete Translate']]);
 
 Route::group($config, function($router)
 {

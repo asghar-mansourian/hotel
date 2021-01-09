@@ -17,6 +17,11 @@ use Storage;
 class InvoiceController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Invoice|edit Invoice|create Invoice|delete Invoice']);
+
+    }
 
     public function index()
     {
