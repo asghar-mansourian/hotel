@@ -354,7 +354,7 @@
                         @elseif(request()->get('status') == 7)
                             <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . \App\Order::STATUS_COMPLETE )}}"
                                class="btn btn-primary btn-block ">Customer Deliverables</a>
-                        @elseif(request()->get('status') != 2 && request()->get('status') != 9)
+                        @elseif(request()->get('status') != 2 && request()->get('status') != 9  && request()->get('status') != 8)
                                 {{-- <a href="{{url('admin/invoices/status/' . $invoice->id . '/' . 9 )}}"
                                     class="btn btn-warning btn-block ">Cancel The Invoice</a>
                                  <br>--}}

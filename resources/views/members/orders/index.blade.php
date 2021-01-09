@@ -207,8 +207,9 @@
             border-color: #ff2b00;
             border-radius: 1px
         }
+
         /*    end order tracking*/
-        .items.modal .modal-dialog{
+        .items.modal .modal-dialog {
             top: 150px;
         }
     </style>
@@ -314,34 +315,37 @@
                                                         $num= 10000
                                                     @endphp
                                                     <div class="track">
-                                                        @foreach(\App\OrderItem::STATUS_ALL as $k=>$status )
-                                                            @php
-                                                                if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection' || $status == 'cancel')
-                                                               {
-                                                                   continue;
-                                                               }
-                                                                   $ordersItem->status === $k ? $num=$loop->index : ''
-                                                            @endphp
-                                                            <div
-                                                                class="step {{$ordersItem->status >= $k  ? 'active' : 'deactive'}}">
+                                                        @if($ordersItem->status != \App\OrderItem::STATUS_CANCEL)
+                                                            @foreach(\App\OrderItem::STATUS_ALL as $k=>$status )
+                                                                @php
+                                                                    if ($status == 'fill_in_box' || $status == 'on_way' || $status == 'customs_inspection' || $status == 'cancel')
+                                                                   {
+                                                                       continue;
+                                                                   }
+                                                                       $ordersItem->status === $k ? $num=$loop->index : ''
+                                                                @endphp
+                                                                <div
+                                                                    class="step {{$ordersItem->status >= $k  ? 'active' : 'deactive'}}">
                                                         <span class="icon">
                                                              <span
                                                                  style="background: url(/front/image/ordertracking/{{$status}}.png) no-repeat center ;display: block;width: 100%;height: 100%; border-radius: 50%;"></span>
                                                         </span>
-                                                                @php
-                                                                    $status_trans =  \Illuminate\Support\Str::of($status)->studly()->lower()
-                                                                @endphp
+                                                                    @php
+                                                                        $status_trans =  \Illuminate\Support\Str::of($status)->studly()->lower()
+                                                                    @endphp
 
-                                                                @if('in_warehouse' === $status)
-                                                                    <span class="text"> {{__('member.inwarehose')}}</span>
-                                                                @elseif('warehouse_abroad' === $status)
-                                                                    <span class="text"> {{__('member.warehoseabroad')}}</span>
-                                                                @else
-                                                                    <span class="text"> {{__("member.{$status_trans}")}}</span>
-                                                                @endif
-                                                            </div>
-                                                        @endforeach
-
+                                                                    @if('in_warehouse' === $status)
+                                                                        <span class="text"> {{__('member.inwarehose')}}</span>
+                                                                    @elseif('warehouse_abroad' === $status)
+                                                                        <span class="text"> {{__('member.warehoseabroad')}}</span>
+                                                                    @else
+                                                                        <span class="text"> {{__("member.{$status_trans}")}}</span>
+                                                                    @endif
+                                                                </div>
+                                                            @endforeach
+                                                        @else
+                                                            <h4 class="text-danger" style="margin-left: 294px;">{{__('member.cancel_ordered')}}</h4>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </article>
@@ -371,6 +375,7 @@
                                                     <th>{{__('member.description')}}</th>
                                                     <th>{{__('member.total')}}</th>
                                                     <th>{{__('member.specification')}}</th>
+                                                    <th>{{__('member.cancel_reason_order')}}</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -391,6 +396,14 @@
                                                         <td>{{$item->description}}</td>
                                                         <td>{{$item->total}}</td>
                                                         <td>{{$item->specification}}</td>
+                                                        <td>
+                                                            @php
+                                                                $description = app()->getLocale() !== 'en' ? "description_".app()->getLocale() : 'description';
+                                                            @endphp
+                                                            {{
+                                                                 $item->cancelReasonOrder ? $item->cancelReasonOrder->{$description} : '-'
+                                                            }}
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
@@ -423,56 +436,56 @@
                             <div class="row">
                                 <div class="col-md-12 mt-5 ">
                                     <!-- Small button groups (default and split) -->
-                             {{--       <div class="btn-group">
-                                        <button class="btn btn-warning btn-sm dropdown-toggle" type="button"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            {{__('member.filter')}}
-                                        </button>
-                                        <div class="dropdown-menu p-2" style="width: 300px;">
+                                    {{--       <div class="btn-group">
+                                               <button class="btn btn-warning btn-sm dropdown-toggle" type="button"
+                                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                   {{__('member.filter')}}
+                                               </button>
+                                               <div class="dropdown-menu p-2" style="width: 300px;">
 
-                                            <a href="{{url('/orders')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.all')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=0')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.ordered')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=1')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.purchased')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=2')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.warehoseabroad')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=6')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.inwarehose')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=7')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.courierdelivery')}}
-                                            </a>
-                                            <br>
-                                            <a href="{{url('/orders?type=8')}}" style="font-size: 14px; padding: 10px;">
-                                                <img style="width: 15px;height: 15px;"
-                                                     src="{{url('front/image/my_order/note.svg')}}">
-                                                {{__('member.complete')}}
-                                            </a>
-                                        </div>
-                                    </div>--}}
+                                                   <a href="{{url('/orders')}}" style="font-size: 14px; padding: 10px;">
+                                                       <img style="width: 15px;height: 15px;"
+                                                            src="{{url('front/image/my_order/note.svg')}}">
+                                                       {{__('member.all')}}
+                                                   </a>
+                                                   <br>
+                                                   <a href="{{url('/orders?type=0')}}" style="font-size: 14px; padding: 10px;">
+                                                       <img style="width: 15px;height: 15px;"
+                                                            src="{{url('front/image/my_order/note.svg')}}">
+                                                       {{__('member.ordered')}}
+                                                   </a>
+                                                   <br>
+                                                   <a href="{{url('/orders?type=1')}}" style="font-size: 14px; padding: 10px;">
+                                                       <img style="width: 15px;height: 15px;"
+                                                            src="{{url('front/image/my_order/note.svg')}}">
+                                                       {{__('member.purchased')}}
+                                                   </a>
+                                                   <br>
+                                                   <a href="{{url('/orders?type=2')}}" style="font-size: 14px; padding: 10px;">
+                                                       <img style="width: 15px;height: 15px;"
+                                                            src="{{url('front/image/my_order/note.svg')}}">
+                                                       {{__('member.warehoseabroad')}}
+                                                   </a>
+                                                   <br>
+                                                   <a href="{{url('/orders?type=6')}}" style="font-size: 14px; padding: 10px;">
+                                                       <img style="width: 15px;height: 15px;"
+                                                            src="{{url('front/image/my_order/note.svg')}}">
+                                                       {{__('member.inwarehose')}}
+                                                   </a>
+                                                   <br>
+                                                   <a href="{{url('/orders?type=7')}}" style="font-size: 14px; padding: 10px;">
+                                                       <img style="width: 15px;height: 15px;"
+                                                            src="{{url('front/image/my_order/note.svg')}}">
+                                                       {{__('member.courierdelivery')}}
+                                                   </a>
+                                                   <br>
+                                                   <a href="{{url('/orders?type=8')}}" style="font-size: 14px; padding: 10px;">
+                                                       <img style="width: 15px;height: 15px;"
+                                                            src="{{url('front/image/my_order/note.svg')}}">
+                                                       {{__('member.complete')}}
+                                                   </a>
+                                               </div>
+                                           </div>--}}
 
                                     <div id="scrol_price" class="mt-5">
                                         <div id="scrol_price_content">

@@ -90,7 +90,7 @@
 
                     <fieldset class="form-field">
 
-                        <input type="text" name="email"
+                        <input type="email" name="email"
                                class="@error('email') is-invalid @enderror w-100 form-input courier_input "
                                style=""
                               id="email" value="{{ old('email') }}" required>

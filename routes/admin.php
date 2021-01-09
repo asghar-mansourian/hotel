@@ -125,23 +125,35 @@ route::post('/contacts/search/' , 'ContactController@search');
 route::post('/contacts/sort/' , 'ContactController@sort');
 
 /*      Faqs Routes      */
-route::get('/faqs' , 'FaqController@index');
-route::get('/faqs/load' , 'FaqController@load');
-route::get('/faqs/create/' , 'FaqController@create');
-route::post('/faqs/store/' , 'FaqController@store');
-route::get('/faqs/edit/{id}' , 'FaqController@edit');
-route::post('/faqs/update/{id}' , 'FaqController@update');
-route::get('/faqs/destroy/{id}' , 'FaqController@destroy');
-route::post('/faqs/search/' , 'FaqController@search');
-route::post('/faqs/sort/' , 'FaqController@sort');
+route::get('/faqs', 'FaqController@index');
+route::get('/faqs/load', 'FaqController@load');
+route::get('/faqs/create/', 'FaqController@create');
+route::post('/faqs/store/', 'FaqController@store');
+route::get('/faqs/edit/{id}', 'FaqController@edit');
+route::post('/faqs/update/{id}', 'FaqController@update');
+route::get('/faqs/destroy/{id}', 'FaqController@destroy');
+route::post('/faqs/search/', 'FaqController@search');
+route::post('/faqs/sort/', 'FaqController@sort');
+
+
+/*      cancel-reason-orders Routes      */
+route::get('/cancel-reason-orders', 'CancelReasonOrderController@index');
+route::get('/cancel-reason-orders/load', 'CancelReasonOrderController@load');
+route::get('/cancel-reason-orders/create/', 'CancelReasonOrderController@create');
+route::post('/cancel-reason-orders/store/', 'CancelReasonOrderController@store');
+route::get('/cancel-reason-orders/edit/{id}', 'CancelReasonOrderController@edit');
+route::post('/cancel-reason-orders/update/{id}', 'CancelReasonOrderController@update');
+route::get('/cancel-reason-orders/destroy/{id}', 'CancelReasonOrderController@destroy');
+route::post('/cancel-reason-orders/search/', 'CancelReasonOrderController@search');
+route::post('/cancel-reason-orders/sort/', 'CancelReasonOrderController@sort');
 
 /*      Payments Routes      */
-route::get('/payments' , 'PaymentController@index');
-route::get('/payments/load' , 'PaymentController@load');
-route::get('/payments/destroy/{id}' , 'PaymentController@destroy');
-route::post('/payments/search/' , 'PaymentController@search');
-route::post('/payments/sort/' , 'PaymentController@sort');
-route::get('/payments/show/{id}' , 'PaymentController@show');
+route::get('/payments', 'PaymentController@index');
+route::get('/payments/load', 'PaymentController@load');
+route::get('/payments/destroy/{id}', 'PaymentController@destroy');
+route::post('/payments/search/', 'PaymentController@search');
+route::post('/payments/sort/', 'PaymentController@sort');
+route::get('/payments/show/{id}', 'PaymentController@show');
 
 
 /*      Setting Routes      */

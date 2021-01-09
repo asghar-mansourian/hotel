@@ -62,6 +62,11 @@
             });
         });
 
+        $('#btn-reason-order-save').click(function () {
+            var cancel_reason_order_id = $('#cancel_reason_order_id').val();
+
+            window.location.href = $(this).data('url') + '?cancel_reason_order_id=' + cancel_reason_order_id
+        })
     });
 
 

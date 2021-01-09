@@ -57,6 +57,7 @@
                             <th style="text-align: center">Id</th>
                             <th style="text-align: center">Type</th>
                             <th style="text-align: center">Username</th>
+                            <th style="text-align: center">User Id</th>
                             <th style="text-align: center">Website</th>
                             <th style="text-align: center">Price</th>
                             <th style="text-align: center">Date and Time</th>
@@ -131,6 +132,11 @@
                                     <td>
                                         <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->name . ' ' . $record->family}}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
+                                            {{$record->user_id}}
                                         </a>
                                     </td>
                                     @php

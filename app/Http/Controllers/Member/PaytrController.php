@@ -94,6 +94,12 @@ class PaytrController extends Controller
                     'refid' => $request->get('merchant_oid')
                 ]
             );
+
+            if ($payment->modelable_type == "App\Order" && $payment->modelable_id != null) {
+                if ($payment->orderable) {
+                    $payment->orderable->orderItems()->update(['status' => -1]);
+                }
+            }
         }
 
         return "OK";

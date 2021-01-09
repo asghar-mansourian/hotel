@@ -73,10 +73,18 @@ trait TokenViaPaytr
                 ->post(config('payment.url'), $post_vals)
                 ->object();
         } catch (Exception $exception) {
+            if ($payment->orderable) {
+                $payment->orderable->orderItems()->update(['status' => -1]);
+            }
+
             return false;
         }
 
         if ($result->status !== 'success') {
+            if ($payment->orderable) {
+                $payment->orderable->orderItems()->update(['status' => -1]);
+            }
+
             return false;
         }
 

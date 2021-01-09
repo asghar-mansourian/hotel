@@ -15,10 +15,11 @@ class OrderItem extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['order_id', 'link', 'id', 'price', 'has_cargo', 'cargo', 'quantity', 'description', 'total', 'product_category_id'];
+    const selectField = ['order_id', 'link', 'id', 'price', 'has_cargo', 'cargo', 'quantity', 'description', 'total', 'product_category_id', 'cancel_reason_order_id'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 
+    const STATUS_BASKET = -1;
     const STATUS_ORDERED = 0;
     const STATUS_PURCHASED = 1;
     const STATUS_WAREHOUSE_ABROAD = 2;
@@ -30,6 +31,7 @@ class OrderItem extends Model
     const STATUS_COMPLETE = 8;
     const STATUS_CANCEL = 9;
     const STATUS_ALL = [
+        self::STATUS_BASKET => 'basket',
         self::STATUS_ORDERED => 'ordered',
         self::STATUS_PURCHASED => 'purchased',
         self::STATUS_WAREHOUSE_ABROAD => 'warehouse_abroad',
@@ -42,7 +44,7 @@ class OrderItem extends Model
         self::STATUS_CANCEL => 'cancel',
     ];
 
-    protected $fillable = ['status', 'weight_price', 'weight', 'overseas_warehouse_number', 'domestic_warehouse_number'];
+    protected $fillable = ['status', 'weight_price', 'weight', 'overseas_warehouse_number', 'domestic_warehouse_number', 'cancel_reason_order_id'];
 
     public function order()
     {
@@ -67,5 +69,10 @@ class OrderItem extends Model
     public function statusLogs()
     {
         return $this->morphMany(StatusLog::class, 'orderable');
+    }
+
+    public function cancelReasonOrder()
+    {
+        return $this->belongsTo(CancelReasonOrder::class, 'cancel_reason_order_id');
     }
 }

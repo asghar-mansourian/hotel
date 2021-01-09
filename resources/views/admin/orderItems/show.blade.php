@@ -23,6 +23,36 @@
                 </div>
                 @component('admin.components.panel')
                     @slot('items')
+                        <div class="modal" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodal" aria-modal="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header"><h5 class="modal-title" id="smallmodal1">Select cancel reason this order</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @component('admin.components.form.optionLabel')
+                                            @slot('label')
+                                                Cancel Reason Order
+                                            @endslot
+                                            @slot('name')
+                                                cancel_reason_order_id
+                                            @endslot
+                                            @slot('items')
+                                                @foreach(\App\CancelReasonOrder::all() as $cancelReasonOrder)
+                                                    <option value="{{$cancelReasonOrder->id}}" @if($cancelReasonOrder->id == $order->cancel_reason_order_id) selected @endif>
+                                                        {{str_limit($cancelReasonOrder->description, 30)}}
+                                                    </option>
+                                                @endforeach
+                                            @endslot
+                                        @endcomponent
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" data-url="{{url('admin/orders/status/' . $order->id . '/' . 9 )}}" id="btn-reason-order-save">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         @if(request()->get('status') == 2)
                             <div class="form-group row">
                                 <div class="col-md-12 text-center">
@@ -107,7 +137,22 @@
                                 disabled
                             @endslot
                         @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>User Id</span>
+                            @endslot
 
+                            @slot('type')
+                                text
+                            @endslot
+
+                            @slot('value')
+                                {{$order->order->user->id}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 <span>Link</span>
@@ -199,60 +244,60 @@
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 <span>Description</span>
-                                @endslot
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$order->description}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>Price</span>
-                                @endslot
+                            @slot('value')
+                                {{$order->description}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>Price</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$order->price}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>Total</span>
-                                @endslot
+                            @slot('value')
+                                {{$order->price}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>Total</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
-                                @slot('value')
-                                    {{$order->total}}
-                                @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
-                            @endcomponent
+                            @slot('value')
+                                {{$order->total}}
+                            @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
+                        @endcomponent
 
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    <span>status</span>
-                                @endslot
+                        @component('admin.components.form.inputLabel')
+                            @slot('label')
+                                <span>status</span>
+                            @endslot
 
-                                @slot('type')
-                                    text
-                                @endslot
+                            @slot('type')
+                                text
+                            @endslot
 
                             @slot('value')
                                 @switch($order->status)
@@ -334,9 +379,10 @@
                         @elseif(request()->get('status') == 7)
                             <a href="{{url('admin/orders/status/' . $order->id . '/' . \App\Order::STATUS_COMPLETE )}}"
                                class="btn btn-primary btn-block ">Customer Deliverables</a>
-                        @elseif(request()->get('status') != 1 && request()->get('status') != 2 && request()->get('status') != 9)
-                            <a href="{{url('admin/orders/status/' . $order->id . '/' . 9 )}}"
-                               class="btn btn-warning btn-block ">Cancel The Order</a>
+                        @elseif(request()->get('status') != 1 && request()->get('status') != 2 && request()->get('status') != 9 && request()->get('status') != 8)
+                            <button id="btn-cancel-order" data-target="#smallmodal" data-toggle="modal"
+                                    class="btn btn-warning btn-block ">Cancel The Order
+                            </button>
                             <br>
                             <a href="{{url('admin/orders/status/' . $order->id . '/' . 1 )}}"
                                class="btn btn-primary btn-block ">Purchased</a>
