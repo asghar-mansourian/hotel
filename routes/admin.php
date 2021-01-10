@@ -307,3 +307,5 @@ route::get('/admins/destroy/{id}', 'AdminController@destroy');
 route::get('/admins/show/{id}', 'AdminController@show');
 route::post('/admins/search/', 'AdminController@search');
 route::post('/admins/sort/', 'AdminController@sort');
+
+Route::get('/storage/{id}', '\App\Http\Controllers\Member\ImageController@show')->name('admin_storage_image');
