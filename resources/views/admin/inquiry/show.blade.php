@@ -39,7 +39,7 @@
                         {{$inquiry->message}}
                    <br>
                    @if($inquiry->image)
-                      <img class="img_comment" src="{{route('storage_image',$inquiry->image->id)}}">
+                      <img class="img_comment" src="{{route('admin_storage_image',$inquiry->image->id)}}">
                        <br>
                    @endif
                    {{__('admin.date')}}: {{$inquiry->created_at}}
@@ -52,7 +52,7 @@
                             {{$inquiry_child->message}}
                             <br>
                             @if($inquiry_child->image)
-                                <img class="img_comment" src="{{ route('storage_image',$inquiry_child->image->id) }}">
+                                <img class="img_comment" src="{{ route('admin_storage_image',$inquiry_child->image->id) }}">
                                 <br>
                             @endif
                             {{__('admin.date')}}: {{$inquiry_child->created_at}}
@@ -64,7 +64,7 @@
                             {{$inquiry_child->message}}
                             <br>
                             @if($inquiry_child->image)
-                                <img class="img_comment" src="{{ route('storage_image',$inquiry_child->image->id) }}">
+                                <img class="img_comment" src="{{ route('admin_storage_image',$inquiry_child->image->id) }}">
                                 <br>
                             @endif
                             {{__('admin.date')}}: {{$inquiry_child->created_at}}
