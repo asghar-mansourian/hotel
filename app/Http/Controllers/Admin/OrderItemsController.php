@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Invoice;
 use App\Order;
 use App\OrderItem;
+use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
@@ -95,10 +96,38 @@ class OrderItemsController extends Controller
         ]);
 
         // Decrease of balance user;
-        $order_item
-            ->order
-            ->user
-            ->decrement('usd_balance', $weight_price);
+
+        $payment = $order_item->payment();
+
+        // update re-calc weight.
+        if ($payment->exists()) {
+
+            DB::transaction(function () use ($order_item, $weight_price, $payment) {
+                $order_item->order->user->increment('usd_balance', $order_item->payment->price);
+
+                $order_item->order->user->decrement('usd_balance', $weight_price);
+
+                $payment->update(['price' => $weight_price]);
+            });
+
+            return response()->json(200);
+        }
+
+        DB::transaction(function () use ($order_item, $weight_price, $payment) {
+            $order_item->order->user->decrement('usd_balance', $weight_price);
+
+            $payment->create(
+                [
+                    'user_id' => $order_item->order->user->id,
+                    'price' => $weight_price,
+                    'description' => "Decrement USD Balance of weight.",
+                    'balance_type' => Payment::PAYMENT_TYPE_BALANCE_TWO,
+                    'type' => Payment:: PAYMENT_TYPE_CASH,
+                    'status' => 1
+                ]
+            );
+        });
+
 
         return response()->json(200);
     }

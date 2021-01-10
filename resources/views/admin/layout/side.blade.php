@@ -27,7 +27,7 @@
     <ul class="side-menu app-sidebar3">
         <li class="side-item side-item-category mt-4">Main</li>
         <li class="slide">
-            <a class="side-menu__item" href="{{url('admin/home')}}">
+            <a class="side-menu__item" href="{{url('admin/home')}}" data-status="20">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                      width="24">
                     <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -39,7 +39,7 @@
         </li>
         @can('read Order')
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/orders')}}">
+                <a class="side-menu__item" href="{{url('admin/orders?status=0')}}" data-status="0">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -55,7 +55,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/orders?status=1&purchased=1')}}">
+                <a class="side-menu__item" href="{{url('admin/orders?status=1&purchased=1')}}" data-status="1">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -70,7 +70,7 @@
 
             </li>
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/orders?status=9&cancel=1')}}">
+                <a class="side-menu__item" href="{{url('admin/orders?status=9&cancel=1')}}" data-status="9">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -85,7 +85,7 @@
 
             </li>
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/orders?status=2&warehouse_abroad=1')}}">
+                <a class="side-menu__item" href="{{url('admin/orders?status=2&warehouse_abroad=1')}}" data-status="2">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -101,7 +101,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/boxes?status=0')}}">
+                <a class="side-menu__item" href="{{url('admin/boxes?status=0')}}" data-status="0" data-has-box="1">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -116,7 +116,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/boxes?status=1')}}">
+                <a class="side-menu__item" href="{{url('admin/boxes?status=1')}}" data-status="1" data-has-box="1">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -131,7 +131,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/boxes?status=2')}}">
+                <a class="side-menu__item" href="{{url('admin/boxes?status=2')}}" data-status="2" data-has-box="1">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -146,7 +146,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/orders?status=6&in_warehouse=1')}}">
+                <a class="side-menu__item" href="{{url('admin/orders?status=6&in_warehouse=1')}}" data-status="6">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -161,7 +161,7 @@
             </li>
 
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/orders?status=7&courier_delivery=1')}}">
+                <a class="side-menu__item" href="{{url('admin/orders?status=7&courier_delivery=1')}}" data-status="7">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -175,7 +175,7 @@
 
             </li>
             <li class="slide">
-                <a class="side-menu__item" href="{{url('admin/orders?status=8&complete=1')}}">
+                <a class="side-menu__item" href="{{url('admin/orders?status=8&complete=1')}}" data-status="8">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                          width="24">
                         <path d="M0 0h24v24H0V0z" fill="none"></path>

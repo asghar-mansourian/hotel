@@ -8,6 +8,7 @@ use App\lib\Barcode;
 use App\lib\Helpers;
 use App\Order;
 use App\OrderBarcode;
+use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
@@ -63,6 +64,7 @@ class InvoiceController extends Controller
             ->with('country', 'user')
             ->where('id', $id)
             ->first();
+
         return view('admin.invoices.show', compact('invoice'));
     }
 
@@ -84,10 +86,39 @@ class InvoiceController extends Controller
             'domestic_warehouse_number' => $request->domestic_warehouse_number,
         ]);
 
+
         // Decrease of balance user;
-        $invoice
-            ->user
-            ->decrement('usd_balance', $weight_price);
+
+        $payment = $invoice->payment();
+
+        // update re-calc weight.
+        if ($payment->exists()) {
+
+            DB::transaction(function () use ($invoice, $weight_price, $payment) {
+                $invoice->user->increment('usd_balance', $invoice->payment->price);
+
+                $invoice->user->decrement('usd_balance', $weight_price);
+
+                $payment->update(['price' => $weight_price]);
+            });
+
+            return response()->json(200);
+        }
+
+        DB::transaction(function () use ($invoice, $weight_price, $payment) {
+            $invoice->user->decrement('usd_balance', $weight_price);
+
+            $payment->create(
+                [
+                    'user_id' => $invoice->user->id,
+                    'price' => $weight_price,
+                    'description' => "Decrement USD Balance of weight Invoice.",
+                    'balance_type' => Payment::PAYMENT_TYPE_BALANCE_TWO,
+                    'type' => Payment:: PAYMENT_TYPE_CASH,
+                    'status' => 1
+                ]
+            );
+        });
 
         return response()->json(200);
     }

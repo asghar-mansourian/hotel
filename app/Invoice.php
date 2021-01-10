@@ -106,4 +106,9 @@ class Invoice extends Model
     {
         return $this->morphMany(StatusLog::class, 'orderable');
     }
+
+    public function payment()
+    {
+        return $this->morphOne(Payment::class, 'modelable');
+    }
 }

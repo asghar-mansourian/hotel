@@ -149,6 +149,12 @@ class BoxController extends Controller
     {
         $box_id = $request->get('box_id') ?? 0;
 
+        if ($box_id && $request->get('barcode') === 'load-boxes') {
+            $boxes = Box::find($box_id)->boxItems()->with('orderable.orderBarcode')->get();
+
+            return response()->json(['items' => $boxes], 200);
+        }
+
         $barcode = OrderBarcode::where('barcode', $request->get('barcode'))->first();
 
 
@@ -197,8 +203,8 @@ class BoxController extends Controller
 
     public function edit($id)
     {
-        $customer = Box::findorfail($id);
-        return view('admin.boxes.edit', compact('customer'));
+        $box = Box::findorfail($id);
+        return view('admin.boxes.edit', compact('box'));
     }
 
     public function update(Request $request, $id)

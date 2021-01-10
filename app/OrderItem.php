@@ -75,4 +75,9 @@ class OrderItem extends Model
     {
         return $this->belongsTo(CancelReasonOrder::class, 'cancel_reason_order_id');
     }
+
+    public function payment()
+    {
+        return $this->morphOne(Payment::class, 'modelable');
+    }
 }

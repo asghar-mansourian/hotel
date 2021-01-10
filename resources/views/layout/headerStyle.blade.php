@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Ali Najafi">
 
 <link rel="icon" href="{{url('front/image/favicon/favicon.svg')}}" type="image/x-icon">
 <link rel="stylesheet" href="{{url('front/css/bootstrap.min.css')}}">
