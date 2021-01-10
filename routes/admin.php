@@ -308,6 +308,8 @@ route::post('/admins/assign_role/{id}', 'AdminController@assignRoleAdmin');
 route::post('/admins/search/', 'AdminController@search');
 route::post('/admins/sort/', 'AdminController@sort');
 
+Route::get('/storage/{id}', '\App\Http\Controllers\Member\ImageController@show')->name('admin_storage_image');
+
 /*      Roles Routes      */
 route::get('/roles', 'RoleController@index');
 route::get('/roles/load', 'RoleController@load');
