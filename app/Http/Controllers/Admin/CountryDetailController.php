@@ -14,6 +14,10 @@ class CountryDetailController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read CountryDetail|edit CountryDetail|create CountryDetail|delete CountryDetail']);
+    }
 
     public function index()
     {

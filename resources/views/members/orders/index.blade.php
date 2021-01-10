@@ -367,6 +367,7 @@
                                             <table class="table table-hover">
                                                 <thead class="thead-light">
                                                 <tr>
+                                                    <th>{{__('member.id')}}</th>
                                                     <th>{{__('member.link')}}</th>
                                                     <th>{{__('member.status')}}</th>
                                                     <th>{{__('member.price')}}</th>
@@ -381,6 +382,7 @@
                                                 <tbody>
                                                 @foreach($invoice->orderItems as $item)
                                                     <tr>
+                                                        <td>{{$item->id}}</td>
                                                         <td><a href="{{$item->link}}">{{str_limit($item->link, 30)}}</a></td>
                                                         <td>
                                                             <input type="button" value="{{__('member.status')}}"
@@ -390,11 +392,11 @@
     font-size: 12px;
     font-weight: bold;">
                                                         </td>
-                                                        <td>{{$item->price}}</td>
+                                                        <td>{{$item->price}} ₺</td>
                                                         <td>{{$item->cargo}}</td>
                                                         <td>{{$item->quantity}}</td>
                                                         <td>{{$item->description}}</td>
-                                                        <td>{{$item->total}}</td>
+                                                        <td>{{$item->total}} ₺</td>
                                                         <td>{{$item->specification}}</td>
                                                         <td>
                                                             @php
@@ -494,7 +496,7 @@
                                                 <ul>
                                                     <li>{{__('member.id')}}</li>
                                                     <li>{{__('member.total')}}</li>
-                                                    <li>{{__('member.status')}}</li>
+                                                    <li>{{__('member.status_payment')}}</li>
                                                     <li style="width: 27%!important">{{__('member.date')}}</li>
                                                     <li style="width: 24.9%;">{{__('member.option')}}</li>
                                                 </ul>
@@ -507,14 +509,14 @@
                                                     <div class="filterDiv income">
                                                         <ul>
                                                             <li>{{$order->id}}</li>
-                                                            <li>{{$order->total}}</li>
+                                                            <li>{{$order->total}} ₺</li>
                                                             @isset($order->payment->status)
                                                                 <li>{!! $order->payment->status ?  '<span class="green">'.__('member.paid_success').'</span>' : '<span>'.__('member.paid_failed').'</span>' !!}</li>
                                                             @else
                                                                 <li>{!! '<span class="danger">'.__('member.paid_failed').'</span>' !!}</li>
                                                             @endisset
                                                             <li style="width: 27%!important;">{{$order->created_at}}</li>
-                                                            <li style="width: 21.6%">
+                                                            <li style="width: 21.6%; text-align: right; padding-right: 23px;">
                                                                 <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"
                                                                        class="items btn btn-dark" style=" width: 80px;

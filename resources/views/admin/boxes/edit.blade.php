@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    Dashboard | Add blog
+    Dashboard | Edit box
 @endsection
 
 @section('styleCustom')
@@ -14,92 +14,112 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" enctype="multipart/form-data"
-          action="{{url('admin/customers/update/' . $customer->id)}}">
-        @csrf
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                @component('admin.components.panel')
-                    @slot('items')
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
-                                name
-                            @endslot
-                            @slot('name')
-                                name
-                            @endslot
-                            @slot('type')
-                                text
-                            @endslot
-                            @slot('placeholder')
-                                {{__('admin.link')}}
-                            @endslot
-                            @slot('value')
-                                {{$customer->name}}
-                            @endslot
-                        @endcomponent
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
-                                link
-                            @endslot
-                            @slot('name')
-                                link
-                            @endslot
-                            @slot('type')
-                                text
-                            @endslot
-                            @slot('placeholder')
-                                {{__('admin.link')}}
-                            @endslot
-                            @slot('value')
-                                {{$customer->link}}
-                            @endslot
-                        @endcomponent
-
-                        <div class="form-group row">
-                            <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                picture
-                            </label>
-                            <div class="col-md-9">
-
-                                <input type="file" name="picture" id="picture" class="dropify" data-max-file-size="500K"
-                                       data-allowed-file-extensions="jpg png" data-default-file="{{url('images/customers/'.$customer->image->file_name)}}">
-                            </div>
+    <div class="row" id="container-box">
+        <div class="col-12 col-lg-6">
+            @component('admin.components.panel')
+                @slot('items')
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 form-label my-auto">
+                            Barcode
+                        </label>
+                        <div class="col-md-6">
+                            <input type="hidden" id="box-id" value="{{$box->id}}">
+                            <input class="form-control " type="text" placeholder="Enter Barcode" id="barcode">
                         </div>
-                    @endslot
+                        <div class="col-md-4">
+                            <button class="btn  waves-effect btn-block btn-info" @click="addOrderToBox">Add Order</button>
+                        </div>
+                    </div>
+                @endslot
 
-
-                    @slot('header')
-                        <h2 class="card-title">{{__('admin.maininformation')}}</h2>
-                    @endslot
-                @endcomponent
-
-            </div>
-            <div class="col-12 col-lg-4">
-                @component('admin.components.panel')
-
-
-                    @slot('header')
-                        <h2 class="card-title">{{__('admin.saveinformation')}}</h2>
-                    @endslot
-                    @slot('items')
-                        @component('admin.components.form.submit')
-                            @slot('class')
-                                btn-block btn-info
-                            @endslot
-                            @slot('title')
-                                Save
-                            @endslot
-                        @endcomponent
-                        <a href="{{url('admin/customers/')}}" class="btn btn-danger btn-block ">{{__('custom.other.cancel')}}</a>
-                    @endslot
-                @endcomponent
-
-
-            </div>
+                @slot('header')
+                    <h2 class="card-title">{{__('admin.maininformation')}}</h2>
+                @endslot
+            @endcomponent
 
         </div>
-    </form>
+        <div class="col-12 col-lg-6">
+            @component('admin.components.panel')
+
+
+                @slot('header')
+                    <h2 class="card-title">List Box</h2>
+                @endslot
+                @slot('items')
+                    <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center">
+                                Order Id
+                                <div class="" style="display: none!important;">
+
+                                    <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="desc">
+                                        <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                    <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="asc">
+                                        <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                </div>
+                            </th>
+                            <th style="text-align: center">
+                                Box ID
+                                <div class="" style="display: none!important;">
+
+                                    <a class="sort" style="" href="#" data-sort-field="statue" data-sort-type="desc">
+                                        <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                    <a class="sort" style="" href="#" data-sort-field="statue" data-sort-type="asc">
+                                        <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                </div>
+                            </th>
+                            <th style="text-align: center">
+                                Barcode
+                                <div class="" style="display: none!important;">
+
+                                    <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="desc">
+                                        <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                    <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="asc">
+                                        <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                </div>
+                            </th>
+                            <th style="text-align: center">
+                                Action
+                                <div class="" style="display: none!important;">
+
+                                    <a class="sort" style="" href="#" data-sort-field="statue" data-sort-type="desc">
+                                        <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                    <a class="sort" style="" href="#" data-sort-field="statue" data-sort-type="asc">
+                                        <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                    </a>
+                                </div>
+                            </th>
+
+                        </tr>
+                        </thead>
+                        <tbody class="mytbody">
+                        <tr v-for="item in items">
+                            <td class="text-center" v-html="item.orderable_id"></td>
+                            <td class="text-center" v-html="item.box_id"></td>
+                            <td class="text-center" v-html="item.orderable.order_barcode.barcode"></td>
+                            <td class="text-center">
+                                <button style="border: none;color: #fd475d" type="button" @click="removeItemBox(item.id, item.box_id)"
+                                        class=" btn-remove-container-order">
+                                    <i class="fas fa-trash-alt ml-3"></i>
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                @endslot
+            @endcomponent
+        </div>
+
+    </div>
 
 @endsection
 @section('scriptCustom')
@@ -110,11 +130,7 @@
         @endslot
     @endcomponent
 
-    @component('admin.components.ckeditor')
-
-    @endcomponent
-
-    @component('admin.components.form.pictureScript')
+    @component('admin.components.form.boxScript')
 
     @endcomponent
 @endsection

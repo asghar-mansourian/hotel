@@ -9,6 +9,12 @@ use App\Order;
 
 class BoxItemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:read BoxItem|edit BoxItem|create BoxItem|delete BoxItem']);
+    }
+
+
     public function delete($id)
     {
 

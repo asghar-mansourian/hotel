@@ -15,11 +15,17 @@ class CustomerController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Customer|edit Customer|create Customer|delete Customer']);
+    }
+
+
     public function index()
     {
         $customers = Customer::paginate(Customer::paginateNumber);
 
-        return view('admin.customers.index',compact('customers'),with([
+        return view('admin.customers.index', compact('customers'), with([
             'sortField' => Customer::sortField,
             'sortType' => Customer::sortType
         ]));

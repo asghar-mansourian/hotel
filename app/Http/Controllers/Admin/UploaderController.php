@@ -2,23 +2,26 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\Arvan;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\lib;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class UploaderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:read Uploader|edit Uploader|create Uploader|delete Uploader']);
+    }
+
+
     public function imageUploaderIndex()
     {
         return view('admin.uploader.imageUploader');
     }
 
-    public function imageUploaderStore(Request $request , $type)
+    public function imageUploaderStore(Request $request, $type)
     {
         $errors = null;
 
@@ -159,7 +162,6 @@ class UploaderController extends Controller
             $errors = $validator->errors()->all();
             return \response()->json(['error' => $errors], 401);
         }
-
 
 
         if ($request->hasFile('file_name')) {

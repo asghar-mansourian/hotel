@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Basket;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\TokenViaPaytr;
+use App\Order;
 use App\OrderItem;
 use App\Payment;
 use Illuminate\Http\Request;
@@ -63,7 +64,7 @@ class PaytrController extends Controller
             if ($payment->modelable_type == "App\Order" && $payment->modelable_id != null){
                 $orders = OrderItem::where('order_id' , $payment->modelable_id)->get();
                 foreach ($orders as $item){
-                    Basket::where('link' , $item->link)->where('user_id' , $payment->user_id)->delete();
+                    Basket::where('link', $item->link)->where('user_id', $payment->user_id)->delete();
                 }
             }
             $payment->update(
@@ -72,6 +73,12 @@ class PaytrController extends Controller
                     'refid' => $request->get('merchant_oid')
                 ]
             );
+
+            if ($payment->modelable_type == "App\Order" && $payment->modelable_id != null) {
+                if ($payment->orderable) {
+                    $payment->orderable->orderItems()->update(['status' => Order::STATUS_ORDERED]);
+                }
+            }
 
             if ($payment->where('type', Payment::PAYMENT_TYPE_CASH)->exists()) {
                 if ($modelable_id == null && $modelable_type == null) {
@@ -97,7 +104,7 @@ class PaytrController extends Controller
 
             if ($payment->modelable_type == "App\Order" && $payment->modelable_id != null) {
                 if ($payment->orderable) {
-                    $payment->orderable->orderItems()->update(['status' => -1]);
+                    $payment->orderable->orderItems()->update(['status' => OrderItem::STATUS_BASKET]);
                 }
             }
         }

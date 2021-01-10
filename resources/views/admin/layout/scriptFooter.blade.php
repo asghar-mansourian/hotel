@@ -18,7 +18,7 @@
 <script src="{{url('admin/en/plugins/rating/jquery.rating-stars.js')}}"></script>
 
 <!--Sidemenu js-->
-<script src="{{url('admin/en/plugins/sidemenu/sidemenu.js?v=1.0.0')}}"></script>
+<script src="{{url('admin/en/plugins/sidemenu/sidemenu.js?v=1.1.0')}}"></script>
 
 <!-- P-scroll js-->
 <script src="{{url('admin/en/plugins/p-scrollbar/p-scrollbar.js')}}"></script>

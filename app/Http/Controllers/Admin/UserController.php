@@ -16,6 +16,11 @@ class UserController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read User|edit User|create User|delete User']);
+    }
+
     public function index()
     {
         $users = User::query()

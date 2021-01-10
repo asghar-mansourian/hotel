@@ -21,6 +21,7 @@ class AdminSeeder extends Seeder
                 'family' => 'Admin',
                 'password' => bcrypt('123456789'),
                 'status' => 1,
+                'is_admin' => 1
             ]
         );
     }

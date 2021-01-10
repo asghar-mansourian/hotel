@@ -14,6 +14,11 @@ class FaqController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Faq|edit Faq|create Faq|delete Faq']);
+    }
+
     public function index()
     {
         $faqs = Faq::query()

@@ -15,6 +15,12 @@ class RegionController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Region|edit Region|create Region|delete Region']);
+    }
+
+
     public function index()
     {
         $regions = Region::query()

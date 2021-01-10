@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Courier;
 use App\CourierProductItem;
 use App\Http\Controllers\Controller;
-use App\Courier;
-use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class CourierController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware(['permission:read Courier|edit Courier|create Courier|delete Courier']);
+    }
 
     public function index()
     {
@@ -111,6 +113,7 @@ class CourierController extends Controller
         return redirect()->back();
 
     }
+
     public function status($id , $type)
     {
         Courier::query()->find($id)->update([
