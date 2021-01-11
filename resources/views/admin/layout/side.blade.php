@@ -3,44 +3,44 @@
         <a class="header-brand" href="index.html">
             <img src="{{url('admin/en/images/brand/logo.png')}}" class="header-brand-img desktop-lgo"
                  alt="Admintro logo">
-            <img src="{{url('admin/en/images/brand/logo1.png')}}" class="header-brand-img dark-logo"
+            <img src="{{url('admin/en/images/brand/logo.png')}}" class="header-brand-img dark-logo"
                  alt="Admintro logo">
-            <img src="{{url('admin/en/images/brand/favicon.png')}}" class="header-brand-img mobile-logo"
+            <img src="{{url('admin/en/images/brand/favicon.ico')}}" class="header-brand-img mobile-logo"
                  alt="Admintro logo">
-            <img src="{{url('admin/en/images/brand/favicon1.png')}}" class="header-brand-img darkmobile-logo"
+            <img src="{{url('admin/en/images/brand/favicon.ico')}}" class="header-brand-img darkmobile-logo"
                  alt="Admintro logo">
         </a>
     </div>
-    <div class="app-sidebar__user">
-        <div class="dropdown user-pro-body text-center">
-            <div class="user-pic">
-                <img src="{{url('admin/en/images/avatar.png')}}" alt="user-img" class="avatar-xl rounded-circle mb-1">
-            </div>
-            <div class="user-info">
-                <h5 class=" mb-1">{{\Illuminate\Support\Facades\Auth::user()->name}} <i
-                        class="ion-checkmark-circled  text-success fs-12"></i></h5>
-                <span class="text-muted app-sidebar__user-name text-sm">Admin</span>
-            </div>
-        </div>
+{{--    <div class="app-sidebar__user">--}}
+{{--        <div class="dropdown user-pro-body text-center">--}}
+{{--            <div class="user-pic">--}}
+{{--                <img src="{{url('admin/en/images/avatar.png')}}" alt="user-img" class="avatar-xl rounded-circle mb-1">--}}
+{{--            </div>--}}
+{{--            <div class="user-info">--}}
+{{--                <h5 class=" mb-1">{{\Illuminate\Support\Facades\Auth::user()->name}} <i--}}
+{{--                        class="ion-checkmark-circled  text-success fs-12"></i></h5>--}}
+{{--                <span class="text-muted app-sidebar__user-name text-sm">Admin</span>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-    </div>
-    <ul class="side-menu app-sidebar3">
-        <li class="side-item side-item-category mt-4">Main</li>
-        <li class="slide">
-            <a class="side-menu__item" href="{{url('admin/admin-invoices')}}">
-                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
-                     width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none"></path>
-                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+{{--    </div>--}}
+    <ul class="side-menu app-sidebar3" style="margin-top: 85px;">
+{{--        <li class="side-item side-item-category mt-4">Main</li>--}}
+{{--        <li class="slide">--}}
+{{--            <a class="side-menu__item" href="{{url('admin/admin-invoices')}}">--}}
+{{--                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"--}}
+{{--                     width="24">--}}
+{{--                    <path d="M0 0h24v24H0V0z" fill="none"></path>--}}
+{{--                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">--}}
+{{--                        <path d="M0 0h24v24H0z" fill="none"></path>--}}
+{{--                        <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>--}}
 
-                    </svg>
-                </svg>
-                <span class="side-menu__label">Admin Invoices</span><i class="angle fa fa-angle-right"></i>
-            </a>
+{{--                    </svg>--}}
+{{--                </svg>--}}
+{{--                <span class="side-menu__label">Admin Invoices</span><i class="angle fa fa-angle-right"></i>--}}
+{{--            </a>--}}
 
-        </li>
+{{--        </li>--}}
         <li class="slide">
             <a class="side-menu__item" href="{{url('admin/orders')}}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
@@ -191,7 +191,6 @@
                 </a>
 
             </li>
-        @endcan
 
         {{--        <li class="slide">--}}
         {{--            <a class="side-menu__item" data-toggle="slide" href="index-2.html#">--}}

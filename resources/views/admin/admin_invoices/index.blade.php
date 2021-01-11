@@ -16,29 +16,6 @@
             @include('admin.components.error')
         </div>
 
-
-        <div class="col-lg-4">
-            @component('admin.components.search')
-                @slot('url')
-                    {{url('admin/admin-invoices/search')}}
-                @endslot
-            @endcomponent
-        </div>
-
-
-        {{--        <div class="col-lg-4">--}}
-        {{--            @component('admin.components.filter')--}}
-        {{--                @slot('options')--}}
-        {{--                    <option value="" selected="">انتخاب کنید ...</option>--}}
-        {{--                    <option value="status|1">وضعیت حساب : فعال</option>--}}
-        {{--                    <option value="status|0">وضعیت حساب : غیر فعال</option>--}}
-        {{--                @endslot--}}
-        {{--                @slot('url')--}}
-        {{--                    {{url('admin/countries/filter')}}--}}
-        {{--                @endslot--}}
-        {{--            @endcomponent--}}
-        {{--        </div>--}}
-
         <div class="col-12" id="">
             @component('admin.components.panel')
                 @slot('header')

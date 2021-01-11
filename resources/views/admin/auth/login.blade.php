@@ -13,7 +13,7 @@
           content="laravel admin dashboard, best laravel admin panel, laravel admin dashboard, php admin panel template, blade template in laravel, laravel dashboard template, laravel template bootstrap, laravel simple admin panel,laravel dashboard template,laravel bootstrap 4 template, best admin panel for laravel,laravel admin panel template, laravel admin dashboard template, laravel bootstrap admin template, laravel admin template bootstrap 4"/>
 
     <!-- Title -->
-    <title>Admitro - Admin Panel HTML template</title>
+    <title>Cowsel Admin</title>
 
     <!--Favicon -->
     <link rel="icon" href="{{url('admin/en/images/brand/favicon.ico')}}" type="image/x-icon"/>
@@ -50,20 +50,20 @@
                                         <div class="text-center title-style mb-6">
                                             <h1 class="mb-2">{{__('admin.login')}}</h1>
                                             <hr>
-                                            <p class="text-muted">{{__('admin.singninaccount')}}</p>
+{{--                                            <p class="text-muted">{{__('admin.singninaccount')}}</p>--}}
                                         </div>
 
-                                        <div class="btn-list d-flex">
-                                            <a href="https://www.google.com/gmail/" class="btn btn-google btn-block"><i
-                                                    class="fa fa-google fa-1x mr-2"></i> Google</a>
-                                            <a href="https://twitter.com/" class="btn btn-twitter"><i
-                                                    class="fa fa-twitter fa-1x"></i></a>
-                                            <a href="https://www.facebook.com/" class="btn btn-facebook"><i
-                                                    class="fa fa-facebook fa-1x"></i></a>
-                                        </div>
+{{--                                        <div class="btn-list d-flex">--}}
+{{--                                            <a href="https://www.google.com/gmail/" class="btn btn-google btn-block"><i--}}
+{{--                                                    class="fa fa-google fa-1x mr-2"></i> Google</a>--}}
+{{--                                            <a href="https://twitter.com/" class="btn btn-twitter"><i--}}
+{{--                                                    class="fa fa-twitter fa-1x"></i></a>--}}
+{{--                                            <a href="https://www.facebook.com/" class="btn btn-facebook"><i--}}
+{{--                                                    class="fa fa-facebook fa-1x"></i></a>--}}
+{{--                                        </div>--}}
                                         <form action="{{ url('admin/login') }}" method="post">
                                             @csrf
-                                            <hr class="divider my-6">
+{{--                                            <hr class="divider my-6">--}}
                                             <div class="input-group mb-4">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -103,16 +103,16 @@
                                                     <button type="submit" class="btn  btn-primary btn-block px-4">{{__('admin.login')}}
                                                     </button>
                                                 </div>
-                                                <div class="col-12 text-center">
-                                                    <a href="forgot-password-3.html"
-                                                       class="btn btn-link box-shadow-0 px-0">{{__('admin.forgetpass')}}</a>
-                                                </div>
+{{--                                                <div class="col-12 text-center">--}}
+{{--                                                    <a href="forgot-password-3.html"--}}
+{{--                                                       class="btn btn-link box-shadow-0 px-0">{{__('admin.forgetpass')}}</a>--}}
+{{--                                                </div>--}}
                                             </div>
-                                            <div class="text-center pt-4">
-                                                <div class="font-weight-normal fs-16">{{__('admin.youdontaccount')}} <a
-                                                        class="btn-link font-weight-normal" href="#">{{__('admin.registerhere')}}</a>
-                                                </div>
-                                            </div>
+{{--                                            <div class="text-center pt-4">--}}
+{{--                                                <div class="font-weight-normal fs-16">{{__('admin.youdontaccount')}} <a--}}
+{{--                                                        class="btn-link font-weight-normal" href="#">{{__('admin.registerhere')}}</a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </form>
                                     </div>
 

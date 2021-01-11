@@ -1,1 +1,1 @@
-<title>@yield('title') </title>
+<title>Cowsel Admin</title>

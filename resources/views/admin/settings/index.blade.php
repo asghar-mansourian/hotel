@@ -17,13 +17,13 @@
         </div>
 
 
-        <div class="col-lg-4">
-            @component('admin.components.search')
-                @slot('url')
-                    {{url('admin/settings/search')}}
-                @endslot
-            @endcomponent
-        </div>
+{{--        <div class="col-lg-4">--}}
+{{--            @component('admin.components.search')--}}
+{{--                @slot('url')--}}
+{{--                    {{url('admin/settings/search')}}--}}
+{{--                @endslot--}}
+{{--            @endcomponent--}}
+{{--        </div>--}}
 
 
         {{--        <div class="col-lg-4">--}}

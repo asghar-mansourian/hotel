@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cowsel', 'Admin\Auth\LoginController@showAdminLoginForm')->name('admin.login');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     /*      User Routes      */
-    Route::get('/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\LoginController@adminLogin');
     Route::get('/register', 'Auth\RegisterController@showAdminRegisterForm');
     Route::post('/register', 'Auth\RegisterController@createAdmin');

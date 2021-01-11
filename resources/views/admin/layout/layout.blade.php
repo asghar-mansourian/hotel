@@ -27,8 +27,8 @@
             <div class="side-app">
             @include('admin.layout.nav')
 
-                <div class="page-header">
-                    <div class="page-leftheader">
+                <div class="page-header" style="display: none">
+                    <div class="page-leftheader" >
                         @yield('crumb')
                     </div>
                     <div class="page-rightheader">
