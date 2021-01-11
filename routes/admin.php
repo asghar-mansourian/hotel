@@ -307,3 +307,15 @@ route::get('/admins/destroy/{id}', 'AdminController@destroy');
 route::get('/admins/show/{id}', 'AdminController@show');
 route::post('/admins/search/', 'AdminController@search');
 route::post('/admins/sort/', 'AdminController@sort');
+
+
+/*      Create Invoice Routes By Admin     */
+route::get('/admin-invoices' , 'AdminInvoicesController@index');
+route::get('/admin-invoices/load' , 'AdminInvoicesController@load');
+route::get('/admin-invoices/create/' , 'AdminInvoicesController@create');
+route::post('/admin-invoices/store/' , 'AdminInvoicesController@store');
+route::get('/admin-invoices/edit/{id}' , 'AdminInvoicesController@edit');
+route::post('/admin-invoices/update/{id}' , 'AdminInvoicesController@update');
+route::get('/admin-invoices/destroy/{id}' , 'AdminInvoicesController@destroy');
+route::post('/admin-invoices/search/' , 'AdminInvoicesController@search');
+route::post('/admin-invoices/sort/' , 'AdminInvoicesController@sort');
