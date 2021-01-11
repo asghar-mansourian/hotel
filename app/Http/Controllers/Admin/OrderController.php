@@ -28,8 +28,6 @@ class OrderController extends Controller
         $purchased = \request()->get('purchased') ?? 0;
         $warehouse_abroad = \request()->get('warehouse_abroad') ?? 0;
         $user = \request()->get('user') ?? 0;
-        $invoices = collect();
-        $orders = collect();
 
         $orders = DB::table('order_items')
             ->leftJoin('orders', 'order_items.order_id', 'orders.id')
