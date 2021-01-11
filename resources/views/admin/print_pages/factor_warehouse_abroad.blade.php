@@ -154,8 +154,10 @@
                         <tr>
                             <th class="adres_th"><span>Reciever</span></th>
                             <td class="b_r">
-                                <p>{{$user->name . ' ' . $user->family . '  ' . $user->phone}}</p>
-                                <p>{{$user->address}}</p>
+                                <p>{{$user->name . ' ' . $user->family . '  '}}</p>
+                                <p>{{isset($user->region) ? $user->region->country->name: ''}}/{{isset($user->region) ? $user->region->name: ''}} - {{$user->address}}</p>
+                                <p>Tel: {{$user->phone}}</p>
+                                <p>Postal Code: {{$user->phone}}</p>
                                 <p>Overseas Rack Number: {{$barcode->orderable->overseas_warehouse_number}}</p>
                                 <p>Domestic Rack Number: {{$barcode->orderable->domestic_warehouse_number}}</p>
                             </td>

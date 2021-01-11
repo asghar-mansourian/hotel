@@ -6,6 +6,8 @@
     var id = $('#id').attr('data-id');
     var arr = id.split(',');
 
+    console.log(arr)
+
     $.each(arr, function (index, value) {
         var editoralnsajad = CKEDITOR.replace('' + value + '', {
             filebrowserUploadUrl: '/admin/editor/ckeditorUploader?type=Files&_token={{csrf_token()}}',
