@@ -334,6 +334,9 @@ class TranslateSeeder extends Seeder
         'generalmessagecustomer_delete_successful' => 'Customer Delete Successful',
         'customadmininquiryindextitle' => 'Inquiry Index',
         'singninaccount' => 'Sign In to your account',
+        'edit_admin' => 'Edit Admin',
+        'roles' => 'Roles',
+        'add_role' => 'Add Roles'
     ];
 
     private $member_items = [
@@ -559,7 +562,10 @@ class TranslateSeeder extends Seeder
         'color' => 'color',
         'paid_success' => 'paid success',
         'paid_failed' => 'paid failed',
-        'crawlerLinkError' => 'Please check link address'
+        'crawlerLinkError' => 'Please check link address',
+        'weight' => 'Weight',
+        'weight_price' => 'Weight Price',
+        'product_category' => 'Product Category'
     ];
 
     private $website_items = [

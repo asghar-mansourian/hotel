@@ -380,13 +380,8 @@
                             <a href="{{url('admin/orders/status/' . $order->id . '/' . \App\Order::STATUS_COMPLETE )}}"
                                class="btn btn-primary btn-block ">Customer Deliverables</a>
                         @elseif(request()->get('status') != 1 && request()->get('status') != 2 && request()->get('status') != 9 && request()->get('status') != 8)
-                            <button id="btn-cancel-order" data-target="#smallmodal" data-toggle="modal"
-                                    class="btn btn-warning btn-block ">Cancel The Order
-                            </button>
-                            <br>
                             <a href="{{url('admin/orders/status/' . $order->id . '/' . 1 )}}"
                                class="btn btn-primary btn-block ">Purchased</a>
-
                         @endif
                     @endslot
 

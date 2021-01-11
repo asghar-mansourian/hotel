@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\ValidatorRequest;
-use App\Http\Requests\Admin\BlogRequest;
 use App\Http\Requests\Admin\SliderRequest;
 use App\Slider;
 use Illuminate\Http\Request;
@@ -14,6 +13,12 @@ use Illuminate\Support\Facades\View;
 class SliderController extends Controller
 {
     use ValidatorRequest;
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read Slider|edit Slider|create Slider|delete Slider']);
+    }
+
 
     public function index()
     {

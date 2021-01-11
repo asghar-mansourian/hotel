@@ -17,6 +17,12 @@ class CalculatorController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Calculator|edit Calculator|create Calculator|delete Calculator']);
+    }
+
+
     public function index()
     {
         $calculatores = Calculator::query()

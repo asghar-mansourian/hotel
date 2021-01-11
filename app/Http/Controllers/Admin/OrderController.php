@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\View;
 
 class OrderController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read Order|edit Order|create Order|delete Order']);
+    }
+
     public function index()
     {
         $status = \request()->get('status') ?? 0;
@@ -25,47 +31,36 @@ class OrderController extends Controller
         $invoices = collect();
         $orders = collect();
 
+        $orders = DB::table('order_items')
+            ->leftJoin('orders', 'order_items.order_id', 'orders.id')
+            ->leftJoin('users', 'orders.user_id', 'users.id')
+            ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'orders.id as order_id', 'users.usd_balance as balance_usd', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.updated_at as date')
+            ->where('order_items.deleted_at', null);
+
+        $invoices = DB::table('invoices')
+            ->leftJoin('users', 'invoices.user_id', 'users.id')
+            ->select(DB::raw('2 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'users.usd_balance as balance_usd', 'invoices.id as id', 'invoices.shop as website', 'invoices.status', 'invoices.price as price', 'invoices.updated_at as date')
+            ->where('invoices.deleted_at', null);
+
         if ($purchased && $status == 1) {
-            $orders = DB::table('order_items')
-                ->leftJoin('orders', 'order_items.order_id', 'orders.id')
-                ->leftJoin('users', 'orders.user_id', 'users.id')
-                ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.updated_at as date')
-                ->where('order_items.deleted_at', null)
-                ->where('order_items.status', $status)
+
+            $orders = $orders->where('order_items.status', $status)
                 ->get();
 
-
-            $invoices = DB::table('invoices')
-                ->leftJoin('users', 'invoices.user_id', 'users.id')
-                ->select(DB::raw('2 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'invoices.id as id', 'invoices.shop as website', 'invoices.status', 'invoices.price as price', 'invoices.updated_at as date')
-                ->where('invoices.deleted_at', null)
-                ->where('invoices.status', $status)
+            $invoices = $invoices->where('invoices.status', $status)
                 ->get();
 
         } elseif ($warehouse_abroad && $status == 2) {
-            $orders = DB::table('order_items')
-                ->leftJoin('orders', 'order_items.order_id', 'orders.id')
-                ->leftJoin('users', 'orders.user_id', 'users.id')
-                ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.updated_at as date')
-                ->where('order_items.deleted_at', null)
-                ->where('order_items.status', $status)
+            $orders = $orders->where('order_items.status', $status)
                 ->get();
 
-            $invoices = DB::table('invoices')
-                ->leftJoin('users', 'invoices.user_id', 'users.id')
-                ->select(DB::raw('2 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'invoices.id as id', 'invoices.shop as website', 'invoices.status', 'invoices.price as price', 'invoices.updated_at as date')
-                ->where('invoices.deleted_at', null)
-                ->where('invoices.status', $status)
+            $invoices = $invoices->where('invoices.status', $status)
                 ->get();
         } elseif ($status == 6 || $status == 7 || $status == 8 || $status == 9) {
-            $orders = DB::table('order_items')
-                ->leftJoin('orders', 'order_items.order_id', 'orders.id')
-                ->leftJoin('users', 'orders.user_id', 'users.id')
-                ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.updated_at as date')
-                ->where('order_items.deleted_at', null)
-                ->where('order_items.status', $status)
+            $orders = $orders->where('order_items.status', $status)
                 ->get();
 
+            $invoices = $invoices->where('invoices.status', $status)
             $invoices = DB::table('invoices')
                 ->leftJoin('users', 'invoices.user_id', 'users.id')
                 ->select(DB::raw('2 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'invoices.id as id', 'invoices.shop as website', 'invoices.status', 'invoices.price as price', 'invoices.updated_at as date')
@@ -88,22 +83,12 @@ class OrderController extends Controller
                 ->where('invoices.user_id', $user)
                 ->get();
         } else {
-            $orders = DB::table('order_items')
-                ->leftJoin('orders', 'order_items.order_id', 'orders.id')
-                ->leftJoin('users', 'orders.user_id', 'users.id')
-                ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.updated_at as date')
-                ->where('order_items.deleted_at', null)
-                ->where('order_items.status', 0)
+            $orders = $orders->where('order_items.status', 0)
                 ->get();
 
-            $invoices = DB::table('invoices')
-                ->leftJoin('users', 'invoices.user_id', 'users.id')
-                ->select(DB::raw('2 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'invoices.id as id', 'invoices.shop as website', 'invoices.status', 'invoices.price as price', 'invoices.updated_at as date')
-                ->where('invoices.deleted_at', null)
-                ->where('invoices.status', 0)
+            $invoices = $invoices->where('invoices.status', 0)
                 ->get();
         }
-
 
 
         $orders = $invoices->merge($orders);

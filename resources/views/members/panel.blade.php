@@ -42,7 +42,13 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup></span>
+                        <span class="count">
+                            @if(auth()->user()->usd_balance <= 0)
+                                <span style="color: red">-{{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup></span>
+                            @else
+                                {{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup>
+                            @endif
+                            </span>
                     </div>
                     <div class="balance-date">
                         <a href="{{url('tl-balance')}}" class="btn-balance-home"><a data-v-27fd2a5d="" style="top: 30px!important;
@@ -103,12 +109,13 @@
 
             @media only screen and (max-width: 1200px) {
                 .btn-balance-home {
-                    width: 130px!important;
-                    display: block!important;
-                    min-height: 120px!important;
+                    width: 130px !important;
+                    display: block !important;
+                    min-height: 120px !important;
                 }
-                .border_sh{
-                    margin-top: 277px!important;
+
+                .border_sh {
+                    margin-top: 277px !important;
                 }
             }
         </style>

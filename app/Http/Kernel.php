@@ -97,5 +97,7 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
         'verified_sms' => VerifySMS::class,
         'Minify' => Minify::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
     ];
 }

@@ -8,15 +8,18 @@ use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\SettingRequest;
 use App\Setting;
 use Illuminate\Http\Request;
-use Illuminate\Support\Env;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Str;
 
 class SettingController extends Controller
 {
     use ValidatorRequest;
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read SiteSetting|edit SiteSetting|create SiteSetting|delete SiteSetting']);
+    }
+
 
     public function index()
     {

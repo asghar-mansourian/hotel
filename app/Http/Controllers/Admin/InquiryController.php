@@ -6,15 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\ImageController;
 use App\Http\Requests\Member\InquiryRequest;
 use App\Inquiry;
-use Illuminate\Http\Request;
 use App\lib\Helpers;
+
 class InquiryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:read Inquiry|edit Inquiry|create Inquiry|delete Inquiry']);
+
+    }
+
     public function index()
     {
         $inquirys = Inquiry::where(
-            'parent_id',null)->orderBy('seen')->orderBy('created_at','desc')->paginate(Inquiry::paginateNumber);
-        return view('admin.inquiry.index')->with('inquirys',$inquirys);
+            'parent_id', null)->orderBy('seen')->orderBy('created_at', 'desc')->paginate(Inquiry::paginateNumber);
+        return view('admin.inquiry.index')->with('inquirys', $inquirys);
     }
 
     public function show($id)
