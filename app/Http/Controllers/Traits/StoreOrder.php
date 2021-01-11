@@ -56,7 +56,7 @@ trait StoreOrder
                 $orderItem->has_cargo = $item->has_cargo;
                 $orderItem->cargo = $item->cargo;
                 $orderItem->quantity = $item->quantity;
-                $orderItem->status = $paymentType ? $paymentType : OrderItem::STATUS_BASKET;
+                $orderItem->status = $paymentType ? OrderItem::STATUS_ORDERED : OrderItem::STATUS_BASKET;
                 $orderItem->specification = $item->specification;
                 $orderItem->color = $item->color;
                 $orderItem->description = $item->description;

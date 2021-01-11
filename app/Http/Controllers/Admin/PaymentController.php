@@ -14,6 +14,12 @@ class PaymentController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Payment|edit Payment|create Payment|delete Payment']);
+
+    }
+
     public function index()
     {
         $payments = Payment::query()

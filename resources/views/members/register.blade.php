@@ -155,7 +155,7 @@
                             <option class="dropdown-item" value="null">{{__('member.please_select_country')}}</option>
                             @foreach($countries as $country)
                                 @if($country->id != 3)
-                                <option class="dropdown-item" value="{{$country->id}}">{{$country->name}}</option>
+                                <option class="dropdown-item" {{ old('country_id') == $country->id ? "selected" : "" }} value="{{$country->id}}">{{$country->name}}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -350,5 +350,36 @@ $title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
             }
 
         }
+
+        window.addEventListener('load',function (){
+            var country_id = '{{old('country_id')}}';
+            if(country_id){
+                var old_region_id = '{{old('region_id')}}';
+                var lang = '{{app()->getLocale()}}';
+                $.ajax({
+                    url: '/api/v1/regions?country_id=' + country_id,
+                    success: function (response) {
+                        var selected = '';
+                        regions = response.data;
+                        var html = '';
+                        for (var i = 0; i < regions.length; i++) {
+                            if(old_region_id == regions[i].id)
+                                selected = 'selected';
+                            else
+                                selected = '';
+                            if (lang == 'en')
+                                html = html + '<option '+ selected +' value="' + regions[i].id + '">' + regions[i].name + '</option>';
+                            else {
+                                html = html + '<option '+ selected +' value="' + regions[i].id + '">' + regions[i].name_ru + '</option>';
+                            }
+                        }
+                        $('#region').empty();
+                        $("#region").append(html);
+                    }
+                });
+            } else {
+                $("#region").empty();
+            }
+        })
     </script>
 @endpush

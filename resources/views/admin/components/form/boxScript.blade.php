@@ -1,6 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script>
-    new Vue({
+    var box = new Vue({
         el: '#container-box',
         data: {
             items: []
@@ -68,7 +68,35 @@
                         context.items = res.items
                     }
                 });
+            },
+            loadBoxes: function () {
+                var box_id = $('#box-id').val();
+                if (box_id) {
+                    var context = this;
+
+                    $.ajaxSetup({
+                        data: {barcode: 'load-boxes', box_id: box_id},
+                        url: '/admin/boxes/store',
+                        type: "POST",
+                        dataType: "JSON",
+                        cache: false,
+                    });
+
+                    $.ajax({
+                        error: function (res) {
+                            if (res.statusCode().status == 404) {
+                                alert(res.responseJSON.message)
+                            } else {
+                                alert('Server Error!')
+                            }
+                        },
+                        success: function (res) {
+                            context.items = res.items
+                        }
+                    });
+                }
             }
         }
     });
+    box.loadBoxes();
 </script>

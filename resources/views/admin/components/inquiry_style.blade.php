@@ -3,8 +3,8 @@
         cursor:pointer
     }
     .img_comment{
-        width:150px;
-        height:200px;
+        width:auto;
+        height:50px;
     }
     div{
         padding-right:10px;

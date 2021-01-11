@@ -14,6 +14,10 @@ class PriceItemController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read PriceItem|edit PriceItem|create PriceItem|delete PriceItem']);
+    }
 
     public function index()
     {

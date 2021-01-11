@@ -15,7 +15,13 @@
                     </picture>
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
-                        <span class="count">{{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup></span>
+                        <span class="count">
+                                   @if(auth()->user()->usd_balance <= 0)
+                                <span style="color: red">-{{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}  <sup>$</sup></span>
+                            @else
+                                {{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}} <sup>$</sup>
+                            @endif
+                           </span>
                     </div>
                     <div class="balance-date">{{__('member.balance7')}}</div>
                     <div class="balance-text">
@@ -30,8 +36,8 @@
                     <div class="payment">
                         <form action="{{url('/payment/gate')}}" method="post">
                             @csrf
-{{--                            <input type="number" id="balance_val" required="" placeholder="USD" name="amount">--}}
-                            <input min="1" type="number" id="new_balance_val" style="width: 50%" required="" placeholder="USD" name="amount_usd" >
+                            {{--                            <input type="number" id="balance_val" required="" placeholder="USD" name="amount">--}}
+                            <input min="1" type="number" id="new_balance_val" style="width: 50%" required="" placeholder="USD" name="amount_usd">
                             <button type="submit" class="payment_button">{{__('member.balanceincreases')}}</button>
                         </form>
                     </div>

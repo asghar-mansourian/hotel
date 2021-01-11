@@ -17,7 +17,7 @@
     <form class="form" method="post" id="mainForm">
         @csrf
         <div class="row">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-4">
                 <div class="col-12">
                     @include('admin.components.error')
                 </div>
@@ -62,7 +62,78 @@
                 @endcomponent
 
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-5">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center">
+                                    Order Id
+                                    <div class="" style="display: none!important;">
+
+                                        <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="desc">
+                                            <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                        <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="asc">
+                                            <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th style="text-align: center">
+                                    Order Type
+                                    <div class="" style="display: none!important;">
+
+                                        <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="desc">
+                                            <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                        <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="asc">
+                                            <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th style="text-align: center">
+                                    Box ID
+                                    <div class="" style="display: none!important;">
+
+                                        <a class="sort" style="" href="#" data-sort-field="statue" data-sort-type="desc">
+                                            <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                        <a class="sort" style="" href="#" data-sort-field="statue" data-sort-type="asc">
+                                            <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th style="text-align: center">
+                                    Barcode
+                                    <div class="" style="display: none!important;">
+
+                                        <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="desc">
+                                            <i class="fa fa-arrow-down" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                        <a class="sort" style="" href="#" data-sort-field="id" data-sort-type="asc">
+                                            <i class="fa fa-arrow-up" style="color: #384b6e;margin-right: 4px;font-size: 12px;"></i>
+                                        </a>
+                                    </div>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody class="mytbody">
+                            @foreach($box->boxItems as $boxItem)
+                                <tr>
+                                    <td class="text-center">{{$boxItem->orderable->id}}</td>
+                                    <td class="text-center">{{\Illuminate\Support\Str::of($boxItem->orderable()->getModel()->getTable())->studly()}}</td>
+                                    <td class="text-center">{{$box->id}}</td>
+                                    <td class="text-center">{{$box->barcode}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
                 @component('admin.components.panel')
 
 

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin;
-use App\Stock;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\StockRequest;
+use App\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -14,6 +14,11 @@ class StockController extends Controller
 {
 
     use ValidatorRequest;
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read Stock|edit Stock|create Stock|delete Stock']);
+    }
 
 
     public function show($id)

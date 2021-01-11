@@ -139,6 +139,27 @@
                 <td class="text-nowrap text-center">
 
                     @foreach($options as $option)
+                        @if($option == 'assign_role')
+                            <a href="{{url('admin/' . $url . '/assign_role/' . $record->id.$__query_show  )}}" data-userid="{{$record->id}}"
+                               title="Show" class="m-l-10 show-info btn-sm btn btn-info">
+                                <i class="fe fe-eye mr-2"></i>{{__('admin.assign_role')}}
+                            </a>
+                            {{--                            if route needs redirect to single page--}}
+                            @isset($key)
+                                @if ($key == 'singlePage')
+                                    <a href="{{route('blog.shows', $record->slug)}}" data-userid="{{$record->id}}"
+                                       title="Show" class="m-l-10 show-info btn-sm btn btn-info">
+                                        <i class="fe fe-eye mr-2"></i>{{__('admin.assign_role')}}
+                                    </a>
+                                @else
+                                    <a href="{{url('admin/' . $url . '/assign_role/' . $record->id)}}"
+                                       data-userid="{{$record->id}}"
+                                       title="Show" class="m-l-10 show-info btn-sm btn btn-info">
+                                        <i class="fe fe-eye mr-2"></i>{{__('admin.assign_role')}}
+                                    </a>
+                                @endif
+                            @endif
+                        @endif
                         @if($option == 'show')
                             <a href="{{url('admin/' . $url . '/show/' . $record->id.$__query_show  )}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">

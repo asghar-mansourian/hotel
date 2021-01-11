@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\View;
 class ContactController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Contact|edit Contact|create Contact|delete Contact']);
+    }
 
     public function index()
     {

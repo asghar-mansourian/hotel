@@ -54,39 +54,53 @@
                             data-page-length='{{$counts}}' id="tableList"
                             class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
                             <thead>
-                            <th style="text-align: center">Id</th>
+                            <th style="text-align: center;margin-right: 0px; margin-left: 0px">Id</th>
+                            <th style="text-align: center;margin-right: 0px; margin-left: 0px">Order Id</th>
                             <th style="text-align: center">Type</th>
                             <th style="text-align: center">Username</th>
                             <th style="text-align: center">User Id</th>
                             <th style="text-align: center">Website</th>
                             <th style="text-align: center">Price</th>
+                            <th style="text-align: center">Balance Cargo</th>
                             <th style="text-align: center">Date and Time</th>
                             {{--                            <th style="text-align: center">{{__('admin.tableaction')}}</th>--}}
                             </thead>
                             <thead>
-                            <th id="filter_col1" data-column="0">
-                                <input style="width: 50px!important;" type="text" class="column_filter"
+                            <th id="filter_col1" data-column="0" style="width: 10px!important; padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
                                        id="col0_filter">
                             </th>
-                            <th id="filter_col2" data-column="1">
-                                <input style="width: 120px!important;" type="text" class="column_filter"
+                            <th id="filter_col2" data-column="1" style="width: 10px!important; padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
                                        id="col1_filter">
                             </th>
-                            <th id="filter_col3" data-column="2">
-                                <input style="width: 120px!important;" type="text" class="column_filter"
+                            <th id="filter_col3" data-column="2" style="width: 20px!important;padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
                                        id="col2_filter">
                             </th>
-                            <th id="filter_col4" data-column="3">
-                                <input style="width: 150px!important;" type="text" class="column_filter"
+                            <th id="filter_col4" data-column="3" style="width: 50px!important;padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
                                        id="col3_filter">
                             </th>
-                            <th id="filter_col5" data-column="4">
-                                <input style="width: 80px!important;" type="text" class="column_filter"
+                            <th id="filter_col5" data-column="4" style="width: 15px!important; padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
                                        id="col4_filter">
                             </th>
-                            <th id="filter_col6" data-column="5">
-                                <input style="width: 150px!important;" type="text" class="column_filter"
+                            <th id="filter_col6" data-column="5" style="width: 40px!important; padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
                                        id="col5_filter">
+                            </th>
+                            <th id="filter_col7" data-column="6" style="width: 30px!important;padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
+                                       id="col6_filter">
+                            </th>
+                            <th id="filter_col8" data-column="7" style="width: 10px; padding-right: 2px; padding-left: 2px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
+                                       id="col7_filter">
+                            </th>
+                            <th id="filter_col9" data-column="8" style="width: 30px">
+                                <input type="text" class="column_filter" style="width: 100%!important;"
+                                       id="col8_filter">
                             </th>
                             {{--                            <th id="filter_col7" data-column="6">--}}
                             {{--                            </th>--}}
@@ -110,13 +124,23 @@
                                 @endphp
 
                                 <tr>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{url('admin/' . $type2 . '/show/' . $record->id . '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->id}}
                                         </a>
 
                                     </td>
-                                    <td>
+                                    <td class="text-center">
+                                        <a href="{{url('admin/' . $type2 . '/show/' . $record->id . '?status=' . request()->get('status') ?? '0')}}">
+                                            @if($record->type == 1)
+                                                {{$record->order_id}}
+                                            @else
+                                                -
+                                            @endif
+                                        </a>
+
+                                    </td>
+                                    <td class="text-center">
                                         @if($record->type == 1)
                                             <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                                 <div class=""> Order</div>
@@ -129,12 +153,12 @@
                                             </a>
                                         @endif
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->name . ' ' . $record->family}}
                                         </a>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->user_id}}
                                         </a>
@@ -146,20 +170,32 @@
                                         $url_info = $url_info['host'];
                                         }
                                         else{
-                                            $url_info = $record->website;
+                                            if(preg_match('/(http|https|www|ftp|mailto)/', $record->website))
+                                            {
+                                                $url_info = explode('.',parse_url($record->website)['host'])[1];
+                                            }else{
+                                                $url_info = str_limit($record->website, 15);
+                                            }
                                         }
                                     @endphp
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$url_info}}
                                         </a>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
                                         <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->price . ' ₺'}}
                                         </a>
                                     </td>
-                                    <td>
+                                    <td class="text-center">
+                                        @if($record->balance_usd <= 0)
+                                            <span style="color: red">-{{\App\lib\Helpers::formatPrice($record->balance_usd)}}  <sup>$</sup></span>
+                                        @else
+                                            <span style="color: green">{{\App\lib\Helpers::formatPrice($record->balance_usd)}} <sup>$</sup></span>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
                                         <a href="{{url('admin/' . $type2 . '/show/' . $record->id. '?status=' . request()->get('status') ?? '0')}}">
                                             {{$record->date}}
                                         </a>
@@ -232,7 +268,7 @@
 
         $(document).ready(function () {
             $('#tableList').DataTable();
-            $('#tableList').DataTable().order([[5, 'desc']]).draw();
+            $('#tableList').DataTable().order([[8, 'desc']]).draw();
 
             $('input.global_filter').on('keyup click', function () {
                 filterGlobal();

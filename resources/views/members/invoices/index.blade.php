@@ -210,6 +210,21 @@
             border-color: #ff2b00;
             border-radius: 1px
         }
+        @media (max-width: 767px) and (min-width: 481px) {
+            .filterDiv,
+            .filterDiv_ul {
+                width: 1000px;
+                padding: 5px;
+            }
+        }
+        .filterDiv{
+            width: 1000px;
+            padding: 5px;
+        }
+        .filterDiv_ul {
+            width: 1000px;
+            padding: 5px;
+        }
     </style>
 @endsection
 @section('main')
@@ -269,8 +284,7 @@
                                                                    required="">
                                                             @error('product_type')
                                                             <br>
-                                                            <span class="invalid-feedback" style="color: #b7474b "
-                                                                  role="alert">
+                                                            <span class="invalid-feedback" style="color: #b7474b" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                         </span>
                                                             @enderror

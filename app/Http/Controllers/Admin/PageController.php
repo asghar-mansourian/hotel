@@ -14,6 +14,12 @@ class PageController extends Controller
 {
     use ValidatorRequest;
 
+    public function __construct()
+    {
+        $this->middleware(['permission:read Page|edit Page|create Page|delete Page']);
+
+    }
+
     public function index()
     {
         $pages = Page::query()
