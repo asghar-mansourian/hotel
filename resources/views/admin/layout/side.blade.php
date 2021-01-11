@@ -37,7 +37,7 @@
 
 {{--                    </svg>--}}
 {{--                </svg>--}}
-{{--                <span class="side-menu__label">Admin Invoices</span><i class="angle fa fa-angle-right"></i>--}}
+{{--                <span class="side-menu__label">{{__('admin.admin_invoices}}</span><i class="angle fa fa-angle-right"></i>--}}
 {{--            </a>--}}
 
 {{--        </li>--}}
@@ -52,7 +52,7 @@
 
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Siparişlər</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.orders')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -68,7 +68,7 @@
 
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Satın Alınanlar</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.purchased')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -83,7 +83,7 @@
 
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Ləğv Edilmiş Siparişlər</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.canceled_orders')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -98,7 +98,7 @@
 
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Xarici Anbardakılar</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.outside_warehouse')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -113,7 +113,7 @@
                             <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Box Yığımı</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.box_collection')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -128,7 +128,7 @@
                             <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Box Havalimanına Getdi</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.went_to_box_airport')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -143,7 +143,7 @@
                             <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Box Ölkə Daxilinə Çatdı</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.box_reached_the_country')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -158,7 +158,7 @@
                             <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Ölkə Anabarında</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.in_the_country_ware_house')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -173,7 +173,7 @@
                             <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Kuryere Verilenler</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.given_to_the_courier')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -187,7 +187,7 @@
                             <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                         </svg>
                     </svg>
-                    <span class="side-menu__label">Müşütəriyə Verilənlər.</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.given_to_customers')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>
@@ -222,7 +222,7 @@
 
                     </svg>
                 </svg>
-                <span class="side-menu__label">Website Setting</span><i class="angle fa fa-angle-right"></i>
+                <span class="side-menu__label">{{__('admin.website_setting')}}</span><i class="angle fa fa-angle-right"></i>
             </a>
             <ul class="slide-menu">
                 @can('read SiteSetting')
@@ -237,7 +237,7 @@
 
                                 </svg>
                             </svg>
-                            <span class="side-menu__label">Setting</span><i class="angle fa fa-angle-right"></i>
+                            <span class="side-menu__label">{{__('admin.settings')}}</span><i class="angle fa fa-angle-right"></i>
                         </a>
 
                     </li>
@@ -253,11 +253,11 @@
 
                                 </svg>
                             </svg>
-                            <span class="side-menu__label">Cancel Orders</span><i class="angle fa fa-angle-right"></i>
+                            <span class="side-menu__label">{{__('admin.cancel_orders')}}</span><i class="angle fa fa-angle-right"></i>
                         </a>
                         <ul class="slide-menu">
-                            <li><a href="{{url('admin/cancel-reason-orders')}}" class="slide-item">Cancel Reason Orders</a></li>
-                            <li><a href="{{url('admin/cancel-reason-orders/create')}}" class="slide-item">Reason Order Create</a></li>
+                            <li><a href="{{url('admin/cancel-reason-orders')}}" class="slide-item">{{__('admin.cancel_reason_orders')}}</a></li>
+                            <li><a href="{{url('admin/cancel-reason-orders/create')}}" class="slide-item">{{__('admin.reason_order_create')}}</a></li>
                         </ul>
                     </li>
                     @can('read Notification')
@@ -272,7 +272,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Notification</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.notifications')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
                         </li>
@@ -289,7 +289,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Custom Script</span><i class="angle fa fa-angular"></i></a>
+                                <span class="side-menu__label">{{__('admin.Custom Script')}}</span><i class="angle fa fa-angular"></i></a>
 
                         </li>
                     @endcan
@@ -305,7 +305,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Translate</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.translate')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
                         </li>
@@ -339,7 +339,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Price Items</span><i class="angle fa fa-angle-right"></i></a>
+                                <span class="side-menu__label">{{__('admin.price_items')}}</span><i class="angle fa fa-angle-right"></i></a>
 
                         </li>
                     @endcan
@@ -355,7 +355,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Courier</span><i class="angle fa fa-angle-right"></i></a>
+                                <span class="side-menu__label">{{__('admin.Courier')}}</span><i class="angle fa fa-angle-right"></i></a>
 
                         </li>
                     @endcan
@@ -373,11 +373,11 @@
                                         <circle cx="12" cy="9" r="2.5"></circle>
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">region & country</span><i class="angle fa fa-angle-right"></i></a>
+                                <span class="side-menu__label">{{__('admin.region_and_country')}}</span><i class="angle fa fa-angle-right"></i></a>
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/countries')}}" class="slide-item">countries</a></li>
+                                <li><a href="{{url('admin/countries')}}" class="slide-item">{{__('admin.countries')}}</a></li>
                                 @can('read Region')
-                                    <li><a href="{{url('admin/regions')}}" class="slide-item">regions</a></li>
+                                    <li><a href="{{url('admin/regions')}}" class="slide-item">{{__('admin.regions')}}</a></li>
                                 @endcan
                             </ul>
                         </li>
@@ -430,12 +430,12 @@
                                             d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">pages</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.pages')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/pages')}}" class="slide-item">Pages</a></li>
+                                <li><a href="{{url('admin/pages')}}" class="slide-item">{{__('admin.pages')}}</a></li>
                                 @can('create Page')
-                                    <li><a href="{{url('admin/pages/create')}}" class="slide-item">create page</a></li>
+                                    <li><a href="{{url('admin/pages/create')}}" class="slide-item">{{__('admin.createpage')}}</a></li>
                                 @endcan
                             </ul>
                         </li>
@@ -451,13 +451,13 @@
                                         <i class="fa fa-wordpress" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">blogs</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.blogs')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
 
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/blogs')}}" class="slide-item">Articles</a></li>
-                                <li><a href="{{url('admin/blogs/create')}}" class="slide-item">create article</a></li>
+                                <li><a href="{{url('admin/blogs')}}" class="slide-item">{{__('admin.articles')}}</a></li>
+                                <li><a href="{{url('admin/blogs/create')}}" class="slide-item">{{__('admin.create_blogs')}}</a></li>
                             </ul>
 
 
@@ -497,14 +497,14 @@
                                         <i class="fa fa-image" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">sliders</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.sliders')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
 
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/sliders')}}" class="slide-item">Sliders</a></li>
+                                <li><a href="{{url('admin/sliders')}}" class="slide-item">{{__('admin.sliders')}}</a></li>
                                 @can('create Slider')
-                                    <li><a href="{{url('admin/sliders/create')}}" class="slide-item">create slider</a></li>
+                                    <li><a href="{{url('admin/sliders/create')}}" class="slide-item">{{__('admin.create_slider')}}</a></li>
                                 @endcan
                             </ul>
 
@@ -541,14 +541,14 @@
                                     <i class="fa fa-envelope-open-o" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
 
                                 </svg>
-                                <span class="side-menu__label">contact-us</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.contactus')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
 
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/contacts')}}" class="slide-item">Show</a></li>
+                                <li><a href="{{url('admin/contacts')}}" class="slide-item">{{__('admin.show')}}</a></li>
                                 @can('read Inquiry')
-                                    <li><a href="{{url('admin/inquiry')}}" class="slide-item">inquiry</a></li>
+                                    <li><a href="{{url('admin/inquiry')}}" class="slide-item">{{__('admin.inquiry')}}</a></li>
                                 @endcan
                             </ul>
 
@@ -569,11 +569,11 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">faqs</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.faqs')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/faqs')}}" class="slide-item">Faqs</a></li>
-                                <li><a href="{{url('admin/faqs/create')}}" class="slide-item">create faq</a></li>
+                                <li><a href="{{url('admin/faqs')}}" class="slide-item">{{__('admin.show_faqs')}}</a></li>
+                                <li><a href="{{url('admin/faqs/create')}}" class="slide-item">{{__('admin.create_faqs')}}</a></li>
                             </ul>
                         </li>
                     @endcan
@@ -589,7 +589,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Payments</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.payments')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
                         </li>
@@ -606,7 +606,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Branches</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.Branches')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
                         </li>
@@ -623,11 +623,11 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Roles And Permissions</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.roles_and_permissions')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/roles')}}" class="slide-item">Roles</a></li>
-                                <li><a href="{{url('admin/permissions')}}" class="slide-item">Permissions</a></li>
+                                <li><a href="{{url('admin/roles')}}" class="slide-item">{{__('admin.roles')}}</a></li>
+                                <li><a href="{{url('admin/permissions')}}" class="slide-item">{{__('admin.permissions')}}</a></li>
                             </ul>
                         </li>
                     @endcan
@@ -643,12 +643,12 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">Admins</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.admins')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
                             <ul class="slide-menu">
-                                <li><a href="{{url('admin/admins')}}" class="slide-item">Manage Admins</a></li>
+                                <li><a href="{{url('admin/admins')}}" class="slide-item">{{__('admin.manage_admins')}}</a></li>
                                 @can('create Admin')
-                                    <li><a href="{{url('admin/admins/create')}}" class="slide-item">create</a></li>
+                                    <li><a href="{{url('admin/admins/create')}}" class="slide-item">{{__('admin.create_admin')}}</a></li>
                                 @endcan
                             </ul>
                         </li>
