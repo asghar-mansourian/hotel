@@ -203,7 +203,7 @@
 
         {{--                    </svg>--}}
         {{--                </svg>--}}
-        {{--                <span class="side-menu__label">Invoices</span><i class="angle fa fa-angle-right"></i>--}}
+        {{--                <span class="side-menu__label">{{__('admin.invoices')}}</span><i class="angle fa fa-angle-right"></i>--}}
         {{--            </a>--}}
         {{--            <ul class="slide-menu">--}}
         {{--                <li><a href="{{url('admin/invoices')}}" class="slide-item">Show Invoices</a></li>--}}
@@ -289,7 +289,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">{{__('admin.Custom Script')}}</span><i class="angle fa fa-angular"></i></a>
+                                <span class="side-menu__label">{{__('admin.custom_script')}}</span><i class="angle fa fa-angular"></i></a>
 
                         </li>
                     @endcan
@@ -355,7 +355,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">{{__('admin.Courier')}}</span><i class="angle fa fa-angle-right"></i></a>
+                                <span class="side-menu__label">{{__('admin.courier')}}</span><i class="angle fa fa-angle-right"></i></a>
 
                         </li>
                     @endcan
@@ -480,7 +480,7 @@
 
                             <ul class="slide-menu">
                                 <li><a href="{{url('admin/stocks')}}" class="slide-item">{{ __('admin.stocks') }}</a></li>
-                                <li><a href="{{url('admin/stocks/create')}}" class="slide-item">{{ __('admin.createstocks') }}</a></li>
+                                <li><a href="{{url('admin/stocks/create')}}" class="slide-item">{{ __('admin.createstock') }}</a></li>
                             </ul>
 
 
@@ -606,7 +606,7 @@
 
                                     </svg>
                                 </svg>
-                                <span class="side-menu__label">{{__('admin.Branches')}}</span><i class="angle fa fa-angle-right"></i>
+                                <span class="side-menu__label">{{__('admin.branches')}}</span><i class="angle fa fa-angle-right"></i>
                             </a>
 
                         </li>
