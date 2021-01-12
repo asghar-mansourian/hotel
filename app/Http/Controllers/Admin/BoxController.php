@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Box;
 use App\Currency;
+use App\Exports\BoxesExport;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\ImageController;
 use App\Http\Controllers\Traits\ValidatorRequest;
@@ -13,7 +14,7 @@ use App\Order;
 use App\OrderBarcode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\View;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BoxController extends Controller
 {
@@ -310,31 +311,8 @@ class BoxController extends Controller
     {
        $boxs_id=$request->get('box');
 
-       $boxs = Box::whereIn('id',$boxs_id )->get();
-        $orders = collect();
+        return Excel::download(new BoxesExport($boxs_id), 'boxes.xlsx');
 
-        foreach ($boxs as $box)
-        {
-            $boxItems=$box->boxItems()->get();
-            $orders = $orders->merge($boxItems);
-
-        }
-
-        $orders = DB::table('order_items')
-            ->leftJoin('orders', 'order_items.order_id', 'orders.id')
-            ->leftJoin('users', 'orders.user_id', 'users.id')
-            ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'orders.id as order_id', 'users.usd_balance as balance_usd', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.updated_at as date')
-            ->where('order_items.deleted_at', null)
-            ->whereIn('order_items.id', $orders->pluck('orderable_id'))->get();
-
-        $count_order = (int)floor(count($orders) / 10);
-        $counts = count($orders);
-
-        return View::make('admin.boxes.export', compact('orders', 'counts'), with([
-            'sortField' => 'id',
-            'count_order' => $count_order,
-            'sortType' => 'desc'
-        ]));
 
     }
 
