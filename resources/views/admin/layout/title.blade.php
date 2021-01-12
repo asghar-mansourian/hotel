@@ -1,1 +1,1 @@
-<title>Cowsel Admin</title>
+<title>Cowsel Delivery</title>
