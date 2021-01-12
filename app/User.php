@@ -31,8 +31,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'family', 'email', 'password', 'sms_code', 'sms_verified_at', 'code', 'verified', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'region_id', 'branch_id', 'fin', 'address', 'token', 'current_lang'
-    ];
+        'name', 'family', 'email', 'password', 'sms_code', 'sms_verified_at', 'code', 'verified', 'phone', 'serial_number', 'citizenship', 'birthdate', 'gender', 'region_id', 'branch_id', 'fin', 'address', 'token', 'current_lang', 'fcm_firebase_token'];
     /**
      * The attributes that should be hidden for arrays.
      *

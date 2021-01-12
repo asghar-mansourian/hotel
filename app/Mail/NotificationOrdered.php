@@ -43,6 +43,8 @@ class NotificationOrdered extends Mailable
         }
 
         return $this
-            ->markdown('mails.notification_ordered')->with(['notificationMessage' => $notificationMessage]);
+            ->view('mails.notification_ordered')
+            ->subject($notificationMessage ? $notificationMessage->title : 'without title')
+            ->with(['notificationMessage' => $notificationMessage]);
     }
 }
