@@ -135,31 +135,31 @@
         <tr>
 
             <th class="eee">
-                <span>Customer ID: M{{$user->id}}, Pack.N: #{{$barcode->code}}</span>
+                <span>{{__('admin.customer_id_w')}} {{$user->id}}, {{__('admin.Pack_N_w')}} #{{$barcode->code}}</span>
             </th>
             <td style="padding: 0; border: 1px solid transparent;">
                 <div class="adres">
                     <table>
                         <tr>
-                            <th class="adres_th"><span>Sender</span></th>
+                            <th class="adres_th"><span>{{__('admin.sender_w')}}</span></th>
                             <td class="b_r">
                                 <p>
                                     {{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_FACTOR_ADDRESS)}}
                                 </p>
-                                <br>
-                                <br>
-                                <p>Tel: {{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_FACTOR_PHONE)}}</p>
+{{--                                <br>--}}
+{{--                                <br>--}}
+                                <p>{{__('admin.tel_w')}} {{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_FACTOR_PHONE)}}</p>
                             </td>
                         </tr>
                         <tr>
-                            <th class="adres_th"><span>Reciever</span></th>
+                            <th class="adres_th"><span>{{__('admin.reciever_w')}}</span></th>
                             <td class="b_r">
                                 <p>{{$user->name . ' ' . $user->family . '  '}}</p>
                                 <p>{{isset($user->region) ? $user->region->country->name: ''}}/{{isset($user->region) ? $user->region->name: ''}} - {{$user->address}}</p>
-                                <p>Tel: {{$user->phone}}</p>
-                                <p>Postal Code: {{$user->phone}}</p>
-                                <p>Overseas Rack Number: {{$barcode->orderable->overseas_warehouse_number}}</p>
-                                <p>Domestic Rack Number: {{$barcode->orderable->domestic_warehouse_number}}</p>
+                                <p>{{__('admin.tel_w')}} {{$user->phone}}</p>
+                                <p>{{__('admin.postal_code_w')}} {{$user->phone}}</p>
+                                <p>{{__('admin.overseas_rack_number_w')}} {{$barcode->orderable->overseas_warehouse_number}}</p>
+                                <p>{{__('admin.domestic_rack_number_w')}} {{$barcode->orderable->domestic_warehouse_number}}</p>
                             </td>
                         </tr>
                     </table>
@@ -167,10 +167,10 @@
                 <div class="adres_list">
                     <table>
                         <tr>
-                            <th><strong>Count of packages</strong></th>
-                            <th><strong>Total gross weight (kg)</strong></th>
-                            <th><strong>Delivery Price(USD)</strong></th>
-                            <th><strong>Invoice Price(USD)</strong></th>
+                            <th><strong>{{__('admin.count_of_packages_w')}}</strong></th>
+                            <th><strong>{{__('admin.total_gross_weight_w')}}</strong></th>
+                            <th><strong>{{__('admin.delivery_price_w')}}</strong></th>
+                            <th><strong>{{__('admin.invoice_price_w')}}</strong></th>
                         </tr>
                         <tr>
                             <td>{{$barcode->orderable->quantity}}</td>

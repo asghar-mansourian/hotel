@@ -161,20 +161,20 @@
         <table>
             <tr>
                 <th class="number"><span>1</span></th>
-                <th class="width_50_strong">Traking number :</th>
-                <th class="width_50_strong"><span class="xxx">X</span> <strong>Cargo Prepaid</th>
+                <th class="width_50_strong">{{__('admin.tracking_number_f2')}}</th>
+                <th class="width_50_strong"><span class="xxx">X</span> <strong>{{__('admin.cargo_prepaid_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
                 <td class="width_50">#{{$barcode->code}}</td>
-                <td class="width_50"><span class="no"></span>Prepaid</td>
+                <td class="width_50"><span class="no"></span>{{__('admin.prepaid_f2')}}</td>
             </tr>
         </table>
         <table>
             <tr>
                 <th class="number"><span>2</span></th>
-                <th class="width_50_strong">From(Shipper) :</th>
-                <th class="width_50_strong">Send adress :</th>
+                <th class="width_50_strong">{{__('admin.from_shipper_f2')}}</th>
+                <th class="width_50_strong">{{__('admin.send_address_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
@@ -194,8 +194,8 @@
         <table>
             <tr>
                 <td style="color: #fff" class="number">2></td>
-                <th class="width_50_strong">Postal code :</th>
-                <th class="width_50_strong">Send Phone :</th>
+                <th class="width_50_strong">{{__('admin.postal_code_f2')}}</th>
+                <th class="width_50_strong">{{__('admin.send_phone_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
@@ -206,8 +206,8 @@
         <table>
             <tr>
                 <th class="number"><span>3</span></th>
-                <th class="width_50_strong">To (Consignee):</th>
-                <th class="width_50_strong">Personal ID :</th>
+                <th class="width_50_strong">{{__('admin.to_consignee_f2')}}</th>
+                <th class="width_50_strong">{{__('admin.personal_id_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
@@ -218,8 +218,8 @@
         <table>
             <tr>
                 <td style="color: #fff" class="number">3></td>
-                <th class="width_50_strong">Delivery adress :</th>
-                <th class="width_50_strong">Country/City :</th>
+                <th class="width_50_strong">{{__('admin.delivery_address_f2')}}</th>
+                <th class="width_50_strong" {{__('admin.country_city_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
@@ -230,7 +230,7 @@
         <table>
             <tr>
                 <td style="color: #fff" class="number">3></td>
-                <th class="width_50_strong">Website :</th>
+                <th class="width_50_strong">{{__('admin.website_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
@@ -243,17 +243,17 @@
         <table>
             <tr>
                 <th class="number"><span>4</span></th>
-                <th class="width_77_strong">To (Consignee):</th>
-                <th class="width_77_strong"><span class="xxx">X</span> <strong>By Air</th>
+                <th class="width_77_strong">{{__('admin.to_consignee_f2')}}</th>
+                <th class="width_77_strong"><span class="xxx">X</span> <strong>{{__('admin.by_air_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
                 <td class="width_50" style="padding: 0">
                     <table>
                         <tr>
-                            <th>Total number of packages</th>
-                            <th>Total gross weight (kg)</th>
-                            <th>Delivery (USD)</th>
+                            <th>{{__('admin.total_number_of_packages_f2')}}</th>
+                            <th>{{__('admin.total_gross_weight_f2')}}</th>
+                            <th>{{__('admin.delivery_f2')}}</th>
                         </tr>
                         <tr>
                             <td>{{$barcode->orderable->quantity}}</td>
@@ -262,14 +262,14 @@
                         </tr>
                     </table>
                 </td>
-                <td class="width_50"><span class="no"></span>By Sea</td>
+                <td class="width_50"><span class="no"></span>{{__('admin.by_see_f2')}}</td>
             </tr>
         </table>
         <table>
             <tr>
                 <th class="number"><span>5</span></th>
-                <th class="width_50_strong">Description of goods:</br>Category :</th>
-                <th class="width_50_strong">Declaration value for customs :</th>
+                <th class="width_50_strong">{{__('admin.description_of_goods_f2')}}</br>{{__('admin.category_f2')}}</th>
+                <th class="width_50_strong">{{__('admin.declaration_value_for_customs_f2')}}</th>
             </tr>
             <tr>
                 <td></td>
@@ -287,11 +287,11 @@
         </table>
         <table class="table_total">
             <tr>
-                <td class="width_50">Product price</td>
+                <td class="width_50">{{__('admin.product_price_f2')}}</td>
                 <td class="width_50 text_right">{{\App\lib\Helpers::formatPrice($priceDollar)}} $</td>
             </tr>
             <tr>
-                <td class="width_50">Delivery price</td>
+                <td class="width_50">{{__('admin.delivery_price_f2')}}</td>
                 <td class="width_50 text_right">{{$barcode->orderable->weight_price}} $</td>
             </tr>
             <tr>
@@ -299,7 +299,7 @@
                 <th class="width_50_strong border_unset text_right">{{\App\lib\Helpers::formatPrice($priceDollar + $barcode->orderable->weight_price)}} $</th>
             </tr>
         </table>
-        <div>Information on goods filled by Consignee on by <strong>{{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_NAME)}}</strong> on behalf on Consignee</div>
+        <div>{{__('admin.information_goods_filled_f2')}} <strong>{{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_NAME)}}</strong>{{__('admin.on_behalf_on_consignee_f2')}}</div>
     </div>
 </div>
 <script>
