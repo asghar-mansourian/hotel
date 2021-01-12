@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Box;
+use App\Currency;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\ImageController;
 use App\Http\Controllers\Traits\ValidatorRequest;
@@ -254,4 +255,59 @@ class BoxController extends Controller
             'sortType' => Box::sortType
         ]));
     }
+
+    public function createXml(Request $request)
+    {
+       $boxs_id=$request->get('box');
+
+       $boxs = Box::whereIn('id',$boxs_id )->get();
+        $boxWeight = 0;
+        $boxPrice = 0;
+        $user = null;
+        $url_info = '';
+        $toValue = Currency::query()
+            ->where('from', 'TRY')
+            ->where('to', 'USD')
+            ->first()->to_value;
+       foreach ($boxs as $box)
+       {
+           $boxItems=$box->boxItems()->get();
+           foreach ($boxItems as $boxItem)
+           {
+               $url_info = parse_url( $boxItem->orderable->link);
+               $url_info = $url_info['host'];
+               if (!$user) {
+                   $getTable = $boxItem->orderable()->getModel()->getTable();
+
+                   if ($getTable == 'invoices') {
+                       $user = $boxItem->orderable->user;
+                   } elseif ($getTable == 'order_items') {
+                       $user = $boxItem->orderable->order->user;
+                   }
+               }
+               $xml['TR_NUMBER']=$boxItem->orderable_id;
+               $xml['DIRECTION']='1';
+               $xml['QUANTITY_OF_GOODS']='1';
+               $xml['WEIGHT_GOODS']=$boxItem->orderable->weight;
+               $xml['INVOYS_PRICE']=Helpers::formatPrice($boxItem->orderable->price * $toValue);
+               $xml['CURRENCY_TYPE']='840';
+               $xml['NAME_OF_GOODS']='';
+               $xml['IDXAL_NAME']=$user->name . ' ' . $user->family;
+               $xml['IDXAL_ADRESS']=$user->address;
+               $xml['IXRAC_NAME']=$url_info;
+               $xml['IXRAC_ADRESS']=$url_info;
+               $xml['GOODS_TRAFFIC_FR']='792';
+               $xml['GOODS_TRAFFIC_TO']='31';
+               $xml['QAIME']=$boxItem->orderable_id;
+               $xml['TRACKING_NO']='0';
+               $xml['FIN']=$user->fin;
+               $xml['PHONE']=$user->phone;
+               $xmls[]=$xml;
+           }
+
+       }
+        return response()->view('xml', compact('xmls'))->header('Content-Type', 'text/xml');
+
+    }
+
 }

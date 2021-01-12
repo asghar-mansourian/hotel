@@ -247,6 +247,7 @@ route::get('/boxes/show/{id}', 'BoxController@show');
 route::get('/boxes/destroy/{id}', 'BoxController@delete');
 route::post('boxes/search', 'BoxController@search');
 route::get('/boxes/status/{id}/{type}', 'BoxController@status');
+route::post('/boxes/createXml', 'BoxController@createXml');
 
 //boxes items
 route::delete('/box-items/destroy/{id}', 'BoxItemController@delete');
