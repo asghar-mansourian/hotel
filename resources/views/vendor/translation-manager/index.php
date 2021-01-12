@@ -155,6 +155,9 @@
                     <div class="col-sm-2">
                     <button type="submit" class="btn btn-success btn-block"  data-disable-with="Loading..">Import groups</button>
                     </div>
+                    <div class="col-sm-2">
+                        <a href="/admin/home" class="btn btn-warning btn-block"  data-disable-with="Loading..">return admin panel</a>
+                    </div>
                 </div>
             </div>
         </form>

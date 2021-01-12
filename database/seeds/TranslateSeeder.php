@@ -365,7 +365,8 @@ class TranslateSeeder extends Seeder
         'admins' => 'Admins',
         'manage_admins' => 'Manage Admins',
         'create_admin' => 'Create Admin',
-        'admin_invoices' => 'Admin Invoices'
+        'admin_invoices' => 'Admin Invoices',
+        'add_customers' => 'Add Customers'
     ];
 
     private $member_items = [

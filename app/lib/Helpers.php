@@ -4,6 +4,7 @@
 namespace App\lib;
 
 
+use App\Inquiry;
 use App\Notification;
 use App\Order;
 use App\Setting;
@@ -128,5 +129,15 @@ class Helpers
             $phone = strval($areaCode) . strval($selectUser->phone);
             $sms->sendSmsWithLinex($selectMessage->value, $phone);
         }
+    }
+
+    public static function getUsersNotSeenAnswerTicketNumber()
+    {
+        $inquiries = Inquiry::where('parent_id',null)->where('user_id',auth()->user()->id)->withCount([
+            'inquirys as countNotSeen' => function ($query) {
+                $query->where('user_id','<>',auth()->user()->id)->where('seen', 'not-seen');
+            }
+        ])->get();
+        return collect($inquiries)->sum('countNotSeen');
     }
 }
