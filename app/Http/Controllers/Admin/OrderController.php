@@ -27,6 +27,7 @@ class OrderController extends Controller
         $status = \request()->get('status') ?? 0;
         $purchased = \request()->get('purchased') ?? 0;
         $warehouse_abroad = \request()->get('warehouse_abroad') ?? 0;
+        $user = \request()->get('user') ?? 0;
 
         $orders = DB::table('order_items')
             ->leftJoin('orders', 'order_items.order_id', 'orders.id')
@@ -58,6 +59,12 @@ class OrderController extends Controller
                 ->get();
 
             $invoices = $invoices->where('invoices.status', $status)
+                ->get();
+        }elseif ($user != 0){
+            $orders = $orders->where('orders.user_id', $user)
+                ->get();
+
+            $invoices = $invoices->where('invoices.user_id', $user)
                 ->get();
         } else {
             $orders = $orders->where('order_items.status', 0)

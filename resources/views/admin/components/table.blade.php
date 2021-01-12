@@ -139,6 +139,13 @@
                 <td class="text-nowrap text-center">
 
                     @foreach($options as $option)
+                        @if($option == 'order')
+                            <a href="{{url('admin/orders/?user=' . $record->id)}}"
+                               data-toggle="tooltip"
+                               title="Order" class="m-l-10 btn btn-primary btn-sm">
+                                <i class="fe fe-edit mr-2"></i>{{__('admin.tableorder')}}
+                            </a>
+                        @endif
                         @if($option == 'assign_role')
                             <a href="{{url('admin/' . $url . '/assign_role/' . $record->id.$__query_show  )}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">
