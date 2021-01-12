@@ -10,8 +10,9 @@
 <div class="table-responsive" id="tableList">
     @if($checkbox)
     <button type="button" class="btn btn-sm btn-light" id="checkAll" onclick="checkAll()">Select All</button>
-    <button type="button" class="btn btn-sm btn-light" onclick="submitData()" > Submit</button>
-    <button type="button" class="btn btn-sm btn-light" onclick="exportData()" > Export</button>
+    <button type="button" class="btn btn-sm btn-light" onclick="submitData()" > XML</button>
+    <button type="button" class="btn btn-sm btn-light" onclick="exportData(1)" > Excel 1 </button>
+    <button type="button" class="btn btn-sm btn-light" onclick="exportData(2)" > Excel 2 </button>
     @endif
 
     <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
@@ -313,12 +314,13 @@
 
         form.submit();
     }
-    function exportData() {
+    function exportData(export) {
         var items = document.getElementsByName('recordId');
 
         var form = document.createElement("form");
+        var inputExport = document.createElement("input");
+
         form.method = "POST";
-        form.target = "_blank";
         form.action = "{{url('admin/boxes/createExport')}}";
         for(var i=0; items[i]; ++i){
             if(items[i].checked){
@@ -328,6 +330,9 @@
                 form.appendChild(input);
             }
         }
+        inputExport.value=export;
+        inputExport.name="export";
+        form.appendChild(inputExport);
 
         document.body.appendChild(form);
 
