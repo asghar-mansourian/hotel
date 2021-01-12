@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('admin.dashboard')}} | {{__('admin.pagetitle')}}
+    {{__('admin.dashboard')}} | {{__('admin.blogtitle')}}
 @endsection
 
 @section('styleCustom')
@@ -16,45 +16,22 @@
             @include('admin.components.error')
         </div>
 
-
-{{--        <div class="col-lg-4">--}}
-{{--            @component('admin.components.search')--}}
-{{--                @slot('url')--}}
-{{--                    {{url('admin/pages/search')}}--}}
-{{--                @endslot--}}
-{{--            @endcomponent--}}
-{{--        </div>--}}
-
-
-        {{--        <div class="col-lg-4">--}}
-        {{--            @component('admin.components.filter')--}}
-        {{--                @slot('options')--}}
-        {{--                    <option value="" selected="">انتخاب کنید ...</option>--}}
-        {{--                    <option value="status|1">وضعیت حساب : فعال</option>--}}
-        {{--                    <option value="status|0">وضعیت حساب : غیر فعال</option>--}}
-        {{--                @endslot--}}
-        {{--                @slot('url')--}}
-        {{--                    {{url('admin/countries/filter')}}--}}
-        {{--                @endslot--}}
-        {{--            @endcomponent--}}
-        {{--        </div>--}}
-
         <div class="col-12" id="">
             @component('admin.components.panel')
                 @slot('header')
                     <h3 class="card-title" style="display: inline">
-                        <i class="fa fa-clipboard   mr-2"></i>{{__('custom.admin.page.index.table.header')}}
+                        <i class="fa fa-clipboard   mr-2"></i>{{__('admin.blogtableheader')}}
                     </h3>
-                    <a href="{{url('/admin/pages/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i> Add Page </a>
+                    <a href="{{url('/admin/admin-invoices/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i>{{__('admin.addInvoice')}} </a>
                 @endslot
 
                 @slot('items')
-                    @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $pages , 'selects' => ['id' , 'title' ], 'options' => ['edit' , 'delete']])
+                    @component('admin.components.table' , ['sortType'=>'asc','sortField'=>'created_at','records' => $invoices , 'selects' => ['id' , 'shop','product_type','weight' ], 'options' => [ 'edit' , 'delete']])
                         @slot('paginate')
-                            {{$pages->links()}}
+                            {{$invoices->links()}}
                         @endslot
                         @slot('url')
-                                pages
+                                admin-invoices
                         @endslot
 
                     @endcomponent
@@ -71,28 +48,28 @@
 
     @component('admin.components.script.sweetAlertScript')
         @slot('url')
-            ../../../admin/pages/
+            ../../../admin/admin-invoices/
         @endslot
     @endcomponent
     {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}
     {{--        @slot('paginatorUrl')--}}
-    {{--            pages/load?page=--}}
+    {{--            blogs/load?blog=--}}
     {{--        @endslot--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.searchScript')--}}
     {{--        @slot('url')--}}
-    {{--            ../../../admin/pages/search/--}}
+    {{--            ../../../admin/blogs/search/--}}
     {{--        @endslot--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.sortScript')--}}
     {{--        @slot('url')--}}
-    {{--            ../../../admin/pages/sort/--}}
+    {{--            ../../../admin/blogs/sort/--}}
 
     {{--        @endslot--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.sortTableScript')--}}
     {{--        @slot('url')--}}
-    {{--            ../../../admin/pages/sort/--}}
+    {{--            ../../../admin/blogs/sort/--}}
     {{--        @endslot--}}
     {{--    @endcomponent--}}
     {{--    @component('admin.components.script.filterScript')--}}
@@ -111,7 +88,7 @@
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i><a
                     href="{{url('/admin/home')}}">{{__('admin.paneltitle')}}</a></li>
-            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('admin.pagetitle')}}
+            <li class="breadcrumb-item active"><i class="fe fe-paperclip mr-2 fs-14"></i>{{__('admin.admin_invoices')}}
             </li>
         @endslot
     @endcomponent

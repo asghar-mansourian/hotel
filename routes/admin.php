@@ -333,3 +333,15 @@ route::post('/permissions/update/{id}', 'PermissionController@update');
 route::get('/permissions/destroy/{id}', 'PermissionController@destroy');
 route::post('/permissions/search/', 'PermissionController@search');
 route::post('/permissions/sort/', 'PermissionController@sort');
+
+
+/*      Create Invoice Routes By Admin     */
+route::get('/admin-invoices' , 'AdminInvoicesController@index');
+route::get('/admin-invoices/load' , 'AdminInvoicesController@load');
+route::get('/admin-invoices/create/' , 'AdminInvoicesController@create');
+route::post('/admin-invoices/store/' , 'AdminInvoicesController@store');
+route::get('/admin-invoices/edit/{id}' , 'AdminInvoicesController@edit');
+route::post('/admin-invoices/update/{id}' , 'AdminInvoicesController@update');
+route::get('/admin-invoices/destroy/{id}' , 'AdminInvoicesController@destroy');
+route::post('/admin-invoices/search/' , 'AdminInvoicesController@search');
+route::post('/admin-invoices/sort/' , 'AdminInvoicesController@sort');

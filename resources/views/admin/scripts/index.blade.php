@@ -15,13 +15,13 @@
             @include('admin.components.error')
         </div>
 
-        <div class="col-lg-4">
-            @component('admin.components.search')
-                @slot('url')
-                    {{url('admin/scripts/search')}}
-                @endslot
-            @endcomponent
-        </div>
+{{--        <div class="col-lg-4">--}}
+{{--            @component('admin.components.search')--}}
+{{--                @slot('url')--}}
+{{--                    {{url('admin/scripts/search')}}--}}
+{{--                @endslot--}}
+{{--            @endcomponent--}}
+{{--        </div>--}}
         <div class="col-12" id="">
 
             @component('admin.components.panel')

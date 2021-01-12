@@ -48,11 +48,14 @@ class InquiryController extends Controller
     public function show($id)
     {
         $inquiry = Inquiry::findOrfail($id);
-        $this->update($inquiry);
-        if($inquiry->parent_id){
-            abort(404, 'Page not found');
+        if($inquiry->user_id == auth()->user()->id){
+            if($inquiry->parent_id){
+                abort(404, 'Page not found');
+            }
+            $this->update($inquiry);
+            return view('members.inquiry.show')->with('inquiry',$inquiry);
         }
-        return view('members.inquiry.show')->with('inquiry',$inquiry);
+        abort(404, 'Page not found');
     }
 
     public function update($inquiry)

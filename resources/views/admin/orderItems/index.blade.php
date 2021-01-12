@@ -32,13 +32,13 @@
         {{--                @endslot--}}
         {{--            @endcomponent--}}
         {{--        </div>--}}
-        <div class="col-lg-4">
-            @component('admin.components.search')
-                @slot('url')
-                    {{url('admin/order-items/search')}}
-                @endslot
-            @endcomponent
-        </div>
+{{--        <div class="col-lg-4">--}}
+{{--            @component('admin.components.search')--}}
+{{--                @slot('url')--}}
+{{--                    {{url('admin/order-items/search')}}--}}
+{{--                @endslot--}}
+{{--            @endcomponent--}}
+{{--        </div>--}}
         <div class="col-12" id="">
 
             @component('admin.components.panel')

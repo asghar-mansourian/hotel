@@ -28,7 +28,15 @@
     </li>
 @endif
 <li class="{{url()->current() === url('/inquiry') ? 'active_li' : ''}}">
-    <a href="{{route('inquiry')}}"><i class="far fa-question-circle" style="font-size: 16px;"></i><span class="use_dis_no">{{__('member.inquiry')}}</span></a>
+    <a href="{{route('inquiry')}}"><i class="far fa-question-circle" style="font-size: 16px;"></i><span class="use_dis_no">{{__('member.inquiry')}}</span>
+        @if(\App\lib\Helpers::getUsersNotSeenAnswerTicketNumber())
+            <span style="    color: white;
+        background-color: #f25c69;
+        padding: 3px 6px;
+        border-radius: 100%;
+        font-size: 8px;">{{\App\lib\Helpers::getUsersNotSeenAnswerTicketNumber()}}</span>
+            @endif
+    </a>
 </li>
 <li class="{{url()->current() === url('/setting') ? 'active_li' : ''}}">
     <a href="{{url('/setting')}}"><i class="fas fa-cogs"></i><span class="use_dis_no">{{__('member.setting')}}</span></a>
