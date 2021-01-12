@@ -13,6 +13,7 @@ use App\Order;
 use App\OrderBarcode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class BoxController extends Controller
 {
@@ -261,10 +262,6 @@ class BoxController extends Controller
        $boxs_id=$request->get('box');
 
        $boxs = Box::whereIn('id',$boxs_id )->get();
-        $boxWeight = 0;
-        $boxPrice = 0;
-        $user = null;
-        $url_info = '';
         $toValue = Currency::query()
             ->where('from', 'TRY')
             ->where('to', 'USD')
@@ -307,6 +304,37 @@ class BoxController extends Controller
 
        }
         return response()->view('xml', compact('xmls'))->header('Content-Type', 'text/xml');
+
+    }
+    public function createExport(Request $request)
+    {
+       $boxs_id=$request->get('box');
+
+       $boxs = Box::whereIn('id',$boxs_id )->get();
+        $orders = collect();
+
+        foreach ($boxs as $box)
+        {
+            $boxItems=$box->boxItems()->get();
+            $orders = $orders->merge($boxItems);
+
+        }
+
+        $orders = DB::table('order_items')
+            ->leftJoin('orders', 'order_items.order_id', 'orders.id')
+            ->leftJoin('users', 'orders.user_id', 'users.id')
+            ->select(DB::raw('1 as type'), 'users.name as name', 'users.family as family', 'users.id as user_id', 'orders.id as order_id', 'users.usd_balance as balance_usd', 'order_items.id as id', 'order_items.link as website', 'order_items.status', 'order_items.price as price', 'order_items.updated_at as date')
+            ->where('order_items.deleted_at', null)
+            ->whereIn('order_items.id', $orders->pluck('orderable_id'))->get();
+
+        $count_order = (int)floor(count($orders) / 10);
+        $counts = count($orders);
+
+        return View::make('admin.boxes.export', compact('orders', 'counts'), with([
+            'sortField' => 'id',
+            'count_order' => $count_order,
+            'sortType' => 'desc'
+        ]));
 
     }
 

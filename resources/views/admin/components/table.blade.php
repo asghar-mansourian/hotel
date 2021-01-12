@@ -11,6 +11,7 @@
     @if($checkbox)
     <button type="button" class="btn btn-sm btn-light" id="checkAll" onclick="checkAll()">Select All</button>
     <button type="button" class="btn btn-sm btn-light" onclick="submitData()" > Submit</button>
+    <button type="button" class="btn btn-sm btn-light" onclick="exportData()" > Export</button>
     @endif
 
     <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
@@ -296,10 +297,29 @@
         var items = document.getElementsByName('recordId');
 
         var form = document.createElement("form");
-        var input = document.createElement("input");
         form.method = "POST";
         form.target = "_blank";
         form.action = "{{url('admin/boxes/createXml')}}";
+        for(var i=0; items[i]; ++i){
+            if(items[i].checked){
+                var input = document.createElement("input");
+                input.value=items[i].value;
+                input.name="box["+i+"]";
+                form.appendChild(input);
+            }
+        }
+
+        document.body.appendChild(form);
+
+        form.submit();
+    }
+    function exportData() {
+        var items = document.getElementsByName('recordId');
+
+        var form = document.createElement("form");
+        form.method = "POST";
+        form.target = "_blank";
+        form.action = "{{url('admin/boxes/createExport')}}";
         for(var i=0; items[i]; ++i){
             if(items[i].checked){
                 var input = document.createElement("input");
