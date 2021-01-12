@@ -43,7 +43,7 @@
 </li>
 <li>
     <a href="{{url('/logout')}}"><i class="fas fa-power-off"></i><span class="use_dis_no">{{__('member.logout')}}</span></a>
-</li>tr
+</li>
 
 <style>
     @media only screen and (max-width: 1200px) {
