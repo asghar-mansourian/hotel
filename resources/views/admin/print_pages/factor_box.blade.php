@@ -87,19 +87,19 @@
     </div>
     <div style="clear: both;"></div>
     <div class="box border">
-        Box:{{$box->id}}
+        {{__('admin.box_f')}} {{$box->id}}
     </div>
     <div class="font_14">
-        Number of packages : {{$box->boxItems->count()}}
+        {{__('admin.number_of_packages_f')}} {{$box->boxItems->count()}}
     </div>
     <div class="font_14">
-        Weight of box : {{$boxWeight}} kg
+        {{__('admin.weight_of_box_f')}} {{$boxWeight}} kg
     </div>
     <div class="font_13">
-        Sender Adress : {{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_FACTOR_ADDRESS)}}
+        {{__('admin.sender_address_f')}} {{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_FACTOR_ADDRESS)}}
     </div>
     <div class="font_13 border padding_13">
-        Reciever Adress : {{isset($user->region) ? $user->region->country->name: ''}}/{{isset($user->region) ? $user->region->name: ''}} , {{$user->name . ' ' . $user->family}}
+        {{__('admin.reciever_address_f')}} {{isset($user->region) ? $user->region->country->name: ''}}/{{isset($user->region) ? $user->region->name: ''}} , {{$user->name . ' ' . $user->family}}
     </div>
 </div>
 <script>

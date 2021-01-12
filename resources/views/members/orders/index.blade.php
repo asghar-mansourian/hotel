@@ -383,7 +383,7 @@
                                                 @foreach($invoice->orderItems as $item)
                                                     <tr>
                                                         <td>{{$item->id}}</td>
-                                                        <td><a href="{{$item->link}}">{{str_limit($item->link, 30)}}</a></td>
+                                                        <td><a target="_blank" href="{{$item->link}}">{{str_limit($item->link, 30)}}</a></td>
                                                         <td>
                                                             <input type="button" value="{{__('member.status')}}"
                                                                    data-orderItem="{{$item->id}}"
@@ -519,7 +519,7 @@
                                                             <li style="width: 21.6%; text-align: right; padding-right: 23px;">
                                                                 <input type="button" value="{{__('member.items')}}"
                                                                        data-items="{{$order->id}}"
-                                                                       class="items btn btn-dark" style=" width: 80px;
+                                                                       class="items btn btn-dark" style=" /*width: 80px;*/
                                                                        height: 31px;
                                                                        font-size: 12px;
     font-weight: bold;"

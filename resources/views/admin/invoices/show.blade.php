@@ -27,8 +27,8 @@
                             <div class="form-group row">
                                 <div class="col-md-12 text-center">
                                     @isset($invoice->orderBarcode->barcode)
-                                        <a href="{{url('/admin/print-factor/'.$invoice->orderBarcode->barcode . '/1')}}" class="ml-3 btn btn-info btn-sm" target="_blank">Print 1</a>
-                                        <a href="{{url('/admin/print-factor/'.$invoice->orderBarcode->barcode . '/2')}}" class="ml-3 btn btn-info btn-sm" target="_blank">Print 2</a>
+                                        <a href="{{url('/admin/print-factor/'.$invoice->orderBarcode->barcode . '/1')}}" class="ml-3 btn btn-info btn-sm" target="_blank">{{__('admin.print1')}}</a>
+                                        <a href="{{url('/admin/print-factor/'.$invoice->orderBarcode->barcode . '/2')}}" class="ml-3 btn btn-info btn-sm" target="_blank">{{__('admin.print2')}}</a>
                                     @endisset
                                 </div>
                             </div>
