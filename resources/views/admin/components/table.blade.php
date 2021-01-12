@@ -3,11 +3,22 @@
         if (isset($query_show)){
             $__query_show = $query_show;
         }
+        if(!isset($checkbox))
+           $checkbox=false;
+
 @endphp
 <div class="table-responsive" id="tableList">
+    @if($checkbox)
+    <button type="button" class="btn btn-sm btn-light" id="checkAll" onclick="checkAll()">Select All</button>
+    <button type="button" class="btn btn-sm btn-light" onclick="submitData()" > Submit</button>
+    @endif
+
     <table class="table table-striped card-table table-vcenter text-nowrap table-bordered table-hover">
         <thead>
         <tr>
+            @if($checkbox)
+                <th>   </th>
+            @endif
 
             @foreach($selects as $select)
                 @if(is_array($select))
@@ -58,7 +69,11 @@
 
         @foreach($records as $record)
             <tr>
-                @foreach($selects as $select)
+                @if($checkbox)
+                    <td><input type="checkbox" name="recordId" value="{{$record->id}}"></td>
+                @endif
+            @foreach($selects as $select)
+
 
                     @if($select == "status")
                         <td>
@@ -139,6 +154,13 @@
                 <td class="text-nowrap text-center">
 
                     @foreach($options as $option)
+                        @if($option == 'order')
+                            <a href="{{url('admin/orders/?user=' . $record->id)}}"
+                               data-toggle="tooltip"
+                               title="Order" class="m-l-10 btn btn-primary btn-sm">
+                                <i class="fe fe-edit mr-2"></i>{{__('admin.tableorder')}}
+                            </a>
+                        @endif
                         @if($option == 'assign_role')
                             <a href="{{url('admin/' . $url . '/assign_role/' . $record->id.$__query_show  )}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">
@@ -239,6 +261,7 @@
         @endforeach
 
         </tbody>
+
     </table>
 
     <style>
@@ -248,4 +271,47 @@
     </style>
 
     {{$paginate}}
+
 </div>
+@if($checkbox)
+<script type="text/javascript">
+    function checkAll(){
+        var ch = document.getElementById("checkAll").innerHTML ;
+        var items = document.getElementsByName('recordId');
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].type == 'checkbox')
+                if(ch == 'Select All')
+                    items[i].checked = true;
+                else
+                    items[i].checked = false;
+
+        }
+        if(ch == 'Select All')
+            document.getElementById("checkAll").innerHTML = 'Deselect All' ;
+        else
+            document.getElementById("checkAll").innerHTML = 'Select All' ;
+
+    }
+    function submitData() {
+        var items = document.getElementsByName('recordId');
+
+        var form = document.createElement("form");
+        var input = document.createElement("input");
+        form.method = "POST";
+        form.target = "_blank";
+        form.action = "{{url('admin/boxes/createXml')}}";
+        for(var i=0; items[i]; ++i){
+            if(items[i].checked){
+                var input = document.createElement("input");
+                input.value=items[i].value;
+                input.name="box["+i+"]";
+                form.appendChild(input);
+            }
+        }
+
+        document.body.appendChild(form);
+
+        form.submit();
+    }
+</script>
+@endif

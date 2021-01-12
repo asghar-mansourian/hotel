@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\NotificationRequest;
 use App\Notification as Notif;
+use App\NotificationMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -68,12 +69,13 @@ class NotificationController extends Controller
     public function show($id)
     {
         $Notification = Notification::query()
-            ->with( 'user')
+            ->with('user')
             ->where('id', $id)
             ->first();
 
-        return view('admin.notifications.show' , compact('Notification'));
+        return view('admin.notifications.show', compact('Notification'));
     }
+
     public function sort(Request $request)
     {
         $sort_field = $request->input('sort_field');
@@ -95,26 +97,81 @@ class NotificationController extends Controller
         ]));
     }
 
-
     public function edit($id)
     {
 
         $notification = Notif::query()
             ->where('id', $id)
             ->first();
+
         return view('admin.notifications.edit', compact('notification'));
     }
 
     public function update(Request $request, $id)
     {
-//        $CountryValidate = new CountryRequest();
-//        $validate = $this->validateRules($CountryValidate->rules(), $request);
-//        if ($validate != null)
-//            return $this->validateRules($CountryValidate->rules(), $request);
+        $items = $request->except('_token');
 
-        Notif::query()->where('id' , $id)->update([
-            'value' => $request->input('value'),
-        ]);
+//        dd($items);
+        foreach ($items as $key => $item) {
+            $inputField = explode('_', $key)[0];
+            $inputLocale = explode('_', $key)[1];
+
+            switch ($inputField) {
+                case 'content':
+                    foreach (NotificationMessage::TYPE_ALL as $type) {
+                        $content = '';
+
+                        switch ($type) {
+                            case NotificationMessage::SMS_TYPE:
+                                $content = $item[0];
+                                break;
+                            case NotificationMessage::EMAIL_TYPE:
+                                $content = $item[1];
+                                break;
+                            case NotificationMessage::FIREBASE_TYPE:
+                                $content = $item[2];
+                                break;
+                        }
+
+                        NotificationMessage::updateOrcreate(
+                            [
+                                'notification_id' => $id,
+                                'lang' => $inputLocale,
+                                'type' => $type,
+                            ],
+                            [
+                                'content' => $content,
+                            ]
+                        );
+                    }
+                    break;
+                case 'title':
+                    foreach (NotificationMessage::TYPE_ALL as $type) {
+                        $title = '';
+
+                        switch ($type) {
+                            case NotificationMessage::EMAIL_TYPE:
+                                $title = $item[0];
+                                break;
+                            case NotificationMessage::FIREBASE_TYPE:
+                                $title = $item[1];
+                                break;
+                        }
+
+                        NotificationMessage::updateOrcreate(
+                            [
+                                'notification_id' => $id,
+                                'lang' => $inputLocale,
+                                'type' => $type,
+                            ],
+                            [
+                                'title' => $title,
+                            ]
+                        );
+                    }
+                    break;
+            }
+        }
 
         session()->flash('message', __('custom.Notification.message.update'));
         session()->flash('success', 1);

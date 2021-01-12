@@ -24,6 +24,10 @@ class Locale
         } else {
             App::setLocale(Config::get('app.fallback_locale'));
         }
+
+        if (auth()->check()) {
+            auth()->user()->update(['current_lang' => App::getLocale()]);
+        }
         return $next($request);
     }
 }

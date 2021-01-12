@@ -137,22 +137,24 @@
                                 disabled
                             @endslot
                         @endcomponent
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
-                                <span>User Id</span>
-                            @endslot
+                        @isset($order->order->user)
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    <span>User Id</span>
+                                @endslot
 
-                            @slot('type')
-                                text
-                            @endslot
+                                @slot('type')
+                                    text
+                                @endslot
 
-                            @slot('value')
-                                {{$order->order->user->id}}
-                            @endslot
-                            @slot('attr')
-                                disabled
-                            @endslot
-                        @endcomponent
+                                @slot('value')
+                                    {{$order->order->user->id}}
+                                @endslot
+                                @slot('attr')
+                                    disabled
+                                @endslot
+                            @endcomponent
+                        @endisset
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 <span>Link</span>

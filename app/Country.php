@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Http\Controllers\traits\scopeHelper;
+use App\Http\Controllers\Traits\scopeHelper;
 use Illuminate\Database\Eloquent\Model;
 
 /**

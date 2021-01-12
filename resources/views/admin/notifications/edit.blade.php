@@ -24,9 +24,9 @@
                             @slot('label')
                                 {{__('admin.key')}}
                             @endslot
-                                @slot('attr')
-                                    disabled
-                                @endslot
+                            @slot('attr')
+                                disabled
+                            @endslot
                             @slot('name')
                                 key
                             @endslot
@@ -35,33 +35,69 @@
                             @endslot
 
                             @slot('value')
-                                    {{$notification->key}}
+                                {{$notification->key}}
                             @endslot
 
                         @endcomponent
 
-                        @component('admin.components.form.inputLabel')
-                            @slot('label')
-                                {{__('admin.value')}}
-                            @endslot
-                            @slot('name')
-                                value
-                            @endslot
-                            @slot('type')
-                                text
-                            @endslot
-                            @slot('placeholder')
-                                {{__('admin.pleaseentervalue')}}
-                            @endslot
-                            @slot('value')
-                                {{$notification->value}}
-                            @endslot
-                        @endcomponent
+                        @foreach(\App\lib\Helpers::getLocales() as $locale)
+                            <h5 class="text-success text-center">SMS</h5>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    Content {{\Illuminate\Support\Str::upper($locale->locale)}}
+                                </label>
+                                <div class="col-md-9">
 
+                                    <textarea class="form-control" name="content_{{\Illuminate\Support\Str::lower($locale->locale)}}[]" cols="30"
+                                              rows="5">{{$notification->notificationMessages->count() ? $notification->notificationMessages->where('lang', $locale->locale)->where('type', \App\NotificationMessage::SMS_TYPE)->first()->content: ''}}</textarea>
+                                </div>
+                            </div>
+                            <h5 class="text-success text-center">Email</h5>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    Title {{\Illuminate\Support\Str::upper($locale->locale)}}
+                                </label>
+                                <div class="col-md-9">
+                                    <input class="form-control" name="title_{{\Illuminate\Support\Str::lower($locale->locale)}}[]" type="text"
+                                           value="{{$notification->notificationMessages->count() ? $notification->notificationMessages->where('lang', $locale->locale)->where('type', \App\NotificationMessage::EMAIL_TYPE)->first()->title: ''}}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    Content {{\Illuminate\Support\Str::upper($locale->locale)}}
+                                </label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="content_{{\Illuminate\Support\Str::lower($locale->locale)}}[]" id="content_{{\Illuminate\Support\Str::lower($locale->locale)}}" placeholder=""
+                                              cols="30"
+                                              rows="10">{{$notification->notificationMessages->count() ? $notification->notificationMessages->where('lang', $locale->locale)->where('type', \App\NotificationMessage::EMAIL_TYPE)->first()->content: ''}}</textarea>
+                                </div>
+                            </div>
+                            <h5 class="text-success text-center">Mobile Notification</h5>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    Title {{\Illuminate\Support\Str::upper($locale->locale)}}
+                                </label>
+                                <div class="col-md-9">
+                                    <input class="form-control" name="title_{{\Illuminate\Support\Str::lower($locale->locale)}}[]"
+                                           value="{{$notification->notificationMessages->count() ? $notification->notificationMessages->where('lang', $locale->locale)->where('type', \App\NotificationMessage::FIREBASE_TYPE)->first()->title: ''}}"
+                                           type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    Content {{\Illuminate\Support\Str::upper($locale->locale)}}
+                                </label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="content_{{\Illuminate\Support\Str::lower($locale->locale)}}[]" id="content_{{\Illuminate\Support\Str::lower($locale->locale)}}" placeholder=""
+                                              cols="30"
+                                              rows="10">{{$notification->notificationMessages->count() ? $notification->notificationMessages->where('lang', $locale->locale)->where('type', \App\NotificationMessage::FIREBASE_TYPE)->first()->content: ''}}</textarea>
+                                </div>
+                            </div>
+                            <hr>
+                            <hr>
+                        @endforeach
 
                     @endslot
-
-
                     @slot('header')
                         <h2 class="card-title">{{__('admin.maininformation')}}</h2>
                     @endslot
@@ -94,6 +130,21 @@
         </div>
     </form>
 
+    @php
+        $content = ''
+    @endphp
+
+    @foreach(\App\lib\Helpers::getLocales() as $locale)
+        @if($loop->last)
+            @php
+                $content .= 'content_'.trim($locale->locale);
+            @endphp
+        @else
+            @php
+                $content .= 'content_'.trim($locale->locale).',';
+            @endphp
+        @endif
+    @endforeach
 @endsection
 @section('scriptCustom')
     @component('admin.components.script.mainFormScript')
@@ -101,9 +152,14 @@
             ../../../admin/notifications/
         @endslot
     @endcomponent
+
+    @component('admin.components.ckeditor')
+        @slot('ids')
+            {{$content}}
+        @endslot
+    @endcomponent
+
 @endsection
-
-
 
 @section('crumb')
     @component('admin.components.crumb')
