@@ -212,7 +212,7 @@
             <tr>
                 <td></td>
                 <td class="width_50"> {{$user->name . ' ' . $user->family }}<br/></td>
-                <td class="width_50">M{{$user->id}}</td>
+                <td class="width_50">{{$user->id}}</td>
             </tr>
         </table>
         <table>
