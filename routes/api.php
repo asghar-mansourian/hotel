@@ -39,18 +39,20 @@ Route::prefix('v1')
         Route::get('send-sms', 'Auth\SmsController@sendSmsToUser')->middleware('auth:api');
         Route::post('verify-sms', 'Auth\SmsController@verifiedUser')->middleware('auth:api');
 
-        Route::get('/get-translate-list','TranslateController@getTranslate');
+        Route::get('/get-translate-list', 'TranslateController@getTranslate');
 
     });
 
 // authenticated
-Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
+Route::middleware(['auth:api', 'verified_sms'])->group(function () {
     // v1
     Route::prefix('v1')
         ->namespace('Api\V1')
         ->group(function () {
             Route::post('me', 'Auth\LoginController@me');
             Route::post('refresh', 'Auth\LoginController@refresh');
+
+            Route::post('/store/fcm-firebase-token', 'FcmFirebaseController');
 
             Route::apiResource('invoices', 'InvoiceController');
 
@@ -78,17 +80,17 @@ Route::middleware(['auth:api' , 'verified_sms'])->group(function () {
 
             Route::post('/notifications', 'NotificationController@send');
 
-            Route::get('/cash-payments','PaymentController@getPaymentsCash');
+            Route::get('/cash-payments', 'PaymentController@getPaymentsCash');
 
-            Route::get('/invoice-status-key','InvoiceController@getStatusKey');
+            Route::get('/invoice-status-key', 'InvoiceController@getStatusKey');
 
-            Route::get('/order-status-key','OrderController@getStatusKey');
+            Route::get('/order-status-key', 'OrderController@getStatusKey');
 
-            Route::post('/basket/store','OrderController@storeToBasket');
-            Route::get('/basket','OrderController@basket');
-            Route::post('/basket/delete','OrderController@deleteBasket');
+            Route::post('/basket/store', 'OrderController@storeToBasket');
+            Route::get('/basket', 'OrderController@basket');
+            Route::post('/basket/delete', 'OrderController@deleteBasket');
 
-            Route::post('/crawler/get','CrawlerController@get');
+            Route::post('/crawler/get', 'CrawlerController@get');
 
             Route::get('country-detail', 'CountryDetailController');
 

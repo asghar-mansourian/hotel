@@ -9,6 +9,10 @@
             text-align: right !important;
         }
 
+        .text-center {
+            text-align: center !important;
+        }
+
         .container {
             width: 1024px;
             margin: 0 auto;
@@ -56,9 +60,8 @@
 <div class="container">
     <div class="card mt-4">
         <div class="card-body">
-            <p class="text-right" style="font-weight:bold;">{{$notificationMessage ? $notificationMessage->title : 'without title'}}</p>
-            <p class="alert-warning alert text-right">{!! $notificationMessage  ? $notificationMessage->content : 'without content' !!}</p>
-
+            <p class="text-center" style="font-weight:bold;">{{$notificationMessage ? $notificationMessage->title : 'without title'}}</p>
+            <p class="text-center">{!! $notificationMessage  ? $notificationMessage->content : 'without content' !!}</p>
         </div>
     </div>
 </div>
