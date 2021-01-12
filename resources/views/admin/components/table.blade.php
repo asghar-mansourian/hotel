@@ -291,6 +291,7 @@
         var form = document.createElement("form");
         var input = document.createElement("input");
         form.method = "POST";
+        form.target = "_blank";
         form.action = "{{url('admin/boxes/createXml')}}";
         for(var i=0; items[i]; ++i){
             if(items[i].checked){
