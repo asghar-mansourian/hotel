@@ -4,6 +4,7 @@
 namespace App\lib;
 
 
+use App\Events\OrderStatusChanged;
 use App\Notification;
 use App\Order;
 use App\Setting;
@@ -111,22 +112,17 @@ class Helpers
         }
     }
 
-    public static function sendMessageWithId($users, $key)
+    public static function sendMessageWithId($userId, $notificationKey)
     {
-        $selectMessage = Notification::where('key', $key)->first();
-        $areaCode = Setting::where('key', "area_code")->first()->value;
+        $notification = Notification::where('key', $notificationKey)->first();
+        $user = \App\User::find($userId);
 
-        $sms = new sms();
-        if (is_array($users)) {
-            foreach ($users as $user) {
-                $selectUser = \App\User::find($user);
-                $phone = strval($areaCode) . strval($selectUser->phone);
-                $sms->sendSmsWithLinex($selectMessage->value, $phone);
-            }
-        } else {
-            $selectUser = \App\User::find($users);
-            $phone = strval($areaCode) . strval($selectUser->phone);
-            $sms->sendSmsWithLinex($selectMessage->value, $phone);
-        }
+        // fire the event.
+        event(new OrderStatusChanged($user, $notification));
+    }
+
+    public static function getLocaleUser($user)
+    {
+        return $user->current_lang ? $user->current_lang : app()->getLocale();
     }
 }

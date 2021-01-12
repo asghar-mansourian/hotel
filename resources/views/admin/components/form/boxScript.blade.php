@@ -1,4 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="{{url('/admin/en/js/vue.js')}}"></script>
 <script>
     var box = new Vue({
         el: '#container-box',
