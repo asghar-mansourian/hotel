@@ -308,7 +308,13 @@
                                                             <div class="col"><strong>{{__('member.weight')}}</strong>
                                                                 <br>{{$ordersItem->weight}}</div>
                                                             <div class="col"><strong>{{__('member.weight_price')}}</strong>
-                                                                <br>{{$ordersItem->weight_price}}</div>
+                                                                <br>{{$ordersItem->weight_price}}
+                                                                @if($ordersItem->order->payment->balance_type == 'usd')
+                                                                    $
+                                                                @else
+                                                                    ₺
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </article>
                                                     @php
@@ -360,7 +366,7 @@
                     <div id="items-{{$invoice->id}}" class="modal items fade bd-example-modal-lg" tabindex="-1"
                          role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
+                            <div class="modal-content" style="width: 1150px;margin-left: -120px;">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="table-responsive">
@@ -489,7 +495,7 @@
                                                </div>
                                            </div>--}}
 
-                                    <div id="scrol_price" class="mt-5">
+                                    <div id="scrol_price" class="mt-5" style="height: 555px">
                                         <div id="scrol_price_content">
 
                                             <div class="filterDiv_ul">

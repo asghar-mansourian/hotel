@@ -213,16 +213,16 @@
         @media (max-width: 767px) and (min-width: 481px) {
             .filterDiv,
             .filterDiv_ul {
-                width: 1000px;
+                width: 800px;
                 padding: 5px;
             }
         }
         .filterDiv{
-            width: 1000px;
+            width: 800px;
             padding: 5px;
         }
         .filterDiv_ul {
-            width: 1000px;
+            width: 800px;
             padding: 5px;
         }
     </style>
@@ -534,7 +534,7 @@
                                             <div class="filterDiv income">
                                                 <ul>
                                                     <li class="green">{{str_repeat('0',6) . $invoice->id}}</li>
-                                                    <li>{{$invoice->created_at}}</li>
+                                                    <li>{{date('Y-m-Y',strtotime($invoice->created_at))}}</li>
                                                     <li>
                                                         @if(preg_match('/(http|ftp|mailto)/', $invoice->shop))
                                                             {{explode('.',parse_url($invoice->shop)['host'])[1]}}
@@ -568,7 +568,7 @@
 
 
                                                     </li>
-                                                    <li style="margin-left: 16px;">
+                                                    <li>
                                                         <input type="button" value="{{__('member.status')}}"
                                                                data-invoice="{{$invoice->id}}"
                                                                class="status btn btn-primary">

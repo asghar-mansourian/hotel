@@ -15,7 +15,7 @@ class Invoice extends Model
     const sortField = 'id';
     const selectField = ['user_id', 'country_id', 'id',
         'branch_id', 'shop', 'product_type'
-        , 'quantity', 'price', 'order_track', 'order_date', 'order_file', 'description', 'status', 'product_category_id'];
+        , 'quantity', 'price', 'order_track', 'order_date', 'order_file', 'description', 'status'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 

@@ -184,6 +184,7 @@
                                 @endif
                             @endif
                         @endif
+                        @if(request()->has('status') and request('status')==0)
                         @if($option == 'show')
                             <a href="{{url('admin/' . $url . '/show/' . $record->id.$__query_show  )}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">
@@ -205,6 +206,7 @@
                                 @endif
                             @endif
                         @endif
+                            @endif
                         @if($option == 'edit')
                             <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
                                data-toggle="tooltip"

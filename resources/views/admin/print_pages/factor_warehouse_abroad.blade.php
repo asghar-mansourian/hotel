@@ -135,7 +135,7 @@
         <tr>
 
             <th class="eee">
-                <span>{{__('admin.customer_id_w')}} {{$user->id}}, {{__('admin.Pack_N_w')}} #{{$barcode->code}}</span>
+                <span>{{__('admin.customer_id_w')}} {{$user->id}}, {{__('admin.Pack_N_w')}} #{{$barcode->orderable->id}}</span>
             </th>
             <td style="padding: 0; border: 1px solid transparent;">
                 <div class="adres">
