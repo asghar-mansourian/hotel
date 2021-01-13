@@ -40,6 +40,7 @@
                     </div>
                 </form>
             </div><!-- SEARCH -->
+
             <div class="d-flex order-lg-2 ml-auto">
                 <a href="index-2.html#" data-toggle="search"
                    class="nav-link nav-link-lg d-md-none navsearch">
@@ -50,6 +51,19 @@
                         <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                     </svg>
                 </a>
+                <div class="dropdown profile-dropdown">
+                    <a href="index-2.html#" style="margin-top:14px" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                        {{ app()->getLocale() }}
+                        <i class="angle fa fa-angle-down" style="font-size: 12px"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow animated">
+                        @foreach(\App\lib\Helpers::getLocales() as $locale)
+                            @if($locale->locale != app()->getLocale())
+                                <a class="dropdown-item " href="/set-locale/{{$locale->locale}}"> {{$locale->locale}}</a><br/>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
                 <div class="dropdown   header-fullscreen">
                     <a class="nav-link icon full-screen-link p-0" id="fullscreen-button">
                         <svg xmlns="http://www.w3.org/2000/svg" class="header-icon" width="24"

@@ -403,6 +403,7 @@ class TranslateSeeder extends Seeder
         'declaration_value_for_customs_f2' => 'Declaration value for customs :',
         'product_price_f2' => 'Product price',
         'delivery_price_f2' => 'Delivery price',
+        'total_f2' => 'Total',
         'information_goods_filled_f2' => 'Information on goods filled by Consignee on by',
         'on_behalf_on_consignee_f2' => 'on behalf on Consignee',
         'box_f' => 'Box:',

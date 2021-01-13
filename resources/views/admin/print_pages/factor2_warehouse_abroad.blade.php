@@ -295,11 +295,11 @@
                 <td class="width_50 text_right">{{$barcode->orderable->weight_price}} $</td>
             </tr>
             <tr>
-                <th class="width_50_strong border_unset">Total</th>
+                <th class="width_50_strong border_unset">{{__('admin.total_f2')}}</th>
                 <th class="width_50_strong border_unset text_right">{{\App\lib\Helpers::formatPrice($priceDollar + $barcode->orderable->weight_price)}} $</th>
             </tr>
         </table>
-        <div>{{__('admin.information_goods_filled_f2')}} <strong>{{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_NAME)}}</strong>{{__('admin.on_behalf_on_consignee_f2')}}</div>
+        <div>{{__('admin.information_goods_filled_f2')}} <strong>{{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_NAME)}}</strong> {{__('admin.on_behalf_on_consignee_f2')}}</div>
     </div>
 </div>
 <script>

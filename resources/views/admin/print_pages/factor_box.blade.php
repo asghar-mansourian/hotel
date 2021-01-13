@@ -10,7 +10,7 @@
 
     .list {
         width: 378px;
-        height: 378px;
+        /*height: 378px;*/
         border: 1pt solid #9c9c9c;
     }
 
@@ -49,8 +49,8 @@
 
     .box {
         text-align: center;
-        font-weight: 800;
-        font-size: 70px;
+        /*font-weight: 800;*/
+        font-size: 40px;
         padding: 10px 0
     }
 
@@ -98,9 +98,9 @@
     <div class="font_13">
         {{__('admin.sender_address_f')}} {{\App\Setting::getValue(\App\Setting::FIELD_COMPANY_FACTOR_ADDRESS)}}
     </div>
-    <div class="font_13 border padding_13">
-        {{__('admin.reciever_address_f')}} {{isset($user->region) ? $user->region->country->name: ''}}/{{isset($user->region) ? $user->region->name: ''}} , {{$user->name . ' ' . $user->family}}
-    </div>
+{{--    <div class="font_13 border padding_13">--}}
+{{--        {{__('admin.reciever_address_f')}} {{isset($user->region) ? $user->region->country->name: ''}}/{{isset($user->region) ? $user->region->name: ''}} , {{$user->name . ' ' . $user->family}}--}}
+{{--    </div>--}}
 </div>
 <script>
     window.print()

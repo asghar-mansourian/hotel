@@ -15,7 +15,7 @@ class OrderItem extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['order_id', 'link', 'id', 'price', 'has_cargo', 'cargo', 'quantity', 'description', 'total', 'product_category_id', 'cancel_reason_order_id'];
+    const selectField = ['order_id', 'link', 'id', 'price', 'has_cargo', 'cargo', 'quantity', 'description', 'total', 'cancel_reason_order_id'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 
