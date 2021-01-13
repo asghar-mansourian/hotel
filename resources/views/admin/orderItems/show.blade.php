@@ -370,9 +370,6 @@
                            class="btn btn-danger btn-block ">{{__('custom.other.back')}}</a>
 
                         @if(request()->get('status') == 1)
-                            <a href="{{url('admin/orders/status/' . $order->id . '/' . 9 )}}"
-                               class="btn btn-warning btn-block ">Cancel The Order</a>
-                            <br>
                             <a href="{{url('admin/orders/status/' . $order->id . '/' . 2 )}}"
                                class="btn btn-primary btn-block ">Warehouse Abroad</a>
                         @elseif(request()->get('status') == 6)
@@ -382,6 +379,9 @@
                             <a href="{{url('admin/orders/status/' . $order->id . '/' . \App\Order::STATUS_COMPLETE )}}"
                                class="btn btn-primary btn-block ">Customer Deliverables</a>
                         @elseif(request()->get('status') != 1 && request()->get('status') != 2 && request()->get('status') != 9 && request()->get('status') != 8)
+                            <a href="{{url('admin/orders/status/' . $order->id . '/' . 9 )}}"
+                               class="btn btn-warning btn-block ">Cancel The Order</a>
+                            <br>
                             <a href="{{url('admin/orders/status/' . $order->id . '/' . 1 )}}"
                                class="btn btn-primary btn-block ">Purchased</a>
                         @endif
