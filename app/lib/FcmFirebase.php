@@ -26,27 +26,28 @@ class FcmFirebase
      */
     function sendToUser(User $user, $requestData)
     {
-        $tokens = json_decode($user->fcm_tokens, true);
-        if (!is_array($tokens)) {
-            return false;
-        }
-        $raw_tokens = [];
-        foreach ($tokens as $token) {
-            $raw_tokens[] = $token['token'];
-        }
+//        $tokens = json_decode($user->fcm_firebase_token, true);
+        /* if (!is_array($tokens)) {
+             return false;
+         }
+         $raw_tokens = [];
+         foreach ($tokens as $token) {
+             $raw_tokens[] = $token['token'];
+         }*/
+        $raw_tokens[] = $user->fcm_firebase_token;
         $requestData["registration_ids"] = $raw_tokens;
         $r = $this->request($requestData);
 
         if (isset($r["results"])) {
             foreach ($r["results"] as $key => $value) {
                 if (isset($value["error"]) && $value["error"] == "NotRegistered") {
-                    unset($tokens[$key]);
+//                    unset($tokens[$key]);
                 }
             }
-            $tokens = array_values($tokens);
-            $user->update([
-                'fcm_tokens' => json_encode($tokens)
-            ]);
+//            $tokens = array_values($tokens);
+//            $user->update([
+//                'fcm_tokens' => json_encode($tokens)
+//            ]);
         }
 
         return $r;
@@ -61,7 +62,7 @@ class FcmFirebase
     {
         $ch = curl_init("https://fcm.googleapis.com/fcm/send");
         //in app, check if the request is from Host or One signal.
-        $requestData["data"]["request_via"] = "sd_host";
+        $requestData["data"]["request_via"] = env('SERVER_KEY_FIREBASE');
         $requestData["notification"]["sound"] = "default";
 
         $data = json_encode($requestData);

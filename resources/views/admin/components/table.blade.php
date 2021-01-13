@@ -316,7 +316,7 @@
 
         form.submit();
     }
-    function exportData(export) {
+    function exportData(exportType) {
         var items = document.getElementsByName('recordId');
 
         var form = document.createElement("form");
@@ -332,7 +332,7 @@
                 form.appendChild(input);
             }
         }
-        inputExport.value=export;
+        inputExport.value=exportType;
         inputExport.name="export";
         form.appendChild(inputExport);
 
