@@ -104,4 +104,8 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Basket::class , 'user_id');
     }
 
+    public function inquiries()
+    {
+        return $this->hasMany(Inquiry::class,'user_id');
+    }
 }

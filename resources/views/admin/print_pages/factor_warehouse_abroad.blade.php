@@ -10,7 +10,7 @@
 
     .list {
         width: 378px;
-        height: 378px;
+        height: 500px;
         border: 1pt solid #9c9c9c;
     }
 
@@ -157,7 +157,7 @@
                                 <p>{{$user->name . ' ' . $user->family . '  '}}</p>
                                 <p>{{isset($user->region) ? $user->region->country->name: ''}}/{{isset($user->region) ? $user->region->name: ''}} - {{$user->address}}</p>
                                 <p>{{__('admin.tel_w')}} {{$user->phone}}</p>
-                                <p>{{__('admin.postal_code_w')}} {{$user->phone}}</p>
+                                <p>{{__('admin.postal_code_w')}} {{$user->fin}}</p>
                                 <p>{{__('admin.overseas_rack_number_w')}} {{$barcode->orderable->overseas_warehouse_number}}</p>
                                 <p>{{__('admin.domestic_rack_number_w')}} {{$barcode->orderable->domestic_warehouse_number}}</p>
                             </td>

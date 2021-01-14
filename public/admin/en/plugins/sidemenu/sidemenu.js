@@ -63,14 +63,33 @@
             return false;
         }
 
-        if (status == $(this).data('status') && window.location.href.search('boxes') == -1 && window.location.href.search('home') == -1 && window.location.href.search('order-items/show')==-1) {
-            $(this).addClass("active");
-            $(this).parent().addClass("active"); // add active to li of the current link
-            $(this).parent().parent().prev().addClass("active"); // add active class to an anchor
-            $(this).parent().parent().parent().parent().parent().addClass("active");
-            $(this).parent().parent().prev().click(); // click the item to make it drop
-
-            return false;
+        if (status == $(this).data('status') && window.location.href.search('boxes') == -1 && window.location.href.search('home') == -1 ) {
+            if(window.location.href.search('order-items/show')!=-1 && status==0){
+                var siteAddress = document.location.origin+'/admin/orders';
+                var els = document.querySelectorAll("a[href='"+siteAddress+"']");
+                $(els).addClass("active");
+                $(els).parent().addClass("active"); // add active to li of the current link
+                $(els).parent().parent().prev().addClass("active"); // add active class to an anchor
+                $(els).parent().parent().parent().parent().parent().addClass("active");
+                $(els).parent().parent().prev().click(); // click the item to make it drop
+            }
+            else{
+                if(window.location.href.indexOf('order-items')!=-1 ||
+                    window.location.href.indexOf('orders')!=-1 ||
+                    window.location.href.indexOf('boxes') != -1 ||
+                    window.location.href.indexOf('invoices') != -1)
+                {
+                    $(this).addClass("active");
+                    $(this).parent().addClass("active"); // add active to li of the current link
+                    $(this).parent().parent().prev().addClass("active"); // add active class to an anchor
+                    $(this).parent().parent().parent().parent().parent().addClass("active");
+                    $(this).parent().parent().prev().click(); // click the item to make it drop
+                    return false;
+                }
+                else{
+                    $('.side-menu li:last-child a').addClass('active');
+                }
+            }
         }
 
     });

@@ -207,8 +207,9 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        User::query()->find($id)->delete();
-
+        $user = User::findOrfail($id);
+        $user->inquiries()->delete();
+        $user->delete();
         session()->flash('message', __('custom.user.message.delete'));
         session()->flash('success', 1);
         return redirect()->back();
