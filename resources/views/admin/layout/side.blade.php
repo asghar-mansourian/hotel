@@ -260,6 +260,24 @@
                             <li><a href="{{url('admin/cancel-reason-orders/create')}}" class="slide-item">{{__('admin.reason_order_create')}}</a></li>
                         </ul>
                     </li>
+                    <li class="slide">
+                        <a class="side-menu__item" data-toggle="slide" href="index-2.html#">
+                            <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                                 width="24">
+                                <i class="fa fa-user-md" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+
+                            </svg>
+                            <span class="side-menu__label">{{__('admin.howWork')}}</span><i class="angle fa fa-angle-right"></i>
+                        </a>
+
+
+                        <ul class="slide-menu">
+                            <li><a href="{{url('admin/how_we_work')}}" class="slide-item">{{__('admin.howWork')}}</a></li>
+                            <li><a href="{{url('admin/how_we_work/create')}}" class="slide-item">{{__('admin.addhowWork')}}</a></li>
+                        </ul>
+
+
+                    </li>
                     @can('read Notification')
                         <li class="slide">
                             <a class="side-menu__item" href="{{url('admin/notifications')}}">

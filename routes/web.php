@@ -107,9 +107,8 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('/get-currencies-of-cabr', 'CurrencyController@getCurrenciesFromCabrApi');
 
-    Route::get('/how-we-work', function () {
-        return view('web.how');
-    });
+    Route::get('/how-we-work', 'HowWorkController@index');
+
 
     Route::get('/pricing', 'PricingController@index');
 

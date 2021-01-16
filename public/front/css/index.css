@@ -1,238 +1,109 @@
-b, strong {
+b, strong{
     font-family: Montserrat-Bold
 }
-
-.index_cont .border_c {
-    border: 1px solid #ccc;
+a:hover{
+    text-decoration: none;
+}
+.index_cont .border_c{
     text-align: center;
-    padding: 25px;
     margin: 40px 0;
 }
-
-.index_cont .border_c img {
-    width: 50px;
+.index_cont .border_c img{
+    width: 70px;
+    margin-bottom: 15px;
 }
-
-.index_cont .border_c h4 {
+.index_cont .border_c h4{
     margin: 20px 0 15px;
 }
-
-.index_cont .border_c .dropdown {
-    border: 1px solid rgba(0, 0, 0, .15);
+.index_cont .border_c .dropdown{
+    border: 1px solid rgba(0,0,0,.15);
     padding: 9px;
     border-radius: 4px;
     text-align: left;
 }
-
-.index_cont .border_c .dropdown .fas {
+.index_cont .border_c .dropdown .fas{
     float: right;
     color: #19170f;
     margin-top: 5px
 }
-
-.map {
+.map{
     background: url(../image/index_map.svg);
+    height: 280px;
+    border: 1px solid #ccc;
+    margin-bottom: 50px
 }
-
-.how_work {
-    border-left: 15px solid #19170f;
-}
-
-.how_work_text {
-    font-size: 35px;
-    font-family: Montserrat-Bold;
-    padding: 50px;
-    margin-left: 30px;
-}
-
-.how_work_col {
-    columns: red
-}
-
-.how_work_col {
-    background: #fff;
-    width: 66%;
-    height: 240px;
-    padding: 45px;
-    margin: 0px auto 60px;
-    border: 1px solid rgba(0, 0, 0, .15);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), -6px 1px 23px rgb(204 204 207);
-    border-radius: 4px;
-}
-
-.how_work_img {
-    font-family: Montserrat-Bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    height: 70px;
-}
-
-.how_work_img img {
-    width: 70px;
-    height: 70px;
-    float: right;
-}
-
-.m_right_20 {
+.m_right_20{
     margin-right: 20px
 }
-
-.m_left_20 {
+.m_left_20{
     margin-left: 20px
 }
-
-.air {
+.air{
     width: 45%;
     padding-bottom: 30px;
 }
-
-.counter {
-    background: #36352e;
+.counter{
     color: #fff;
     font-size: 30px;
-    padding: 70px 40px;
     text-align: center;
 }
-
-.cou_date {
+.cou_date{
     font-family: Montserrat-Bold;
+    background: linear-gradient(50deg,#009cf0,#02f9fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    text-shadow: none;
+    font-size: 50px
 }
-
-.counter .cou_date .fas {
+.counter .cou_date .fas{
     font-size: 25px;
     margin-left: 15px;
 }
-
-.counter .counter_text {
-    margin-top: 25px
+.counter .counter_text{
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
 }
-
-.mob_p-25 {
+.mob_p-25{
     padding: 25px
 }
-
-.skills_text {
+.skills_text{
     font-size: 30px;
     font-weight: 700;
     width: 85%;
     float: right;
 }
-
-.font_40 {
+.font_40{
     font-size: 40px;
     margin-right: 10px;
 }
-
-.skills_italy {
-    font-family: MontserratAlternates-MediumItalic;
-    line-height: 2.5;
-    margin-top: 50px;
-    font-size: 16px;
-    width: 85%;
-    float: right;
+.color_dark_blue{
+    color: #151F59;
+    font-family: Montserrat-Bold;
 }
-
-.skills {
-    background: url(../image/box_kargo.png);
-    background-repeat: no-repeat;
-    background-size: 230px;
-    background-position: 7% 42%;
-    margin: 75px auto;
+.skills p{
+    line-height: 2
 }
-
 #more {
     display: none;
 }
-
-.latest_new {
-    background: url(../image/latest_back.png);
-    background-repeat: no-repeat;
-    background-size: 100% 70%;
-    padding: 50px 0;
-}
-
-.latest_dots {
-    text-align: right;
-}
-
-.latest_dots img {
-    width: 180px;
-    margin: 0px 40px -144px;
-}
-
-.latest_dots2 {
-    text-align: left;
-}
-
-.latest_dots2 img {
-    width: 180px;
-    margin: -120px 0 0px -120px
-}
-
-.latest_new_title {
-    font-size: 48px
-}
-
-.latest_new .blog_img_he img,
-.latest_new .blog_img_he {
-    height: 330px
-}
-
-.newsletter {
-    background: url(../image/newsletter_back.png);
-    height: 383px;
-    padding: 25px;
-    margin-top: 55px;
-}
-
-.news_img {
-    text-align: center;
-}
-
-.news_img img {
-    width: 70%;
-    margin: 0 auto;
-    margin-top: -130px;
-}
-
-.newsletter_read {
-    position: absolute;
-    bottom: 0;
-}
-
-.newsletter_read a {
-    border: 2px solid #ffcc00;
-    text-align: center;
-    color: #ffcc00;
-    padding: 6px 42px;
-    font-family: Montserrat-Bold;
-    font-size: 14px;
-}
-
-.news_input {
-    margin-top: 30px
-}
-
-.news_grey {
-    color: #ccc;
-    font-size: 14px;
-    line-height: 1.9
-}
-
-.skills_input button {
+.skills_input button{
     font-family: 'Montserrat-Bold';
-    border: 2px solid #19170f;
+    border: 2px solid #2af598;
     font-size: 12px;
-    padding: 0px 20px;
+    border-radius: 100%;
+    padding: 0px 0px;
+    width: 36px;
+    color: #2af598;
+    height: 36px;
     margin-top: 30px;
 }
-
 #quote-carousel {
     padding: 10px;
     margin-top: 70px;
-    border: 2px solid rgba(0, 0, 0, .15)
+    border: 2px solid rgba(0,0,0,.15)
 }
-
 #quote-carousel .carousel-control {
     color: #19170f;
     border: 1px solid #ccc;
@@ -241,15 +112,12 @@ b, strong {
     text-shadow: none;
     margin-bottom: 30px;
 }
-
 #quote-carousel .carousel-control.left {
     left: 80px;
 }
-
 #quote-carousel .carousel-control.right {
     right: 80px;
 }
-
 #quote-carousel .carousel-control {
     color: #19170f;
     border: 1px solid #ccc;
@@ -258,18 +126,16 @@ b, strong {
     text-shadow: none;
     margin-bottom: 30px;
 }
-
 .carousel-control.right {
     right: 0;
     left: auto;
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
-    background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,.0001)),to(rgba(0,0,0,.5)));
+    background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.5) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
     background-repeat: repeat-x;
 }
-
 .carousel-control {
     position: absolute;
     top: unset;
@@ -279,13 +145,11 @@ b, strong {
     text-align: center;
     opacity: .5;
 }
-
 #quote-carousel .carousel-indicators {
     bottom: 0px;
     margin-bottom: 25px;
     height: 65px
 }
-
 #quote-carousel .carousel-indicators li {
     width: 40px;
     height: 40px;
@@ -296,43 +160,36 @@ b, strong {
     overflow: hidden;
     transition: all 0.4s;
 }
-
 #quote-carousel .carousel-indicators .active {
     width: 60px;
     height: 60px;
-    border: 1px solid rgba(0, 0, 0, .15);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), -6px 1px 17px rgb(204 204 207);
+    border: 1px solid rgba(0,0,0,.15);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), -6px 1px 17px rgb(204 204 207);
     border-radius: 100%;
     opacity: 1;
     overflow: hidden;
 }
-
 .carousel-inner {
     min-height: 320px;
 }
-
 .item blockquote {
     border-left: none;
     margin: 0;
 }
-
-blockquote {
+blockquote{
     font-size: 14px
 }
-
-.yellow_border {
+.yellow_border{
     border-top: 3px solid #ffcc00;
     width: 50px;
     margin: 10px auto
 }
-
-.carousel_text {
+.carousel_text{
     color: #19170f;
     line-height: 1.7;
     font-weight: 700;
 }
-
-.quote {
+.quote{
     padding-top: 135px;
     margin-top: 70px;
     background-image: url(../image/quote-left-solid.svg);
@@ -340,34 +197,50 @@ blockquote {
     background-size: 290px;
     background-position: 0% 0%;
 }
-
-.quote_border {
+.quote_border{
     width: 160px;
     border-top: 10px solid #ffcc00;
     margin: 30px 0;
 }
-
-.quote-title {
+.quote-title{
     font-size: 36px
 }
-
-.quote_italy {
+.quote_italy{
     font-size: 15px;
     line-height: 1.9;
     font-family: MontserratAlternates-MediumItalic
 }
-
-.partner .owl-theme .owl-dots .owl-dot span {
+.partner .owl-theme .owl-dots .owl-dot span{
     display: none;
 }
-
-.partner {
+.partner{
     margin-top: 100px;
     height: 90px
 }
-
-.partner .owl-carousel .owl-item img {
-    width: 180px;
+.partner .owl-carousel .item{
+    width: 100px;
+    height: 110px;
+    box-shadow: 0 12px 30px 0 rgba(44, 44, 81, 0.08)
+}
+.partner .owl-carousel .owl-item img{
+    width: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+}
+.index_contact{
+    margin-top: -30px
+}
+.index_contact_order{
+    background: #fff;
+    color: #08aeea;
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.cou_date_box{
+    background: #F2FBFE;
+    border-radius: 8px;
+    padding: 20px 0;
+    width: 220px;
     margin: 0 auto
 }
-

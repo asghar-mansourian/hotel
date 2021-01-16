@@ -346,3 +346,12 @@ route::post('/admin-invoices/update/{id}' , 'AdminInvoicesController@update');
 route::get('/admin-invoices/destroy/{id}' , 'AdminInvoicesController@destroy');
 route::post('/admin-invoices/search/' , 'AdminInvoicesController@search');
 route::post('/admin-invoices/sort/' , 'AdminInvoicesController@sort');
+
+//how we work
+route::get('/how_we_work','HowWeWorkController@index');
+route::get('/how_we_work/create','HowWeWorkController@create');
+route::post('/how_we_work/store','HowWeWorkController@store');
+route::get('/how_we_work/edit/{id}','HowWeWorkController@edit');
+route::post('/how_we_work/update/{id}','HowWeWorkController@update');
+route::get('/how_we_work/destroy/{id}','HowWeWorkController@destroy');
+route::post('/how_we_work/search','HowWeWorkController@search');
