@@ -1,5 +1,5 @@
 @component('admin.components.table' , ['sortType'=>$sortType,'sortField'=>$sortField,'records' => $calculatores , 'selects' =>
- ['id' , 'from' , 'to' , [ 'country','name'] , 'currency']])
+ ['id' , 'from' , 'to' , [ 'country','name'] , 'currency','liquid_currency']])
 
     @slot('paginate')
         {{$calculatores->links()}}

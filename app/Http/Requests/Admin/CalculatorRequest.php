@@ -25,6 +25,7 @@ class CalculatorRequest extends FormRequest
     {
         return [
             'currency' => ['required', 'max:10'],
+            'liquid_currency' => ['required', 'max:10'],
             'country_id' => ['required'],
             'unit_id' => ['required'],
             'from' => ['required', 'max:5'],

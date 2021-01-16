@@ -67,6 +67,7 @@ class CalculatorController extends Controller
 
         Calculator::query()->insert([
             'currency' => $request->input('currency'),
+            'liquid_currency' => $request->input('liquid_currency'),
             'from' => $request->input('from'),
             'to' => $request->input('to'),
             'discount' => $request->input('discount'),
@@ -142,6 +143,7 @@ class CalculatorController extends Controller
 
         Calculator::query()->where('id', $id)->update([
             'currency' => $request->input('currency'),
+            'liquid_currency' => $request->input('liquid_currency'),
             'from' => $request->input('from'),
             'to' => $request->input('to'),
             'discount' => $request->input('discount'),

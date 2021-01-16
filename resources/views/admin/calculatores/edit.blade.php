@@ -37,7 +37,23 @@
                                 {{$calculator->currency}}
                             @endslot
                         @endcomponent
-
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    {{__('admin.liquid_currency')}}
+                                @endslot
+                                @slot('name')
+                                    liquid_currency
+                                @endslot
+                                @slot('type')
+                                    text
+                                @endslot
+                                @slot('placeholder')
+                                    {{__('admin.please_Liquid_currency')}}
+                                @endslot
+                                @slot('value')
+                                    {{$calculator->liquid_currency}}
+                                @endslot
+                            @endcomponent
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 {{__('admin.discount')}}

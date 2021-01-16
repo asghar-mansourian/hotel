@@ -8,13 +8,13 @@ class Calculator extends Model
 {
     protected $table = 'calculatores';
     protected $fillable = [
-        'from', 'to', 'unit_id', 'country_id', 'discount', 'currency' , 'des'
+        'from', 'to', 'unit_id', 'country_id', 'discount', 'currency','liquid_currency' , 'des'
     ];
 
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['id', 'from', 'to', 'unit_id','des', 'country_id', 'discount', 'currency'];
+    const selectField = ['id', 'from', 'to', 'unit_id','des', 'country_id', 'discount', 'currency','liquid_currency'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
 

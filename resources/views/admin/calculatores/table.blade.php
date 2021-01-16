@@ -4,7 +4,7 @@
  'sortType'=>$sortType,
  'sortField'=>$sortField,
  'records' => $countries ,
-  'selects' => ['id' , 'from' , 'to' , [ 'country','name'] , 'currency']
+  'selects' => ['id' , 'from' , 'to' , [ 'country','name'] , 'currency','liquid_currency']
   ]
 )
     @slot('paginate')
