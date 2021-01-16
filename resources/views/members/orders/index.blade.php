@@ -413,7 +413,8 @@
                                                         <td>{{$item->color}}</td>
                                                         <td>{{$item->total}} ₺</td>
                                                         <td>{{$item->specification}}</td>
-                                                        <td>
+                                                        @if($item->cancelReasonOrder)
+                                                        <td style="color:red">
                                                             @php
                                                                 $description = app()->getLocale() !== 'en' ? "description_".app()->getLocale() : 'description';
                                                             @endphp
@@ -421,6 +422,16 @@
                                                                  $item->cancelReasonOrder ? $item->cancelReasonOrder->{$description} : '-'
                                                             }}
                                                         </td>
+                                                        @else
+                                                            <td>
+                                                                @php
+                                                                    $description = app()->getLocale() !== 'en' ? "description_".app()->getLocale() : 'description';
+                                                                @endphp
+                                                                {{
+                                                                     $item->cancelReasonOrder ? $item->cancelReasonOrder->{$description} : '-'
+                                                                }}
+                                                            </td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                                 </tbody>

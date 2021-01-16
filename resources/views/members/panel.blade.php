@@ -43,7 +43,7 @@
                     <div class="balance-count">
                         <span>{{__('member.mybalance')}}</span> <br/>
                         <span class="count">
-                            @if(auth()->user()->usd_balance <= 0)
+                            @if(auth()->user()->usd_balance < 0)
                                 <span style="color: red">-{{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup></span>
                             @else
                                 {{\App\lib\Helpers::formatPrice(auth()->user()->usd_balance)}}<sup>$</sup>
