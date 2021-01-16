@@ -15,47 +15,79 @@
         /*    height: 456px;*/
         /*    background-repeat: round;*/
         /*}*/
+        @media only screen and (max-width: 1200px) {
+            #calculator2 {
+                display: block!important;
+            }
+            .calculator1{
+                display: none!important;
+            }
+        }
+        @media only screen and (max-width: 800px) {
+            #calculator2 {
+                margin-top: -20%;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            #calculator2 {
+                margin-top: -40%;
+            }
+        }
+        @media only screen and (max-width: 340px) {
+            #calculator2 {
+                margin-top: -90%;
+            }
+        }
+        @media only screen and (max-width: 1550px) {
+            .contact {
+                background-image:url("");
+            }
+        }
+        @media only screen and (min-width: 1200px) {
+            #calculator2 {
+                display: none!important;
+            }
+            .calculator1{
+                display: block!important;
+            }
+        }
+        .bx-viewport {
+            height: 100% !important;
+        }
+
+        .bx-wrapper {
+            border-radius: 0 !important;
+            max-height: 400px !important;
+
+        }
+        .pricing_box_cou input{
+            width: 284px!important;
+        }
+        @media only screen and (max-width: 767px) {
+            .bx-wrapper {
+                max-height: 200px !important;
+
+            }
+            .pricing_box_cou input{
+                width: 100%!important;
+            }
+            .font-pinks{
+                display: none;
+            }
+            .site_center{
+                margin-top: 50px!important;
+            }
+        }
+        .bx-wrapper img, .img_slider img {
+            width: 100% !important;
+        }
+
+
     </style>
 @endsection
 @section('content')
-
-
     <div class="contact index_contact" style="padding: 0;">
         <div class="container-fluid">
-            <style>
-                .bx-viewport {
-                    height: 100% !important;
-                }
-
-                .bx-wrapper {
-                    border-radius: 0 !important;
-                    max-height: 400px !important;
-
-                }
-                .pricing_box_cou input{
-                    width: 284px!important;
-                }
-                @media only screen and (max-width: 767px) {
-                    .bx-wrapper {
-                        max-height: 200px !important;
-
-                    }
-                    .pricing_box_cou input{
-                        width: 100%!important;
-                    }
-                    .font-pinks{
-                        display: none;
-                    }
-                    .site_center{
-                        margin-top: 50px!important;
-                    }
-                }
-                .bx-wrapper img, .img_slider img {
-                    width: 100% !important;
-                }
-
-
-            </style>
             <div class="row">
                 <div class="col-md-6 calculator1" style="position: absolute;z-index: 5000;top: 20px;   left: 200px;
     width: 400px;">
@@ -360,24 +392,6 @@
 @endsection
 
 @section('footerCustom')
-    <style>
-        @media only screen and (max-width: 1200px) {
-            #calculator2 {
-                display: block!important;
-            }
-            .calculator1{
-                display: none!important;
-            }
-        }
-        @media only screen and (min-width: 1200px) {
-            #calculator2 {
-                display: none!important;
-            }
-            .calculator1{
-                display: block!important;
-            }
-        }
-    </style>
     <script src="{{url('front/js/owl.carousel.min.js')}}"></script>
     <script src="{{url('front/js/home/counter.js')}}"></script>
     <script>

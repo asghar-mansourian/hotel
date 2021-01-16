@@ -61,14 +61,14 @@
             </li>
 
                 <li>
-                    <a class="btn-header-1" href="/orders/create" class="btn btn-secondary" type="button" style="    margin-top: -4px;
+                    <a href="/orders/create" class="order_button" type="button" style="/*    margin-top: -4px;
     color: #040404;
     font-size: 11px;
     padding: 9px 24px;
     border: 1px solid #7a7a7b;
     border-radius: 11px;
     box-shadow: 0 0 5px 2px #e8e8e8;
-        transition: all 0.2s;
+        transition: all 0.2s;*/
 ">
                         {{__('member.neworder')}}
                     </a>
