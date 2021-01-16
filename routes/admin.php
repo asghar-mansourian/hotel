@@ -355,3 +355,14 @@ route::get('/how_we_work/edit/{id}','HowWeWorkController@edit');
 route::post('/how_we_work/update/{id}','HowWeWorkController@update');
 route::get('/how_we_work/destroy/{id}','HowWeWorkController@destroy');
 route::post('/how_we_work/search','HowWeWorkController@search');
+
+//customer_reviews
+route::get('/customer_reviews','CustomerReviewController@index');
+route::get('/customer_reviews/create','CustomerReviewController@create');
+route::post('/customer_reviews/store','CustomerReviewController@store');
+route::get('/customer_reviews/edit/{id}','CustomerReviewController@edit');
+route::post('/customer_reviews/update/{id}','CustomerReviewController@update');
+route::get('/customer_reviews/destroy/{id}','CustomerReviewController@destroy');
+route::post('/customer_reviews/search','CustomerReviewController@search');
+
+

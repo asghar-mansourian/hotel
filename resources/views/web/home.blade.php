@@ -5,179 +5,342 @@
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
+
     <style>
         .bx-wrapper {
             border-radius: 30px;
             border: 0 !important;
         }
-        @media only screen and (max-width: 800px) {
-            .bx-wrapper {
-                height: 200px!important;
-            }
-        }
-        .bx-wrapper img , .img_slider img {
-            width: 100% !important;
-        }
+        /*contact {*!*/
+        /*    height: 456px;*/
+        /*    background-repeat: round;*/
+        /*}*/
     </style>
 @endsection
 @section('content')
 
+
+    <div class="contact index_contact" style="padding: 0;">
+        <div class="container-fluid">
+            <style>
+                .bx-viewport {
+                    height: 100% !important;
+                }
+
+                .bx-wrapper {
+                    border-radius: 0 !important;
+                    max-height: 400px !important;
+
+                }
+                .pricing_box_cou input{
+                    width: 284px!important;
+                }
+                @media only screen and (max-width: 767px) {
+                    .bx-wrapper {
+                        max-height: 200px !important;
+
+                    }
+                    .pricing_box_cou input{
+                        width: 100%!important;
+                    }
+                    .font-pinks{
+                        display: none;
+                    }
+                    .site_center{
+                        margin-top: 50px!important;
+                    }
+                }
+                .bx-wrapper img, .img_slider img {
+                    width: 100% !important;
+                }
+
+
+            </style>
+            <div class="row">
+                <div class="col-md-6 calculator1" style="position: absolute;z-index: 5000;top: 20px;   left: 200px;
+    width: 400px;">
+                    <h1 class="color_fff">
+                        {{__('website.kargo')}} {{__('website.transport')}}
+                    </h1>
+                    <p>{{__('website.contactInformation1')}}</p>
+                    <p>{{__('website.contactInformation2')}}</p>
+                    <p>{{__('website.contactInformation3')}}</p>
+                    <p>{{__('website.contactInformation4')}}</p>
+                    <div class="mt-5">
+                        <a href="#" class="index_contact_order">{{__('website.order')}}</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 calculator1"  style="top: 20px;position: absolute;z-index: 5000;right: 47px;">
+                    <div class="contact_border"
+                         style="height: 351px!important;width: 650px;background: linear-gradient(50deg,#2AF598,#08AEEA)">
+                        @include('web.partials.pricing')
+                    </div>
+                </div>
+                <div class="col-md-12" style="padding: 0;margin: 0;">
+
+                    <div class="img_slider" style="display: none">
+                        <div class="slider" style="border-radius: 30px!important;">
+                            @foreach($sliders as $slider)
+                                <div><img src="{{url('slider/images/' . $slider->picture)}}" alt=""></div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="display: none" id="calculator2">
+        <div class="contact_border"
+             style="height: 351px!important;background: linear-gradient(50deg,#2AF598,#08AEEA)">
+            @include('web.partials.pricing')
+        </div>
+    </div>
     <section>
         <div class="index_page">
+            <!--<div class="container">-->
+            <!--    <div class="row">-->
+            <!--        <div class="col-md-12 mt-5">-->
+            <!--            <div class="index_cont">-->
+            <!--                <div class="row">-->
+            <!--                    <div class="col-md-4 col-sm-6 col-xs-12">-->
+            <!--                        <div class="border_c">-->
+        <!--                            <img src="{{url('front/image/headphones.svg')}}">-->
+        <!--                            <h4><strong>{{__('website.call_center')}}</strong></h4>-->
+        <!--                            <div class="mb-2">{{__('website.call_center_description')}}</div>-->
+        <!--                            <div>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="col-md-4 col-sm-6 col-xs-12">-->
+            <!--                        <div class="border_c">-->
+        <!--                            <img src="{{url('front/image/clock.svg')}}">-->
+        <!--                            <h4><strong>{{__('website.working_hours')}}</strong></h4>-->
+        <!--                            <div class="mb-2">{{__('website.working_hours_description')}}</div>-->
+        <!--                            <div>{{__('website.working_hourses')}}</div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    <div class="col-md-4 col-sm-6 col-xs-12">-->
+            <!--                        <div class="border_c">-->
+        <!--                            <img src="{{url('front/image/map.svg')}}">-->
+        <!--                            <h4><strong>{{__('website.ouraddress')}}</strong></h4>-->
+        <!--                            <div class="mb-2">{{__('website.subtitle1')}}</div>-->
+        <!--                            <div>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+
+
+        <!--<div  class="how_work_text">{{__('website.how')}} <span class="yellow">{{__('website.kargo_az')}}</span>-->
+        <!--    {{__('website.works')}}?-->
+            <!--</div>-->
+            <!--<div class="map mb-5">-->
+            <!--    <div class="how_work">-->
+            <!--        <iframe width="100%" height="355" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"-->
+        <!--                src="{!! \App\Setting::getValue(\App\Setting::FIELD_CONTACT_URL_MAP) !!}"></iframe>-->
+            <!--        <a href="https://www.maps.ie/route-planner.htm"></a>-->
+            <!--    </div>-->
+            <!--    <div class="container how_work_list" style="margin-top: -100px">-->
+            <!--        <div class="row">-->
+            <!--            <div class="col-md-6 col-sm-6 col-xs-12">-->
+            <!--                <div class="how_work_col m_right_20">-->
+            <!--                    <div class="how_work_img">-->
+        <!--                        <span class="how_work_span">{{__('website.It_is_too_late')}}</span>-->
+        <!--                        <img src="{{url('front/image/checkList.svg')}}">-->
+            <!--                    </div>-->
+        <!--                    {{__('website.It_is_too_late_description')}}-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-sm-6 col-xs-12">-->
+            <!--                <div class="how_work_col m_left_20">-->
+            <!--                    <div class="how_work_img">-->
+        <!--                        <span class="how_work_span">{{__('website.sendvote')}}</span>-->
+        <!--                        <img src="{{url('front/image/boxList.svg')}}">-->
+            <!--                    </div>-->
+        <!--                    {{__('website.sendvoteshopping')}}-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-sm-6 col-xs-12">-->
+            <!--                <div class="how_work_col m_right_20">-->
+            <!--                    <div class="how_work_img">-->
+        <!--                        <span class="how_work_span">{{__('website.getpackage')}}</span>-->
+        <!--                        <img src="{{url('front/image/ship.svg')}}">-->
+            <!--                    </div>-->
+            <!--                    <div style="clear: both;"></div>-->
+        <!--                    {{__('website.getpackageloc')}}-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-6 col-sm-6 col-xs-12">-->
+            <!--                <div class="how_work_col m_left_20">-->
+            <!--                    <div class="how_work_img">-->
+        <!--                        <span class="how_work_span">{{__('website.cargostorage')}}</span>-->
+        <!--                        <img src="{{url('front/image/homeBox.svg')}}">-->
+            <!--                    </div>-->
+        <!--                    {{__('website.cargo_storage_description')}}-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+        <!--    <div class="air"><img src="{{url('front/image/indexAir.svg')}}" class="w-100"></div>-->
+            <!--</div>-->
+            <!--<div class="latest_dots">-->
+        <!--    <img src="{{url('front/image/dots.svg')}}">-->
+            <!--</div>-->
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5" style="z-index: 1">
-                        <div class="index_black pt-5">{{__('website.transport')}}</div>
-                        <div class="font_grey">{{__('website.header_up_right')}}</div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="img_slider" style="display: none">
-                            <div class="slider" style="border-radius: 30px!important;">
-                                @foreach($sliders as $slider)
-                                    <div><img src="{{url('slider/images/' . $slider->picture)}}" alt="" style=></div>
+                    <div class="pricing">
+                        <div class="col-md-12 mt-5">
+                            <div class="col-md-4 p-0"><h3>{{__('website.tariffs_by_countries')}}</h3>
+                                <span><hr class="blue_hr" style=""></span>
+                            </div>
+                            <div class="col-md-8 p-0">
+                                <div class="tab">
+                                    @foreach($countries as $country)
+                                        <button class="tablinks" onclick="openCity(event, 'country-{{$country->id}}')" id="defaultOpen"><img src="{{url("images/{$country->flag}")}}" >
+                                            <span class="dis_no">{{app()->getLocale()=='en'?$country->name:$country->name_ru}}</span>
+                                        </button>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-5 mb-5">
+                                @foreach($countries as $country)
+                                    <div id="country-{{$country->id}}" class="tabcontent">
+                                        <div class="row">
+                                            <table>
+                                                <tr>
+                                                    <th scope="col">{{__('website.weight')}}</th>
+                                                    <th scope="col">{{__('website.solid_product_type')}}</th>
+                                                    <th scope="col">{{__('website.liquid_product_type')}}</th>
+                                                </tr>
+                                                @foreach($country->priceCalculators as $priceCalculator)
+                                                    <tr>
+                                                        <th scope="row">{{$priceCalculator->from }}
+                                                            - {{$priceCalculator->to }} {{$priceCalculator->unit->title}} {{$priceCalculator->des ?? ""}}
+                                                        </th>
+                                                        <td>{{$priceCalculator->liquid_currency}}$</td>
+                                                        <td>{{$priceCalculator->currency}}$</td>
+                                                    </tr>
+                                                @endforeach
+                                            </table>
+                                        </div>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 p-0">
-                        <div class="col-md-7">
-                            <div class="bacg_img">
-                                <div class="pricing_wi border_sh">
-                                    @include('web.partials.pricing')
+                </div>
+            </div>
+            <div class="counter" id="counter">
+                <div class="container p-0 mt-5">
+                    <div class="row">
+                        <div class="col-md-12 mb-5">
+                            <a href="https://www.youtube.com/embed/tgbNymZ7vqY" target="_blank">
+                                <div class="video_mage">
+                                    <div class="blog_img">
+                                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div style="clear:both"></div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="cou_date_box">
+                                <div class="yellow counter_text">{{__('website.home_page_counter_text1')}}</div>
+                                <div class="cou_date">
+                                    <span class="counter-value"
+                                          data-count="{{__('website.home_page_data_count1')}}"></span> <i
+                                        class="fas fa-plus"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5 " style="padding-left: 104px; margin-top: 123px;">
-                            <div class="mt-50">
-                                <form class="convert-currency" method="post" action="{{url('/getCurrencyCalculator')}}">
-                                    <div class="float-left">
-                                        <input type="text" id="calculate-currency-number" name="currency" style="width: 104px;
-    width: 104px;
-    height: 7px;
-    font-size: 15px;
-    border-top: 0px;
-    border-right: 0px;
-    border-left: 0px;
-    text-align: center;" value="1" required>
-                                    </div>
-                                    <select name="from" class=" " aria-labelledby="dropdown_baglama"
-                                            style="
-width: 100px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-    height: 21px;
-    font-size: 15px;
-    border-top: 0px;
-    border-right: 0px;
-    text-align-last: center;
-    border-left: 0px;">
-                                        <option class="dropdown-item" value="RUB">RUB</option>
-                                        <option class="dropdown-item" selected value="USD">USD</option>
-                                        <option class="dropdown-item" value="TRY">TRY</option>
-                                    </select>
-                                    <div style="clear: both;"></div>
-                                    <div class="mt-2"></div>
-                                    <div class="float-left">
-                                        <input class="result_cal" type="text"
-                                               value="{{number_format(\App\lib\Helpers::getCurrency('usd', 'rub'), 2)}}"
-                                               style="       width: 104px;
-    width: 104px;
-    height: 7px;
-    font-size: 15px;
-    border: 0px;
-    background-color: white;
-    text-align: center;" readonly>
-                                    </div>
-                                    <select name="to" class=" " aria-labelledby="dropdown_baglama"
-                                            style="       width: 100px;
-    margin-left: 10px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-    text-align-last: center;
-    height: 27px;
-    box-shadow: 0 0 black !important;
-    font-size: 15px;
-    border: 0;
-    text-align: center;
-">
-                                        <option class="dropdown-item" selected value="RUB">RUB</option>
-                                        <option class="dropdown-item" value="USD">USD</option>
-                                        <option class="dropdown-item" value="TRY">TRY</option>
-                                    </select>
-                                </form>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="cou_date_box">
+                                <div class="yellow counter_text">{{__('website.home_page_counter_text2')}}</div>
+                                <div class="cou_date">
+                                    <span class="counter-value"
+                                          data-count="{{__('website.home_page_data_count2')}}"></span> <i
+                                        class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="cou_date_box">
+                                <div class="yellow counter_text">{{__('website.home_page_counter_text3')}}</div>
+                                <div class="cou_date">
+                                    <span class="counter-value"
+                                          data-count="{{__('website.home_page_data_count3')}}"></span> <i
+                                        class="fas fa-plus"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="site_center">
-            <div class="container">
-                <div class="row">
-                    <div class="black pt-5 text-center">{{__('website.howwework')}}?
-                        <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="index_cont">
-                            <div class="index_cont_img"><img src="./front/image/product_select.svg" class="w-100"></div>
-                            <h5><strong>{{__('website.register')}}</strong></h5>
-                            <div class="mb-2">{{__('website.registeron')}}</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="index_cont">
-                            <div class="index_cont_img"><img src="./front/image/how_work_box.svg" class="w-100"></div>
-                            <h5><strong>{{__('website.sendvote')}}</strong></h5>
-                            <div class="mb-2">{{__('website.sendvoteshopping')}}</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="index_cont">
-                            <div class="index_cont_img"><img src="{{url('/front/image/Group_137.svg')}}" class="w-100">
-                            </div>
-                            <h5><strong>{{__('website.getpackage')}}</strong></h5>
-                            <div class="mb-2">{{__('website.getpackageloc')}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <style>
-                iframe {
-                    width: 100%!important;
-                }
-            </style>
-            <div class="video">
+            <div class="site_center mt-5">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8 col-sm-8">
-                            <div class="video_bord">
-                                <iframe width="750" height="417"
-                                        src="{{\App\Setting::getValue(\App\Setting::FIELD_HOME_URL_VIDEO)}}"
-                                        frameborder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen style="border-radius: 15px;"></iframe>
-                            </div>
+                        <div class="black pt-5"><h3>{{__('website.newsevents')}}</h3>
+                            <span><hr class="blue_hr" style=""></span>
                         </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="video_text">
-                                <h3><strong>{{__('website.follow_video_instructions')}}</strong></h3>
-                                <div class="font_pink">{{__('website.follow_video_instructions_new_style')}}</div>
-                                {{__('website.follow_video_instructions_online_shopping')}}
+                        @foreach($blogs as $blog)
+                            <div class="col-md-4 col-sm-6 height_380 p-0 mt-4 mb-4">
+                                <div class="blog_mage col-md-5 col-sm-5">
+                                    <div class="blog_img" style=":before background: none"><img
+                                            src="{{url('images/'.$blog->picture)}}" class="w-100"></div>
+                                </div>
+                                <div class="col-md-7 col-sm-7">
+                                    <h4><strong>{{$blog->title}}</strong></h4>
+                                    <p class="font_grey mb-3">{{$blog->author->name}} <i
+                                            class="far fa-comment ml-3 mr-1"></i> 3</p>
+                                    <div class="line_he mt-2 mb-2">
+                                        {{\App\lib\Helpers::getContent($blog->content, 45)}}
+                                    </div>
+                                    <div class="blog_a mt-4 mb-3">
+                                        <a href="{{url('/blog/' . $blog->slug)}}"> {{__('website.readmore')}}<i
+                                                class="fas fa-chevron-right ml-3"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="partner_text">
+                <div class="container">
+                    <div class="black pt-5"><h3>{{__('website.customer_reviews')}}</h3>
+                        <span><hr class="blue_hr" style=""></span>
+                    </div>
+                    <div class="owl-carousel owl-theme">
+                        @foreach($customerReviews as $customerReview)
+                            <div class="item">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="partner_text_img">
+                                        <img src="{{url('images/customers/'.$customerReview->image->file_name)}}"
+                                             alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <h5 class="color_blue">{{$customerReview->name}}</h5>
+                                    {{$customerReview->description}}
+                                </div>
+
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
             <div class="partner">
                 <div class="container">
                     <a href="/customers">
-                        <div class="black pt-5 text-center">{{__('website.customers')}}
-                            <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
+                        <div class="black pt-5"><h3>{{__('website.customers')}}</h3>
+                            <span><hr class="blue_hr" style=""></span>
                         </div>
                     </a>
                     <div class="owl-carousel owl-theme">
@@ -191,100 +354,32 @@ width: 100px;
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row city">
-                    <div class="col-md-12 black text-center">{{__('website.tariffs_by_countries')}}
-                        <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
-                    </div>
-                    @foreach($countries as $country)
-                        <div class="col-md-6">
-                            <div class="@if($loop->first) city_pink @else city_blue @endif">
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12 city_title">
-                                        <img src="{{url("images/{$country->flag}")}}" width="40" class="mr-4">
-                                        <strong>{{__('member.home_country_'.$country->id)}}</strong>
-                                    </div>
-                                    <ul style="padding: 0 26px;">
-                                        @foreach($country->priceCalculators as $priceCalculator)
-                                            <li style=" font-family: Calibri, sans-serif; font-size: 16px; border-bottom: 1px dashed #e2e5e7; padding: 10px 0;">
-                                                {{$priceCalculator->from }}
-                                                - {{$priceCalculator->to }} {{$priceCalculator->unit->title}} {{$priceCalculator->des ?? ""}}
-                                                @if($priceCalculator->discount)
-                                                    <del style="color: pink">
-                                                        <span
-                                                            style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
-                                                    </del>
-                                                    <span style="    color: #ffffff;
-    float: right;
-    font-size: 17px;
-    font-weight: 700;
-    background-color: #f25c69;
-    padding: 0px 6px;
-    border-radius: 15px;
-    margin: 4px 7px;
-}">
-                                                        {{$priceCalculator->currency -  (($priceCalculator->discount / 100) * $priceCalculator->currency)  }} $
-                                                    </span>
-                                                @else
-                                                    <span
-                                                        style=" color: #000; float: right; font-size: 22px; font-weight: 700;">{{$priceCalculator->currency}} $</span>
-                                                @endif
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="site_center mt-5">
-                <div class="container">
-                    <div class="row">
-                        <div class="black pt-5 text-center">{{__('website.newsletter')}}
-                            <div class="hr" style="margin-right: auto; margin-left: auto;"></div>
-                        </div>
-                        @foreach($blogs as $blog)
-                            <div class="col-md-4 col-sm-6 height_380 mt-5 mb-5">
-                                <div class="p-0">
-                                    <div class="blog_mage">
-                                        <div class="blog_img"><img src="{{url('images/' . $blog->picture)}}"
-                                                                   class="w-100"></div>
-                                    </div>
-                                    <div class="mob_p-4">
-                                        <div class="top mt-3"></div>
-                                        <h4><strong>{{$blog->title}}</strong></h4>
-                                        {{--<i class="far fa-comment ml-3 mr-1"></i> 3--}}</p>
-                                        <div class="line_he mt-2 mb-2">
-                                            {{\App\lib\Helpers::getContent($blog->content, 45)}}
-                                        </div>
-                                        <div class="blog_a mt-4 mb-3">
-                                            <a href="{{url('/blog/' . $blog->slug)}}"> {{__('website.readmore')}}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
         </div>
+        <div style="height: 60px;width: 100%"></div>
     </section>
 @endsection
 
 @section('footerCustom')
     <style>
-        @media (max-width: 980px) and (min-width: 320px){
-            .bacg_img {
-                margin-top: 520px!important;
+        @media only screen and (max-width: 1200px) {
+            #calculator2 {
+                display: block!important;
             }
-            .img_slider {
-                width: 100% !important;
+            .calculator1{
+                display: none!important;
             }
         }
-
+        @media only screen and (min-width: 1200px) {
+            #calculator2 {
+                display: none!important;
+            }
+            .calculator1{
+                display: block!important;
+            }
+        }
     </style>
     <script src="{{url('front/js/owl.carousel.min.js')}}"></script>
+    <script src="{{url('front/js/home/counter.js')}}"></script>
     <script>
         function showStuff(id, text, btn) {
             document.getElementById(id).style.display = 'block';
@@ -295,6 +390,7 @@ width: 100px;
 
     <!-- skills -->
     <script>
+        document.getElementById("defaultOpen").click();
         function myFunction() {
             var dots = document.getElementById("dots");
             var moreText = document.getElementById("more");
@@ -312,10 +408,10 @@ width: 100px;
         }
     </script>
     <script type="text/javascript">
-        $('.owl-carousel').owlCarousel({
+        $('.partner .owl-carousel').owlCarousel({
             loop: false,
             margin: 10,
-            // nav:true,
+            dots: true,
             autoplay: true,
             loop: true,
             autoplayTimeout: 3000,
@@ -328,6 +424,27 @@ width: 100px;
                 },
                 1000: {
                     items: 4
+                }
+            }
+        })
+    </script>
+    <script type="text/javascript">
+        $('.partner_text .owl-carousel').owlCarousel({
+            loop: false,
+            margin: 30,
+            dots: true,
+            autoplay: true,
+            loop: true,
+            autoplayTimeout: 3000,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 2
                 }
             }
         })
@@ -345,5 +462,4 @@ width: 100px;
             });
         })
     </script>
-
 @endsection

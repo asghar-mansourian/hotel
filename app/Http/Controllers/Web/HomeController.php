@@ -6,6 +6,7 @@ use App\Blog;
 use App\Calculator;
 use App\Country;
 use App\Customer;
+use App\CustomerReviews;
 use App\Http\Controllers\Controller;
 use App\lib\Helpers;
 use App\Slider;
@@ -30,7 +31,9 @@ class HomeController extends Controller
 
         $sliders = Slider::all();
 
-        return view('web.home', compact('sliders' , 'blogs', 'countries','customers'));
+        $customerReviews = CustomerReviews::select($this->customeSelectReview())->get();
+
+        return view('web.home', compact('sliders' , 'blogs', 'countries','customers','customerReviews'));
     }
 
     public function setLocale($locale)
@@ -50,5 +53,14 @@ class HomeController extends Controller
         $title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
 
         return [$title, 'slug', 'created_at', $content, 'author_id', 'picture', 'status', 'id'];
+    }
+
+    public function customeSelectReview()
+    {
+        $locale = app()->getLocale();
+
+        $decription = app()->getLocale() !== 'en' ? "description_{$locale} as description" : 'description';
+
+        return [$decription,'name','id'];
     }
 }

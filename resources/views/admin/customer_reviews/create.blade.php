@@ -1,7 +1,7 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    {{__('admin.dashboard')}} |  {{__('admin.editslider')}}
+    Dashboard | Add customer reviews
 @endsection
 
 @section('styleCustom')
@@ -14,72 +14,60 @@
 @endsection
 
 @section('main')
-    <form class="form" method="post" id="mainForm" enctype="multipart/form-data"
-          action="{{url('admin/sliders/update/' . $slider->id)}}">
+    <form class="form" method="post" id="mainForm" enctype="multipart/form-data" action="{{url('admin/customer_reviews/store')}}">
         @csrf
         <div class="row">
             <div class="col-12 col-lg-8">
                 @component('admin.components.panel')
                     @slot('items')
-                        @component('admin.components.form.input')
 
-                            @slot('name')
-                                picture
-                            @endslot
-                            @slot('type')
-                                hidden
-                            @endslot
-
-                            @slot('value')
-                                {{$slider->picture}}
-                            @endslot
-                        @endcomponent
                         @component('admin.components.form.inputLabel')
                             @slot('label')
-                                    {{__('admin.title')}}
+                                {{__('admin.name')}}
                             @endslot
                             @slot('name')
-                                title
+                                name
                             @endslot
                             @slot('type')
                                 text
                             @endslot
                             @slot('placeholder')
-                                {{__('admin.pleasetitle')}}
+                                {{__('admin.pleasename')}}
                             @endslot
                             @slot('value')
-                                {{$slider->title}}
                             @endslot
                         @endcomponent
-                            @component('admin.components.form.inputLabel')
-                                @slot('label')
-                                    {{__('admin.order_by')}}
-                                @endslot
-                                @slot('name')
-                                    order_by
-                                @endslot
-                                @slot('type')
-                                    number
-                                @endslot
-                                @slot('placeholder')
-                                    {{__('admin.pleaseorder')}}
-                                @endslot
-                                @slot('value')
-                                        {{$slider->order_by}}
-                                @endslot
-                            @endcomponent
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                    {{__('admin.picture')}}
+                                <label for="description" class="col-md-3 form-label my-auto">
+                                    {{__('admin.description')}}
                                 </label>
                                 <div class="col-md-9">
 
-                                    <input type="file" name="new_picture" id="picture" class="dropify" data-max-file-size="500K"
-                                           data-allowed-file-extensions="jpg png" data-default-file="{{url('/slider/images/'.$slider->picture)}}">
+                            <textarea class="form-control" name="description"
+                                      id="description" placeholder="{{__('admin.pleaseEnterDescription')}}" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
-                    @endslot
+                            <div class="form-group row">
+                                <label for="description" class="col-md-3 form-label my-auto">
+                                    {{__('admin.descriptionRu')}}
+                                </label>
+                                <div class="col-md-9">
 
+                            <textarea class="form-control" name="description_ru"
+                                      id="description_ru" placeholder="{{__('admin.pleaseEnterDescriptionRu')}}" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                picture
+                            </label>
+                            <div class="col-md-9">
+
+                                <input type="file" name="picture" id="picture" class="dropify"
+                                       data-allowed-file-extensions="jpg png" data-default-file="">
+                            </div>
+                        </div>
+                    @endslot
 
 
                     @slot('header')
@@ -101,10 +89,10 @@
                                 btn-block btn-info
                             @endslot
                             @slot('title')
-                                Save
+                                {{__('admin.save')}}
                             @endslot
                         @endcomponent
-                        <a href="{{url('admin/sliders')}}" class="btn btn-danger btn-block ">{{__('admin.cancel')}}</a>
+
                     @endslot
                 @endcomponent
 
@@ -119,11 +107,13 @@
 
     @component('admin.components.script.mainFormScript')
         @slot('mainFormUrlValue')
-            ../../../admin/sliders/
+            ../../../admin/customer_reviews/
         @endslot
     @endcomponent
 
+{{--    @component('admin.components.ckeditor')--}}
 
+{{--    @endcomponent--}}
 
     @component('admin.components.form.pictureScript')
 
@@ -137,7 +127,7 @@
 
         @slot('items')
             <li class="breadcrumb-item"><i class="fe fe-home mr-2 fs-14"></i>{{__('admin.dashboard')}}</li>
-            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.editslider')}}</li>
+            <li class="breadcrumb-item active"><i class="fe fe-clipboard mr-2 fs-14"></i>{{__('admin.add_customer_reviews')}}</li>
         @endslot
     @endcomponent
 @endsection

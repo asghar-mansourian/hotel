@@ -13,7 +13,7 @@
     </div>
     <div class="logo_mob">
         <button class="openbtn" onclick="openNav()"><i class="fas fa-align-justify m-0"></i></button>
-        <a href="#"><img src="{{url('front/image/logo.svg')}}"></a>
+        <a href="#"><img src="{{url('front/image/favicon/Untitled-1-05.svg')}}"></a>
         @auth('web')
             <span class="dropdown float-right">
 			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
