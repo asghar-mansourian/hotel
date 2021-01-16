@@ -2,13 +2,13 @@
     <div class="col-md-12 mb-4 font_pink"><strong>{{__('website.calculator')}}</strong></div>
     <div class="col-md-6 col-sm-6 mt-3 mb-3">
         <div class="pricing_box_cou">
-            <input type="text" readonly value="{{__('website.turkey')}}" style="width: 254px;    font-size: 21px; color: #151f59;border: 1px solid red;">
+            <input type="text" readonly value="{{__('website.turkey')}}" style="width: 254px;    font-size: 21px; color: #151f59;border: 1px solid #2AF598;">
         </div>
         <span class="font_pink" style="position: absolute; right: -10px; bottom: 10px;"> &xrArr;</span>
     </div>
     <div class="col-md-6 col-sm-6 mt-3 mb-3">
         <div class="pricing_box_cou">
-            <input type="text" readonly value="{{__('website.russia')}}" style="width: 254px;    font-size: 21px; color: #151f59;border: 1px solid red;">
+            <input type="text" readonly value="{{__('website.russia')}}" style="width: 254px;    font-size: 21px; color: #151f59;border: 1px solid #2AF598;">
         </div>
 
     </div>
@@ -16,7 +16,7 @@
           <input type="number" name="" class="pricing_imput w-100" placeholder="{{__('website.binding_number')}}">
       </div>--}}
     <div class="col-md-12 col-sm-6 mt-3 mb-3">
-        <input type="number" id="weight" style="    border: 1px solid red;" name="" class="pricing_imput w-100" placeholder="{{__('website.weight')}}">
+        <input type="number" id="weight" style="    border: 1px solid #2AF598;" name="" class="pricing_imput w-100" placeholder="{{__('website.weight')}}">
         <div class="pricing_box" style="left: 93%;">
             <input type="text" readonly value="{{__('website.home_page.weights.kg')}}" style="    width: 50px; text-align: center;">
         </div>
