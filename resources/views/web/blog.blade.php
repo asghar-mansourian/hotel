@@ -2,11 +2,15 @@
 @section('title')
     {{__('member.site_name')}}| {{__('website.blog')}}
 @endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{url('front/css/blog.css')}}">
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <div class="black pt-5"><span class="yellow mr-3"></span>{{__('website.blog')}}</div>
+                <div class="black pt-5"><span class="yellow mr-3">{{__('website.blog')}}</span></div>
                 <div class="italic">{{__('website.subtitle2')}}<br/>{{__('website.subtitle1')}}</div>
             </div>
             <div class="col-md-12 slider_search mt-5">
@@ -43,7 +47,7 @@
                                                 {{\App\lib\Helpers::getContent($topBlog->content)}}
                                             </div>
                                             <div class="blog_a mt-4 mb-3">
-                                                <a href="{{url('/blog/' . $topBlog->slug)}}">{{__('website.readmore')}}</a>
+                                                <a href="{{url('/blog/' . $topBlog->slug)}}">{{__('website.readmore')}}<i class="fas fa-chevron-right ml-3"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -55,27 +59,27 @@
                         <div class="col-md-12 col-sm-12 black black_margin">{{__('website.latestnews')}}</div>
                     @endif
                     @foreach($blogs as $blog)
-                        <div class="col-md-4 col-sm-6 height_380 mb-5">
-                            <div class="p-0">
-                                <div class="blog_mage">
-                                    <div class="blog_img">
-                                        <a href="{{url('/blog/' . $blog->slug)}}">
-                                            <img src="{{url('images/' . $blog->picture)}}" class="w-100">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="mob_p-4">
-                                    <div class="new"></div>
-                                    <h4><strong>{{$blog->title}}</strong></h4>
-                                    <div class="line_he mt-2 mb-2">
-                                        {{\App\lib\Helpers::getContent($blog->content)}}
-                                    </div>
-                                    <div class="blog_a mt-4 mb-3">
-                                        <a href="{{url('/blog/' . $blog->slug)}}">{{__('website.readmore')}}</a>
-                                    </div>
+                    <div class="col-md-6 col-sm-6 height_380 mt-5 mb-5 p-0">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="blog_mage">
+                                <div class="blog_img">
+                                    <a href="{{url('/blog/' . $blog->slug)}}">
+                                        <img src="{{url('images/' . $blog->picture)}}" class="w-100">
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6 col-sm-6">
+                            <strong class="color_blue">{{$blog->title}}</strong>
+                            <p class="font_grey mb-3">{{$blog->author->name}} <i class="far fa-comment ml-3 mr-1"></i> 3</p>
+                            <div class="mt-2 mb-2">
+                                {{\App\lib\Helpers::getContent($blog->content)}}
+                            </div>
+                            <div class="blog_a mt-4 mb-3">
+                                <a href="{{url('/blog/' . $blog->slug)}}">{{__('website.readmore')}}<i class="fas fa-chevron-right ml-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
 
                 </div>

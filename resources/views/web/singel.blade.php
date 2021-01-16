@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-left">
-                <div class="pt-5 black_blog"><span class="blog_yellow mr-3"><a href="/blog" class="blog_yellow mr-3">{{__('website.blog')}}</a></span> <i
+                <div class="pt-5 black_blog"><span class="yellow mr-3"><a href="/blog" class="yellow mr-3">{{__('website.blog')}}</a></span> <i
                         class="fas fa-angle-right"></i> {{$blog->title}}</div>
             </div>
             <div class="col-md-12 mt-50">
