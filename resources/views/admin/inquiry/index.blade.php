@@ -60,7 +60,7 @@
                 @foreach($inquirys as $inquiry)
                     <tr>
                         <td>{{$inquiry->id}}</td>
-                        <td>{{$inquiry->user ->name}}</td>
+                        <td>{{$inquiry->user->name}}</td>
                         <td><a href="{{route('admin_inquiry_show',$inquiry->id)}}">
                                 <p class="truncate-paragraph">
                                     @if($inquiry->inquirys->count())

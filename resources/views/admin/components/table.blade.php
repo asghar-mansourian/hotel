@@ -184,7 +184,6 @@
                                 @endif
                             @endif
                         @endif
-                        @if(request()->has('status') and request('status')==0)
                         @if($option == 'show')
                             <a href="{{url('admin/' . $url . '/show/' . $record->id.$__query_show  )}}" data-userid="{{$record->id}}"
                                title="Show" class="m-l-10 show-info btn-sm btn btn-info">
@@ -205,15 +204,26 @@
                                     </a>
                                 @endif
                             @endif
-                        @endif
                             @endif
-                        @if($option == 'edit')
-                            <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
-                               data-toggle="tooltip"
-                               title="Edit" class="m-l-10 btn btn-success btn-sm">
-                                <i class="fe fe-edit mr-2"></i>{{__('admin.tableedit')}}
-                            </a>
-                        @endif
+                            @if(request()->has('status'))
+                                @if(request('status')==0)
+                                    @if($option == 'edit')
+                                    <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
+                                       data-toggle="tooltip"
+                                       title="Edit" class="m-l-10 btn btn-success btn-sm">
+                                        <i class="fe fe-edit mr-2"></i>{{__('admin.tableedit')}}
+                                    </a>
+                                     @endif
+                                @endif
+                            @else
+                                @if($option == 'edit')
+                                    <a href="{{url('admin/' . $url . '/edit/' . $record->id)}}"
+                                       data-toggle="tooltip"
+                                       title="Edit" class="m-l-10 btn btn-success btn-sm">
+                                        <i class="fe fe-edit mr-2"></i>{{__('admin.tableedit')}}
+                                    </a>
+                                @endif
+                            @endif
                         @if($option == 'delete')
                             <a href="{{url('admin/' . $url . '/delete/' . $record->id)}}"
                                class="btn btn-sm btn-danger delete" data-toggle="tooltip"

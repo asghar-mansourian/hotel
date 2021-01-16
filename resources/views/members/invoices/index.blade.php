@@ -265,7 +265,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6 col-sm-6 mb-5">
                                                             <input type="text" name="shop" value="{{$invoice->shop}}"
-                                                                   placeholder="Mağaza adı *"
+                                                                   placeholder="{{__('member.invoiceName')}} *"
                                                                    class=" @error('shop') is-invalid @enderror w-100 courier_input"
                                                                    required="">
                                                             @error('shop')
@@ -279,7 +279,7 @@
                                                         <div class="col-md-6 col-sm-6 mb-5">
                                                             <input type="text" name="product_type"
                                                                    value="{{$invoice->product_type}}"
-                                                                   placeholder="Bağlamadakı məhsulun növü *"
+                                                                   placeholder="{{__('member.productType')}} *"
                                                                    class="@error('product_type') is-invalid @enderror w-100 courier_input"
                                                                    required="">
                                                             @error('product_type')
@@ -293,7 +293,7 @@
                                                         <div class="col-md-4 col-sm-6 mb-4">
                                                             <input type="number" name="quantity"
                                                                    value="{{ $invoice->quantity }}"
-                                                                   placeholder="Bağlamadakı məhsulun sayı *"
+                                                                   placeholder="{{__('member.productNumber')}} *"
                                                                    class=" @error('quantity') is-invalid @enderror w-100 courier_input"
                                                                    required="">
                                                             @error('quantity')
@@ -307,7 +307,7 @@
                                                         <div class="col-md-4 col-sm-6 mb-4">
                                                             <input type="number" name="price"
                                                                    value="{{ $invoice->price }}"
-                                                                   placeholder="Qiyməti ({{$country->currency}}) * "
+                                                                   placeholder="{{__('member.price')}} ({{$country->currency}}) * "
                                                                    class="@error('price') is-invalid @enderror w-100 courier_input"
                                                                    required="">
                                                             @error('price')
@@ -321,7 +321,7 @@
                                                         <div class="col-md-4 col-sm-6 mb-4">
                                                             <input type="number" name="order_track"
                                                                    value="{{ $invoice->order_track }}"
-                                                                   placeholder="Sifarişin İzləmə kodu * "
+                                                                   placeholder="{{__('member.orderTrackingCode')}} * "
                                                                    class="@error('order_track') is-invalid @enderror w-100 courier_input"
                                                                    required="">
                                                             @error('order_track')
@@ -363,7 +363,7 @@
                                                         </div>
                                                         <div class="col-md-12 mt-0">
                                             <textarea class="courier_textare" name="description"
-                                                      placeholder="Bağlamanıza aid qeydləriniz varsa yazın">{{ $invoice->description }}</textarea>
+                                                      placeholder="{{__('member.productAbout')}}">{{ $invoice->description }}</textarea>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <button data-invoice="{{$invoice->id}}"

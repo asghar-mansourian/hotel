@@ -212,6 +212,13 @@
         .items.modal .modal-dialog {
             top: 150px;
         }
+        @media screen and (min-width: 1200px) {
+            .edit-modal{
+                width: 1150px;
+                margin-left: -120px;
+            }
+        }
+
     </style>
 @endsection
 @section('main')
@@ -366,7 +373,7 @@
                     <div id="items-{{$invoice->id}}" class="modal items fade bd-example-modal-lg" tabindex="-1"
                          role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
-                            <div class="modal-content" style="width: 1150px;margin-left: -120px;">
+                            <div class="modal-content edit-modal">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="table-responsive">
@@ -380,6 +387,7 @@
                                                     <th>{{__('member.cargo')}}</th>
                                                     <th>{{__('member.quantity')}}</th>
                                                     <th>{{__('member.description')}}</th>
+                                                    <th>{{__('member.color')}}</th>
                                                     <th>{{__('member.total')}}</th>
                                                     <th>{{__('member.specification')}}</th>
                                                     <th>{{__('member.cancel_reason_order')}}</th>
@@ -402,9 +410,11 @@
                                                         <td>{{$item->cargo}}</td>
                                                         <td>{{$item->quantity}}</td>
                                                         <td>{{$item->description}}</td>
+                                                        <td>{{$item->color}}</td>
                                                         <td>{{$item->total}} ₺</td>
                                                         <td>{{$item->specification}}</td>
-                                                        <td>
+                                                        @if($item->cancelReasonOrder)
+                                                        <td style="color:red">
                                                             @php
                                                                 $description = app()->getLocale() !== 'en' ? "description_".app()->getLocale() : 'description';
                                                             @endphp
@@ -412,6 +422,16 @@
                                                                  $item->cancelReasonOrder ? $item->cancelReasonOrder->{$description} : '-'
                                                             }}
                                                         </td>
+                                                        @else
+                                                            <td>
+                                                                @php
+                                                                    $description = app()->getLocale() !== 'en' ? "description_".app()->getLocale() : 'description';
+                                                                @endphp
+                                                                {{
+                                                                     $item->cancelReasonOrder ? $item->cancelReasonOrder->{$description} : '-'
+                                                                }}
+                                                            </td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
