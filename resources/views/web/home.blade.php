@@ -98,9 +98,9 @@
                     <p>{{__('website.contactInformation2')}}</p>
                     <p>{{__('website.contactInformation3')}}</p>
                     <p>{{__('website.contactInformation4')}}</p>
-                    <div class="mt-5">
-                        <a href="#" class="index_contact_order">{{__('website.order')}}</a>
-                    </div>
+{{--                    <div class="mt-5">--}}
+{{--                        <a href="#" class="index_contact_order">{{__('website.order')}}</a>--}}
+{{--                    </div>--}}
                 </div>
 
                 <div class="col-md-6 calculator1"  style="top: 20px;position: absolute;z-index: 5000;right: 47px;">
