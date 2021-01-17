@@ -472,7 +472,8 @@ textarea{
     float: left;
 }
 .logo img{
-    width: 150px;
+    width: 220px;
+    margin-top: 5px;
 }
 .menu_sec{
     float: right;
@@ -493,7 +494,7 @@ textarea{
 }
 .menu_sec .dropdown .btn{
     margin-top: -10px;
-    background: #ffffff;
+    /*background: #ffffff;*/
     color: #08aeea;
     font-weight: bold;
 }
