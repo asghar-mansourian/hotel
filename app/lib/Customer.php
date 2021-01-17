@@ -14,7 +14,9 @@ class Customer{
 
     public static function deleteImage($customer)
     {
-        unlink(public_path('/images/customers/'.$customer->image->file_name));
+        if(file_exists(public_path('/images/customers/'.$customer->image->file_name))){
+            unlink(public_path('/images/customers/'.$customer->image->file_name));
+        }
         $customer->image->delete();
         return;
     }
