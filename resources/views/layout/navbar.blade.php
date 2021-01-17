@@ -53,7 +53,7 @@
                     @guest()
 
                             <span style="    color: white;
-    background-color: #f25c69;
+    background-color: #02ccb2;
     padding: 3px 6px;
     position: absolute;
     top: -15px;
