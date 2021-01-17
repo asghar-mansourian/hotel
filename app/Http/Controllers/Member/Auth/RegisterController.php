@@ -73,6 +73,8 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
+        return redirect()->route('panel');
+
         $this->sendSms($user);
 // cowsel api
 //        (new CowselCustomer())->register($user);

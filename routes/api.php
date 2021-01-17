@@ -44,7 +44,7 @@ Route::prefix('v1')
     });
 
 // authenticated
-Route::middleware(['auth:api', 'verified_sms'])->group(function () {
+Route::middleware(['auth:api'])->group(function () {
     // v1
     Route::prefix('v1')
         ->namespace('Api\V1')

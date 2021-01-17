@@ -37,7 +37,7 @@ Route::group(['namespace' => 'Member'], function () {
 
 Route::match(['GET', 'POST'], '/payment/callback', 'Member\PaytrController@callback');
 // user panel (Member)
-Route::group(['namespace' => 'Member', 'middleware' => ['auth','verified_sms']], function () {
+Route::group(['namespace' => 'Member', 'middleware' => ['auth']], function () {
 
     Route::get('/home', 'PanelController@index')->name('panel');
 
