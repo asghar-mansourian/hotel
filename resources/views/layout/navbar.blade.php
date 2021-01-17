@@ -24,13 +24,15 @@
                     <i style="    color: #7a7a7b;
     font-size: 12px;
 
-    border: 1px solid #bfbfbf !important;
+    border: 1px solid #2AF598 !important;
     font-size: 13px;
     padding: 7px 7px;
-    border-radius: 27px;
+    border-radius: 5px;
     position: absolute;
     left: -7px;
     bottom: -9px;
+    height: 30px;
+    width: 40px;
         " class="fa fa-shopping-cart"></i>
                     @auth('web')
                         @if (auth()->check())
@@ -39,12 +41,13 @@
                                 $basketnum =\App\Basket::where('user_id' , auth()->user()->id)->count();
                             @endphp
                             <span style="    color: white;
-    background-color: #f25c69;
+    background-color: #02ccb2;
     padding: 3px 6px;
     position: absolute;
     top: -15px;
     border-radius: 100%;
-    font-size: 8px;">{{$basketnum}}</span>
+    font-size: 8px;
+    left: 20px;">{{$basketnum}}</span>
                         @endif
                     @endauth
                     @guest()

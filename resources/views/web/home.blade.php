@@ -81,8 +81,6 @@
         .bx-wrapper img, .img_slider img {
             width: 100% !important;
         }
-
-
     </style>
 @endsection
 @section('content')

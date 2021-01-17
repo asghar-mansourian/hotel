@@ -7,7 +7,7 @@
                     <a style="    font-size: 12px;" class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}&ensp;</a>
                 </li>
                 <li style="display: inline">
-                    <a style="    font-size: 12px;" href="{{url('/blog')}}">&ensp;{{__('website.blog')}} </a>
+                    <a style="font-size: 12px;" href="{{url('/blog')}}">&ensp;{{__('website.blog')}} </a>
                 </li>
             </ul>
         </div>

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12 mb-4 font_pink"><strong>{{__('website.calculator')}}</strong></div>
+    <div class="col-md-12 mb-4 font_pink text-center"><strong>{{__('website.calculator')}}</strong></div>
     <div class="col-md-6 col-sm-6 mt-3 mb-3">
         <div class="pricing_box_cou">
             <input type="text" readonly value="{{__('website.turkey')}}" style="width: 254px;    font-size: 21px; color: #151f59;border: 1px solid #2AF598;">
@@ -53,7 +53,15 @@
          </div>--}}
     <div class="col-md-12 col-sm-12 col-xs-12 mt-4"></div>
     <div class="col-md-6 col-sm-6 col-xs-6 mt-3 mb-3 pricing_price_blue">
-        <button id="calculate" class="btn-effect border-btn">{{__('website.calculate')}}</button>
+        <button id="calculate" class="order_button" style="/* background: #ffeca1; */
+    border: 2px solid #2AF598;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    height: 45px;
+    color: #fff;
+    font-family: 'Montserrat-Bold';">{{__('website.calculate')}}</button>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6 mt-3 mb-3 pricing_price text-right">
         <div class="all">
