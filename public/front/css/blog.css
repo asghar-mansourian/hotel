@@ -63,7 +63,7 @@
     display: block;
     position: absolute;
     left: 0;
-    background: linear-gradient(50deg,#2AF598,#08AEEA);
+    /*background: linear-gradient(50deg,#2AF598,#08AEEA);*/
     top: 0;
     width: 100%;
     height: 100%;
@@ -170,7 +170,7 @@
     display: block;
     position: absolute;
     left: 0;
-    background: linear-gradient(50deg,#2AF598,#08AEEA);
+    /*background: linear-gradient(50deg,#2AF598,#08AEEA);*/
     top: 0;
     width: 100%;
     height: 100%;
