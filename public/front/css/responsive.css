@@ -1,74 +1,125 @@
 .sidepanel  {
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
 .sidepanel a {
-  padding: 8px 8px 8px 25px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+    padding: 8px 8px 8px 25px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
 .sidepanel a:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 .sidepanel .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
 }
 
 .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #fff;
-    color: #19170f;
+    background-color: transparent;
+    color: #fff;
     padding: 0px 15px;
     border: none;
     margin: 0;
 }
+.orders_create{
+    color: #fff;
+    font-size: 11px;
+    padding: 8px 15px;
+    border: 1px solid #12c3d2;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px #e8e8e8;
+    transition: all 0.2s;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 32px;
+}
+.name_toggle{
+
+}
 .openbtn:hover {
-  background-color:#444;
+    background-color:#444;
 }
 .logo_mob img{
-	width: 140px
+    width: 140px
 }
 .logo_mob .dropdown-menu{
-	right: 0 ;
-	left: unset
+    right: 0 ;
+    left: unset
 }
 .logo_mob .dropdown-toggle{
-	background: #19170f;
+    margin: 10px 15px;
     color: #fff;
-    margin: 0 15px;
-    font-size: 12px;
-    padding: 0 10px;
+    height: 32px;
+    font-size: 11px;
+    padding: 0px 15px;
+    border: 1px solid #12c3d2;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px #e8e8e8;
+    transition: all 0.2s;
 }
-.logo_mob .dropdown-menu{
-	padding: 10px;
-    font-size: 13px;
+.logo_mob .dropdown-menu a{
+    padding: 10px;
+    color: #12c3d2 !important;
+    font-size: 11px;
+}
+.mobil_menu{
+    background: linear-gradient(50deg,#2AF598,#12c3d2);
 }
 @media (min-width: 320px) and (max-width: 480px){
-	.mob_dis{
-		display: none;
-	}
+    .contact_map iframe, .contact_map{
+        height: 130px !important;
+    }
+    h4, .h4, .blog_a a{
+        font-size: 12px;
+    }
+    .partner {
+        margin-top: 0;
+        height: 170px;
+    }
+    .blog_img {
+        height: 150px;
+    }
+    .blog_img img{
+        height: 150px;
+        object-fit: contain;
+    }
+    .cou_date{
+        font-size: 25px;
+    }
+    .cou_date_col .col-sm-4, .cou_date_col .col-xs-4{
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+    }
+    body, html, .contact, .counter .counter_text{
+        font-size: 11px;
+        font-weight: unset;
+    }
+    .mob_dis{
+        display: none;
+    }
 
     .logo_mob {
         display: block;
-        margin-top: 30px
     }
 
     .black {
@@ -94,239 +145,182 @@
 
     .blog_img_he img, .blog_img_he {
         height: 200px
-	}
-	.number_list{
-		width: 100%;
-		margin-top: 60px;
-	}
-	.number_list ul li a{
-		padding: 5px 9px
-	}
-	.pricing_wi{
-		width: 100% ;
-		margin-top: 20px;
-	}
-	.pricing{
-		margin-top: 60px
-	}
-	.pricing .tablinks{
-		margin: 0 10px;
-		width: 50px
-	}
-	.pricing_price_fff{
-		width: 150px;
-	    height: 50px;
-	    font-size: 12px;
-	}
-	.contact_texta textarea{
-		height: 90px
-	}
-	.contact_input input{
-		height: 45px
-	}
-	.contact_send button{
-		height: 45px;
-		font-size: unset
-	}
-	.contac_bacg{
-		background-image: none;
-	}
-	.contact_map{
-		width: 100%;
-		height: 160px
-	}
-	.contact_about{
-		width: 100%;
-	    margin: 0 auto;
-	    padding: 20px 20px 50px;
-	}
-	.contact_name {
-	    margin-top: 60px;
-	}
-	.contac_title {
-	    font-size: 25px;
-	}
-	.sosyal_list ul li{
-		width: 34px;
-	    height: 34px;
-	    padding: 5px 9px;
-	    font-size: 14px;
-	}
-	.sosyal_list {
-	    margin-top: -17px;
-	}
-	.filterDiv, .filterDiv_ul{
-		width: 380px;
-		padding: 5px
-	}
-	.left-side{
-		padding-top: 15px;
-		padding-bottom: 15px;
-		text-align: center;
-	}
-	.left-side ul li>a{
-		padding: 5px 0px 5px 9px;
-		font-size: 19px !important
-	}
-	.balance .balance-count{
-		font-size: 13px;
-		top: 15px;
-		left: 15px
-	}
-	.balance-block{
-		height: 270px
-	}
-	.balance-block img{
-		height: 240px
-	}
-	.balance .balance-count .count{
-		font-size: 27px
-	}
-	.balance .balance-date{
-		top: 13px;
-		font-size: 13px;
-		right: 15px
-	}
-	.balance .balance-text{
-	    width: unset;
-	    left: 15px;
-	    right: 15px;
-	    top: 80px;
-	    font-size: 11px;
-	}
-	.balance .balance-text b{
-		font-size: 10px
-	}
-	.balance .btn-effect{
-	    width: unset;
-	    font-size: 14px;
-	    padding: 7px 14px;
-	    left: 15px;
-	    right: unset;
-	    bottom: 15px;
     }
-    .tooltip .tooltiptext{
-        width: 310px;
-        margin-left: -265px;
-    }
-    .tooltip .tooltiptext::after{
-    	left: 89%
-    }
-    .tab button.active {
-        border-bottom: 2px solid #1637f2;
-        border-radius: 4px;
-    }
-    .tab button{
-	    margin-bottom: 4px;
-	    border: 1px solid #ccc;
-	    padding: 0px 14px;
-	    width: 31%;
-	    text-align: center;
-	    margin: 4px 1%;
-	    border-radius: 4px;
-    }
-    .border_bar{
-    	margin-top: 6px;
-    	padding: 15px
-    }
-	.tab button img{
-	    margin-right: 0
-	}
-	.courier input , .courier_input {
-		margin: 5px 0
-	}
-	.brit_moon .dropdown, .brit_day .dropdown, .brit_year .dropdown{
-		padding: 9px 5px !important;
-	    font-size: 13px;
-	    height: 38px;
-	}
-	.brit_moon .fa-chevron-down, .brit_day .fa-chevron-down, .brit_year .fa-chevron-down{
-		margin: 5px 0!important;
-		font-size: 8px;
-	}
-	.brit_day{
-		padding-right: 5px
-	}
-	.brit_year{
-		padding-left: 5px
-	}
-	.million{
-	    width: 100%;
-    	font-size: 13px;
-    	height: 36px;
-	}
-	.million_num{
-		padding: 5px;
-    	margin-right: 4px;
-	}
-	.payment input{
-		width: 100%;
-		margin-bottom: 10px
-	}
-	.payment{
-		margin-bottom: 60px
-	}
-	.visa-logo{
-		text-align: center;
-		margin-bottom: 10px
-	}
-	.visa-logo .font_grey{
-		margin-bottom: 15px
-	}
-	.visa-logo img{
-		float: unset;
-		margin-top: 15px
-	}
-	.balance_azn .balance .balance-text{
-		top: unset;
-		font-size: 12px;
-	}
-	.index_cont .border_c{
-		padding: 15px;
-		margin: 15px 0 0
-	}
-	.index_cont .border_c img{
-		width: 40px
-	}
-	 .m_right_20, .m_left_20{
-	 	margin-left: 0;
-	 	margin-right: 0
-	 }
-	 .counter .cou_date .fas{
-	    font-size: 12px;
-    	margin-left: 5px;
-	 }
-	 .counter{
-	 	font-size: 15px;
-	 	padding: 30px 15px
-	 }
-	.counter .counter_text{
-	 	margin-top: 5px;
-    	margin-bottom: 20px;
-	 }
-	 .font_40 {
-	    font-size: 25px;
-	}
-	.height_380{
-		height: unset;
-	}
-	blockquote {
-	    text-align: left;
-	    font-size: 12px;
-	    padding: 10px 0px;
-	}
-	.carousel-indicators{
-	    width: 100%;
-    	left: 15%;
-	}
-	.partner .owl-carousel .owl-item img{
-		width: 130px
-	}
-	.partner {
+    .number_list{
+        width: 100%;
         margin-top: 60px;
-        height: 60px;
     }
-
+    .number_list ul li a{
+        padding: 5px 9px
+    }
+    .pricing_wi{
+        width: 100% ;
+        margin-top: 20px;
+    }
+    .pricing{
+        margin-top: 60px
+    }
+    .pricing .tablinks{
+        margin: 0 10px;
+        width: 50px
+    }
+    .pricing_price_fff{
+        width: 150px;
+        height: 50px;
+        font-size: 12px;
+    }
+    .contact_texta textarea{
+        height: 90px
+    }
+    .contact_input input{
+        height: 45px
+    }
+    .contact_send button{
+        height: 45px;
+        font-size: unset
+    }
+    .contac_bacg{
+        background-image: none;
+    }
+    .contact_map{
+        width: 100%;
+        height: 160px
+    }
+    .contact_about{
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 20px 50px;
+    }
+    .contact_name {
+        margin-top: 60px;
+    }
+    .contac_title {
+        font-size: 25px;
+    }
+    .sosyal_list ul li{
+        width: 34px;
+        height: 34px;
+        padding: 5px 9px;
+        font-size: 14px;
+    }
+    .sosyal_list {
+        margin-top: -17px;
+    }
+    .filterDiv, .filterDiv_ul{
+        width: 380px;
+        padding: 5px
+    }
+    .left-side{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    .left-side ul li>a{
+        padding: 5px 0px 5px 9px;
+        font-size: 19px !important
+    }
+    .balance .balance-count{
+        font-size: 13px;
+        top: 15px;
+        left: 15px
+    }
+    .balance-block{
+        height: 270px
+    }
+    .balance-block img{
+        height: 240px
+    }
+    .balance .balance-count .count{
+        font-size: 27px
+    }
+    .balance .balance-date{
+        top: 13px;
+        font-size: 13px;
+        right: 15px
+    }
+    .courier input , .courier_input {
+        margin: 5px 0
+    }
+    .brit_moon .dropdown, .brit_day .dropdown, .brit_year .dropdown{
+        padding: 9px 5px !important;
+        font-size: 13px;
+        height: 38px;
+    }
+    .brit_moon .fa-chevron-down, .brit_day .fa-chevron-down, .brit_year .fa-chevron-down{
+        margin: 5px 0!important;
+        font-size: 8px;
+    }
+    .brit_day{
+        padding-right: 5px
+    }
+    .brit_year{
+        padding-left: 5px
+    }
+    .million{
+        width: 100%;
+        font-size: 13px;
+        height: 36px;
+    }
+    .million_num{
+        padding: 5px;
+        margin-right: 4px;
+    }
+    .payment input{
+        width: 100%;
+        margin-bottom: 10px
+    }
+    .payment{
+        margin-bottom: 60px
+    }
+    .visa-logo{
+        text-align: center;
+        margin-bottom: 10px
+    }
+    .visa-logo .font_grey{
+        margin-bottom: 15px
+    }
+    .visa-logo img{
+        float: unset;
+        margin-top: 15px
+    }
+    .balance_azn .balance .balance-text{
+        top: unset;
+        font-size: 12px;
+    }
+    .index_cont .border_c{
+        padding: 15px;
+        margin: 15px 0 0
+    }
+    .index_cont .border_c img{
+        width: 40px
+    }
+    .m_right_20, .m_left_20{
+        margin-left: 0;
+        margin-right: 0
+    }
+    .counter .cou_date .fas{
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    .counter{
+        font-size: 15px;
+        padding: 0px 15px
+    }
+    .font_40 {
+        font-size: 25px;
+    }
+    .height_380{
+        height: unset;
+    }
+    blockquote {
+        text-align: left;
+        font-size: 12px;
+        padding: 10px 0px;
+    }
+    .carousel-indicators{
+        width: 100%;
+        left: 15%;
+    }
     .shops {
         width: 100px;
         height: 40px;
@@ -401,11 +395,6 @@
         bottom: 20px
     }
 
-    .partner {
-        margin-top: 0;
-        height: 140px;
-    }
-
     .index_cont {
         width: 100%;
         margin-bottom: 20px
@@ -417,6 +406,40 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+    .menu_sec ul li{
+        margin-left: 10px;
+    }
+    .title {
+        margin-bottom: 0 !important;
+    }
+    .contact_map iframe, .contact_map{
+        height: 130px !important;
+    }
+    h4, .h4, .blog_a a{
+        font-size: 12px;
+    }
+    .partner {
+        margin-top: 0;
+        height: 170px;
+    }
+    .blog_img {
+        height: 150px;
+    }
+    .blog_img img{
+        height: 150px;
+        object-fit: contain;
+    }
+    .cou_date{
+        font-size: 25px;
+    }
+    .cou_date_col .col-sm-4, .cou_date_col .col-xs-4{
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+    }
+    body, html, .contact, .counter .counter_text{
+        font-size: 12px;
+        font-weight: unset;
+    }
     .mob_dis, .dis_no, .img_slider, .rate_calculator, .daily_unit, .use_dis_no, .h4_height, .million_img, .loader_img {
         display: none;
     }
@@ -431,203 +454,204 @@
 
     .footer .search input, .slider_search .search input {
         width: 70%
-	}
-	.number_list {
-	    width: 80%;
-	}
-	.pricing_wi{
-		width: 100% ;
-		margin-top: 20px;
-	}
-	.pricing{
-		margin-top: 60px
-	}
-	.pricing .tablinks{
-		margin: 0 10px;
-		width: 50px
-	}
-	.pricing_price_fff{
-		width: 150px;
-	    height: 50px;
-	    font-size: 12px;
-	}
-	.pricing_box{
-		left: 90%
-	}
-	.contact_texta textarea{
-		height: 90px
-	}
-	.contact_input input{
-		height: 45px
-	}
-	.contact_send button{
-		height: 45px;
-		font-size: unset
-	}
-	.contac_bacg{
-		background-image: none;
-	}
-	.contact_map{
-		width: 100%;
-		height: 160px
-	}
-	.contact_about{
-		width: 100%;
-	    margin: 0 auto;
-	    padding: 20px 20px 50px;
-	}
-	.contact_name {
-	    margin-top: 60px;
-	}
-	.contac_title {
-	    font-size: 25px;
-	}
-	.sosyal_list ul li{
-		width: 34px;
-	    height: 34px;
-	    padding: 5px 9px;
-	    font-size: 14px;
-	}
-	.sosyal_list {
-	    margin-top: -17px;
-	}
-	.filterDiv, .filterDiv_ul{
-		width: 540px;
-		padding: 5px
-	}
-	.left-side{
-		padding-top: 15px;
-		padding-bottom: 15px;
-		text-align: center;
-	}
-	.left-side ul li>a{
-		padding: 5px 0px 5px 9px;
-		font-size: 19px !important
-	}
-	.balance .balance-count{
-		font-size: 13px;
-		top: 15px;
-		left: 15px
-	}
-	.balance-block{
-		height: 270px
-	}
-	.balance-block img, .right_time{
-		height: 240px
-	}
-	.balance .balance-count .count{
-		font-size: 27px
-	}
-	.balance .balance-date{
-		top: 13px;
-		font-size: 13px;
-		right: 15px
-	}
-	.balance .balance-text{
-	    width: unset;
-	    left: 15px;
-	    right: 15px;
-	    top: 100px;
-	    font-size: 11px;
-	}
-	.balance .balance-text b{
-		font-size: 10px
-	}
-	.balance .btn-effect{
-	    width: unset;
-	    font-size: 14px;
-	    padding: 7px 14px;
-	    left: 15px;
-	    right: unset;
-	    bottom: 15px;
+    }
+    .number_list {
+        width: 80%;
+    }
+    .pricing_wi{
+        width: 100% ;
+        margin-top: 20px;
+    }
+    .pricing{
+        margin-top: 60px
+    }
+    .pricing .tablinks{
+        margin: 0 10px;
+        width: 50px
+    }
+    .pricing_price_fff{
+        width: 150px;
+        height: 50px;
+        font-size: 12px;
+    }
+    .pricing_box{
+        left: 90%
+    }
+    .contact_texta textarea{
+        height: 90px
+    }
+    .contact_input input{
+        height: 45px
+    }
+    .contact_send button{
+        height: 45px;
+        font-size: unset
+    }
+    .contac_bacg{
+        background-image: none;
+    }
+    .contact_map{
+        width: 100%;
+        height: 160px
+    }
+    .contact_about{
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px 20px 50px;
+    }
+    .contact_name {
+        margin-top: 60px;
+    }
+    .contac_title {
+        font-size: 25px;
+    }
+    .sosyal_list ul li{
+        width: 34px;
+        height: 34px;
+        padding: 5px 9px;
+        font-size: 14px;
+    }
+    .sosyal_list {
+        margin-top: -17px;
+    }
+    .filterDiv, .filterDiv_ul{
+        width: 540px;
+        padding: 5px
+    }
+    .left-side{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    .left-side ul li>a{
+        padding: 5px 0px 5px 9px;
+        font-size: 19px !important
+    }
+    .balance .balance-count{
+        font-size: 13px;
+        top: 15px;
+        left: 15px
+    }
+    .balance-block{
+        height: 270px
+    }
+    .balance-block img, .right_time{
+        height: 240px
+    }
+    .balance .balance-count .count{
+        font-size: 27px
+    }
+    .balance .balance-date{
+        top: 13px;
+        font-size: 13px;
+        right: 15px
+    }
+    .balance .balance-text{
+        width: unset;
+        left: 15px;
+        right: 15px;
+        top: 100px;
+        font-size: 11px;
+    }
+    .balance .balance-text b{
+        font-size: 10px
+    }
+    .balance .btn-effect{
+        width: unset;
+        font-size: 14px;
+        padding: 7px 14px;
+        left: 15px;
+        right: unset;
+        bottom: 15px;
     }
     .tooltip .tooltiptext{
         width: 310px;
         margin-left: -265px;
     }
     .tooltip .tooltiptext::after{
-    	left: 89%
+        left: 89%
     }
     .tab button.active {
         border-bottom: 2px solid #1637f2;
         border-radius: 4px;
     }
     .tab button{
-	    margin-bottom: 4px;
-	    border: 1px solid #ccc;
-	    padding: 0px 14px;
-	    width: 31%;
-	    text-align: center;
-	    margin: 4px 1%;
-	    border-radius: 4px;
+        margin-bottom: 4px;
+        border: 1px solid #ccc;
+        padding: 0px 14px;
+        width: 31%;
+        text-align: center;
+        margin: 4px 1%;
+        border-radius: 4px;
     }
     .border_bar{
-    	margin-top: 6px;
-    	padding: 15px
+        margin-top: 6px;
+        padding: 15px
     }
-	.tab button img{
-	    margin-right: 0
-	}
-	.courier input{
-		margin: 5px 0
-	}
-	.million{
-	    width: 100%;
-    	font-size: 13px;
-    	height: 36px;
-	}
-	.million_num{
-		padding: 5px;
-    	margin-right: 4px;
-	}
-	.payment input{
-		width: 49%;
-		margin-bottom: 10px
-	}
-	.payment{
-		margin-bottom: 60px
-	}
-	.visa-logo{
-		margin-bottom: 10px
-	}
-	.visa-logo .font_grey{
-		margin-bottom: 15px
-	}
-	.balance_azn .balance .balance-text{
-		top: unset;
-		font-size: 12px;
-	}
-	.index_cont .border_c{
-		padding: 15px;
-		margin: 15px 0 0
-	}
-	.index_cont .border_c img{
-		width: 40px
-	}
-	 .m_right_20, .m_left_20{
-	 	margin-left: 0;
-	 	margin-right: 0
-	 }
-	 .counter .cou_date .fas{
-	    font-size: 15px;
-    	margin-left: 5px;
-	 }
-	 .counter{
-	 	font-size: 18px;
-	 	padding: 30px 15px
-	 }
-	.counter .counter_text{
-	 	margin-top: 5px;
-    	margin-bottom: 20px;
-	 }
-	 .font_40 {
-	    font-size: 25px;
-	}
-	.height_380{
-		height: unset;
-	}
-	blockquote {
-	    text-align: left;
+    .tab button img{
+        margin-right: 0
+    }
+
+    .courier input{
+        margin: 5px 0
+    }
+    .million{
+        width: 100%;
+        font-size: 13px;
+        height: 36px;
+    }
+    .million_num{
+        padding: 5px;
+        margin-right: 4px;
+    }
+    .payment input{
+        width: 49%;
+        margin-bottom: 10px
+    }
+    .payment{
+        margin-bottom: 60px
+    }
+    .visa-logo{
+        margin-bottom: 10px
+    }
+    .visa-logo .font_grey{
+        margin-bottom: 15px
+    }
+    .balance_azn .balance .balance-text{
+        top: unset;
+        font-size: 12px;
+    }
+    .index_cont .border_c{
+        padding: 15px;
+        margin: 15px 0 0
+    }
+    .index_cont .border_c img{
+        width: 40px
+    }
+    .m_right_20, .m_left_20{
+        margin-left: 0;
+        margin-right: 0
+    }
+    .counter .cou_date .fas{
+        font-size: 15px;
+        margin-left: 5px;
+    }
+    .counter{
+        font-size: 18px;
+        padding: 30px 15px
+    }
+    .counter .counter_text{
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    .font_40 {
+        font-size: 25px;
+    }
+    .height_380{
+        height: unset;
+    }
+    blockquote {
+        text-align: left;
         font-size: 12px;
         padding: 10px 0px;
     }
@@ -730,179 +754,151 @@
     .menu_sec .dropdown .btn {
         padding: 6px;
         font-size: 11px
-	}
-	.menu_sec {
-	    padding-top: 5px;
-	}
-	.menu_sec ul li {
-	    margin-left: 25px;
-	}
-	.blog_img_he img, .blog_img_he{
-		height: 200px
-	}
-	.line_he{
-		font-size: 15px
-	}
-	.number_list {
-	    width: 50%;
-	}
-	.pricing_wi {
+    }
+    .menu_sec {
+        padding-top: 5px;
+    }
+    .menu_sec ul li {
+        margin-left: 25px;
+    }
+    .blog_img_he img, .blog_img_he{
+        height: 200px
+    }
+    .line_he{
+        font-size: 15px
+    }
+    .number_list {
+        width: 50%;
+    }
+    .pricing_wi {
         width: 100%;
         padding: 30px !important;
         border-radius: 15px;
         margin-bottom: 30px
     }
-	.pricing_box{
-		left: 93%
-	}
-	.pricing{
-		margin-top: 60px
-	}
-	.pricing .tablinks{
-		margin: 0 7px;
-		width: 130px;
-		font-size: 13px
-	}
-	.img_slider, .rate_calculator, .daily_unit, .use_dis_no, .h4_height{
-		display: none;
-	}
-	.contact_texta textarea{
-		height: 90px
-	}
-	.contact_input input{
-		height: 45px
-	}
-	.contact_send button{
-		height: 45px;
-		font-size: unset
-	}
-	.contact_about{
-		margin-left: 8%;
-	    padding: 20px 20px 50px;
-	}
-	.contact_name {
-	    margin-top: 60px;
-	}
-	.contac_title {
-	    font-size: 25px;
-	}
-	.sosyal_list ul li{
-		width: 34px;
-	    height: 34px;
-	    padding: 5px 9px;
-	    font-size: 14px;
-	}
-	.contact_map{
-		height: 220px
-	}
-	.contac_bacg{
-		background-size: 407px
-	}
-	.sosyal_list {
-	    margin-top: -17px;
-	}
-	.left-side ul li>a {
-	    padding: 5px 0px 5px 9px;
-	    font-size: 19px !important;
-	}
-	.left-side {
-	    padding-top: 15px;
-	    padding-bottom: 15px;
-	    text-align: center;
-	}
-	.balance .balance-count{
-		font-size: 13px;
-		top: 15px;
-		left: 15px
-	}
-	.balance-block{
-		height: 230px
-	}
-	.balance-block img, .right_time{
-		height: 220px
-	}
-	.balance .balance-count .count{
-		font-size: 27px
-	}
-	.balance .balance-date{
-		top: 13px;
-		font-size: 13px;
-		right: 15px
-	}
-	.balance .balance-text{
-	    width: unset;
-	    left: 15px;
-	    right: 15px;
-	    top: 80px;
-	    font-size: 11px;
-	}
-	.balance .balance-text b{
-		font-size: 10px
-	}
-	.balance .btn-effect{
-	    width: unset;
-	    font-size: 14px;
-	    padding: 7px 14px;
-	    left: 15px;
-	    right: unset;
-	    bottom: 15px;
+    .pricing_box{
+        left: 93%
+    }
+    .pricing{
+        margin-top: 60px
+    }
+    .pricing .tablinks{
+        margin: 0 7px;
+        width: 130px;
+        font-size: 13px
+    }
+    .img_slider, .rate_calculator, .daily_unit, .use_dis_no, .h4_height{
+        display: none;
+    }
+    .contact_texta textarea{
+        height: 90px
+    }
+    .contact_input input{
+        height: 45px
+    }
+    .contact_send button{
+        height: 45px;
+        font-size: unset
+    }
+    .contact_about{
+        margin-left: 8%;
+        padding: 20px 20px 50px;
+    }
+    .contact_name {
+        margin-top: 60px;
+    }
+    .contac_title {
+        font-size: 25px;
+    }
+    .sosyal_list ul li{
+        width: 34px;
+        height: 34px;
+        padding: 5px 9px;
+        font-size: 14px;
+    }
+    .contact_map{
+        height: 220px
+    }
+    .contac_bacg{
+        background-size: 407px
+    }
+    .sosyal_list {
+        margin-top: -17px;
+    }
+    .left-side ul li>a {
+        padding: 5px 0px 5px 9px;
+        font-size: 19px !important;
+    }
+    .left-side {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    .balance .balance-count{
+        font-size: 13px;
+        top: 15px;
+        left: 15px
+    }
+    .balance-block{
+        height: 230px
+    }
+    .balance-block img, .right_time{
+        height: 220px
+    }
+    .balance .balance-count .count{
+        font-size: 27px
+    }
+    .balance .balance-date{
+        top: 13px;
+        font-size: 13px;
+        right: 15px
+    }
+    .balance .balance-text{
+        width: unset;
+        left: 15px;
+        right: 15px;
+        top: 80px;
+        font-size: 11px;
+    }
+    .balance .balance-text b{
+        font-size: 10px
     }
     .daily_unit, .rate_calculator, .border_sh{
-    	padding: 15px
+        padding: 15px
     }
-    .tab button.active {
-        border-bottom: 2px solid #1637f2;
-        border-radius: 4px;
+    .courier input , .courier_input  {
+        margin: 5px 0;
     }
-    .tab button{
-	    margin-bottom: 4px;
-	    border: 1px solid #ccc;
-	    padding: 0px 14px;
-	    width: 31%;
-	    text-align: center;
-	    margin: 4px 1%;
-	    border-radius: 4px;
+    .million{
+        width: 100%;
+        font-size: 13px;
+        height: 36px;
     }
-    .border_bar{
-    	margin-top: 6px;
-    	padding: 15px
+    .million_num{
+        padding: 5px;
+        margin-right: 4px;
     }
-	.tab button img{
-	    margin-right: 0
-	}
-	.courier input , .courier_input  {
-	    margin: 5px 0;
-	}
-	.million{
-	    width: 100%;
-    	font-size: 13px;
-    	height: 36px;
-	}
-	.million_num{
-		padding: 5px;
-    	margin-right: 4px;
-	}
-	.payment input{
-		width: 49%;
-		margin-bottom: 10px
-	}
-	.payment{
-		margin-bottom: 60px
-	}
-	.visa-logo{
-		margin-bottom: 10px
-	}
-	.visa-logo .font_grey{
-		margin-bottom: 15px
-	}
-	.visa-logo img{
-		float: unset;
-		margin-top: 15px
-	}
-	.balance_azn, .balance_azn img{
-	    height: 246px ;
-	}
-	.balance_azn .balance .balance-text{
+    .payment input{
+        width: 49%;
+        margin-bottom: 10px
+    }
+    .payment{
+        margin-bottom: 60px
+    }
+    .visa-logo{
+        margin-bottom: 10px
+    }
+    .visa-logo .font_grey{
+        margin-bottom: 15px
+    }
+    .visa-logo img{
+        float: unset;
+        margin-top: 15px
+    }
+    .balance_azn, .balance_azn img{
+        height: 246px ;
+    }
+    .balance_azn .balance .balance-text{
         top: unset;
         font-size: 12px;
     }
@@ -1006,49 +1002,31 @@
         font-size: 13px;
         top: 15px;
         left: 15px
-	}
-	.balance-block{
-		height: 300px
-	}
-	.balance-block img, .right_time{
-		height: 217px
-	}
-	.balance .balance-count .count{
-		font-size: 27px
-	}
-	.balance .balance-date{
-		top: 13px;
-		font-size: 13px;
-		right: 15px
-	}
-	.balance .balance-text{
-	    width: unset;
-	    left: 15px;
-	    right: 15px;
-	    top: 80px;
-	    font-size: 11px;
-	}
-	.balance .balance-text b{
-		font-size: 10px
-	}
-	.balance .btn-effect{
-	    width: unset;
-	    font-size: 14px;
-	    padding: 7px 14px;
-	    left: 15px;
-	    right: unset;
-	    bottom: 15px;
+    }
+    .balance-block{
+        height: 300px
+    }
+    .balance-block img, .right_time{
+        height: 217px
+    }
+    .balance .balance-count .count{
+        font-size: 27px
+    }
+    .balance .balance-date{
+        top: 13px;
+        font-size: 13px;
+        right: 15px
     }
     .daily_unit, .rate_calculator{
-    	padding: 15px
+        padding: 15px
     }
-	.payment input, .payment_button{
-		width: 32%;
-		margin-bottom: 10px
-	}
-	.balance_azn, .balance_azn img{
-	    height: 246px ;
-	}
+    .payment input, .payment_button{
+        width: 32%;
+        margin-bottom: 10px
+    }
+    .balance_azn, .balance_azn img{
+        height: 246px ;
+    }
 
 }
 

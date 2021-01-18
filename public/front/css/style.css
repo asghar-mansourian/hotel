@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'MontserratAlternates-ExtraBoldItalic';
     src: url('../fonts/MontserratAlternates-ExtraBoldItalic.eot');
@@ -38,14 +37,15 @@ body,html{
     transition: 500ms;
     scroll-behavior: smooth;
     min-height: 700px;
+    font-weight: bold;
     font-family: Montserrat-Light;
     color: #19170f !important
 }
 a {
-    color: #19170f;
+    color: #fff;
 }
 a:hover, a:focus {
-    color: #18cec533;
+    color: #daf3eff0;
     text-decoration: underline;
 }
 .float-left{
@@ -427,13 +427,21 @@ textarea{
     height: 100px;
 }
 .title{
-    background: linear-gradient(50deg,#2AF598,#08AEEA);
+    background: linear-gradient(50deg,#2AF598,#12c3d2);
     padding-bottom: 15px
 }
+.rate_calculator .title_list{
+    color: #12c3d2;
+    font-size: 14px;
+    font-weight: bold;
+}
 .title_list{
-    color: #19170f;
+    color: #fff;
     font-size: 16px;
     font-family: Montserrat-Bold;
+}
+.menu_list a{
+    color: #fff;
 }
 .font_grey{
     color: #ccc;
@@ -490,25 +498,27 @@ textarea{
     border-bottom: 1px solid #fff;
 }
 .menu_sec ul li a:hover,.dropdown_dr .active, .yellow{
-    color: #2AF598;
+    color: #12c3d2;
 }
 .menu_sec .dropdown .btn{
     margin-top: -10px;
     /*background: #ffffff;*/
-    color: #08aeea;
+    color: #12c3d2;
     font-weight: bold;
 }
 .menu_sec .dropdown a{
     font-size: 12px;
     padding-left: 10px;
-    color: #08aeea;
+    color: #12c3d2;
+}
+.menu_sec #dropdown_panel {
+    color: #fff;
 }
 .footer_sky {
     position: relative;
-    background: linear-gradient(50deg,#2AF598,#08AEEA);
+    background: linear-gradient(50deg,#2AF598,#12c3d2);
     overflow: hidden;
     height: 100%;
-    padding-top: 30px;
 }
 .footer_sky:before {
     content: ' ';
@@ -526,7 +536,7 @@ textarea{
     background-size: cover;
 }
 .black{
-    color: #08aeea;
+    color: #12c3d2;
     font-family: Montserrat-Bold;
     font-size: 16px;
 }
@@ -540,7 +550,7 @@ textarea{
     font-family: Montserrat-Bold;
 }
 .color_blue{
-    color: #08AEEA;
+    color: #12c3d2;
     font-family: Montserrat-Bold;
 }
 .rate_calculator input:focus,
@@ -553,16 +563,16 @@ select:focus, input:focus, textarea:focus{
 }
 .footer .menu ul li{
     float: left;
-    border-radius: 100%;
+    border-radius: 5px;
     background: #fff;
-    margin-left: 10px;
+    margin-right: 10px;
     width: 40px;
     height: 40px;
     padding: 11px 14px;
     font-size: 14px;
 }
 .footer .menu ul li a{
-    color: #08AEEA
+    color: #12c3d2
 }
 .footer .menu ul li a i{
     margin-right: 0
@@ -630,8 +640,8 @@ label{
 .courier_input:focus {
     border-color: #2AF598;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255 229 128);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(255 229 128);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(221 252 219);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(221 252 219);
 }
 .h-100p{
     height: 100px
@@ -639,8 +649,8 @@ label{
 .button-part button{
     text-decoration: none;
     border-radius: 4px;
-    border: 1px solid #2AF598;
-    background: #2AF598;
+    border: 1px solid #12c3d2;
+    background: #12c3d2;
     color: #fff;
     display: inline-block;
     width: 170px;
@@ -1000,7 +1010,7 @@ span#procent::after {
     cursor: pointer;
     color: #19170f;
     border-bottom: 1px solid #ccc;
-    padding: 8px 16px;
+    padding: 8px 10px;
     transition: 0.3s;
     border-left: 1px solid transparent;
     border-right: 1px solid transparent;
@@ -1008,7 +1018,7 @@ span#procent::after {
 .tab button:hover {
 }
 .tab button.active {
-    border-top: 2px solid #2AF598;
+    border-top: 2px solid #12c3d2;
     border-bottom: 1px solid transparent;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
@@ -1062,10 +1072,10 @@ span#procent::after {
     display: block;
 }
 .active_li{
-    border-left: 5px solid #2AF598 !important;
+    border-left: 5px solid #12c3d2 !important;
 }
 .active_li a{
-    color: #2AF598!important
+    color: #12c3d2 !important
 }
 .filterDiv {
     float: left;
@@ -1082,18 +1092,18 @@ span#procent::after {
     text-align: center;
 }
 .filterDiv:hover{
-    background: #18cec533
+    background: #18cec505
 }
 .filterDiv ul li{
     float: left;
     width: 33.3%;
 }
 .filterDiv_ul ul li{
-    background: #2AF598;
+    background: #12c3d2;
     text-align: center;
     width: 33.3%;
     float: left;
-    border-bottom: 1px solid #2AF598;
+    border-bottom: 1px solid #12c3d2;
     padding: 8px;
     font-family: Montserrat-Bold
 }
@@ -1115,7 +1125,7 @@ span#procent::after {
     text-overflow: ellipsis;
 }
 .praduct_list_ul{
-    background: #ffeca1;
+    background: #ddfcdb;
     height: 40px;
     padding: 10px;
 }
@@ -1143,7 +1153,7 @@ span#procent::after {
     margin-right: 10px
 }
 .tab button.active .fas{
-    color: #2AF598;
+    color: #12c3d2;
 }
 .tab button .fas{
     padding-right: 10px
@@ -1164,7 +1174,7 @@ span#procent::after {
     font-size: 11px
 }
 input:read-only {
-    background-color: #fff2bf;
+    background-color: #18cec505;
 }
 .million{
     background: #18cec533;
@@ -1209,7 +1219,7 @@ input:read-only {
     height: 246px ;
 }
 .order_button{
-    /*background: #ffeca1;*/
+    /*background: #ddfcdb;*/
     border: 2px solid #2AF598;
     padding: 10px 20px;
     text-decoration: none;
@@ -1220,8 +1230,8 @@ input:read-only {
     font-family: 'Montserrat-Bold';
 }
 .invoice_button{
-    background: #2AF598;
-    border: 2px solid #ffeca1;
+    background: #12c3d2;
+    border: 2px solid #ddfcdb;
     padding: 10px 20px;
     text-decoration: none;
     margin-right: 10px;
@@ -1229,6 +1239,9 @@ input:read-only {
     height: 45px;
     color: #19170f;
     font-family: 'Montserrat-Bold';
+}
+.invoice_button:hover{
+    color: #19170f;
 }
 .courier_textare{
     width: 100%;
@@ -1248,8 +1261,8 @@ input:read-only {
     height: 45px
 }
 .courier_button{
-    background: #2AF598;
-    border: 2px solid #2AF598;
+    background: #12c3d2;
+    border: 2px solid #12c3d2;
     padding: 5px;
     height: 45px;
     width: 140px;
@@ -1260,7 +1273,7 @@ input:read-only {
     font-family: 'Montserrat-Bold';
 }
 .courier_trash{
-    background: #ffeca1;
+    background: #ddfcdb;
     border: 2px solid #2AF598;
     padding: 5px;
     height: 45px;
@@ -1328,8 +1341,8 @@ input:read-only {
 .contact_border button{
     padding: 0 25px;
     border-radius: 4px;
-    background: #08AEEA;
-    border: 1px solid #08AEEA;
+    background: #12c3d2;
+    border: 1px solid #12c3d2;
     color: white;
 }
 .contact_border{
@@ -1396,7 +1409,7 @@ a:hover{
 }
 .cou_date{
     font-family: Montserrat-Bold;
-    background: linear-gradient(50deg,#08AEEA,#2AF598);
+    background: linear-gradient(50deg,#12c3d2,#2AF598);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
@@ -1567,15 +1580,17 @@ blockquote{
     /*margin-top: 50px;*/
 }
 .partner .owl-carousel .owl-item img{
-    width: 180px;
-    margin: 0 auto
+    width: 140px;
+    height: 90px;
+    margin: 0 auto;
+    object-fit: contain;
 }
 .index_contact{
     margin-top: -30px
 }
 .index_contact_order{
     background: #fff;
-    color: #08aeea;
+    color: #12c3d2;
     padding: 5px 20px;
     border-radius: 4px;
     font-size: 15px;
@@ -1618,7 +1633,7 @@ blockquote{
 }
 .green_blue{
     font-family: Montserrat-Bold;
-    background: linear-gradient(50deg,#08AEEA,#2AF598);
+    background: linear-gradient(50deg,#12c3d2,#2AF598);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
@@ -1667,8 +1682,11 @@ blockquote{
     background: #f1f1f1;
     width: 100%;
     margin: 0 auto;
-    height: 360px;
+    height: 200px;
     border: 1px solid #19170f;
+}
+.contact_map iframe {
+    height: 200px !important;
 }
 .contact_about{
     background: #f1f1f1;
@@ -1722,21 +1740,22 @@ blockquote{
 }
 .pricing .tablinks{
     height: 40px;
-    margin-right: 40px;
+    margin-right: 25px;
     width: 120px;
     font-size: 12px;
     font-family: Montserrat-Bold;
     border: none;
-    color: #08AEEA;
-    border: 1px solid #08AEEA;
+    color: #12c3d2;
+    border: 1px solid #12c3d2;
     border-radius: 10px;
+    text-align: center
 }
 .pricing .tablinks img{
     width: 20px;
     margin-right: 10px;
 }
 .pricing .tab button.active{
-    background: #2AF598;
+    background: #12c3d2;
     border: none;
     color: #fff;
     border-radius: 0;
@@ -1793,7 +1812,7 @@ blockquote{
     background-size: 110%;
 }
 .pricing_price_fff{
-    background: linear-gradient(50deg,#2AF598,#08AEEA);
+    background: linear-gradient(50deg,#2AF598,#12c3d2);
     width: 210px;
     float: right;
     /*margin-top: -33px;*/
@@ -1807,8 +1826,8 @@ blockquote{
     margin-top:-25px
 }
 .pricing_price_yellow button{
-    background: #08AEEA;
-    border: 1px solid #08AEEA;
+    background: #12c3d2;
+    border: 1px solid #12c3d2;
     outline: none;
     font-size: 13px;
     color: #fff;
@@ -1824,11 +1843,11 @@ blockquote{
     text-align: center;
 }
 .pricing th[scope="col"] {
-    background-color: #08AEEA;
+    background-color: #12c3d2;
     color: #fff;
 }
 .pricing th[scope="row"] {
-    background-color: #08aeea1f;
+    background-color: #F2FBFE;
 }
 .pricing table {
     letter-spacing: 1px;
@@ -1866,7 +1885,7 @@ blockquote{
     margin-left: 5px;
     margin-top: -5px;
     font-family: Montserrat-Bold;
-    background: linear-gradient(50deg,#08AEEA,#2AF598);
+    background: linear-gradient(50deg,#12c3d2,#2AF598);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
@@ -1938,9 +1957,9 @@ blockquote{
 .slider_search .search button{
     height: 48px;
     margin-left: -34px;
-    background: #08AEEA;
+    background: #12c3d2;
     color: #fff;
-    border: 1px solid #08AEEA;
+    border: 1px solid #12c3d2;
     width: 160px;
     border-radius: 16px;
 }
@@ -1980,7 +1999,7 @@ blockquote{
     display: block;
     position: absolute;
     left: 0;
-    /*background: linear-gradient(50deg,#2AF598,#08AEEA);*/
+    /*background: linear-gradient(50deg,#2AF598,#12c3d2);*/
     top: 0;
     width: 100%;
     height: 100%;
@@ -1996,7 +2015,7 @@ blockquote{
     display: block;
     position: absolute;
     left: 0;
-    background: linear-gradient(50deg,#2AF598,#08AEEA);
+    background: linear-gradient(50deg,#2AF598,#12c3d2);
     top: 0;
     width: 100px;
     height: 70px;
@@ -2041,7 +2060,7 @@ blockquote{
     border-left: none !important;
 }
 .number_list .active{
-    background: #2AF598;
+    background: #12c3d2;
     color: #fff;
 }
 .number_list{
@@ -2054,7 +2073,7 @@ blockquote{
 }
 .blog_yellow{
     font-size: 40px;
-    background: linear-gradient(50deg,#08AEEA,#2AF598);
+    background: linear-gradient(50deg,#12c3d2,#2AF598);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
@@ -2065,7 +2084,7 @@ blockquote{
     font-weight: bold
 }
 .blog_sosyal ul li{
-    background: linear-gradient(50deg,#2AF598,#08AEEA);
+    background: linear-gradient(50deg,#2AF598,#12c3d2);
     margin: 0 auto;
     margin-bottom: 10px;
     width: 39px;
@@ -2091,7 +2110,7 @@ blockquote{
     display: block;
     position: absolute;
     left: 0;
-    /*background: linear-gradient(50deg,#2AF598,#08AEEA);*/
+    /*background: linear-gradient(50deg,#2AF598,#12c3d2);*/
     top: 0;
     width: 100%;
     /*height: 100%;*/
@@ -2121,7 +2140,7 @@ blockquote{
     margin-right: 10px;
 }
 .pricing_title{
-    background-color: #08AEEA;
+    background-color: #12c3d2;
     color: #fff;
     border-left: 1px solid rgb(190, 190, 190);
     padding: 10px;
@@ -2178,7 +2197,7 @@ blockquote{
     display: block;
     position: absolute;
     left: 0;
-    /*background: linear-gradient(50deg,#2AF598,#08AEEA);*/
+    /*background: linear-gradient(50deg,#2AF598,#12c3d2);*/
     top: 0;
     width: 100%;
     height: 100%;
@@ -2197,7 +2216,7 @@ blockquote{
     display: block;
     position: absolute;
     left: 0;
-    /*background: linear-gradient(50deg,#2AF598,#08AEEA);*/
+    /*background: linear-gradient(50deg,#2AF598,#12c3d2);*/
     top: 0;
     width: 100%;
     /*height: 100%;*/
@@ -2223,7 +2242,7 @@ blockquote{
     width: 30px;
 }
 .track .step.active:before {
-    background: #08AEEA !important;
+    background: #12c3d2 !important;
 }
 
 .contact {
@@ -2232,15 +2251,4 @@ blockquote{
     font-weight: bold;
     line-height: 1.8;
 }
-
-
-
-
-
-
-
-
-
-
-
 

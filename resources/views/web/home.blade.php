@@ -96,9 +96,9 @@
                     <p>{{__('website.contactInformation2')}}</p>
                     <p>{{__('website.contactInformation3')}}</p>
                     <p>{{__('website.contactInformation4')}}</p>
-{{--                    <div class="mt-5">--}}
-{{--                        <a href="#" class="index_contact_order">{{__('website.order')}}</a>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="mt-5">--}}
+                    {{--                        <a href="#" class="index_contact_order">{{__('website.order')}}</a>--}}
+                    {{--                    </div>--}}
                 </div>
 
                 <div class="col-md-6 calculator1"  style="top: 20px;position: absolute;z-index: 5000;right: 47px;">
@@ -265,7 +265,7 @@
                     </div>
                 </div>
             </div>
-            <div class="counter" id="counter">
+            <div class="counter cou_date_col" id="counter">
                 <div class="container p-0 mt-5">
                     <div class="row">
                         <div class="col-md-12 mb-5">
@@ -280,7 +280,7 @@
 
                         </div>
                         <div style="clear:both"></div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
                             <div class="cou_date_box">
                                 <div class="yellow counter_text">{{__('website.home_page_counter_text1')}}</div>
                                 <div class="cou_date">
@@ -290,7 +290,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
                             <div class="cou_date_box">
                                 <div class="yellow counter_text">{{__('website.home_page_counter_text2')}}</div>
                                 <div class="cou_date">
@@ -300,7 +300,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-4 col-sm-4 col-xs-4">
                             <div class="cou_date_box">
                                 <div class="yellow counter_text">{{__('website.home_page_counter_text3')}}</div>
                                 <div class="cou_date">
@@ -313,14 +313,14 @@
                     </div>
                 </div>
             </div>
-            <div class="site_center mt-5">
+            <div class="blog">
                 <div class="container">
-                    <div class="row">
-                        <div class="black pt-5"><h3>{{__('website.newsevents')}}</h3>
-                            <span><hr class="blue_hr" style=""></span>
-                        </div>
+                    <div class="black pt-5"><h3>{{__('website.newsevents')}}</h3>
+                        <span><hr class="blue_hr" style=""></span>
+                    </div>
+                    <div class="owl-carousel owl-theme">
                         @foreach($blogs as $blog)
-                            <div class="col-md-4 col-sm-6 height_380 p-0 mt-4 mb-4">
+                            <div class="item">
                                 <div class="blog_mage col-md-5 col-sm-5">
                                     <div class="blog_img" style=":before background: none"><img
                                             src="{{url('images/'.$blog->picture)}}" class="w-100"></div>
@@ -337,6 +337,7 @@
                                                 class="fas fa-chevron-right ml-3"></i></a>
                                     </div>
                                 </div>
+
                             </div>
                         @endforeach
                     </div>
@@ -420,6 +421,27 @@
         }
     </script>
     <script type="text/javascript">
+        $('.blog .owl-carousel').owlCarousel({
+            loop: false,
+            margin: 10,
+            dots: true,
+            autoplay: true,
+            loop: true,
+            autoplayTimeout: 9000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 2
+                }
+            }
+        })
+    </script>
+    <script type="text/javascript">
         $('.partner .owl-carousel').owlCarousel({
             loop: false,
             margin: 10,
@@ -431,11 +453,11 @@
                 0: {
                     items: 2
                 },
-                600: {
+                481: {
                     items: 3
                 },
                 1000: {
-                    items: 4
+                    items: 6
                 }
             }
         })
@@ -450,10 +472,10 @@
             autoplayTimeout: 3000,
             responsive: {
                 0: {
-                    items: 2
+                    items: 1
                 },
                 600: {
-                    items: 3
+                    items: 2
                 },
                 1000: {
                     items: 2

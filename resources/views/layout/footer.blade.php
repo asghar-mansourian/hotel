@@ -3,18 +3,17 @@
     <div class="footer_sky">
         <div class="container" style="margin-bottom: 25px;">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mt-5">
                     <div class="logo">
                         <img src="{{url('front/image/favicon/Untitled-1-05.svg')}}">
-                        <div class="font_grey mt-5" style="    color: #151f59;">
+                        <div class="font_grey mt-5" style="    color: #fff;">
                             {{__('website.footer_bottom_left')}}
                             <div class="mt-3">
-                                <a href="#"
-                                   class="font_black blue"><strong>{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</strong></a>
+                                <a href="#" class="font_black blue"><strong style="color: #fff">{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</strong></a>
                             </div>
                         </div>
                         <div class="font_black blue mt-3">
-                            <strong>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</strong></div>
+                            <strong style="color: #fff">{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</strong></div>
                         <div class="menu mt-5 ">
                             <ul class="p-0">
                                 <li>
@@ -52,39 +51,41 @@
 
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                    <div class="title_list">{{__('website.service')}}</div>
-                    <div class="menu_list mt-5">
-                        {{--                                     <span>--}}
-                        {{--                         {{\App\Setting::getValue(\App\Setting::FIELD_SERVICE)}}--}}
-                        {{--                     </span>--}}
-                        <a href="{{url('/faq')}}"> {{__('website.faq')}} </a>
-                        <br>
-                        <a style="line-height: 43px;" href="{{url('/how-we-work')}}">{{__('website.howwework')}} </a>
-                        <br>
-                        <a href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
-                        <br>
-                        <a style="line-height: 43px;" href="{{url('/blog')}}">{{__('website.blog')}}</a>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mt-5">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 p-0">
+                        <div class="title_list">{{__('website.service')}}</div>
+                        <div class="menu_list mt-5">
+                            {{--                                     <span>--}}
+                            {{--                         {{\App\Setting::getValue(\App\Setting::FIELD_SERVICE)}}--}}
+                            {{--                     </span>--}}
+                            <a href="{{url('/faq')}}"> {{__('website.faq')}} </a>
+                            <br>
+                            <a style="line-height: 43px;" href="{{url('/how-we-work')}}">{{__('website.howwework')}} </a>
+                            <br>
+                            <a href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
+                            <br>
+                            <a style="line-height: 43px;" href="{{url('/blog')}}">{{__('website.blog')}}</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 p-0">
+                        <div class="title_list">{{__('website.aboutus')}}</div>
+                        <div class="menu_list mt-5">
+                            {{--                                    <span>--}}
+                            {{--                        {{\App\Setting::getValue(\App\Setting::FIELD_ABOUT_US)}}--}}
+                            {{--                    </span>--}}
+                            <a href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
+                            <br>
+                            <a style="line-height: 43px;" href="{{url('pages/3')}}">{{__('website.aboutus')}}</a>
+                            <br>
+                            <a href="{{url('pages/1')}}">{{__('website.rules')}}</a>
+                            <br>
+                            <a style="line-height: 43px;" href="{{url('/customers')}}">{{__('website.customers')}}</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-                    <div class="title_list">{{__('website.aboutus')}}</div>
-                    <div class="menu_list mt-5">
-                        {{--                                    <span>--}}
-                        {{--                        {{\App\Setting::getValue(\App\Setting::FIELD_ABOUT_US)}}--}}
-                        {{--                    </span>--}}
-                        <a href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
-                        <br>
-                        <a style="line-height: 43px;" href="{{url('pages/3')}}">{{__('website.aboutus')}}</a>
-                        <br>
-                        <a href="{{url('pages/1')}}">{{__('website.rules')}}</a>
-                        <br>
-                        <a style="line-height: 43px;" href="{{url('/customers')}}">{{__('website.customers')}}</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mt-5">
                     <div class="title_list">{{__('website.ouraddress')}}</div>
-                    <div class="font_grey mt-5" style="    color: #151f59;">
+                    <div class="font_grey mt-5" style="    color: #fff;">
                         {{__('website.subtitle1')}}<br>{{__('website.subtitle2')}}<br>
                         <br>
                         <div class="contact_map">

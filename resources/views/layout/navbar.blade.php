@@ -21,7 +21,7 @@
             </li>
             <li>
                 <a class="btn btn-outline-danger btn-header-basket-parent"  href="{{url('/basket')}}" style="position: relative" >
-                    <i style="    color: #7a7a7b;
+                    <i style="    color: #fff;
     font-size: 12px;
 
     border: 1px solid #2AF598 !important;
@@ -40,19 +40,23 @@
 
                                 $basketnum =\App\Basket::where('user_id' , auth()->user()->id)->count();
                             @endphp
-                            <span style="    color: white;
-    background-color: #02ccb2;
-    padding: 3px 6px;
+                            <span style="
+                                color: white;
+    background-color: #28f19e;
+    padding-top: 5px;
+    width: 20px;
+    height: 20px;
     position: absolute;
-    top: -15px;
+    top: -20px;
     border-radius: 100%;
-    font-size: 8px;
-    left: 20px;">{{$basketnum}}</span>
+    font-size: 9px;
+    left: 20px;
+                            ">{{$basketnum}}</span>
                         @endif
                     @endauth
                     @guest()
 
-                            <span style="    color: white;
+                        <span style="    color: white;
     background-color: #02ccb2;
     padding: 3px 6px;
     position: absolute;
@@ -63,8 +67,8 @@
                 </a>
             </li>
 
-                <li>
-                    <a href="/orders/create" class="order_button" type="button" style="/*    margin-top: -4px;
+            <li>
+                <a href="/orders/create" class="order_button" type="button" style="/*    margin-top: -4px;
     color: #040404;
     font-size: 11px;
     padding: 9px 24px;
@@ -73,9 +77,9 @@
     box-shadow: 0 0 5px 2px #e8e8e8;
         transition: all 0.2s;*/
 ">
-                        {{__('member.neworder')}}
-                    </a>
-                </li>
+                    {{__('member.neworder')}}
+                </a>
+            </li>
         </ul>
     </div>
 </div>
