@@ -416,7 +416,7 @@
         height: 130px !important;
     }
     h4, .h4, .blog_a a{
-        font-size: 12px;
+        font-size: 13px;
     }
     .partner {
         margin-top: 0;
@@ -746,6 +746,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .logo img {
+        width: 170px;
+    }
     .black {
         font-size: 28px;
         font-weight: bold;
@@ -759,7 +762,7 @@
         padding-top: 5px;
     }
     .menu_sec ul li {
-        margin-left: 25px;
+        margin-left: 10px;
     }
     .blog_img_he img, .blog_img_he{
         height: 200px
@@ -997,7 +1000,9 @@
     .contac_bacg {
         background-size: 540px
     }
-
+    .menu_sec ul li {
+        margin-left: 20px;
+    }
     .balance .balance-count {
         font-size: 13px;
         top: 15px;

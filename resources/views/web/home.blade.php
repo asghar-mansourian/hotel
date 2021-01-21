@@ -444,7 +444,7 @@
     <script type="text/javascript">
         $('.partner .owl-carousel').owlCarousel({
             loop: false,
-            margin: 10,
+            // margin: 10,
             dots: true,
             autoplay: true,
             loop: true,
@@ -455,6 +455,9 @@
                 },
                 481: {
                     items: 3
+                },
+                992: {
+                    items: 4
                 },
                 1000: {
                     items: 6
