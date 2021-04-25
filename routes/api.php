@@ -66,6 +66,9 @@ Route::middleware(['auth:api'])->group(function () {
 
             Route::post('user/balance', 'BalanceController');
 
+            Route::post('/payment/gate', 'PaymentController@gate');
+            Route::get('/payment/gate', 'PaymentController@gate');
+
             Route::get('pricing', 'PricingController@list');
 
             Route::get('stocks', 'StockController');

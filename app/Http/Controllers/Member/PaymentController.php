@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Member;
 use App\Http\Controllers\Controller;
 use App\lib\Helpers;
 use App\Payment;
+use App\Setting;
 use Illuminate\Support\Facades\Auth;
 use function request;
 
@@ -43,13 +44,24 @@ class PaymentController extends Controller
         }
 
     }
-
     public function gate($order = null)
     {
+        if (request()->isMethod('GET')) {
+
+            if (request()->session()->has('payment_id')) {
+                $payment = Payment::find(request()->session()->get('payment_id'));
+
+                return view( 'members.payment_gate_paymes', compact('payment'));
+            } else {
+                return redirect()->to('/home');
+            }
+        }
+
         $payment = new Payment();
         $payment->user_id = auth()->user()->id;
         $payment_balance = null;
         $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
+
         if (request()->has('amount_tl') || request()->has('amount_usd')) {
             if (request()->has('amount_tl')) {
                 $payment_balance_type = Payment::PAYMENT_TYPE_BALANCE_ONE;
@@ -59,6 +71,7 @@ class PaymentController extends Controller
                 $payment_balance = request()->get('amount_usd');
             }
         }
+
         if (request()->has('total')) {
             $payment_balance = 0;
             foreach (request()->get('total') as $amount) {
@@ -86,7 +99,13 @@ class PaymentController extends Controller
             $payment->save();
         }
 
-        if (Helpers::getDefaultGate()) {
+        if (Helpers::getDefaultGate() == Setting::GATE_PAYMES) {
+            request()->session()->put('payment_id', $payment->id);
+
+            return view( 'members.payment_gate_paymes', compact('payment'));
+        }
+
+        if (Helpers::getDefaultGate() == Setting::GATE_PAYTR) {
             return (new PaytrController())->pay($payment);
         }
 
