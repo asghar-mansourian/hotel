@@ -36,6 +36,14 @@ Route::group(['namespace' => 'Member'], function () {
 });
 
 Route::match(['GET', 'POST'], '/payment/callback', 'Member\PaytrController@callback');
+
+// paymes payment
+Route::match(['GET', 'POST'], '/paymes/callback', 'Member\PaymesController@callback');
+
+Route::get('/paymes/pay/{payment}', 'Member\PaymesController@payViewForm');
+Route::post('paymes/pay', 'Member\PaymesController@pay')->name('paymes.pay');
+
+
 // user panel (Member)
 Route::group(['namespace' => 'Member', 'middleware' => ['auth']], function () {
 

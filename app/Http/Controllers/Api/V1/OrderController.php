@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Basket;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\V1\PaymentController;
 use App\Http\Controllers\Traits\StoreOrder;
 use App\Http\Resources\V1\Order as OrderResource;
 use App\Order;
@@ -86,7 +87,7 @@ class OrderController extends Controller
 
     public function paidViaOnline($order)
     {
-        return (new PaymentController())->paymentOrder($order);
+        return (new PaymentController())->gate($order);
     }
 
     public function getStatusKey()
