@@ -1,0 +1,76 @@
+.how_work_title {
+    font-size: 41.667px;
+    font-family: "Calibri";
+    color: rgb(51, 42, 133);
+    font-weight: bold;
+    line-height: 1;
+}
+.how_message{
+    padding-bottom: 100px;
+}
+.how_message img{
+    display: inline;
+}
+.how_title{
+    display: inline;
+    padding-left: 40px;
+    font-size: 37.5px;
+    font-family: 'Calibri';
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    line-height: 1.111;
+    text-align: left;
+    -moz-transform: matrix( 0.98404207425887,0,0,1.00014201890886,0,0);
+    -webkit-transform: matrix( 0.98404207425887,0,0,1.00014201890886,0,0);
+    -ms-transform: matrix( 0.98404207425887,0,0,1.00014201890886,0,0);
+}
+.inline{
+    display: inline;
+    font-size: 20px;
+    font-family: 'Calibri';
+    color: (136 126 126);
+    font-weight: bold;
+    line-height: 1.111;
+    text-align: left;
+    -moz-transform: matrix( 0.98404207425887,0,0,1.00014201890886,0,0);
+    -webkit-transform: matrix( 0.98404207425887,0,0,1.00014201890886,0,0);
+    -ms-transform: matrix( 0.98404207425887,0,0,1.00014201890886,0,0);
+}
+.message hr{
+    border: none;
+    border-left: 8px solid hsl(244deg 97% 53%);
+    height: 70%;
+    margin-left: 57px;
+    z-index: -1;
+    position: absolute;
+}
+
+.right_back_image{
+    position: absolute;
+    margin-top: 11%;
+    padding-right: unset;
+
+}
+
+
+.left_back_image{
+    position: absolute;
+    margin-top: 22%;
+    z-index: -1;
+    padding-left: unset;
+
+}
+@media only screen and (max-width: 1200px) {
+    .right_back_image{
+        display: none!important;
+    }
+    .left_back_image{
+        display: none!important;
+    }
+.message div{
+    margin-left: unset!important;
+}
+.how_title{
+    padding-left: unset!important;
+}
+}
