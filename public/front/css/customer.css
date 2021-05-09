@@ -13,8 +13,8 @@
 }
 .country_back{
     background-image: url('/front/image/customer_country_back.png');
-    height: 75px;
     margin-top: -130px;
+    height: 100%;
 }
 .label{
     cursor: pointer;
