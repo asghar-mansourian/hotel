@@ -445,7 +445,7 @@ textarea{
 }
 .title{
     background-color:#fff;
-    padding-bottom: 15px;
+    /*padding-bottom: 15px;*/
     font-size: 23px;
     font-family: "AvantGardeGothicC";
     color: rgb(63, 63, 63);
