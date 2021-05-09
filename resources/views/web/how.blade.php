@@ -12,6 +12,8 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: unset!important;padding-right: unset ">
                 <img style="width: 100%" src="{{url('/front/image/index.png')}}">
+                <h1 class="image_top_text">{{__('website.how_image_text_1')}}
+                    {{__('website.how_image_text_2')}}</h1>
             </div>
         </div>
         <div class="pricing">
