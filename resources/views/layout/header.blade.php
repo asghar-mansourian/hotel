@@ -4,11 +4,26 @@
         <div class="font_grey " style="display: inline-block">
             <ul style="margin-bottom: 6px;">
                 <li style="display: inline; border-right: 1px solid pink">
-                    <a style="    font-size: 12px;" class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}&ensp;</a>
+                    <a  class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}</a>
                 </li>
                 <li style="display: inline">
-                    <a style="font-size: 12px;" href="{{url('/blog')}}">&ensp;{{__('website.blog')}} </a>
+                    <a  href="{{url('/blog')}}">&ensp;{{__('website.blog')}} </a>
                 </li>
+
+                <li style="display: inline;margin-left: 5px">
+                    <a class="{{url()->current() === url('/prohibited_products') ? 'active' : ''}}" href="{{url('/prohibited_products')}}">{{__('website.prohibited_products')}}</a>
+                </li>
+                |
+                @guest('web')
+                    <li style="margin-top: 7px;display: inline;margin-left: 5px;">
+                        <a style="border: 1px solid black;border-radius: 5px;width: 100px" href="{{url('/login')}}">
+                            <strong>{{__('website.login')}}</strong>
+                        </a>
+                        <a style="border: 1px solid black;background-color: #e4aa58;border-radius: 5px;width: 200px;margin-left: 10px;" href="{{url('/register')}}">
+                            <strong>{{__('website.register')}}</strong>
+                        </a>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
@@ -46,9 +61,9 @@
                     <li>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -5px;/*background-color: #fff; */   color: #fff;font-weight: 700; font-size: 12px">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -5px;font-weight: 700; font-size: 12px">
                                 {{\Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->family}}
-                                <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
+                                <i class="fas fa-user ml-2" style="font-size: 12px"></i>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdown_panel" style="z-index: 999999;right: 0;left: unset">
                                 <a class="dropdown-item" href="{{url('/home')}}">{{__('member.dashboard')}}</a><br/>
@@ -67,16 +82,12 @@
                         </div>
                     </li>
                 @endauth
-                @guest('web')
-                    <li style="margin-top: 7px;">
-                        <a style="    font-size: 12px;" href="/login">
-                            <strong>{{__('website.login')}}</strong>
-                        </a> |
-                        <a style="    font-size: 12px;" href="/register">
-                            <strong>{{__('website.register')}}</strong>
-                        </a>
-                    </li>
-                    @endguest
+                    @guest('web')
+                    <button class="btn btn-secondary dropdown-toggle" type="button" style="margin-top: -5px;border: 1px solid black;font-weight: 700; font-size: 12px">
+                        <i class="fas fa-phone-alt ml-2" style="font-size: 12px"></i>
+                    </button>
+                <span>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</span>
+                @endguest
                     </li>
             </ul>
         </div>

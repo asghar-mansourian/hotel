@@ -32,6 +32,14 @@
     url('../fonts/Montserrat-Bold.ttf') format('truetype');
     font-weight: normal;
 }
+@font-face {font-family: 'AvantGardeGothicC';
+    src: url('//db.onlinewebfonts.com/t/0617ff865cddb0d3ccbe0441575937e2.eot');
+    src: url('//db.onlinewebfonts.com/t/0617ff865cddb0d3ccbe0441575937e2.eot?#iefix') format('embedded-opentype'),
+    url('//db.onlinewebfonts.com/t/0617ff865cddb0d3ccbe0441575937e2.woff2') format('woff2'),
+    url('//db.onlinewebfonts.com/t/0617ff865cddb0d3ccbe0441575937e2.woff') format('woff'),
+    url('//db.onlinewebfonts.com/t/0617ff865cddb0d3ccbe0441575937e2.ttf') format('truetype'),
+    url('//db.onlinewebfonts.com/t/0617ff865cddb0d3ccbe0441575937e2.svg#AvantGardeGothicC') format('svg'); }
+
 body,html{
     overflow-x: hidden;
     transition: 500ms;
@@ -42,7 +50,8 @@ body,html{
     color: #19170f !important
 }
 a {
-    color: #fff;
+    font-family: 'AvantGardeGothicC';
+    color: rgb(63, 63, 63);
 }
 a:hover, a:focus {
     color: #daf3eff0;
@@ -427,8 +436,12 @@ textarea{
     height: 100px;
 }
 .title{
-    background: linear-gradient(50deg,#2AF598,#12c3d2);
-    padding-bottom: 15px
+    background-color:#fff;
+    padding-bottom: 15px;
+    font-size: 23px;
+    font-family: "AvantGardeGothicC";
+    color: rgb(63, 63, 63);
+    line-height: 1.091;
 }
 .rate_calculator .title_list{
     color: #12c3d2;
@@ -441,13 +454,19 @@ textarea{
     font-family: Montserrat-Bold;
 }
 .menu_list a{
-    color: #fff;
+    font-family: "AvantGardeGothicC";
+    color: rgb(63, 63, 63);
 }
 .font_grey{
     color: #ccc;
-    font-size: 12px;
     line-height: 1.8;
+    font-size: 21px;
+    font-family: 'AvantGardeGothicC';
+    color: rgb(63, 63, 63);
+    line-height: 1.2;
 }
+
+
 .font_b8{
     color: #b8b8b8;
     font-size: 12px;
@@ -472,7 +491,8 @@ textarea{
     border-radius: 100%;
 }
 .menu_first ul li a{
-    color: #fff;
+    font-family: 'AvantGardeGothicC';
+    color: rgb(63, 63, 63);
     padding: 7px 7px;
     border-radius: 100%;
 }
@@ -491,8 +511,9 @@ textarea{
     margin-left: 40px;
 }
 .menu_sec ul li a{
-    color: #fff;
-    font-weight: 700
+    font-family: 'AvantGardeGothicC';
+    color: rgb(63, 63, 63);
+    font-weight: 700;
 }
 .menu_sec ul li .active{
     border-bottom: 1px solid #fff;
@@ -509,14 +530,15 @@ textarea{
 .menu_sec .dropdown a{
     font-size: 12px;
     padding-left: 10px;
-    color: #12c3d2;
+    color: rgb(63, 63, 63);
 }
 .menu_sec #dropdown_panel {
-    color: #fff;
+    font-family: "AvantGardeGothicC";
+    color: rgb(63, 63, 63);
 }
 .footer_sky {
     position: relative;
-    background: linear-gradient(50deg,#2AF598,#12c3d2);
+    /*background: linear-gradient(50deg,#2AF598,#12c3d2);*/
     overflow: hidden;
     height: 100%;
 }
@@ -530,7 +552,7 @@ textarea{
     height: 100%;
     z-index: 1;
     opacity: 0.6;
-    background-image: url(../image/sky.png);
+    /*background-image: url(../image/sky.png);*/
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
@@ -564,11 +586,11 @@ select:focus, input:focus, textarea:focus{
 .footer .menu ul li{
     float: left;
     border-radius: 5px;
-    background: #fff;
+    /*background: #fff;*/
     margin-right: 10px;
     width: 40px;
     height: 40px;
-    padding: 11px 14px;
+    padding-top: 11px;
     font-size: 14px;
 }
 .footer .menu ul li a{
@@ -2252,3 +2274,14 @@ blockquote{
     line-height: 1.8;
 }
 
+.footer .menu_list a{
+    font-size: 25px;
+    font-family: 'Myriad Pro'!important;
+    color: rgb(255, 255, 255)!important;
+    line-height: 1.333!important;
+}
+.footer_sky{
+    border-bottom: 1px solid #9c9a9a;
+    font-size: 25px;
+    font-family: "AvantGardeGothicC";
+}

@@ -126,4 +126,6 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('get-price-via-weight/{weight}', 'PriceItemController');
 
+    Route::view('/prohibited_products', 'web.prohibited_products');
+
 });

@@ -1,6 +1,6 @@
 <div class="row pt-3 pb-3 mob_dis " style="padding: 0 15px;">
     <div class="logo">
-        <a href="/"><img src="{{url('front/image/favicon/Untitled-1-05.svg')}}"></a>
+        <a href="/"><img src="{{url('front/image/favicon/blue_logo.png')}}"></a>
     </div>
 
     <div class="menu_sec" style="    margin-top: 16px;">
