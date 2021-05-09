@@ -263,6 +263,16 @@ route::post('/customers/update/{id}', 'CustomerController@update');
 route::get('/customers/destroy/{id}', 'CustomerController@delete');
 route::post('customers/search', 'CustomerController@search');
 
+//Customers group
+route::get('/customer-groups', 'CustomerGroupController@index');
+route::get('/customer-groups/create', 'CustomerGroupController@create');
+route::post('/customer-groups/store', 'CustomerGroupController@store');
+route::get('/customer-groups/edit/{id}', 'CustomerGroupController@edit');
+route::post('/customer-groups/update/{id}', 'CustomerGroupController@update');
+route::get('/customer-groups/destroy/{id}', 'CustomerGroupController@delete');
+route::post('customer-groups/search', 'CustomerGroupController@search');
+
+
 
 /*      Country Details Routes      */
 route::get('/price-items', 'PriceItemController@index');

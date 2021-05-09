@@ -1,0 +1,62 @@
+.image_top_text {
+    font-size: 66.667px;
+    font-family: 'Calibri';
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    text-align: left;
+    position: absolute;
+    position: absolute;
+    margin-left: 12%;
+    z-index: 5555;
+    color: #fff;
+    margin-top: -33%;
+}
+.country_back{
+    background-image: url('/front/image/customer_country_back.png');
+    height: 75px;
+    margin-top: -130px;
+}
+.label{
+    cursor: pointer;
+    font-size: 25px;
+    font-family: "AvantGardeGothicC";
+    color: rgb(87, 87, 87);
+    line-height: 2.667;
+}
+.img_border {
+    border-radius: 4px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    height: 200px;
+    box-shadow: 5px 1px #d5cccc;
+}
+.img_border img{
+    width: 100%;
+    margin-top: 20%;
+}
+.customer_country{
+    background-image: url("/front/image/customer_countries.png");
+    margin-left: 20px;
+    background-size: 100%;
+    font-size: 37.5px;
+    font-family: 'Calibri';
+    color: rgb(88, 88, 88);
+    background-repeat: no-repeat;
+    background-size: 250px 50px;
+}
+.customer_country span{
+    margin-left:35px;
+}
+.customer_country a{
+    cursor: pointer;
+}
+.customer_country img{
+    width: 40px;
+    margin-top: -5%;
+}
+@media only screen and (max-width: 992px) {
+    .country_back{
+        margin-top: 1%;
+        height: 100%;
+    }
+}
