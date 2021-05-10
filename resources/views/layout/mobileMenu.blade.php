@@ -14,7 +14,7 @@
     <div class="logo_mob">
         <div style="float: left;">
             <button class="openbtn" onclick="openNav()"><i class="fas fa-align-justify m-0"></i></button>
-            <a href="#"><img src="{{url('front/image/favicon/Untitled-1-05.svg')}}"></a>
+            <a href="{{url('/')}}"><img src="{{url('front/image/favicon/blue_logo.png')}}"></a>
         </div>
         <div style="text-align: right;">
             <div class="dropdown" style="display: inline-block;">
