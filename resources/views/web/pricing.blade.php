@@ -81,7 +81,7 @@
                                         <tr class="first_row">
                                             <th scope="col">{{__('website.weight')}}</th>
                                             <th scope="col" style="text-align: center">
-                                                <img src="{{url("/image/$country->flag")}}">
+                                                <img src="{{url("/images/$country->flag")}}">
                                             </th>
                                         </tr>
                                         @foreach($country->priceCalculators as $priceCalculator)
