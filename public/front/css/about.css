@@ -1,0 +1,33 @@
+
+.image_top_text {
+    font-size: 66.667px;
+    font-family: 'Calibri';
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    text-align: left;
+    position: absolute;
+    position: absolute;
+    margin-left: 12%;
+    z-index: 5555;
+    color: #fff;
+    margin-top: -33%;
+}
+.back_left_image{
+    position: absolute;
+    margin-top: -15%;
+
+    margin-left: -10%;
+}
+.back_right_image {
+    margin-left: -19%;
+    margin-top: -5%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .back_left_image {
+        display: none;
+    }
+    .back_right_image{
+        display: none;
+    }
+}

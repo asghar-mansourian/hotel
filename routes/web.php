@@ -128,4 +128,5 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::view('/prohibited_products', 'web.prohibited_products');
 
+    Route::view('/about-us','web.about');
 });
