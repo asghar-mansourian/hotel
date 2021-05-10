@@ -21,7 +21,7 @@
             </li>
             <li>
                 <a class="btn btn-outline-danger btn-header-basket-parent"  href="{{url('/basket')}}" style="position: relative" >
-                    <i style="    color: #fff;
+                    <i style="
     font-size: 12px;
 
     border: 1px solid #2AF598 !important;

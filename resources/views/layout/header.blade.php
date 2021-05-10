@@ -30,35 +30,9 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7">
         <div class="menu_sec">
             <ul class="text-right">
-                <li>
-                    <div class="dropdown" style="display: inline-block">
-                        <button class=" btn-secondary dropdown-toggle" style="border:0;height: 34px; " type="button" id="dropdown_panel"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @if(app()->getLocale() == 'ru')
-                                RUS
-                            @else
-                                ENG
-                            @endif
-                            {{--                            {{ app()->getLocale() }}--}}
-                            <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
-                        </button>
-                        <div class="dropdown-menu lang-a" aria-labelledby="dropdown_panel">
-                            @foreach(\App\lib\Helpers::getLocales() as $locale)
-                                @if($locale->locale != app()->getLocale())
-                                    <a class="dropdown-item " href="/set-locale/{{$locale->locale}}">
-                                        @if($locale->locale == 'ru')
-                                            RUS
-                                        @else
-                                            ENG
-                                        @endif
-                                    </a><br/>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                </li>
+
                 @auth('web')
-                    <li>
+                    <li style="margin-left: 10px!important;">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -5px;font-weight: 700; font-size: 12px">
@@ -83,11 +57,40 @@
                     </li>
                 @endauth
                     @guest('web')
-                    <button class="btn btn-secondary dropdown-toggle" type="button" style="margin-top: -5px;border: 1px solid black;font-weight: 700; font-size: 12px">
-                        <i class="fas fa-phone-alt ml-2" style="font-size: 12px"></i>
-                    </button>
-                <span>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</span>
+                        <li style="margin-left: 10px!important;">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" style="margin-top: -5px;border: 1px solid black;font-weight: 700; font-size: 12px">
+                                <i class="fas fa-phone-alt ml-2" style="font-size: 12px"></i>
+                            </button>
+                            <span>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</span>
+                        </li>
+
                 @endguest
+                    <li style="margin-left: 10px!important;">
+                        <div class="dropdown" style="display: inline-block">
+                            <button class=" btn-secondary dropdown-toggle" style="border:0;height: 34px; " type="button" id="dropdown_panel"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @if(app()->getLocale() == 'ru')
+                                    RUS
+                                @else
+                                    ENG
+                                @endif
+                                {{--                            {{ app()->getLocale() }}--}}
+                                <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
+                            </button>
+                            <div class="dropdown-menu lang-a" aria-labelledby="dropdown_panel">
+                                @foreach(\App\lib\Helpers::getLocales() as $locale)
+                                    @if($locale->locale != app()->getLocale())
+                                        <a class="dropdown-item " href="/set-locale/{{$locale->locale}}">
+                                            @if($locale->locale == 'ru')
+                                                RUS
+                                            @else
+                                                ENG
+                                            @endif
+                                        </a><br/>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
                     </li>
             </ul>
         </div>
