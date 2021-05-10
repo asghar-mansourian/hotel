@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Country;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Member\ImageController;
@@ -33,7 +34,8 @@ class CustomerController extends Controller
 
     public function create()
     {
-        return view('admin.customers.create');
+        $countries = Country::all();
+        return view('admin.customers.create',compact('countries'));
     }
 
     public function store(Request $request)
@@ -46,6 +48,7 @@ class CustomerController extends Controller
         $file_name = CustomerHelper::uploadImage($request->file('picture'));
         $customer->name = $request->name;
         $customer->link = $request->link;
+        $customer->country_id = $request->country_id;
         $customer->save();
         //save image address by morph relation
         $image = new ImageController();
@@ -57,8 +60,10 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
+        $countries = Country::all();
+
         $customer = Customer::findorfail($id);
-        return view('admin.customers.edit',compact('customer'));
+        return view('admin.customers.edit',compact('customer','countries'));
     }
 
     public function update(Request $request,$id)
@@ -76,7 +81,9 @@ class CustomerController extends Controller
             $image->store($file_name,$customer);
             $customer->update([
                 'name' => $request->name,
-                'link' => $request->link
+                'link' => $request->link,
+                'country_id' => $request->country_id
+
             ]);
             session()->flash('message', __('admin.general.message.customer_update_successful'));
             session()->flash('success', 1);
@@ -84,7 +91,8 @@ class CustomerController extends Controller
         }
         $customer->update([
             'name' => $request->name,
-            'link' => $request->link
+            'link' => $request->link,
+            'country_id' => $request->country_id
         ]);
         session()->flash('message', __('admin.general.message.customer_update_successful'));
         session()->flash('success', 1);

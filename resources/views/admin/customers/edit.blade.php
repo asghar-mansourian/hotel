@@ -55,7 +55,19 @@
                                 {{$customer->link}}
                             @endslot
                         @endcomponent
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    {{__('admin.select_customer_country')}}
+                                </label>
+                                <div class="col-md-7">
+                                    <select name="country_id" id="country_id" class="form-control">
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->id}}" @if($customer->country_id==$country->id) selected @endif>{{$country->name}}</option>
+                                        @endforeach
+                                    </select>
 
+                                </div>
+                            </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 picture

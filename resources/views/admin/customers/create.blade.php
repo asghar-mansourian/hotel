@@ -11,6 +11,7 @@
             border: 1px solid #d9534f !important;
         }
     </style>
+
 @endsection
 
 @section('main')
@@ -53,6 +54,19 @@
                                 @slot('value')
                                 @endslot
                             @endcomponent
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    {{__('admin.select_customer_country')}}
+                                </label>
+                                <div class="col-md-7">
+                                    <select name="country_id" required id="country_id" class="form-control">
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->id}}">{{$country->name}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-md-3 form-label my-auto">
                                 picture
