@@ -1,11 +1,11 @@
 
 .black{
     font-size: 60px;
-    font-family: Montserrat-Bold;   
+    font-family: Montserrat-Bold;
 }
 .italic{
     font-style: italic;
-    font-weight: 600;  
+    font-weight: 600;
 }
 .faq .accordion {
     color: #444;
@@ -24,22 +24,30 @@
 }
 .faq .accordion:after {
     content: '\02EF';
-    color: #ccc;
+    color: #fff!important;
     font-family: Montserrat-Bold;
     float: right;
-    font-size: 36px;
-    margin-left: 5px;
-    margin-top: -30px;
+    font-size: 60px;
+    margin-top: -70px;
+    height: 80px;
+    border: 1px solid #665656;
+    width: 70px;
+    margin-right: -16px;
+    border-radius: 5px;
+    text-align: center;
+    background: #e5ab59!important;
+    -webkit-text-fill-color:unset!important;
 }
 .faq .active:after {
   content: "\02F0";
 }
 .faq .panel_faq {
-    background-color: white;
+    background-color: #f3f3f3;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    margin-bottom: 0
+    margin-bottom: 0;
+    margin: unset!important;
 }
 .panel_faq0 {
     width: 100%;
@@ -72,5 +80,54 @@
     margin-top: -30px;
     border: 1px solid #ffcc00;
     -moz-box-shadow: 23px 11px 24px 1px rgba(255,204,0,1);
-    box-shadow: 9px 7px 21px -7px rgba(255,204,0,1);    
+    box-shadow: 9px 7px 21px -7px rgba(255,204,0,1);
+}
+
+
+.image_top_text {
+    font-size: 66.667px;
+    font-family: 'Calibri';
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    text-align: left;
+    position: absolute;
+    position: absolute;
+    margin-left: 12%;
+    z-index: 5555;
+    color: #fff;
+    margin-top: -33%;
+}
+.back_left_image{
+    position: absolute;
+    margin-top: 6%;
+    margin-left: -10%;
+    z-index: -1;
+}
+.back_right_image {
+    margin-left: -19%;
+    margin-top: 20%;
+    z-index: -1;
+    position: absolute;
+}
+
+@media only screen and (max-width: 1200px) {
+    .back_left_image {
+        display: none;
+    }
+    .back_right_image{
+        display: none;
+    }
+}
+.accordion {
+    font-size: 46px;
+    font-family: "AvantGardeGothicC";
+    color: rgb(94, 94, 94);
+    line-height: 0.337;
+    text-align: left;
+    background-color: #fff;
+    height: 80px!important;
+
+}
+.faq{
+    margin-top: -5%;
 }
