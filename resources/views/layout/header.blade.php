@@ -11,7 +11,7 @@
                 </li>
 
                 <li style="display: inline;margin-left: 5px">
-                    <a class="{{url()->current() === url('/prohibited_products') ? 'active' : ''}}" href="{{url('/prohibited_products')}}">{{__('website.prohibited_products')}}</a>
+                    <a class="{{url()->current() === url('/about-us') ? 'active' : ''}}" href="{{url('/about-us')}}">{{__('website.about')}}</a>
                 </li>
                 |
                 @guest('web')
