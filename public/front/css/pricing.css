@@ -13,7 +13,7 @@
 .pricing .tab button.active{
 	background: #ffcc00;
     border: none;
-    color: #fff;	
+    color: #fff;
     border-radius: 0;
 }
 .usd_back{
@@ -21,16 +21,16 @@
     padding: 6px 12px;
     font-family: Montserrat-Bold;
     float: right;
-    border-radius: 4px;	
+    border-radius: 4px;
 }
 .span_kg{
 	font-size: 23px;
     font-family: Montserrat-Bold;
-    color: #ffcc00;	
+    color: #ffcc00;
 }
 .xet{
     border: 1px solid #ffcc00;
-    margin-top: -10px;	
+    margin-top: -10px;
 }
 .xet_usd{
 	padding: 10px 12px;
@@ -70,7 +70,7 @@
     font-size: 11px;
     color: #19170f;
     padding: 11px 0;
-    font-family: Montserrat-Bold;   
+    font-family: Montserrat-Bold;
 }
 .pricing_box_cou select{
     height: 38px;
@@ -78,13 +78,13 @@
     border-radius: 4px;
     padding: 0 10px;
     color: #ccc;
-    width: 100%; 
+    width: 100%;
 }
 .pricing_imput{
     border: 2px solid #19170f;
 }
 .bacg_img{
-    background-image: url("../image/airplane.png");   
+    background-image: url("../image/airplane.png");
     background-size: 110%;
 }
 .pricing_price_fff{
@@ -95,8 +95,8 @@
     font-size: 19px;
     color: #fff;
     text-align: center;
-    padding: 7px 10px;  
-    height : 70px 
+    padding: 7px 10px;
+    height : 70px
 }
 .pricing_price_yellow{
     margin-top:-25px
@@ -109,5 +109,81 @@
     font-size: 13px;
     color: #fff;
     height: 33px;
-    width: 100px;  
+    width: 100px;
+}
+.image_top_text {
+    font-size: 66.667px;
+    font-family: 'Calibri';
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    text-align: left;
+    position: absolute;
+    position: absolute;
+    margin-left: 12%;
+    z-index: 5555;
+    color: #fff;
+    margin-top: -33%;
+}
+
+.product_type{
+    background-image: url('/front/image/customer_country_back.png');
+    margin-top: -130px;
+    height: 100%;
+}
+.type_row{
+    margin-top: -4%;
+}
+.product_type_back{
+    background-image: url("/front/image/customer_countries.png");
+    margin-left: 20px;
+    background-size: 100%;
+    font-size: 37.5px;
+    font-family: 'Calibri';
+    color: rgb(88, 88, 88);
+    background-repeat: no-repeat;
+    background-size: 250px 50px;
+}
+button{
+    border: none!important;
+}
+
+.bottom_table{
+background-image: url('/../front/image/pricing_table_b.png');
+    background-repeat: no-repeat;
+    margin-top: -20px;
+    background-size: 100%;
+    margin-left: 8.2%;
+
+}
+.pricing_table_b.png{
+    background-color: unset!important;
+}
+.pricing th[scope="col"]{
+    background-color: unset;
+}
+.first_row{
+    background: linear-gradient(
+        50deg
+        ,#446ca0,#353958)!important;
+}
+.first_row th{
+    border: unset;
+}
+
+th img{
+    width: 40px;
+}
+.back_image{
+    position: absolute;
+    margin-left: 16%;
+    margin-top: 10%;
+    z-index: -1;
+}
+@media only screen and (max-width: 1200px) {
+    .back_image {
+        display: none;
+    }
+    .bottom_table{
+        margin-left: unset;
+    }
 }
