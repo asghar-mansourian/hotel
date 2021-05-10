@@ -44,12 +44,12 @@
         <div class="index_page">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12 mt-5">
+                    <div class="col-md-12">
                         <div class="index_cont">
                             <div class="row how_work_title_row">
                                 <div class="col-12 text-center">
                                     <div class="col-md-4 col-sm-3"></div>
-                                    <div class="col-md-4 col-sm-6 text-center how_work_title">
+                                    <div class="col-md-4 col-sm-6 col-xs-12 text-center how_work_title">
                                         <p class="how_work_title_text">
                                             {{__('website.how_we_work')}}
                                         </p>
@@ -57,8 +57,8 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row">
-                                <div class="col-md-4 text-center">
+                            <div class="row how_text">
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-center">
                                     <div class="how_a">
                                         <img src="{{url('/front/image/index_user.png')}}">
                                         <br>
@@ -67,7 +67,7 @@
                                         <p class="how_work_text">{{__('website.how_work_a')}}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-4 text-center">
+                                <div class="col-md-4  col-sm-4 col-xs-4  text-center">
                                     <div class="how_b">
                                         <img src="{{url('/front/image/index_airplan.png')}}">
                                         <br>
@@ -76,7 +76,7 @@
                                         <p class="how_work_text_b">{{__('website.how_work_b')}}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-4 text-center">
+                                <div class="col-md-4  col-sm-4 col-xs-4  text-center">
                                     <div class="how_c">
                                         <img src="{{url('/front/image/index_machin.png')}}">
                                         <br>
@@ -85,7 +85,7 @@
                                         <p class="how_work_text">{{__('website.how_work_c')}}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-12" style="padding: 0">
                                     <img style="width: 100%" src="{{url('/front/image/how_line.png')}}">
                                 </div>
 {{--                                <div class="col-md-4 col-sm-6 col-xs-12">--}}
@@ -118,26 +118,17 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <div class="row text-right">
-                    <div class="col-12">
-                        <img src="{{url('/front/image/index_back_right.png')}}">
+                <div class="row  text-right">
+                    <div class="col-md-12 col-xs-12">
+                        <img class="index_back_right" src="{{url('/front/image/index_back_right.png')}}">
                     </div>
                 </div>
-                <div class="row" style="margin-top: -150px;">
+                <div class="row movie_parent">
                     <div class="col-md-8 col-sm-8 col-xs-8 text-center">
-                        <img style="margin-right: 70px;" src="{{url('/front/image/movie_play.png')}}">
+                        <img class="movie_image" style="margin-right: 70px;" src="{{url('/front/image/movie_play.png')}}">
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 text-center arrow_back_index">
-                        <p style="
-  font-size: 50px;
-  font-family: 'Calibri';
-                        color: rgb(255, 255, 255);
-                        line-height: 1;
-                        text-align: center;
-                        left: 1025px;
-                        top: 1750.204px;
-                        z-index: 38;
-                        ">{{__('website.home_arrow_left')}}</p>
+                        <p class="arrow_left_text">{{__('website.home_arrow_left')}}</p>
                         <img class="index_arrow" src="{{url('/front/image/arrow_left.png')}}">
                     </div>
                 </div>
@@ -145,7 +136,7 @@
             <div class="partner">
                 <div class="container-fluid">
                     <div class="row customer_title_row">
-                        <div class="col-12 text-center">
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                             <div class="col-md-3 col-sm-3"></div>
                             <div class="col-md-6 col-sm-6 text-center customer_title">
                                 <p class="how_work_title_text">
@@ -159,7 +150,7 @@
                         <div class="col-md-2">
                             <img class="customer_index_slide_back" src="{{url('/front/image/customer_slide_back.png')}}">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
                             <div id="customerCarousel" class="owl-carousel owl-theme">
                                 @foreach($customers as $customer)
                                     @if($loop->iteration==0 or $loop->iteration%2 == 1)
@@ -180,7 +171,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 text-center"><a class="">
+                        <div class="col-md-12 text-center all_customer_div"><a class="">
                                 <img src="{{url('/front/image/all_customer.png')}}">
                                 <strong class="all_customer_button">{{__('website.see_customers')}}</strong></a>
                         </div>
@@ -192,7 +183,7 @@
             <div class="partner_text">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 text-center">
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                             <div class="col-md-6 col-sm-6 text-center customer_title">
                                 <p class="how_work_title_text">
                                     {{__('website.customer_reviews')}}
@@ -204,7 +195,7 @@
                 </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="padding: 0">
                             <img src="{{url('/front/image/customer_review_hr.png')}}" width="100%">
                         </div>
                     </div>
@@ -332,10 +323,6 @@
             },
 
         });
-    </script>
-
-
-    <script>
         $(document).ready(function () {
             $('div .img_slider').css('display', 'block')
 
@@ -343,6 +330,10 @@
                 auto: true,
                 pager: false, // disables pager
             });
+        })
+
+        $('.all_customer_button').on('click',function(){
+            window.location.href='{{url('/customers')}}'
         })
     </script>
 @endsection
