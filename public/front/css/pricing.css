@@ -137,11 +137,11 @@
     background-image: url("/front/image/customer_countries.png");
     margin-left: 20px;
     background-size: 100%;
-    font-size: 37.5px;
+    font-size: 20px;
     font-family: 'Calibri';
     color: rgb(88, 88, 88);
     background-repeat: no-repeat;
-    background-size: 250px 50px;
+    /*background-size: 250px 50px;*/
 }
 button{
     border: none!important;
