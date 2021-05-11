@@ -51,7 +51,7 @@
                                     <div class="col-md-4 col-sm-3"></div>
                                     <div class="col-md-4 col-sm-6 col-xs-12 text-center how_work_title">
                                         <p class="how_work_title_text">
-                                            {{__('website.how_we_work')}}
+                                            {{__('website.how_we_work_top_arrow')}}
                                         </p>
                                     </div>
                                 </div>
