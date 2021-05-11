@@ -527,7 +527,7 @@ textarea{
     border-bottom: 1px solid #fff;
 }
 .menu_sec ul li a:hover,.dropdown_dr .active, .yellow{
-    color: #12c3d2;
+    color: #466ea1;
 }
 .menu_sec .dropdown .btn{
     margin-top: -10px;
@@ -2292,4 +2292,7 @@ blockquote{
     border-bottom: 1px solid #9c9a9a;
     font-size: 25px;
     font-family: "AvantGardeGothicC";
+}
+a:hover, a:focus {
+    color: #23527c;
 }
