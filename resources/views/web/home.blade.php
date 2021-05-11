@@ -5,7 +5,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/index_page.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.0')}}">
 
     <style>
     </style>
@@ -279,7 +279,6 @@
             }
         }
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <script type="text/javascript">
         $('.blog .owl-carousel').owlCarousel({
