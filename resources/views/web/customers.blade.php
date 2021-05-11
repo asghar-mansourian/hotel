@@ -37,7 +37,7 @@
                         <div class="col-md-3 col-sm-4">
                             <div class="mob_768">
                                 <div class="shop_title">
-                                    <h4>{{__('website.categories')}}</h4>
+{{--                                    <h4>{{__('website.categories')}}</h4>--}}
                                 </div>
                                 <div class="shopping_cat">
 {{--                                    <label class="label">--}}
