@@ -446,7 +446,7 @@ textarea{
 .title{
     background-color:#fff;
     /*padding-bottom: 15px;*/
-    font-size: 23px;
+    font-size: 15px;
     font-family: "AvantGardeGothicC";
     color: rgb(63, 63, 63);
     line-height: 1.091;
@@ -468,7 +468,7 @@ textarea{
 .font_grey{
     color: #ccc;
     line-height: 1.8;
-    font-size: 21px;
+    font-size: 15px;
     font-family: 'AvantGardeGothicC';
     color: rgb(63, 63, 63);
     line-height: 1.2;
