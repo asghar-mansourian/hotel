@@ -24,7 +24,7 @@
                     <i style="
     font-size: 12px;
 
-    border: 1px solid #2AF598 !important;
+    border: 1px solid #466ea1 !important;
     font-size: 13px;
     padding: 7px 7px;
     border-radius: 5px;
@@ -42,7 +42,7 @@
                             @endphp
                             <span style="
                                 color: white;
-    background-color: #28f19e;
+    background-color: #466ea1;
     padding-top: 5px;
     width: 20px;
     height: 20px;

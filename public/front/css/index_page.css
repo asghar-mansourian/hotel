@@ -133,7 +133,7 @@
     height: 88px;
 }
 .how_work_title_text{
-    font-size: 58.333px;
+    font-size: 40px;
     font-family: 'Calibri';
     color: rgb(255, 255, 255);
     line-height: 0.713;
@@ -164,24 +164,24 @@
     margin-left: -40px;
 }
 .how_work_text{
-    font-size: 33.333px;
+    font-size: 25px;
     font-family: 'AvantGardeGothicC';
     color: rgb(87, 87, 87);
     line-height: 1;
     text-align: center;
     position: absolute;
-    margin-left: 154.906px;
-    margin-top: 15%;
+    margin-left: 50.906px;
+    margin-top: 17%;
     z-index: 1;
 }
 .how_work_text_b{
-    font-size: 33.333px;
+    font-size: 20px;
     font-family: 'AvantGardeGothicC';
     color: rgb(87, 87, 87);
     line-height: 1;
     text-align: center;
     position: absolute;
-    margin-left: -70px;
+    margin-left: -0px;
     margin-top: 85%;
     z-index: 1;
 }
@@ -353,7 +353,7 @@ color: rgb(70, 70, 70);
 line-height: 0.411;
 text-align: center;
 position: absolute;
-margin-left: -20%;
+margin-left: -22%;
 margin-top: 12px;
 cursor: pointer;
 }

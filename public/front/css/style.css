@@ -1250,7 +1250,7 @@ input:read-only {
 }
 .order_button{
     /*background: #ddfcdb;*/
-    border: 2px solid #2AF598;
+    border: 2px solid #466ea1;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 4px;
@@ -1260,7 +1260,7 @@ input:read-only {
     font-family: 'Montserrat-Bold';
 }
 .invoice_button{
-    background: #12c3d2;
+    background: #466ea1;
     border: 2px solid #ddfcdb;
     padding: 10px 20px;
     text-decoration: none;
@@ -1291,8 +1291,8 @@ input:read-only {
     height: 45px
 }
 .courier_button{
-    background: #12c3d2;
-    border: 2px solid #12c3d2;
+    background: #466ea1;
+    border: 2px solid #466ea1;
     padding: 5px;
     height: 45px;
     width: 140px;
@@ -1304,7 +1304,7 @@ input:read-only {
 }
 .courier_trash{
     background: #ddfcdb;
-    border: 2px solid #2AF598;
+    border: 2px solid #466ea1;
     padding: 5px;
     height: 45px;
     width: 140px;
