@@ -4,7 +4,7 @@
 @endsection
 @section('styles')
 {{--    <link rel="stylesheet" href="{{url('front/css/index.css')}}">--}}
-    <link rel="stylesheet" href="{{url('front/css/how_page.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/how_page.css?v=1.0.0.1')}}">
 
 @endsection
 @section('content')

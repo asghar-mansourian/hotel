@@ -39,7 +39,7 @@
 .message hr{
     border: none;
     border-left: 8px solid hsl(244deg 97% 53%);
-    height: 70%;
+    height: 80%;
     margin-left: 57px;
     z-index: -1;
     position: absolute;
@@ -73,6 +73,9 @@
 .how_title{
     padding-left: unset!important;
 }
+.image_top_text{
+    font-size: 15px!important;
+}
 }
 .image_top_text {
     font-size: 66.667px;
@@ -83,7 +86,7 @@
     position: absolute;
     position: absolute;
     margin-left: 12%;
-    z-index: 5555;
+    z-index: 1;
     color: #fff;
     margin-top: -33%;
 }
