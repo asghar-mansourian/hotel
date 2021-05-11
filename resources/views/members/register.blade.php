@@ -225,7 +225,7 @@
                 <div class="col-md-6 mt-2">
 
                         <div class="input-group form-input mt-4" style="width: 100%;">
-                            <span class="input-group-addon">+7</span>
+                            <span class="input-group-addon">+38</span>
                             <input value="{{ old('phone') }}" type="text" name="phone"
                                    class="@error('phone') is-invalid @enderror form-control w-100 courier_input "
                                    placeholder="{{__('member.phone')}}" style="">
