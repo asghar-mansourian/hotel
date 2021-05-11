@@ -93,7 +93,7 @@
     position: absolute;
     position: absolute;
     margin-left: 12%;
-    z-index: 5555;
+    z-index: 1;
     color: #fff;
     margin-top: -33%;
 }
@@ -116,6 +116,16 @@
     }
     .back_right_image{
         display: none;
+    }
+    .accordion{
+        height: 100%!important;
+    }
+    .faq .accordion:after{
+        height: 50px!important;
+        margin-top: -45px;
+    }
+    h1{
+        font-size: 15px!important;
     }
 }
 .accordion {
