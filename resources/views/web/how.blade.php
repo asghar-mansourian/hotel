@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-4 col-sm-12">
-                    <h1 class="how_work_title mt-0">{{__('website.howwework')}}</h1>
+                    <h1 class="how_work_title mt-0">{{__('website.how_we_work_page')}}</h1>
                     <span></span>
                 </div>
             </div>
