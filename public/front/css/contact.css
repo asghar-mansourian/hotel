@@ -90,3 +90,8 @@
 .contact_border input, .contact_border textarea{
     background: #fff!important;
 }
+@media only screen and (max-width: 767px) {
+    .contact{
+        height: 100%!important;
+    }
+}

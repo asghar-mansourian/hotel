@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{url('front/css/index.css')}}">
 
     <link rel="stylesheet" href="{{url('front/css/pricing.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/contact.css')}}">
+    <link rel="stylesheet" href="{{url('front/css/contact.css?v=1.0.0')}}">
 @endsection
 @section('content')
     <div class="container">
