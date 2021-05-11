@@ -281,93 +281,145 @@ display: none;
     }
     .arrow_left_text{
         font-size: 20px!important;
-        margin-top: 15px;
-    }
-    .arrow_back_index{
-        width: 140px;
-        height: 125px;
-        margin-top: -10px;
-    }
-    .index_arrow{
-        width: 50%;
-        margin-top: -25px;
-        height: 50%;
+        margin-top: 15px!important;
+         width: unset!important;
+         margin-left: unset!important;
+        }
+        .arrow_back_index{
+            width: 140px;
+            height: 125px;
+            margin-top: -10px;
+        }
+        .index_arrow{
+            width: 50%;
+            margin-top: -25px;
+            height: 50%;
+        }
+        .movie_parent{
+            margin-top: 55px!important;
+        }
+        .customer_title{
+            height: 60px!important;
+        }
+        .how_work_title_text{
+            font-size: 30px;
+        }
     }
     .movie_parent{
-        margin-top: 55px!important;
+        margin-top: -150px;
     }
-    .customer_title{
-        height: 60px!important;
+
+        .partner_item{
+    width: 200px;
+    height: 200px;
+    z-index: 58;
+    border:#717170 1px solid;
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: #fff;
     }
-    .how_work_title_text{
-        font-size: 30px;
+    .partner_item img{
+    margin-top: 30%!important;
     }
-}
-.movie_parent{
-    margin-top: -150px;
-}
+    .partner .owl-item{
+    width: 200px!important;
+    margin-right: 20px;
+    }
+    .partner .owl-stage-outer{
+    padding-left: 20px!important;
+    }
+    .owl-prev {
+    width: 15px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    margin-left: -20px;
+    display: block !important;
+    border:0px solid black;
+    }
 
-    .partner_item{
-width: 200px;
-height: 200px;
-z-index: 58;
-border:#717170 1px solid;
-border-radius: 10px;
-margin-left: 10px;
-background-color: #fff;
-}
-.partner_item img{
-margin-top: 30%!important;
-}
-.partner .owl-item{
-width: 200px!important;
-margin-right: 20px;
-}
-.partner .owl-stage-outer{
-padding-left: 20px!important;
-}
-.owl-prev {
-width: 15px;
-height: 100px;
-position: absolute;
-top: 40%;
-margin-left: -20px;
-display: block !important;
-border:0px solid black;
-}
-
-.owl-next {
-width: 15px;
-height: 100px;
-position: absolute;
-top: 40%;
-right: -25px;
-display: block !important;
-border:0px solid black;
-}
-.owl-prev i, .owl-next i {transform : scale(1,6); color: black;}
-.all_customer_button{
-font-size: 37.5px;
-font-family: 'Calibri';
-color: rgb(70, 70, 70);
-line-height: 0.411;
-text-align: center;
-position: absolute;
-margin-left: -22%;
-margin-top: 12px;
-cursor: pointer;
-}
-.partner_text .owl-item{
-background-color: #fff!important;
-}
-
-.arrow_left_text{
-    font-size: 50px;
+    .owl-next {
+    width: 15px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    right: -25px;
+    display: block !important;
+    border:0px solid black;
+    }
+    .owl-prev i, .owl-next i {transform : scale(1,6); color: black;}
+    .all_customer_button{
+    font-size: 37.5px;
     font-family: 'Calibri';
-    color: rgb(255, 255, 255);
-    line-height: 1;
+    color: rgb(70, 70, 70);
+    line-height: 0.411;
     text-align: center;
-    left: 1025px;
-    top: 1750.204px;
+    position: absolute;
+    margin-left: -22%;
+    margin-top: 12px;
+    cursor: pointer;
+    }
+    .partner_text .owl-item{
+    background-color: #fff!important;
+    }
+
+    .arrow_left_text{
+        font-size: 30px;
+        font-family: 'Calibri';
+        color: rgb(255, 255, 255);
+        line-height: 1;
+        text-align: center;
+        left: 1025px;
+        /* top: 1750.204px; */
     z-index: 38;
+    width: 300px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.page {
+    padding: 15px 0 0;
+}
+
+.bmd-modalButton {
+    display: block;
+    margin: 15px auto;
+    padding: 5px 15px;
+}
+
+.close-button {
+    overflow: hidden;
+}
+
+.bmd-modalContent {
+    box-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.bmd-modalContent .close {
+    font-size: 30px;
+    line-height: 30px;
+    padding: 7px 4px 7px 13px;
+    text-shadow: none;
+    opacity: .7;
+    color:#fff;
+}
+
+.bmd-modalContent .close span {
+    display: block;
+}
+
+.bmd-modalContent .close:hover,
+.bmd-modalContent .close:focus {
+    opacity: 1;
+    outline: none;
+}
+
+.bmd-modalContent iframe {
+    display: block;
+    margin: 0 auto;
+}
+.movie_image {
+    cursor: pointer;
 }

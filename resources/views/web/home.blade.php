@@ -125,7 +125,8 @@
                 </div>
                 <div class="row movie_parent">
                     <div class="col-md-8 col-sm-8 col-xs-8 text-center">
-                        <img class="movie_image" style="margin-right: 70px;" src="{{url('/front/image/movie_play.png')}}">
+                        <img class="movie_image" data-toggle="modal" data-target="#iframeModal" style="margin-right: 70px;"
+                             src="{{url('/front/image/movie_play.png')}}">
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-8 text-center arrow_back_index">
                         <p class="arrow_left_text">{{__('website.home_arrow_left')}}</p>
@@ -224,6 +225,24 @@
             </div>
         </div>
         <div style="height: 60px;width: 100%"></div>
+        <div class="modal fade" id="iframeModal">
+            <div class="modal-dialog">
+                <div class="modal-content bmd-modalContent">
+
+                    <div class="modal-body">
+
+                        <div class="close-button">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="iframe" class="embed-responsive-item" src="{{\App\Setting::getValue(\App\Setting::FIELD_HOME_URL_VIDEO)}}" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
     </section>
 @endsection
 
@@ -260,6 +279,8 @@
             }
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script type="text/javascript">
         $('.blog .owl-carousel').owlCarousel({
             loop: false,
@@ -334,6 +355,6 @@
 
         $('.all_customer_button').on('click',function(){
             window.location.href='{{url('/customers')}}'
-        })
+        });
     </script>
 @endsection
