@@ -10,10 +10,10 @@ use App\Setting;
 class PriceItemController extends Controller
 {
 
-    public function __invoke($weight)
+    public function __invoke($weight,$countryId)
     {
         $price = PriceItem::where('from', '<=', $weight)
-            ->where('to', '>=', $weight);
+            ->where('to', '>=', $weight)->where('countries_id',$countryId);
 
         if ($price->exists()) {
             $has_weight = $price->value('has_weight');

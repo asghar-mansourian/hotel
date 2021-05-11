@@ -2,7 +2,11 @@
     <div class="col-md-12 mb-4 font_pink text-center"><strong>{{__('website.calculator')}}</strong></div>
     <div class="col-md-6 col-sm-6 mt-3 mb-3">
         <div class="pricing_box_cou">
-            <input type="text" readonly value="{{__('website.turkey')}}" style="width: 254px;    font-size: 21px; color: #151f59;border: 1px solid #2AF598;">
+            <select name="country" id="calculate_country_id">
+                @foreach($calculatorCountries as $country)
+                    <option value="{{$country->id}}">{{app()->getLocale()=='en'?$country->name:$country->name_.app()->getLocale()}}</option>
+                @endforeach
+            </select>
         </div>
         <span class="font_pink" style="position: absolute; right: -10px; bottom: 10px;"> &xrArr;</span>
     </div>

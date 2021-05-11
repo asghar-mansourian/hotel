@@ -28,6 +28,19 @@
                                 <input class="form-control " style="    width: 21px;" name="has_weight" type="checkbox" @if($price_item->has_weight) checked @endif id="has_weight">
                             </div>
                         </div>
+                        @component('admin.components.form.optionLabel')
+                            @slot('label')
+                                {{__('admin.country')}}
+                            @endslot
+                            @slot('name')
+                                country_id
+                            @endslot
+                            @slot('items')
+                                @foreach($countries as $country)
+                                    <option value="{{$country->id}}" @if($price_item->countries_id == $country->id) selected @endif>{{$country->name}}</option>
+                                @endforeach
+                            @endslot
+                        @endcomponent
                         @component('admin.components.form.inputLabel')
                             @slot('label')
                                 From

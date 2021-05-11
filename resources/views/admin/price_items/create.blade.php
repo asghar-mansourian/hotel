@@ -24,7 +24,19 @@
                         fields
                     @endslot
                     @slot('items')
-
+                            @component('admin.components.form.optionLabel')
+                                @slot('label')
+                                    {{__('admin.country')}}
+                                @endslot
+                                @slot('name')
+                                    country_id
+                                @endslot
+                                @slot('items')
+                                    @foreach($countries as $country)
+                                        <option value="{{$country->id}}">{{$country->name}}</option>
+                                    @endforeach
+                                @endslot
+                            @endcomponent
                         @component('admin.components.plus')
 
                         @endcomponent

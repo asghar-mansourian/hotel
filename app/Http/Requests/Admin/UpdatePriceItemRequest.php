@@ -27,6 +27,8 @@ class UpdatePriceItemRequest extends FormRequest
             'from' => ['required'],
             'to' => ['required'],
             'price' => ['required'],
+            'country_id' => ['required'],
+
         ];
     }
 }

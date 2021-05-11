@@ -24,6 +24,9 @@
                         </a>
                     </li>
                 @endguest
+                <li style="display: inline;margin-left: 5px">
+                    <a class="{{url()->current() === url('/calculator') ? 'active' : ''}}" href="{{url('/calculator')}}">{{__('website.calculator')}}</a>
+                </li>
             </ul>
         </div>
     </div>

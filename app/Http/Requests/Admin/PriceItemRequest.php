@@ -30,6 +30,7 @@ class PriceItemRequest extends FormRequest
             'tos.*' => ['required'],
             'prices' => ['required', 'array', 'min:1'],
             'prices.*' => ['required'],
+            'country_id' => ['required'],
 
         ];
     }

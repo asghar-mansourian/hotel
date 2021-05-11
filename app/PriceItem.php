@@ -11,8 +11,8 @@ class PriceItem extends Model
     const  paginateNumber = 10;
     const sortType = 'desc';
     const sortField = 'id';
-    const selectField = ['from', 'id', 'to', 'price'];
+    const selectField = ['from', 'id', 'to', 'price','countries_id'];
     const sortArrowTypeChecked = 'desc';
     const sortArrowFieldChecked = 'id';
-    protected $fillable = ['from', 'id', 'to', 'price'];
+    protected $fillable = ['from', 'id', 'to', 'price','countries_id'];
 }

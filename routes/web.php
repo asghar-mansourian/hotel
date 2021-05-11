@@ -124,9 +124,11 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('pages/{id}', 'PageController');
 
-    Route::get('get-price-via-weight/{weight}', 'PriceItemController');
+    Route::get('get-price-via-weight/{weight}/{country_id}', 'PriceItemController');
 
     Route::view('/prohibited_products', 'web.prohibited_products');
 
     Route::view('/about-us','web.about');
+
+    Route::get('/calculator','CalculatorController');
 });

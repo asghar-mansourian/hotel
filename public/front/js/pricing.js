@@ -16,7 +16,7 @@ $(document).ready(function () {
         }
         var option = {
             data: {},
-            url: "get-price-via-weight/" + $('#weight').val(),
+            url: "get-price-via-weight/" + $('#weight').val().replace(',','.')+'/'+$('#calculate_country_id').val(),
             type: "GET",
             dataType: "JSON",
             processData: false,
