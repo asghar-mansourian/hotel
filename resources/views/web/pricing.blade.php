@@ -3,7 +3,7 @@
     {{__('member.site_name')}}| {{ __('website.pricing') }}
 @endsection
 @section('styles')
-<link rel="stylesheet" href="{{url('/front/css/pricing.css')}}" >
+<link rel="stylesheet" href="{{url('/front/css/pricing.css?v=1.0.0')}}" >
     @endsection
 @section('content')
     <div class="container-fluid">
