@@ -5,7 +5,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.4')}}">
+    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.5')}}">
 
     <style>
     </style>
