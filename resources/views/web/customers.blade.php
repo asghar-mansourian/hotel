@@ -21,7 +21,7 @@
                         <div class="col-md-3 col-xs-12 xl-sm-6 customer_country">
                             <a class="country-button" data-countryId="{{$country->id}}">
                                 <img src="{{url("/images/$country->flag")}}">
-                                <span>{{app()->getLocale()=='en'?$country->name:$country->name_.app()->getLocale()}}</span>
+                                <span>{{app()->getLocale()=='en'?$country->name:$country->name_ru}}</span>
                             </a>
                         </div>
                     @endforeach
