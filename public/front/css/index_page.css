@@ -242,7 +242,7 @@ display: none;
         display: none;
     }
     .xs_show{
-        display: block;
+        display: block!important;
     }
     .how_text img{
         width: 50%;
@@ -447,4 +447,7 @@ display: none;
 }
 .w_10{
     width: 10%;
+}
+.xs_show{
+    display: none;
 }
