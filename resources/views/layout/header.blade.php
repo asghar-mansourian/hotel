@@ -74,7 +74,9 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if(app()->getLocale() == 'ru')
                                     RUS
-                                @else
+                                @elseif(app()->getLocale() == 'uk')
+                                    UK
+                                @elseif(app()->getLocale() == 'en')
                                     ENG
                                 @endif
                                 {{--                            {{ app()->getLocale() }}--}}
@@ -86,7 +88,9 @@
                                         <a class="dropdown-item " href="/set-locale/{{$locale->locale}}">
                                             @if($locale->locale == 'ru')
                                                 RUS
-                                            @else
+                                            @elseif(app()->getLocale() == 'uk')
+                                                Uk
+                                            @elseif(app()->getLocale() == 'en')
                                                 ENG
                                             @endif
                                         </a><br/>
