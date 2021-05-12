@@ -74,10 +74,8 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if(app()->getLocale() == 'ru')
                                     RUS
-                                @elseif(app()->getLocale() == 'uk')
-                                    UK
                                 @elseif(app()->getLocale() == 'en')
-                                    ENG
+                                    UK
                                 @endif
                                 {{--                            {{ app()->getLocale() }}--}}
                                 <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
@@ -88,10 +86,8 @@
                                         <a class="dropdown-item " href="/set-locale/{{$locale->locale}}">
                                             @if($locale->locale == 'ru')
                                                 RUS
-                                            @elseif($locale->locale == 'uk')
-                                                Uk
                                             @elseif($locale->locale == 'en')
-                                                ENG
+                                                UK
                                             @endif
                                         </a><br/>
                                     @endif
