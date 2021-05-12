@@ -4,7 +4,7 @@
         <div class="pricing_box_cou">
             <select name="country" id="calculate_country_id">
                 @foreach($calculatorCountries as $country)
-                    <option value="{{$country->id}}">{{app()->getLocale()=='en'?$country->name:$country->name_.app()->getLocale()}}</option>
+                    <option value="{{$country->id}}">{{app()->getLocale()=='en'?$country->name:$country->name_ru}}</option>
                 @endforeach
             </select>
         </div>
