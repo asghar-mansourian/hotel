@@ -88,9 +88,9 @@
                                         <a class="dropdown-item " href="/set-locale/{{$locale->locale}}">
                                             @if($locale->locale == 'ru')
                                                 RUS
-                                            @elseif(app()->getLocale() == 'uk')
+                                            @elseif($locale->locale == 'uk')
                                                 Uk
-                                            @elseif(app()->getLocale() == 'en')
+                                            @elseif($locale->locale == 'en')
                                                 ENG
                                             @endif
                                         </a><br/>
