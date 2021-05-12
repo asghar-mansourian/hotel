@@ -23,7 +23,7 @@
                     </div>
                     <select name="from" aria-labelledby="dropdown_baglama" style="width: 100px;margin-left: 10px; box-shadow: 0 0 black !important;">
                         {{--                <option class="">{{__('member.select')}}</option>--}}
-                        <option class="dropdown-item" value="RUB">RUB</option>
+                        <option class="dropdown-item" value="UAH">UAH</option>
                         <option class="dropdown-item" selected value="USD">USD</option>
                         <option class="dropdown-item" value="TRY">TRY</option>
                     </select>
@@ -36,7 +36,7 @@
                             style=" width: 100px;margin-left: 10px;
     box-shadow: 0 0 black !important;">
                         {{--                <option class="">{{__('member.select')}}</option>--}}
-                        <option class="dropdown-item" selected value="RUB">RUB</option>
+                        <option class="dropdown-item" selected value="UAH">UAH</option>
                         <option class="dropdown-item" value="USD">USD</option>
                         <option class="dropdown-item" value="TRY">TRY</option>
                     </select>
