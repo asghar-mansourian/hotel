@@ -13,7 +13,6 @@
 }
 .how_title{
     display: inline;
-    padding-left: 40px;
     font-size: 37.5px;
     font-family: 'Calibri';
     color: rgb(70, 70, 70);
@@ -40,7 +39,7 @@
     border: none;
     border-left: 8px solid hsl(244deg 97% 53%);
     height: 80%;
-    margin-left: 57px;
+    margin-left: 112px;
     z-index: -1;
     position: absolute;
 }
@@ -76,6 +75,9 @@
 .image_top_text{
     font-size: 15px!important;
 }
+hr{
+    display: none!important;
+}
 }
 .image_top_text {
     font-size: 66.667px;
@@ -89,4 +91,8 @@
     z-index: 1;
     color: #fff;
     margin-top: -33%;
+}
+h1{
+    font-weight: bold;
+    display: inline;
 }

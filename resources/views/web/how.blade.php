@@ -4,7 +4,7 @@
 @endsection
 @section('styles')
 {{--    <link rel="stylesheet" href="{{url('front/css/index.css')}}">--}}
-    <link rel="stylesheet" href="{{url('front/css/how_page.css?v=1.0.0.1')}}">
+    <link rel="stylesheet" href="{{url('front/css/how_page.css?v=1.0.0.2')}}">
 
 @endsection
 @section('content')
@@ -34,38 +34,48 @@
                     <img src="{{url('/front/image/how/how_left_back.png')}}">
                 </div>
             </div>
+            <br>
             <div class="row message">
                 <div class="col-md-1 d-xl-none">
                 </div>
                 <div class="col-md-10 col-sm-12 col-xs-12" style="margin-left:80px;background-image: url('/front/image/how_page_line.png');background-position-y: ">
                     <hr>
-                    <div class="col-sm-12 col-xs-12 how_message">
-
+                    <div class="col-md-12 col-sm-12 col-xs-12 how_message">
+                        <div class="col-md-2 col-sm-12 col-xs-12 text-center">
                             <img src="{{url('/front/image/how/how_step_one.png')}}">
-                            <p class="how_title" >
-                                {{__('website.how_work_step_1_title')}}
-                            </p>
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <p class="how_title">{{__('website.how_work_step_1_title')}}</p>
                             <p class="inline" >
-                                {{__('website.how_work_step_1_message')}}
+                            {{__('website.how_work_step_1_message')}}
+                        </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12 how_message">
+                        <div class="col-md-2 col-sm-12 col-xs-12 text-center">
+                            <img src="{{url('/front/image/how/how_step_two.png')}}">
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <p class="how_title">
+                                {{__('website.how_work_step_2_title')}}
                             </p>
+                            <p class="inline">
+                                {{__('website.how_work_step_2_message')}}
+                            </p>
+                        </div>
                     </div>
                     <div class="col-sm-12 col-xs-12 how_message">
-                        <img src="{{url('/front/image/how/how_step_two.png')}}">
-                        <p  class="how_title" >
-                            {{__('website.how_work_step_2_title')}}
-                        </p>
-                        <p class="inline">
-                            {{__('website.how_work_step_2_message')}}
-                        </p>
-                    </div>
-                    <div class="col-sm-12 col-xs-12 how_message">
-                        <img src="{{url('/front/image/how/how_step_3.png')}}">
-                        <p  class="how_title" >
-                            {{__('website.how_work_step_3_title')}}
-                        </p>
-                        <p  class="inline" >
-                            {{__('website.how_work_step_3_message')}}
-                        </p>
+                        <div class="col-md-2 col-sm-12 col-xs-12 text-center">
+                            <img src="{{url('/front/image/how/how_step_3.png')}}">
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <p  class="how_title" >
+                                {{__('website.how_work_step_3_title')}}
+                            </p>
+                            <p  class="inline" >
+                                {{__('website.how_work_step_3_message')}}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
