@@ -5,7 +5,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.2')}}">
+    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.3')}}">
 
     <style>
     </style>
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row how_text">
+                            <div class="row how_text ">
                                 <div class="col-md-4 col-sm-4 col-xs-4 text-center">
                                     <div class="how_a">
                                         <img src="{{url('/front/image/index_user.png')}}">
@@ -113,6 +113,36 @@
 {{--                                    </div>--}}
 {{--                                </div>--}}
                             </div>
+                            <div class="row xs_show">
+                                <div class="col-md-4 col-sm-12 col-xs-12 text-center">
+                                    <div>
+                                        <img class="w_20" src="{{url('/front/image/index_user.png')}}">
+                                        <br>
+                                        <br>
+                                        <img  class="w_10" src="{{url('/front/image/index_a.png')}}">
+                                        <br>
+                                        <p>{{__('website.how_work_a')}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4  col-sm-12 col-xs-12  text-center">
+                                    <div>
+                                        <img class="w_20" src="{{url('/front/image/index_airplan.png')}}">
+                                        <br>
+                                        <br>
+                                        <img  class="w_10" src="{{url('/front/image/index_b.png')}}">
+                                        <p>{{__('website.how_work_b')}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4  col-sm-12 col-xs-12  text-center">
+                                    <div>
+                                        <img class="w_20" src="{{url('/front/image/index_machin.png')}}">
+                                        <br>
+                                        <br>
+                                        <img class="w_10" src="{{url('/front/image/index_c.png')}}">
+                                        <p >{{__('website.how_work_c')}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,11 +154,11 @@
                     </div>
                 </div>
                 <div class="row movie_parent">
-                    <div class="col-md-8 col-sm-8 col-xs-8 text-center">
+                    <div class="col-md-8 col-sm-12 col-xs-12 text-center">
                         <img class="movie_image" data-toggle="modal" data-target="#iframeModal" style="margin-right: 70px;"
                              src="{{url('/front/image/movie_play.png')}}">
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-8 text-center arrow_back_index">
+                    <div class="col-md-4 col-sm-12 col-xs-12 text-center arrow_back_index">
                         <p class="arrow_left_text">{{__('website.home_arrow_left')}}</p>
                         <img class="index_arrow" src="{{url('/front/image/arrow_left.png')}}">
                     </div>

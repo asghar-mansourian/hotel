@@ -81,12 +81,12 @@
 @media only screen and (max-width: 1200px) {
 
     .slider_text{
-        margin-left: -60%;
+        margin-left: -70%;
         width: 300px!important;
         height: 200px!important;
         background-image: unset!important;
         font-size: 15px!important;
-        margin-top: -20px;
+        margin-top: -30px;
     }
     .color_fff{
         font-size: 20px!important;
@@ -231,10 +231,19 @@ display: none;
     .contact{
         margin-bottom: unset;
         height: unset;
-        margin-top: unset;
+        margin-top: -14px;
 }
 }
 @media only screen and (max-width: 767px){
+    .customer_title_row{
+        margin-top: 10px;
+    }
+    .how_text{
+        display: none;
+    }
+    .xs_show{
+        display: block;
+    }
     .how_text img{
         width: 50%;
     }
@@ -283,9 +292,10 @@ display: none;
         padding-top: unset!important;
         }
         .arrow_back_index{
-            width: 140px;
+            width: 96%;
             height: 125px;
-            margin-top: -10px;
+            margin-top: unset;
+            margin-left: unset;
         }
         .index_arrow{
             width: 50%;
@@ -425,4 +435,16 @@ display: none;
 }
 .movie_image {
     cursor: pointer;
+}
+@media (min-width: 320px) and (max-width: 480px){
+    .index_cont {
+        width: 100%;
+        margin-top: -60px!important;
+    }
+}
+.w_20{
+    width: 20%;
+}
+.w_10{
+    width: 10%;
 }
