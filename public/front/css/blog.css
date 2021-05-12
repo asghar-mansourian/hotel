@@ -193,3 +193,11 @@
     margin-bottom: 50px;
     margin-top: 50px;
 }
+@media (min-width: 320px) and (max-width: 480px){
+    .blog_img_he img, .blog_img_he {
+        height: 200px!important;
+    }
+    .slider_search .search form input{
+        width: 300px!important;
+    }
+}
