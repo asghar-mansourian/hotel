@@ -5,7 +5,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.1')}}">
+    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.2')}}">
 
     <style>
     </style>
@@ -147,6 +147,8 @@
                         </div>
                     </div>
                     <br>
+{{--                </div>--}}
+{{--                <div class="container">--}}
                     <div class="row">
                         <div class="col-md-2">
                             <img class="customer_index_slide_back" src="{{url('/front/image/customer_slide_back.png')}}">
@@ -155,16 +157,16 @@
                             <div id="customerCarousel" class="owl-carousel owl-theme">
                                 @foreach($customers as $customer)
                                     @if($loop->iteration==0 or $loop->iteration%2 == 1)
-                                        <div class="item">
-                                    @endif
-                                            <div class="partner_item text-center">
+                                        <div class="item col-md-3">
+                                        @endif
+                                        <div class="partner_item text-center">
                                                 <a href="{{$customer->link}}" target="_blank"><img
                                                         src="{{asset('images/customers/'.$customer->image->file_name)}}"
                                                         alt="{{$customer->name}}"></a>
                                             </div>
                                             <br>
                                     @if($loop->last or($loop->iteration !=0 and $loop->iteration%2 == 0))
-                                         </div>
+                                        </div>
                                     @endif
                                 @endforeach
                             </div>
@@ -249,9 +251,6 @@
 @section('footerCustom')
     <script src="{{url('front/js/owl.carousel.min.js')}}"></script>
     <script src="{{url('front/js/home/counter.js')}}"></script>
-    <link rel="stylesheet" href="{{url('front/plugin/bxslider/jquery.bxslider.css')}}">
-    <script src="{{url('front/plugin/bxslider/jquery.bxslider.min.js')}}"></script>
-
     <script>
         function showStuff(id, text, btn) {
             document.getElementById(id).style.display = 'block';
@@ -283,7 +282,7 @@
     <script type="text/javascript">
         $('.blog .owl-carousel').owlCarousel({
             loop: false,
-            margin: 10,
+            // margin: 10,
             dots: true,
             autoplay: true,
             loop: true,
@@ -293,10 +292,10 @@
                     items: 1
                 },
                 600: {
-                    items: 2
+                    items: 1
                 },
                 1000: {
-                    items: 2
+                    items: 1
                 }
             }
         })
@@ -313,10 +312,10 @@
                     items: 2,
                 },
                 481: {
-                    items: 3,
+                    items: 2,
                 },
                 992: {
-                    items: 4,
+                    items: 2,
                 },
                 1000: {
                     items: 4,
@@ -343,6 +342,10 @@
             },
 
         });
+        </script>
+        <link rel="stylesheet" href="{{url('front/plugin/bxslider/jquery.bxslider.css')}}">
+            <script src="{{url('front/plugin/bxslider/jquery.bxslider.min.js')}}"></script>
+    <script>
         $(document).ready(function () {
             $('div .img_slider').css('display', 'block')
 

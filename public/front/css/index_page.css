@@ -86,6 +86,7 @@
         height: 200px!important;
         background-image: unset!important;
         font-size: 15px!important;
+        margin-top: -20px;
     }
     .color_fff{
         font-size: 20px!important;
@@ -193,7 +194,6 @@
     width: 239px;
     height: 154px;
     z-index: 39;
-    margin-top: 30%;
 }
 .arrow_back_index{
     width: 564px;
@@ -255,7 +255,7 @@ display: none;
     .how_work_text_b{
         font-size: 15px;
         margin-top: 30px;
-        margin-left: -30px;
+        margin-left: -70px;
     }
     .how_work_step_c{
         width: 35%!important;
@@ -276,10 +276,11 @@ display: none;
         width: 100%;
     }
     .arrow_left_text{
-        font-size: 20px!important;
+        font-size: 15px!important;
         margin-top: 15px!important;
          width: unset!important;
          margin-left: 15px!important;
+        padding-top: unset!important;
         }
         .arrow_back_index{
             width: 140px;
@@ -292,7 +293,7 @@ display: none;
             height: 50%;
         }
         .movie_parent{
-            margin-top: 55px!important;
+            margin-top: 60px!important;
         }
         .customer_title{
             height: 60px!important;
@@ -300,6 +301,13 @@ display: none;
         .how_work_title_text{
             font-size: 30px;
         }
+        .partner_item{
+            height: 150px!important;
+            width: 100px!important;
+        }
+    .partner_item img{
+        width: 100%!important;
+    }
     }
     .movie_parent{
         margin-top: -150px;
@@ -318,8 +326,8 @@ display: none;
     margin-top: 30%!important;
     }
     .partner .owl-item{
-    width: 200px!important;
-    margin-right: 20px;
+    /*width: 200px!important;*/
+    /*margin-right: 20px;*/
     }
     .partner .owl-stage-outer{
     padding-left: 20px!important;
@@ -366,11 +374,10 @@ display: none;
         line-height: 1;
         text-align: center;
         left: 1025px;
-        /* top: 1750.204px; */
-    z-index: 38;
-    width: 300px;
-    margin-left: 100px;
-    margin-top: 50px;
+        z-index: 38;
+        width: 300px;
+        margin-left: 100px;
+        padding-top: 130px;
 }
 
 .page {
