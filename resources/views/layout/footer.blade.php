@@ -1,5 +1,5 @@
 <div style="clear:both"></div>
-<div class="footer" style="margin-top: 30px;background-image: url('{{url('/front/image/footer_back.png')}}')">
+<div class="footer" style="margin-top: 30px;background-image: url('{{url('/front/image/footer_back.png')}}');background-size: 100% 100%">
     <div class="footer_sky">
         <div class="container" style="margin-bottom: 25px;">
             <div class="row">

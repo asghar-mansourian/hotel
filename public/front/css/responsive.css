@@ -406,6 +406,7 @@
     .footer{
         background-image: none;
         background-color: #5c5c5c!important;
+        background-size: unset!important;
     }
 }
 
@@ -749,7 +750,9 @@
     }
     .footer{
         background-image: none;
-        background-color: #5c5c5c!important;;
+        background-color: #5c5c5c!important;
+        background-size: unset!important;
+
     }
 }
 
@@ -1004,6 +1007,7 @@
     .footer{
         background-image: none;
         background-color: #5c5c5c!important;
+        background-size:unset!important;
     }
 
 }
