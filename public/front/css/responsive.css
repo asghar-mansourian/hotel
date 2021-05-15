@@ -403,6 +403,10 @@
     .index_cont_img {
         margin: 0 auto 40px;
     }
+    .footer{
+        background-image: none;
+        background-color: #5c5c5c!important;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -743,6 +747,10 @@
     .index_cont_img {
         margin: 0 auto 40px;
     }
+    .footer{
+        background-image: none;
+        background-color: #5c5c5c!important;;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -992,6 +1000,10 @@
 
     .index_cont_img {
         margin: 0 auto 40px;
+    }
+    .footer{
+        background-image: none;
+        background-color: #5c5c5c!important;
     }
 
 }
