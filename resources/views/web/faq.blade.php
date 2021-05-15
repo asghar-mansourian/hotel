@@ -3,7 +3,7 @@
     {{__('member.site_name')}}| {{__('website.faq')}}
 @endsection
 @section('styles')
-    <link rel="stylesheet" href="{{url('/front/css/faq.css?v=1.0.0')}}">
+    <link rel="stylesheet" href="{{url('/front/css/faq.css?v=1.0.1')}}">
     @endsection
 @section('content')
     <div class="container-fluid">

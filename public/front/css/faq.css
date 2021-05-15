@@ -123,9 +123,11 @@
     .faq .accordion:after{
         height: 50px!important;
         margin-top: -45px;
+        padding-bottom: 70px;
     }
     h1{
         font-size: 15px!important;
+        width: 270px;
     }
 }
 .accordion {
