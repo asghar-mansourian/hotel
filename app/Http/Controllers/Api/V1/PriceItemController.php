@@ -13,7 +13,7 @@ class PriceItemController extends Controller
     public function __invoke($weight)
     {
         $price = PriceItem::where('from', '<=', $weight)
-            ->where('to', '>=', $weight);
+            ->where('to', '>=', $weight)->where('countries_id',request()->get('country_id'));
 
 
         if ($price->exists()) {
