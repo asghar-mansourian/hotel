@@ -42,7 +42,7 @@
 
 {{--        </li>--}}
         <li class="slide">
-            <a class="side-menu__item" href="{{url('admin/orders')}}">
+            <a class="side-menu__item" href="{{url('admin/projects')}}">
                 <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
                      width="24">
                     <path d="M0 0h24v24H0V0z" fill="none"></path>
@@ -52,7 +52,7 @@
 
                         </svg>
                     </svg>
-                    <span class="side-menu__label">{{__('admin.orders')}}</span><i class="angle fa fa-angle-right"></i>
+                    <span class="side-menu__label">{{__('admin.projects')}}</span><i class="angle fa fa-angle-right"></i>
                 </a>
 
             </li>

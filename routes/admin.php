@@ -376,3 +376,11 @@ route::get('/customer_reviews/destroy/{id}','CustomerReviewController@destroy');
 route::post('/customer_reviews/search','CustomerReviewController@search');
 
 
+/*      Project Routes      */
+route::get('/projects' , 'ProjectController@index');
+route::get('/projects/create/' , 'ProjectController@create');
+route::post('/projects/store/' , 'ProjectController@store');
+route::get('/projects/edit/{id}' , 'ProjectController@edit');
+route::post('/projects/update/{id}' , 'ProjectController@update');
+route::get('/projects/destroy/{id}' , 'ProjectController@destroy');
+route::post('/projects/search/' , 'ProjectController@search');
