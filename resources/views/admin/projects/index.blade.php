@@ -75,9 +75,14 @@
                                                 <i class="fe fe-edit mr-2"></i>{{__('admin.delete')}}
                                             </a>
                                             <a href="{{url('admin/projects/edit/' . $project->id)}}"
+                                                   data-toggle="tooltip"
+                                                   title="Edit" class="m-l-10 btn btn-success btn-sm">
+                                                <i class="fe fe-edit mr-2"></i>{{__('admin.tableedit')}}
+                                            </a>
+                                            <a href="{{url('admin/projects/edit-picture?id='.$project->id)}}"
                                                data-toggle="tooltip"
                                                title="Edit" class="m-l-10 btn btn-success btn-sm">
-                                                <i class="fe fe-edit mr-2"></i>{{__('admin.tableedit')}}
+                                                <i class="fe fe-edit mr-2"></i>{{__('admin.table_edit_picture')}}
                                             </a>
                                         </td>
                                     </tr>

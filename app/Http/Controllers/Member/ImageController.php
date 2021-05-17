@@ -14,6 +14,7 @@ class ImageController extends Controller
         $image = $relate->image()->create([
            'file_name' => $file_name
         ]);
+        return $image;
     }
 
     public function show($id)

@@ -384,3 +384,7 @@ route::get('/projects/edit/{id}' , 'ProjectController@edit');
 route::post('/projects/update/{id}' , 'ProjectController@update');
 route::get('/projects/destroy/{id}' , 'ProjectController@destroy');
 route::post('/projects/search/' , 'ProjectController@search');
+route::get('/projects/edit-picture' , 'ProjectController@editPicture');
+
+route::post('/projects/project-slider-files','ProjectController@storeProjectSlider');
+route::post('/projects/delete-slider-picture','ProjectController@destroyProjectSlider');

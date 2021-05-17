@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Member\ImageController;
 use App\Http\Controllers\Traits\ValidatorRequest;
 use App\Http\Requests\Admin\ProjectCreateRequest;
 use App\Http\Requests\Admin\ProjectUpdateRequest;
+use App\Image;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -153,5 +155,45 @@ class ProjectController extends Controller
         session()->flash('message', __('custom.project_update_success'));
         session()->flash('success', 1);
         return response()->json([], 200);
+    }
+
+    public function editPicture()
+    {
+        $projects = Project::all();
+
+        $selectedProject = Project::findOrFail(\request()->get('id'));
+
+        return view('admin.projects.add_picture',compact('projects','selectedProject'));
+    }
+
+    public function storeProjectSlider(Request $request)
+    {
+        $project = Project::findOrFail($request->project_id);
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            $format = $image->getClientOriginalExtension();
+
+            $fileName = $image->getClientOriginalName();
+            $fileName = substr($fileName, 0, strrpos($fileName, '.'));
+            $fileName = str_replace(' ', '', $fileName);
+            $Random_Number = rand(0, 9999);
+            $name = $fileName . '-' . $Random_Number . '.' . $format;
+
+            $destinationPath = public_path('/images/projects');
+            $image->move($destinationPath, $name);
+        }
+        //store project address in image morph table
+        $image = (new ImageController())->store($name,$project);
+        return response()->json(['id',$image->id],200);
+    }
+
+    public function destroyProjectSlider(Request $request)
+    {
+        $image = Image::findOrFail($request->id);
+
+        if(file_exists(public_path("/images/projects/$image->file_name")))
+            unlink(public_path("/images/projects/$image->file_name"));
+        $image->delete();
+        return response()->json([],200);
     }
 }

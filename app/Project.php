@@ -11,4 +11,10 @@ class Project extends Model
     protected $guarded = ['id'];
 
     const paginateNumber = 10;
+
+    public function image()
+    {
+        return $this->morphMany('App\Image','imageable');
+    }
+
 }
