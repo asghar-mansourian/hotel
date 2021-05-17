@@ -7,14 +7,10 @@
 </head>
 <body>
 
-<div class="title pt-2 mb-5">
-    <div class="container">
         @include('layout.header')
         <hr style="    margin-top: 0; margin-bottom: 0;">
         @include('layout.navbar')
-    </div>
-</div>
-@include('layout.mobileMenu')
+{{--@include('layout.mobileMenu')--}}
 
 <div class="site_center">
     @yield('content')

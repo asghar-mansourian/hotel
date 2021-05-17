@@ -23,17 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $blogs = Blog::select($this->customSelectedFields())->latest()->take(3)->get();
+        $blogs = Blog::select($this->customSelectedFields())->latest()->take(3)->get();
 
 //        $countries = Country::whereIn('id', Calculator::query()->distinct('country_id')->pluck('country_id')->take(2))->get();
 
-        $customers = Customer::paginate(16);
+//        $customers = Customer::paginate(16);
 
         $sliders = Slider::all();
 
-        $customerReviews = CustomerReviews::select($this->customeSelectReview())->get();
+//        $customerReviews = CustomerReviews::select($this->customeSelectReview())->get();
 
-        return view('web.home', compact('sliders' ,'customers','customerReviews'));
+        return view('web.home', compact('sliders' ,'blogs'));
     }
 
     public function setLocale($locale)

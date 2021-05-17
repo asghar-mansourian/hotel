@@ -35,6 +35,7 @@ class Setting extends Model
     const FIELD_SOCIAL_WHATSUP = 'social_whatsup';
     const FIELD_SOCIAL_YOUTUBE = 'social_youtube';
     const FIELD_SOCIAL_VIBER = 'social_viber';
+    const FIELD_SOCIAL_TWITtER = 'social_twitter';
     const FIELD_SERVICE = 'service';
     const FIELD_ABOUT_US = 'about_us';
     const FIELD_LINK_GOOGLE_PLAY = 'link_google_play';
