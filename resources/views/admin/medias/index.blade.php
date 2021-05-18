@@ -45,8 +45,8 @@
                     <h3 class="card-title" style="display: inline">
                         <i class="fa fa-clipboard   mr-2"></i>{{__('custom.admin.blog.index.table.header')}}
                     </h3>
-                    <a href="{{url('/admin/project-rooms/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i>
-                        {{__('admin.add_project_room')}} </a>
+                    <a href="{{url('/admin/medias/create')}}" class="btn btn-sm btn-info ml-auto"><i class="fe fe-plus-circle mr-1 "></i>
+                        {{__('admin.add_medias')}} </a>
                 @endslot
 
                 @slot('items')
@@ -56,29 +56,29 @@
                                 <tr>
                                     <td>{{__('admin.id')}}</td>
                                     <td>{{__('admin.name')}}</td>
-                                    <td>{{__('admin.project_name')}}</td>
+                                    <td>{{__('admin.url')}}</td>
                                     <td>{{__('admin.action')}}</td>
                                 </tr>
                                 </thead>
                                 <tbody class="mytbody">
-                                @foreach($projectRooms as $projectRoom)
+                                @foreach($medias as $media)
                                     <tr>
                                         <td>
                                             {{$loop->iteration}}
                                         </td>
                                         <td>
-                                            {{$projectRoom->name}}
+                                            {{$media->name}}
                                         </td>
                                         <td>
-                                            {{$projectRoom->project->name}}
+                                            {{$media->url}}
                                         </td>
                                         <td>
-                                            <a href="{{url('admin/project-rooms/delete/'. $projectRoom->id)}}"
+                                            <a href="{{url('admin/medias/delete/'. $media->id)}}"
                                                class="btn btn-sm btn-danger delete" data-toggle="tooltip"
-                                               title data-placement="top" data-value="{{$projectRoom->id}}" data-original-title="Delete">
+                                               title data-placement="top" data-value="{{$media->id}}" data-original-title="Delete">
                                                 <i class="fe fe-edit mr-2"></i>{{__('admin.delete')}}
                                             </a>
-                                            <a href="{{url('admin/project-rooms/edit/' . $projectRoom->id)}}"
+                                            <a href="{{url('admin/medias/edit/' . $media->id)}}"
                                                    data-toggle="tooltip"
                                                    title="Edit" class="m-l-10 btn btn-success btn-sm">
                                                 <i class="fe fe-edit mr-2"></i>{{__('admin.tableedit')}}
@@ -88,7 +88,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{$projectRooms->links()}}
+                            {{$medias->links()}}
                         </div>
 
 
@@ -104,7 +104,7 @@
 
     @component('admin.components.script.sweetAlertScript')
         @slot('url')
-            ../../../admin/project-rooms/
+            ../../../admin/medias/
         @endslot
     @endcomponent
     {{--    @component('admin.components.script.paginatorScript' , ['type' => 2])--}}

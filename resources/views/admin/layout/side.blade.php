@@ -71,6 +71,21 @@
             </a>
 
         </li>
+        <li class="slide">
+            <a class="side-menu__item" href="{{url('admin/medias')}}">
+                <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                     width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <i class="fa fa-shopping-basket" style="font-size: 17px;color: #5c678f;position: absolute;top: 31%;left: 7%;"></i>
+
+                    </svg>
+                </svg>
+                <span class="side-menu__label">{{__('admin.medias')}}</span><i class="angle fa fa-angle-right"></i>
+            </a>
+
+        </li>
             <li class="slide">
                 <a class="side-menu__item" href="{{url('admin/orders?status=1&purchased=1')}}" data-status="1">
                     <svg class="side-menu__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"

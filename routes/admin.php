@@ -400,3 +400,13 @@ route::post('/project-rooms/update/{id}' , 'ProjectRoomController@update');
 route::get('/project-rooms/destroy/{id}' , 'ProjectRoomController@destroy');
 route::post('/project-rooms/search/' , 'ProjectRoomController@search');
 route::post('/project-rooms/project-room-files' , 'ProjectRoomController@addPicture');
+
+
+/*      Media Routes      */
+route::get('/medias' , 'MediaController@index');
+route::get('/medias/create/' , 'MediaController@create');
+route::post('/medias/store/' , 'MediaController@store');
+route::get('/medias/edit/{id}' , 'MediaController@edit');
+route::post('/medias/update/{id}' , 'MediaController@update');
+route::get('/medias/destroy/{id}' , 'MediaController@destroy');
+route::post('/medias/search/' , 'MediaController@search');
