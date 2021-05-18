@@ -41,7 +41,16 @@ class ProjectCreateRequest extends FormRequest
             'status' => 'required',
             'google_map_address' => 'required',
             'indicator_picture' => 'required|image',
-            'up_indicator_picture' => 'required|image'
+            'up_indicator_picture' => 'required|image',
+            'min_address' => 'required',
+            'min_address_ru' => 'required',
+            'min_address_az' => 'required',
+            'walk' => 'required',
+            'walk_ru' => 'required',
+            'walk_az' => 'required',
+            'empty_room' => 'required',
+            'empty_room_ru' => 'required',
+            'empty_room_az' => 'required',
         ];
     }
 }

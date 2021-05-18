@@ -80,7 +80,16 @@ class ProjectController extends Controller
            'status' => $request->status,
            'google_map_address' => $request->google_map_address,
            'indicator_picture' => $name,
-           'up_indicator_picture' => $up_name
+           'up_indicator_picture' => $up_name,
+            'min_address' => $request->min_address,
+            'min_address_ru' => $request->min_address_ru,
+            'min_address_az' => $request->min_address_az,
+            'walk' => $request->walk,
+            'walk_ru' => $request->walk_ru,
+            'walk_az' => $request->walk_az,
+            'empty_room' => $request->empty_room,
+            'empty_room_ru' => $request->empty_room_ru,
+            'empty_room_az' => $request->empty_room_az,
         ]);
         session()->flash('message', __('custom.project.message.create'));
         session()->flash('success', 1);
@@ -151,7 +160,16 @@ class ProjectController extends Controller
             'status' => $request->status,
             'google_map_address' => $request->google_map_address,
             'indicator_picture' => $name,
-            'up_indicator_picture' => $up_name
+            'up_indicator_picture' => $up_name,
+            'min_address' => $request->min_address,
+            'min_address_ru' => $request->min_address_ru,
+            'min_address_az' => $request->min_address_az,
+            'walk' => $request->walk,
+            'walk_ru' => $request->walk_ru,
+            'walk_az' => $request->walk_az,
+            'empty_room' => $request->empty_room,
+            'empty_room_ru' => $request->empty_room_ru,
+            'empty_room_az' => $request->empty_room_az,
         ]);
         session()->flash('message', __('custom.project_update_success'));
         session()->flash('success', 1);
