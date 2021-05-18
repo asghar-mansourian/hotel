@@ -9,6 +9,7 @@ use App\Customer;
 use App\CustomerReviews;
 use App\Http\Controllers\Controller;
 use App\lib\Helpers;
+use App\Project;
 use App\Slider;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Session;
@@ -32,8 +33,9 @@ class HomeController extends Controller
         $sliders = Slider::all();
 
 //        $customerReviews = CustomerReviews::select($this->customeSelectReview())->get();
+        $projects = Project::select($this->customSelectedProjectFields())->latest()->take(10)->get();
 
-        return view('web.home', compact('sliders' ,'blogs'));
+        return view('web.home', compact('sliders' ,'blogs','projects'));
     }
 
     public function setLocale($locale)
@@ -62,5 +64,17 @@ class HomeController extends Controller
         $decription = app()->getLocale() !== 'en' ? "description_{$locale} as description" : 'description';
 
         return [$decription,'name','id'];
+    }
+    public function customSelectedProjectFields()
+    {
+        $locale = app()->getLocale();
+
+        $name = app()->getLocale() !== 'en' ? "name_{$locale} as name" : 'name';
+
+        $title = app()->getLocale() !== 'en' ? "title_{$locale} as title" : 'title';
+
+        $address = app()->getLocale() !== 'en' ? "address_{$locale} as address" : 'address';
+
+        return [$name,$title,$address,'id','indicator_picture'];
     }
 }

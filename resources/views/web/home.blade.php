@@ -74,6 +74,34 @@
     <section>
         <div class="index_page">
             <br>
+            <div class="container" id="projects">
+                <div class="row">
+                    <div class="col-12 mt-4 mb-4">
+                        <div class="h7 text-center color_blue"><strong>{{__('website.project')}}</strong> </div>
+                        <h6 class="text-center color_gold"><strong>{{__('website.project_description')}}</strong> </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($projects as $project)
+                        <div class="col-lg-3 col-sm-6 col-md-4">
+                            <div class="tm-activity-block">
+                                <div class="tm-activity-img w-100-container">
+                                    <img src='{{url("images/$project->indicator_picture")}}' alt="Image" class="tm-activity-img w-100" />
+                                </div>
+                                <div class="tm-activity-block-text">
+                                    <h6 class="color_gold">{{$project->title}}</h6>
+                                    <div class="color_fff"><i class="fas fa-map-marker-alt color_gold mr-2"></i>{{$project->address}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-12 skills_input text-center"><button onclick="myFunction()" id="myBtn">Read more</button></div>
+                </div>
+            </div>
+            <br>
             <!-- Blog -->
             <div style="background: #202c3b">
                 <section class="container tm-contact-section blog_list">
