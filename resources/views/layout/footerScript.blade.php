@@ -3,48 +3,6 @@
 <script src="{{url('front/js/jquery.singlePageNav.min.js')}}"></script>
 <script src="{{url('front/js/bootstrap.min.js')}}"></script>
 <script src="{{url('front/js/owl.carousel.min.js')}}"></script>
-<script>
-    function myFunction() {
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var btnText = document.getElementById("myBtn");
-
-        if (dots.style.display === "none") {
-            dots.style.display = "inline";
-            btnText.innerHTML = "Read more";
-            moreText.style.display = "none";
-        } else {
-            dots.style.display = "none";
-            btnText.innerHTML = "Read less";
-            moreText.style.display = "inline";
-        }
-    }
-    $(document).ready(function(){
-        $("div").click(function(){
-            $("#more").fadeOut(3000);
-        });
-    });
-
-
-    $('#blog_owl').owlCarousel({
-        loop:true,
-        margin:0,
-        nav:true,
-        autoplay: 800,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:2
-            },
-            1000:{
-                items:3
-            }
-        }
-    })
-</script>
-
 
 <script>
     /**
@@ -66,14 +24,6 @@
             var rv = ua.indexOf("rv:");
             return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
         }
-
-        // var edge = ua.indexOf('Edge/');
-        // if (edge > 0) {
-        //     // Edge (IE 12+) => return version number
-        //     return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-        // }
-
-        // other browser
         return false;
     }
 
@@ -195,10 +145,6 @@
         });
     });
 </script>
-
-</body>
-</html>
-
 
 {{--<script src="{{url('front/js/style_js.js')}}"></script>--}}
 {{--<script src="{{url('front/js/jquery.js')}}"></script>--}}

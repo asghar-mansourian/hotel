@@ -32,8 +32,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">{{__('website.projects')}}</a>
                                     <ul>
-                                        <li class="nav-item"><a href="{{url('/finished-project')}}">{{__('website.finished_projects')}}</a></li>
-                                        <li class="nav-item"><a href="{{url('/unfinished-projects')}}">{{__('website.unfinished_projects')}}</a></li>
+                                        <li class="nav-item"><a href="{{url('/projects?status=finished')}}">{{__('website.finished_projects')}}</a></li>
+                                        <li class="nav-item"><a href="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">

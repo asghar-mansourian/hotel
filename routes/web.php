@@ -130,5 +130,9 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::view('/about-us','web.about');
 
+    Route::get('/projects','ProjectController@index');
+
+    Route::get('/project/{id}','ProjectController@single');
+
     Route::get('/calculator','CalculatorController');
 });
