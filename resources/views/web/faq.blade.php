@@ -3,42 +3,24 @@
     {{__('member.site_name')}}| {{__('website.faq')}}
 @endsection
 @section('styles')
-    <link rel="stylesheet" href="{{url('/front/css/faq.css?v=1.0.2')}}">
+{{--    <link rel="stylesheet" href="{{url('/front/css/faq.css?v=1.0.2')}}">--}}
     @endsection
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-left: unset!important;padding-right: unset ">
-                <img style="width: 100%" src="{{url('/front/image/fag_index.png')}}">
-                <h1 class="image_top_text">{{__('website.pricing_image_text')}}</h1>
-            </div>
-        </div>
+    <div class="tm-parallax" style="background-position: center 840px;">
+        <header class="tm-parallax-header">
+            <h2 class="">{{__('website.faq')}}</h2>
+        </header>
     </div>
-    <div class="container">
-        <div class="row">
-{{--            <div class="col-md-12">--}}
-
-{{--                <div class="row">--}}
-
-{{--                    <div class="col-md-7 col-sm-7">--}}
-{{--                        <div class="black pt-5"><span class="yellow mr-3"></span>{{__('website.faq')}}</div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <div class="col-md-12 faq">
+    <!-- FAQ -->
+    <div class="site_center faq">
+        <div class="container mt-4 mb-5">
+            <div class="row mt-3">
                 @foreach($faqs as $faq)
-                    <button class="accordion"><h1>{{$faq->title}}</h1></button>
-                    <div class="panel_faq">
-                        <p>{!! $faq->content !!}</p>
-                    </div>
-
+                <button class="accordion">{{$faq->title}}</button>
+                <div class="panel">
+                    <p>{!! $faq->content !!}</p>
+                </div>
                 @endforeach
-            </div>
-            <div class="col-md-12 back_left_image text-right">
-                <img src="{{url('/front/image/pricing_back.png')}}">
-            </div>
-            <div class="col-md-12 back_right_image text-left">
-                <img src="{{url('/front/image/how/how_left_back.png')}}">
             </div>
         </div>
     </div>
