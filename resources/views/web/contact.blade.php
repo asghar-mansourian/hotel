@@ -3,71 +3,91 @@
     {{__('member.site_name')}}| {{__('website.contactus')}}
 @endsection
 @section('styles')
-    <link rel="stylesheet" href="{{url('front/css/blog.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/index.css')}}">
+{{--    <link rel="stylesheet" href="{{url('front/css/blog.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{url('front/css/index.css')}}">--}}
 
-    <link rel="stylesheet" href="{{url('front/css/pricing.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/contact.css?v=1.0.0')}}">
+{{--    <link rel="stylesheet" href="{{url('front/css/pricing.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{url('front/css/contact.css?v=1.0.0')}}">--}}
 @endsection
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="pricing">
-                <div class="col-md-12 mt-5">
-                    <div class="col-md-12 p-0 text-center">
-                        <span class="black"> {{__('website.contact')}}</span>
-                        <span><hr class="blue_hr"  style="margin-left: auto; margin-right: auto;"/></span>
+    <div class="tm-parallax" style="background-position: center 840px;">
+        <header class="tm-parallax-header">
+            <h2 class="">{{__('website.contact')}}</h2>
+        </header>
+    </div>
+    <!-- Contact -->
+    <div class="site_center contact">
+        <div class="container mt-4 mb-5">
+            <div class="row mt-3">
+                <div class="col-lg-4 col-md-4 contact_left">
+                    <h5 class="color_blue"><strong>{{__('website.contact_information_title')}}</strong></h5>
+                    <div class="con_mt">
+                        <ul>
+                            <li>
+                                <div class="con_icon">
+                                    <span class="con_fac"><i class="fas fa-map-marker-alt"></i></span>
+                                </div>
+                                <div class="con_desc">{{__('website.contactInformation1')}}</div>
+                            </li>
+                            <li>
+                                <div class="con_icon">
+                                    <span class="con_fac"><i class="fas fa-phone-volume"></i></span>
+                                </div>
+                                <div class="con_desc"><p> {{\App\Setting::getValue(\App\Setting::FIELD_MOBILE)}}</p></div>
+                            </li>
+                            <li>
+                                <div class="con_icon">
+                                    <span class="con_fac"><i class="fas fa-envelope-open-text"></i></span>
+                                </div>
+                                <div class="con_desc">
+                                    <p><a href="#">{{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="con_icon">
+                                    <span class="con_fac"><i class="far fa-clock"></i></span>
+                                </div>
+                                <div class="con_desc"><p>{{__('website.contactInformation2')}}</p></div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <p>{{__('website.information')}}</p>
-                        <p>{{__('website.contactInformation1')}}</p>
-                        <p>{{__('website.contactInformation2')}}</p>
-                        <p>{{__('website.contactInformation3')}}</p>
-                        <p>{{__('website.warehouseInformation')}}</p>
-                        <p class="contact_i"><i class="fas fa-map-marker-alt"></i>{{__('website.contactInformation4')}}</p>
-                        <p class="contact_i"><i class="far fa-envelope"></i> {{\App\Setting::getValue(\App\Setting::FIELD_EMAIL)}}</p>
-                        <p class="contact_i"><i class="fas fa-phone-alt"></i> {{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</p>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="contact_border">
-                            <div class="color_fff text-center mb-5">{{__('website.contactus')}}</div>
-                            <div class="col-12" style="padding: 1px 16px;">
-                                @include('layout.error')
+                <form action="{{url('/contact-us')}}" method="post" class="col-lg-8 col-md-8 contact_right">
+                    <h5 class="color_blue"><strong>{{__('website.contactus')}}</strong></h5>
+                        @csrf
+                        <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">@include('layout.error')</div>
+
+                        <div class="col-md-6">
+                            <div class="input-icons">
+                                <input  name="name" class="input-field pl-3" type="text" placeholder="{{__('website.name_family')}}">
                             </div>
-                            <form action="{{url('/contact-us')}}" method="post">
-                                @csrf
-                                <div class="col-md-12">
-                                    <input type="text" name="name" placeholder="{{__('website.contact_name')}}" class="mb-4 w-100" required>
-                                    <input type="email" name="email" placeholder="{{__('website.contact_email')}}" class="mb-4 w-100" required>
-                                </div>
-                                <div class="col-md-12">
-                                    <textarea name="message" placeholder="{{__('website.contact_message')}}" class="mb-4 w-100" required></textarea>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <button>{{__('website.send')}}</button>
-                                </div>
-                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-icons select_input">
+                                <select class="" name="area_code">
+                                    <option value="055">055</option>
+                                    <option value="050">050</option>
+                                    <option value="070">070</option>
+                                </select>
+                                <input name="telephone" class="input-field pl-3" type="text" placeholder="{{__('website.mobile')}}">
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <textarea name="message" placeholder="{{__('website.message')}}"></textarea>
                         </div>
                     </div>
+                        <div class="col-md-12 mt-3">
+                            <div class="button_yellow text-center">
+                                <button type="submit" class="btnn">{{__('website.send')}}</button>
+                            </div>
+                        </div>
+                </form>
                 </div>
             </div>
         </div>
+    <div class="map">
+        <iframe width="100%" height="355" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="{!! \App\Setting::getValue(\App\Setting::FIELD_CONTACT_URL_MAP) !!}"></iframe>
     </div>
-    <div class="container">
-        <div class="contact_map">
-            <div style="width: 100%">
-                <iframe width="100%" height="355" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="{!! \App\Setting::getValue(\App\Setting::FIELD_CONTACT_URL_MAP) !!}"></iframe>
-                <a href="https://www.maps.ie/route-planner.htm"></a></div>
-        </div>
-    </div>
-    <br style="margin-top: 5px;">
 @endsection

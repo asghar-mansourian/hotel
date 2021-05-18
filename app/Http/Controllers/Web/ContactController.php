@@ -22,20 +22,21 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        Mail::to('info@shtormex.ru')->send(new contactUs($request));
         $request->validate([
 //            'serial_number' => ['required', 'max:9', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'area_code' => ['required', 'string', 'max:255'],
+            'telephone' => ['required', 'string', 'max:255'],
             'message' => ['required', 'string',  'max:255'],
         ]);
+        Mail::to('info@shtormex.ru')->send(new contactUs($request));
         Contact::create([
             'name' => $request->input('name'),
-            'email' => $request->input('email'),
+            'email' => $request->area_code.$request->input('telephone'),
             'message' => $request->input('message'),
         ]);
 
-        return redirect()->back()->with('success' , 'Send Message Successful');
+        return redirect()->back()->with('success' , __('website.send_contact_successful'));
     }
 
 
