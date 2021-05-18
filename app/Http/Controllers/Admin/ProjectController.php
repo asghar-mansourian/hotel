@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\ProjectCreateRequest;
 use App\Http\Requests\Admin\ProjectUpdateRequest;
 use App\Image;
 use App\Project;
+use App\ProjectRoom;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -168,7 +169,10 @@ class ProjectController extends Controller
 
     public function storeProjectSlider(Request $request)
     {
-        $project = Project::findOrFail($request->project_id);
+        if($request->project_id)
+            $relation = Project::findOrFail($request->project_id);
+        else
+            $relation = ProjectRoom::findOrFail($request->room_id);
         if ($request->hasFile('file')) {
             $image = $request->file('file');
             $format = $image->getClientOriginalExtension();
@@ -183,7 +187,7 @@ class ProjectController extends Controller
             $image->move($destinationPath, $name);
         }
         //store project address in image morph table
-        $image = (new ImageController())->store($name,$project);
+        $image = (new ImageController())->store($name,$relation);
         return response()->json(['id',$image->id],200);
     }
 

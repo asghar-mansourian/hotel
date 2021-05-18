@@ -388,3 +388,15 @@ route::get('/projects/edit-picture' , 'ProjectController@editPicture');
 
 route::post('/projects/project-slider-files','ProjectController@storeProjectSlider');
 route::post('/projects/delete-slider-picture','ProjectController@destroyProjectSlider');
+
+
+
+/*      Project Room Routes      */
+route::get('/project-rooms' , 'ProjectRoomController@index');
+route::get('/project-rooms/create/' , 'ProjectRoomController@create');
+route::post('/project-rooms/store/' , 'ProjectRoomController@store');
+route::get('/project-rooms/edit/{id}' , 'ProjectRoomController@edit');
+route::post('/project-rooms/update/{id}' , 'ProjectRoomController@update');
+route::get('/project-rooms/destroy/{id}' , 'ProjectRoomController@destroy');
+route::post('/project-rooms/search/' , 'ProjectRoomController@search');
+route::post('/project-rooms/project-room-files' , 'ProjectRoomController@addPicture');
