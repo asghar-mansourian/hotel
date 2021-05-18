@@ -46,7 +46,7 @@
                                     <a class="nav-link" href="{{url('/faq')}}">{{__('website.faq')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/media')}}">{{__('website.media')}}</a>
+                                    <a class="nav-link" href="{{url('/medias')}}">{{__('website.medias')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/contact-us')}}">{{__('website.contact')}}</a>

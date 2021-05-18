@@ -134,5 +134,7 @@ Route::group(['namespace' => 'Web'], function () {
 
     Route::get('/project/{id}','ProjectController@single');
 
+    Route::get('/medias','MediaController');
+
     Route::get('/calculator','CalculatorController');
 });
