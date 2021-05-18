@@ -12,8 +12,10 @@ class ProjectController extends Controller
     {
         if(\request()->get('status')=='finished')
             $projects = Project::select($this->customSelectedFields())->where('status',Project::STATUS_FINISHED)->get();
-        else
+        elseif(\request()->get('status')=='unfinished')
             $projects = Project::select($this->customSelectedFields())->where('status',Project::STATUS_UNFINISHED)->get();
+        else
+            $projects = Project::select($this->customSelectedFields())->get();
 
         return view('web.projects',compact('projects'));
     }
@@ -29,7 +31,12 @@ class ProjectController extends Controller
 
         $description = app()->getLocale() !== 'en' ? "description_{$locale} as description" : 'description';
 
-        return [$name,$title,$address,$description,'id','up_indicator_picture','indicator_picture','google_map_address','telephone','mobile'];
+        $minAddress = app()->getLocale() !== 'en' ? "min_address_{$locale} as min_address" : 'min_address';
+        $walk = app()->getLocale() !== 'en' ? "walk_{$locale} as walk" : 'walk';
+
+        $emptyRoom = app()->getLocale() !== 'en' ? "empty_room_{$locale} as empty_room" : 'empty_room';
+
+        return [$name,$title,$address,$description,$minAddress,$walk,$emptyRoom,'id','status','up_indicator_picture','indicator_picture','google_map_address','telephone','mobile'];
     }
 
     public function single($id)
