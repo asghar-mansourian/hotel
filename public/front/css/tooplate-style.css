@@ -1129,7 +1129,7 @@ button:focus{
     transform: translate(-50%, -50%);
   }
   html{
-    width: 97% !important
+    width: 108% !important
   }
   .mob_dis, .mob_dis_no{
     display: none;
@@ -1160,7 +1160,7 @@ button:focus{
     padding-bottom: 60px;
   }
   html{
-    width: 117% !important
+    width: 167% !important
   }
 }
 
