@@ -201,11 +201,11 @@
 
             if (dots.style.display === "none") {
                 dots.style.display = "inline";
-                btnText.innerHTML = "Read more";
+                btnText.innerHTML = "{{__('website.readmore')}}";
                 moreText.style.display = "none";
             } else {
                 dots.style.display = "none";
-                btnText.innerHTML = "Read less";
+                btnText.innerHTML = "{{__('website.read_less')}}";
                 moreText.style.display = "inline";
             }
         }
