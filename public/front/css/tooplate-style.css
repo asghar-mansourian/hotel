@@ -85,6 +85,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   top: 0;
   border-top: none;
   background: white;
+    z-index: 55555;
 }
 
 .navbar-expand-md .navbar-nav .nav-link {
