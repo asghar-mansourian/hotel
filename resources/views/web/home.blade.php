@@ -22,7 +22,7 @@
 {{--                    <p>{{__('website.contactInformation2')}}</p>--}}
 {{--                    <p>{{__('website.contactInformation3')}}</p>--}}
 {{--                    <p>{{__('website.contactInformation4')}}</p>--}}
-                    <a href="#" class="banner_show">{{__('website.show_all')}}</a>
+                    <a href="{{url('/projects')}}" class="banner_show">{{__('website.show_all')}}</a>
                 </div>
                 <div class="col-md-12" style="padding: 0;margin: 0;">
 
@@ -83,6 +83,9 @@
                 </div>
                 <div class="row">
                     @foreach($projects as $project)
+                        @if($loop->iteration ==9)
+                            @break
+                        @endif
                         <div class="col-lg-3 col-sm-6 col-md-4">
                             <a href="{{url('/project/'.$project->id)}}" style="cursor: pointer">
                                 <div class="tm-activity-block">
@@ -97,11 +100,37 @@
                             </a>
                         </div>
                     @endforeach
+                            <span id="dots"></span>
+                            <div id="more">
+                                <div class="row">
+                                    @foreach($projects as $project)
+                                        @if($loop->iteration >8)
+                                            <div class="col-lg-3 col-sm-6 col-md-4">
+                                                <a href="{{url('/project/'.$project->id)}}" style="cursor: pointer">
+                                                    <div class="tm-activity-block">
+                                                        <div class="tm-activity-img w-100-container">
+                                                            <img src='{{url("images/$project->indicator_picture")}}' alt="Image" class="tm-activity-img w-100" />
+                                                        </div>
+                                                        <div class="tm-activity-block-text">
+                                                            <h6 class="color_gold">{{$project->title}}</h6>
+                                                            <div class="color_fff"><i class="fas fa-map-marker-alt color_gold mr-2"></i>{{$project->address}}</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        @endif
+                                            @endforeach
+
+                                </div>
+                        </div>
 
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-12 skills_input text-center"><button onclick="myFunction()" id="myBtn">Read more</button></div>
-                </div>
+                @if($projects->count()>8)
+                    <div class="skills_input text-center"><button onclick="myFunction()" id="myBtn">{{__('website.readmore')}}</button></div>
+                @endif
+                {{--                <div class="row text-center">--}}
+{{--                    <div class="col-md-12 skills_input text-center"><button onclick="myFunction()" id="myBtn">Read more</button></div>--}}
+{{--                </div>--}}
             </div>
             <br>
             <!-- Blog -->
@@ -180,11 +209,6 @@
                 moreText.style.display = "inline";
             }
         }
-        $(document).ready(function(){
-            $("div").click(function(){
-                $("#more").fadeOut(3000);
-            });
-        });
 
 
         $('#blog_owl').owlCarousel({
@@ -197,7 +221,7 @@
                     items:1
                 },
                 600:{
-                    items:2
+                    items:1
                 },
                 1000:{
                     items:3

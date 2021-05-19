@@ -3,7 +3,7 @@
         <div class="row p-4">
             <div class="col-md-3 col-sm-12">
                 <div class="footer_img text-center">
-                    <img src="{{url('/front/image/logo.png')}}" alt="Image" class="w-100">
+                    <a href="{{url('/')}}"> <img src="{{url('/front/image/logo.png')}}" alt="Image" class="w-100"></a>
                 </div>
                 <div class="sosyal">
                     <div class="s_li"><a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_LINKEDIN_IN)}}"><i class="fab fa-linkedin-in"></i></a></a></div>
@@ -20,10 +20,10 @@
                 <div class="row">
                     <div class="col-md-4 pr-0">
                         <div class="h7"><strong>{{__('website.footer_menu')}}</strong></div>
-                        <div>{{__('website.projects')}}}</div>
+                        <div><a href="{{url('/projects')}}">{{__('website.projects')}}</a></div>
                         <div><a href="{{url('/rooms')}}">{{__('website.room')}}</a></div>
                         <div><a href="{{url('/pages/6')}}">{{__('website.inspirations')}}</a></div>
-                        <div>{{__('website.aboutus')}}</div>
+                        <div><a  href="{{url('/about-us')}}">{{__('website.aboutus')}}</a></div>
                         <div><a href="{{url('/pages/4')}}">{{__('website.policies')}}</a></div>
                     </div>
                     <div class="col-md-4 pr-0">

@@ -94,16 +94,15 @@
                 "Please use the latest version of Edge, Chrome, or Firefox for best browsing experience."
             );
         }
-
-        const mainNav = $("#tmMainNav");
-        mainNav.singlePageNav({
-            filter: ":not(.external)",
-            offset: $(".tm-nav-section").outerHeight(),
-            updateHash: true,
-            beforeStart: function() {
-                mainNav.removeClass("show");
-            }
-        });
+        // const mainNav = $("#tmMainNav");
+        // mainNav.singlePageNav({
+        //     filter: ":not(.external)",
+        //     offset: $(".tm-nav-section").outerHeight(),
+        //     updateHash: true,
+        //     beforeStart: function() {
+        //         mainNav.removeClass("show");
+        //     }
+        // });
 
         videoSec = $("#tmVideoSection");
 

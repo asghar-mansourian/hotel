@@ -2,7 +2,7 @@
     <div class="container" id="home">
         <div class="col-12 text-center">
             <div class="tm-page-header">
-                <img src="{{url('/front/image/logo.png')}}" alt="Image">
+                <a href="{{url('/')}}"><img src="{{url('/front/image/logo.png')}}" alt="Image"></a>
             </div>
         </div>
     </div>

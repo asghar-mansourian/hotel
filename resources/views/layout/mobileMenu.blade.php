@@ -1,12 +1,15 @@
 <div class="mobil_menu">
     <div id="mySidepanel" class="sidepanel" style="z-index: 5555">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="{{url()->current() === url('/') ? 'active' : ''}}" href="{{route('home')}}">{{__('website.home')}}</a>
-        <a class="{{url()->current() === url('/pricing') ? 'active' : ''}}" href="{{url('/pricing')}}">{{__('website.pricing')}}</a>
-        <a class="{{url()->current() === url('/how-we-work') ? 'active' : ''}}" href="{{url('/how-we-work')}}">{{__('website.howwework')}}</a>
+        <a href="{{url('/projects?status=finished')}}">{{__('website.finished_projects')}}</a>
+        <a href="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a>
+        <a href="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a>
         <a class="{{url()->current() === url('/faq') ? 'active' : ''}}" href="{{url('/faq')}}">{{__('website.faq')}}</a>
         <a class="{{url()->current() === url('/blog') ? 'active' : ''}}" href="{{url('/blog')}}">{{__('website.blog')}}</a>
         <a class="{{url()->current() === url('/contact-us') ? 'active' : ''}}" href="{{url('/contact-us')}}">{{__('website.contact')}}</a>
+        <a class="nav-link" href="{{url('/quality')}}">{{__('website.quality')}}</a>
+        <a class="nav-link" href="{{url('/medias')}}">{{__('website.medias')}}</a>
+
         <hr>
         <a class="{{url()->current() === url('/login') ? 'active' : ''}}" href="{{url('/login')}}">{{__('website.login')}}</a>
         <a class="{{url()->current() === url('/register') ? 'active' : ''}}" href="{{url('/register')}}">{{__('website.register')}}</a>
@@ -17,26 +20,15 @@
             <a href="{{url('/')}}"><img src="{{url('front/image/favicon/blue_logo.png')}}"></a>
         </div>
         <div style="text-align: right;">
-            <div class="dropdown" style="display: inline-block;">
-                <button class=" btn-secondary dropdown-toggle" type="button" id="dropdown_panel"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @if(app()->getLocale() == 'ru')
-                        RUS
-                    @elseif(app()->getLocale() == 'en')
-                        UK
-                    @endif
-                    <i class="fas fa-chevron-down ml-2" style="font-size: 12px"></i>
-                </button>
+            <div class="dropdown">
+                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff; font-weight: bold;">
+                    {{ app()->getLocale() }}
+                    <i class="fas fa-angle-down ml-2"></i>
+                </a>
                 <div class="dropdown-menu lang-a" aria-labelledby="dropdown_panel">
                     @foreach(\App\lib\Helpers::getLocales() as $locale)
                         @if($locale->locale != app()->getLocale())
-                            <a class="dropdown-item " href="/set-locale/{{$locale->locale}}">
-                                @if($locale->locale == 'ru')
-                                    RUS
-                                @elseif($locale->locale == 'en')
-                                    UK
-                                @endif
-                            </a><br/>
+                            <a class="dropdown-item " href="/set-locale/{{$locale->locale}}"> {{$locale->locale}}</a><br/>
                         @endif
                     @endforeach
                 </div>

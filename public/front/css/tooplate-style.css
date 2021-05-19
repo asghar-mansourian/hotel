@@ -136,7 +136,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   font-weight: bold;
 }
 .collapse:not(.show){
-  display: unset;
+  /*display: unset;*/
 }
 #tmMainNav .nav-item .dropdown{
       margin-top: 4px;

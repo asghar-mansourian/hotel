@@ -33,7 +33,7 @@ class HomeController extends Controller
         $sliders = Slider::all();
 
 //        $customerReviews = CustomerReviews::select($this->customeSelectReview())->get();
-        $projects = Project::select($this->customSelectedProjectFields())->latest()->take(10)->get();
+        $projects = Project::select($this->customSelectedProjectFields())->latest()->take(12)->get();
 
         return view('web.home', compact('sliders' ,'blogs','projects'));
     }
