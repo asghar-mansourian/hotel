@@ -81,7 +81,7 @@
 @media only screen and (max-width: 1200px) {
 
     .slider_text{
-        margin-left: -70%;
+        /*margin-left: -70%;*/
         width: 300px!important;
         height: 200px!important;
         background-image: unset!important;
@@ -235,6 +235,13 @@ display: none;
 }
 }
 @media only screen and (max-width: 767px){
+    .slider_text h1{
+        font-size: 20px!important;
+    }
+    .slider_text p{
+        font-size: 20px!important;
+    }
+
     .customer_title_row{
         margin-top: 10px;
     }
@@ -438,6 +445,15 @@ display: none;
     .index_cont {
         width: 100%;
         margin-top: -60px!important;
+    }
+    .slider_text p{
+        font-size: 15px!important;
+    }
+    .slider_text h1{
+        font-size: 20px!important;
+    }
+    .slider_text{
+        margin-left: -50%;
     }
 }
 .w_20{

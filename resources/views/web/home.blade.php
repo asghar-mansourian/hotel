@@ -14,7 +14,7 @@
     <div class="contact index_contact">
         <div class="container-fluid">
             <div class="row text-center">
-                <div class="col-md-6 col-sm-3 col-xs-3 slider_text" style="">
+                <div class="col-md-6 col-sm-5 col-xs-3 slider_text" style="">
                     <h1>
                         {{__('website.kargo')}} {{__('website.transport')}}
                     </h1>

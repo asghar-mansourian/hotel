@@ -137,7 +137,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   font-weight: bold;
 }
 .collapse:not(.show){
-  /*display: unset;*/
+  display: none;
 }
 #tmMainNav .nav-item .dropdown{
       margin-top: 4px;
@@ -1129,7 +1129,7 @@ button:focus{
     transform: translate(-50%, -50%);
   }
   html{
-    width: 108% !important
+    width: 97% !important
   }
   .mob_dis, .mob_dis_no{
     display: none;
@@ -1160,7 +1160,7 @@ button:focus{
     padding-bottom: 60px;
   }
   html{
-    width: 167% !important
+    width: 157% !important
   }
 }
 
