@@ -1204,3 +1204,6 @@ button:focus{
       height: 85px;
   }
 }
+.footer_one a{
+    color: #fff!important;
+}
