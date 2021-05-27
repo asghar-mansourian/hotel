@@ -55,6 +55,23 @@
                                 {{$page->title_ru}}
                             @endslot
                         @endcomponent
+                            @component('admin.components.form.inputLabel')
+                                @slot('label')
+                                    {{__('admin.title_az')}}
+                                @endslot
+                                @slot('name')
+                                    title_az
+                                @endslot
+                                @slot('type')
+                                    text
+                                @endslot
+                                @slot('placeholder')
+                                    {{__('admin.pleasetitle_ru')}}
+                                @endslot
+                                @slot('value')
+                                    {{$page->title_az}}
+                                @endslot
+                            @endcomponent
 
 
                         <div class="form-group row">
@@ -82,7 +99,18 @@
                             </textarea>
                             </div>
                         </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    {{__('admin.content_az')}}
+                                </label>
+                                <div class="col-md-9">
 
+                            <textarea class="form-control" name="contentaz"
+                                      id="contentaz" placeholder="" cols="30" rows="10">
+ {!! $page->content_az !!}
+                            </textarea>
+                                </div>
+                            </div>
                         {{--              <div class="form-group row">
                                           <label for="example-text-input" class="col-md-3 form-label my-auto">
                                               {{__('admin.content_az')}}
