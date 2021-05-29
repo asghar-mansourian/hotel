@@ -1344,3 +1344,8 @@ button:focus{
     display: none;
     width: 30%;
 }
+.projects_a a{
+    font-family: 'Euclid Circular A';
+    font-weight: 300;
+    font-style: italic;
+}
