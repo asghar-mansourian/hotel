@@ -1346,7 +1346,7 @@ button:focus{
 }
 .projects_a a{
     font-family: 'Euclid Circular A';
-    font-weight: 300;
+    font-weight: 300!important;
     font-style: italic;
 }
 
