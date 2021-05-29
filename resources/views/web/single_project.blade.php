@@ -47,10 +47,21 @@
 
                     <div id="room{{$room->id}}" class="tabcontent"  @if($loop->first)style="display: block;"@endif>
                         <div class="row">
-                            @foreach($room->image as $image)
-                                <div class="col-md-4 col-sm-6">
-                                    <a data-fancybox="gallery" href="{{url('/images/projects/'.$image->file_name)}}">
-                                        <img src="{{url('/images/projects/'.$image->file_name)}}" class="w-100 proj_tab"></a>
+                            @foreach($room->roomDetails as $detail)
+                                <div class="col-md-3 col-sm-6">
+                                    <a data-fancybox="gallery" href="{{url('/images/projects/'.$detail->picture)}}">
+                                        <img src="{{url('/images/projects/'.$detail->picture)}}" class="w-100 proj_tab"></a>
+                                </div>
+                                <div class="col-md-3 col-sm-6" style="background-color: #ebebeb !important;border-radius: 20px">
+                                    <p>
+                                        @if(app()->getLocale() == 'en')
+                                            {!! $detail->description !!}
+                                        @elseif(app()->getLocale() == 'ru')
+                                            {!! $detail->description_ru !!}
+                                        @elseif(app()->getLocale() == 'az')
+                                            {!! $detail->description_az !!}
+                                        @endif
+                                    </p>
                                 </div>
                             @endforeach
                         </div>
