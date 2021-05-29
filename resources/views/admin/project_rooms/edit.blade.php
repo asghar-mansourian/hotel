@@ -110,27 +110,27 @@
                                     {{$projectRoom->name_az}}
                                 @endslot
                         @endcomponent
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                    {{__('admin.up_indicator_picture')}}
-                                </label>
-                                <div class="col-md-9">
-                                    <div id="dZUpload" class="dropzone">
-                                        <div class="dz-default dz-message"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                    {{__('admin.slider_indicator_picture')}}
-                                </label>
-                                <div class="col-md-9">
-                                    @foreach($projectRoom->image as $image)
-                                        <img src='{{url("/images/projects/$image->file_name")}}' height="50" width="50">
-                                        <a data-id="{{$image->id}}" class="delete-file" >delete</a>
-                                    @endforeach
-                                </div>
-                            </div>
+{{--                            <div class="form-group row">--}}
+{{--                                <label for="example-text-input" class="col-md-3 form-label my-auto">--}}
+{{--                                    {{__('admin.up_indicator_picture')}}--}}
+{{--                                </label>--}}
+{{--                                <div class="col-md-9">--}}
+{{--                                    <div id="dZUpload" class="dropzone">--}}
+{{--                                        <div class="dz-default dz-message"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group row">--}}
+{{--                                <label for="example-text-input" class="col-md-3 form-label my-auto">--}}
+{{--                                    {{__('admin.slider_indicator_picture')}}--}}
+{{--                                </label>--}}
+{{--                                <div class="col-md-9">--}}
+{{--                                    @foreach($projectRoom->image as $image)--}}
+{{--                                        <img src='{{url("/images/projects/$image->file_name")}}' height="50" width="50">--}}
+{{--                                        <a data-id="{{$image->id}}" class="delete-file" >delete</a>--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                     @endslot
 
 

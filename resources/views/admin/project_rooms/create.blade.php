@@ -89,16 +89,16 @@
                             @slot('value')
                             @endslot
                         @endcomponent
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-md-3 form-label my-auto">
-                                    {{__('admin.up_indicator_picture')}}
-                                </label>
-                                <div class="col-md-9">
-                                    <div id="dZUpload" class="dropzone">
-                                        <div class="dz-default dz-message"></div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="form-group row">--}}
+{{--                                <label for="example-text-input" class="col-md-3 form-label my-auto">--}}
+{{--                                    {{__('admin.up_indicator_picture')}}--}}
+{{--                                </label>--}}
+{{--                                <div class="col-md-9">--}}
+{{--                                    <div id="dZUpload" class="dropzone">--}}
+{{--                                        <div class="dz-default dz-message"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                     @endslot
 
                             @slot('header')
