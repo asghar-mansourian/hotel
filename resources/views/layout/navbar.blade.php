@@ -36,9 +36,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/blog')}}">{{__('website.blog')}}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/pages/8')}}">{{__('website.quality')}}</a>
-                                </li>
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{url('/pages/8')}}">{{__('website.quality')}}</a>--}}
+{{--                                </li>--}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/medias')}}">{{__('website.medias')}}</a>
                                 </li>
