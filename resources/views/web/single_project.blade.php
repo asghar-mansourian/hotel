@@ -4,7 +4,7 @@
 
 @endsection
 @section('content')
-    <div class="tm-parallax" style="background-repeat: no-repeat;height: 500px;background-position: center 840px;background-image:url('{{url('/images/'.$project->indicator_picture)}}')">
+    <div class="tm-parallax" style="background-repeat: no-repeat;height: 500px;background-position: center;background-image:url('{{url('/images/'.$project->indicator_picture)}}')">
         <header class="tm-parallax-header" >
           <img src="{{url('/images/'.$project->up_indicator_picture)}}">
         </header>
