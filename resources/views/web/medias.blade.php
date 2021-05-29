@@ -6,11 +6,11 @@
 
 @endsection
 @section('content')
-    <div class="tm-parallax" style="background-position: center 840px;">
-        <header class="tm-parallax-header">
-            <h2 class="">{{__('website.media')}}</h2>
-        </header>
-    </div>
+{{--    <div class="tm-parallax" style="background-position: center 840px;">--}}
+{{--        <header class="tm-parallax-header">--}}
+{{--            <h2 class="">{{__('website.media')}}</h2>--}}
+{{--        </header>--}}
+{{--    </div>--}}
     <!-- MEDİA -->
     <div class="site_center media">
         <div class="container mt-4 mb-5">

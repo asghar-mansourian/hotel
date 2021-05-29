@@ -17,20 +17,20 @@
     </style>
     @endsection
 @section('content')
-    <div class="tm-parallax" style="background-position: center 840px;">
-        <header class="tm-parallax-header">
-            <h2 class="">
-                @if(\request()->get('status') == 'unfinished')
-                    {{__('website.unfinished_project')}}
-                @elseif(\request()->get('status') == 'finished')
-                    {{__('website.finished_projects')}}
-                @else
-                    {{__('website.all_projects')}}
+{{--    <div class="tm-parallax" style="background-position: center 840px;">--}}
+{{--        <header class="tm-parallax-header">--}}
+{{--            <h2 class="">--}}
+{{--                @if(\request()->get('status') == 'unfinished')--}}
+{{--                    {{__('website.unfinished_project')}}--}}
+{{--                @elseif(\request()->get('status') == 'finished')--}}
+{{--                    {{__('website.finished_projects')}}--}}
+{{--                @else--}}
+{{--                    {{__('website.all_projects')}}--}}
 
-                @endif
-            </h2>
-        </header>
-    </div>
+{{--                @endif--}}
+{{--            </h2>--}}
+{{--        </header>--}}
+{{--    </div>--}}
     <!-- projects -->
     <div @if(\request()->get('status') == 'unfinished') class="projects_con" @elseif(\request()->get('status') == 'finished') class="projects_in" @else class="all-project" @endif>
         <div class="site_center project">
