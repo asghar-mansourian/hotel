@@ -5,7 +5,7 @@
 @section('styles')
     <link rel="stylesheet" href="{{url('front/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('front/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.5')}}">
+    <link rel="stylesheet" href="{{url('front/css/index_page.css?v=1.0.6')}}">
 
     <style>
     </style>
@@ -34,40 +34,69 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
-    <div class="container tm-features-section">
-        <div class="row tm-features-row">
-            <section class="col-md-6 col-sm-12 tm-feature-block">
-                <header class="tm-feature-header">
-                    <i class="fas fa-5x fa-anchor tm-feature-icon"></i>
-                        <h3 class="tm-feature-h">{{__('website.after_slider_header1')}}</h3>
-                </header>
-                <p>
-                    {{__('website.after_slider_message1_p1')}}
-                </p>
-                <p>
-                    {{__('website.after_slider_message1_p2')}}
-                </p>
-            </section>
-            <section class="col-md-6 col-sm-12 tm-feature-block">
-                <header class="tm-feature-header">
-                    <i class="fas fa-5x fa-atom tm-feature-icon"></i>
-                    <h3 class="tm-feature-h">{{__('website.after_slider_header2')}}</h3>
-                </header>
-                <p>
-                    {{__('website.after_slider_message2_p1')}}
+    <section id="why">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-6 col-sm-6">
+                    <div class="why-item d-flex align-items-center">
+                        <i class="fas fa-certificate"></i>
+                        <span>{{__('website.how_1')}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-sm-6">
+                    <div class="why-item d-flex align-items-center justify-content-center">
+                        <i class="fas fa-certificate"></i>
+                        <span>{{__('website.how_2')}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-sm-6">
+                    <div class="why-item d-flex align-items-center justify-content-center">
+                        <i class="fas fa-certificate"></i>
+                        <span>{{__('website.how_3')}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-sm-6">
+                    <div class="why-item d-flex align-items-center justify-content-end">
+                        <i class="fas fa-certificate"></i>
+                        <span>{{__('website.how_4')}}</span>
+                    </div>
+                </div>
 
-                </p>
-                <p>
-                    {{__('website.after_slider_message2_p2')}}
-                </p>
-            </section>
+            </div>
         </div>
-    </div>
+    </section>
+{{--    <div class="container tm-features-section">--}}
+{{--        <div class="row tm-features-row">--}}
+{{--            <section class="col-md-6 col-sm-12 tm-feature-block">--}}
+{{--                <header class="tm-feature-header">--}}
+{{--                    <i class="fas fa-5x fa-anchor tm-feature-icon"></i>--}}
+{{--                        <h3 class="tm-feature-h">{{__('website.after_slider_header1')}}</h3>--}}
+{{--                </header>--}}
+{{--                <p>--}}
+{{--                    {{__('website.after_slider_message1_p1')}}--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    {{__('website.after_slider_message1_p2')}}--}}
+{{--                </p>--}}
+{{--            </section>--}}
+{{--            <section class="col-md-6 col-sm-12 tm-feature-block">--}}
+{{--                <header class="tm-feature-header">--}}
+{{--                    <i class="fas fa-5x fa-atom tm-feature-icon"></i>--}}
+{{--                    <h3 class="tm-feature-h">{{__('website.after_slider_header2')}}</h3>--}}
+{{--                </header>--}}
+{{--                <p>--}}
+{{--                    {{__('website.after_slider_message2_p1')}}--}}
+
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    {{__('website.after_slider_message2_p2')}}--}}
+{{--                </p>--}}
+{{--            </section>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <div style="clear: both"></div>
     <br>

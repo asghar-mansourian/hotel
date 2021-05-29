@@ -468,3 +468,25 @@ display: none;
 .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled{
     display: block;
 }
+#why{
+    background-color: #f8f8f8;
+    padding:35px 0;
+}
+#why i {
+    color: #cba651;
+    font-size: 40px;
+    margin-right: 20px;
+}
+@media screen and (max-width: 991px ) {
+    #why .col-lg-3:last-child .why-item {
+        margin-bottom: 0;
+    }
+
+}
+    @media screen and (max-width: 991px){
+        #why .why-item {
+            margin-bottom: 20px;
+            -ms-flex-pack: center !important;
+            justify-content: center !important;
+        }
+    }
