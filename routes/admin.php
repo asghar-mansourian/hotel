@@ -401,6 +401,16 @@ route::get('/project-rooms/destroy/{id}' , 'ProjectRoomController@destroy');
 route::post('/project-rooms/search/' , 'ProjectRoomController@search');
 route::post('/project-rooms/project-room-files' , 'ProjectRoomController@addPicture');
 
+/*      Room Detail Routes      */
+route::get('/room-details' , 'RoomDetailController@index');
+route::get('/room-details/create/' , 'RoomDetailController@create');
+route::post('/room-details/store/' , 'RoomDetailController@store');
+route::get('/room-details/edit/{id}' , 'RoomDetailController@edit');
+route::post('/room-details/update/{id}' , 'RoomDetailController@update');
+route::get('/room-details/destroy/{id}' , 'RoomDetailController@destroy');
+
+route::get('/get-project-rooms','RoomDetailController@getProjectRoom');
+
 
 /*      Media Routes      */
 route::get('/medias' , 'MediaController@index');
