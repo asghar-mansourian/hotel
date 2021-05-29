@@ -1087,12 +1087,15 @@ button:focus{
 }
 
 @media (max-width: 767px) {
+    .nav-logo{
+        display: block!important;
+    }
   .navbar-toggler {
     margin-left: auto;
     margin-right: 0;
   }
   .display-header{
-    display: block;
+    display: none!important;
   }
   .navbar {
     text-align: center;
@@ -1137,6 +1140,13 @@ button:focus{
   .navbar-light .navbar-nav .nav-link, #dropdownMenuLink{
     color: #202c3b !important
   }
+    #tmMainNavButton{
+        margin-top: -60px;
+        margin-left: 230px;
+    }
+    .site_center{
+        margin-top: 15px;
+    }
 }
 
 @media (max-width: 540px) {
@@ -1160,7 +1170,7 @@ button:focus{
     padding-bottom: 60px;
   }
   html{
-    width: 157% !important
+    width: 100% !important
   }
 }
 
@@ -1206,4 +1216,8 @@ button:focus{
 }
 .footer_one a{
     color: #fff!important;
+}
+.nav-logo{
+    display: none;
+    width: 30%;
 }

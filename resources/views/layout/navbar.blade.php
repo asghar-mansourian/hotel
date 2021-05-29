@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <nav class="navbar navbar-expand-md navbar-light">
+                    <a href="{{url('/')}}"><img src="{{url('/front/image/logo.png')}}" alt="Image" class="nav-logo"></a>
                     <button id="tmMainNavButton"
                         class="navbar-toggler"
                         type="button"
