@@ -10,11 +10,11 @@
 {{--    <link rel="stylesheet" href="{{url('front/css/contact.css?v=1.0.0')}}">--}}
 @endsection
 @section('content')
-{{--    <div class="tm-parallax" style="background-position: center 840px;">--}}
+    <div class="tm-parallax" style="background-position: center 840px;">
 {{--        <header class="tm-parallax-header">--}}
 {{--            <h2 class="">{{__('website.contact')}}</h2>--}}
 {{--        </header>--}}
-{{--    </div>--}}
+    </div>
     <!-- Contact -->
     <div class="site_center contact">
         <div class="container mt-4 mb-5">

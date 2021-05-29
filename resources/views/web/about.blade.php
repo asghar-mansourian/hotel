@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="{{url('/front/css/about.css')}}">
     @endsection
 @section('content')
-{{--    <div class="tm-parallax" style="background-position: center 840px;">--}}
+    <div class="tm-parallax" style="background-position: center 840px;">
 {{--        <header class="tm-parallax-header">--}}
 {{--            <h2 class="">{{__('website.about')}}</h2>--}}
 {{--        </header>--}}
-{{--    </div>--}}
+    </div>
     <!-- HAQQINDA -->
     <div class="site_center color_blue">
         <div class="container mt-4 mb-5">

@@ -17,7 +17,7 @@
     </style>
     @endsection
 @section('content')
-{{--    <div class="tm-parallax" style="background-position: center 840px;">--}}
+    <div class="tm-parallax" style="background-position: center 840px;">
 {{--        <header class="tm-parallax-header">--}}
 {{--            <h2 class="">--}}
 {{--                @if(\request()->get('status') == 'unfinished')--}}
@@ -30,7 +30,7 @@
 {{--                @endif--}}
 {{--            </h2>--}}
 {{--        </header>--}}
-{{--    </div>--}}
+    </div>
     <!-- projects -->
     <div @if(\request()->get('status') == 'unfinished') class="projects_con" @elseif(\request()->get('status') == 'finished') class="projects_in" @else class="all-project" @endif>
         <div class="site_center project">
