@@ -25,10 +25,6 @@
                             <ul class="navbar-nav mx-auto tm-navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/about-us')}}">{{__('website.aboutus')}}</a>
-                                    <ul>
-                                        <li class="nav-item"><a href="{{url('/about-us')}}">{{__('website.aboutus')}}</a></li>
-                                        <li class="nav-item"><a href="{{url('/pages/7')}}">{{__('website.sales_condotion')}}</a></li>
-                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">{{__('website.projects')}}</a>
@@ -42,9 +38,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/pages/8')}}">{{__('website.quality')}}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/faq')}}">{{__('website.faq')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/medias')}}">{{__('website.medias')}}</a>

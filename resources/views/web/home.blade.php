@@ -14,16 +14,16 @@
     <div class="contact index_contact">
         <div class="container-fluid">
             <div class="row text-center">
-                <div class="col-md-6 col-sm-5 col-xs-3 slider_text" style="">
-                    <h1>
-                        {{__('website.kargo')}} {{__('website.transport')}}
-                    </h1>
-                    <p>{{__('website.contactInformation1')}}</p>
+{{--                <div class="col-md-6 col-sm-5 col-xs-3 slider_text" style="">--}}
+{{--                    <h1>--}}
+{{--                        {{__('website.kargo')}} {{__('website.transport')}}--}}
+{{--                    </h1>--}}
+{{--                    <p>{{__('website.contactInformation1')}}</p>--}}
 {{--                    <p>{{__('website.contactInformation2')}}</p>--}}
 {{--                    <p>{{__('website.contactInformation3')}}</p>--}}
 {{--                    <p>{{__('website.contactInformation4')}}</p>--}}
-                    <a href="{{url('/projects')}}" class="banner_show">{{__('website.show_all')}}</a>
-                </div>
+{{--                    <a href="{{url('/projects')}}" class="banner_show">{{__('website.show_all')}}</a>--}}
+{{--                </div>--}}
                 <div class="col-md-12" style="padding: 0;margin: 0;">
 
                     <div class="img_slider">
