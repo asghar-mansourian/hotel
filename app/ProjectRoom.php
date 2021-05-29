@@ -17,9 +17,9 @@ class ProjectRoom extends Model
         return $this->belongsTo(Project::class,'project_id');
     }
 
-    public function image()
+    public function roomDetails()
     {
-        return $this->morphMany('App\Image','imageable');
+        return $this->hasMany(RoomDetail::class,'project_room_id');
     }
 
 }
