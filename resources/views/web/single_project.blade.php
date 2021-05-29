@@ -5,8 +5,8 @@
 @endsection
 @section('content')
     <div class="tm-parallax" style="    height: 500px;background-position: center 840px;background-image:url('{{url('/images/'.$project->indicator_picture)}}') ">
-        <header class="tm-parallax-header" style="background-image: url('{{url('/images/'.$project->up_indicator_picture)}}')">
-          <img src="{{url('/images/'.$project->up_indicator_picture)}}" style="width: 300px;height: 400px;">
+        <header class="tm-parallax-header" >
+          <img src="{{url('/images/'.$project->up_indicator_picture)}}" style="width: 200px;height: 200px;">
         </header>
     </div>
     <!-- Keyfiyyət -->
