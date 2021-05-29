@@ -65,11 +65,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-icons select_input">
-                                <select class="" name="area_code">
-                                    <option value="055">055</option>
-                                    <option value="050">050</option>
-                                    <option value="070">070</option>
-                                </select>
+{{--                                <select class="" name="area_code">--}}
+{{--                                    <option value="055">055</option>--}}
+{{--                                    <option value="050">050</option>--}}
+{{--                                    <option value="070">070</option>--}}
+{{--                                </select>--}}
                                 <input name="telephone" class="input-field pl-3" type="text" placeholder="{{__('website.mobile')}}">
                             </div>
                         </div>

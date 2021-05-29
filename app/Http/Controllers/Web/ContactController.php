@@ -29,10 +29,10 @@ class ContactController extends Controller
             'telephone' => ['required', 'string', 'max:255'],
             'message' => ['required', 'string',  'max:255'],
         ]);
-        Mail::to('info@shtormex.ru')->send(new contactUs($request));
+        Mail::to('info@garantigroup.com.az')->send(new contactUs($request));
         Contact::create([
             'name' => $request->input('name'),
-            'email' => $request->area_code.$request->input('telephone'),
+            'email' => $request->input('telephone'),
             'message' => $request->input('message'),
         ]);
 

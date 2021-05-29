@@ -56,7 +56,7 @@
 <div class="container">
     <div class="card mt-4">
         <div class="card-header text-right">
-             From :{{$request->input('area_code').$request->input('telephone')}}
+             From :{{$request->input('telephone')}}
         </div>
         <div class="card-body">
 
