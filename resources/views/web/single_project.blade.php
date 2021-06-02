@@ -46,13 +46,15 @@
                     @foreach($project->rooms as $room)
 
                     <div id="room{{$room->id}}" class="tabcontent"  @if($loop->first)style="display: block;"@endif>
-                        <div class="row">
+
                             @foreach($room->roomDetails as $detail)
-                                <div class="col-md-3 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4 col-sm-6">
                                     <a data-fancybox="gallery" href="{{url('/images/projects/'.$detail->picture)}}">
                                         <img src="{{url('/images/projects/'.$detail->picture)}}" class="w-100 proj_tab"></a>
                                 </div>
-                                <div class="col-md-3 col-sm-6" style="background-color: #ebebeb !important;border-radius: 20px">
+                                <div class="col-md-4 col-sm-6" style="background-color: #ebebeb !important;border-radius: 20px">
                                     <p>
                                         @if(app()->getLocale() == 'en')
                                             {!! $detail->description !!}
@@ -63,8 +65,9 @@
                                         @endif
                                     </p>
                                 </div>
+                            </div>
+                                <br>
                             @endforeach
-                        </div>
                     </div>
                     @endforeach
                 </div>
