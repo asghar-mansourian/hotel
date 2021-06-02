@@ -20,7 +20,7 @@
                 <div class="h7"><strong>{{__('website.footer_menu')}}</strong></div>
                 <div><a href="{{url('/projects')}}">{{__('website.projects')}}</a></div>
 {{--                <div><a href="{{url('/rooms')}}">{{__('website.room')}}</a></div>--}}
-                <div><a href="{{url('/pages/6')}}">{{__('website.inspirations')}}</a></div>
+{{--                <div><a href="{{url('/pages/6')}}">{{__('website.inspirations')}}</a></div>--}}
                 <div><a  href="{{url('/about-us')}}">{{__('website.aboutus')}}</a></div>
                 <div><a href="{{url('/pages/4')}}">{{__('website.policies')}}</a></div>
             </div>
