@@ -224,7 +224,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 #tmMainNav .nav-link.current,
 #tmMainNav .nav-link:hover {
-  border-bottom: 1px solid #eaeaea;
+  /*border-bottom: 1px solid #eaeaea;*/
   color: #eaeaea;
 }
 #tmMainNav ul{
