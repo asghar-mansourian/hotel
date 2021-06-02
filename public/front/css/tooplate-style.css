@@ -1347,9 +1347,12 @@ button:focus{
 .projects_a a{
     font-family: 'Euclid Circular A';
     font-weight: 300!important;
-    font-style: italic;
+    /*font-style: italic;*/
 }
 
 .projects_a {
     border: unset!important;
+}
+.footer_one a {
+    font-weight: bold;
 }

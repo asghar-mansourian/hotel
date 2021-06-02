@@ -22,7 +22,7 @@
 {{--                <div><a href="{{url('/rooms')}}">{{__('website.room')}}</a></div>--}}
 {{--                <div><a href="{{url('/pages/6')}}">{{__('website.inspirations')}}</a></div>--}}
                 <div><a  href="{{url('/about-us')}}">{{__('website.aboutus')}}</a></div>
-                <div><a href="{{url('/pages/4')}}">{{__('website.policies')}}</a></div>
+{{--                <div><a href="{{url('/pages/4')}}">{{__('website.policies')}}</a></div>--}}
             </div>
 {{--            <div class="col-md-3 pr-0">--}}
 {{--                <div class="h7"><strong>{{__('website.stat_connect')}}</strong></div>--}}

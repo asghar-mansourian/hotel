@@ -11,7 +11,7 @@
 <!-- https://fontawesome.com/ -->
 <link rel="stylesheet" href="{{url('/front/css/bootstrap.min.css')}}" />
 <!-- https://getbootstrap.com/ -->
-<link rel="stylesheet" href="{{url('/front/css/tooplate-style.css?v=1.0.7')}}" />
+<link rel="stylesheet" href="{{url('/front/css/tooplate-style.css?v=1.0.8')}}" />
 <link rel="stylesheet" href="{{url('/front/css/owl.carousel.min.css')}}">
 <link rel="stylesheet" href="{{url('/front/css/owl.theme.default.min.css')}}">
 
