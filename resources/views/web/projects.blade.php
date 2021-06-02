@@ -58,7 +58,7 @@
                                     <p class="color_grey">
                                         <span><i class="fas fa-map-marked-alt mr-2"></i>{{$project->min_address}}</span>
                                         <span><i class="fas fa-shoe-prints mr-2 ml-4"></i>{{$project->walk}}</span>
-                                        <span class="float-right"><i class="fas fa-city mr-2"></i>{{$project->empty_room}}</span>
+{{--                                        <span class="float-right"><i class="fas fa-city mr-2"></i>{{$project->empty_room}}</span>--}}
                                     </p>
                                 </div>
                             </a>
