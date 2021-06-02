@@ -129,7 +129,7 @@ http://www.tooplate.com/view/2111-pro-line
 body {
     font-family: 'Euclid Circular A';
     font-weight: 300;
-    font-style: italic;
+    /*font-style: italic;*/
   font-size: 15px;
   color: #626262;
   overflow-x: hidden;
