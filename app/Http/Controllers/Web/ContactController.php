@@ -25,15 +25,17 @@ class ContactController extends Controller
         $request->validate([
 //            'serial_number' => ['required', 'max:9', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
-            'area_code' => ['required', 'string', 'max:255'],
+//            'area_code' => ['required', 'string', 'max:255'],
             'telephone' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
             'message' => ['required', 'string',  'max:255'],
         ]);
         Mail::to('info@garantigroup.com.az')->send(new contactUs($request));
         Contact::create([
             'name' => $request->input('name'),
-            'email' => $request->input('telephone'),
+            'email' => $request->input('email'),
             'message' => $request->input('message'),
+            'telephone' => $request->input('telephone')
         ]);
 
         return redirect()->back()->with('success' , __('website.send_contact_successful'));

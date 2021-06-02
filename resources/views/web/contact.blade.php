@@ -56,25 +56,32 @@
                     <h5 class="color_blue"><strong>{{__('website.contactus')}}</strong></h5>
                         @csrf
                         <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">@include('layout.error')</div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 mt-4">@include('layout.error')</div>
 
-                        <div class="col-md-6">
-                            <div class="input-icons">
-                                <input  name="name" class="input-field pl-3" type="text" placeholder="{{__('website.name_family')}}">
+                            <div class="col-md-12 col-sm-12 col-xs-12 mt-4">
+                                <div class="input-icons">
+                                    <input  name="email" class="input-field pl-3" type="email" required placeholder="{{__('website.email')}}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-icons select_input">
-{{--                                <select class="" name="area_code">--}}
-{{--                                    <option value="055">055</option>--}}
-{{--                                    <option value="050">050</option>--}}
-{{--                                    <option value="070">070</option>--}}
-{{--                                </select>--}}
-                                <input name="telephone" class="input-field pl-3" type="text" placeholder="{{__('website.mobile')}}">
-                            </div>
-                        </div>
+                                <div class="col-md-6 mt-4">
+                                    <div class="input-icons">
+                                        <input  name="name" class="input-field pl-3" type="text" required placeholder="{{__('website.name_family')}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-4">
+                                    <div class="input-icons select_input">
+                                        {{--                                <select class="" name="area_code">--}}
+                                        {{--                                    <option value="055">055</option>--}}
+                                        {{--                                    <option value="050">050</option>--}}
+                                        {{--                                    <option value="070">070</option>--}}
+                                        {{--                                </select>--}}
+                                        <input name="telephone" class="input-field pl-3" type="text" required placeholder="{{__('website.mobile')}}">
+                                    </div>
+                                </div>
+
+
                         <div class="col-md-12 mt-4">
-                            <textarea name="message" placeholder="{{__('website.message')}}"></textarea>
+                            <textarea name="message" required placeholder="{{__('website.message')}}"></textarea>
                         </div>
                     </div>
                         <div class="col-md-12 mt-3">

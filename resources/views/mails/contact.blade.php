@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .text-right {
-            text-align: right !important;
+        .text-left {
+            text-align: left !important;
         }
 
         .container {
@@ -55,16 +55,19 @@
 
 <div class="container">
     <div class="card mt-4">
-        <div class="card-header text-right">
+        <div class="card-header text-left">
              From :{{$request->input('telephone')}}
         </div>
         <div class="card-body">
 
-            <p class="text-right" style="font-weight:bold;">Name</p>
-            <p class="alert-info alert text-right">{{$request->input('name')}}</p>
+            <p class="text-left" style="font-weight:bold;">Name</p>
+            <p class="alert-info alert text-left">{{$request->input('name')}}</p>
 
-            <p class="text-right" style="font-weight:bold;">Message</p>
-            <p class="alert-warning alert text-right">{{$request->input('message')}}</p>
+            <p class="text-left" style="font-weight:bold;">Message</p>
+            <p class="alert-warning alert text-left">{{$request->input('message')}}</p>
+
+            <p class="text-left" style="font-weight:bold;">email</p>
+            <p class="alert-warning alert text-left">{{$request->input('email')}}</p>
 
         </div>
     </div>
