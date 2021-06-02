@@ -18,18 +18,12 @@
             </div>
             <div class="col-md-4">
                 <div class="h7"><strong>{{__('website.footer_menu')}}</strong></div>
-                <div><a href="{{url('/projects')}}">{{__('website.projects')}}</a></div>
-{{--                <div><a href="{{url('/rooms')}}">{{__('website.room')}}</a></div>--}}
-{{--                <div><a href="{{url('/pages/6')}}">{{__('website.inspirations')}}</a></div>--}}
                 <div><a  href="{{url('/about-us')}}">{{__('website.aboutus')}}</a></div>
-{{--                <div><a href="{{url('/pages/4')}}">{{__('website.policies')}}</a></div>--}}
+                <div><a href="{{url('/projects')}}">{{__('website.projects')}}</a></div>
+                <div><a href="{{url('/blog')}}">{{__('website.blog')}}</a></div>
+                <div><a href="{{url('/medias')}}">{{__('website.medias')}}</a></div>
+                <div><a href="{{url('/contact-us')}}">{{__('website.contact')}}</a></div>
             </div>
-{{--            <div class="col-md-3 pr-0">--}}
-{{--                <div class="h7"><strong>{{__('website.stat_connect')}}</strong></div>--}}
-{{--                <div><a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_FACEBOOK)}}">{{__('website.face_book')}}</a></div>--}}
-{{--                <div><a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_INSTAGRAM)}}">{{__('website.instagram')}}</a></div>--}}
-{{--                <div><a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_TWITtER)}}">{{__('website.twitter')}}</a></div>--}}
-{{--            </div>--}}
             <div class="col-md-4 col-sm-12">
                 <div class="h7"><strong>{{__('website.stay_update')}}</strong></div>
                 <div><i class="fas fa-map-marker-alt mr-3"></i>{{__('website.subtitle1')}}</div>
