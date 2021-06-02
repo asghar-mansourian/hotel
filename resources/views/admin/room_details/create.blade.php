@@ -154,12 +154,12 @@
                url:'/admin/get-project-rooms?project='+$(this).val(),
                type:'GET',
                success:function (response){
-                   $('#room').empty();
+                   $('#room_id').empty();
                    var rooms = response.rooms;
                    var html='';
                    for(var i = 0;i<rooms.length;i++)
                        html = html + '<option value="'+ rooms[i].id +'">'+ rooms[i].name + '</option>';
-                   $('#room').append(html);
+                   $('#room_id').append(html);
                    console.log(html,rooms);
                },
                error:function (response){

@@ -42,25 +42,25 @@
             <div class="row">
                 <div class="col-lg-3 col-6 col-sm-6">
                     <div class="why-item d-flex align-items-center">
-{{--                        <i class="fas fa-certificate"></i>--}}
+                        <i class="fas fa-percentage"></i>
                         <span>{{__('website.how_1')}}</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 col-sm-6">
                     <div class="why-item d-flex align-items-center justify-content-center">
-{{--                        <i class="fas fa-certificate"></i>--}}
+                        <i class="fas fa-chart-line"></i>
                         <span>{{__('website.how_2')}}</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 col-sm-6">
                     <div class="why-item d-flex align-items-center justify-content-center">
-{{--                        <i class="fas fa-certificate"></i>--}}
+                        <i class="fas fa-history"></i>
                         <span>{{__('website.how_3')}}</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 col-sm-6">
                     <div class="why-item d-flex align-items-center justify-content-end">
-{{--                        <i class="fas fa-certificate"></i>--}}
+                        <i class="fas fa-building"></i>
                         <span>{{__('website.how_4')}}</span>
                     </div>
                 </div>

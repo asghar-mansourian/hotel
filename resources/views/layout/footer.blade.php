@@ -28,7 +28,7 @@
                 <div class="h7"><strong>{{__('website.stay_update')}}</strong></div>
                 <div><i class="fas fa-map-marker-alt mr-3"></i>{{__('website.subtitle1')}}</div>
                 <div><i class="fas fa-phone mr-3"></i>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</div>
-                <div>{{__('website.footer_web_Address')}}</div>
+                <div><i class="fas fa-mobile-alt mr-3"></i>{{__('website.footer_web_Address')}}</div>
             </div>
         </div>
     </div>
