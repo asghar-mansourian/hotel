@@ -44,15 +44,15 @@
                                     <div class="overlay">
                                     </div>
                                 </div>
-                                <div class="ribbon ribbon-top-left @if($project->status == \App\Project::STATUS_UNFINISHED)unfinished @else finished @endif">
-                                    <span class="discount-label">
-                                        @if($project->status == \App\Project::STATUS_UNFINISHED)
-                                            {{__('website.unfinished_project')}}
-                                        @else
-                                            {{__('website.finished')}}
-                                        @endif
-                                    </span>
-                                </div>
+{{--                                <div class="ribbon ribbon-top-left @if($project->status == \App\Project::STATUS_UNFINISHED)unfinished @else finished @endif">--}}
+{{--                                    <span class="discount-label">--}}
+{{--                                        @if($project->status == \App\Project::STATUS_UNFINISHED)--}}
+{{--                                            {{__('website.unfinished_project')}}--}}
+{{--                                        @else--}}
+{{--                                            {{__('website.finished')}}--}}
+{{--                                        @endif--}}
+{{--                                    </span>--}}
+{{--                                </div>--}}
                                 <div class="project_text">
                                     <h4 class="color_blue"><strong>{{$project->title}}</strong></h4>
                                     <p class="color_grey">
