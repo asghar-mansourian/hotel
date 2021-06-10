@@ -138,7 +138,7 @@
                     @endforeach
                             <span id="dots"></span>
                             <div id="more">
-                                <div class="row" style="margin-left: 16px;">
+                                <div class="row" style="margin-left: 1px;">
                                     @foreach($projects as $project)
                                         @if($loop->iteration >8)
                                             <div class="col-lg-3 col-sm-6 col-md-4">
