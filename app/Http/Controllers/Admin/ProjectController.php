@@ -61,26 +61,39 @@ class ProjectController extends Controller
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $up_name);
         }
+        if ($request->hasFile('small_index_picture')) {
+            $image = $request->file('small_index_picture');
+            $format = $image->getClientOriginalExtension();
 
+            $fileName = $image->getClientOriginalName();
+            $fileName = substr($fileName, 0, strrpos($fileName, '.'));
+            $fileName = str_replace(' ', '', $fileName);
+            $Random_Number = rand(0, 9999);
+            $smallIndexImage = $fileName . '-' . $Random_Number . '.' . $format;
+
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $smallIndexImage);
+        }
         Project::create([
-           'name' => $request->name,
-           'name_ru' => $request->name_ru,
-           'name_az' => $request->name_az,
-           'title' => $request->title,
-           'title_ru' => $request->title_ru,
-           'title_az' => $request->title_az,
-           'description' => $request->description,
-           'description_ru' => $request->description_ru,
-           'description_az' => $request->description_az,
-           'telephone' => $request->telephone,
-           'mobile' => $request->mobile,
-           'address' => $request->address,
-           'address_ru' => $request->address_ru,
-           'address_az' => $request->address_az,
-           'status' => $request->status,
-           'google_map_address' => $request->google_map_address,
-           'indicator_picture' => $name,
-           'up_indicator_picture' => $up_name,
+            'name' => $request->name,
+            'name_ru' => $request->name_ru,
+            'name_az' => $request->name_az,
+            'title' => $request->title,
+            'title_ru' => $request->title_ru,
+            'title_az' => $request->title_az,
+            'description' => $request->description,
+            'description_ru' => $request->description_ru,
+            'description_az' => $request->description_az,
+            'telephone' => $request->telephone,
+            'mobile' => $request->mobile,
+            'address' => $request->address,
+            'address_ru' => $request->address_ru,
+            'address_az' => $request->address_az,
+            'status' => $request->status,
+            'google_map_address' => $request->google_map_address,
+            'indicator_picture' => $name,
+            'up_indicator_picture' => $up_name,
+            'small_index_image ' => $smallIndexImage,
             'min_address' => $request->min_address,
             'min_address_ru' => $request->min_address_ru,
             'min_address_az' => $request->min_address_az,
@@ -142,6 +155,22 @@ class ProjectController extends Controller
         else{
             $up_name = $request->up_indicator_picture;
         }
+        if ($request->hasFile('new_small_index_picture')) {
+            $image = $request->file('new_small_index_picture');
+            $format = $image->getClientOriginalExtension();
+
+            $fileName = $image->getClientOriginalName();
+            $fileName = substr($fileName, 0, strrpos($fileName, '.'));
+            $fileName = str_replace(' ', '', $fileName);
+            $Random_Number = rand(0, 9999);
+            $smallIndexPicture = $fileName . '-' . $Random_Number . '.' . $format;
+
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $smallIndexPicture);
+        }
+        else{
+            $smallIndexPicture = $request->small_index_picture;
+        }
         $project->update([
             'name' => $request->name,
             'name_ru' => $request->name_ru,
@@ -161,6 +190,7 @@ class ProjectController extends Controller
             'google_map_address' => $request->google_map_address,
             'indicator_picture' => $name,
             'up_indicator_picture' => $up_name,
+            'small_index_image' => $smallIndexPicture,
             'min_address' => $request->min_address,
             'min_address_ru' => $request->min_address_ru,
             'min_address_az' => $request->min_address_az,

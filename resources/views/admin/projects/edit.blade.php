@@ -23,6 +23,19 @@
                     @slot('items')
                         @component('admin.components.form.input')
 
+                        @slot('name')
+                                small_index_picture
+                        @endslot
+                        @slot('type')
+                            hidden
+                        @endslot
+
+                        @slot('value')
+                            {{$project->small_index_picture}}
+                        @endslot
+                    @endcomponent
+                        @component('admin.components.form.input')
+
                             @slot('name')
                                 indicator_picture
                             @endslot
@@ -478,6 +491,16 @@
                                        data-allowed-file-extensions="jpg png" data-default-file="{{url('images/'.$project->up_indicator_picture)}}">
                             </div>
                         </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    {{__('admin.small_index_picture')}}
+                                </label>
+                                <div class="col-md-9">
+
+                                    <input type="file" name="new_small_index_picture" id="new_small_index_picture" class="dropify"
+                                           data-allowed-file-extensions="jpg png" data-default-file="{{url('images/'.$project->small_index_image)}}">
+                                </div>
+                            </div>
                     @endslot
 
 

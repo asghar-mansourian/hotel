@@ -40,7 +40,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                             <a href="{{url('/project/'.$project->id)}}">
                                 <div class="project_img">
-                                    <img src="{{url('/images/'.$project->indicator_picture)}}">
+                                    <img src="{{url('/images/'.$project->small_index_image)}}">
                                     <div class="overlay">
                                     </div>
                                 </div>

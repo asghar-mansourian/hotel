@@ -41,6 +41,7 @@ class ProjectCreateRequest extends FormRequest
             'status' => 'required',
             'google_map_address' => 'required',
             'indicator_picture' => 'required|image',
+            'small_index_picture' => 'required|image',
             'up_indicator_picture' => 'required|image',
             'min_address' => 'required',
             'min_address_ru' => 'required',

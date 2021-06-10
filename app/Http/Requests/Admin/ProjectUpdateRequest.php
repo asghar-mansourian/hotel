@@ -42,6 +42,7 @@ class ProjectUpdateRequest extends FormRequest
             'google_map_address' => 'required',
             'new_indicator_picture' => 'nullable|image',
             'new_up_indicator_picture' => 'nullable|image',
+            'new_small_index_picture' => 'nullable|image',
             'min_address' => 'required',
             'min_address_ru' => 'required',
             'min_address_az' => 'required',

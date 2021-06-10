@@ -107,7 +107,7 @@
                 <div class="row">
                     <div class="col-12 mt-4 mb-4">
                         <div class="h7 text-center color_blue"><strong>{{__('website.project')}}</strong> </div>
-                        <h6 class="text-center color_gold"><strong>{{__('website.project_description')}}</strong> </h6>
+{{--                        <h6 class="text-center color_gold"><strong>{{__('website.project_description')}}</strong> </h6>--}}
                     </div>
                 </div>
                 <div class="row">
@@ -119,7 +119,7 @@
                             <a href="{{url('/project/'.$project->id)}}" style="cursor: pointer">
                                 <div class="tm-activity-block">
                                     <div class="tm-activity-img w-100-container">
-                                        <img src='{{url("images/$project->indicator_picture")}}' alt="Image" class="tm-activity-img w-100" />
+                                        <img src='{{url("images/$project->small_index_image")}}' alt="Image" class="tm-activity-img w-100" />
                                     </div>
                                     <div class="tm-activity-block-text">
                                         <h6 class="color_gold">{{$project->title}}</h6>
@@ -145,7 +145,7 @@
                                                 <a href="{{url('/project/'.$project->id)}}" style="cursor: pointer">
                                                     <div class="tm-activity-block">
                                                         <div class="tm-activity-img w-100-container">
-                                                            <img src='{{url("images/$project->indicator_picture")}}' alt="Image" class="tm-activity-img w-100" />
+                                                            <img src='{{url("images/$project->small_index_image")}}' alt="Image" class="tm-activity-img w-100" />
                                                         </div>
                                                         <div class="tm-activity-block-text">
                                                             <h6 class="color_gold">{{$project->title}}</h6>

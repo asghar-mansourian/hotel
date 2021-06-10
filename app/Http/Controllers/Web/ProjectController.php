@@ -36,7 +36,7 @@ class ProjectController extends Controller
 
         $emptyRoom = app()->getLocale() !== 'en' ? "empty_room_{$locale} as empty_room" : 'empty_room';
 
-        return [$name,$title,$address,$description,$minAddress,$walk,$emptyRoom,'id','status','up_indicator_picture','indicator_picture','google_map_address','telephone','mobile'];
+        return [$name,$title,$address,$description,$minAddress,$walk,$emptyRoom,'id','status','up_indicator_picture','indicator_picture','google_map_address','telephone','mobile','small_index_image'];
     }
 
     public function single($id)

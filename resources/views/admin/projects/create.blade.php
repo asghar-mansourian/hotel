@@ -432,6 +432,16 @@
                                            data-allowed-file-extensions="jpg png" data-default-file="">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-md-3 form-label my-auto">
+                                    {{__('admin.small_index_picture')}}
+                                </label>
+                                <div class="col-md-9">
+
+                                    <input type="file" name="small_index_picture" id="small_index_picture" class="dropify"
+                                           data-allowed-file-extensions="jpg png" data-default-file="">
+                                </div>
+                            </div>
                             @endslot
 
 

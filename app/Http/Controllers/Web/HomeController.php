@@ -75,6 +75,6 @@ class HomeController extends Controller
 
         $address = app()->getLocale() !== 'en' ? "address_{$locale} as address" : 'address';
 
-        return [$name,$title,$address,'id','indicator_picture'];
+        return [$name,$title,$address,'id','small_index_image'];
     }
 }
