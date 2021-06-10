@@ -124,6 +124,13 @@
                                     <div class="tm-activity-block-text">
                                         <h6 class="color_gold">{{$project->title}}</h6>
                                         <div class="color_fff"><i class="fas fa-map-marker-alt color_gold mr-2"></i>{{$project->address}}</div>
+                                        <div class="color_fff">
+                                            @if($project->status == \App\Project::STATUS_FINISHED)
+                                                {{__('website.finished')}}
+                                            @else
+                                                {{__('website.unfinished')}}
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -131,7 +138,7 @@
                     @endforeach
                             <span id="dots"></span>
                             <div id="more">
-                                <div class="row">
+                                <div class="row" style="margin-left: 16px;">
                                     @foreach($projects as $project)
                                         @if($loop->iteration >8)
                                             <div class="col-lg-3 col-sm-6 col-md-4">
@@ -143,6 +150,13 @@
                                                         <div class="tm-activity-block-text">
                                                             <h6 class="color_gold">{{$project->title}}</h6>
                                                             <div class="color_fff"><i class="fas fa-map-marker-alt color_gold mr-2"></i>{{$project->address}}</div>
+                                                            <div class="color_fff">
+                                                                @if($project->status == \App\Project::STATUS_FINISHED)
+                                                                    {{__('website.finished')}}
+                                                                @else
+                                                                    {{__('website.unfinished')}}
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -234,7 +248,7 @@
                 moreText.style.display = "none";
             } else {
                 dots.style.display = "none";
-                btnText.innerHTML = "{{__('website.read_less')}}";
+                $('#myBtn').hide();
                 moreText.style.display = "inline";
             }
         }
