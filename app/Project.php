@@ -14,6 +14,7 @@ class Project extends Model
 
     const STATUS_FINISHED = '1';
     const STATUS_UNFINISHED = '0';
+
     const STATUS_ALL=[
         self::STATUS_FINISHED => 'finished',
         self::STATUS_UNFINISHED => 'unfinished'

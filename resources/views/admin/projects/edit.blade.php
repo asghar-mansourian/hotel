@@ -448,8 +448,8 @@
                             @endslot
                             @slot('items')
                                 <option value="" selected>{{__('admin.status')}}</option>
-                                <option value="1" @if($project->status == 1) selected @endif>{{__('admin.finished')}}</option>
-                                <option value="0" @if($project->status == 0) selected @endif>{{__('admin.unfinished')}}</option>
+                                <option value="1" @if($project->status == \App\Project::STATUS_FINISHED) selected @endif>{{__('admin.finished')}}</option>
+                                <option value="0" @if($project->status == \App\Project::STATUS_UNFINISHED) selected @endif>{{__('admin.unfinished')}}</option>
 
                             @endslot
                         @endcomponent

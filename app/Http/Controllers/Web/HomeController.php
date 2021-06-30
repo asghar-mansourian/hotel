@@ -33,7 +33,7 @@ class HomeController extends Controller
         $sliders = Slider::all();
 
 //        $customerReviews = CustomerReviews::select($this->customeSelectReview())->get();
-        $projects = Project::select($this->customSelectedProjectFields())->latest()->take(12)->get();
+        $projects = Project::select($this->customSelectedProjectFields())->orderBy('status','asc')->latest()->take(12)->get();
 
         return view('web.home', compact('sliders' ,'blogs','projects'));
     }
@@ -75,6 +75,6 @@ class HomeController extends Controller
 
         $address = app()->getLocale() !== 'en' ? "address_{$locale} as address" : 'address';
 
-        return [$name,$title,$address,'id','small_index_image'];
+        return [$name,$title,$address,'id','small_index_image','status'];
     }
 }

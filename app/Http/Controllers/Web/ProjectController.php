@@ -15,7 +15,7 @@ class ProjectController extends Controller
         elseif(\request()->get('status')=='unfinished')
             $projects = Project::select($this->customSelectedFields())->where('status',Project::STATUS_UNFINISHED)->get();
         else
-            $projects = Project::select($this->customSelectedFields())->get();
+            $projects = Project::select($this->customSelectedFields())->orderBy('status','asc')->get();
 
         return view('web.projects',compact('projects'));
     }
