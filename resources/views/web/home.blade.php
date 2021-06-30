@@ -255,7 +255,7 @@
 
 
         $('#blog_owl').owlCarousel({
-            loop:true,
+            loop:( $('.owl-carousel .items').length > 3 ),
             margin:0,
             nav:true,
             autoplay: 800,
