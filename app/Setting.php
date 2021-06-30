@@ -55,6 +55,7 @@ class Setting extends Model
     const FIELD_COMPANY_FACTOR_PHONE = 'company_factor_phone';
     const FIELD_COMPANY_NAME = 'company_phone';
     const FIELD_COMPANY_POSTAL_CODE = 'company_postal_code';
+    const FIELD_MOBILE_TWO = 'mobile_two';
 
     public function scopeGetValue($query, $key)
     {
