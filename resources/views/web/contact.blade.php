@@ -39,7 +39,7 @@
                                 <div class="con_icon">
                                     <span class="con_fac"><i class="fas fa-phone-volume"></i></span>
                                 </div>
-                                <div class="con_desc"><p> {{\App\Setting::getValue(\App\Setting::FIELD_MOBILE_TWO)}}</p></div>
+                                <div class="con_desc"><p> {{__('website.mobile_two')}}</p></div>
                             </li>
                             <li>
                                 <div class="con_icon">
