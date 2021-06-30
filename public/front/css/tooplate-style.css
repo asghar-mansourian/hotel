@@ -1264,7 +1264,7 @@ button:focus{
     color: #202c3b !important
   }
     #tmMainNavButton{
-        margin-top: -60px;
+        margin-top: -38px;
         margin-left: 230px;
     }
     .site_center{
@@ -1295,6 +1295,7 @@ button:focus{
   html{
     width: 100% !important
   }
+
 }
 
 @media (min-width: 576px) and (max-width: 991px) {
@@ -1353,4 +1354,29 @@ button:focus{
 .projects_a {
     border: unset!important;
 }
+@media (max-width: 760px) {
+    #project-pc-li {
+        display: none;
+    }
 
+    #project-mobile-li {
+        display: block;
+    }
+    #project-mobile-li a{
+        color: #202c3b !important;
+      }
+    #project-mobile-li .dropdown-item{
+        padding:unset!important;
+    }
+    #project-mobile-li .dropdown-menu{
+        border: unset;
+    }
+}
+@media (min-width: 760px) {
+    #project-pc-li {
+        display: block;
+    }
+    #project-mobile-li {
+        display: none;
+    }
+}

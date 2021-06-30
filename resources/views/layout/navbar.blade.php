@@ -27,11 +27,25 @@
                                     <a class="nav-link" href="{{url('/about-us')}}">{{__('website.aboutus')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">{{__('website.projects')}}</a>
-                                    <ul>
-                                        <li class="nav-item projects_a"><a href="{{url('/projects?status=finished')}}">{{__('website.finished_projects')}}</a></li>
-                                        <li class="nav-item projects_a"><a href="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a></li>
-                                    </ul>
+                                    <div id="project-pc-li">
+                                        <a class="nav-link" href="#">{{__('website.projects')}}</a>
+                                        <ul>
+                                            <li class="nav-item projects_a"><a href="{{url('/projects?status=finished')}}">{{__('website.finished_projects')}}</a></li>
+                                            <li class="nav-item projects_a"><a href="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div id="project-mobile-li">
+                                        <div class="dropdown">
+                                        <a class="btn" href="#" role="button" id="dropdownProjectLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff; font-weight: bold;">
+                                            {{__('website.projects')}}
+                                            <i class="fas fa-angle-down ml-2"></i>
+                                        </a>
+                                        <div class="dropdown-menu lang-a" aria-labelledby="dropdown_panel">
+                                            <a class="dropdown-item " href="{{url('/projects?status=finished')}}">{{__('website.finished_projects')}}</a>
+                                            <a hclass="dropdown-item " ref="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a>
+                                        </div>
+                                    </div>
+                                    </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/blog')}}">{{__('website.blog')}}</a>
