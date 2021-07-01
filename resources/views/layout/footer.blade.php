@@ -12,7 +12,7 @@
                     <div class="s_li"><a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_YOUTUBE)}}"><i class="fab fa-youtube"></i></a></div>
                 </div>
                 <div class="f_number">
-                    <i class="fas fa-headset mr-3"></i>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}<i class="fas fa-phone"></i>
+                    <i class="fas fa-headset mr-3"></i>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}
                 </div>
 
             </div>
@@ -27,7 +27,7 @@
             <div class="col-md-4 col-sm-12">
                 <div class="h7"><strong>{{__('website.stay_update')}}</strong></div>
                 <div><i class="fas fa-map-marker-alt mr-3"></i>{{__('website.subtitle1')}}</div>
-                <div><i class="fas fa-phone mr-3"></i>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</div>
+                <div><i class="fas fa-headset mr-3"></i>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}</div>
                 <div><i class="fas fa-mobile-alt mr-3"></i>{{__('website.footer_web_Address')}}</div>
             </div>
         </div>
