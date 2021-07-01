@@ -42,7 +42,7 @@
                                         </a>
                                         <div class="dropdown-menu lang-a" aria-labelledby="dropdown_panel">
                                             <a class="dropdown-item " href="{{url('/projects?status=finished')}}">{{__('website.finished_projects')}}</a>
-                                            <a hclass="dropdown-item " ref="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a>
+                                            <a hclass="dropdown-item " href="{{url('/projects?status=unfinished')}}">{{__('website.unfinished_projects')}}</a>
                                         </div>
                                     </div>
                                     </div>

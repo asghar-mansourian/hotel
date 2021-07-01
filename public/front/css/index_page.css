@@ -323,6 +323,10 @@ display: none;
     .partner_item img{
         width: 100%!important;
     }
+    .site_center{
+        margin-top: 15px;
+    }
+
     }
     .movie_parent{
         margin-top: -150px;
@@ -490,3 +494,8 @@ display: none;
             justify-content: center !important;
         }
     }
+@media only screen and (max-width: 450px) {
+    #why {
+        margin-top: -15%;
+    }
+}
