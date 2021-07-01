@@ -12,7 +12,7 @@
                     <div class="s_li"><a href="{{\App\Setting::getValue(\App\Setting::FIELD_SOCIAL_YOUTUBE)}}"><i class="fab fa-youtube"></i></a></div>
                 </div>
                 <div class="f_number">
-                    <i class="fas fa-headset mr-3"></i>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}
+                    <i class="fas fa-headset mr-3"></i>{{\App\Setting::getValue(\App\Setting::FIELD_PHONE)}}<i class="fas fa-phone"></i>
                 </div>
 
             </div>
