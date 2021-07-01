@@ -1267,7 +1267,12 @@ button:focus{
         margin-top: -38px;
         margin-left: 230px;
     }
-
+    #project-mobile-li a[aria-expanded="true"] {
+        margin-left: -54px;
+    }
+    div[aria-labelledby="dropdown_panel"] a{
+        margin-left: 35px;
+    }
 }
 
 @media (max-width: 540px) {
