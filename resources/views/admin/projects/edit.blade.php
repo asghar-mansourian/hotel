@@ -31,7 +31,7 @@
                         @endslot
 
                         @slot('value')
-                            {{$project->small_index_picture}}
+                            {{$project->small_index_image}}
                         @endslot
                     @endcomponent
                         @component('admin.components.form.input')
