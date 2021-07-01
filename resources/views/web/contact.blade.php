@@ -37,7 +37,7 @@
                             </li>
                             <li>
                                 <div class="con_icon">
-                                    <span class="con_fac"><i class="fas fa-headset"></i></span>
+                                    <span class="con_fac"><i class="fas fa-mobile-alt"></i></span>
                                 </div>
                                 <div class="con_desc"><p> {{__('website.mobile_two')}}</p></div>
                             </li>
