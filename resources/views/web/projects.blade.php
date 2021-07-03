@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    {{__('member.site_name')}}| {{__('website.faq')}}
+    {{__('member.site_name')}}
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{url('/front/css/faq.css?v=1.0.2')}}">
